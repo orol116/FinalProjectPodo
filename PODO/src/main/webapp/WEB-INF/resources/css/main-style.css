@@ -1,0 +1,30 @@
+/* header */
+header{
+    display: flex;
+    justify-content: center;
+}
+.header{
+    display: flex;
+}
+body{ 
+    margin: 0;
+}
+.header > section:nth-of-type(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* header 왼 */
+.fa-bars{
+    color: rgb(95, 0, 129);
+}
+#home-logo{
+    width: 140px;
+    height: auto;
+}
+
+/* 오른쪽 */
+.right-header>*{
+    display: inline;
+    color: rgb(95, 0, 129);
+}
