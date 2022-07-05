@@ -9,12 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>podo</title>
 
-    <link rel="stylesheet" href="resources/css/main-style.css">
+    <link rel="stylesheet" href="{contextPath}/main-style.css">
+ 
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
 </head>
+
+
 <body>
+<jsp:include page="/WEB-INF/views/podo/header.jsp" />
     <main>
         
         <!--  jsp:include 태그
@@ -25,9 +29,10 @@
         -->
 
         <!-- 내부 접근 절대 경로 -->
-        <jsp:include page="/WEB-INF/views/podo/header.jsp" />
 
 	<h1> main page </h1>
+
+
     </main>
 
     <!-- footer include -->
