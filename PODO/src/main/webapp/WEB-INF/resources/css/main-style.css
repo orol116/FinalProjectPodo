@@ -1,9 +1,10 @@
 /* header */
-.header{
-    padding: 60px;
+header{
     display: flex;
-    align-items: center;
-    height: 200px;
+    justify-content: center;
+}
+.header{
+    display: flex;
 }
 body{ 
     margin: 0;
