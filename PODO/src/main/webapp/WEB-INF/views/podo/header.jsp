@@ -4,28 +4,31 @@
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 <header>
-	<!-- 클릭 시 메인페이지로 이동하는 로고 -->
-	<section class="top">
-        
-    </section>
-    <section class="left-header">
-        <i class="fa-solid fa-bars"></i>
-        <a href="main">
-            <img src="${contextPath}/resources/images/logo.png" id="home-logo">
-        </a>
-    </section>
-    <section class="mid-header">
-        <div>
-            <input type="text" placeholder="검색어 입력">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <div  class="right-header">
-            <i class="fa-regular fa-bell"></i>
-            <i class="fa-regular fa-basket-shopping"></i>      
-            <i class="fa-regular fa-message"></i>
-        </div>
-    </section>
-    
+    <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+	
+    <div id="top">
+        <a href="#">로그인
+        <a href="#">회원가입
+        <a href="#">고객센터
+    </div>
 
+    <div id="header">
+        <section id="menu"> 
+            <i class="fa-solid fa-bars"></i>
+            <a href="main" >
+                <img src="${contextPath}/resources/images/logo.png" id="home-logo">
+            </a>
+        </section>
+        
+        <div class="mid-header">
+            <input id="search2" type="text" placeholder="상품명 입력">
+            <a id="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+        </div>
+        <div class="right-header">
+            <i class="fa-regular fa-bell" href="#"></i>
+            <i class="fa-regular fa-basket-shopping" href="#"></i>      
+            <i class="fa-regular fa-message" href="#"></i>
+        </div>
+    </div>
 </header>
 	
