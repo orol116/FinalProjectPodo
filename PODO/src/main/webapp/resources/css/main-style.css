@@ -1,0 +1,110 @@
+/* header */
+*{box-sizing: border-box;}
+
+body{
+    width: 1520px;
+    /* min-height: 800px; */
+    margin: 0 100px 0;
+    /* padding: 56px 0 24px; */
+}
+header{
+    height: 100px;
+    width: 1520px;
+    margin-top: 15px;
+}
+#top{
+    display: flex;
+    justify-content: right;
+    margin-right: 150px;
+}
+#top>*{
+    text-decoration: none;
+    color: gray;
+    font-size: 12px;
+    margin-right: 8px;
+}
+#header{
+    position: sticky;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* margin: 0 50px 0 50px ; */
+}
+#home-logo{
+    height: 80px;
+    width: 180px;
+    /* margin-right: 20px; */
+}
+.fa-bars{
+    color: rgb(95, 0, 129);
+    text-decoration: none;
+    font-size: 30px;
+}
+#menu{
+    display: flex;
+    align-items: center;
+}
+
+#search2{
+    border: none;
+    
+}
+#search2:focus{
+    outline: none;
+}
+.mid-header{
+    width: 400px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid rgb(95, 0, 129);
+    border-radius: 3px;
+    padding: 0 12px ;
+}
+#button{
+    padding-top:5px ;
+    color: rgb(95, 0, 129);
+    font-size: 23px;
+}
+.right-header{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.right-header>*{
+    color: rgb(95, 0, 129);
+    font-size:28px;
+    margin-right: 20px;
+}
+
+/* body- main banner */
+
+.slide-list{
+    /* margin: 0 100px 0; */
+    height: 400px;
+    width: 1520px;
+    background-color: rgba(211, 211, 211, 0.404);
+}
+.slide-list{
+    display: inline-block;
+    justify-content: center;
+   
+}
+#angel{
+    position: absolute;    
+    
+    padding: 0;
+}
+#angel>i:first-child{
+    position: absolute;
+    left:5px;
+    top: 200px;
+    color: rgba(95, 0, 129, 0.406);
+}
+#angel>i:last-child{
+    position: absolute;
+    left:500px;
+    top: 200px;
+    color: rgba(95, 0, 129, 0.406);
+}
