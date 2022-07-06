@@ -117,7 +117,7 @@ header{
 .frame{
     display: flex;
     justify-content: space-between;
-    
+    padding-bottom: 25px;
 }
 
 .box{

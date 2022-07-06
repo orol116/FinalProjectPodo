@@ -26,7 +26,7 @@
 
         <!-- 내부 접근 절대 경로 -->
 
-	<div class="slide-list">
+	 <div class="slide-list">
         <div class="slide1"></div>
         <div class="slide2"></div>
         <div class="slide3"></div>
@@ -41,83 +41,150 @@
         <h2>오늘의 상품 추천</h2>
         <div>
             <div>
-                <div>
-                    <div>
-                        <a href="#">
-                            <div>
-                                <img src="#" width="194" height="194" alt="상품 이미지1">
-                                <div class="title1">
-                                    <div class="title2"></div>
-                                    <div class="name2">
-                                        <div class="price"></div>
-                                        <div class="time"></div>
-                                    </div>
-                                </div>
-                        
-                            </div>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <div>
+                <div class="frame">
+                    <div class="box">
+                        <a href="#" class="title">
+                            <div class="image">
                                 <img src="#" width="194" height="194" alt="상품 이미지2">
-                                <div class="title1">
-                                    <div class="title2"></div>
-                                    <div class="name2">
-                                        <div class="price"></div>
-                                        <div class="time"></div>
-                                    </div>
+                            </div>   
+                            <div class="title1">
+                                <div class="title2">상품</div>
+                                <div class="name2">
+                                    <div class="price">5000원</div>
+                                    <div class="time">1분전</div>
                                 </div>
-                        
                             </div>
                         </a>
                     </div>
-                    <div>
-                        <a href="#">
-                            <div>
-                                <img src="#" width="194" height="194" alt="상품 이미지3">
-                                <div class="title1">
-                                    <div class="title2"></div>
-                                    <div class="name2">
-                                        <div class="price"></div>
-                                        <div class="time"></div>
-                                    </div>
+                    <div class="box">
+                        <a href="#" class="title">
+                            <div class="image">
+                                <img src="#" width="194" height="194" alt="상품 이미지2">
+                            </div>   
+                            <div class="title1">
+                                <div class="title2">상품</div>
+                                <div class="name2">
+                                    <div class="price">5000원</div>
+                                    <div class="time">1분전</div>
                                 </div>
-                        
                             </div>
                         </a>
                     </div>
-                    <div>
-                        <a href="#">
-                            <div>
-                                <img src="#" width="194" height="194" alt="상품 이미지4">
-                                <div class="title1">
-                                    <div class="title2"></div>
-                                    <div class="name2">
-                                        <div class="price"></div>
-                                        <div class="time"></div>
-                                    </div>
+                    <div class="box">
+                        <a href="#" class="title">
+                            <div class="image">
+                                <img src="#" width="194" height="194" alt="상품 이미지2">
+                            </div>   
+                            <div class="title1">
+                                <div class="title2">상품</div>
+                                <div class="name2">
+                                    <div class="price">5000원</div>
+                                    <div class="time">1분전</div>
                                 </div>
-                        
                             </div>
                         </a>
                     </div>
-                    <div>
-                        <a href="#">
-                            <div>
-                                <img src="#" width="194" height="194" alt="상품 이미지4">
-                                <div class="title1">
-                                    <div class="title2"></div>
-                                    <div class="name2">
-                                        <div class="price"></div>
-                                        <div class="time"></div>
-                                    </div>
+                    <div class="box">
+                        <a href="#" class="title">
+                            <div class="image">
+                                <img src="#" width="194" height="194" alt="상품 이미지2">
+                            </div>   
+                            <div class="title1">
+                                <div class="title2">상품</div>
+                                <div class="name2">
+                                    <div class="price">5000원</div>
+                                    <div class="time">1분전</div>
                                 </div>
-                        
                             </div>
                         </a>
                     </div>
-                    
+                    <div class="box">
+                        <a href="#" class="title">
+                            <div class="image">
+                                <img src="#" width="194" height="194" alt="상품 이미지2">
+                            </div>   
+                            <div class="title1">
+                                <div class="title2">상품</div>
+                                <div class="name2">
+                                    <div class="price">5000원</div>
+                                    <div class="time">1분전</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="frame">
+                <div class="box">
+                    <a href="#" class="title">
+                        <div class="image">
+                            <img src="#" width="194" height="194" alt="상품 이미지2">
+                        </div>   
+                        <div class="title1">
+                            <div class="title2">상품</div>
+                            <div class="name2">
+                                <div class="price">5000원</div>
+                                <div class="time">1분전</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="#" class="title">
+                        <div class="image">
+                            <img src="#" width="194" height="194" alt="상품 이미지2">
+                        </div>   
+                        <div class="title1">
+                            <div class="title2">상품</div>
+                            <div class="name2">
+                                <div class="price">5000원</div>
+                                <div class="time">1분전</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="#" class="title">
+                        <div class="image">
+                            <img src="#" width="194" height="194" alt="상품 이미지2">
+                        </div>   
+                        <div class="title1">
+                            <div class="title2">상품</div>
+                            <div class="name2">
+                                <div class="price">5000원</div>
+                                <div class="time">1분전</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="#" class="title">
+                        <div class="image">
+                            <img src="#" width="194" height="194" alt="상품 이미지2">
+                        </div>   
+                        <div class="title1">
+                            <div class="title2">상품</div>
+                            <div class="name2">
+                                <div class="price">5000원</div>
+                                <div class="time">1분전</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="#" class="title">
+                        <div class="image">
+                            <img src="#" width="194" height="194" alt="상품 이미지2">
+                        </div>   
+                        <div class="title1">
+                            <div class="title2">상품</div>
+                            <div class="name2">
+                                <div class="price">5000원</div>
+                                <div class="time">1분전</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
                 </div>
             </div>
                 
