@@ -86,8 +86,25 @@ header{
     width: 1520px;
     background-color: rgba(211, 211, 211, 0.404);
 }
-#angel{
-    display: flex;
+.slide-list{
+    display: inline-block;
     justify-content: center;
-    align-content: center;
+   
+}
+#angel{
+    position: absolute;    
+    
+    padding: 0;
+}
+#angel>i:first-child{
+    position: absolute;
+    left:5px;
+    top: 200px;
+    color: rgba(95, 0, 129, 0.406);
+}
+#angel>i:last-child{
+    position: absolute;
+    left:500px;
+    top: 200px;
+    color: rgba(95, 0, 129, 0.406);
 }
