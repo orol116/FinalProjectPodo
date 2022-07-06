@@ -3,11 +3,12 @@ package edu.kh.podo.member.model.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.kh.podo.member.model.dao.MemberDAO;
+import edu.kh.podo.member.model.dao.MyPageDAO;
 
 @Service
-public class MemberServiceImpl implements MemberService {
-
+public class MyPageServiceImpl implements MyPageService {
+	
 	@Autowired
-	private MemberDAO dao;
+	private MyPageDAO dao;
+
 }
