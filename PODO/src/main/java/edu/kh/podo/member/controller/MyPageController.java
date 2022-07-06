@@ -30,7 +30,14 @@ public class MyPageController {
 						   , String[] updateAddress
 						   , RedirectAttributes ra) {
 		
-		String memberAddress;
+		String memberAddress = String.join(",,", updateAddress);
+		
+		if (memberAddress.equals(",,,,")) memberAddress = null;
+		
+		paramMap.put("memberNo", loginMember.getMemberNo());
+		paramMap.put("memberAddress", memberAddress);
+		
+		int result = service.updateInfo(paramMap);
 		
 		return null;
 	}
