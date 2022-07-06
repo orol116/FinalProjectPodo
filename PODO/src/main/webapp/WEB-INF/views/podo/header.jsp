@@ -20,15 +20,15 @@
             </a>
         </section>
         
-        <div class="mid-header">
-            <input id="search2" type="text" placeholder="상품명 입력">
+        <section class="mid-header">
+            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
             <a id="button"><i class="fa-solid fa-magnifying-glass"></i></a>
-        </div>
-        <div class="right-header">
+        </section>
+        <section class="right-header">
             <i class="fa-regular fa-bell" href="#"></i>
             <i class="fa-regular fa-basket-shopping" href="#"></i>      
             <i class="fa-regular fa-message" href="#"></i>
-        </div>
+        </section>
     </div>
 </header>
 	
