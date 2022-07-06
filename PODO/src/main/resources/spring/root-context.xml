@@ -17,11 +17,11 @@
 		<property name="initialSize" value="10" />
 		<property name="maxTotal" value="50" /> 
 		<property name="maxIdle" value="20" /> 
-		<property name="minIdle" value="10" /> 
+		<property name="minIdle" value="10"  /> 
 		<property name="maxWaitMillis" value="-1" /> 
 	</bean> 
 	
- 	<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+ 	 <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
 	 	<constructor-arg ref="realDataSource" />
 	 	<property name="logFormatter" >
 	 		<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">

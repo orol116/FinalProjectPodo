@@ -8,7 +8,6 @@
 	<name>comm</name> <!-- 프로젝트 명 -->
 	<packaging>war</packaging> <!-- 배포 형식 -->
 	<version>1.0.0-BUILD-SNAPSHOT</version>
-
 	<!-- properties : 메이븐이 적용된 프로젝트에서 공통적으로 사용할 버전 또는 설정값 정보를 작성하는 태그 -->
 	<properties>
 		<java-version>11</java-version>

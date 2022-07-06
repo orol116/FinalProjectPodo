@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="edu.kh.podo">
+	<logger name="edu.kh.finalProjectPodo">
 		<level value="info" />
 	</logger>
 	
