@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>    
- <link rel="stylesheet" href="../../../resources/css/main-style.css">
+
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 <header>
@@ -15,8 +15,8 @@
     <div id="header">
         <section id="menu"> 
             <i class="fa-solid fa-bars"></i>
-            <a href="main" >
-                <img src="../WEB-INF/resources/images/logo.png" id="home-logo">
+            <a href="${contextPath}" >
+                <img src="resources/images/logo.png" id="home-logo">
             </a>
         </section>
         
