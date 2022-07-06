@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: orol116
 Build-Jdk: 11.0.8
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: WonSeok
-Build-Jdk: 11.0.2
-Created-By: Maven Integration for Eclipse
-
->>>>>>> 0c610c51491d4412e14e3d03758be65c99e06ab6

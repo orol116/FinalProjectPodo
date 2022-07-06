@@ -9,12 +9,12 @@
 	
 	<!-- 별칭 작성 부분 -->
 	<typeAliases>
-		<!-- <typeAlias type="edu.kh.fin.member.model.vo.Member" alias="Member"/> -->
+		<typeAlias type="edu.kh.podo.member.model.vo.Member" alias="member"/> 
 	</typeAliases>
 	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 	<mappers>
-		<!-- <mapper resource="/mappers/member-mapper.xml"/> -->
+		<mapper resource="/mappers/myPage-mapper.xml" />
 	</mappers>
 	
 </configuration>
