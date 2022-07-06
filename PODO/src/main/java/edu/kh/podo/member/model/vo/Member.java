@@ -19,6 +19,7 @@ public class Member {
 	private String secessionFlag;
 	private String profileImage;
 	private int memberGrape;
+	private String memberAddress;
 	private String memberTown;
 
 }

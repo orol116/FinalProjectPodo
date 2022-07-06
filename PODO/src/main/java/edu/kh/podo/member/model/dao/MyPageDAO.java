@@ -19,5 +19,5 @@ public class MyPageDAO {
 	public int updateInfo(Map<String, Object> paramMap) {
 		return sqlSession.update("myPageMapper.updateInfo", paramMap);
 	}
-
+//
 }

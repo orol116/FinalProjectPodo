@@ -39,7 +39,30 @@ public class MyPageController {
 		
 		int result = service.updateInfo(paramMap);
 		
+		String message = null;
+		
+		if (result > 0) {
+			message = "회원 정보가 수정되었습니다.";
+			
+			loginMember.setMemberNickname((String)paramMap.get("updateNickname"));
+			loginMember.setMemberTel((String)paramMap.get("updateNickname"));
+			loginMember.setMemberAddress((String)paramMap.get("updateNickname"));
+		} else {
+			message = "회원 정보 수정에 실패하였습니다.";
+		}
+		ra.addFlashAttribute("message", message);
+		
+		return "redirect:info";
+	}
+	
+	// 비밀번호 변경
+	@GetMapping("/changePw")
+	public String change() {
+		
+		
 		return null;
 	}
+	
+	
 
 }
