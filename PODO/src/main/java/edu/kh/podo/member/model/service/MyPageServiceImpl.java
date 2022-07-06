@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import edu.kh.podo.member.model.dao.MyPageDAO;
 
 @Service
-public class MyPageServiceImpl {
+public class MyPageServiceImpl implements MyPageService {
 	
 	@Autowired
 	private MyPageDAO dao;
