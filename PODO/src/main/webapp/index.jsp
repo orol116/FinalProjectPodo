@@ -16,4 +16,4 @@
 		단, forward이기 때문에 출력되는 주소는  http://localhost:8080/comm 유지
 --%>
 
-<jsp:forward page="main"/>
+<jsp:forward page="main" />
