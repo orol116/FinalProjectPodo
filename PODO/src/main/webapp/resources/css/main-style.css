@@ -2,34 +2,39 @@
 *{box-sizing: border-box;}
 
 body{
-    width: 1520px;
+    width: 1400px;
     /* min-height: 800px; */
     margin: 0 100px 0;
     /* padding: 56px 0 24px; */
 }
 header{
     height: 100px;
-    width: 1520px;
+    width: 1400px;
     margin-top: 15px;
 }
 #top{
     display: flex;
     justify-content: right;
-    margin-right: 150px;
+    margin-right: 20px;
 }
 #top>*{
     text-decoration: none;
     color: gray;
-    font-size: 12px;
+    font-size: 14px;
     margin-right: 8px;
 }
 #header{
     position: sticky;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     /* margin: 0 50px 0 50px ; */
 }
+
+#header>section{
+    flex-basis: 31%;
+}
+
 #home-logo{
     height: 80px;
     width: 180px;
@@ -58,43 +63,42 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid rgb(95, 0, 129);
+    border: 3px solid rgb(95, 0, 129);
     border-radius: 3px;
     padding: 0 12px ;
 }
 #button{
-    padding-top:5px ;
     color: rgb(95, 0, 129);
     font-size: 23px;
 }
 .right-header{
    display: flex;
-   justify-content: center;
+   justify-content: right;
    align-items: center;
+   margin-right: 10px;
 }
 .right-header>*{
     color: rgb(95, 0, 129);
-    font-size:28px;
+    font-size:30px;
     margin-right: 20px;
 }
 
-/* body- main banner */
+/* body- 메인 banner */
 
 .slide-list{
     /* margin: 0 100px 0; */
     height: 400px;
-    width: 1520px;
+    width: 1400px;
     background-color: rgba(211, 211, 211, 0.404);
 }
 .slide-list{
     display: inline-block;
     justify-content: center;
-   
 }
 #angel{
     position: absolute;    
-    
     padding: 0;
+    font-size: 30px;
 }
 #angel>i:first-child{
     position: absolute;
@@ -104,7 +108,39 @@ header{
 }
 #angel>i:last-child{
     position: absolute;
-    left:500px;
+    left:1385px;
     top: 200px;
     color: rgba(95, 0, 129, 0.406);
+    
+}
+/* 상품 목록 */
+.frame{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.box{
+    flex-basis: 17%;
+    width: 200px;
+    height: 320px;
+    border: 1px solid lightgray;
+}
+.image{
+    
+    height: 250px;
+    border: 1px solid gray;
+}
+/* 제목 */
+
+.title{
+    text-decoration: none;
+    color: black;
+}
+.name2{
+    display: flex;
+    justify-content: space-between;
+}
+.title1>div{
+    margin: 0;
 }

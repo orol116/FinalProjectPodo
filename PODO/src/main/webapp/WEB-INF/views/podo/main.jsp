@@ -26,9 +26,104 @@
 
         <!-- 내부 접근 절대 경로 -->
 
-	<h1> main page </h1>
+	<div class="slide-list">
+        <div class="slide1"></div>
+        <div class="slide2"></div>
+        <div class="slide3"></div>
+        <div class="slide4"></div>
+        <div id="angel">
+            <i class="fa-solid fa-angle-left"></i>
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+    </div>
 
+    <section class="items">
+        <h2>오늘의 상품 추천</h2>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="#" width="194" height="194" alt="상품 이미지1">
+                                <div class="title1">
+                                    <div class="title2"></div>
+                                    <div class="name2">
+                                        <div class="price"></div>
+                                        <div class="time"></div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="#" width="194" height="194" alt="상품 이미지2">
+                                <div class="title1">
+                                    <div class="title2"></div>
+                                    <div class="name2">
+                                        <div class="price"></div>
+                                        <div class="time"></div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="#" width="194" height="194" alt="상품 이미지3">
+                                <div class="title1">
+                                    <div class="title2"></div>
+                                    <div class="name2">
+                                        <div class="price"></div>
+                                        <div class="time"></div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="#" width="194" height="194" alt="상품 이미지4">
+                                <div class="title1">
+                                    <div class="title2"></div>
+                                    <div class="name2">
+                                        <div class="price"></div>
+                                        <div class="time"></div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="#" width="194" height="194" alt="상품 이미지4">
+                                <div class="title1">
+                                    <div class="title2"></div>
+                                    <div class="name2">
+                                        <div class="price"></div>
+                                        <div class="time"></div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+                
+        </div>
 
+    </section>
     </main>
 
     <!-- footer include -->
