@@ -106,20 +106,37 @@ header{
 
 #category-area{
     position: fixed;
-    width: 250px;
+    width: 500px;
     height: 700px;
-    display: none;
+    /* display: none; */
     border: 1px solid #ccc;
     box-sizing: border-box;
     background-color: #fff;
+    display: flex;
+    flex-direction: row;
 
 }
+
+#category-area > ul{
+
+    width: 50%;
+
+}
+
+#category-area > ul:first-child{
+
+    border-right: 1px solid #ccc;
+
+}
+
+
 
 #item-category{
     display: flex;
     flex-direction: column;
     padding-left: 1px;
 }
+
 
 #item-category > li{
     list-style: none;
@@ -132,6 +149,7 @@ header{
 
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
+    border-right: 0px !important; 
 }
 
 
@@ -142,21 +160,7 @@ header{
     
 }
 
-
 /* 카테고리 중분류 */
-#div-category-area{
-    position: fixed;
-    width: 250px;
-    height: 700px;
-    display: none;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    background-color: #fff;
-
-    left: 450px;
-
-}
-
 #div-category{
     display: flex;
     flex-direction: column;
