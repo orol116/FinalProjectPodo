@@ -1,9 +1,28 @@
+/* 폰트 */
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 700; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundEB.woff2) format('woff2');
+    font-display: swap;
+} */
+
+* {font-family: "NanumSquareRound";}
+
 /* header */
 *{box-sizing: border-box;}
 body{
     width: 1400px;
     margin: 0 200px 0;
 }
+
 header{
     height: 100px;
     /* width: 1400px;
@@ -96,3 +115,4 @@ header{
     font-size:30px;
     margin-right: 20px;
 }
+
