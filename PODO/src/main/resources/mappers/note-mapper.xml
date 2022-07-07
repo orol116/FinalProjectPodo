@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="noteMapper">
+
+	<resultMap type="note" id="note_rm">
+	
+		<id property="noteNo" column="NOTICE_NO"/>
+		
+		<result property="noteContent" column="NOTICE_CONTENT"/>
+		<result property="noteDate" column="MEMBER_NO"/>
+		<result property="receiverNo" column="NOTICE_DT"/>
+	
+	</resultMap>
+
+	<select id="selectNoteList" resultMap="note_rm">
+		SELECT NOTICE_CONTENT, NOTICE_DT
+		FROM NOTICE
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+
+</mapper>
