@@ -4,8 +4,11 @@
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 <header>
+    <%-- <link rel="stylesheet" href="resources/css/header-style.css"> --%>
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 	
+
+    
     <div id="top">
         <a href="#">로그인
         <a href="#">회원가입
@@ -22,12 +25,12 @@
         
         <section class="mid-header">
             <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
-            <a id="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
         <section class="right-header">
-            <i class="fa-regular fa-bell" href="#"></i>
-            <i class="fa-regular fa-basket-shopping" href="#"></i>      
-            <i class="fa-regular fa-message" href="#"></i>
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-house-user"></i> 내상점</button>   
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
         </section>
     </div>
 </header>
