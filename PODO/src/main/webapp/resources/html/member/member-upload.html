@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../WEB-INF/resources/css/header-style.css">
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
-	
+	 
     <div id="top">
         <a href="#">로그인
         <a href="#">회원가입
@@ -25,43 +25,78 @@
         <section id="menu"> 
             <i class="fa-solid fa-bars"></i>
             <a href="main" >
-                <img src="../../images/logo.png" id="home-logo">
+                <img src=../../images/logo.png" id="home-logo">
             </a>
         </section>
-        
         <section class="mid-header">
-            <input id="search2" type="text" placeholder="상품명 입력">
-            <a id="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
         <section class="right-header">
-            <i class="fa-regular fa-bell" href="#"></i>
-            <a href="#" ><img src="../../images/cart.png" id="cart"></a>               <i class="fa-regular fa-message" href="#"></i>
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-house-user"></i> 내상점</button>   
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
         </section>
+    </div>tion>
     </div>
 </header>
 <body>
 
     <div class="top-menu">
-        <a href="#">상품등록</a>
-        <a href="#">상품관리</a>
-        <a href="#">구매한 내역</a>
+        <nav id="mainMenu">
+            <a href="#">상품등록</a>|
+            <a href="#">상품관리</a>|
+            <a href="#">구매/판매 내역</a>
+        </nav>
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <main>
+        <section class="basic">
+            <h2>기본정보</h2>
+            <span>*필수항목</span>
+        </section>
+        <ul>
+            <ul>
+                <li class="frist">
+                    <div class="itemImage">
+                        상품이미지
+                        <span>*</span>
+                        <small>(0/5)</small>
+                    </div>
+                    <div></div>
+                    <div class="itemImage2">
+                        <ul>
+                        <li style="display: flex;">
+                            <input type="file" class="real-upload" accept="image/*" required multiple>
+                            <div class="upload"><img src="../../images/image.png"></div>
+                            <ul class="image-preview"></ul>
+                        </li>  
+                        </ul>
+                            <div id="ex">
+                                <br>* 상품이미지는 600x600에 최적화 되어있습니다.
+                                <br>- 이미지는 상품 등록 시 정사각형으로 잘려서 등록됩니다. 
+                                <br>- 이미지를 클릭할 경우 원본이미지를 확인 할 수 있습니다.
+                                <br>- 최대 지원사이즈인 640x640으로 준수해주세요.
+                                <br>- 큰 이미지일 경우 이미지가 깨지는 경우가 발생할 수 있습니다.
+                            </div>
+                        
+                    </div>
+                </li>
+            </ul>
 
-   
-    
 
+        </ul>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
 
-
-
+    </main>
+    <script src="../../js/member-upload.js"></script>
 </body>
 </html>
