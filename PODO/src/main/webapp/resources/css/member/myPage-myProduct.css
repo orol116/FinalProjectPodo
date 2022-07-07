@@ -1,0 +1,89 @@
+*{box-sizing: border-box;}
+
+body{
+    width: 1400px;
+    /* min-height: 800px; */
+    margin: 0 200px 0;
+    /* padding: 56px 0 24px; */
+}
+header{
+    height: 100px;
+    /* width: 1400px;
+    margin-top: 15px; */
+}
+
+/* 우측 메인 기능 섹션 */
+.myPage-content{
+    
+    width: 100%;
+    /* height: 100%; */
+    margin:  50px auto;
+    display: flex;
+    
+}
+.myPage-inner{
+    /* flex-basis: 70%; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+/* 메인 기능 검색 */
+.search{
+    width: 400px;
+    height: 3rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+}
+
+.search input {
+    height: 100%;
+    width: 100%;
+    padding: 0px 68px 0px 1rem;
+    border: 1px solid rgb(195, 194, 204);
+    border-radius: 2px;
+}
+
+/* .searchButton{
+
+
+} */
+
+.optionForm input{
+    height: 100%;
+    width: 100%;
+    padding: 0px 68px 0px 1rem;
+    border: 1px solid rgb(195, 194, 204);
+    border-radius: 2px;
+}
+
+/* .menu{
+   
+} */
+
+
+
+myPage-main table{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    vertical-align: baseline;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+    text-align: center;
+    table-layout: fixed;
+}
+
+table th{
+    width: 10.5rem;
+}
+
+table tr{
+    height: 2.5rem;
+}

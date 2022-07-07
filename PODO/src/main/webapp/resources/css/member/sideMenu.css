@@ -1,0 +1,50 @@
+/* 마이페이지 좌측 사이드 메뉴 */
+
+.left-side{
+    flex-basis: 350px;
+    /* width: 20%; */
+
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.list-group{
+    width: 100%;
+    height: 90%;
+    margin: 0;
+    border: 1px solid rgb(39,39,91);
+   padding: 20px;
+    
+} 
+
+.list-group>li{
+    list-style: none;
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.myPage-title{
+    border-bottom: 1px solid rgb(39,39,91);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 30px 0;
+}
+.myPage-subTitle{
+    margin: 15px;
+}
+
+
+
+.list-group a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    
+    font-size: 17px;
+
+}
+.list-group>li>a:hover{
+    background-color: #eee;
+}
