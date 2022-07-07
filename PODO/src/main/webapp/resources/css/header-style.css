@@ -1,4 +1,4 @@
-/* 폰트 */
+
 @font-face {
     font-family: 'NanumSquareRound';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
@@ -14,6 +14,7 @@
     font-display: swap;
 } */
 
+
 * {font-family: "NanumSquareRound";}
 
 /* header */
@@ -22,24 +23,25 @@ body{
     width: 1400px;
     margin: 0 200px 0;
 }
-
 header{
     height: 100px;
-    /* width: 1400px;
-    margin-top: 15px; */
+     width: 1400px;
+    /*margin-top: 15px; */
 }
 #top{
     position: fixed;
     left: 1400px;
     display: flex;
     justify-content: right;
-    margin-right: 10px;
+  
     z-index: 10;
 }
 #top>a:hover{
     text-decoration-line: underline;
 }
 #top>*{
+    
+    display: flex;
     text-decoration: none;
     color: gray;
     font-size: 14px;
@@ -61,14 +63,39 @@ header{
     /* margin-top: 15px; */
     z-index: 2;
 }
+section>#menu{
+    display: flex;
+    justify-content: left;
+}
+section>.right-header{
+    display: flex;
+    justify-content: right;
+}
+.button{
+    padding-left:10px ;
+    font-size: 20px;
+    border: 0;
+    background-color: white;
+    color: #5f0081;
+}
+.button:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+section>button>.fa-solid{
+    padding-right: 5px;
+}
+
 
 #header>section{
-    flex-basis: 30%;
+    flex-basis: 33%;
 }
 
 #home-logo{
-    height: 70px;
-    width: 180px;
+    height: 80px;
+    width: 190px;
     /* margin-right: 20px; */
 }
 .fa-bars{
@@ -83,13 +110,13 @@ header{
 
 #search2{
     border: none;
+    flex-basis: 100%;
     
 }
 #search2:focus{
     outline: none;
 }
 .mid-header{
-    
     width: 400px;
     height: 40px;
     display: flex;
@@ -97,12 +124,9 @@ header{
     align-items: center;
     border: 3px solid rgb(95, 0, 129);
     border-radius: 3px;
-    padding: 0 12px ;
+    padding-left: 12px ;
 }
-#button{
-    color: rgb(95, 0, 129);
-    font-size: 23px;
-}
+
 .right-header{
    display: flex;
    justify-content: right;
@@ -118,4 +142,3 @@ header{
     font-size:30px;
     margin-right: 20px;
 }
-
