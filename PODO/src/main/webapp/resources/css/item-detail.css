@@ -24,4 +24,35 @@ footer{
 
 * { box-sizing: border-box;}
 
+#board-detail-head{
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+body > #contaioner{
+
+    display: flex;
+    justify-content: center;
+}
+
+#contaioner{
+
+    display: flex;
+   flex-direction: column;
+   margin: none;
+  
+}
+
+
+
+
+#category{
+
+    height: 20px;
+}
+
+
+
+
 
