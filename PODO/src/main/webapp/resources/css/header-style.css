@@ -1,0 +1,98 @@
+/* header */
+*{box-sizing: border-box;}
+body{
+    width: 1400px;
+    margin: 0 200px 0;
+}
+header{
+    height: 100px;
+    /* width: 1400px;
+    margin-top: 15px; */
+}
+#top{
+    position: fixed;
+    left: 1400px;
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+    z-index: 10;
+}
+#top>a:hover{
+    text-decoration-line: underline;
+}
+#top>*{
+    text-decoration: none;
+    color: gray;
+    font-size: 14px;
+    margin-right: 12px;
+    padding: 10px 0 5px;
+}
+
+/* 상단 메뉴 + 검색 바 */
+#header{
+    position: fixed;
+    top: 0 ;
+    width: 1400px;
+    height:  100px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 0 50px 0 50px ; */
+    /* margin-top: 15px; */
+    z-index: 2;
+}
+
+#header>section{
+    flex-basis: 30%;
+}
+
+#home-logo{
+    height: 70px;
+    width: 180px;
+    /* margin-right: 20px; */
+}
+.fa-bars{
+    color: rgb(95, 0, 129);
+    text-decoration: none;
+    font-size: 30px;
+}
+#menu{
+    display: flex;
+    align-items: center;
+}
+
+#search2{
+    border: none;
+    
+}
+#search2:focus{
+    outline: none;
+}
+.mid-header{
+    
+    width: 400px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid rgb(95, 0, 129);
+    border-radius: 3px;
+    padding: 0 12px ;
+}
+#button{
+    color: rgb(95, 0, 129);
+    font-size: 23px;
+}
+.right-header{
+   display: flex;
+   justify-content: right;
+   align-items: center;
+   margin: 5px 5px 5px;
+   
+}
+.right-header>*{
+    color: rgb(95, 0, 129);
+    font-size:30px;
+    margin-right: 20px;
+}
