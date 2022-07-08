@@ -22,7 +22,7 @@ import edu.kh.podo.member.model.vo.Member;
 
 @Controller
 @RequestMapping("/member/myPage")
-@SessionAttributes("loginMember")
+@SessionAttributes({"loginMember"})
 public class MyPageController {
 	
 	@Autowired
