@@ -21,7 +21,7 @@
 *{box-sizing: border-box;}
 body{
     width: 1400px;
-    margin: 0 200px 0;
+    margin: auto;
 }
 header{
     height: 100px;
@@ -111,7 +111,6 @@ section>button>.fa-solid{
 #search2{
     border: none;
     flex-basis: 100%;
-    
 }
 #search2:focus{
     outline: none;
