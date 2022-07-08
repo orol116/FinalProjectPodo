@@ -26,12 +26,12 @@
 
         <div id="login-contaioner">
             <h3>로그인</h3>
-            <form action="#" method="POST" name="login-form" id="login-form">
+            <form action="/member/login" method="POST" name="login-form" id="login-form">
                 <fieldset id="login-area">
 
                     <section>
-                        <input type="text" id="ID-box" maxlength="20" placeholder="아이디를 입력해주세요.">
-                        <input type="password" id="PW-box" placeholder="비밀번호를 입력해주세요.">
+                        <input type="text" id="ID-box" name="memberId" maxlength="20" placeholder="아이디를 입력해주세요.">
+                        <input type="password" id="PW-box" name="memberPw" placeholder="비밀번호를 입력해주세요.">
                     </section>
 
                     <section>

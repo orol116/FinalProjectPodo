@@ -21,19 +21,19 @@
 
         <div id="contaioner">
             <h3>회원가입</h3>
-            <form action="#" method="POST" name="ID-form" id="signUp-form">
+            <form action="member/signUp" method="POST" name="ID-form" id="signUp-form">
                 <fieldset id="signUp-area">
 
                     <section>
                         <h4>아이디</h4>
-                        <input type="text" id="id-box" maxlength="20" placeholder="아이디를 입력해주세요.">
+                        <input type="text" id="id-box" maxlength="20" name="memberId" placeholder="아이디를 입력해주세요.">
 
-                        <button id="idDupCheck">중복검사</button>
+                        <button id="idDupCheck" type="button">중복검사</button>
                     </section>
 
                     <section>
                         <h4>비밀번호</h4>
-                        <input type="password" id="PW-box" placeholder="비밀번호를 입력해주세요.">
+                        <input type="password" id="PW-box" name="memberPw" placeholder="비밀번호를 입력해주세요.">
                     </section>
 
                     <section>
@@ -43,13 +43,18 @@
 
                     <section>
                         <h4>닉네임</h4>
-                        <input type="text" id="nickname-box" maxlength="20" placeholder="닉네임을 입력해주세요.">
+                        <input type="text" id="nickname-box" maxlength="20" name="memberNickname" placeholder="닉네임을 입력해주세요.">
                     </section>
 
                     <section>
                         <h4>전화번호</h4>
-                        <input type="text" id="phone-box" maxlength="20" placeholder="전화번호를 입력해주세요.">
-                        <button id="nicknameDupCheck">중복검사</button>
+                        <input type="text" id="phone-box" maxlength="20" name="memberTel" placeholder="전화번호를 입력해주세요.">
+                        <button id="nicknameDupCheck" type="button">중복검사</button>
+                    </section>
+
+                    <section>
+                            <input type="text" id="address-box" name="memberAddress" placeholder="주소를 입력하세요">
+
                     </section>
 
                     
