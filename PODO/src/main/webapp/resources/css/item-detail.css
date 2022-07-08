@@ -247,6 +247,7 @@ footer{
 #profile-box{
     display: flex;
     flex-direction: row;
+    border-bottom: 1px solid #ccc;
 }
 
 
@@ -264,13 +265,17 @@ footer{
 }
 
 #profile-review{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #profile-review div{
     padding: 10px;
 }
 
+
+#review-text{
+    padding: 12px;
+}
 
 
 

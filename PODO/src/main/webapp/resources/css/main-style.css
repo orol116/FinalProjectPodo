@@ -210,6 +210,7 @@ section>button>.fa-solid{
     margin: 5px 10px 0;
 }
 
-#review{
+#review-text{
     padding-left: 10px;
+    background-color: #5f0081;
 }
