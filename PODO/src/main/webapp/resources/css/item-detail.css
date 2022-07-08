@@ -24,16 +24,23 @@ footer{
 
 * { box-sizing: border-box;}
 
-#board-detail-head{
-    display: flex;
-    justify-content: flex-start;
+
+/* item-detail main 화면 */
+
+
+/* item-detail head 화면 */
+#item-detail-head{
+   
 
 }
 
-body > #contaioner{
 
-    display: flex;
-    justify-content: center;
+
+
+#item-contaioner{
+    width: 1500px;
+
+    margin-top: 50px;
 }
 
 #contaioner{
@@ -50,6 +57,12 @@ body > #contaioner{
 #category{
 
     height: 20px;
+}
+
+
+#seller-items{
+    display: flex;
+    flex-direction: row;
 }
 
 
