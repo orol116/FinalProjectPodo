@@ -134,7 +134,7 @@ section>button>.fa-solid{
    margin: 5px 5px 5px;
    
 }
-.right-header*{
+.right-header{
     border: 0;
     outline: 0;
     background-color: white;
@@ -208,4 +208,8 @@ section>button>.fa-solid{
     display: inline-block;
     align-content: end;
     margin: 5px 10px 0;
+}
+
+#review{
+    padding-left: 10px;
 }
