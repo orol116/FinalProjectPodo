@@ -8,7 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../resources/css/member/signUp.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/signUp.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+
 
     <title>signUp</title>
 </head>
@@ -17,14 +19,11 @@
 <body>
     <main>
 
-        <header>
-            header
-
-        </header>
+        <jsp:include page="/WEB-INF/views/podo/header.jsp" />
 
         <div id="contaioner">
             <h3>회원가입</h3>
-            <form action="/member/signUp" method="POST" name="ID-form" id="signUp-form">
+            <form action="signUp" method="POST" name="ID-form" id="signUp-form">
                 <fieldset id="signUp-area">
 
                     <section>
@@ -70,14 +69,9 @@
 
         </div>
 
-
-        <footer>
-            footer
-
-        </footer>
-
     </main>
 
+    <jsp:include page="/WEB-INF/views/podo/footer.jsp" />
     
 </body>
 </html>

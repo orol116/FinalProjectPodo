@@ -3,8 +3,9 @@
 
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> 
 <header>
-    <%-- <link rel="stylesheet" href="resources/css/header-style.css"> --%>
+
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
     
     <div id="top">
@@ -17,7 +18,7 @@
         <section id="menu"> 
             <i class="fa-solid fa-bars"></i>
             <a href="${contextPath}" >
-                <img src="resources/images/logo.png" id="home-logo">
+                <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
         </section>
         

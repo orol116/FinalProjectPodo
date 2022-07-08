@@ -52,9 +52,10 @@ public class MemberController {
 
 		if (loginMember != null) {
 
+			
 			model.addAttribute("loginMember", loginMember);
 
-			Cookie cookie = new Cookie(saveId, loginMember.getMemberId());
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
 
 			if (saveId != null) {
 
@@ -67,14 +68,15 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 			
 			resp.addCookie(cookie);
-
+			path = "/";
+			
 		} else {
-
+			path = "/member/login";
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-			path = "redirect:/";
+
 		}
 
-		return path;
+		return "redirect:" + path;
 	}
 	
 	
@@ -87,6 +89,14 @@ public class MemberController {
 		status.setComplete();
 		
 		return "redirect:/";
+	}
+	
+	
+	// 회원가입
+	@GetMapping("/signUp")
+	public String signUp() {
+		
+		return "/member/signUp";
 	}
 	
 	
