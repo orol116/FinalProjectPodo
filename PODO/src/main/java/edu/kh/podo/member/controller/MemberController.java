@@ -35,7 +35,7 @@ public class MemberController {
 	// 로그인 화면전환
 	@GetMapping("/login")
 	public String login() {
-		return "member/member-login";
+		return "/member/member-login";
 	}
 	
 	// 로그인
