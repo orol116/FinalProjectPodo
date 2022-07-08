@@ -45,3 +45,23 @@ function getImageFiles(e) {
   upload.addEventListener('click', () => realUpload.click());
 
   realUpload.addEventListener('change', getImageFiles);
+
+
+
+  /* 카테고리 선택 시 값 가져오기 */
+ 
+
+$('.select').on('click', function(){
+
+  $('#category4').text($(this).text());
+
+
+});
+
+
+ 
+$('.#category4').on('click', function(){
+
+  $('#category5').text($(this).text());
+  
+});
