@@ -24,18 +24,113 @@ footer{
 
 * { box-sizing: border-box;}
 
+/* 전체 페이지 가운데 정렬 */
+#contaioner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* 전체 페이지 크기 */
+#item-page{
+    width: 1200px;
+    
+}
+
+#category{
+    margin: 15px 0 15px 0;
+    
+}
+
+#category  a{
+    margin-left: 30px;
+    width: 300px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+}
+
 
 /* item-detail main 화면 */
 
 
 /* item-detail head 화면 */
 #item-detail-head{
-   
+   display: flex;
+   flex-direction: row;
+
+   /* 임시 높이 */
+   height: 480px;
+
+   border-top: 1px solid #ccc;
 
 }
 
+/* head 이미지 크기 */
+#item-image{
+    width: 40%;
+    
+}
 
+/* head 이미지 오른쪽 상품 정보 크기 */
+#item-info{
+    width: 60%;
+}
 
+/* head 이미지 오른쪽 상품 정보 */
+
+#item-title{
+    height: 23%;
+    font-size: 45px;
+    padding-top: 15px;
+    padding : 30px 0 5px 20px;
+    font-weight: bold;
+}
+
+#item-price{
+    height: 18%;
+    font-size: 40px;
+    padding : 5px 0 5px 20px;
+    font-weight: bold;
+}
+
+/* 찜, 조회수, 작성시간 erea */
+#item-layer{
+    display: flex;
+    flex-direction: row;
+    height: 12%;
+    font-size: 22px;
+    padding-top: 15px;
+    padding-left: 20px;
+    
+}
+
+#item-layer > *{
+    margin-right: 10%;
+    width: 20%;
+}
+
+#item-layer a{
+    float: right;
+}
+
+#item-condition{
+    height: 10%;
+    font-size: 20px;
+    padding : 15px 20px 5px 20px;
+}
+
+#item-delivery{
+    height: 10%;
+    font-size: 20px;
+    padding : 15px 20px 5px 20px;
+}
+
+#item-sell-area{
+    height: 10%;
+    font-size: 20px;
+    padding : 15px 0 5px 20px;
+}
 
 #item-contaioner{
     width: 1500px;
@@ -44,7 +139,6 @@ footer{
 }
 
 #contaioner{
-
     display: flex;
    flex-direction: column;
    margin: none;
@@ -52,18 +146,133 @@ footer{
 }
 
 
-
-
-#category{
-
-    height: 20px;
-}
-
-
 #seller-items{
     display: flex;
     flex-direction: row;
 }
+
+#info-button-area{
+    height: 15%;
+    margin-top: 20px;
+}
+
+#info-button-area >button:first-child{
+    margin-left: 20px;
+    width: 250px;
+    height: 70px;
+    margin-right: 6px;
+
+    font-size: 20px;
+}
+
+#info-button-area >button:nth-child(2){
+
+    width: 400px;
+    height: 70px;
+    font-size: 20px;
+}
+
+#under-head{
+
+    margin-top: 30px;
+}
+
+
+.box{
+    border: 1px solid #ccc;
+
+}
+
+
+/* 상품 목록 */
+#seller-items{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+}
+
+.box{
+    flex-basis: 18%;
+    width: 220px;
+    /* height: 320px; */
+    border: 1px solid lightgray;
+}
+.image{
+    
+    height: 214px;
+    border: 1px solid gray;
+}
+/* 제목 */
+
+.title{
+    text-decoration: none;
+    color: black;
+}
+.name2{
+    display: flex;
+    justify-content: space-between;
+}
+.title1>div{
+    margin: 0;
+}
+.title1{
+    display: inline-block;
+    align-content: end;
+    margin: 5px 10px 0;
+}
+
+
+
+/* 상품 상세페이지 상품 설명, 판매자 정보 */
+#item-detail-body{
+    display: flex;
+   justify-content: space-between;
+
+}
+
+#body-info-text{
+    width: 750px;
+    height: 750px;
+}
+
+#body-profile-area{
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+
+}
+
+#profile-box{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+#profile-box div{
+    height: 30%;
+    width: 60%;
+    padding: 20px;
+    
+}
+
+#profile-image{
+    width: 150px;
+    height: 150px;
+}
+
+#profile-review{
+    margin-top: 20px;
+}
+
+#profile-review div{
+    padding: 10px;
+}
+
+
+
 
 
 
