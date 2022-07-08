@@ -10,8 +10,8 @@
 
     
     <div id="top">
-        <a href="#">로그인
-        <a href="#">회원가입
+        <a href="${contextPath}/member/login">로그인
+        <a href="${contextPath}/member/signUp">회원가입
         <a href="#">고객센터
     </div>
 
