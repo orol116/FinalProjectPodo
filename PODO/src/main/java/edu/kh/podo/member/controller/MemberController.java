@@ -31,6 +31,13 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 
+	
+	// 로그인 화면전환
+	@GetMapping("/login")
+	public String login() {
+		return "member/login";
+	}
+	
 	// 로그인
 	@PostMapping("/login")
 	public String login(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra,
@@ -71,6 +78,7 @@ public class MemberController {
 	}
 	
 	
+	// 로그아웃
 	@GetMapping("/logout")
 	public String logout(SessionStatus status) {
 		
