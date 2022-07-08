@@ -10,7 +10,7 @@
     <title>판매상품관리 페이지</title>
 
     <link rel="stylesheet" href="resources/css/main-style.css">
-    <link rel="stylesheet" href="resources/css/member/myPage-myProduct-style.css">
+    <link rel="stylesheet" href="resources/css/member/myPage-myProduct.css">
     <link rel="stylesheet" href="resources/css/member/sideMenu.css">
     
 
@@ -22,7 +22,7 @@
         <jsp:include page="/WEB-INF/views/podo/header.jsp" />
 
         <!-- 사이드 메뉴 -->
-        <jsp:include page="/WEB-INF/views/podo/member/sideMenu.jsp" />
+        <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
 
         <!-- 본문 상품 조회 영역 -->
         <div class="myPage-inner">

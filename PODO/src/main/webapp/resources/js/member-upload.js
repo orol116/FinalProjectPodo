@@ -4,7 +4,7 @@ function getImageFiles(e) {
     const imagePreview = document.querySelector('.image-preview');
     const docFrag = new DocumentFragment();
 
-    if ([...files].length >= 6) {
+    if ([...files].length > 6) {
       alert('이미지는 최대 5개 까지 업로드가 가능합니다.');
       return;
     }
