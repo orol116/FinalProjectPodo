@@ -1,9 +1,85 @@
 *{box-sizing: border-box;}
-body{
-    width: 1400px;
-    margin: 0 200px 0;
-
+main{
+    display: block;
+    width: 1024px;
+    margin: 0;
 }
 body>div>a*{
     text-decoration: none;
+}
+/* 첫번째 메뉴 */
+#mainMenu{    
+    width: 1024px;
+    display: flex;
+    height: 60px;
+    font-size: 15px;
+    align-items: center;
+}
+#mainMenu>a{
+    text-decoration: none;
+    padding: 8px;
+    color: black;
+     font-weight:8px ;
+}
+#mainMenu>a:hover{
+    cursor: pointer;
+    color: rgb(95, 0, 129);
+}
+
+/* 기본정보 section */
+ul{list-style:none;}
+
+.basic{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.basic> :nth-child(2){
+    margin-left: 20px;
+    color: rgb(95, 0, 129);
+}
+
+.frist{
+    display: flex;
+}
+span{
+    color: rgb(95, 0, 129);
+}
+
+.itemImage{
+    display: inline-block;
+    justify-content: center;
+}
+.itemImage2{
+    display: inline-block;
+}
+
+li {
+    list-style: none;
+    }
+
+img {
+    width: 180px;
+    height:180px;
+}
+
+.real-upload {
+    display: none;
+ }
+
+.upload {
+    width: 180px;
+    height: 180px;
+    background-color: antiquewhite;
+ }
+
+.image-preview {
+    width: 100px;
+    height: 180px;
+    display: flex;
+    gap: 20px;
+    padding: 0 10px 0;
+}
+#ex{
+    color:rgb(52, 152, 219);
 }
