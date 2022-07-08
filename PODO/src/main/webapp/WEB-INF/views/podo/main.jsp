@@ -30,7 +30,7 @@
         <div class="slide1"><img src="resources/images/banner1.png"></div>
         <div class="slide2"></div>
         <div class="slide3"></div>
-        <div class="slide4"></div>
+        
         <!-- <div id="angel">
            <a> <i class="fa-solid fa-angle-left"></i></a>
            <a> <i class="fa-solid fa-angle-right"></i></a>
