@@ -22,7 +22,7 @@
     <jsp:include page="/WEB-INF/views/podo/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/podo/member/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
 
 
     <!-- 오른쪽 마이페이지 상단  -->
@@ -92,7 +92,7 @@
     
     </main>
 
-     <!-- footer include -->
+    <!-- footer include -->
     <jsp:include page="/WEB-INF/views/podo/footer.jsp" />
 
     <!-- jQuery 라이브러리 추가 -->

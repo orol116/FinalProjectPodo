@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@
     <jsp:include page="/WEB-INF/views/podo/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/podo/member/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
     
     <!-- 본문 영역 -->
     <section class="myPage-inner">
