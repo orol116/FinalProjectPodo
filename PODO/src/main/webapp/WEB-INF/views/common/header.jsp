@@ -10,7 +10,7 @@
 
     
     <div id="top">
-        <a href="${contextPath}/member/login">로그인
+        <a href="${contextPath}/member/member-login">로그인
         <a href="${contextPath}/member/signUp">회원가입
         <a href="#">고객센터
     </div>
@@ -28,7 +28,7 @@
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
         <section class="right-header">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
+            <button class="button" onclick = "location.href = '${contextPath}/member/member-upload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-house-user"></i> 내상점</button>   
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
         </section>
