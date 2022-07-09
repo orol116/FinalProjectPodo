@@ -26,7 +26,7 @@
 
         <div id="login-contaioner">
             <h3>로그인</h3>
-            <form action="/member/login" method="POST" name="login-form" id="login-form">
+            <form action="/member/member-login" method="POST" name="login-form" id="login-form">
                 <fieldset id="login-area">
 
                     <section>
