@@ -14,8 +14,9 @@
 </head>
 
 <body>
-    <main>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+
+    <main>
         
         <!--  jsp:include 태그
             다른 jsp파일의 내용을 해당 위치에 포함시킴 
@@ -37,35 +38,21 @@
         </div> -->
     </div>
 
-    <section class="items">
-        <h2>이번주 상품 추천</h2>
+    <section>
+        <div id="itmes"><h2 style="margin:0;">이번주 상품 추천</h2></div>
         <div>
             <div>
                 <div class="frame">
-                    <%-- <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> --%>
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지2">
+                                <img src="resources/images/items/image1.jpg"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
-                                <div class="title2">상품</div>
+                                <div class="title2">선크림</div>
                                 <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
+                                    <div class="price">5,000원</div>
+                                    <div class="time">2일 전</div>
                                 </div>
                             </div>
                         </a>
@@ -73,13 +60,13 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지3">
+                                <img src="resources/images/items/image2.jpg"  alt="상품 이미지2">
                             </div>   
                             <div class="title1">
-                                <div class="title2">상품</div>
+                                <div class="title2">OLIVIA-BURTON 손목 시계</div>
                                 <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
+                                    <div class="price">10,000원</div>
+                                    <div class="time">30분 전</div>
                                 </div>
                             </div>
                         </a>
@@ -87,13 +74,13 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지4">
+                                <img src="resources/images/items/image3.jpg"  alt="상품 이미지3">
                             </div>   
                             <div class="title1">
-                                <div class="title2">상품</div>
+                                <div class="title2">갤럭시21 폰케이스</div>
                                 <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
+                                    <div class="price">3,000원</div>
+                                    <div class="time">1시간 전</div>
                                 </div>
                             </div>
                         </a>
@@ -101,13 +88,27 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#" alt="상품 이미지5">
+                                <img src="resources/images/items/image4.jpg"  alt="상품 이미지4">
                             </div>   
                             <div class="title1">
-                                <div class="title2">상품</div>
+                                <div class="title2">삼성 버즈 케이스</div>
                                 <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
+                                    <div class="price">8,000원</div>
+                                    <div class="time">3시간 전</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="#" class="title">
+                            <div class="image">
+                                <img src="resources/images/items/image5.jpg" alt="상품 이미지5">
+                            </div>   
+                            <div class="title1">
+                                <div class="title2">CARMEX 립밤</div>
+                                <div class="name2">
+                                    <div class="price">500원</div>
+                                    <div class="time">30일 전</div>
                                 </div>
                             </div>
                         </a>
