@@ -35,7 +35,7 @@ footer{
 
 
 .frist{
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
@@ -48,22 +48,22 @@ footer{
 
 }
 .second{
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 5px;
 }
 
 .third{
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 5px;
 
 }
 .fourth{
     margin-top: 20px;
-    font-size: 13px;
+    font-size: 15px;
 }
 .fifth{
     margin-top: 20px;
-    font-size: 13px;
+    font-size: 15px;
 }
 a{
     text-decoration: none;
