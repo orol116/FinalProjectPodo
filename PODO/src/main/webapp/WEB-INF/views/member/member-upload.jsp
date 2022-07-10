@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<jsp:include page="/WEB-INF/views/podo/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <div class="top-menu">
         <nav id="mainMenu">
@@ -205,7 +205,7 @@
             <ul class="second">
                 <li>
                     <section class="price">
-                        <input id="search2" type="text" placeholder="숫자만 입력해주세요."  minlength="2" >원&nbsp;
+                        <input id="search2" type="number" placeholder="숫자만 입력해주세요."  minlength="2" >원&nbsp;
                     </section>
                 </li>
             </ul> 
@@ -242,6 +242,10 @@
 
       </form>
     </main>
+    
+         <!-- footer include -->
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../../js/member-upload.js"></script>
     
