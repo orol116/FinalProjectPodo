@@ -1,0 +1,71 @@
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {font-family: "NanumSquareRound";}
+
+*{box-sizing: border-box;}
+
+
+footer{
+    height: 250px;
+    width: 1400px;
+    margin: auto;
+
+    background-color:rgba(211, 211, 211, 0.192) ;
+    font-size: 10px;
+}
+
+#footer{
+    display: flex;
+    justify-content: center;
+    margin: 0 200px  0;
+}
+
+/* 왼쪽 */
+#footer1{
+    justify-self: start;
+    flex-basis: 100%;
+    margin: 60px 0 0;
+
+}
+
+
+.frist{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* 오른쪽  */
+
+#footer2{
+    justify-self: end;
+    flex-basis: 70%;
+    margin: 80px 0 0;
+
+}
+.second{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.third{
+    font-size: 20px;
+    margin-bottom: 5px;
+
+}
+.fourth{
+    margin-top: 20px;
+    font-size: 13px;
+}
+.fifth{
+    margin-top: 20px;
+    font-size: 13px;
+}
+a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.694);
+}
