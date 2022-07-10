@@ -10,6 +10,7 @@
     <title>PODO 상품등록</title>
 
     <link rel="stylesheet" href="resources/css/header-style.css">
+    <link rel="stylesheet" href="resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="resources/css/main-style.css">
 </head>
 
@@ -66,9 +67,8 @@
                 </li>
                 <ul class="second">
                     <li>
-                        <section class="mid-header">
-                        <input id="search2" type="text" placeholder="상품명 입력">
-                        
+                        <section class="search1">                        
+                        <input id="search2" type="text" placeholder="상품명 입력">  
                     </li> 
                     </section>
                 </ul>
@@ -247,7 +247,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="../../js/member-upload.js"></script>
+    <script src="../../js/itemUpload.js"></script>
     
 </body>
 </html>
