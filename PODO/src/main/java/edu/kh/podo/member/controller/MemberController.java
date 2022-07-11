@@ -22,7 +22,7 @@ import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
 @RequestMapping("/member")
-@SessionAttributes({"loginMember", "message"})
+@SessionAttributes({ "loginMember", "message" })
 @Controller
 public class MemberController {
 
@@ -141,13 +141,7 @@ public class MemberController {
 	
 		return "member/itemUpload";
 	}
-	
-//	// 판매상품 업로드 페이지
-//	@GetMapping("/itemManage")
-//	public String manage() {
-//		
-//		return "member/itemManage";
-//	}
+
 	// 아이디 찾기 페이지 전환
 	@GetMapping("/findId")
 	public String fingId() {
@@ -159,4 +153,5 @@ public class MemberController {
 	public String findPw() {
 		return "/member/member-find-PW";
 	}
+
 }

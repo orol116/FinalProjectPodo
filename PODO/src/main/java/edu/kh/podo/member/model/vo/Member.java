@@ -21,5 +21,6 @@ public class Member {
 	private int memberGrape;
 	private String memberAddress;
 	private String memberTown;
+	private String createDate;
 
 }
