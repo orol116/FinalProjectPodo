@@ -33,56 +33,74 @@ public class MemberController {
 
 	
 	// 로그인 화면전환
-	@GetMapping("login")
-	public String login() {
-		return "/member/member-login";
-	}
+	   @GetMapping("/login")
+	   public String login() {
+	      return "/member/member-login";
+	   }
+	   
+	   // 로그인
+	   @PostMapping("/login")
+	   public String login(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra,
+	         HttpServletResponse resp, HttpServletRequest req,
+	         @RequestParam(value = "saveId", required = false) String saveId) {
 
-	// 로그인
-	@PostMapping("login")
-	public String login(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra,
-			HttpServletResponse resp, HttpServletRequest req,
-			@RequestParam(value = "saveId", required = false) String saveId) {
+	      logger.info("로그인 기능 수행됨");
 
-		logger.info("로그인 기능 수행됨");
+	      Member loginMember = service.login(inputMember);
 
-		Member loginMember = service.login(inputMember);
+	      String path = null;
 
-		if (loginMember != null) {
+	      if (loginMember != null) {
 
-			model.addAttribute("loginMember", loginMember);
+	         
+	         model.addAttribute("loginMember", loginMember);
 
-			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
+	         Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
 
-			if (saveId != null) {
+	         if (saveId != null) {
 
-				cookie.setMaxAge(60 * 60 * 24 * 365);
+	            cookie.setMaxAge(60 * 60 * 24 * 365);
 
-			} else {
-				cookie.setMaxAge(0);
-			}
+	         } else {
+	            cookie.setMaxAge(0);
+	         }
 
-			cookie.setPath(req.getContextPath());
-			
-			resp.addCookie(cookie);
-		} else {
-			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-		}
+	         cookie.setPath(req.getContextPath());
+	         
+	         resp.addCookie(cookie);
+	         path = "/";
+	         
+	      } else {
+	         path = "/member/login";
+	         ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 
-		return "redirect:/";
-	}
+	      }
+
+	      return "redirect:" + path;
+	   }
+	   
+	   
+	   // 로그아웃
+	   @GetMapping("/logout")
+	   public String logout(SessionStatus status) {
+	      
+	      logger.info("로그아웃 수행됨");
+	      
+	      status.setComplete();
+	      
+	      return "redirect:/";
+	   }
+	   
+	   
+	   // 회원가입
+	   @GetMapping("/signUp")
+	   public String signUp() {
+	      
+	      return "/member/signUp";
+	   }
+	   
+	   
 	
-	
-	// 로그아웃
-	@GetMapping("/logout")
-	public String logout(SessionStatus status) {
-		
-		logger.info("로그아웃 수행됨");
-		
-		status.setComplete();
-		
-		return "redirect:/";
-	}
 	
 		
 		// 판매상품 업로드 페이지

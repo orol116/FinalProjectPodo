@@ -11,6 +11,7 @@
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/member/login.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 
     <title>login</title>
 </head>
@@ -19,10 +20,7 @@
 <body>
     <main>
 
-        <header>
-            header
-
-        </header>
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
         <div id="login-contaioner">
             <h3>로그인</h3>
@@ -61,12 +59,9 @@
             </section>
         </div>
 
-        <footer>
-            footer
-
-        </footer>
-
     </main>
+
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script type="text/javascript">
 
