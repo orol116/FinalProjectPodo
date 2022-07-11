@@ -35,6 +35,11 @@ public class MemberController {
 	public String login() {
 		return "/member/member-login";
 	}
+	
+	@GetMapping("/loginNaver")
+	public String loginNaver() {
+		return "/member/naver-login";
+	}
 
 	// 로그인
 	@PostMapping("/login")
@@ -87,12 +92,51 @@ public class MemberController {
 		return "redirect:/";
 	}
 
-	// 회원가입
+	// 회원가입 페이지 전환
 	@GetMapping("/signUp")
 	public String signUp() {
 
 		return "/member/signUp";
 	}
+	
+	// 아이디 중복확인 
+	@GetMapping("/DupliCheckId")
+	public String DupliCheckId() {
+		return "";
+	}
+	
+	// 로그인 중복확인
+	@GetMapping("DupliCheckPw")
+	public String DupliCheckPw() {
+		return "";
+	}
+	
+	// 회원가입
+	@PostMapping("/signUp")
+	public String SignUp(Member inputMember,
+						 String memberAddress[],
+						 RedirectAttributes ra) {
+		
+		int result = service.signUp(inputMember);
+		
+		String path = null;
+		String message = null;
+		
+		if(result > 0) {
+			
+			path = "/";
+			ra.addFlashAttribute("message" , "회원가입이 완료되었습니다.");
+		
+		} else {
+			
+			path = "/signUp";
+			ra.addFlashAttribute("message", "회원가입 실패");
+		}
+		
+		return "redirect:/";
+	}
+	
+	
 
 	// 판매상품 업로드 페이지
 	@PostMapping("/member-upload")
