@@ -44,7 +44,7 @@
             <div>
                 <div class="frame">
                     <div class="box">
-                        <a href="#" class="title">
+                        <a href="${contextPath}/item/detail" class="title">
                             <div class="image">
                                 <img src="resources/images/items/image1.jpg"  alt="상품 이미지1">
                             </div>   
