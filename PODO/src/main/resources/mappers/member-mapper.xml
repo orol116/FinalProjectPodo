@@ -24,4 +24,6 @@
 		WHERE MEMBER_ID = #{memberId}
 		AND SECESSION_FL = 'N'	
 	</select>
+	
+	
 </mapper>

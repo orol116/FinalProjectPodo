@@ -1,6 +1,10 @@
 package edu.kh.podo.board.itemBoard.controller;
 
+import java.net.http.HttpRequest;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.vo.Member;
 
 @Controller
@@ -30,11 +36,18 @@ public class ItemBoardController {
 	
 	@PostMapping("/write")
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
-							@RequestParam Map<String,Object> itemMap
-							) {
+							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
+							ItemBoard item,
+							HttpServletRequest req) {
 		
 		
+		item.setMemberNo(loginMember.getMemberNo());
 		
+		String webPath = "/resources/images/item";
+		
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
 		
 		return null;
 	}

@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.google.gson.Gson;
 
 import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
@@ -40,6 +43,22 @@ public class MemberController {
 	@GetMapping("/loginNaver")
 	public String loginNaver() {
 		return "/member/naver-login";
+	}
+	
+	
+	@ResponseBody
+	@PostMapping("/loginNaver")
+	public String loginNaverSelect(Member inputMember) {
+		
+		Member loginMember = service.login(inputMember);
+		
+		if(loginMember !=null) {
+			
+		}else {
+			
+		}
+		
+		return new Gson().toJson(null);
 	}
 
 	// 로그인

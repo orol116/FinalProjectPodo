@@ -27,4 +27,6 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+
+
 }

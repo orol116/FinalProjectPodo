@@ -42,7 +42,7 @@
                 </div>
                 <ul class="second">
                 <li style="display: flex;">
-                    <input type="file" class="real-upload" accept="image/*" required multiple>
+                    <input type="file" class="real-upload" accept="image/*" name="images" required multiple>
                     <div class="upload"><img src="../../images/image.png"></div>
                     <ul class="image-preview"></ul>
                 </li>  
