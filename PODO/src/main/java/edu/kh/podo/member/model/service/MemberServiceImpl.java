@@ -17,26 +17,44 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
-	
+
 	private Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
-	
+
 	// 로그인 service 구현
 	@Override
 	public Member login(Member inputMember) {
-		
+
+		logger.info(inputMember.getMemberPw() + " / " + bcrypt.encode(inputMember.getMemberPw()));
+
 		Member loginMember = dao.login(inputMember);
-		
-		/*
-		 * if(loginMember != null) {
-		 * 
-		 * 
-		 * 
-		 * }
-		 */
-		
+
+		if (loginMember != null) {
+
+			if (bcrypt.matches(inputMember.getMemberPw(), loginMember.getMemberPw()))
+				;
+			{
+
+				loginMember.setMemberPw(null);
+			}
+
+		} else {
+			loginMember = null;
+		}
+
 		return loginMember;
 	}
 
-	
+	// 회원가입 service 구현
+	@Override
+	public int signUp(Member inputMember) {
+
+		String encPw = bcrypt.encode(inputMember.getMemberPw());
+
+		inputMember.setMemberPw(encPw);
+
+		int result = dao.signUp(inputMember);
+
+		return result;
+	}
 
 }
