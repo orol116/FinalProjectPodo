@@ -9,11 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/signUp.css">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-
-=======
->>>>>>> origin/YJB
 
     <title>signUp</title>
 </head>

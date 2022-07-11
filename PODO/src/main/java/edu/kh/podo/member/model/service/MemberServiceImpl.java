@@ -37,6 +37,20 @@ public class MemberServiceImpl implements MemberService {
 		return loginMember;
 	}
 
+	// 회원가입 service 구현
+	@Override
+	public int signUp(Member inputMember) {
+		
+		String encPw = bcrypt.encode( inputMember.getMemberPw());
+		
+		inputMember.setMemberPw(encPw);
+		
+		int result = dao.signUp(inputMember);
+		
+		return result;
+	}
+
+	
 	
 
 }
