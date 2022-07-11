@@ -1,0 +1,159 @@
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {font-family: "NanumSquareRound";}
+
+*{box-sizing: border-box;}
+
+body{
+    width: 1400px;
+    margin: auto;
+}
+/* 첫번째 메뉴 */
+.top-menu{
+    width: 1400px;
+    border-bottom: 1px solid lightgray ;
+    border-top: 1px solid lightgray;
+}
+
+#mainMenu{    
+    display: flex;
+    height: 50px;
+    font-size: 15px;
+    align-items: center;
+}
+#mainMenu>a{
+    text-decoration: none;
+    padding: 8px;
+    color: black;
+     font-weight:8px ;
+}
+#mainMenu>:nth-child(2){
+    font-weight: 600;
+    color: rgb(95, 0, 129);
+}
+#mainMenu>a:hover{
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(95, 0, 129);
+}
+.basic1{
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    height: 140px;
+    font-size: 20px;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+}
+.basic> :nth-child(2){
+    margin-left: 20px;
+    color: rgb(95, 0, 129);
+}
+.basic{
+    margin-right: 20px;
+}
+.search1{
+    flex-basis: 30%;
+    width: 450px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1.5px solid lightgray;
+    border-radius: 3px;
+    padding-left: 12px ;
+}
+
+/* 카테고리 */
+select {
+    /* flex-basis: 10%; */
+    width: 110px;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 15px;
+    margin-right: 20px;
+}
+table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+#head{
+    border-bottom: 1px solid lightgray;
+}
+tbody>tr{
+    border-bottom: 1px solid lightgray;
+    height: 200px;
+}
+
+/* tbody */
+img{
+    height: 180px;
+    width: 180px;
+}
+#name{
+    color: green;
+    font-size: 18px;
+}
+
+.choice{
+    display: flex;
+    flex-direction: column;    
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 12rem;
+}
+.choice>button{
+    margin-bottom: 10px;
+    
+}
+.choice>button:hover{
+    cursor: pointer;
+}
+
+.choice1{
+    background-color: white;
+    font-size: 17px;
+    color: rgb(255, 80, 88);
+    padding: 1.5px 7px 1.5px;
+}
+.choice2{
+    background-color: white;
+    padding: 3px;
+    border: 1px solid black;
+    font-size: 17px;
+    color: green;
+}
+
+
+/* 페이지 */
+.pagination{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  .pagination a.active {
+    background-color: rgb(95, 0, 129);
+    color: white;
+  }
+
+  .pagination a:hover:not(.active) {background-color: #ddd;}

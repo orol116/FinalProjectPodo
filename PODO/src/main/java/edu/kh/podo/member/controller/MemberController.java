@@ -37,7 +37,7 @@ public class MemberController {
 	public String login() {
 		return "/member/member-login";
 	}
-	
+
 	// 로그인
 	@PostMapping("/login")
 	public String login(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra,
@@ -89,5 +89,10 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	
+		
+		// 판매상품 업로드 페이지
+		@PostMapping("/member-upload")
+		public String upload() {
+			return "member/member-upload";
+		}
 }
