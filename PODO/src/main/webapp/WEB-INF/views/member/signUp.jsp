@@ -22,11 +22,8 @@
 <body>
     <main>
 
-<<<<<<< HEAD
-        <jsp:include page="/WEB-INF/views/podo/header.jsp" />
-=======
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
->>>>>>> origin/YJB
+
 
         <div id="contaioner">
             <h3>회원가입</h3>
@@ -78,10 +75,8 @@
 
     </main>
     
-    
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <jsp:include page="/WEB-INF/views/podo/footer.jsp" />
     
 </body>
 </html>
