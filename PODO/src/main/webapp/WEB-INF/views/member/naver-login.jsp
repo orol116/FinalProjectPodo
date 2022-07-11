@@ -36,11 +36,11 @@
        const contextPath = "${contextPath}";
 
         $.ajax({
-            url:contextPath+"/login",
+            url:contextPath+"/member/",
             type: "POST",
             data:{"memberEmail":naver_id_login.getProfileData('email')},
             success : function(){
-
+                
             },
             error: function(){
 
