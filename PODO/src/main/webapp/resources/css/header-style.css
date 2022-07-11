@@ -29,11 +29,12 @@ header{
     /*margin-top: 15px; */
 }
 #top{
+    top: 0;
     width: 1400px;
     position: fixed;
     display: flex;
     justify-content: flex-end;
-    z-index: 20;
+    z-index: 3;
     flex-basis: 100%;
 }
 #top>a:hover{
@@ -131,7 +132,7 @@ section>button>.fa-solid{
    margin: 5px 5px 5px;
    
 }
-.right-header*{
+.right-header{
     border: 0;
     outline: 0;
     background-color: white;

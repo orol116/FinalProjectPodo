@@ -1,11 +1,13 @@
 package edu.kh.podo.member.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.dao.MyPageDAO;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -44,6 +46,12 @@ public class MyPageServiceImpl implements MyPageService {
 		if (bcrypt.matches(loginMember.getMemberPw(), nowPw)) return dao.secession(loginMember.getMemberNo());
 		
 		return 0;
+	}
+
+	// 찜 상품 조회
+	@Override
+	public List<ItemBoard> selectFavorList(int memberNo) {
+		return dao.selectFavorList(memberNo);
 	}
 	
 	

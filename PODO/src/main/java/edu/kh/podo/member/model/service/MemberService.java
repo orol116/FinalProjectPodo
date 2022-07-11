@@ -16,6 +16,13 @@ public interface MemberService {
 
 
 	
+	/** 회원가입 service
+	 * @param inputMember
+	 * @return
+	 */
+	int signUp(Member inputMember);
+
+	
 
 
 }
