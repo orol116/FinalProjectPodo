@@ -61,11 +61,7 @@
 
     </main>
 
-<<<<<<< HEAD
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-=======
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
->>>>>>> origin/YJB
 
     <script type="text/javascript">
 
