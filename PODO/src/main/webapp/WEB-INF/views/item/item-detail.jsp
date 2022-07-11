@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,24 +9,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../css/header-style.css">
-    <link rel="stylesheet" href="../../css/member/itemManage.css">
-    <link rel="stylesheet" href="../../css/main-style.css">
-    <link rel="stylesheet" href="../../css/item-detail.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/item-detail.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>find-ID</title>
+    <title>상품 상세페이지</title>
 </head>
 
 
 <body>
     <main>
 
-        <header>
-            header
-
-        </header>
-
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
             
         <div id="contaioner">
             <!-- body 전체 div -->
@@ -36,7 +36,7 @@
 
 
                 <section id="item-detail-head">
-                    <image id="item-image" src="../images/logo.png"  alt="상품 이미지"></image>
+                    <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
                     <div id="item-info">
                         <div id="item-title">상품 제목</div>
                         <div id="item-price">20000원</div>
@@ -79,7 +79,7 @@
                 <section id="seller-items">
 
                     <div class="box">
-                        <a href="../images/logo.png" class="title">
+                        <a href="${contextPath}/resources/images/logo.png" class="title">
                             <div class="image">
                                 <img src="#"  alt="상품 이미지1">
                             </div>   
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="box">
-                        <a href="../images/logo.png" class="title">
+                        <a href="${contextPath}/resources/images/logo.png" class="title">
                             <div class="image">
                                 <img src="#"  alt="상품 이미지1">
                             </div>   
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="box">
-                        <a href="../images/logo.png" class="title">
+                        <a href="${contextPath}/resources/images/logo.png" class="title">
                             <div class="image ">
                                 <img src="#"  alt="상품 이미지1">
                             </div>   
@@ -124,7 +124,7 @@
                     </div>
 
                     <div class="box">
-                        <a href="../images/logo.png" class="title">
+                        <a href="${contextPath}/resources/images/logo.png" class="title">
                             <div class="image">
                                 <img src="#"  alt="상품 이미지1">
                             </div>   
@@ -140,7 +140,7 @@
 
 
                     <div class="box">
-                        <a href="../images/logo.png" class="title">
+                        <a href="${contextPath}/resources/images/logo.png" class="title">
                             <div class="image">
                                 <img src="#"  alt="상품 이미지1">
                             </div>   
@@ -289,11 +289,7 @@
 
         </div>
 
-
-        <footer>
-            footer
-
-        </footer>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     </main>
 
