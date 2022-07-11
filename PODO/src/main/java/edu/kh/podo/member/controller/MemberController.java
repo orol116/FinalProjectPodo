@@ -135,6 +135,13 @@ public class MemberController {
 		return "redirect" + path;
 	}
 
+	// 판매관리 페이지
+	@GetMapping("/itemUpload")
+	public String upload() {
+	
+		return "member/itemUpload";
+	}
+
 	// 아이디 찾기 페이지 전환
 	@GetMapping("/findId")
 	public String fingId() {
@@ -145,20 +152,6 @@ public class MemberController {
 	@GetMapping("/findPw")
 	public String findPw() {
 		return "/member/member-find-PW";
-	}
-
-	// 판매관리 페이지
-	@GetMapping("/itemUpload")
-	public String upload() {
-
-		return "member/itemUpload";
-	}
-
-	// 판매상품 업로드 페이지
-	@GetMapping("/itemManage")
-	public String manage() {
-
-		return "member/itemManage";
 	}
 
 }
