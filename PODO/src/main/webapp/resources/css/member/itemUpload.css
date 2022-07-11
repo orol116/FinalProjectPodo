@@ -1,0 +1,327 @@
+*{box-sizing: border-box;}
+main{
+    display: block;
+    width: 1400px;
+}
+body>div>a*{
+    text-decoration: none;
+}
+/* 첫번째 메뉴 */
+.top-menu{
+    width: 1400px;
+    border-bottom: 1px solid lightgray ;
+    border-top: 1px solid lightgray;
+}
+
+#mainMenu{    
+    display: flex;
+    height: 50px;
+    font-size: 15px;
+    align-items: center;
+}
+#mainMenu>a{
+    text-decoration: none;
+    padding: 8px;
+    color: black;
+     font-weight:8px ;
+}
+#mainMenu>:nth-child(1){
+    font-weight: 600;
+    color: rgb(95, 0, 129);
+}
+#mainMenu>a:hover{
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(95, 0, 129);
+}
+
+
+/* 기본정보 section */
+.basic2{
+    list-style:none;
+    padding: 0 20px 10px ;
+}
+
+.basic{
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    height: 140px;
+    font-size: 20px;
+}
+.basic> :nth-child(2){
+    margin-left: 20px;
+    color: rgb(95, 0, 129);
+}
+
+.frist{
+    display: flex;
+}
+span{
+    color: rgb(95, 0, 129);
+}
+/* 상품이미지 */
+.title{
+    display: inline-block;
+    justify-content: center;
+
+    width: 130px;
+}
+.itemImage2{
+    display: inline-block;
+}
+
+li {
+    list-style: none;
+    }
+
+img {
+    width: 180px;
+    height:180px;
+}
+
+.real-upload {
+    display: none;
+ }
+
+.upload {
+    width: 180px;
+    height: 180px;
+    background-color: antiquewhite;
+ }
+
+.image-preview {
+    width: 100px;
+    height: 180px;
+    display: flex;
+    gap: 20px;
+    padding: 0 10px 0;
+}
+#ex{
+    color:rgb(52, 152, 219);
+    font-size: 13px;
+    padding: 18px;
+}
+/* 제목 */
+.basic2{
+    display: flex;
+    justify-content: left;
+    border-bottom: 1px solid lightgray ;
+    height: 90%;
+}
+.search1{
+    width: 500px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1.5px solid lightgray;
+    border-radius: 3px;
+    padding-left: 12px ;
+}
+#search2 {
+    border: none;
+    flex-basis: 100%;
+    font-size: 90%;
+
+    appearance: none;
+
+}
+#search2:focus{
+    outline: none;
+}
+#button{
+    padding-left:10px ;
+    font-size: 20px;
+    border: 0;
+    background-color: white;
+    color: #5f0081;
+    padding-right:8px ;
+}
+#button:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* 카테고리 */
+#category{
+    width: 250px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    overflow-x: hidden;
+    border: 1px solid rgba(195, 194, 204, 0.781);
+}
+.select{
+    width: 250px;
+    height: 100%;
+    padding: 6px 1.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: 0px;
+    font-size: 16px;
+    display: flex;
+    justify-content:left;
+    padding: 5px;
+    font-size: 100%;
+
+}
+.select:hover{
+    height: 100%;
+    background-size:length 200px ;
+    background-color:rgba(195, 194, 204, 0.288);
+}
+
+.category1-1{
+    padding: 0 !important;
+    margin-left: 5px;
+}
+#category3{
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+}
+#category4{
+    color: #5f0081;
+}
+#category5{
+    color: #5f0081;
+}
+
+/* 거래지역 */
+.place{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.place>button{
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+    background-color: white;
+    border: 1px solid rgba(195, 194, 204, 0.781);
+    font-size: 80%;
+}
+.place>button:hover{
+    background-color:rgba(195, 194, 204, 0.288);
+    cursor: pointer;
+}
+.placeResult{
+    width: 700px;
+    height: 40px;
+    background-color: rgba(195, 194, 204, 0.288);
+    border: 1px solid rgba(195, 194, 204, 0.781);
+    display: flex;
+    align-items: center;
+    font-size:  90%;
+    font-synthesis: none;
+    margin:   10px  0; 
+    padding-left: 10px;
+    outline: none;
+}
+.place2{
+    padding: 10px 0;
+}
+/* 상태 */
+/* [라디오 버튼 커스텀 스타일 변경 실시] */
+input[type='radio'] {
+    -webkit-appearance:none;
+    width:15px;
+    height:15px;
+    /* [라디오 버튼 테두리 색상 정의] */
+    border:1px solid darkgray;
+    border-radius:50%;
+    outline:none;
+    /* [라디오 버튼 배경 색상 정의] */
+    background:#ffffff;
+}
+input[type='radio']:before {
+    /* [content null 설정해서 커스텀 지정] */
+    content:'';
+    display:block;
+    width:60%;
+    height:65%;
+    margin: 13% auto;
+    border-radius:50%;  
+}
+input[type='radio']:checked:before {
+    /* [라디오 버튼이 클릭 되었을 경우 내부 원형 색상] */
+    background:#5f0081;
+}
+
+/* 가격 */
+.price{
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    padding-left: 12px ;
+    font-size: 90%;
+}
+
+/* 설명 */
+.info{
+    width: 1000px;
+    height: 170px;
+    
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 0  12px 0 ;
+    margin-bottom: 16px;
+}
+/* .info2{
+    
+    width: 1000px;
+    height: 200px;
+    border: none;
+    resize: none;
+} */
+
+textarea {
+    width: 100%;
+    height: 95%;
+    border: none;
+    resize: none;
+    font-size: 90%;
+    margin: 3px;
+  }
+textarea:focus{
+    outline: none;   
+}
+#inform{
+    padding: 0;
+    display: flex;
+    justify-content: end;
+}
+
+/* 등록버튼 */
+.submit{
+    width: 1400px;
+    height: 60px;
+    position: sticky;
+    display: flex;
+    justify-content: end;
+    align-content: center;
+    padding: 5px 20px 10px;
+    bottom: 0;
+    right: 50px;
+    z-index: 1;
+    background-color: white;
+
+}
+
+.submit2{
+    width: 70px;
+    height: 30px;
+    background-color: #5f0081;
+    color: white;
+    border: 0;
+    font-size: 15px;
+}

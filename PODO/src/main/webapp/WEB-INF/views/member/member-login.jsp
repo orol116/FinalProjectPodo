@@ -24,7 +24,11 @@
 
         <div id="login-contaioner">
             <h3>로그인</h3>
+<<<<<<< HEAD
             <form action="login" method="POST" name="login-form" id="login-form">
+=======
+            <form action="/member/member-login" method="POST" name="login-form" id="login-form">
+>>>>>>> origin/LSH
                 <fieldset id="login-area">
 
                     <section>
