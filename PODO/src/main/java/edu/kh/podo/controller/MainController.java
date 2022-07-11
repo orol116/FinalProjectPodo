@@ -9,6 +9,6 @@ public class MainController {
 	@RequestMapping("/main")
 	public String mainForward() {
 	
-		return "podo/main";
+		return "common/main";
 	}
 }

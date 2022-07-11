@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>찜 상품 조회</title>
+
+    <link rel="stylesheet" href="../css/main-style.css">
+    <link rel="stylesheet" href="../css/sideMenu.css">
+</head>
+<body>
+
+    <!-- header -->
+    <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
+    <header>
+        <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+        
+        <div id="top">
+            <a href="#">로그인  
+            <a href="#">회원가입
+            <a href="#">고객센터
+        </div>
+
+        <div id="header">
+            <section id="menu"> 
+                <i class="fa-solid fa-bars"></i>
+                <a href="${contextPath}" >
+                    <img src="../images/logo.png" id="home-logo">
+                </a>
+            </section>
+            
+            <section class="mid-header">
+                <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
+                <a id="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </section>
+            <section class="right-header">
+                <i class="fa-regular fa-bell" href="#"></i>
+                <i class="fa-regular fa-basket-shopping" href="#"></i>      
+                <i class="fa-regular fa-message" href="#"></i>
+            </section>
+        </div>
+    </header>
+
+    <!-- 사이드 메뉴 -->
+    <section class="left-side">
+    
+        <ul class="list-group">
+    
+            <li class="myPage-title">마이페이지</li>
+                
+            <li class="myPage-subTitle"><a href="${contextPath}/#">판매 상품 관리</a></li>
+            <li class="myPage-subTitle"><a href="${contextPath}/#">내 상점 조회</a></li>
+            <li class="myPage-subTitle"><a href="${contextPath}/#">내 후기 조회</a></li>
+            <li class="myPage-subTitle"><a href="${contextPath}/#">찜 상품 조회</a></li>
+            <li class="myPage-subTitle"><a href="${contextPath}/#">회원 정보 수정</a></li>
+
+        </ul>
+    </section>
+    
+    <!-- 본문 영역 -->
+    <section class="myPage-inner">
+            
+        <section class="myPage-main">
+            
+            <h1 class="myPage-title">찜 상품 조회</h1>
+
+            <!-- 찜 상품 카운트 -->
+            <div class=""> <!-- 찜 카운트 영역 -->
+                <div>
+                    <span class="">1</span>
+                </div>
+            </div>
+
+            <div class="sc-bvCTgw SyBxk">
+                <div class="sc-fjdPjP jZZOuP">
+                    <div class="sc-ePAWwb bsiWvw">
+                        <div class="sc-gQNndl dvXqvQ">
+
+                        </div>
+
+                        <button class="">선택삭제</button>
+
+                    </div>
+                    <div class="sc-fObBmV hTeIle">
+                        <a class="">최신순</a>
+                        <a class="">찜많은순</a>
+                        <a class="">저가순</a>
+                        <a class="">고가순</a>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="">
+                        <a class="" href="/products/158369581?ref=%EC%B0%9C">
+                            <div class="">
+                                <div class="">
+
+                                </div>
+                            </div>
+                            <div class="">
+                                <img src="https://media.bunjang.co.kr/product/158369581_1_1625460009_w268.jpg" alt="상품 이미지">
+                                <div class="">
+                                    <div class="">(삽니다) 젠틀몬스터 파파스 블랙 색상 삽니다</div>
+                                    <div class="">2주 전</div>
+                                </div>
+                                <div class="">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAiCAYAAABIiGl0AAAAAXNSR0IArs4c6QAAA6xJREFUWAm1l01IVFEUx51xNAtxIcEENuQIrqTxO8OEmj5IAncVUS2E2kS0axO4C5KiFi0lXIh9QBC1kKgwclNGjaNOSUEapVRiUSHoTOo4/c743vjem/vGp8xcuHPu+Z//Of9778y9740rz0EbGxsrjsViQait9JpEIuF1uVzbGCfo0/jT2GGwx6WlpQN+vz+Gn7G5MkXD4fAOil6C047dlImrxxCfg9tVUFBwtbq6ekbHrVYpzAoLo9FoJ+QL9AJrkkN/3u12d9bW1l5hMsvWnDTh4eHh8uXl5fvMutFK3qD/jLxTDQ0Nv4z5JuHR0VH/4uLiKwjy/WWtseJPLKTZKO7Wq4dCoa1LS0tP8bMqKvURrcT0TU1NbRZfWkqYWXVrhJVI9j+bZmZmbuplk1s9NDR0GNEnOpgrKz8ydBrZ8rBHRHCur0MsCvc1Pazl1GF301PbqOFpBh3Z4Rv0oIvVBgBG01hqYKCwsPBMIBD4bAxHIpGKhYWFbrB9RtxuzDEr9yB6zI5gwV/U19cfYLvktjI1mQh19rOI5wSCpqDC4bgelaXvUcRMEGJzAO0qUZ2oxdrx53XMzsI9KMJldgQDPsgPYtLgK4fCoeigMmgA2R2fCG83YMohxCFlQAHCDSlgE8Tkytx8yDZmbHCKMxIMQSdcJueWFU8Y8pRDiA3KgAJ0yJ1wJMwqGrlSWxQ6Jkg4wjWBamfCzQzfqmOrqGwNXo/c56uoeaTFejSuOWjxmNx7KXiHwYIlpnIr4I1xVo9TPF8nyFgwiYFV6LidhZfgJaFXv6vvUeCEHVmBy7UZ0fAAds3rUq+BcD8X0SFZcR5XWJcecGhFqEnrjkW12rfEJoV5PRlgJg+1QM4MGqG6uroHKWEZsNXnCfzNmWpe3iL1z9LjJmGuux+AF3MlTO1rrDb1FExutS5GQB5tj3Q/WxbRSElJyWVjPZOwBLxe70mI8sKXrTaZn59/pLKy8p+xYJqwz+eLFhUVtUH6aCRuZMwC/tBba2pqvlnz04SFUFVV9Zsj1krSd2vCOvwYNdo4sx9UOUphIfJ9f8XsRXxclbgGNiuiHNOXdjxbYUlgtuMINzN8Y1dAgU+BtTDxfkUsBWUUFhYFfmKCTKAvlWU/kDfPJo7mO3vKSiR5V69Fkrg8DPj32IHtwE2+FhvzmFivx+M5xz/ENV8sJM+xsC4yMjKyKx6P32YC8rdE2iz9HKu8m/QcfqxbWOry7N2CkRfznZzR0/yIvjBeV/sPFdozA8TD8zUAAAAASUVORK5CYII=" width="15" height="17" alt="위치 아이콘">경기도 용인시 수지구 동천동
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </section>
+
+
+</body>
+</html>

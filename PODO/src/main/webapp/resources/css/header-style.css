@@ -25,28 +25,25 @@ body{
 }
 header{
     height: 100px;
-     width: 1400px;
+    width: 1400px;
     /*margin-top: 15px; */
 }
 #top{
+    width: 1400px;
     position: fixed;
-    left: 1400px;
     display: flex;
-    justify-content: right;
-  
-    z-index: 10;
+    justify-content: flex-end;
+    z-index: 20;
+    flex-basis: 100%;
 }
 #top>a:hover{
     text-decoration-line: underline;
 }
 #top>*{
-    
-    display: flex;
     text-decoration: none;
     color: gray;
     font-size: 14px;
-    margin-right: 12px;
-    padding: 10px 0 5px;
+    padding: 10px  10px  0 0;
 }
 
 /* 상단 메뉴 + 검색 바 */
@@ -73,7 +70,7 @@ section>.right-header{
 }
 .button{
     padding-left:10px ;
-    font-size: 20px;
+    font-size: 16px;
     border: 0;
     background-color: white;
     color: #5f0081;
@@ -90,12 +87,12 @@ section>button>.fa-solid{
 
 
 #header>section{
-    flex-basis: 33%;
+    flex-basis: 33.3%;
 }
 
 #home-logo{
-    height: 80px;
-    width: 190px;
+    height: 90px;
+    width: 230px;
     /* margin-right: 20px; */
 }
 .fa-bars{
@@ -111,12 +108,13 @@ section>button>.fa-solid{
 #search2{
     border: none;
     flex-basis: 100%;
+    font-size: 18px;
 }
 #search2:focus{
     outline: none;
 }
 .mid-header{
-    width: 400px;
+    width: 450px;
     height: 40px;
     display: flex;
     justify-content: space-between;
@@ -129,7 +127,7 @@ section>button>.fa-solid{
 .right-header{
    display: flex;
    justify-content: right;
-   align-items: center;
+   align-items: flex-end;
    margin: 5px 5px 5px;
    
 }
@@ -138,6 +136,6 @@ section>button>.fa-solid{
     outline: 0;
     background-color: white;
     color: rgb(95, 0, 129);
-    font-size:30px;
+    font-size:25px;
     margin-right: 20px;
 }

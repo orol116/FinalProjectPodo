@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,20 +30,26 @@ public class MemberController {
 
 	
 	
-	// 로그인
-	@PostMapping("/login")
-	public String login(@ModelAttribute Member inputMember 
-			, Model model
-			, RedirectAttributes ra
-			, HttpServletResponse resp 
-			, HttpServletRequest req
-			, @RequestParam(value="saveId", required = false) String saveId ) {
+		// 로그인
+		@PostMapping("/member-login")
+		public String login(@ModelAttribute Member inputMember 
+				, Model model
+				, RedirectAttributes ra
+				, HttpServletResponse resp 
+				, HttpServletRequest req
+				, @RequestParam(value="saveId", required = false) String saveId ) {
+			
+			
+			logger.info("로그인 기능 수행됨");
+			
+			Member loginMember = service.login(inputMember);
+			
+			return "redirect:/";
+		}
 		
-		
-		logger.info("로그인 기능 수행됨");
-		
-		Member loginMember = service.login(inputMember);
-		
-		return "redirect:/";
-	}
+		// 판매상품 업로드 페이지
+		@PostMapping("/member-upload")
+		public String upload() {
+			return "member/member-upload";
+		}
 }
