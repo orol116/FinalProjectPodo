@@ -22,7 +22,7 @@ import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
 @RequestMapping("/member")
-@SessionAttributes({ "loginMember", "message" })
+@SessionAttributes({"loginMember"})
 @Controller
 public class MemberController {
 
@@ -71,15 +71,15 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 
 			resp.addCookie(cookie);
-			path = "/";
+			path = "redirect:/";
 
 		} else {
-			path = "/member/login";
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			path = "redirect:/member/login";
 
 		}
 
-		return "redirect:" + path;
+		return path;
 	}
 
 	// 로그아웃
@@ -132,7 +132,7 @@ public class MemberController {
 			ra.addFlashAttribute("message", "회원가입 실패");
 		}
 
-		return "redirect:/";
+		return "redirect" + path;
 	}
 
 	// 아이디 찾기 페이지 전환
