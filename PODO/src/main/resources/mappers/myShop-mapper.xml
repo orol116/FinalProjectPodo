@@ -33,7 +33,7 @@
 		<result property="createDate" column="CREATE_DT" />
 	</resultMap>
   
-  <select id="selectMyShop" resultMap="itemBoard_rm">
+  <select id="selectMemberShop" resultMap="itemBoard_rm">
       SELECT BOARD_NO, BOARD_CONTENT, PRICE, 
           CASE WHEN SYSDATE - CREATE_DT &lt; 1
 	          THEN TO_CHAR(CREATE_DT, 'HH:MI')
@@ -45,7 +45,7 @@
 	   ORDER BY BOARD_NO
   </select>
   
-  <select id="selectReview">
+  <select id="selectMemberReview">
       SELECT REVIEW_NO, REVIEW_CONTENT, MEMBER_NICK, BOARD_TITLE
       FROM REVIEW
       JOIN MEMBER USING(MEMBER_NO)

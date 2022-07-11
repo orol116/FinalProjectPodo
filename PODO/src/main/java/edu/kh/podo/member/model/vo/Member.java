@@ -17,7 +17,7 @@ public class Member {
 	private String memberNickname;
 	private String memberTel;
 	private String secessionFlag;
-	private String profileImage;
+	private String memberProfile;
 	private int memberGrape;
 	private String memberAddress;
 	private String memberTown;

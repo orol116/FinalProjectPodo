@@ -21,7 +21,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
-@SessionAttributes({ "loginMember" })
 @RequestMapping("/member")
 @Controller
 public class MemberController {
@@ -97,7 +96,7 @@ public class MemberController {
 
 	// 판매상품 업로드 페이지
 	@PostMapping("/member-upload")
-	public String upload() {
-		return "member/member-upload";
+		public String upload() {
+			return "member/member-upload";
 	}
 }

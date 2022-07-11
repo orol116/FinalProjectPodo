@@ -10,7 +10,7 @@
 	<result property="memberNickname" 	column="MEMBER_NICK"/>
 	<result property="memberTel" 		column="MEMBER_TEL"/>
 	<result property="secessionFlag" 	column="SECESSION_FL"/>
-	<result property="profileImage" 	column="MEMBER_PROFILE"/>
+	<result property="memberProfile" 	column="MEMBER_PROFILE"/>
 	<result property="memberGrape" 		column="MEMBER_GRAPE"/>
 	<result property="memberAddress" 	column="MEMBER_ADDR"/>
 	<result property="memberTown" 		column="MEMBER_TOWN"/>

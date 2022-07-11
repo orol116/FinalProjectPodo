@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/signUp.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+
+=======
+>>>>>>> origin/YJB
 
     <title>signUp</title>
 </head>
@@ -19,9 +24,10 @@
 
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
+
         <div id="contaioner">
             <h3>회원가입</h3>
-            <form action="/member/signUp" method="POST" name="ID-form" id="signUp-form">
+            <form action="signUp" method="POST" name="ID-form" id="signUp-form">
                 <fieldset id="signUp-area">
 
                     <section>
@@ -68,7 +74,6 @@
         </div>
 
     </main>
-    
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 

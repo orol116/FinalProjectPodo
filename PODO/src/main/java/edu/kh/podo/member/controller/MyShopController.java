@@ -22,20 +22,20 @@ public class MyShopController {
 	
 	@Autowired
 	private MyShopService service;
-	
-	// 내 판매상품 조회
+
+	// 판매자 판매상품 조회
 	@ResponseBody
-	@GetMapping("/myShopMain")
-	public String myShopMain(int memberNo) {
-		List<ItemBoard> mySellList = service.selectMyShop(memberNo);
-		return new Gson().toJson(mySellList);
+	@GetMapping("/memberShopMain")
+	public String memberShopMain(int memberNo) {
+		List<ItemBoard> memberSellList = service.selectMemberShop(memberNo);
+		return new Gson().toJson(memberSellList);
 	}
 	
-	// 내 후기 조회
+	// 판매자 후기 조회
 	@ResponseBody
-	@GetMapping("/myReview")
-	public String myReview(int memberNo) {
-		List<Review> reviewList = service.selectReview(memberNo);
+	@GetMapping("/memberReview")
+	public String memberReview(int memberNo) {
+		List<Review> reviewList = service.selectMemberReview(memberNo);
 		return new Gson().toJson(reviewList);
 	}
 	
