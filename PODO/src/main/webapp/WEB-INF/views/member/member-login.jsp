@@ -20,15 +20,11 @@
 <body>
     <main>
 
-        <jsp:include page="/WEB-INF/views/podo/header.jsp" />
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
         <div id="login-contaioner">
             <h3>로그인</h3>
-<<<<<<< HEAD
             <form action="login" method="POST" name="login-form" id="login-form">
-=======
-            <form action="/member/member-login" method="POST" name="login-form" id="login-form">
->>>>>>> origin/LSH
                 <fieldset id="login-area">
 
                     <section>
@@ -65,7 +61,7 @@
 
     </main>
 
-    <jsp:include page="/WEB-INF/views/podo/footer.jsp" />
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script type="text/javascript">
 
