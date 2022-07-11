@@ -15,13 +15,13 @@ public class MyShopServiceImpl implements MyShopService {
 	@Autowired
 	private MyShopDAO dao;
 
-	// 내 판매상품 조회 Service 구현
+	// 판매자 판매상품 조회 Service 구현
 	@Override
 	public List<ItemBoard> selectMemberShop(int memberNo) {
 		return dao.selectMemberShop(memberNo);
 	}
 
-	// 내 후기 조회 Service 구현
+	// 판매자 후기 조회 Service 구현
 	@Override
 	public List<Review> selectMemberReview(int memberNo) {
 		return dao.selectMemberReview(memberNo);
