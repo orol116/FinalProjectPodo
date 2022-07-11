@@ -135,23 +135,29 @@ public class MemberController {
 		return "redirect:/";
 	}
 
-	// 판매관리 페이지
-	@GetMapping("/itemUpload")
-	public String upload() {
-	
-		return "member/itemUpload";
-	}
-
-	// 아이디 찾기 페이지 전환
-	@GetMapping("/findId")
-	public String fingId() {
-		return "/member/member-find-ID";
-	}
-
-	// 비밀번호 찾기 페이지 전환
-	@GetMapping("/findPw")
-	public String findPw() {
-		return "/member/member-find-PW";
-	}
-
-}
+			// 판매관리 페이지
+			@GetMapping("/itemUpload")
+			public String upload() {
+			
+				return "member/itemUpload";
+			}
+			// 상품관리 페이지
+			@GetMapping("/itemManage")
+			public String manage() {
+			
+				return "member/itemManage";
+			}
+		
+			// 아이디 찾기 페이지 전환
+			@GetMapping("/findId")
+			public String fingId() {
+				return "/member/member-find-ID";
+			}
+		
+			// 비밀번호 찾기 페이지 전환
+			@GetMapping("/findPw")
+			public String findPw() {
+				return "/member/member-find-PW";
+			}
+		
+		}

@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>adiminPage-controlMember</title>
 
-    <link rel="stylesheet" href="../../css/admin/controlMember.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlMember.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
@@ -15,7 +19,7 @@
     <div id="header">
         <section id="menu"> 
             <a href="main" >
-                <img src="../../images/logo.png" id="home-logo">
+                <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>
         </section>
