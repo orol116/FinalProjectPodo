@@ -65,10 +65,10 @@
 
     <script type="text/javascript">
 
-        var naver_id_login = new naver_id_login("7CM27UMDND6X1zZ8Ekqr", "http://127.0.0.1:5500/podo/PODO/src/main/webapp/resources/html/naver-login-callback.html");
+        var naver_id_login = new naver_id_login("7CM27UMDND6X1zZ8Ekqr","http://127.0.0.1:8081/podo/member/loginNaver");
         var state = naver_id_login.getUniqState();
         naver_id_login.setButton("white", 2,40);
-        naver_id_login.setDomain("http://127.0.0.1:5500/podo/PODO/src/main/webapp/resources/html/naver-login.html");
+        naver_id_login.setDomain("http://127.0.0.1:8081/podo/member/login");
         naver_id_login.setState(state);
         naver_id_login.setPopup();
         naver_id_login.init_naver_id_login();

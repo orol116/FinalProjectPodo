@@ -36,6 +36,11 @@ public class MemberController {
 	public String login() {
 		return "/member/member-login";
 	}
+	
+	@GetMapping("/loginNaver")
+	public String loginNaver() {
+		return "/member/naver-login";
+	}
 
 	// 로그인
 	@PostMapping("/login")
