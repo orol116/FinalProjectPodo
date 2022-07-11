@@ -1,7 +1,9 @@
 package edu.kh.podo.member.model.service;
 
+import java.util.List;
 import java.util.Map;
 
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.vo.Member;
 
 public interface MyPageService {
@@ -23,5 +25,11 @@ public interface MyPageService {
 	 * @return result
 	 */
 	int secession(Member loginMember);
+
+	/** 찜 상품 조회
+	 * @param memberNo
+	 * @return favorBoard
+	 */
+	List<ItemBoard> selectFavorList(int memberNo);
 
 }

@@ -9,8 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/signUp.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 
+=======
+>>>>>>> origin/YJB
 
     <title>signUp</title>
 </head>
@@ -19,7 +22,11 @@
 <body>
     <main>
 
+<<<<<<< HEAD
         <jsp:include page="/WEB-INF/views/podo/header.jsp" />
+=======
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
+>>>>>>> origin/YJB
 
         <div id="contaioner">
             <h3>회원가입</h3>
@@ -70,6 +77,9 @@
         </div>
 
     </main>
+    
+    
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <jsp:include page="/WEB-INF/views/podo/footer.jsp" />
     

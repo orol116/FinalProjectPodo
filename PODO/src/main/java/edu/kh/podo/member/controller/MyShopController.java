@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.service.MyShopService;
+import edu.kh.podo.member.model.vo.Review;
 
 @Controller
 @RequestMapping("/member/myShop")
@@ -21,20 +22,21 @@ public class MyShopController {
 	
 	@Autowired
 	private MyShopService service;
-	
-	// 내 판매상품 조회
+
+	// 판매자 판매상품 조회
 	@ResponseBody
-	@GetMapping("/myShopMain")
-	public String myShopMain(int memberNo) {
-		List<ItemBoard> mySellList = service.selectMyShop(memberNo);
-		return new Gson().toJson(mySellList);
+	@GetMapping("/memberShopMain")
+	public String memberShopMain(int memberNo) {
+		List<ItemBoard> memberSellList = service.selectMemberShop(memberNo);
+		return new Gson().toJson(memberSellList);
 	}
 	
-	// 내 후기 조회
+	// 판매자 후기 조회
 	@ResponseBody
-	@GetMapping("/myReview")
-	public String myReview() {
-		return null;
+	@GetMapping("/memberReview")
+	public String memberReview(int memberNo) {
+		List<Review> reviewList = service.selectMemberReview(memberNo);
+		return new Gson().toJson(reviewList);
 	}
 	
 }

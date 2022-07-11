@@ -19,7 +19,7 @@
     <main>
 
         <%-- header --%>
-	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+		<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
         <!-- 사이드 메뉴 -->
         <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
