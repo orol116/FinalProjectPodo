@@ -35,7 +35,7 @@ public class MemberController {
 	public String login() {
 		return "/member/member-login";
 	}
-	
+
 	@GetMapping("/loginNaver")
 	public String loginNaver() {
 		return "/member/naver-login";
@@ -98,60 +98,65 @@ public class MemberController {
 
 		return "/member/signUp";
 	}
-	
-	// 아이디 중복확인 
+
+	// 아이디 중복확인
 	@GetMapping("/DupliCheckId")
 	public String DupliCheckId() {
 		return "";
 	}
-	
+
 	// 로그인 중복확인
 	@GetMapping("DupliCheckPw")
 	public String DupliCheckPw() {
 		return "";
 	}
-	
+
 	// 회원가입
 	@PostMapping("/signUp")
-	public String SignUp(Member inputMember,
-						 String memberAddress[],
-						 RedirectAttributes ra) {
-		
+	public String SignUp(Member inputMember, String memberAddress[], RedirectAttributes ra) {
+
 		int result = service.signUp(inputMember);
-		
+
 		String path = null;
 		String message = null;
-		
-		if(result > 0) {
-			
+
+		if (result > 0) {
+
 			path = "/";
-			ra.addFlashAttribute("message" , "회원가입이 완료되었습니다.");
-		
+			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
+
 		} else {
-			
+
 			path = "/signUp";
 			ra.addFlashAttribute("message", "회원가입 실패");
 		}
-		
+
 		return "redirect:/";
 	}
-	
+
 	// 아이디 찾기 페이지 전환
 	@GetMapping("/findId")
 	public String fingId() {
 		return "/member/member-find-ID";
 	}
-	
+
 	// 비밀번호 찾기 페이지 전환
 	@GetMapping("/findPw")
 	public String findPw() {
 		return "/member/member-find-PW";
 	}
-	
+
+	// 판매관리 페이지
+	@GetMapping("/itemUpload")
+	public String upload() {
+
+		return "member/itemUpload";
+	}
 
 	// 판매상품 업로드 페이지
-	@PostMapping("/member-upload")
-		public String upload() {
-			return "member/member-upload";
+	@GetMapping("/itemManage")
+	public String manage() {
+
+		return "member/itemManage";
 	}
 }

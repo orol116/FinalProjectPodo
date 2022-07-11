@@ -59,6 +59,7 @@ body{
 }
 .basic{
     margin-right: 20px;
+    border: 1.5px solid lightgray;
 }
 .search1{
     flex-basis: 30%;
