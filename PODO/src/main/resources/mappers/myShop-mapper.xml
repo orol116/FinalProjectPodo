@@ -21,6 +21,17 @@
 		<result property="categoryNo" 	column="CATEGORY_NO"/>
 		<result property="buyMemberNo" 	column="BUY_MEMBER_NO"/>
 	</resultMap>
+	
+	<resultMap type="review" id="review_rm">
+		<id property="reviewNo" column="REVIEW_NO" />
+		
+		<result property="reviewContent" column="REVIEW_CONTENT" />
+		<result property="reviewCondition" column="REVIEW_CONDITION" />
+		<result property="secessionFlag" column="SECESSION_FL" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="createDate" column="CREATE_DT" />
+	</resultMap>
   
   <select id="selectMyShop" resultMap="itemBoard_rm">
       SELECT BOARD_NO, BOARD_CONTENT, PRICE, 
@@ -32,6 +43,14 @@
 	   WHERE MEMBER_NO = ${memberNo}
 	   AND SECESSION_FL = 'N'
 	   ORDER BY BOARD_NO
+  </select>
+  
+  <select id="selectReview">
+      SELECT REVIEW_NO, REVIEW_CONTENT, MEMBER_NICK, BOARD_TITLE
+      FROM REVIEW
+      JOIN MEMBER USING(MEMBER_NO)
+      JOIN ITEM_BOARD USING(MEMBER_NO)
+      WHERE MEMBER_NO = ${memberNo}
   </select>
   
 </mapper>

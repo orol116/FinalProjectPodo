@@ -15,7 +15,7 @@
 </head>
 <body>
     <%-- header --%>
-    <jsp:include page="/WEB-INF/views/podo/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
     <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
@@ -81,7 +81,7 @@
 
 
  	<!-- footer include -->
-    <jsp:include page="/WEB-INF/views/podo/footer.jsp" />
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

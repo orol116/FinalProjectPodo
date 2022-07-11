@@ -12,6 +12,7 @@
 		<typeAlias type="edu.kh.podo.member.model.vo.Member" alias="member"/> 
 		<typeAlias type="edu.kh.podo.member.model.vo.Note" alias="note"/> 
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.ItemBoard" alias="itemBoard"/> 
+		<typeAlias type="edu.kh.podo.member.model.vo.Review" alias="review"/> 
 	</typeAliases>
 	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
