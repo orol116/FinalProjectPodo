@@ -15,7 +15,7 @@
 </head>
 <body>
     <%-- header --%>
-	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
     <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
@@ -40,7 +40,7 @@
                     </span>           
                     
                     
-                    <span class="myPage-subexplanation2">아울러 회원 탈퇴시 아래 유의 사항을 숙지하시기 바랍니다.</span>
+                    <span class="myPage-subexplanation2">아울러 회원 탈퇴시 아래 사항을 숙지하시기 바랍니다.</span>
 
                     <div class="myPage-row info-title">
                         <label>유의 사항</label>
@@ -76,17 +76,25 @@
         </section>
 
     </section>
+        
+</section>
+
+</main>
 
 
 
+<!-- footer -->
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
- 	<!-- footer include -->
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<script>
+        const contextPath = "${contextPath}";
+</script>
 
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- jQuery 라이브러리 추가 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-
+<!-- js -->
+<script src="${contextPath}/resources/js/member/myPage.js"></script>
 
 
 </body>
