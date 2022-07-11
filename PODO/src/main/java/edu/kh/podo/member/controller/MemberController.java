@@ -95,9 +95,17 @@ public class MemberController {
 		return "/member/signUp";
 	}
 
-	// 판매상품 업로드 페이지
-	@PostMapping("/member-upload")
+	// 판매관리 페이지
+	@GetMapping("/itemUpload")
 	public String upload() {
-		return "member/member-upload";
+		
+		return "member/itemUpload";
 	}
+	
+	// 판매상품 업로드 페이지
+		@GetMapping("/itemManage")
+		public String manage() {
+			
+			return "member/itemManage";
+		}
 }
