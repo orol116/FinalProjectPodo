@@ -44,8 +44,8 @@
                     <label>   
                         <input type="checkbox" name="saveId"  id="saveId"> 아이디 저장
                     </label>
-                        <a href="#">아이디 찾기  |</a>  
-                        <a href="#">비밀번호 찾기</a>
+                        <a href="${contextPath}/member/findId">아이디 찾기  |</a>  
+                        <a href="${contextPath}/member/findPw">비밀번호 찾기</a>
                 </div>
 
             </form>

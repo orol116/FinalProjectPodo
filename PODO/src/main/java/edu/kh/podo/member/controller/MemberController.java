@@ -136,6 +136,17 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	// 아이디 찾기 페이지 전환
+	@GetMapping("/findId")
+	public String fingId() {
+		return "/member/member-find-ID";
+	}
+	
+	// 비밀번호 찾기 페이지 전환
+	@GetMapping("/findPw")
+	public String findPw() {
+		return "/member/member-find-PW";
+	}
 	
 
 	// 판매상품 업로드 페이지
