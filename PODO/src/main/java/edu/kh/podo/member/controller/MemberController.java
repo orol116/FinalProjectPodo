@@ -33,13 +33,13 @@ public class MemberController {
 
 	
 	// 로그인 화면전환
-	@GetMapping("/login")
+	@GetMapping("login")
 	public String login() {
 		return "/member/member-login";
 	}
 
 	// 로그인
-	@PostMapping("/login")
+	@PostMapping("login")
 	public String login(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra,
 			HttpServletResponse resp, HttpServletRequest req,
 			@RequestParam(value = "saveId", required = false) String saveId) {
@@ -48,13 +48,11 @@ public class MemberController {
 
 		Member loginMember = service.login(inputMember);
 
-		String path = null;
-
 		if (loginMember != null) {
 
 			model.addAttribute("loginMember", loginMember);
 
-			Cookie cookie = new Cookie(saveId, loginMember.getMemberId());
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
 
 			if (saveId != null) {
 
@@ -67,14 +65,11 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 			
 			resp.addCookie(cookie);
-
 		} else {
-
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-			path = "redirect:/";
 		}
 
-		return path;
+		return "redirect:/";
 	}
 	
 	

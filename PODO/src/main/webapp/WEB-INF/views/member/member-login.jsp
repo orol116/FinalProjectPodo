@@ -10,7 +10,7 @@
 
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link rel="stylesheet" href="../../resources/css/member/login.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/login.css">
 
     <title>login</title>
 </head>
@@ -26,7 +26,7 @@
 
         <div id="login-contaioner">
             <h3>로그인</h3>
-            <form action="/member/member-login" method="POST" name="login-form" id="login-form">
+            <form action="login" method="POST" name="login-form" id="login-form">
                 <fieldset id="login-area">
 
                     <section>

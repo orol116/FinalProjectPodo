@@ -10,7 +10,7 @@
 	<result property="memberNickname" 	column="MEMBER_NICK"/>
 	<result property="memberTel" 		column="MEMBER_TEL"/>
 	<result property="secessionFlag" 	column="SECESSION_FL"/>
-	<result property="profileImage" 	column="PROFILE_IMG"/>
+	<result property="profileImage" 	column="MEMBER_PROFILE"/>
 	<result property="memberGrape" 		column="MEMBER_GRAPE"/>
 	<result property="memberAddress" 	column="MEMBER_ADDR"/>
 	<result property="memberTown" 		column="MEMBER_TOWN"/>
@@ -19,7 +19,7 @@
 
 	<select id="login" parameterType="member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NICK, MEMBER_TEL,
-			SECESSION_FL, PROFILE_IMG, MEMBER_GRAPE, MEMBER_ADDR, MEMBER_TOWN
+			SECESSION_FL, MEMBER_PROFILE, MEMBER_GRAPE, MEMBER_ADDR, MEMBER_TOWN
 		FROM MEMBER
 		WHERE MEMBER_ID = #{memberId}
 		AND SECESSION_FL = 'N'	
