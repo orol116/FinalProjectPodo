@@ -19,7 +19,7 @@
     <main>
 
     <%-- header --%>
-	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
     <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
@@ -40,64 +40,59 @@
                     <!-- 아이디(작성 불가/변경 불가) -->
                     <div class="myPage-row">
                         <label>아이디</label>
-                        <input type="text" name="memberId" readonly>
+                        <input type="text" name="memberId" class="input_box" value="" readonly>
+                    </div>
+
+                    <!-- 닉네임 -->
+                    <div class="myPage-row">
+                        <label>닉네임</label>
+                        <input type="text" name="memberNickname" class="input_box" maxlength="10">
                     </div>
     
                     <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                     <div class="myPage-row">
                         <label>현재 비밀번호</label>
-                        <input type="password" name="memberPw" value="" id="" maxlength="20">
+                        <input type="password" name="pw" id="pw" class="input_box" maxlength="20">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호</label>
-                        <input type="password" name="newPw" value="" id="" maxlength="20">
+                        <input type="password" name="newPw" id="newPw" class="input_box" maxlength="20">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호 확인</label>
-                        <input type="password" name="newPwConfirm" value="" id="" maxlength="20">
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="20">
                     </div>
-    
-                    <!-- 휴대폰 -->
-                    <div class="myPage-row">
-                        <label>휴대폰</label>
-                        <input type="text" name="memberTel" value="" id="memberTel" maxlength="11">
-                    </div>
-                    <span class="signUp-message" id="telMessage">"-" 제외</span>
-
-                    <!-- 닉네임 -->
-                    <div class="myPage-row">
-                        <label>닉네임</label>
-                        <input type="text" name="" value="" id="" maxlength="10">
-                    </div>
-
-
 
 
                     <!-- 소셜연동? -->
                     
-
-                    <!-- 약관동의? -->
                     
 
-                    <button id="info-update-btn">탈퇴하기</button>
+                    <button type="button" id="info-update-btn" onclick="location.href='myPage-secession.jsp'">탈퇴하기</button>
                     <button id="info-update-btn">회원정보수정</button>
                 </div>
     
 
-            </form>
-
-        </section>
+        </form>
 
     </section>
+
+</section>
     
     </main>
+    
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <script>
+        const contextPath = "${contextPath}";
+    </script>
+
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-
+	<!-- js -->
+    <script src="${contextPath}/resources/js/myPage.js"></script>
 </body>
 </html>

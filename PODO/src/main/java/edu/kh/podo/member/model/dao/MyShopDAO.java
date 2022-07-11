@@ -15,7 +15,7 @@ public class MyShopDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	/** 내 판매상품 조회 DAO
+	/** 판매자 판매상품 조회 DAO
 	 * @param memberNo
 	 * @return mySellList
 	 */
@@ -23,7 +23,7 @@ public class MyShopDAO {
 		return sqlSession.selectList("myShopMapper.selectMemberShop", memberNo);
 	}
 
-	/** 내 후기 조회 DAO
+	/** 판매자 후기 조회 DAO
 	 * @param memberNo
 	 * @return reviewList
 	 */

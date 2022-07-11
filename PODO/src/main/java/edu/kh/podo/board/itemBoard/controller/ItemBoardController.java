@@ -1,5 +1,18 @@
 package edu.kh.podo.board.itemBoard.controller;
 
-public class ItemBoardController {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
+
+@Controller
+@RequestMapping("/board")
+@SessionAttributes({"loginMember"})
+public class ItemBoardController {
+	@Autowired
+	private ItemBoardService service;
+
+	
 }

@@ -9,23 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PODO 상품등록</title>
 
-    <link rel="stylesheet" href="resources/css/header-style.css">
-    <link rel="stylesheet" href="resources/css/member/itemUpload.css">
-    <link rel="stylesheet" href="resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
 </head>
 
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
+    <form action="itemUpload" method="POST" name="itemUpload" id="itemUpload">
+
     <div class="top-menu">
         <nav id="mainMenu">
-            <a href="#">상품등록</a>
-            <a href="#">상품관리</a>
+            <a href="${contextPath}/member/itemUpload">상품등록</a>
+            <a href="${contextPath}/myShop/main">상품관리</a>
             <a href="#">구매/판매 내역</a>
         </nav>
     </div>
     <main>
-        <form action="#" method="POST" id="upload">
         <div class="basic1">
             <section class="basic">
                 <h2>기본정보</h2>
@@ -43,7 +42,7 @@
                 <ul class="second">
                 <li style="display: flex;">
                     <input type="file" class="real-upload" accept="image/*" required multiple>
-                    <div class="upload"><img src="../../images/image.png"></div>
+                    <div class="upload"><img src="${contextPath}/resources/images/image.png"></div>
                     <ul class="image-preview"></ul>
                 </li>  
                 <div id="ex">
@@ -88,7 +87,7 @@
                             <div id="category1">
                                 <ul class="category1-1">
                                     <li> <button type="button" class="select" >여성의류</button></li>
-                                    <li> <button type="button" class="select" value="여성의류">남성의류</button></li>
+                                    <li> <button type="button" class="select" value="남성의류">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
                                     <li><button type="button" class="select">시계/쥬얼리</button></li>
@@ -225,8 +224,7 @@
             <ul class="second">
                 <li>
                     <div class="info">
-                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 
-                        문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)"></textarea>
+                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)"></textarea>
                         <div id="inform">
                         <small>0/1000</small>
                         </div>
@@ -236,7 +234,7 @@
         </ul>
 
         <div class="submit">
-            <button class="submit2">등록하기</button>
+            <button class="submit2" type="submit">등록하기</button>
 
         </div>
 
@@ -247,7 +245,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="../../js/itemUpload.js"></script>
+    <script src="${contextPath}/resources/js/itemUpload.js"></script>
     
 </body>
 </html>

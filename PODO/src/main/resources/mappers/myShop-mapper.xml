@@ -34,11 +34,11 @@
 	</resultMap>
   
   <select id="selectMemberShop" resultMap="itemBoard_rm">
-      SELECT BOARD_NO, BOARD_CONTENT, PRICE, 
-          CASE WHEN SYSDATE - CREATE_DT &lt; 1
-	          THEN TO_CHAR(CREATE_DT, 'HH:MI')
-	          ELSE TO_CHAR(CREATE_DT, 'YYYY-MM-DD')
-	      END CREATE_DT
+      SELECT BOARD_NO, BOARD_TITLE, PRICE, TRADE_CONDITION, ITEM_IMAGE,
+          CASE WHEN SYSDATE - UPDATE_DT &lt; 1
+	          THEN TO_CHAR(UPDATE_DT, 'HH:MI')
+	          ELSE TO_CHAR(UPDATE_DT, 'YYYY-MM-DD')
+	      END UPDATE_DT
 	   FROM ITEM_BOARD
 	   WHERE MEMBER_NO = ${memberNo}
 	   AND SECESSION_FL = 'N'
