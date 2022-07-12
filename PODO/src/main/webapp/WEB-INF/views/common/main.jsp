@@ -20,15 +20,10 @@
 
 
 	<div class="slide-list">
-<<<<<<< HEAD
         <div class="mySlides"><img src="${contextPath}/resources/images/banner1.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner2.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3.png"></div>
-=======
-        <div class="slide1"><img src="resources/images/banner1.png"></div>
-        <div class="slide2"></div>
-        <div class="slide3"></div>
->>>>>>> origin/PJH
+
     </div>
 
     <section>

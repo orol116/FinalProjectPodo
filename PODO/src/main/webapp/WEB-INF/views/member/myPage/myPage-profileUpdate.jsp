@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/sideMenu.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
 </head>
 <body>
     <main>

@@ -25,10 +25,10 @@ function infoValidate(){
     
 
     //현재 비밀번호 미작성
-    if(currentPw.value.trim().length==0){
+    if(pw.value.trim().length==0){
         alert("현재 비밀번호를 입력해주세요");
-        currentPw.focus();
-        currentPw.value="";
+        pw.focus();
+        pw.value="";
         return false;// form태그가 제출되지 않게 한다.
     }
     
