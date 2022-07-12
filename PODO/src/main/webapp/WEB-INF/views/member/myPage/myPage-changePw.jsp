@@ -40,22 +40,23 @@
                     <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                     <div class="myPage-row">
                         <label>현재 비밀번호</label>
-                        <input type="password" name="pw" id="pw" class="input_box" maxlength="20">
+                        <input type="password" name="pw" id="pw" class="input_box" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성" maxlength="15">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호</label>
-                        <input type="password" name="newPw" id="newPw" class="input_box" maxlength="20">
+                        <input type="password" name="newPw" id="newPw" class="input_box" maxlength="15">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호 확인</label>
-                        <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="20">
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="15">
                     </div>
 
 
                     <!-- 소셜연동? -->
-    
+
                     <button type="button" id="info-update-btn" onclick="location.href='${contextPath}/member/myPage/secession'">탈퇴하기</button>
                     <button id="info-update-btn">변경하기</button>
+
                 </div>
     
 

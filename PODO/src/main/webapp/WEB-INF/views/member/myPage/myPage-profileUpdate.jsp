@@ -32,8 +32,7 @@
         <span class="myPage-explanation">프로필 이미지를 변경할 수 있습니다.</span>
         
 
-        <form action="profile" method="POST" name="myPage-form" 
-              enctype="multipart/form-data" onsubmit="return profileValidate()">
+        <form action="profile" method="POST" name="myPage-form" enctype="multipart/form-data" onsubmit="return profileValidate()">
 
 
             <div class="profile-image-area">
@@ -62,6 +61,18 @@
                 <button type="submit">변경하기</button>
             </div>
 
+            
+                
+                <div class="myPage-row">
+                    <label>닉네임</label>
+                    <input type="text" name="memberNickname" class="input_box" placeholder="2글자 이상 8글자 이내로 작성" maxlength="8">
+                </div>
+    
+                <div class="myPage-row">
+                    <label>주소</label>
+                    <input type="text" name="memberAddress" class="input_box" maxlength="30">
+                </div>
+            </form>
 
             <div class="myPage-row">
                 <label>닉네임</label>
@@ -72,7 +83,7 @@
                 <label>주소</label>
                 <span>${loginMember.memberAddress}</span>
             </div>
-
+            
             <div class="myPage-row info-address">
                 <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
 
@@ -90,7 +101,6 @@
             <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
             <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
             <input type="hidden" name="delete" id="delete" value="0">
-        </form>
 
     </section>
     

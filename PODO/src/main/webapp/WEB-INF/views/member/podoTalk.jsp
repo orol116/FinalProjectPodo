@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <%-- header --%>
+    <-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
