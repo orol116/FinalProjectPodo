@@ -22,7 +22,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/member/mypage/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
 
 
     <!-- 프로필 이미지 변경 -->
@@ -32,18 +32,17 @@
         <span class="myPage-explanation">프로필 이미지를 변경할 수 있습니다.</span>
         
 
-        <form action="profile" method="POST" name="myPage-form" 
-              enctype="multipart/form-data" onsubmit="return profileValidate()">
+        <form action="profile" method="POST" name="myPage-form" enctype="multipart/form-data" onsubmit="return profileValidate()">
 
 
             <div class="profile-image-area">
 
-                <c:if test="${empty loginMember.profileImage}">
+                <c:if test="${empty loginMember.memberProfile}">
                     <img src="${contextPath}/resources/images/user.png" id="profile-image">
                 </c:if>
 
-                <c:if test="${!empty loginMember.profileImage}">
-                    <img src="${contextPath}${loginMember.profileImage}" id="profile-image">
+                <c:if test="${!empty loginMember.memberProfile}">
+                    <img src="${contextPath}${loginMember.memberProfile}" id="profile-image">
                 </c:if>
 
                 <!-- 프로필 이미지 삭제 버튼 -->
@@ -54,7 +53,7 @@
 
             <div class="profile-btn-area">
                 <label for="input-image">이미지 선택</label>
-                <input type="file" name="profileImage" id="input-image" accept="image/*">
+                <input type="file" name="memberProfile" id="input-image" accept="image/*">
                 <!-- accept="image/*" : 이미지 파일 확장자만 선택 허용 -->
                 <!-- accept="video/*" : 동영상 파일 확장자만 선택 허용 -->
                 <!-- accept=".pdf" : pdf파일만 선택 허용 -->
@@ -62,21 +61,46 @@
                 <button type="submit">변경하기</button>
             </div>
 
+            
+                
+                <div class="myPage-row">
+                    <label>닉네임</label>
+                    <input type="text" name="memberNickname" class="input_box" placeholder="2글자 이상 8글자 이내로 작성" maxlength="8">
+                </div>
+    
+                <div class="myPage-row">
+                    <label>주소</label>
+                    <input type="text" name="memberAddress" class="input_box" maxlength="30">
+                </div>
+            </form>
 
             <div class="myPage-row">
                 <label>닉네임</label>
                 <span>${loginMember.memberNickname}</span>
             </div>
 
-            <div class="myPage-row">
+            <div class="myPage-row info-title">
                 <label>주소</label>
                 <span>${loginMember.memberAddress}</span>
+            </div>
+            
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
+
+                <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
+            </div>
+
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+            </div>
+            
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
             </div>
 
             <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
             <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
             <input type="hidden" name="delete" id="delete" value="0">
-        </form>
 
     </section>
     

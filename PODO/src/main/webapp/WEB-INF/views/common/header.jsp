@@ -31,7 +31,7 @@
         </section>
         
         <section class="mid-header">
-            <input id="search2" type="text" name="searchBar" placeholder="상품명을 입력해주세요.">
+            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
         <section class="right-header">

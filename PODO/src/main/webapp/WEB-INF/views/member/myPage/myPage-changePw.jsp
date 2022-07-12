@@ -22,7 +22,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/member/mypage/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
 
 
     <!-- 오른쪽 마이페이지 상단  -->
@@ -32,7 +32,7 @@
             
             <form action="changePw" method="POST" name="myPage-form" onsubmit="return infoValidate()" >
                 
-                <h1 class="myPage-title">회원 정보 수정</h1>
+                <h1 class="myPage-title">비밀번호 변경</h1>
                 
           
                 <div class="wrapper">
@@ -40,24 +40,23 @@
                     <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                     <div class="myPage-row">
                         <label>현재 비밀번호</label>
-                        <input type="password" name="pw" id="pw" class="input_box" maxlength="20">
+                        <input type="password" name="pw" id="pw" class="input_box" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성" maxlength="15">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호</label>
-                        <input type="password" name="newPw" id="newPw" class="input_box" maxlength="20">
+                        <input type="password" name="newPw" id="newPw" class="input_box" maxlength="15">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호 확인</label>
-                        <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="20">
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="15">
                     </div>
 
 
                     <!-- 소셜연동? -->
-                    
-                    
 
-                    <button type="button" id="info-update-btn" onclick="location.href='myPage-secession.jsp'">탈퇴하기</button>
-                    <button id="info-update-btn">회원 정보 수정</button>
+                    <button type="button" id="info-update-btn" onclick="location.href='${contextPath}/member/myPage/secession'">탈퇴하기</button>
+                    <button id="info-update-btn">변경하기</button>
+
                 </div>
     
 
