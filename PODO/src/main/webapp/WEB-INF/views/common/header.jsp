@@ -19,7 +19,7 @@
                 <a href="${contextPath}/member/myPage/info">마이페이지
         </c:otherwise>
     </c:choose>    
-        <a href="#">고객센터
+       
     </div>
 
     <div id="header">
