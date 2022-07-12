@@ -1,6 +1,5 @@
 package edu.kh.podo.board.itemBoard.controller;
 
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,13 +20,12 @@ import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import edu.kh.podo.member.model.vo.Member;
-
 
 @Controller
 @SessionAttributes({"loginMember"})
 public class ItemBoardController {
+	
 	@Autowired
 	private ItemBoardService service;
 	
@@ -37,6 +35,16 @@ public class ItemBoardController {
 		return "member/itemUpload";
 	}
 	
+	
+		
+		
+
+	@GetMapping("/write")
+	public String boardWriteForm() {
+
+		return "member/itemUpload";
+	}
+
 	@PostMapping("/board/write/{boardCode}")
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
@@ -44,14 +52,13 @@ public class ItemBoardController {
 							HttpServletRequest req
 							,RedirectAttributes ra
 							,@PathVariable("boardCode") int boardCode) {
-		
-		
+
 		item.setMemberNo(loginMember.getMemberNo());
-		
+
 		String webPath = "/resources/images/item";
-		
+
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		
+
 		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
 		
 		String path = null;
@@ -67,9 +74,9 @@ public class ItemBoardController {
 		ra.addFlashAttribute("message",message);
 		
 		return "redirect:"+path;
+
 	}
 
-	
 	// 상품 상세페이지
 		@GetMapping("/detail/{boardCode}/{boardNo}")
 		public String itemDetail(@PathVariable("boardCode") int boardCode,
@@ -78,21 +85,24 @@ public class ItemBoardController {
 			return "/item/item-detail";
 		}
 		
-		@GetMapping("/search")
-		public String itemSearch(String searchBar,
-								RedirectAttributes ra,
-								Model model) {
-			
-			List<ItemBoard> searchList = service.itemSearch(searchBar);
-			
-			String path = null;
-			
-			/*
-			 * if(searchList != null) {
-			 * 
-			 * 
-			 * }
-			 */
-			return "redirect:/";
+		
+		
+	@GetMapping("/board/detail")
+	public String itemDetail() {
+		return "/item/item-detail";
+	}
+
+	@GetMapping("")
+	public String itemSearch(String searchBar, RedirectAttributes ra, Model model) {
+
+		List<ItemBoard> searchList = service.searchBoard(searchBar);
+
+		if (searchList != null) {
+
+			model.addAttribute(searchList);
 		}
+
+		return "redirect:/";
+	}
+
 }

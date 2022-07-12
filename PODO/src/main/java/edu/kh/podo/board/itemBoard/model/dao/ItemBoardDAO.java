@@ -17,20 +17,29 @@ public class ItemBoardDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	
 	private Logger logger = LoggerFactory.getLogger(ItemBoardDAO.class);
 
-	public List<ItemBoard> searchList(String searchBar) {
-		
-		List<ItemBoard> searchList = sqlSession.selectList("itemBoardMapper.searchBoard", searchBar);
-		
-		return searchList;
+	
+	  public List<ItemBoard> searchBoard(String searchBar) {
+	  
+	  List<ItemBoard> searchList =
+	  sqlSession.selectList("itemBoardMapper.searchBoard", searchBar);
+	  
+	 return searchList;
+	  
+	 }
+	 
+
+	public int insertBoard(ItemBoard item) {
+		return sqlSession.insert("itemBoardMapper.insertBoard", item);
 
 	}
-	
-	public int insertBoard(ItemBoard item) {
-		return sqlSession.insert("itemBoardMapper.insertBoard",item);
 
+	/** 메인화면 상품 조회 DAO
+	 * @return itemList
+	 */
+	public List<ItemBoard> selectitemList() {
+		return sqlSession.selectList("itemBoardMapper.selectItemList");
 	}
 
 	public int insertBoardImageList(List<BoardImage> boardImageList) {

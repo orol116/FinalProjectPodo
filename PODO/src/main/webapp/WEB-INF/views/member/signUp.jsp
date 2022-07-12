@@ -22,45 +22,54 @@
 
         <div id="contaioner">
             <h3>회원가입</h3>
-            <form action="signUp" method="POST" name="ID-form" id="signUp-form">
+            <form action="member/signUp" method="POST" name="ID-form" id="signUp-form">
                 <fieldset id="signUp-area">
 
                     <section>
                         <h4>아이디</h4>
-                        <input type="text" id="id-box" maxlength="20" name="memberId" placeholder="아이디를 입력해주세요.">
+                        <input type="text" id="memberId" maxlength="20" name="memberId" placeholder="아이디를 입력해주세요.">
 
                         <button id="idDupCheck" type="button">중복검사</button>
                     </section>
+                    <span class="signUp-message" id="idMessage">* 4~15글자의 숫자,영어를 입력하세요.</span>
+
 
                     <section>
                         <h4>비밀번호</h4>
-                        <input type="password" id="PW-box" name="memberPw" placeholder="비밀번호를 입력해주세요.">
+                        <input type="password" id="memberPw" name="memberPw" placeholder="비밀번호를 입력해주세요.">
                     </section>
+                    <span class="signUp-message" id="pwMessage">* 4~15글자 (영어,숫자,특수기호 조합)</span>
 
                     <section>
                         <h4>비밀번호 확인</h4>
-                        <input type="password" id="PW-box2" placeholder="비밀번호를 다시 입력해주세요.">
+                        <input type="password" id="memberPwConfirm" name="memberPwConfirm" placeholder="비밀번호를 다시 입력해주세요.">
                     </section>
+                    <span class="signUp-message" id="pwMessage">* 비밀번호는 동일해야 합니다.</span>
 
                     <section>
                         <h4>닉네임</h4>
-                        <input type="text" id="nickname-box" maxlength="20" name="memberNickname" placeholder="닉네임을 입력해주세요.">
+                        <input type="text" id="memberNickname" maxlength="20" name="memberNickname" placeholder="닉네임을 입력해주세요.">
                     </section>
+                    <span class="signUp-message" id="nickMessage">* 2~8글자를 입력하세요.</span>
 
                     <section>
                         <h4>전화번호</h4>
-                        <input type="text" id="phone-box" maxlength="20" name="memberTel" placeholder="전화번호를 입력해주세요.">
+                        <input type="text" id="memberTel" maxlength="20" name="memberTel" placeholder="전화번호를 입력해주세요.">
                         <button id="nicknameDupCheck" type="button">중복검사</button>
                     </section>
+                    <span class="signUp-message" id="telMessage">* 본인의 전화번호를 입력해주세요.</span>
 
                     <section>
-                            <input type="text" id="address-box" name="memberAddress" placeholder="주소를 입력하세요">
+                        <h4>주소</h4>
+                        <input type="text" id="memberAddress" name="memberAddress" placeholder="주소를 입력하세요">
 
                     </section>
-
+                    <span class="signUp-message" id="addressMessage">* 본인의 전화번호를 입력해주세요.</span>
                     
-                    <button id="submitBtn" class="submitBtn">회원가입하기</button>
-                        
+
+                    <section id="submitBtn-area">
+                        <button id="submitBtn" >회원가입하기</button>
+                    </section>  
                     
 
                 </fieldset>
@@ -71,6 +80,8 @@
     </main>
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script src="${contextPath}/js/member/signUp.js"></script>
 
     
 </body>
