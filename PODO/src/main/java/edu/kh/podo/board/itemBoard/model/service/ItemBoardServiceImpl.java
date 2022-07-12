@@ -10,9 +10,8 @@ import edu.kh.podo.board.itemBoard.model.dao.ItemBoardDAO;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
 
-
 @Service
-public class ItemBoardServiceImpl implements ItemBoardService{
+public class ItemBoardServiceImpl implements ItemBoardService {
 
 	@Autowired
 	private ItemBoardDAO dao;
@@ -25,28 +24,24 @@ public class ItemBoardServiceImpl implements ItemBoardService{
 
 	@Override
 	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) {
-		
+
 		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
 		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
-		
+
 		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
-		
+
 		int result = dao.insertBoard(item);
-		
+
 		return 0;
 	}
-	
-	
+
 	// 상품명 검색 구현
 	@Override
-	public List<ItemBoard> itemSearch(String searchBar) {
-		
-		List<ItemBoard> searchList = dao.searchList(searchBar);
-		
+	public List<ItemBoard> searchBoard(String searchBar) {
+
+		List<ItemBoard> searchList = dao.searchBoard(searchBar);
+
 		return searchList;
 	}
 
-
-	
-	
 }

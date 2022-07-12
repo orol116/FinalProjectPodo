@@ -16,19 +16,21 @@ public class ItemBoardDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	
 	private Logger logger = LoggerFactory.getLogger(ItemBoardDAO.class);
 
-	public List<ItemBoard> searchList(String searchBar) {
-		
-		List<ItemBoard> searchList = sqlSession.selectList("itemBoardMapper.searchBoard", searchBar);
-		
-		return searchList;
-
-	}
 	
+	  public List<ItemBoard> searchBoard(String searchBar) {
+	  
+	  List<ItemBoard> searchList =
+	  sqlSession.selectList("itemBoardMapper.searchBoard", searchBar);
+	  
+	 return searchList;
+	  
+	 }
+	 
+
 	public int insertBoard(ItemBoard item) {
-		return sqlSession.insert("boardMapper.insertBoard",item);
+		return sqlSession.insert("itemBoardMapper.insertBoard", item);
 
 	}
 

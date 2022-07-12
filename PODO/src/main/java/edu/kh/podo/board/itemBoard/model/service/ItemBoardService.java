@@ -22,7 +22,7 @@ public interface ItemBoardService {
 	 * @param searchBar
 	 * @return searchList
 	 */
-	List<ItemBoard> itemSearch(String searchBar);
+	List<ItemBoard> searchBoard(String searchBar);
 
 	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath);
 
