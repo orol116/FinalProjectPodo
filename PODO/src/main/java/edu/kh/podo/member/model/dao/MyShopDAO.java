@@ -15,20 +15,20 @@ public class MyShopDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	/** 내 판매상품 조회 DAO
+	/** 판매자 판매상품 조회 DAO
 	 * @param memberNo
 	 * @return mySellList
 	 */
-	public List<ItemBoard> selectMyShop(int memberNo) {
-		return sqlSession.selectList("myShopMapper.selectMyShop", memberNo);
+	public List<ItemBoard> selectMemberShop(int memberNo) {
+		return sqlSession.selectList("myShopMapper.selectMemberShop", memberNo);
 	}
 
-	/** 내 후기 조회 DAO
+	/** 판매자 후기 조회 DAO
 	 * @param memberNo
 	 * @return reviewList
 	 */
-	public List<Review> selectReview(int memberNo) {
-		return sqlSession.selectList("myShopMapper.selectReview", memberNo);
+	public List<Review> selectMemberReview(int memberNo) {
+		return sqlSession.selectList("myShopMapper.selectMemberReview", memberNo);
 	}
 
 }

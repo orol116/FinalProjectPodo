@@ -14,15 +14,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+
 import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
-@SessionAttributes({ "loginMember" })
 @RequestMapping("/member")
+@SessionAttributes({ "loginMember" })
 @Controller
 public class MemberController {
 
@@ -35,6 +38,49 @@ public class MemberController {
 	@GetMapping("/login")
 	public String login() {
 		return "/member/member-login";
+	}
+
+	@GetMapping("/loginNaver")
+	public String loginNaver() {
+		return "/member/naver-login";
+	}
+
+	@GetMapping("/selectNaver")
+	public String selectNaver(@RequestParam(value = "email", required = false) String email, Model model,
+			RedirectAttributes ra, @RequestParam(value = "saveId", required = false) String saveId,
+			HttpServletResponse resp, HttpServletRequest req) {
+
+		Member inputMember = new Member();
+		inputMember.setMemberId(email);
+
+		Member loginMember = service.naverLogin(inputMember);
+
+		String path = null;
+
+		if (loginMember != null) {
+			model.addAttribute("loginMember", loginMember);
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
+
+			if (saveId != null) {
+
+				cookie.setMaxAge(60 * 60 * 24 * 365);
+
+			} else {
+				cookie.setMaxAge(0);
+			}
+
+			cookie.setPath(req.getContextPath());
+
+			resp.addCookie(cookie);
+			path = "redirect:/";
+
+		} else {
+			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			path = "redirect:/member/login";
+
+		}
+
+		return path;
 	}
 
 	// 로그인
@@ -66,15 +112,15 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 
 			resp.addCookie(cookie);
-			path = "/";
+			path = "redirect:/";
 
 		} else {
-			path = "/member/login";
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			path = "redirect:/member/login";
 
 		}
 
-		return "redirect:" + path;
+		return path;
 	}
 
 	// 로그아웃
@@ -88,16 +134,72 @@ public class MemberController {
 		return "redirect:/";
 	}
 
-	// 회원가입
+	// 회원가입 페이지 전환
 	@GetMapping("/signUp")
 	public String signUp() {
 
 		return "/member/signUp";
 	}
 
-	// 판매상품 업로드 페이지
-	@PostMapping("/member-upload")
-	public String upload() {
-		return "member/member-upload";
+	// 아이디 중복확인
+	@GetMapping("/DupliCheckId")
+	public String DupliCheckId() {
+		return "";
 	}
+
+	// 로그인 중복확인
+	@GetMapping("DupliCheckPw")
+	public String DupliCheckPw() {
+		return "";
+	}
+
+	// 회원가입
+	@PostMapping("/signUp")
+	public String SignUp(Member inputMember, String memberAddress[], RedirectAttributes ra) {
+
+		int result = service.signUp(inputMember);
+
+		String path = null;
+		String message = null;
+
+		if (result > 0) {
+
+			path = "/";
+			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
+
+		} else {
+
+			path = "/signUp";
+			ra.addFlashAttribute("message", "회원가입 실패");
+		}
+
+		return "redirect" + path;
+	}
+
+	// 판매관리 페이지
+	@GetMapping("/itemUpload")
+	public String upload() {
+
+		return "member/itemUpload";
+	}
+
+	// 상품관리 페이지
+	@GetMapping("/itemManage")
+	public String manage() {
+
+		return "member/itemManage";
+	}
+
+	// 아이디 찾기 페이지 전환
+	@GetMapping("/findId")
+	public String fingId() {
+		return "/member/member-find-ID";
+	}
+
+	// 비밀번호 찾기 페이지 전환
+	@GetMapping("/findPw")
+	public String findPw() {
+		return "/member/member-find-PW";
+	}
+
 }

@@ -1,5 +1,6 @@
 package edu.kh.podo.member.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.service.MyPageService;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -120,5 +123,26 @@ public class MyPageController {
 		}
 	}
 	
+	// 찜 상품 조회
+	@GetMapping("/myFavorites")
+	public String myFavorites(@ModelAttribute("loginMember") Member loginMember
+							, Model model) {
+		
+//		Map<String, Object> favorMap = null;
+		
+		List<ItemBoard> favorBoard = service.selectFavorList(loginMember.getMemberNo());
+		
+		model.addAttribute("favorBoard", favorBoard);
+		
+		return "member/myPage-favorites";
+	}
+	
+	// 회원 프로필 이미지 조회
+	@GetMapping("/changeImage")
+	public String changeImage() {
+		
+		
+		return "member/myPage-profileImage";
+	}
 
 }
