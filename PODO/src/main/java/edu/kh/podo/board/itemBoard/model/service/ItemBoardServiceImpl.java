@@ -10,6 +10,7 @@ import edu.kh.podo.board.itemBoard.model.dao.ItemBoardDAO;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
 
+
 @Service
 public class ItemBoardServiceImpl implements ItemBoardService{
 
@@ -29,5 +30,14 @@ public class ItemBoardServiceImpl implements ItemBoardService{
 		return 0;
 	}
 	
+	
+	// 상품명 검색 구현
+	@Override
+	public List<ItemBoard> itemSearch(String searchBar) {
+		
+		List<ItemBoard> searchList = dao.searchList(searchBar);
+		
+		return searchList;
+	}
 	
 }
