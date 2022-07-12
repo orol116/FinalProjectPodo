@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원탈퇴</title>
 
-    <link rel="stylesheet" href="resources/css/main-style.css">
-    <link rel="stylesheet" href="resources/css/member/sideMenu.css">
-    <link rel="stylesheet" href="resources/css/member/myPage-profileUpdate-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
 </head>
 <body>
     
