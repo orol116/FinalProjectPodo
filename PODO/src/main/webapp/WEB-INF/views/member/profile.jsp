@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../resources/css/member/member-profile.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/member-profile.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>find-ID</title>
 </head>
@@ -14,10 +18,7 @@
 <body>
     <main>
 
-        <header>
-            header
-
-        </header>
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
             
         <div id="contaioner">
@@ -29,7 +30,7 @@
                 <section id="profile-head">
                     <div id="user-profile-left">
                         <div id="user-image-area">
-                            <image class="profile-image" src="../images/logo.png" ></image>
+                            <image class="profile-image" src="${contextPath}/images/logo.png" ></image>
                         </div>
                         <div id="user-name-left">유저 이름</div>
                         <div id="user-info">
@@ -149,7 +150,7 @@
 
                 <section id="user-reviews">
                     <div id="reviews-top">
-                        <image id="reviews-image" src="../images/logo.png"  alt="유저 이름"></image>
+                        <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
                         <div id="reviews-user-nick">유저 닉네임</div>
                         <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
                         
@@ -169,7 +170,7 @@
 
                 <section id="user-reviews">
                     <div id="reviews-top">
-                        <image id="reviews-image" src="../images/logo.png"  alt="유저 이름"></image>
+                        <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
                         <div id="reviews-user-nick">유저 닉네임</div>
                         <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
                         
@@ -191,11 +192,7 @@
 
         </div>
 
-
-        <footer>
-            footer
-
-        </footer>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     </main>
 

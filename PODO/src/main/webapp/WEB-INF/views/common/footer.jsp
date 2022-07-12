@@ -42,3 +42,9 @@
         </div>
     </div>
 </footer>
+
+<c:if test="${ !empty message }">
+    <script>
+        alert("${message}");
+    </script>
+</c:if> 

@@ -14,15 +14,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.google.gson.Gson;
 
 import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
 @RequestMapping("/member")
-@SessionAttributes({ "loginMember", "message" })
+@SessionAttributes({"loginMember"})
 @Controller
 public class MemberController {
 
@@ -40,6 +43,22 @@ public class MemberController {
 	@GetMapping("/loginNaver")
 	public String loginNaver() {
 		return "/member/naver-login";
+	}
+	
+	
+	@ResponseBody
+	@PostMapping("/loginNaver")
+	public String loginNaverSelect(Member inputMember) {
+		
+		Member loginMember = service.login(inputMember);
+		
+		if(loginMember !=null) {
+			
+		}else {
+			
+		}
+		
+		return new Gson().toJson(null);
 	}
 
 	// 로그인
@@ -71,15 +90,15 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 
 			resp.addCookie(cookie);
-			path = "/";
+			path = "redirect:/";
 
 		} else {
-			path = "/member/login";
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			path = "redirect:/member/login";
 
 		}
 
-		return "redirect:" + path;
+		return path;
 	}
 
 	// 로그아웃
@@ -132,26 +151,32 @@ public class MemberController {
 			ra.addFlashAttribute("message", "회원가입 실패");
 		}
 
-		return "redirect:/";
+		return "redirect" + path;
 	}
 
-	// 판매관리 페이지
-	@GetMapping("/itemUpload")
-	public String upload() {
-	
-		return "member/itemUpload";
-	}
-
-	// 아이디 찾기 페이지 전환
-	@GetMapping("/findId")
-	public String fingId() {
-		return "/member/member-find-ID";
-	}
-
-	// 비밀번호 찾기 페이지 전환
-	@GetMapping("/findPw")
-	public String findPw() {
-		return "/member/member-find-PW";
-	}
-
-}
+			// 판매관리 페이지
+			@GetMapping("/itemUpload")
+			public String upload() {
+			
+				return "member/itemUpload";
+			}
+			// 상품관리 페이지
+			@GetMapping("/itemManage")
+			public String manage() {
+			
+				return "member/itemManage";
+			}
+		
+			// 아이디 찾기 페이지 전환
+			@GetMapping("/findId")
+			public String fingId() {
+				return "/member/member-find-ID";
+			}
+		
+			// 비밀번호 찾기 페이지 전환
+			@GetMapping("/findPw")
+			public String findPw() {
+				return "/member/member-find-PW";
+			}
+		
+		}

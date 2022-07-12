@@ -27,6 +27,7 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+
 	
 	/** 회원가입 DAO
 	 * @param inputMember
