@@ -65,13 +65,10 @@
                 
                 <div class="myPage-row">
                     <label>닉네임</label>
-                    <input type="text" name="memberNickname" class="input_box" placeholder="2글자 이상 8글자 이내로 작성" maxlength="8">
+                    <input type="text" name="memberNickname" class="input_box" placeholder="2글자 이상 8글자 이내" maxlength="8">
                 </div>
     
-                <div class="myPage-row">
-                    <label>주소</label>
-                    <input type="text" name="memberAddress" class="input_box" maxlength="30">
-                </div>
+                
             </form>
 
             <div class="myPage-row">
@@ -115,6 +112,13 @@
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <%-- 다음 주소 API --%>
+    <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:11;-webkit-overflow-scrolling:touch;">
+        <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+    </div>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
     <!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>
