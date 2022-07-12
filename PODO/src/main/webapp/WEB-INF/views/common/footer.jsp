@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%-- JSTL은 사용되는 JSP 파일마다 작성되어야 한다 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
+   
 <footer>
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
