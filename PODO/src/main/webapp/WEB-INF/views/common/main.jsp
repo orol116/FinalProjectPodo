@@ -19,9 +19,9 @@
     <main>
 
 	<div class="slide-list">
-        <div class="slide1"><img src="${contextPath}/resources/images/banner1.png"></div>
-        <div class="slide2"></div>
-        <div class="slide3"></div>
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner1.png"></div>
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner2.png"></div>
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner3.png"></div>
     </div>
 
     <section>
@@ -331,7 +331,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
    
     <!-- main.js 연결 -->
-    <%-- <script src="${contextPath}/resources/js/main.js"></script> --%>
+    <script src="${contextPath}/resources/js/main.js"></script>
 
 </body>
 </html>
