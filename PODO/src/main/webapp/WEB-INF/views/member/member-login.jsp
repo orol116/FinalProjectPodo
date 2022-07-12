@@ -43,14 +43,14 @@
                     <label>   
                         <input type="checkbox" name="saveId"  id="saveId"> 아이디 저장
                     </label>
-                        <a href="#">아이디 찾기  |</a>  
-                        <a href="#">비밀번호 찾기</a>
+                        <a href="${contextPath}/member/findId">아이디 찾기  |</a>  
+                        <a href="${contextPath}/member/findPw">비밀번호 찾기</a>
                 </div>
 
             </form>
 
             <section id="outside-login">
-            <span><button>회원가입</button></span>
+            <span><button onclick = "location.href = '${contextPath}/member/member/signUp'">>회원가입</button></span>
 
                 <button>카카오로 시작하기</button>
                 <!-- 네이버 로그인 버튼 노출 영역 -->

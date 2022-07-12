@@ -1,6 +1,5 @@
 package edu.kh.podo.board.itemBoard.controller;
 
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,63 +19,54 @@ import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import edu.kh.podo.member.model.vo.Member;
 
-
 @Controller
-@RequestMapping("/board")
-@SessionAttributes({"loginMember"})
+@SessionAttributes({ "loginMember" })
 public class ItemBoardController {
+	
 	@Autowired
 	private ItemBoardService service;
-	
+
 	@GetMapping("/write")
 	public String boardWriteForm() {
-		
+
 		return "member/itemUpload";
 	}
-	
+
 	@PostMapping("/write")
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
-							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
-							ItemBoard item,
-							HttpServletRequest req) {
-		
-		
+			@RequestParam(value = "images", required = false) List<MultipartFile> imageList, ItemBoard item,
+			HttpServletRequest req) {
+
 		item.setMemberNo(loginMember.getMemberNo());
-		
+
 		String webPath = "/resources/images/item";
-		
+
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		
+
 		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
-		
+
 		return null;
 	}
 
-	
 	// 상품 상세페이지
-		@GetMapping("/detail")
-		public String itemDetail() {
-			return "/item/item-detail";
+	@GetMapping("/board/detail")
+	public String itemDetail() {
+		return "/item/item-detail";
+	}
+
+	@GetMapping("")
+	public String itemSearch(String searchBar, RedirectAttributes ra, Model model) {
+
+		List<ItemBoard> searchList = service.searchBoard(searchBar);
+
+		if (searchList != null) {
+
+			model.addAttribute(searchList);
 		}
-		
-		@GetMapping("/search")
-		public String itemSearch(String searchBar,
-								RedirectAttributes ra,
-								Model model) {
-			
-			List<ItemBoard> searchList = service.itemSearch(searchBar);
-			
-			String path = null;
-			
-			/*
-			 * if(searchList != null) {
-			 * 
-			 * 
-			 * }
-			 */
-			return "redirect:/";
-		}
+
+		return "redirect:/";
+	}
+
 }
