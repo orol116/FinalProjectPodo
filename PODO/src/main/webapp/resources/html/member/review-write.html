@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리뷰 남기기(후기 작성) 페이지</title>
+
+    <link rel="stylesheet" href="../../css/main-style.css">
+    <link rel="stylesheet" href="../../css/mypage/sideMenu.css">
+    <link rel="stylesheet" href="../../css/mypage/myPage-profileUpdate-style.css">
+</head>
+<body>
+    
+    <!-- header -->
+    <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
+    <header>
+        <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+        
+        <div id="top">
+            <a href="#">로그인  
+            <a href="#">회원가입
+            <a href="#">고객센터
+        </div>
+
+        <div id="header">
+            <section id="menu"> 
+                <i class="fa-solid fa-bars"></i>
+                <a href="${contextPath}" >
+                    <img src="../images/logo.png" id="home-logo">
+                </a>
+            </section>
+            
+            <section class="mid-header">
+                <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
+                <a id="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </section>
+            <section class="right-header">
+                <i class="fa-regular fa-bell" href="#"></i>
+                <i class="fa-regular fa-basket-shopping" href="#"></i>      
+                <i class="fa-regular fa-message" href="#"></i>
+            </section>
+        </div>
+    </header>
+
+    <!-- 사이드 메뉴 -->
+    <section class="left-side">
+
+        <ul class="list-group">
+
+            <li class="myPage-title">마이페이지</li>
+                
+            <li class="myPage-subTitle"><a href="${contextPath}/#">프로필 이미지 변경</a></li>
+            <li class="myPage-subTitle"><a href="${contextPath}/#">구매/판매 내역</a></li>
+            <li class="myPage-subTitle"><a href="${contextPath}/#">찜 상품 조회</a></li>
+            <li class="myPage-subTitle"><a href="${contextPath}/#">회원 정보 수정</a></li>
+
+        </ul>
+    </section>
+    
+    <h1 class="myPage-title">후기 남기기</h1>
+
+    <div class="image">
+        <img src="#"  alt="포도 로고">
+    </div>
+
+    <h4 class="myPage-subtitle">거래는 어떠셨어요?</h4>
+
+    <div class="review-table">
+        <div class="review-table-title">만족도</div>
+        <div class="review-table-thumbs">
+            <a href="javascript:void(0);" class="icon-thumbs thumbs-down _thumbs-down" data-answer-id="8" data-thumbs-status="DOWN">thumbs down</a>
+            <a href="javascript:void(0);" class="icon-thumbs thumbs-up _thumbs-up" data-answer-id="7" data-thumbs-status="UP">thumbs up</a>
+        </div>
+    </div>
+
+    <div class="my-review">
+        <div class="my-review-title">상세 후기</div>
+
+        <div class="my-review-content">
+
+            <div class="my-review-content-text-wrap">
+                <textarea class="my-review-text-area" rows="5" placeholder="고객님의 솔직한 리뷰를 남겨주세요. (상품과 관련있는 후기 내용만 작성해주세요.)"></textarea>
+            </div>
+
+        </div>
+
+        <div class="review-register">
+            <button class="cancel-button" type="button">취소하기</button>
+            <button class="submit-button" type="button">등록하기</button>
+        </div>
+    </div>
+</body>
+</html>
