@@ -31,4 +31,11 @@ public class ItemBoardDAO {
 		return sqlSession.insert("boardMapper.insertBoard",item);
 
 	}
+
+	/** 메인화면 상품 조회 DAO
+	 * @return itemList
+	 */
+	public List<ItemBoard> selectitemList() {
+		return sqlSession.selectList("itemBoardMapper.selectItemList");
+	}
 }

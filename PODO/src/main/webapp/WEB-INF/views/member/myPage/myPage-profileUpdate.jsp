@@ -12,7 +12,7 @@
     <title>회원 이미지 변경</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/sideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
 </head>
 <body>
@@ -83,7 +83,7 @@
                 <label>주소</label>
                 <span>${loginMember.memberAddress}</span>
             </div>
-            
+
             <div class="myPage-row info-address">
                 <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
 

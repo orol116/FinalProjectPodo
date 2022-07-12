@@ -28,6 +28,7 @@ import edu.kh.podo.member.model.vo.Member;
 @RequestMapping("/board")
 @SessionAttributes({"loginMember"})
 public class ItemBoardController {
+	
 	@Autowired
 	private ItemBoardService service;
 	

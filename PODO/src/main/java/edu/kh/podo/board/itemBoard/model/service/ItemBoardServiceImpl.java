@@ -16,6 +16,12 @@ public class ItemBoardServiceImpl implements ItemBoardService{
 
 	@Autowired
 	private ItemBoardDAO dao;
+	
+	// 메인화면 상품 조회 Service
+	@Override
+	public List<ItemBoard> selectItemList() {
+		return dao.selectitemList();
+	}
 
 	@Override
 	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) {
@@ -39,5 +45,8 @@ public class ItemBoardServiceImpl implements ItemBoardService{
 		
 		return searchList;
 	}
+
+
+	
 	
 }
