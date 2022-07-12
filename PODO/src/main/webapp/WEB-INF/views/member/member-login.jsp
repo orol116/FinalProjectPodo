@@ -30,7 +30,7 @@
 
 		<div id="login-contaioner">
 			<h3>로그인</h3>
-			<form action="login" method="POST" name="login-form" id="login-form">
+			<form action="login" method="POST" name="login-form" id="login-form" onsubmit="return loginValidate()">
 				<fieldset id="login-area">
 
 					<section>
@@ -79,5 +79,7 @@
 		naver_id_login.setPopup();
 		naver_id_login.init_naver_id_login();
 	</script>
+
+    <script src="${contextPath}/resources/js/login.js"></script>
 </body>
 </html>
