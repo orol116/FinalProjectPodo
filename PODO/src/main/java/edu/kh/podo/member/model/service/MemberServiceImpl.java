@@ -44,6 +44,12 @@ public class MemberServiceImpl implements MemberService {
 
 		return loginMember;
 	}
+	
+	@Override
+	public Member naverLogin(Member inputMember) {
+
+		return dao.login(inputMember);
+	}
 
 	// 회원가입 service 구현
 	@Override
@@ -57,6 +63,8 @@ public class MemberServiceImpl implements MemberService {
 
 		return result;
 	}
+
+	
 
 	
 
