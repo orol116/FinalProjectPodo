@@ -22,7 +22,7 @@ import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.Review;
 
 @Controller
-@RequestMapping("/myShop")
+@RequestMapping("/shop")
 @SessionAttributes({"loginMember"})
 public class MyShopController {
 	
@@ -51,4 +51,9 @@ public class MyShopController {
 		return new Gson().toJson(reviewList);
 	}
 	
+	// 내 상점 조회
+	@GetMapping("/myShop")
+	public String myShop() {
+		return "member/member-profile";
+	}
 }

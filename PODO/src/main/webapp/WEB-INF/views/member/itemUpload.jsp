@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
+=======
+>>>>>>> 5674530c0d989a504d5dfdfcc7b67ba88d479f81
 </head>
 
 <body>
@@ -23,10 +26,11 @@
     <div class="top-menu">
         <nav id="mainMenu">
             <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/myShop/main">상품관리</a>
+            <a href="${contextPath}/shop/main">상품관리</a>
             <a href="#">구매/판매 내역</a>
         </nav>
     </div>
+
     <main>
         <form action="${contextPath}/board/write" method="POST" id="upload">
         <div class="basic1">
@@ -233,8 +237,7 @@
             <ul class="second">
                 <li>
                     <div class="info">
-                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 
-                        문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)" name="boardContent"></textarea>
+                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)"></textarea>
                         <div id="inform">
                         <small>0/1000</small>
                         </div>
