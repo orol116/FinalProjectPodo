@@ -22,7 +22,7 @@
 
         <div id="contaioner">
             <h3>회원가입</h3>
-            <form action="member/signUp" method="POST" name="ID-form" id="signUp-form">
+            <form action="signUp" method="POST" name="ID-form" id="signUp-form">
                 <fieldset id="signUp-area">
 
                     <section>
