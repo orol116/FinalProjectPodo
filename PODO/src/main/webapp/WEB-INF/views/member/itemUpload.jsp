@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PODO 상품등록</title>
 
+    <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 </head>
 
 <body>
@@ -20,11 +22,13 @@
     <div class="top-menu">
         <nav id="mainMenu">
             <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/myShop/main">상품관리</a>
+            <a href="${contextPath}/shop/main">상품관리</a>
             <a href="#">구매/판매 내역</a>
         </nav>
     </div>
+
     <main>
+        <form action="${contextPath}/board/write" method="POST" id="upload">
         <div class="basic1">
             <section class="basic">
                 <h2>기본정보</h2>
@@ -41,7 +45,7 @@
                 </div>
                 <ul class="second">
                 <li style="display: flex;">
-                    <input type="file" class="real-upload" accept="image/*" required multiple>
+                    <input type="file" class="real-upload" accept="image/*" name="images" required multiple>
                     <div class="upload"><img src="${contextPath}/resources/images/image.png"></div>
                     <ul class="image-preview"></ul>
                 </li>  
@@ -67,7 +71,7 @@
                 <ul class="second">
                     <li>
                         <section class="search1">                        
-                        <input id="search2" type="text" placeholder="상품명 입력">  
+                        <input id="search2" type="text" placeholder="상품명 입력" name="boardTitle">  
                     </li> 
                     </section>
                 </ul>
@@ -157,11 +161,11 @@
                 <li>
                     <section class="states">
                         
-                        <input type="radio"id="secondHand">
-                        <label for="secondHand">중고상품</label>
+                        <input type="radio" id="secondHand1" name="itemCondition" >
+                        <label for="secondHand1">중고상품</label>
                     
-                        <input type="radio" id="secondHand">
-                        <label for="secondHand">새상품</label>
+                        <input type="radio" id="secondHand2" name="itemCondition">
+                        <label for="secondHand2">새상품</label>
 
                     </section>
                 </li>
@@ -182,9 +186,14 @@
             <ul class="second">
                 <li>
                     <section class="states">
-                        <input type="radio" >직거래
-                        <input type="radio">무료배송
-                        <input type="radio">배송비 본인부담
+                        <input type="radio" name="delivery" id="delivery1">
+                        <label for="delivery1">직거래</label>
+
+                        <input type="radio" name="delivery" id="delivery2">
+                        <label for="delivery2">무료배송</label>
+
+                        <input type="radio" name="delivery" id="delivery3">
+                        <label for="delivery3">배송비 본인부담</label>
                     </section>
                 </li>
             </ul>          
@@ -204,7 +213,7 @@
             <ul class="second">
                 <li>
                     <section class="price">
-                        <input id="search2" type="number" placeholder="숫자만 입력해주세요."  minlength="2" >원&nbsp;
+                        <input id="search2" type="number" placeholder="숫자만 입력해주세요."  minlength="2" name="price" >원&nbsp;
                     </section>
                 </li>
             </ul> 
