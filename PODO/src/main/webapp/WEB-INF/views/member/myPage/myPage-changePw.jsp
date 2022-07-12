@@ -22,7 +22,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/member/mypage/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
 
 
     <!-- 오른쪽 마이페이지 상단  -->
