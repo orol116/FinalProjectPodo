@@ -1,18 +1,9 @@
-/* 
-const category = document.getElementById("category-area");
 
-document.getElementById("fa-bars").addEventListener("mouseover", function(){
+const categoryList = document.getElementById("fa-bars");
 
-    category.style.display = "flex";
-    category.style.flexDirection = "row";
+const area = document.getElementById("category-area");
 
-}); */
-
-const category = document.getElementById("fa-bars");
-
-area = document.getElementById("category-area");
-
-category.addEventListener("mouseenter", function(){
+categoryList.addEventListener("mouseenter", function(){
 
     area.style.display = "flex";
 
