@@ -59,7 +59,7 @@
 			<section id="outside-login">
 				<span><button>회원가입</button></span>
 
-				<button>카카오로 시작하기</button>
+				<button>카카오</button>
 				<!-- 네이버 로그인 버튼 노출 영역 -->
 				<div id="naver_id_login"></div>
 			</section>
@@ -79,6 +79,6 @@
 		naver_id_login.init_naver_id_login();
 	</script>
 
-    <script src="${contextPath}/resources/js/login.js"></script>
+    <script src="${contextPath}/resources/js/member/login.js"></script>
 </body>
 </html>
