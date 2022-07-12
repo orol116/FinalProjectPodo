@@ -4,9 +4,11 @@
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> 
+
 <header>
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+
 
     
     <div id="top">
@@ -115,6 +117,25 @@
 
         </ul>
     </div>
+    
+    <script>
+    const category = document.getElementById("fa-bars");
+
+    area = document.getElementById("category-area");
+
+    category.addEventListener("mouseenter", function(){
+
+        area.style.display = "flex";
+
+    });
+
+    area.addEventListener("mouseleave", function(){
+
+        area.style.display = "none";
+
+    });
+
+    </script>
 
     <!-- ------------------------------------------------------- -->
 

@@ -79,7 +79,6 @@
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
-    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
 </body>
 </html>
