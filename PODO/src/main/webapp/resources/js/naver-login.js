@@ -1,4 +1,4 @@
-var naver_id_login = new naver_id_login("7CM27UMDND6X1zZ8Ekqr","http://127.0.0.1:8081/podo/member/loginNaver/");
+var naver_id_login = new naver_id_login("7CM27UMDND6X1zZ8Ekqr","http://kh-classa.xyz:10000/podo/member/loginNaver/");
 // 접근 토큰 값 출력
 // alert(naver_id_login.oauthParams.access_token);
 // 네이버 사용자 프로필 조회
