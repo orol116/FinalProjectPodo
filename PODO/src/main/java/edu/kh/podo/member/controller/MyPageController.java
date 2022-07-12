@@ -66,7 +66,7 @@ public class MyPageController {
 	// 비밀번호 변경
 	@GetMapping("/changePw")
 	public String change() {
-		return "member/myPage-changePw";
+		return "member/myPage/myPage-changePw";
 	}
 	
 	@PostMapping("/changePw")
@@ -91,7 +91,7 @@ public class MyPageController {
 	// 회원 탈퇴
 	@GetMapping("/secession")
 	public String secession() {
-		return "member/myPage-secession";
+		return "member/myPage/myPage-secession";
 	}
 	
 	@PostMapping("/secession")

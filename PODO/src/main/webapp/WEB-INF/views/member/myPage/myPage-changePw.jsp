@@ -9,20 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 정보 수정</title>
 
-    <link rel="stylesheet" href="resources/css/main-style.css">
-    <link rel="stylesheet" href="resources/css/member/sideMenu.css">
-    <link rel="stylesheet" href="resources/css/member/myPage-profileUpdate-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
 
 
 </head>
 <body>
     <main>
 
-    <%-- header --%>
+    <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
 
 
     <!-- 오른쪽 마이페이지 상단  -->
@@ -30,7 +30,7 @@
             
         <section class="myPage-main">
             
-            <form action="info" method="POST" name="myPage-form" onsubmit="return infoValidate()" >
+            <form action="changePw" method="POST" name="myPage-form" onsubmit="return infoValidate()" >
                 
                 <h1 class="myPage-title">회원 정보 수정</h1>
                 
@@ -40,15 +40,15 @@
                     <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                     <div class="myPage-row">
                         <label>현재 비밀번호</label>
-                        <input type="password" name="pw" id="pw" class="input_box" maxlength="20">
+                        <input type="password" name="pw" id="pw" class="input_box" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성" maxlength="15">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호</label>
-                        <input type="password" name="newPw" id="newPw" class="input_box" maxlength="20">
+                        <input type="password" name="newPw" id="newPw" class="input_box" maxlength="15">
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호 확인</label>
-                        <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="20">
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="15">
                     </div>
 
 
@@ -56,16 +56,16 @@
                     
                     
 
-                    <button type="button" id="info-update-btn" onclick="location.href='myPage-secession.jsp'">탈퇴하기</button>
-                    <button id="info-update-btn">회원정보수정</button>
+                    <!-- <button type="button" id="info-update-btn" onclick="location.href='myPage-secession.jsp'">탈퇴하기</button> -->
+                    <button id="info-update-btn">회원 정보 수정</button>
                 </div>
     
 
-        </form>
+            </form>
+
+        </section>
 
     </section>
-
-</section>
     
     </main>
     

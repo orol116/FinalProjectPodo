@@ -2,5 +2,54 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="itemBoardMapper">
 
-	<resultMap type="" id=""></resultMap>
+	<resultMap type="itemBoard" id="itemBoard_rm">
+
+		<id property="boardNo" column="BOARD_NO" />
+		<result property="boardTitle" column="BOARD_TITLE" />
+		<result property="boardContent" column="BOARD_CONTENT" />
+		<result property="readCount" column="READ_COUNT" />
+		<result property="createDate" column="CREATE_DT" />
+		<result property="updateDate" column="UPDATE_DT" />
+		<result property="itemCondition" column="ITEM_CONDITION" />
+		<result property="tradeCondition" column="TRADE_CONDITION" />
+		<result property="price" column="PRICE" />
+		<result property="secessionFlag" column="SECESSION_FL" />
+		<result property="sellArea" column="SELL_AREA" />
+		<result property="boardCode" column="BOARD_CD" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="categoryNo" column="M_CATEGORY_NO" />
+		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
+		<result property="itemImage" column="ITEM_IMAGE" />
+
+	</resultMap>
+
+	<!-- 상품명 검색 -->
+	<select id="searchBoard" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, CREATE_DT
+
+		(SELECT IMG_RENAME FROM ITEM_IMAGE
+		WHERE BOARD.BOARD_NO = ITEM_IMAGE.BOARD_NO
+		AND IMG_LEVEL = 0) THUMBNAIL
+		FROM ITEM_BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE SECESSION_FL = 'N'
+
+		<if test='query != null and query != ""'>
+
+			( BOARD_TITLE LIKE '%${query}%'
+			OR
+			BOARD_CONTENT LIKE '%${query}%'
+			OR
+			MEMBER_NICK LIKE '%${query}%')
+
+		</if>
+
+		ORDER BY BOARD_NO DESC
+
+	</select>
+
+
 </mapper>
+
+
+
