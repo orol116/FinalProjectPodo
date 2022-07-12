@@ -34,16 +34,7 @@ public class ItemBoardController {
 		
 		return "member/itemUpload";
 	}
-	
-	
 		
-		
-
-	@GetMapping("/write")
-	public String boardWriteForm() {
-
-		return "member/itemUpload";
-	}
 
 	@PostMapping("/board/write/{boardCode}")
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
@@ -54,7 +45,9 @@ public class ItemBoardController {
 							,@PathVariable("boardCode") int boardCode) {
 
 		item.setMemberNo(loginMember.getMemberNo());
-
+		item.setBoardCode(boardCode);
+		item.setMemberNo(loginMember.getMemberNo());
+		
 		String webPath = "/resources/images/item";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);

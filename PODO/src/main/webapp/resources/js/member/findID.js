@@ -71,6 +71,16 @@ $("#submitBtn").click(function(){
     });
 });
 
- 
+ //휴대폰 인증번호 대조
+$("Cer-number-check").click(function(){
+	if($("Cer-number").val() == code2){
+		alert("인증번호가 일치합니다.");
+		$("#phoneDoubleChk").val("true");
+	}else{
+		alert("인증번호가 일치하지 않습니다. 확인해주시기 바랍니다.");
+		$("#phoneDoubleChk").val("false");
+		$(this).attr("autofocus",true);
+	}
+});
 
 

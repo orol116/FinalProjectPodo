@@ -27,4 +27,8 @@ public interface ItemBoardService {
 	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath);
 
 
+	
+
+
+
 }
