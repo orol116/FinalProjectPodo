@@ -7,8 +7,7 @@
 		
 		<result property="boardName" column="BOARD_NM"/>
 	</resultMap>
-	
-	
+
 	<resultMap type="itemBoard" id="itemBoard_rm">
 
 		<id property="boardNo" column="BOARD_NO" />
@@ -34,19 +33,17 @@
 
 	</resultMap>
 	
-	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
 	
 		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
 			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
 		</selectKey>
 	
-		INSERT INTO ITEM_BOARD VALUES(
+		INSERT INTO BOARD VALUES(
 			#{boardNo}, #{boardTitle}, #{boardContent},
-			DEFAULT, DEFAULT, DEFAULT, '사용감있음' ,'판매 중', null, #{price}, 'N', '서울시'
-			,#{boardCode}, #{memberNo},'13', null, null
+			DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberNo}, #{boardCode}
 		)
-	</insert>	
+	</insert>
 	
 	<insert id="insertBoardImageList" parameterType="list" >
 		
@@ -64,9 +61,6 @@
 			) A
 	
 	</insert>
-	
-	
-	
 	
 	<select id="selectItemList" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO
