@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-myProduct.css">
     
 

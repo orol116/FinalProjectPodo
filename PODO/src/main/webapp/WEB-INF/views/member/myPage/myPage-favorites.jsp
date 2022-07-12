@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-favorites-style.css">
 </head>
 <body>
 
@@ -126,6 +127,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- js -->
-    <script src="${contextPath}/resources/js/myPage.js"></script>
+    <script src="${contextPath}/resources/js/fav.js"></script>
 </body>
 </html>
