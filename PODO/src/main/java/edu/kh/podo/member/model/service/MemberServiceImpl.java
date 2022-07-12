@@ -64,6 +64,14 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
+	@Override
+	public int naverSignUp(Member inputMember) {
+		
+		int result = dao.naverSignUp(inputMember);
+
+		return result;
+	}
+
 	
 
 	

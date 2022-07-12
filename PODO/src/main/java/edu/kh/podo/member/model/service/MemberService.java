@@ -26,6 +26,10 @@ public interface MemberService {
 
 	Member naverLogin(Member inputMember);
 
+
+
+	int naverSignUp(Member inputMember);
+
 	
 
 
