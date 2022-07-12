@@ -66,22 +66,20 @@ public class ItemBoardController {
 		}
 		ra.addFlashAttribute("message",message);
 		
-		return "redirect:"+path;
+		return "redirect:" + path;
 
-	}
+	}	
+		
+	// 상품 상세
+	@GetMapping("/board/detail/{boardNo}")
+	public String itemDetail(/*@ModelAttribute("loginMember") Member loginMember*/
+						     @PathVariable("boardNo") int boardNo
+						   , Model model) {
+		
+		Map<String, Object> map = service.itemDetail(boardNo);
+		
+		model.addAttribute("map", map);
 
-	// 상품 상세페이지
-		@GetMapping("/detail/{boardCode}/{boardNo}")
-		public String itemDetail(@PathVariable("boardCode") int boardCode,
-								@PathVariable("boardNo") 	int boardNo) {
-			
-			return "/item/item-detail";
-		}
-		
-		
-		
-	@GetMapping("/board/detail")
-	public String itemDetail() {
 		return "/item/item-detail";
 	}
 

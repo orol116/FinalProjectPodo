@@ -3,7 +3,9 @@ package edu.kh.podo.board.itemBoard.model.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import edu.kh.podo.board.itemBoard.model.dao.ItemBoardDAO;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
+import edu.kh.podo.member.model.vo.Member;
 
 @Service
 public class ItemBoardServiceImpl implements ItemBoardService {
@@ -101,6 +104,22 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		List<ItemBoard> searchList = dao.searchBoard(searchBar);
 
 		return searchList;
+	}
+
+	// 판매글 상세조회 Service 구현
+	@Override
+	public Map<String, Object> itemDetail(int boardNo) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		List<ItemBoard> itemList = dao.selectItem(boardNo);
+		int memberNo = dao.selectMemberNo(boardNo);
+		List<Member> member = null;
+		
+		map.put("itemList", itemList);
+		map.put("memberNo", memberNo);
+		
+		return map;
 	}
 
 }
