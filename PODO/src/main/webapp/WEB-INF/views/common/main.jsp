@@ -46,7 +46,7 @@
                                 <div class="box">
                                     <a href="${contextPath}/board/detail" class="title">
                                         <div class="image">
-                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지1">
+                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
                                         </div>   
                                         <div class="title1">
                                             <div class="title2">${item.boardTitle}</div>
