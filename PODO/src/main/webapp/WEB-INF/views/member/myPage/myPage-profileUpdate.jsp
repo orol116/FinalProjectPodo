@@ -12,6 +12,7 @@
     <title>회원 이미지 변경</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+
     <link rel="stylesheet" href="${contextPath}/resources/css/member/sideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
 </head>
