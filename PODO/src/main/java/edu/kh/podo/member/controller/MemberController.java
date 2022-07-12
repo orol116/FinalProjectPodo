@@ -25,7 +25,7 @@ import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
 @RequestMapping("/member")
-@SessionAttributes({"loginMember"})
+@SessionAttributes({ "loginMember" })
 @Controller
 public class MemberController {
 
@@ -44,23 +44,20 @@ public class MemberController {
 	public String loginNaver() {
 		return "/member/naver-login";
 	}
-	
+
 	@GetMapping("/selectNaver")
-	public String selectNaver(@RequestParam(value = "email", required = false) String email
-							,Model model
-							,RedirectAttributes ra
-							,@RequestParam(value = "saveId", required = false) String saveId
-							,HttpServletResponse resp
-							,HttpServletRequest req) {
-		
+	public String selectNaver(@RequestParam(value = "email", required = false) String email, Model model,
+			RedirectAttributes ra, @RequestParam(value = "saveId", required = false) String saveId,
+			HttpServletResponse resp, HttpServletRequest req) {
+
 		Member inputMember = new Member();
 		inputMember.setMemberId(email);
-		
+
 		Member loginMember = service.naverLogin(inputMember);
-		
+
 		String path = null;
-		
-		if(loginMember != null) {
+
+		if (loginMember != null) {
 			model.addAttribute("loginMember", loginMember);
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
 
@@ -83,10 +80,6 @@ public class MemberController {
 
 		return path;
 	}
-		
-	
-	
-	
 
 	// 로그인
 	@PostMapping("/login")
@@ -122,7 +115,6 @@ public class MemberController {
 		} else {
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			path = "redirect:/member/login";
-
 		}
 
 		return path;
@@ -214,10 +206,11 @@ public class MemberController {
 	
 		return "member/itemUpload";
 	}
+
 	// 상품관리 페이지
 	@GetMapping("/itemManage")
 	public String manage() {
-	
+
 		return "member/itemManage";
 	}
 
