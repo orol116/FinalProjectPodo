@@ -25,7 +25,7 @@ import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
 @RequestMapping("/member")
-@SessionAttributes({"loginMember"})
+@SessionAttributes({ "loginMember" })
 @Controller
 public class MemberController {
 
@@ -44,23 +44,20 @@ public class MemberController {
 	public String loginNaver() {
 		return "/member/naver-login";
 	}
-	
+
 	@GetMapping("/selectNaver")
-	public String selectNaver(@RequestParam(value = "email", required = false) String email
-							,Model model
-							,RedirectAttributes ra
-							,@RequestParam(value = "saveId", required = false) String saveId
-							,HttpServletResponse resp
-							,HttpServletRequest req) {
-		
+	public String selectNaver(@RequestParam(value = "email", required = false) String email, Model model,
+			RedirectAttributes ra, @RequestParam(value = "saveId", required = false) String saveId,
+			HttpServletResponse resp, HttpServletRequest req) {
+
 		Member inputMember = new Member();
 		inputMember.setMemberId(email);
-		
+
 		Member loginMember = service.naverLogin(inputMember);
-		
+
 		String path = null;
-		
-		if(loginMember != null) {
+
+		if (loginMember != null) {
 			model.addAttribute("loginMember", loginMember);
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
 
@@ -85,10 +82,6 @@ public class MemberController {
 
 		return path;
 	}
-		
-	
-	
-	
 
 	// 로그인
 	@PostMapping("/login")
@@ -182,29 +175,30 @@ public class MemberController {
 		return "redirect" + path;
 	}
 
-			// 판매관리 페이지
-			@GetMapping("/itemUpload")
-			public String upload() {
-			
-				return "member/itemUpload";
-			}
-			// 상품관리 페이지
-			@GetMapping("/itemManage")
-			public String manage() {
-			
-				return "member/itemManage";
-			}
-		
-			// 아이디 찾기 페이지 전환
-			@GetMapping("/findId")
-			public String fingId() {
-				return "/member/member-find-ID";
-			}
-		
-			// 비밀번호 찾기 페이지 전환
-			@GetMapping("/findPw")
-			public String findPw() {
-				return "/member/member-find-PW";
-			}
-		
-		}
+	// 판매관리 페이지
+	@GetMapping("/itemUpload")
+	public String upload() {
+
+		return "member/itemUpload";
+	}
+
+	// 상품관리 페이지
+	@GetMapping("/itemManage")
+	public String manage() {
+
+		return "member/itemManage";
+	}
+
+	// 아이디 찾기 페이지 전환
+	@GetMapping("/findId")
+	public String fingId() {
+		return "/member/member-find-ID";
+	}
+
+	// 비밀번호 찾기 페이지 전환
+	@GetMapping("/findPw")
+	public String findPw() {
+		return "/member/member-find-PW";
+	}
+
+}
