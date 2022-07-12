@@ -21,18 +21,11 @@
 
 
 	<div class="slide-list">
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/YJB
         <div class="mySlides"><img src="${contextPath}/resources/images/banner1.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner2-1.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-1.png"></div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/YJB
     </div>
 
     <section>
@@ -51,9 +44,9 @@
                             <c:forEach var="item" items="${itemList}">
 
                                 <div class="box">
-                                    <a href="${contextPath}/board/detail" class="title">
+                                    <a href="${contextPath}/board/detail/${item.boardNo}" class="title">
                                         <div class="image">
-                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지1">
+                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
                                         </div>   
                                         <div class="title1">
                                             <div class="title2">${item.boardTitle}</div>
@@ -82,9 +75,11 @@
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-   
     <!-- main.js 연결 -->
     <script src="${contextPath}/resources/js/main.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
+
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
 </body>
 </html>

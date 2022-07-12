@@ -30,10 +30,9 @@
 		<result property="categoryNo" column="M_CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="itemImage" column="ITEM_IMAGE" />
+		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 
 	</resultMap>
-	
-
 	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
 	
@@ -64,68 +63,11 @@
 	
 	</insert>
 	
-	
-	
-	<resultMap type="itemBoard" id="itemBoard_rm">
-
-		<id property="boardNo" column="BOARD_NO" />
-
-		<result property="boardTitle" column="BOARD_TITLE" />
-		<result property="boardContent" column="BOARD_CONTENT" />
-		<result property="readCount" column="READ_COUNT" />
-		<result property="createDate" column="CREATE_DT" />
-		<result property="updateDate" column="UPDATE_DT" />
-		<result property="itemCondition" column="ITEM_CONDITION" />
-		<result property="tradeCondition" column="TRADE_CONDITION" />
-
-		<result property="delivery" column="DELIVERY" />
-
-		<result property="price" column="PRICE" />
-		<result property="secessionFlag" column="SECESSION_FL" />
-		<result property="sellArea" column="SELL_AREA" />
-		<result property="boardCode" column="BOARD_CD" />
-		<result property="memberNo" column="MEMBER_NO" />
-		<result property="categoryNo" column="M_CATEGORY_NO" />
-		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
-		<result property="itemImage" column="ITEM_IMAGE" />
-
-	</resultMap>
-	
-	
-	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
-	
-		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
-			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
-		</selectKey>
-	
-		INSERT INTO ITEM_BOARD VALUES(
-			#{boardNo}, #{boardTitle}, #{boardContent},
-			DEFAULT, DEFAULT, DEFAULT, '사용감있음' ,'판매 중', null, #{price}, 'N', '서울시'
-			,#{boardCode}, #{memberNo},'13', null, null
-		)
-	</insert>	
-	
-	<insert id="insertBoardImageList" parameterType="list" >
-		
-		INSERT INTO BOARD_IMG
-			SELECT SEQ_IMG_NO.NEXTVAL IMG_NO, A.* FROM(
-			
-				<foreach collection="list" item="img" separator="UNION ALL" >
-					SELECT 			#{img.imageReName} IMG_RENAME,
-									#{img.imageOriginal} IMG_ORIGINAL,
-									#{img.imageLevel} 			IMG_LEVEL,
-									#{img.boardNo}		BOARD_NO
-					FROM DUAL
-				</foreach>
-				
-			) A
-	
-	</insert>
-	
-	
 	<select id="selectItemList" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO
 		FROM ITEM_BOARD
+		WHERE UPDATE_DT >= SYSDATE - 7
+		ORDER BY READ_COUNT
 	</select>
 
 
@@ -153,9 +95,23 @@
 		ORDER BY BOARD_NO DESC
 
 	</select>
+	
+	
+	<!-- 판매글 상세조회 -->
+	<select id="selectItem" resultMap="itemBoard_rm">
+		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION
+		FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 판매글에 해당하는 회원번호 조회 -->
+	<select id="selectMemberNo" resultType="_int">
+		SELECT MEMBER_NO
+		FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
 
 
 </mapper>
-
 
 
