@@ -21,18 +21,11 @@
 
 
 	<div class="slide-list">
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/YJB
         <div class="mySlides"><img src="${contextPath}/resources/images/banner1.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner2-1.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-1.png"></div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/YJB
     </div>
 
     <section>

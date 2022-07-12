@@ -9,6 +9,7 @@
 	</resultMap>
 	
 	
+
 	<resultMap type="itemBoard" id="itemBoard_rm">
 
 		<id property="boardNo" column="BOARD_NO" />
