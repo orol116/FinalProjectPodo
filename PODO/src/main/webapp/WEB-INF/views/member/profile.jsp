@@ -68,81 +68,35 @@
 
                 <section id="seller-items">
 
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <c:choose>
+                    <c:when test="${empty itemList}">
+                        판매중인 상품이 없습니다.
+                    </c:when>
 
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <c:otherwise>
 
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image ">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                        <c:forEach var="item" items="itemList">
 
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
+                            <div class="box">
+                                <a href="../images/logo.png" class="title">
+                                    <div class="image">
+                                        <img src="#"  alt="상품 이미지1">
+                                    </div>   
+                                    <div class="title1">
+                                        <div class="title2">${item.boardTitle}</div>
+                                        <div class="name2">
+                                            <div class="price">${item.price}</div>
+                                            <div class="time">${item.updateDate}</div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
 
+                        </c:forEach>
 
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    </c:otherwise>
+
+                    </c:choose>
 
 
                 </section>
