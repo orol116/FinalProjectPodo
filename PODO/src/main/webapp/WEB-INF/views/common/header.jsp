@@ -8,25 +8,6 @@
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
-    <script>
-        const category = document.getElementById("fa-bars");
-
-        area = document.getElementById("category-area");
-
-        category.addEventListener("mouseenter", function(){
-
-            area.style.display = "flex";
-
-        });
-
-        area.addEventListener("mouseleave", function(){
-
-            area.style.display = "none";
-
-        });
-    
-    
-    </script>
     
     <div id="top">
     <c:choose>
@@ -44,7 +25,7 @@
 
     <div id="header">
         <section id="menu"> 
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars" id="fa-bars"></i>
             <a href="${contextPath}" >
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
