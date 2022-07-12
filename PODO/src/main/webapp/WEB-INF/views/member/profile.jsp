@@ -75,7 +75,7 @@
 
                     <c:otherwise>
 
-                        <c:forEach var="item" items="itemList">
+                        <c:forEach var="item" items="${itemList}">
 
                             <div class="box">
                                 <a href="../images/logo.png" class="title">
