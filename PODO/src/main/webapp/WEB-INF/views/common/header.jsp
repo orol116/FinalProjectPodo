@@ -32,10 +32,10 @@
         
         <section class="mid-header">
 
-            <form action="$[contextPath}" method="get" id="boardSerch" onclick="return searchValidate()">
+            <!-- <form action="$[contextPath}" method="get" id="boardSerch" onclick="return searchValidate()"> -->
                 <input id="search2" type="text" name="searchBar" placeholder="상품명을 입력해주세요.">
                 <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
+            <!-- </form> -->
 
         </section>
         <section class="right-header">

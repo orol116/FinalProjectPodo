@@ -22,7 +22,7 @@
 
         <div id="contaioner">
             <h3>회원가입</h3>
-            <form action="signUp" method="POST" name="ID-form" id="signUp-form">
+            <form action="signUp" method="POST" name="ID-form" id="signUp-form" onsubmit="return signUpValidate()">
                 <fieldset id="signUp-area">
 
                     <section>
@@ -49,13 +49,14 @@
                     <section>
                         <h4>닉네임</h4>
                         <input type="text" id="memberNickname" maxlength="20" name="memberNickname" placeholder="닉네임을 입력해주세요.">
+                        <button id="nicknameDupCheck" type="button">중복검사</button>
                     </section>
-                    <span class="signUp-message" id="nickMessage">* 2~8글자를 입력하세요.</span>
+                    <span class="signUp-message" id="nicknameMessage">* 2~8글자를 입력하세요.</span>
 
                     <section>
                         <h4>전화번호</h4>
                         <input type="text" id="memberTel" maxlength="20" name="memberTel" placeholder="전화번호를 입력해주세요.">
-                        <button id="nicknameDupCheck" type="button">중복검사</button>
+                        
                     </section>
                     <span class="signUp-message" id="telMessage">* 본인의 전화번호를 입력해주세요.</span>
 
@@ -68,7 +69,7 @@
                     
 
                     <section id="submitBtn-area">
-                        <button id="submitBtn" >회원가입하기</button>
+                        <button id="submitBtn">회원가입하기</button>
                     </section>  
                     
 
@@ -81,7 +82,7 @@
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <script src="${contextPath}/js/member/signUp.js"></script>
+    <script src="${contextPath}/resources/js/member/signUp.js"></script> 
 
     
 </body>
