@@ -22,6 +22,10 @@ public interface MemberService {
 	 */
 	int signUp(Member inputMember);
 
+
+
+	Member naverLogin(Member inputMember);
+
 	
 
 

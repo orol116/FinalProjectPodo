@@ -56,12 +56,12 @@ public class MemberController {
 		Member inputMember = new Member();
 		inputMember.setMemberId(email);
 		
-		Member loginMember = service.login(inputMember);
+		Member loginMember = service.naverLogin(inputMember);
 		
 		String path = null;
 		
 		if(loginMember != null) {
-			model.addAttribute("loginMemer", loginMember);
+			model.addAttribute("loginMember", loginMember);
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
 
 			if (saveId != null) {
