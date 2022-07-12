@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,8 @@
     <title>adiminPage-controlMember</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlMember.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -59,19 +59,19 @@
 
 
 <div>
-    <table style="width:100%">
+    <table>
         <thead>
             <tr id="head">
-                <th style="width:5%"><input type="checkbox"></th>
-                <th style="width:5%">번호</th>
-                <th style="width:10%">이름</th>
-                <th style="width:11%"> 닉네임</th>
-                <th style="width:13%">전화번호</th>
-                <th style="width:23%">주소</th>
-                <th style="width:17%">가입날짜</th>
-                <th style="width:5%"> 상품</th>
-                <th style="width:6%">포도알</th>
-                <th style="width:5%">탈퇴여부</th>
+                <th><input type="checkbox"></th>
+                <th>번호</th>
+                <th>이름</th>
+                <th>닉네임</th>
+                <th>전화번호</th>
+                <th>주소</th>
+                <th>가입날짜</th>
+                <th> 상품</th>
+                <th>포도알</th>
+                <th>탈퇴여부</th>
             </tr>
         </thead>
         <tbody>

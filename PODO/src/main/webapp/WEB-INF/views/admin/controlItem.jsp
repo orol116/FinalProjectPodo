@@ -1,15 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adiminPage-controlMember</title>
+    <title>adiminPage-controlItem</title>
 
-    <link rel="stylesheet" href="../../css/admin/controlMember.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlItem.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
-
 
 </head>
 
@@ -17,7 +18,7 @@
     <div id="header">
         <section id="menu"> 
             <a href="main" >
-                <img src="../../images/logo.png" id="home-logo">
+                <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>
         </section>
@@ -40,15 +41,17 @@
 
 <div class="option">
     <select>
-        <option>탈퇴여부</option>
-        <option>N</option>
-        <option>Y</option>
+        <option>대분류</option>
+        <option>여성의류</option>
+        <option>남성의류</option>
+        <option>시계/쥬얼리</option>
+        <option>디지털 가전</option>
     </select>
  
    
     <section class="basic">
         <form class="search1" action="#" method="post" id="search">
-            <input id="search2" type="text" placeholder="회원명을 입력해주세요.">
+            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </section>
@@ -62,136 +65,140 @@
             <tr id="head">
                 <th><input type="checkbox"></th>
                 <th>번호</th>
-                <th>이름</th>
-                <th>닉네임</th>
-                <th>전화번호</th>
-                <th>주소</th>
-                <th>가입날짜</th>
-                <th> 상품</th>
-                <th>포도알</th>
-                <th>탈퇴여부</th>
+                <th>분류</th>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>판매지역</th>
+                <th>찜 갯수</th>
+                <th>등록일</th>
+                <th>상품 상태</th>
+                <th>판매상태</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td ><input type="checkbox"></td>
                 <td >1</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td >스포츠 의류</td>
+                <td> 나이키 신발 235</td>
+                <td >20000원</td>
                 <td>서울특별시 중구 남대문로 120</td>
+                <td >5</td>
                 <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td>새상품</td>
+                <td>판매중</td>
+           
             </tr>  
             <tr>
                 <td ><input type="checkbox"></td>
                 <td >2</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td>스포츠 의류</td>
+                <td> 아디다스 운동복</td>
+                <td >3000원</td>
                 <td>서울특별시 중구 남대문로 120</td>
+                <td >8</td>
                 <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td>중고 상품</td>
+                <td>판매완료</td>
+            
             </tr>
             <tr>
                 <td ><input type="checkbox"></td>
                 <td >3</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
+                <td >여성 의류</td>
+                <td >미쏘 원피스 55</td>
+                <td>50,000원</td>
+                <td >서울시 중랑구 면목동</td>
+                <td >0</td>
                 <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td >중고 상품</td>
+                <td >판매중</td>
             </tr>
             <tr>
-                <td ><input type="checkbox"></td>
-                <td >4</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td><input type="checkbox"></td>
+                <td>4</td>
+                <td>식료품</td>
+                <td>새우깡</td>
+                <td>500원</td>
                 <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td>7</td>
+                <td>2022-06-30 18:07</td>
+                <td>중고 상품</td>
+                <td>판매중</td>
+             
             </tr>
             <tr>
                 <td ><input type="checkbox"></td>
                 <td >5</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td >디지털 가전</td>
+                <td >마우스</td>
+                <td>15000원</td>
                 <td>서울특별시 중구 남대문로 120</td>
+                <td >6</td>
                 <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td>중고 상품</td>
+                <td>판매중</td>
             </tr>
             <tr>
                 <td ><input type="checkbox"></td>
                 <td >6</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td >디지털 가전</td>
+                <td >선풍기</td>
+                <td>90000원</td>
                 <td>서울특별시 중구 남대문로 120</td>
+                <td >2</td>
                 <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td>중고 상품</td>
+                <td>판매중</td>
             </tr>
             <tr>
                 <td ><input type="checkbox"></td>
                 <td >7</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td >잡화</td>
+                <td >로션세트</td>
+                <td>35000원</td>
                 <td>서울특별시 중구 남대문로 120</td>
+                <td>3</td>
                 <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td>중고 상품</td>
+                <td>판매 완료</td>
             </tr>
             <tr>
                 <td ><input type="checkbox"></td>
                 <td >8</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td >디지털 가전</td>
+                <td >스마트 TV</td>
+                <td>600000원</td>
                 <td>서울특별시 중구 남대문로 120</td>
+                <td >0</td>
                 <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td >새상품</td>
+                <td >판매완료</td>
             </tr>
             <tr>
                 <td ><input type="checkbox"></td>
                 <td >9</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td >남성의류</td>
+                <td>와이드 팬츠 32</td>
+                <td >5000원</td>
+                
                 <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td>4</td>
+                <td>2022-06-30 18:07</td>
+                <td>새상품</td>
+                <td>판매 완료</td>
             </tr>
             <tr>
-                <td ><input type="checkbox"></td>
-                <td >10</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
+                <td><input type="checkbox"></td>
+                <td>10</td>
+                <td >여성의류</td>
+                <td>베이지 린넨바지</td>
+                <td >10000원</td>
                 <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
+                <td>4</td>
+                <td>2022-06-30 18:07</td>
+                <td>새상품</td>
+                <td>판매 완료</td>
             </tr>
 
         </tbody>
@@ -202,7 +209,7 @@
             <input type="checkbox" id="checkbox"><label for="checkbox"> 전체선택</label>
         </div>
         <div>
-            <button id="stop">정지</button>
+           
             <button id="delete">삭제</button>
         </div>
     </div>
