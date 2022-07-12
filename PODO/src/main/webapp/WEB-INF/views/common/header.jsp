@@ -32,10 +32,10 @@
         
         <section class="mid-header">
 
-            <form action="$[contextPath}" method="get" id="boardSerch" onclick="return searchValidate()">
+            <!-- <form action="$[contextPath}" method="get" id="boardSerch" onclick="return searchValidate()"> -->
                 <input id="search2" type="text" name="searchBar" placeholder="상품명을 입력해주세요.">
                 <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
+            <!-- </form> -->
 
         </section>
         <section class="right-header">
@@ -45,6 +45,77 @@
 
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
         </section>
+        <div id="category-area">
+        <ul id="item-category">
+            <li class="category-name" href="#" id="zzzz">
+                전체 카테고리
+            </li>
+
+            <li class="category-name" href="#">
+                인기매물
+            </li>
+
+            <li class="category-name" href="#">
+                생활가전
+            </li>
+
+            <li class="category-name" href="#">
+                남성의류
+            </li>
+
+            <li class="category-name" href="#">
+                여성의류
+            </li>
+
+            <li class="category-name" href="#">
+                전자기기(디지털기기)
+            </li>
+
+            <li class="category-name" href="#">
+                가구/ 인테리어
+            </li>
+
+            <li class="category-name" href="#">
+                도서 /티켓/ 음반
+            </li>
+
+            <li class="category-name" href="#">
+                식품
+            </li>
+
+            <li class="category-name" href="#">
+                식물
+            </li>
+
+            <li class="category-name" href="#">
+                스포츠/ 레저
+            </li>
+
+            <li class="category-name" href="#">
+                뷰티/ 미용
+            </li>
+
+            <li class="category-name" href="#">
+                게임취미
+            </li>
+            
+            <li class="category-name" href="#">
+                삽니다
+            </li>
+        </ul>
+
+
+        <ul id="div-category">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+
+        </ul>
+    </div>
+    <!-- ------------------------------------------------------- -->
+
     </div>
 </header>
    

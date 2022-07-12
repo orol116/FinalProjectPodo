@@ -55,14 +55,14 @@ memberTel.addEventListener("input", function(){
 
 
 // 아dl디
-const memberId = document.getElementById("memberEmail");
+const memberId = document.getElementById("memberId");
 const idMessage = document.getElementById("idMessage");
 
 memberId.addEventListener("input", function(){
 
     // 입력이 되지 않은 경우
     if( memberId.value.length == 0 ){
-        idMessage.innerText = "메일을 받을 수 있는 이메일을 입력해주세요.";
+        idMessage.innerText = "아이디를 입력해주세요.";
         idMessage.classList.remove("confirm", "error");
 
         checkObj.memberId = false; // 유효 X 기록
@@ -70,15 +70,21 @@ memberId.addEventListener("input", function(){
     }
 
     // 입력된 경우
-    const regExp = /^[\w\-\_]{4,}@[\w\-\_]+(\.\w+){1,3}$/;
+    const regExp = /^[a-zA-Z0-9]{4,15}$/;
 
     const idResult = 0;
 
 
 
     if( regExp.test(memberId.value) ){ // 유효한 경우
+
         
-        document.getElementById("idDupCheck").addEventListener("click",function(){
+        checkObj.memberId = true;
+        idMessage.innerText = "사용 가능한 아이디 입니다.";
+
+        
+        
+ /*        document.getElementById("idDupCheck").addEventListener("click",function(){
             $.ajax({
                 url : "idDupCheck",   
                 
@@ -115,14 +121,14 @@ memberId.addEventListener("input", function(){
                 }
             });
 
-        });
+        }); */
 
     }else{
-        idMessage.innerText = "이메일 형식이 유효하지 않습니다.";
+        idMessage.innerText = "아이디 형식이 유효하지 않습니다.";
         idMessage.classList.add("error");
         idMessage.classList.remove("confirm");
 
-        idResult = 0;
+        /* idResult = 0; */
 
         checkObj.memberId = false; // 유효 X 기록
     }
@@ -149,12 +155,18 @@ memberNickname.addEventListener("input", function(){
 
     if( regExp.test(memberNickname.value) ){ // 유효한 경우
 
-        const nicknameResult = 0;
+        checkObj.memberNickname = true; // 유효 O 기록
 
-        document.getElementById("nicknameDupCheck").addEventListener("click", function(){
+        nicknameMessage.innerText = "사용 가능한 닉네임 입니다.";
+        
+
+/*         document.getElementById("nicknameDupCheck").addEventListener("click", function(){
 
 
-            $.ajax({
+            checkObj.memberNickname = true; // 유효 O 기록
+
+            nicknameResult = 2;
+             $.ajax({
                 url : "nicknameDupCheck",  // 필수 작성 속성
                 data : { "memberNickname" : memberNickname.value }, // 서버로 전달할 값(파라미터)
                 type : "GET", // 데이터 전달 방식(기본값 GET)
@@ -182,10 +194,10 @@ memberNickname.addEventListener("input", function(){
                 error : function(){ // 비동기 통신 중 에러가 발생한 경우
                     console.log("에러 발생");
                 }
-            });
+            }); 
 
 
-        });      
+        });  */     
 
     }else{
         nicknameMessage.innerText = "닉네임 형식이 유효하지 않습니다.";
@@ -224,6 +236,8 @@ memberPw.addEventListener("input", function(){
             pwMessage.innerText = "유효한 비밀번호 형식입니다.";
             pwMessage.classList.add("confirm");
             pwMessage.classList.remove("error");
+
+            checkObj.memberPw = true;
         
         } else { // 비밀번호 유효, 확인 작성 O
             checkPw(); // 비밀번호 일치 검사 함수 호출()
@@ -271,11 +285,14 @@ const addressMessage = document.getElementById("addressMessage");
 memberAddress.addEventListener("input", function(){
 
     if(memberAddress.value.length == 0){
-        addressMessage.innerText = "영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로 작성해주세요.";
+        addressMessage.innerText = "주소를 작성해주세여.";
         addressMessage.classList.remove("confirm", "error");
 
         checkObj.memberAddress = false; // 유효 X 기록
         return;
+    }else{
+        addressMessage.innerText = "주소가 작성되었습니다.";
+        checkObj.memberAddress = true;
     }
 
 });
@@ -319,14 +336,14 @@ function signUpValidate(){
     }
 
 
-    if(idResult != 2 && nicknameResult != 2){
+    /* if(idResult != 2 && nicknameResult != 2){
         
         alert("중복검사를 진행해주세요");
 
         return false;
 
-    }
+    } */ 
 
     return true; // form태그 기본 이벤트 수행
 
-}
+};

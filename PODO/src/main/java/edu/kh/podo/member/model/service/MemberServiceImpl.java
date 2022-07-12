@@ -1,5 +1,8 @@
 package edu.kh.podo.member.model.service;
 
+import java.util.HashMap;
+
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import edu.kh.podo.member.model.dao.MemberDAO;
 import edu.kh.podo.member.model.vo.Member;
+import net.nurigo.java_sdk.api.Message;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -72,7 +77,8 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
-	
+
+
 
 	
 

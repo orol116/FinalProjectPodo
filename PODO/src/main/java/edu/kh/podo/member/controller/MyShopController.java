@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.google.gson.Gson;
 
+import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.service.MyShopService;
 import edu.kh.podo.member.model.vo.Member;
@@ -28,6 +29,9 @@ public class MyShopController {
 	
 	@Autowired
 	private MyShopService service;
+	
+	@Autowired
+	private ItemBoardService itemService;
 
 	// 판매자 판매상품 조회
 	@GetMapping("/main")
@@ -53,7 +57,13 @@ public class MyShopController {
 	
 	// 내 상점 조회
 	@GetMapping("/myShop")
-	public String myShop() {
+	public String myShop(@ModelAttribute("loginMember") Member loginMember
+					   , Model model) {
+		
+		List<ItemBoard> itemList = itemService.selectItemList();
+		
+		model.addAttribute("itemList", itemList);
+		
 		return "member/profile";
 	}
 }

@@ -17,18 +17,19 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <form action="itemUpload" method="POST" name="itemUpload" id="itemUpload">
-
-    <div class="top-menu">
-        <nav id="mainMenu">
-            <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/shop/main">상품관리</a>
-            <a href="#">구매/판매 내역</a>
-        </nav>
-    </div>
-
     <main>
-        <form action="${contextPath}/board/write" method="POST" id="upload">
+
+    <form action="${contextPath}/board/write" enctype="multipart/form-data" method="POST" name="itemUpload" id="itemUpload">
+
+        <div class="top-menu">
+            <nav id="mainMenu">
+                <a href="${contextPath}/member/itemUpload">상품등록</a>
+                <a href="${contextPath}/shop/main">상품관리</a>
+                <a href="#">구매/판매 내역</a>
+            </nav>
+        </div>
+
+    
         <div class="basic1">
             <section class="basic">
                 <h2>기본정보</h2>
