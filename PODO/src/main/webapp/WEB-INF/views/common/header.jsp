@@ -16,7 +16,7 @@
         </c:when>
         <c:otherwise>
                 <a href="${contextPath}/member/login">로그아웃
-                <a href="${contextPath}/member/signUp">마이페이지
+                <a href="${contextPath}/member/myPage/changePw">마이페이지
         </c:otherwise>
     </c:choose>    
         <a href="#">고객센터
@@ -31,10 +31,12 @@
         </section>
         
         <section class="mid-header">
+
             <form action="$[contextPath}" method="get" id="boardSerch" onclick="return searchValidate()">
                 <input id="search2" type="text" name="searchBar" placeholder="상품명을 입력해주세요.">
                 <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
+
         </section>
         <section class="right-header">
             <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>

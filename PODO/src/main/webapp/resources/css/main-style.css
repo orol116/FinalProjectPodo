@@ -26,13 +26,16 @@ body{
 .slide-list{
     display: inline-block;
     justify-content: center;
-    
-    background-color: rgba(211, 211, 211, 0.404);
+ 
 }
-.slide-list>div>img{
+.mySlides-list>div>img{
     height: 600px;
     width: 1400px;
 }
+.mySlides:nth-child(3){
+    border : 0.3px solid lightgray;
+} 
+
 #angel{
     position: absolute;    
     padding: 0;

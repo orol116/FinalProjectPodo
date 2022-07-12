@@ -18,10 +18,17 @@
 
     <main>
 
+
 	<div class="slide-list">
-        <div class="slide1"><img src="${contextPath}/resources/images/banner1.png"></div>
+<<<<<<< HEAD
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner1.png"></div>
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner2.png"></div>
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner3.png"></div>
+=======
+        <div class="slide1"><img src="resources/images/banner1.png"></div>
         <div class="slide2"></div>
         <div class="slide3"></div>
+>>>>>>> origin/PJH
     </div>
 
     <section>
@@ -32,7 +39,7 @@
                     <div class="box">
                         <a href="${contextPath}/item/detail" class="title">
                             <div class="image">
-                                <img src="${contextPath}/resources/images/items/image1.jpg"  alt="상품 이미지1">
+                                <img src="resources/images/items/image1.jpg"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">선크림</div>
@@ -46,7 +53,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="${contextPath}/resources/images/items/image2.jpg"  alt="상품 이미지2">
+                                <img src="resources/images/items/image2.jpg"  alt="상품 이미지2">
                             </div>   
                             <div class="title1">
                                 <div class="title2">OLIVIA-BURTON 손목 시계</div>
@@ -60,7 +67,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="${contextPath}/resources/images/items/image3.jpg"  alt="상품 이미지3">
+                                <img src="resources/images/items/image3.jpg"  alt="상품 이미지3">
                             </div>   
                             <div class="title1">
                                 <div class="title2">갤럭시21 폰케이스</div>
@@ -74,7 +81,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="${contextPath}/resources/images/items/image4.jpg"  alt="상품 이미지4">
+                                <img src="resources/images/items/image4.jpg"  alt="상품 이미지4">
                             </div>   
                             <div class="title1">
                                 <div class="title2">삼성 버즈 케이스</div>
@@ -88,7 +95,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="${contextPath}/resources/images/items/image5.jpg" alt="상품 이미지5">
+                                <img src="resources/images/items/image5.jpg" alt="상품 이미지5">
                             </div>   
                             <div class="title1">
                                 <div class="title2">CARMEX 립밤</div>
@@ -331,7 +338,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
    
     <!-- main.js 연결 -->
-    <%-- <script src="${contextPath}/resources/js/main.js"></script> --%>
+    <script src="${contextPath}/resources/js/main.js"></script>
 
 </body>
 </html>

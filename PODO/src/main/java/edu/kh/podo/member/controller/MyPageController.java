@@ -32,7 +32,7 @@ public class MyPageController {
 	private MyPageService service;
 	
 	// 회원 정보 수정
-	@PostMapping("/info")
+	@GetMapping("/info")
 	public String updateInfo(@ModelAttribute("loginMember") Member loginMember
 						   , @RequestParam Map<String, Object> paramMap
 						   , String[] updateAddress
@@ -60,13 +60,13 @@ public class MyPageController {
 		}
 		ra.addFlashAttribute("message", message);
 		
-		return "redirect:info";
+		return "member/myPage-profileUpdate";
 	}
 	
 	// 비밀번호 변경
 	@GetMapping("/changePw")
 	public String change() {
-		return "member/myPage-changePw";
+		return "member/myPage/myPage-changePw";
 	}
 	
 	@PostMapping("/changePw")
@@ -91,7 +91,7 @@ public class MyPageController {
 	// 회원 탈퇴
 	@GetMapping("/secession")
 	public String secession() {
-		return "member/myPage-secession";
+		return "member/myPage/myPage-secession";
 	}
 	
 	@PostMapping("/secession")

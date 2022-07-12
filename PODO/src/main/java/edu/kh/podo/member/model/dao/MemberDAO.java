@@ -38,4 +38,10 @@ public class MemberDAO {
 		return sqlSession.insert("memberMapper.signUp", inputMember);
 	}
 
+
+
+	public int naverSignUp(Member inputMember) {
+		return sqlSession.insert("memberMapper.naverSignUp", inputMember);
+	}
+
 }

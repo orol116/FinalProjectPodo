@@ -10,28 +10,19 @@ const checkObj={
 };
 
 
-// 마이페이지 정보 수정
+// 비밀번호 변경 수정
 function infoValidate(){
-    const memberNickname = document.getElementById("memberNickname");
-    const currentPw =document.getElementById("currentPw");
+    
+    const pw =document.getElementById("pw");
     const newPw =document.getElementById("newPw");
     const newPwConfirm =document.getElementById("newPwConfirm");
     
-    const regExp1 = /^[a-zA-Z0-9가-힣]{2,10}$/; // 닉네임 정규식
-    const regExp = /^[\w!@#_-]{6,30}$/; // 비밀번호 정규식 
+    const regExp = /^[\w!@#_-]{4,15}$/; // 비밀번호 정규식 
 
-    // 닉네임 유효성 검사
-    if(memberNickname.value.length == 0){ // 미작성 시 : 닉네임을 입력해주세요.
-        alert("닉네임을 입력해주세요.");
-        memberNickname.focus();
-        return false;
-    }
+    const doro = /^(([가-힣A-Za-z·\d~\-\.]{2,}(로|길).[\d]+)|([가-힣A-Za-z·\d~\-\.]+(읍|동)\s)[\d]+)$/; // 도로명
+    const jibun = /^(([가-힣A-Za-z·\d~\-\.]+(읍|동)\s)[\d-]+)|(([가-힣A-Za-z·\d~\-\.]+(읍|동)\s)[\d][^시]+)$/; // 지번
 
-    if(!regExp1.test(memberNickname.value)){ // 유효하지 않은 경우
-        alert("닉네임은 영어/숫자/한글 2~10 글자 사이로 작성해주세요.");
-        memberNickname.focus();
-        return false;
-    }
+    
 
     //현재 비밀번호 미작성
     if(currentPw.value.trim().length==0){
@@ -178,18 +169,33 @@ if(inputImage != null){ // inputImage 요소가 화면에 존재 할 때
 
 
 
-// 이미지 선택 확인
+// 이미지 선택 확인, 닉네임 주소 수정
 function profileValidate(){
     const inputImage = document.getElementById("input-image");
 
     const del = document.getElementById("delete"); // hidden 타입
+    const memberNickname = document.getElementById("memberNickname");
 
+    const regExp1 = /^[a-zA-Z0-9가-힣]{2,8}$/; // 닉네임 정규식
 
     if( inputImage.value == ""  &&  del.value == 0 ){ 
         // 빈문자열 == 파일 선택 X / del의 값이 0 == x를 누르지도 않았다
         // --> 아무것도 안하고 변경버튼을 클릭한 경우
 
         alert("이미지를 선택한 후 변경 버튼을 클릭해주세요.");
+        return false;
+    }
+
+    // 닉네임 유효성 검사
+    if(memberNickname.value.length == 0){ // 미작성 시 : 닉네임을 입력해주세요.
+        alert("닉네임을 입력해주세요.");
+        memberNickname.focus();
+        return false;
+    }
+
+    if(!regExp1.test(memberNickname.value)){ // 유효하지 않은 경우
+        alert("닉네임은 영어/숫자/한글 2~10 글자 사이로 작성해주세요.");
+        memberNickname.focus();
         return false;
     }
 

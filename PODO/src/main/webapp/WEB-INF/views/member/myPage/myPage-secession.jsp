@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="resources/css/member/myPage-profileUpdate-style.css">
 </head>
 <body>
-    <%-- header --%>
+    
+    <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
 
     <!-- 본문  -->
     <section class="myPage-inner">
@@ -82,20 +83,18 @@
 </main>
 
 
-
-<!-- footer -->
-<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+<!-- footer include -->
+<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 <script>
-        const contextPath = "${contextPath}";
+    const contextPath = "${contextPath}";
 </script>
 
 <!-- jQuery 라이브러리 추가 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <!-- js -->
-<script src="${contextPath}/resources/js/member/myPage.js"></script>
-
+<script src="${contextPath}/resources/js/myPage.js"></script>
 
 </body>
 </html>
