@@ -9,20 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 정보 수정</title>
 
-    <link rel="stylesheet" href="resources/css/main-style.css">
-    <link rel="stylesheet" href="resources/css/member/sideMenu.css">
-    <link rel="stylesheet" href="resources/css/member/myPage-profileUpdate-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
 
 
 </head>
 <body>
     <main>
 
-    <%-- header --%>
+    <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/member/mypage/sideMenu.jsp" />
 
 
     <!-- 오른쪽 마이페이지 상단  -->
@@ -57,15 +57,15 @@
                     
 
                     <button type="button" id="info-update-btn" onclick="location.href='myPage-secession.jsp'">탈퇴하기</button>
-                    <button id="info-update-btn">회원정보수정</button>
+                    <button id="info-update-btn">회원 정보 수정</button>
                 </div>
     
 
-        </form>
+            </form>
+
+        </section>
 
     </section>
-
-</section>
     
     </main>
     

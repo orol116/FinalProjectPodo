@@ -18,11 +18,11 @@
 <body>
     <main>
 
-    <%-- header --%>
+    <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/member/sideMenu.jsp" />
+    <jsp:include page="/WEB-INF/views/member/mypage/sideMenu.jsp" />
 
 
     <!-- 프로필 이미지 변경 -->
@@ -69,8 +69,8 @@
             </div>
 
             <div class="myPage-row">
-                <label>가입일</label>
-                <span>${loginMember.enrollDate}</span>
+                <label>주소</label>
+                <span>${loginMember.memberAddress}</span>
             </div>
 
             <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
