@@ -22,23 +22,27 @@
 
         <div id="contaioner">
             <h3>비밀번호 찾기</h3>
-            <form action="findPw" method="POST" name="ID-form" id="ID-form">
+            <form action="#" method="POST" name="ID-form" id="ID-form">
                 <fieldset id="ID-area">
 
                     <section>
                         <h4>이름</h4>
-                        <input type="text" id="name-box" maxlength="20" placeholder="이름을 입력해주세요.">
+                        <input type="text" id="name-box" maxlength="20" name="memberNickname" placeholder="이름을 입력해주세요.">
                         <h4>아이디</h4>
-                        <input type="text" id="name-box" maxlength="20" placeholder="아이디를 입력해주세요.">
+                        <input type="text" id="name-box" maxlength="20" name="memberId" placeholder="아이디를 입력해주세요.">
 
                         <h4>전화번호</h4>
-                        <input type="text" id="phone-box" placeholder="전화번호를 입력해주세요.">
+                        <input type="text" id="phone-box" name="memberTel" placeholder="전화번호를 입력해주세요.">
                    
 
                     
-                        <button id="submitBtn" class="submitBtn">인증번호 받기</button>
+                        <button id="submitBtn" class="submitBtn" type="button">전화번호 인증번호 받기</button>
                         <!-- script로 인증버튼 누를 때 추가 -->
-                        <input type="text" id="Cer-number" placeholder="인증번호를 입력하세요">
+                        <div id="Cer-area">
+                            <input type="text" id="Cer-number" placeholder="인증번호를 입력하세요">
+                            <button id="Cer-number-check">인증번호 확인</button>
+                        </div>
+                        <button id="submitBtn">제출</button>
                     </section>
 
                 </fieldset>
@@ -47,6 +51,8 @@
         </div>
 
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+        <script src="${contextPath}/js/member/findPW.js"></script>
 
     </main>
 

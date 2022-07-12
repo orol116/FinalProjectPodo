@@ -1,6 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="itemList" value="${map.itemList}" />
+<c:set var="memberNo" value="${map.memberNo}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +41,12 @@
                 <section id="item-detail-head">
                     <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
                     <div id="item-info">
-                        <div id="item-title">상품 제목</div>
-                        <div id="item-price">20000원</div>
+                        <div id="item-title">${itemList.boardTitle}</div>
+                        <div id="item-price">${itemList.price}원</div>
                         <div id="item-layer">
-                            <div id="bookmark"> 찜 : 2 </div>
-                            <div id="read-count"> 조회수 : 4 </div>
-                            <div id="create-DT">  5분전 </div>
+                            <div id="bookmark"> 찜 : ${itemList.bookmarkCount} </div>
+                            <div id="read-count"> 조회수 : ${itemList.readCount} </div>
+                            <div id="create-DT">  ${itemList.updateDate} </div>
                             <a href="#" id="item-report">신고하기</a>
                         </div>
 
@@ -79,9 +82,9 @@
                 <section id="seller-items">
 
                     <div class="box">
-                        <a href="${contextPath}/resources/images/logo.png" class="title">
+                        <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -94,9 +97,9 @@
                     </div>
 
                     <div class="box">
-                        <a href="${contextPath}/resources/images/logo.png" class="title">
+                        <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -109,9 +112,9 @@
                     </div>
 
                     <div class="box">
-                        <a href="${contextPath}/resources/images/logo.png" class="title">
+                        <a href="#" class="title">
                             <div class="image ">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -124,9 +127,9 @@
                     </div>
 
                     <div class="box">
-                        <a href="${contextPath}/resources/images/logo.png" class="title">
+                        <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -140,9 +143,9 @@
 
 
                     <div class="box">
-                        <a href="${contextPath}/resources/images/logo.png" class="title">
+                        <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -183,7 +186,7 @@
 
                             </div>
 
-                            <img id="profile-image" src="../images/logo.png"  alt="회원 프로필 이미지">
+                            <img id="profile-image" src="${contextPath}/resources/images/logo.png"  alt="회원 프로필 이미지">
                         </div>
 
                         <div id="review-text">후기</div>
@@ -208,7 +211,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -223,7 +226,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -238,7 +241,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -253,7 +256,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>
@@ -268,7 +271,7 @@
                     <div class="box">
                         <a href="#" class="title">
                             <div class="image">
-                                <img src="#"  alt="상품 이미지1">
+                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
                             </div>   
                             <div class="title1">
                                 <div class="title2">상품</div>

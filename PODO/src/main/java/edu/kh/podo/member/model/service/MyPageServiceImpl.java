@@ -17,6 +17,7 @@ public class MyPageServiceImpl implements MyPageService {
 	@Autowired
 	private MyPageDAO dao;
 	
+	@Autowired
 	private BCryptPasswordEncoder bcrypt;
 
 	// 회원 정보 수정 Service 구현
@@ -28,9 +29,9 @@ public class MyPageServiceImpl implements MyPageService {
 	// 회원 비밀번호 수정 Service 구현
 	@Override
 	public int updatePw(Map<String, Object> pwMap) {
-		String nowPw = dao.selectCurrentPw((int)pwMap.get("memberPw"));
+		String nowPw = dao.selectCurrentPw((int)pwMap.get("memberNo"));
 				
-		if (bcrypt.matches((String)pwMap.get("currentPw"), nowPw)) {
+		if (bcrypt.matches((String)pwMap.get("pw"), nowPw)) {
 			pwMap.put("newPw", bcrypt.encode((String)pwMap.get("newPw")));
 			return dao.updatePw(pwMap);
 		}

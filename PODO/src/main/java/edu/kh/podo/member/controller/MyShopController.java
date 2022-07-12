@@ -16,18 +16,26 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.google.gson.Gson;
 
+import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.service.MyShopService;
 import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.Review;
 
 @Controller
-@RequestMapping("/myShop")
+@RequestMapping("/shop")
 @SessionAttributes({"loginMember"})
 public class MyShopController {
 	
 	@Autowired
 	private MyShopService service;
+	
+	@Autowired
+	private ItemBoardService itemService;
+	
+	@Autowired
+	private MemberService memberService;
 
 	// 판매자 판매상품 조회
 	@GetMapping("/main")
@@ -40,7 +48,7 @@ public class MyShopController {
 		List<ItemBoard> memberSellList = service.selectMemberShop(itemBoard.getMemberNo());
 		model.addAttribute("memberSellList", memberSellList);
 		
-		return "member/itemManage";
+		return "item/itemManage";
 	}
 	
 	// 판매자 후기 조회
@@ -51,4 +59,17 @@ public class MyShopController {
 		return new Gson().toJson(reviewList);
 	}
 	
+	// 내 상점 조회
+	@GetMapping("/myShop")
+	public String myShop(@ModelAttribute("loginMember") Member loginMember
+					   , Model model) {
+		
+//		List<Member> shopMember = memberService.selectMember();
+		
+		List<ItemBoard> itemList = itemService.selectItemList();
+		
+		model.addAttribute("itemList", itemList);
+		
+		return "member/profile";
+	}
 }

@@ -27,6 +27,7 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+
 	
 	/** 회원가입 DAO
 	 * @param inputMember
@@ -35,6 +36,12 @@ public class MemberDAO {
 	public int signUp(Member inputMember) {
 
 		return sqlSession.insert("memberMapper.signUp", inputMember);
+	}
+
+
+
+	public int naverSignUp(Member inputMember) {
+		return sqlSession.insert("memberMapper.naverS2ignUp", inputMember);
 	}
 
 }

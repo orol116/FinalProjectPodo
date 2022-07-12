@@ -36,6 +36,7 @@ header{
     justify-content: flex-end;
     z-index: 3;
     flex-basis: 100%;
+    padding-right: 20px;
 }
 #top>a:hover{
     text-decoration-line: underline;
@@ -139,4 +140,82 @@ section>button>.fa-solid{
     color: rgb(95, 0, 129);
     font-size:25px;
     margin-right: 20px;
+}
+
+
+
+/* 카테고리  */
+/* 카테고리  */
+/* 카테고리  */
+
+#category-area{
+    position: fixed;
+    top: 95px;
+    width: 500px;
+    height: 700px;
+    display: none; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #fff;
+    /* display: flex;
+    flex-direction: row; */
+
+
+
+}
+
+#category-area > ul{
+
+    width: 50%;
+
+}
+
+#category-area > ul:first-child{
+
+    border-right: 1px solid #ccc;
+
+}
+
+
+
+#item-category{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1px;
+}
+
+
+#item-category > li{
+    list-style: none;
+    padding: 10px 0 10px 30px;
+    margin-bottom: 1px;
+    
+}
+
+#item-category > li:first-child{
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    border-right: 0px !important; 
+}
+
+
+#item-category > li:hover{
+    background-color: rgb(95, 0, 129);
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+/* 카테고리 중분류 */
+#div-category{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+#div-category > li{
+    list-style: none;
+    margin: 10px 0 10px 0;
+
 }

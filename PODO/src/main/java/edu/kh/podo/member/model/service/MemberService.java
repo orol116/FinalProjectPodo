@@ -14,12 +14,23 @@ public interface MemberService {
 	 */
 	Member login(Member inputMember);
 
+
 	
 	/** 회원가입 service
 	 * @param inputMember
 	 * @return
 	 */
 	int signUp(Member inputMember);
+
+
+
+	Member naverLogin(Member inputMember);
+
+
+
+	int naverSignUp(Member inputMember);
+	
+	
 
 	
 
