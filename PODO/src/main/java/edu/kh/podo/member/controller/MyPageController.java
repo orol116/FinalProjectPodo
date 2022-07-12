@@ -32,7 +32,7 @@ public class MyPageController {
 	private MyPageService service;
 	
 	// 회원 정보 수정
-	@PostMapping("/info")
+	@GetMapping("/info")
 	public String updateInfo(@ModelAttribute("loginMember") Member loginMember
 						   , @RequestParam Map<String, Object> paramMap
 						   , String[] updateAddress
@@ -60,7 +60,7 @@ public class MyPageController {
 		}
 		ra.addFlashAttribute("message", message);
 		
-		return "redirect:info";
+		return "member/myPage-profileUpdate";
 	}
 	
 	// 비밀번호 변경
