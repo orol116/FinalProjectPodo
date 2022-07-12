@@ -8,7 +8,7 @@
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 
-    <script>
+    <%-- <script>
         const category = document.getElementById("fa-bars");
 
         area = document.getElementById("category-area");
@@ -26,7 +26,7 @@
         });
     
     
-    </script>
+    </script> --%>
     
     <div id="top">
     <c:choose>

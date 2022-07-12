@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
 </head>
 <body>
     <main>
@@ -57,8 +57,6 @@
                 <!-- accept="image/*" : 이미지 파일 확장자만 선택 허용 -->
                 <!-- accept="video/*" : 동영상 파일 확장자만 선택 허용 -->
                 <!-- accept=".pdf" : pdf파일만 선택 허용 -->
-
-                <button type="submit">변경하기</button>
             </div>
 
             
@@ -98,6 +96,8 @@
             <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
             <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
             <input type="hidden" name="delete" id="delete" value="0">
+
+            <button>변경하기</button>
 
     </section>
     

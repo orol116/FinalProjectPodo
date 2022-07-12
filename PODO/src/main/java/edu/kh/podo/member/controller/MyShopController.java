@@ -48,7 +48,7 @@ public class MyShopController {
 		List<ItemBoard> memberSellList = service.selectMemberShop(itemBoard.getMemberNo());
 		model.addAttribute("memberSellList", memberSellList);
 		
-		return "member/itemManage";
+		return "item/itemManage";
 	}
 	
 	// 판매자 후기 조회
