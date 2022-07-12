@@ -31,8 +31,12 @@
         </section>
         
         <section class="mid-header">
-            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+            <form action="$[contextPath}" method="get" id="boardSerch" onclick="return searchValidate()">
+                <input id="search2" type="text" name="searchBar" placeholder="상품명을 입력해주세요.">
+                <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+
         </section>
         <section class="right-header">
             <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
