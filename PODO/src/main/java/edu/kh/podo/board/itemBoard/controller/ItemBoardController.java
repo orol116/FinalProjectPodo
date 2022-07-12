@@ -10,6 +10,7 @@ import java.net.http.HttpRequest;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,17 +32,19 @@ public class ItemBoardController {
 	@Autowired
 	private ItemBoardService service;
 	
-	@GetMapping("/write")
+	@GetMapping("/board/write/{boardCode}")
 	public String boardWriteForm() {
 		
 		return "member/itemUpload";
 	}
 	
-	@PostMapping("/write")
+	@PostMapping("/board/write/{boardCode}")
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
 							ItemBoard item,
-							HttpServletRequest req) {
+							HttpServletRequest req
+							,RedirectAttributes ra
+							,@PathVariable("boardCode") int boardCode) {
 		
 		
 		item.setMemberNo(loginMember.getMemberNo());
@@ -52,13 +55,27 @@ public class ItemBoardController {
 		
 		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
 		
-		return null;
+		String path = null;
+		String message = null;
+		
+		if(boardNo>0) { // 게시글 등록 성공
+			path="../detail/"+boardCode+"/"+boardNo;
+			message = "게시글이 등록되었습니다.";
+		}else {
+			path = req.getHeader("referer");
+			message = "게시글삽입 실패...";
+		}
+		ra.addFlashAttribute("message",message);
+		
+		return "redirect:"+path;
 	}
 
 	
 	// 상품 상세페이지
-		@GetMapping("/detail")
-		public String itemDetail() {
+		@GetMapping("/detail/{boardCode}/{boardNo}")
+		public String itemDetail(@PathVariable("boardCode") int boardCode,
+								@PathVariable("boardNo") 	int boardNo) {
+			
 			return "/item/item-detail";
 		}
 		
