@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../resources/css/member/member-profile.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/member-profile.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>find-ID</title>
 </head>
@@ -14,12 +14,8 @@
 <body>
     <main>
 
-        <header>
-            header
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-        </header>
-
-            
         <div id="contaioner">
             <!-- body 전체 div -->
             <div id="item-page">
@@ -190,12 +186,7 @@
             </div>
 
         </div>
-
-
-        <footer>
-            footer
-
-        </footer>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     </main>
 

@@ -29,7 +29,7 @@
         <section class="right-header">
             <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
 
-            <button class="button" onclick = "location.href = '${contextPath}/member/myShop/myShopMain'"><i class="fa-solid fa-house-user"></i>내 정보</button>
+            <button class="button" onclick = "location.href = '${contextPath}/shop/myShop'"><i class="fa-solid fa-house-user"></i>내 상점</button>
 
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
         </section>

@@ -24,7 +24,8 @@
     <div class="top-menu">
         <nav id="mainMenu">
             <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/myShop/main">상품관리</a>
+            <%-- <a href="${contextPath}/myShop/main">상품관리</a> --%>
+             <a href="${contextPath}/shop/main">상품관리</a> 
             <a href="#">구매/판매 내역</a>
         </nav>
     </div>
