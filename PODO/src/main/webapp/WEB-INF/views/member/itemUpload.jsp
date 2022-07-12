@@ -9,13 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PODO 상품등록</title>
 
-<<<<<<< HEAD
     <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-=======
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
->>>>>>> 8f98719207af12b59cbba0baa6fb787859f23cc6
 </head>
 
 <body>
@@ -26,15 +22,13 @@
     <div class="top-menu">
         <nav id="mainMenu">
             <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/myShop/main">상품관리</a>
+            <a href="${contextPath}/shop/main">상품관리</a>
             <a href="#">구매/판매 내역</a>
         </nav>
     </div>
+
     <main>
-<<<<<<< HEAD
         <form action="${contextPath}/board/write" method="POST" id="upload">
-=======
->>>>>>> 8f98719207af12b59cbba0baa6fb787859f23cc6
         <div class="basic1">
             <section class="basic">
                 <h2>기본정보</h2>
@@ -239,12 +233,7 @@
             <ul class="second">
                 <li>
                     <div class="info">
-<<<<<<< HEAD
-                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 
-                        문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)" name="boardContent"></textarea>
-=======
                         <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)"></textarea>
->>>>>>> 8f98719207af12b59cbba0baa6fb787859f23cc6
                         <div id="inform">
                         <small>0/1000</small>
                         </div>

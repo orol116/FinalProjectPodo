@@ -136,5 +136,13 @@ public class MyPageController {
 		
 		return "member/myPage-favorites";
 	}
+	
+	// 회원 프로필 이미지 조회
+	@GetMapping("/changeImage")
+	public String changeImage() {
+		
+		
+		return "member/myPage-profileImage";
+	}
 
 }
