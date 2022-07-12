@@ -45,21 +45,50 @@ public class MemberController {
 		return "/member/naver-login";
 	}
 	
-	
-	@ResponseBody
-	@PostMapping("/loginNaver")
-	public String loginNaverSelect(Member inputMember) {
+	@GetMapping("/selectNaver")
+	public String selectNaver(@RequestParam(value = "email", required = false) String email
+							,Model model
+							,RedirectAttributes ra
+							,@RequestParam(value = "saveId", required = false) String saveId
+							,HttpServletResponse resp
+							,HttpServletRequest req) {
+		
+		Member inputMember = new Member();
+		inputMember.setMemberId(email);
 		
 		Member loginMember = service.login(inputMember);
 		
-		if(loginMember !=null) {
-			
-		}else {
-			
-		}
+		String path = null;
 		
-		return new Gson().toJson(null);
+		if(loginMember != null) {
+			model.addAttribute("loginMemer", loginMember);
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
+
+			if (saveId != null) {
+
+				cookie.setMaxAge(60 * 60 * 24 * 365);
+
+			} else {
+				cookie.setMaxAge(0);
+			}
+
+			cookie.setPath(req.getContextPath());
+
+			resp.addCookie(cookie);
+			path = "redirect:/";
+
+		} else {
+			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			path = "redirect:/member/login";
+
+		}
+
+		return path;
 	}
+		
+	
+	
+	
 
 	// 로그인
 	@PostMapping("/login")
