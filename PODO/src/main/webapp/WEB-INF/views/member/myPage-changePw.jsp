@@ -30,7 +30,7 @@
             
         <section class="myPage-main">
             
-            <form action="info" method="POST" name="myPage-form" onsubmit="return infoValidate()" >
+            <form action="changePw" method="POST" name="myPage-form" onsubmit="return infoValidate()" >
                 
                 <h1 class="myPage-title">회원 정보 수정</h1>
                 
