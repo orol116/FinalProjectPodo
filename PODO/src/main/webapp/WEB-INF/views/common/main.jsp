@@ -21,18 +21,12 @@
 
 
 	<div class="slide-list">
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/YJB
         <div class="mySlides"><img src="${contextPath}/resources/images/banner1.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner2-1.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-1.png"></div>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/YJB
     </div>
 
     <section>
@@ -53,7 +47,7 @@
                                 <div class="box">
                                     <a href="${contextPath}/board/detail" class="title">
                                         <div class="image">
-                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지1">
+                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
                                         </div>   
                                         <div class="title1">
                                             <div class="title2">${item.boardTitle}</div>
