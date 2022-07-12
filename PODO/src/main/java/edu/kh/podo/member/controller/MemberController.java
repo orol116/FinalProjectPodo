@@ -75,9 +75,7 @@ public class MemberController {
 			path = "redirect:/";
 
 		} else {
-			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-			path = "redirect:/member/login";
-
+			path = "redirect:/member/naverSingUp?email="+email;
 		}
 
 		return path;
@@ -172,13 +170,40 @@ public class MemberController {
 			ra.addFlashAttribute("message", "회원가입 실패");
 		}
 
-		return "redirect" + path;
+		return "redirect:" + path;
+	}
+	
+	// 네이버 회원가입
+	@GetMapping("/naverSingUp")
+	public String naverSignUp(@RequestParam("email") String email
+							   , RedirectAttributes ra) {
+		Member inputMember = new Member();
+		
+		inputMember.setMemberId(email);
+		
+		int result = service.naverSignUp(inputMember);
+
+		String path = null;
+		String message = null;
+
+		if (result > 0) {
+
+			path = "/";
+			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
+
+		} else {
+
+			path = "/signUp";
+			ra.addFlashAttribute("message", "회원가입 실패");
+		}
+
+		return "redirect:" + path;
 	}
 
 	// 판매관리 페이지
 	@GetMapping("/itemUpload")
 	public String upload() {
-
+	
 		return "member/itemUpload";
 	}
 

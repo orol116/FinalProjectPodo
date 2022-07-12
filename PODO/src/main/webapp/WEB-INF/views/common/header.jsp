@@ -16,7 +16,7 @@
         </c:when>
         <c:otherwise>
                 <a href="${contextPath}/member/login">로그아웃
-                <a href="${contextPath}/member/myPage/info">마이페이지
+                <a href="${contextPath}/member/myPage/changePw">마이페이지
         </c:otherwise>
     </c:choose>    
         <a href="#">고객센터
@@ -31,7 +31,7 @@
         </section>
         
         <section class="mid-header">
-            <input id="search2" type="text" name="searchBar" placeholder="상품명을 입력해주세요.">
+            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
         <section class="right-header">

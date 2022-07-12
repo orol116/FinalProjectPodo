@@ -21,11 +21,10 @@
     <main>
 
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
-
-        <div id="login-contaioner">
-            <h3>로그인</h3>
-            <form action="login" method="POST" name="login-form" id="login-form">
-                <fieldset id="login-area">
+		<div id="login-contaioner">
+			<h3>로그인</h3>
+			<form action="login" method="POST" name="login-form" id="login-form" onsubmit="return loginValidate()">
+				<fieldset id="login-area">
 
                     <section>
                         <input type="text" id="ID-box" name="memberId" maxlength="20" placeholder="아이디를 입력해주세요.">
@@ -63,16 +62,16 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <script type="text/javascript">
+	<script type="text/javascript">
+		var naver_id_login = new naver_id_login("7CM27UMDND6X1zZ8Ekqr","http://kh-classa.xyz:10000/podo/member/loginNaver/");
+		var state = naver_id_login.getUniqState();
+		naver_id_login.setButton("white", 2, 40);
+		naver_id_login.setDomain("http://kh-classa.xyz:10000/podo/member/login");
+		naver_id_login.setState(state);
+		naver_id_login.setPopup();
+		naver_id_login.init_naver_id_login();
+	</script>
 
-        var naver_id_login = new naver_id_login("7CM27UMDND6X1zZ8Ekqr", "http://127.0.0.1:5500/podo/PODO/src/main/webapp/resources/html/naver-login-callback.html");
-        var state = naver_id_login.getUniqState();
-        naver_id_login.setButton("white", 2,40);
-        naver_id_login.setDomain("http://127.0.0.1:5500/podo/PODO/src/main/webapp/resources/html/naver-login.html");
-        naver_id_login.setState(state);
-        naver_id_login.setPopup();
-        naver_id_login.init_naver_id_login();
-
-  </script>
+    <script src="${contextPath}/resources/js/member/login.js"></script>
 </body>
 </html>
