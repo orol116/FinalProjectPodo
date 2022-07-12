@@ -25,10 +25,10 @@ function infoValidate(){
     
 
     //현재 비밀번호 미작성
-    if(currentPw.value.trim().length==0){
+    if(pw.value.trim().length==0){
         alert("현재 비밀번호를 입력해주세요");
-        currentPw.focus();
-        currentPw.value="";
+        pw.focus();
+        pw.value="";
         return false;// form태그가 제출되지 않게 한다.
     }
     
@@ -172,8 +172,8 @@ if(inputImage != null){ // inputImage 요소가 화면에 존재 할 때
 // 이미지 선택 확인, 닉네임 주소 수정
 function profileValidate(){
     const inputImage = document.getElementById("input-image");
-
     const del = document.getElementById("delete"); // hidden 타입
+    
     const memberNickname = document.getElementById("memberNickname");
 
     const regExp1 = /^[a-zA-Z0-9가-힣]{2,8}$/; // 닉네임 정규식

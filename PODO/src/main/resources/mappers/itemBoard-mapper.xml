@@ -2,6 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="itemBoardMapper">
 
+	<resultMap type="boardType" id="boardType_rm">
+		<id property="boardCode" column="BOARD_CD"/>
+		
+		<result property="boardName" column="BOARD_NM"/>
+	</resultMap>
+	
+	
 	<resultMap type="itemBoard" id="itemBoard_rm">
 
 		<id property="boardNo" column="BOARD_NO" />
@@ -26,6 +33,40 @@
 		<result property="itemImage" column="ITEM_IMAGE" />
 
 	</resultMap>
+	
+	
+	
+	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
+	
+		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+		</selectKey>
+	
+		INSERT INTO BOARD VALUES(
+			#{boardNo}, #{boardTitle}, #{boardContent},
+			DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberNo}, #{boardCode}
+		)
+	</insert>
+	
+	<insert id="insertBoardImageList" parameterType="list" >
+		
+		INSERT INTO BOARD_IMG
+			SELECT SEQ_IMG_NO.NEXTVAL IMG_NO, A.* FROM(
+			
+				<foreach collection="list" item="img" separator="UNION ALL" >
+					SELECT 			#{img.imageReName} IMG_RENAME,
+									#{img.imageOriginal} IMG_ORIGINAL,
+									#{img.imageLevel} 			IMG_LEVEL,
+									#{img.boardNo}		BOARD_NO
+					FROM DUAL
+				</foreach>
+				
+			) A
+	
+	</insert>
+	
+	
+	
 	
 	<select id="selectItemList" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO

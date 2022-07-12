@@ -10,8 +10,8 @@
     <title>회원 정보 수정</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/sideMenu.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
 
 
 </head>

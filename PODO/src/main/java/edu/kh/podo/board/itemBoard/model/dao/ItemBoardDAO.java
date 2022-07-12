@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 @Repository
@@ -39,5 +40,9 @@ public class ItemBoardDAO {
 	 */
 	public List<ItemBoard> selectitemList() {
 		return sqlSession.selectList("itemBoardMapper.selectItemList");
+	}
+
+	public int insertBoardImageList(List<BoardImage> boardImageList) {
+		return sqlSession.insert("itemBoardMapper.insertBoardImageList",boardImageList);
 	}
 }
