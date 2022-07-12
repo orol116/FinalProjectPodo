@@ -35,18 +35,18 @@
 	</resultMap>
 	
 	
-	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
 	
 		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
 			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
 		</selectKey>
 	
-		INSERT INTO BOARD VALUES(
+		INSERT INTO ITEM_BOARD VALUES(
 			#{boardNo}, #{boardTitle}, #{boardContent},
-			DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberNo}, #{boardCode}
+			DEFAULT, DEFAULT, DEFAULT, '사용감있음' ,'판매 중', null, #{price}, 'N', '서울시'
+			,#{boardCode}, #{memberNo},'13', null, null
 		)
-	</insert>
+	</insert>	
 	
 	<insert id="insertBoardImageList" parameterType="list" >
 		

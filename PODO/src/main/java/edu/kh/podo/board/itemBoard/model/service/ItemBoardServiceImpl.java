@@ -32,7 +32,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
 		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
 
-		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
+//		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
 		
 		int boardNo = dao.insertBoard(item);
 		
