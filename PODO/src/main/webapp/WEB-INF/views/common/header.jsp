@@ -16,7 +16,7 @@
         </c:when>
         <c:otherwise>
                 <a href="${contextPath}/member/login">로그아웃
-                <a href="${contextPath}/member/myPage/profile">마이페이지
+                <a href="${contextPath}/member/myPage/changePw">마이페이지
         </c:otherwise>
     </c:choose>    
        
