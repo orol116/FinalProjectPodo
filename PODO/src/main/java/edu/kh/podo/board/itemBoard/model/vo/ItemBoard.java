@@ -27,5 +27,6 @@ public class ItemBoard {
 	private int memberNo;
 	private int categoryNo;
 	private int buyMemberNo;
+	private String itemImage;
 
 }

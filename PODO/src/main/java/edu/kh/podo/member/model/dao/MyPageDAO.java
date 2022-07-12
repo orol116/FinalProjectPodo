@@ -1,10 +1,13 @@
 package edu.kh.podo.member.model.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 @Repository
 public class MyPageDAO {
@@ -42,6 +45,14 @@ public class MyPageDAO {
 	 */
 	public int secession(int memberNo) {
 		return sqlSession.update("myPageMapper.secession", memberNo);
+	}
+
+	/** 찜 상품 조회 DAO
+	 * @param memberNo
+	 * @return favorList
+	 */
+	public List<ItemBoard> selectFavorList(int memberNo) {
+		return sqlSession.selectList("myPageMapper.selectFavorList", memberNo);
 	}
 
 }

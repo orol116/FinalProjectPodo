@@ -9,23 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PODO 상품등록</title>
 
-    <link rel="stylesheet" href="resources/css/header-style.css">
-    <link rel="stylesheet" href="resources/css/member/itemUpload.css">
-    <link rel="stylesheet" href="resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 </head>
 
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
+    <form action="itemUpload" method="POST" name="itemUpload" id="itemUpload">
+
     <div class="top-menu">
         <nav id="mainMenu">
-            <a href="#">상품등록</a>
-            <a href="#">상품관리</a>
+            <a href="${contextPath}/member/itemUpload">상품등록</a>
+            <a href="${contextPath}/shop/main">상품관리</a>
             <a href="#">구매/판매 내역</a>
         </nav>
     </div>
+
     <main>
-        <form action="#" method="POST" id="upload">
+        <form action="${contextPath}/board/write" method="POST" id="upload">
         <div class="basic1">
             <section class="basic">
                 <h2>기본정보</h2>
@@ -42,8 +45,8 @@
                 </div>
                 <ul class="second">
                 <li style="display: flex;">
-                    <input type="file" class="real-upload" accept="image/*" required multiple>
-                    <div class="upload"><img src="../../images/image.png"></div>
+                    <input type="file" class="real-upload" accept="image/*" name="images" required multiple>
+                    <div class="upload"><img src="${contextPath}/resources/images/image.png"></div>
                     <ul class="image-preview"></ul>
                 </li>  
                 <div id="ex">
@@ -68,7 +71,7 @@
                 <ul class="second">
                     <li>
                         <section class="search1">                        
-                        <input id="search2" type="text" placeholder="상품명 입력">  
+                        <input id="search2" type="text" placeholder="상품명 입력" name="boardTitle">  
                     </li> 
                     </section>
                 </ul>
@@ -88,7 +91,7 @@
                             <div id="category1">
                                 <ul class="category1-1">
                                     <li> <button type="button" class="select" >여성의류</button></li>
-                                    <li> <button type="button" class="select" value="여성의류">남성의류</button></li>
+                                    <li> <button type="button" class="select" value="남성의류">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
                                     <li><button type="button" class="select">시계/쥬얼리</button></li>
@@ -158,11 +161,11 @@
                 <li>
                     <section class="states">
                         
-                        <input type="radio"id="secondHand">
-                        <label for="secondHand">중고상품</label>
+                        <input type="radio" id="secondHand1" name="itemCondition" >
+                        <label for="secondHand1">중고상품</label>
                     
-                        <input type="radio" id="secondHand">
-                        <label for="secondHand">새상품</label>
+                        <input type="radio" id="secondHand2" name="itemCondition">
+                        <label for="secondHand2">새상품</label>
 
                     </section>
                 </li>
@@ -183,9 +186,14 @@
             <ul class="second">
                 <li>
                     <section class="states">
-                        <input type="radio" >직거래
-                        <input type="radio">무료배송
-                        <input type="radio">배송비 본인부담
+                        <input type="radio" name="delivery" id="delivery1">
+                        <label for="delivery1">직거래</label>
+
+                        <input type="radio" name="delivery" id="delivery2">
+                        <label for="delivery2">무료배송</label>
+
+                        <input type="radio" name="delivery" id="delivery3">
+                        <label for="delivery3">배송비 본인부담</label>
                     </section>
                 </li>
             </ul>          
@@ -205,7 +213,7 @@
             <ul class="second">
                 <li>
                     <section class="price">
-                        <input id="search2" type="number" placeholder="숫자만 입력해주세요."  minlength="2" >원&nbsp;
+                        <input id="search2" type="number" placeholder="숫자만 입력해주세요."  minlength="2" name="price" >원&nbsp;
                     </section>
                 </li>
             </ul> 
@@ -225,8 +233,7 @@
             <ul class="second">
                 <li>
                     <div class="info">
-                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 
-                        문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)"></textarea>
+                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)"></textarea>
                         <div id="inform">
                         <small>0/1000</small>
                         </div>
@@ -236,7 +243,7 @@
         </ul>
 
         <div class="submit">
-            <button class="submit2">등록하기</button>
+            <button class="submit2" type="submit">등록하기</button>
 
         </div>
 
@@ -247,7 +254,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="../../js/itemUpload.js"></script>
+    <script src="${contextPath}/resources/js/itemUpload.js"></script>
     
 </body>
 </html>

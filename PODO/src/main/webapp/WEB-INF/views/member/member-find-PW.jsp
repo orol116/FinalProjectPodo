@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../resources/css/member/find-IDPW.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/find-IDPW.css">
 
     <title>find-PW</title>
 </head>
@@ -18,14 +18,11 @@
 <body>
     <main>
 
-        <header>
-            header
-
-        </header>
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
         <div id="contaioner">
             <h3>비밀번호 찾기</h3>
-            <form action="#" method="POST" name="ID-form" id="ID-form">
+            <form action="findPw" method="POST" name="ID-form" id="ID-form">
                 <fieldset id="ID-area">
 
                     <section>
@@ -49,11 +46,7 @@
 
         </div>
 
-
-        <footer>
-            footer
-
-        </footer>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     </main>
 

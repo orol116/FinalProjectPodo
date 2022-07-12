@@ -58,7 +58,9 @@ body{
     color: rgb(95, 0, 129);
 }
 .basic{
-    margin-right: 20px;
+    /* padding: 0 5px 5px;     */
+    margin-right: 18px;
+    border: 1.5px solid lightgray;
 }
 .search1{
     flex-basis: 30%;
@@ -70,6 +72,9 @@ body{
     border: 1.5px solid lightgray;
     border-radius: 3px;
     padding-left: 12px ;
+}
+.search2{
+    margin: 0;
 }
 
 /* 카테고리 */
@@ -90,10 +95,16 @@ table{
 #head{
     border-bottom: 1px solid lightgray;
 }
+th{
+    font-size: 18px;
+    /* padding-bottom: 5px; */
+}
+
 tbody>tr{
     border-bottom: 1px solid lightgray;
     height: 200px;
 }
+
 
 /* tbody */
 img{

@@ -7,16 +7,16 @@ import edu.kh.podo.member.model.vo.Review;
 
 public interface MyShopService {
 
-	/** 내 판매상품 조회 Service
+	/** 판매자 판매상품 조회 Service
 	 * @param memberNo
-	 * @return mySellList
+	 * @return memberSellList
 	 */
-	List<ItemBoard> selectMyShop(int memberNo);
+	List<ItemBoard> selectMemberShop(int memberNo);
 
 	/** 내 리뷰 조회 Service
 	 * @param memberNo
 	 * @return reviewList
 	 */
-	List<Review> selectReview(int memberNo);
+	List<Review> selectMemberReview(int memberNo);
 
 }

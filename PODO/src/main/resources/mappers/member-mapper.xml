@@ -10,18 +10,30 @@
 	<result property="memberNickname" 	column="MEMBER_NICK"/>
 	<result property="memberTel" 		column="MEMBER_TEL"/>
 	<result property="secessionFlag" 	column="SECESSION_FL"/>
-	<result property="profileImage" 	column="MEMBER_PROFILE"/>
+	<result property="memberProfile" 	column="MEMBER_PROFILE"/>
 	<result property="memberGrape" 		column="MEMBER_GRAPE"/>
 	<result property="memberAddress" 	column="MEMBER_ADDR"/>
 	<result property="memberTown" 		column="MEMBER_TOWN"/>
+	<result property="createDate" 		column="CREATE_DT"/>
 	
 	</resultMap>
 
+	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NICK, MEMBER_TEL,
-			SECESSION_FL, MEMBER_PROFILE, MEMBER_GRAPE, MEMBER_ADDR, MEMBER_TOWN
+			SECESSION_FL, MEMBER_PROFILE, MEMBER_GRAPE, MEMBER_ADDR, 
+			TO_CHAR( CREATE_DT, 'YYYY-MM-DD HH24:MI:SS' ) AS CREATE_DT, MEMBER_TOWN, MEMBER_PW
 		FROM MEMBER
 		WHERE MEMBER_ID = #{memberId}
 		AND SECESSION_FL = 'N'	
 	</select>
+	
+	
+	<!-- 회원가입 -->
+	<insert id="signUp" parameterType="member">
+		INSERT INTO MEMBER 
+		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberTel}, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberAddress}, DEFAULT)
+	</insert>
+	
+	
 </mapper>
