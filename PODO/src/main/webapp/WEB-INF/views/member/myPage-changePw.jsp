@@ -36,18 +36,6 @@
                 
           
                 <div class="wrapper">
-
-                    <!-- 아이디(작성 불가/변경 불가) -->
-                    <div class="myPage-row">
-                        <label>아이디</label>
-                        <input type="text" name="memberId" class="input_box" value="" readonly>
-                    </div>
-
-                    <!-- 닉네임 -->
-                    <div class="myPage-row">
-                        <label>닉네임</label>
-                        <input type="text" name="memberNickname" class="input_box" maxlength="10">
-                    </div>
     
                     <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                     <div class="myPage-row">
