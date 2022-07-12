@@ -69,7 +69,7 @@
                 <section id="seller-items">
 
                 <c:choose>
-                    <c:when test="${empty itemList}"
+                    <c:when test="${empty itemList}">
                         판매중인 상품이 없습니다.
                     </c:when>
 
@@ -95,6 +95,8 @@
                         </c:forEach>
 
                     </c:otherwise>
+
+                    </c:choose>
 
 
                 </section>
