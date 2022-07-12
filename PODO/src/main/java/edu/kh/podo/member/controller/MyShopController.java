@@ -54,6 +54,6 @@ public class MyShopController {
 	// 내 상점 조회
 	@GetMapping("/myShop")
 	public String myShop() {
-		return "member/member-profile";
+		return "member/profile";
 	}
 }

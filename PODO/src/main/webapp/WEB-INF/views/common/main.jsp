@@ -40,6 +40,8 @@
 
     <section>
         <div id="itmes"><h2 style="margin:0;">이번주 상품 추천</h2></div>
+
+        ${loginMember}
         <div>
             <div>
                 <div class="frame">
