@@ -26,14 +26,13 @@ import edu.kh.podo.member.model.vo.Member;
 
 
 @Controller
-@RequestMapping("/board")
 @SessionAttributes({"loginMember"})
 public class ItemBoardController {
 	@Autowired
 	private ItemBoardService service;
 	
 	@GetMapping("/board/write/{boardCode}")
-	public String boardWriteForm() {
+	public String boardWriteForm(@PathVariable("boardCode") int boardCode) {
 		
 		return "member/itemUpload";
 	}
