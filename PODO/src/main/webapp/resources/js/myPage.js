@@ -172,8 +172,8 @@ if(inputImage != null){ // inputImage 요소가 화면에 존재 할 때
 // 이미지 선택 확인, 닉네임 주소 수정
 function profileValidate(){
     const inputImage = document.getElementById("input-image");
-
     const del = document.getElementById("delete"); // hidden 타입
+    
     const memberNickname = document.getElementById("memberNickname");
 
     const regExp1 = /^[a-zA-Z0-9가-힣]{2,8}$/; // 닉네임 정규식
