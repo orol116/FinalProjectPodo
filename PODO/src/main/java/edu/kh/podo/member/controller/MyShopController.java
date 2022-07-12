@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.service.MyShopService;
 import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.Review;
@@ -32,6 +33,9 @@ public class MyShopController {
 	
 	@Autowired
 	private ItemBoardService itemService;
+	
+	@Autowired
+	private MemberService memberService;
 
 	// 판매자 판매상품 조회
 	@GetMapping("/main")
@@ -59,6 +63,8 @@ public class MyShopController {
 	@GetMapping("/myShop")
 	public String myShop(@ModelAttribute("loginMember") Member loginMember
 					   , Model model) {
+		
+//		List<Member> shopMember = memberService.selectMember();
 		
 		List<ItemBoard> itemList = itemService.selectItemList();
 		

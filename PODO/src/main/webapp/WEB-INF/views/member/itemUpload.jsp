@@ -19,7 +19,7 @@
 
     <main>
 
-    <form action="${contextPath}/board/write" enctype="multipart/form-data" method="POST" name="itemUpload" id="itemUpload">
+    <form action="${contextPath}/board/write/1" enctype="multipart/form-data" method="POST" name="itemUpload" id="itemUpload">
 
         <div class="top-menu">
             <nav id="mainMenu">
@@ -234,7 +234,7 @@
             <ul class="second">
                 <li>
                     <div class="info">
-                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)"></textarea>
+                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)" name="boardContent"></textarea>
                         <div id="inform">
                         <small>0/1000</small>
                         </div>
