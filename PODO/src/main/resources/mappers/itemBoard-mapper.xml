@@ -30,6 +30,7 @@
 		<result property="categoryNo" column="M_CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="itemImage" column="ITEM_IMAGE" />
+		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 
 	</resultMap>
 	
@@ -65,6 +66,8 @@
 	<select id="selectItemList" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO
 		FROM ITEM_BOARD
+		WHERE UPDATE_DT >= SYSDATE - 7
+		ORDER BY READ_COUNT
 	</select>
 
 
@@ -91,6 +94,21 @@
 
 		ORDER BY BOARD_NO DESC
 
+	</select>
+	
+	
+	<!-- 판매글 상세조회 -->
+	<select id="selectItem" resultMap="itemBoard_rm">
+		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION
+		FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 판매글에 해당하는 회원번호 조회 -->
+	<select id="selectMemberNo" resultType="_int">
+		SELECT MEMBER_NO
+		FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
 	</select>
 
 

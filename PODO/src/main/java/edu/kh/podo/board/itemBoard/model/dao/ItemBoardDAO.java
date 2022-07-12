@@ -45,4 +45,20 @@ public class ItemBoardDAO {
 	public int insertBoardImageList(List<BoardImage> boardImageList) {
 		return sqlSession.insert("itemBoardMapper.insertBoardImageList",boardImageList);
 	}
+
+	/** 판매글 상세조회 DAO
+	 * @param boardNo
+	 * @return itemList
+	 */
+	public List<ItemBoard> selectItem(int boardNo) {
+		return sqlSession.selectList("itemBoardMapper.selectItem", boardNo);
+	}
+
+	/** 판매글에 해당하는 회원 번호 조회 DAO
+	 * @param boardNo
+	 * @return memberNo
+	 */
+	public int selectMemberNo(int boardNo) {
+		return sqlSession.selectOne("itemBoardMapper.selectMemberNo", boardNo);
+	}
 }

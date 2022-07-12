@@ -44,7 +44,7 @@
                             <c:forEach var="item" items="${itemList}">
 
                                 <div class="box">
-                                    <a href="${contextPath}/board/detail" class="title">
+                                    <a href="${contextPath}/board/detail/${item.boardNo}" class="title">
                                         <div class="image">
                                             <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
                                         </div>   

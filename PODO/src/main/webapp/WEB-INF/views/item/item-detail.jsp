@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<c:set var="itemList" value="${map.itemList}" />
+<c:set var="memberNo" value="${map.memberNo}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,12 +41,12 @@
                 <section id="item-detail-head">
                     <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
                     <div id="item-info">
-                        <div id="item-title">상품 제목</div>
-                        <div id="item-price">20000원</div>
+                        <div id="item-title">${itemList.boardTitle}</div>
+                        <div id="item-price">${itemList.price}원</div>
                         <div id="item-layer">
-                            <div id="bookmark"> 찜 : 2 </div>
-                            <div id="read-count"> 조회수 : 4 </div>
-                            <div id="create-DT">  5분전 </div>
+                            <div id="bookmark"> 찜 : ${itemList.bookmarkCount} </div>
+                            <div id="read-count"> 조회수 : ${itemList.readCount} </div>
+                            <div id="create-DT">  ${itemList.updateDate} </div>
                             <a href="#" id="item-report">신고하기</a>
                         </div>
 
