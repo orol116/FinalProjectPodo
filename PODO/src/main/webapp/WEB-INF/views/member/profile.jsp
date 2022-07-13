@@ -96,56 +96,58 @@
 
                         </c:otherwise>
 
-                        </c:choose>
+                    </c:choose>
+               
+                </section>
+                
 
+
+
+                <section id="reviews-area">
+                
+                    <section id="user-reviews">
+                        <div id="reviews-top">
+                            <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
+                            <div id="reviews-user-nick">유저 닉네임</div>
+                            <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
+                            
+                        </div>
+                        <div id="reviews-shorts"> 아쉬워요.</div>
+                        <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
+                        <div id="reviews-footer">
+                            <div id="reviews-user-item">구매상품 | 소니 a6000</div>
+                            <div id="hideBtn-area">
+                                <button id="hideBtn">후기 숨기기</button>
+                            </div>
+                            
+
+                        </div>
 
                     </section>
 
-                    <section id="reviews-area">
-                    
-                        <section id="user-reviews">
-                            <div id="reviews-top">
-                                <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
-                                <div id="reviews-user-nick">유저 닉네임</div>
-                                <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
-                                
+                    <section id="user-reviews">
+                        <div id="reviews-top">
+                            <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
+                            <div id="reviews-user-nick">유저 닉네임</div>
+                            <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
+                            
+                        </div>
+                        <div id="reviews-shorts"> 아쉬워요.</div>
+                        <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
+                        <div id="reviews-footer">
+                            <div id="reviews-user-item">구매상품 | 소니 a6000</div>
+                            <div id="hideBtn-area">
+                                <button id="hideBtn">후기 숨기기</button>
                             </div>
-                            <div id="reviews-shorts"> 아쉬워요.</div>
-                            <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
-                            <div id="reviews-footer">
-                                <div id="reviews-user-item">구매상품 | 소니 a6000</div>
-                                <div id="hideBtn-area">
-                                    <button id="hideBtn">후기 숨기기</button>
-                                </div>
-                                
+                            
 
-                            </div>
+                        </div>
 
-                        </section>
+                    </section>
 
-                        <section id="user-reviews">
-                            <div id="reviews-top">
-                                <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
-                                <div id="reviews-user-nick">유저 닉네임</div>
-                                <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
-                                
-                            </div>
-                            <div id="reviews-shorts"> 아쉬워요.</div>
-                            <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
-                            <div id="reviews-footer">
-                                <div id="reviews-user-item">구매상품 | 소니 a6000</div>
-                                <div id="hideBtn-area">
-                                    <button id="hideBtn">후기 숨기기</button>
-                                </div>
-                                
+                </section> 
 
-                            </div>
-
-                        </section>
-
-                    </section> 
-
-                </section>       
+                      
 
             </div>
 
