@@ -113,7 +113,7 @@ public class MemberController {
 			resp.addCookie(cookie);
 			if(loginMember.getAdmin()=='Y') {
 				
-				path="redirect:/admin/main";
+				path="redirect:/admin/controlInquiry";
 			}else {
 				path = "redirect:/";
 			}
