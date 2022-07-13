@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="categoryMapper">
+
+	<resultMap type="lCategory" id="lCategory_rm">
+		<id property="LCategoryNo" 			column="CATEGORY_NO"/>
+		<result property="LCategoryName" 		column="L_CATEGORY_NM"/>
+	</resultMap>
+	
+	<resultMap type="mCategory" id="mCategory_rm">
+		<id property="MCategoryNo" 			column="M_CATEGORY_NO"/>
+		<result property="MCategoryName" 		column="M_CATEGORY_NM"/>
+		<result property="LCategoryNo" 		column="CATEGORY_NO"/>
+	</resultMap>
+	
+	<!-- 대분류 카테고리 조회 -->
+	<select id="selectLCategory" resultMap="lCategory_rm">
+		SELECT CATEGORY_NO, L_CATEGORY_NM
+		FROM L_CATEGORY
+		ORDER BY CATEGORY_NO
+	</select>
+	
+	<!-- 중분류 카테고리 조회 -->
+	<select id="selectMCategory" resultMap="mCategory_rm">
+		SELECT CATEGORY_NO, M_CATEGORY_NO, M_CATEGORY_NM
+		FROM M_CATEGORY
+		ORDER BY CATEGORY_NO
+	</select>
+
+</mapper>
