@@ -335,8 +335,8 @@ textarea:focus{
 /* 이미지관련 */
 /* 이미지를 감싸는 div */
 .boardImg{
-    width: 230px;
-    height: 230px;
+    width: 180px;
+    height: 180px;
     display: inline-block;
     text-align: center;
 

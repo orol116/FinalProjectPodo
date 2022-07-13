@@ -42,7 +42,7 @@
                 <div class="title">
                     상품이미지
                     <span>*</span>
-                    <small>(0/5)</small>
+                    
                 </div>
                 <ul class="second">
                     <div class="img-box">
