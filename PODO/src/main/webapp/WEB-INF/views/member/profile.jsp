@@ -62,91 +62,97 @@
                 </section>
 
                 <div id="user-category">
-                    <div id="item-category">상품 20개</div>
-                    <div id="review-category">후기 5개</div>
+                    <button id="item-category" type="button">상품 20개</button>
+                    <button id="review-category" type="button">후기 5개</button>
                 </div>
 
                 <section id="seller-items">
 
-                <c:choose>
-                    <c:when test="${empty itemList}">
-                        판매중인 상품이 없습니다.
-                    </c:when>
+                    <c:choose>
+                        <c:when test="${empty itemList}">
+                            판매중인 상품이 없습니다.
+                        </c:when>
 
-                    <c:otherwise>
+                        <c:otherwise>
 
-                        <c:forEach var="item" items="${itemList}">
-
-                            <div class="box">
-                                <a href="../images/logo.png" class="title">
-                                    <div class="image">
-                                        <img src="#"  alt="상품 이미지1">
-                                    </div>   
-                                    <div class="title1">
-                                        <div class="title2">${item.boardTitle}</div>
-                                        <div class="name2">
-                                            <div class="price">${item.price}</div>
-                                            <div class="time">${item.updateDate}</div>
+                            <c:forEach var="item" items="${itemList}">
+                            
+                                <div class="box">
+                                    <a href="../images/logo.png" class="title">
+                                        <div class="image">
+                                            <img src="#"  alt="상품 이미지1">
+                                        </div>   
+                                        <div class="title1">
+                                            <div class="title2">${item.boardTitle}</div>
+                                            <div class="name2">
+                                                <div class="price">${item.price}</div>
+                                                <div class="time">${item.updateDate}</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
+
+                            </c:forEach>
+
+                        </c:otherwise>
+
+                        </c:choose>
+
+
+                    </section>
+
+                    <section id="reviews-area">
+                    
+                        <section id="user-reviews">
+                            <div id="reviews-top">
+                                <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
+                                <div id="reviews-user-nick">유저 닉네임</div>
+                                <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
+                                
+                            </div>
+                            <div id="reviews-shorts"> 아쉬워요.</div>
+                            <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
+                            <div id="reviews-footer">
+                                <div id="reviews-user-item">구매상품 | 소니 a6000</div>
+                                <div id="hideBtn-area">
+                                    <button id="hideBtn">후기 숨기기</button>
+                                </div>
+                                
+
                             </div>
 
-                        </c:forEach>
+                        </section>
 
-                    </c:otherwise>
+                        <section id="user-reviews">
+                            <div id="reviews-top">
+                                <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
+                                <div id="reviews-user-nick">유저 닉네임</div>
+                                <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
+                                
+                            </div>
+                            <div id="reviews-shorts"> 아쉬워요.</div>
+                            <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
+                            <div id="reviews-footer">
+                                <div id="reviews-user-item">구매상품 | 소니 a6000</div>
+                                <div id="hideBtn-area">
+                                    <button id="hideBtn">후기 숨기기</button>
+                                </div>
+                                
 
-                    </c:choose>
+                            </div>
 
+                        </section>
 
-                </section>
+                    </section> 
 
-
-                <section id="user-reviews">
-                    <div id="reviews-top">
-                        <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
-                        <div id="reviews-user-nick">유저 닉네임</div>
-                        <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
-                        
-                    </div>
-                    <div id="reviews-shorts"> 아쉬워요.</div>
-                    <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
-                    <div id="reviews-footer">
-                        <div id="reviews-user-item">구매상품 | 소니 a6000</div>
-                        <div id="hideBtn-area">
-                            <button id="hideBtn">후기 숨기기</button>
-                        </div>
-                        
-
-                    </div>
-
-                </section>
-
-                <section id="user-reviews">
-                    <div id="reviews-top">
-                        <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
-                        <div id="reviews-user-nick">유저 닉네임</div>
-                        <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
-                        
-                    </div>
-                    <div id="reviews-shorts"> 아쉬워요.</div>
-                    <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
-                    <div id="reviews-footer">
-                        <div id="reviews-user-item">구매상품 | 소니 a6000</div>
-                        <div id="hideBtn-area">
-                            <button id="hideBtn">후기 숨기기</button>
-                        </div>
-                        
-
-                    </div>
-
-                </section>
+                </section>       
 
             </div>
 
         </div>
 
         <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+        <script src="${contextPath}/resources/js/member/profile.js"></script>
 
     </main>
 
