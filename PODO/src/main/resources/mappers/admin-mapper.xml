@@ -13,8 +13,57 @@
 		<result property="boardCode" column="BOARD_CD"/>
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="memberNick" column="MEMBER_NICK"/>
+	</resultMap>
 	
 	
+	<resultMap type="member" id="member_rm">
+	
+		<id property="memberNo" 			column="MEMBER_NO"/>
+		<result property="memberId" 		column="MEMBER_ID"/>
+		<result property="memberPw" 		column="MEMBER_PW"/>
+		<result property="memberNickname" 	column="MEMBER_NICK"/>
+		<result property="memberTel" 		column="MEMBER_TEL"/>
+		<result property="secessionFlag" 	column="SECESSION_FL"/>
+		<result property="memberProfile" 	column="MEMBER_PROFILE"/>
+		<result property="memberGrape" 		column="MEMBER_GRAPE"/>
+		<result property="memberAddress" 	column="MEMBER_ADDR"/>
+		<result property="memberTown" 		column="MEMBER_TOWN"/>
+		<result property="createDate" 		column="CREATE_DT"/>
+	
+	</resultMap>
+
+	<resultMap type="boardType" id="boardType_rm">
+		<id property="boardCode" column="BOARD_CD"/>
+		
+		<result property="boardName" column="BOARD_NM"/>
+	</resultMap>
+
+
+	<resultMap type="itemBoard" id="itemBoard_rm">
+
+		<id property="boardNo" column="BOARD_NO" />
+
+		<result property="boardTitle" column="BOARD_TITLE" />
+		<result property="boardContent" column="BOARD_CONTENT" />
+		<result property="readCount" column="READ_COUNT" />
+		<result property="createDate" column="CREATE_DT" />
+		<result property="updateDate" column="UPDATE_DT" />
+		<result property="itemCondition" column="ITEM_CONDITION" />
+		<result property="tradeCondition" column="TRADE_CONDITION" />
+
+		<result property="delivery" column="DELIVERY" />
+
+		<result property="price" column="PRICE" />
+		<result property="secessionFlag" column="SECESSION_FL" />
+		<result property="sellArea" column="SELL_AREA" />
+		<result property="boardCode" column="BOARD_CD" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="categoryNo" column="M_CATEGORY_NO" />
+		<result property="categoryName" column="M_CATEGORY_NM" />
+		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
+		<result property="itemImage" column="ITEM_IMAGE" />
+		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
+
 	</resultMap>
 
 
@@ -25,8 +74,16 @@
 		WHERE BOARD_CD = 3 
 	</select>
 	
+	<select id="itemListCount" resultType="_int">
+		SELECT COUNT(*) FROM ITEM_BOARD
+	</select>
 	
-	<!-- 게시글 목록 조회 -->
+	<select id="memberListCount" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
+	
+	
+	<!-- 1:1문의 목록 조회 -->
 	<select id="selectInquiryList" resultMap="admin_rm">
 		SELECT ADMIN_BOARD_NO, BOARD_TITLE, BOARD_CONTENT, READ_COUNT, MEMBER_NICK,
           CASE WHEN SYSDATE - ADMIN_BOARD.CREATE_DT &lt; 1
@@ -36,8 +93,30 @@
              
 		FROM ADMIN_BOARD
 		JOIN MEMBER USING(MEMBER_NO)
-		WHERE BOARD_CD = 3
+		WHERE BOARD_CD = #{boardCode}
 		ORDER BY ADMIN_BOARD_NO DESC 
+	</select>
+	
+	<!-- 아이템 목록 조회 -->
+	<select id="selectItemList" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, M_CATEGORY_NM, BOARD_TITLE, PRICE, SELL_AREA, BOOKMARK_COUNT,
+          CASE WHEN SYSDATE - ITEM_BOARD.CREATE_DT &lt; 1
+                 THEN TO_CHAR(ITEM_BOARD.CREATE_DT, 'HH:MI')
+                 ELSE TO_CHAR(ITEM_BOARD.CREATE_DT, 'YYYY-MM-DD')
+             END CREATE_DT
+             , ITEM_CONDITION, TRADE_CONDITION
+             
+		FROM ITEM_BOARD
+		JOIN M_CATEGORY USING(M_CATEGORY_NO)
+		ORDER BY BOARD_NO DESC 
+	</select>
+	
+	<!-- 멤버 목록 조회 -->
+	<select id="selectMemberList" resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_NICK, MEMBER_TEL, MEMBER_ADDR, 
+		TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT, MEMBER_GRAPE, SECESSION_FL
+		FROM MEMBER
+		ORDER BY MEMBER_NO 
 	</select>
 
 </mapper>

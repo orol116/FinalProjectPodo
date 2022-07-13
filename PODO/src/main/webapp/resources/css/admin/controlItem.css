@@ -147,6 +147,10 @@ th{
     border-bottom: 1px solid lightgray;
     /* padding-bottom: 5px; */
 }
+th>a{
+    text-decoration: none;
+    color : black;
+}
 
 tbody>tr{
     border-bottom: 1px solid lightgray;
@@ -203,7 +207,10 @@ th:nth-child(10){width:8%;}
     justify-content: center;
     
 }
-.pagination>a{
+.pagination>li{
+    list-style: none;
+}
+.pagination>li>a{
     color: black;
     float: left;
     padding: 8px 16px;

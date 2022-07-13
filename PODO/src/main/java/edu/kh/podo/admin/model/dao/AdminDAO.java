@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.admin.model.vo.Admin;
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -18,22 +19,47 @@ public class AdminDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public List<Member> selectMemberList() {
-		return sqlSession.selectList("");
-	}
+	
 
 
 	public int inquiryListCount() {
 		return sqlSession.selectOne("adminMapper.inquiryListCount");
 	}
 
-	public List<Admin> selectInquiryList(Pagination pagination) {
+	public int itemListCount() {
+		return sqlSession.selectOne("adminMapper.itemListCount");
+	}
+
+	public int memberListCount() {
+		return sqlSession.selectOne("adminMapper.memberListCount");
+	}
+	
+
+	public List<Admin> selectInquiryList(Pagination pagination, int boardCode) {
 		
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("adminMapper.selectInquiryList", null,rowBounds);
+		return sqlSession.selectList("adminMapper.selectInquiryList", boardCode, rowBounds);
 	}
+
+
+	public List<ItemBoard> selectItemList(Pagination pagination, int boardCode) {
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.selectItemList", boardCode, rowBounds);
+	}
+	
+	public List<Member> selectMemberList(Pagination pagination, int boardCode) {
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.selectMemberList", boardCode, rowBounds);
+	}
+
 	
 }
