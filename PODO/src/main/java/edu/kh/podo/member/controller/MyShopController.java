@@ -51,13 +51,13 @@ public class MyShopController {
 		return "item/itemManage";
 	}
 	
-	// 판매자 후기 조회
-	@ResponseBody
-	@GetMapping("/memberReview")
-	public String memberReview(int memberNo) {
-		List<Review> reviewList = service.selectMemberReview(memberNo);
-		return new Gson().toJson(reviewList);
-	}
+//	// 판매자 후기 조회
+//	@ResponseBody
+//	@GetMapping("/memberReview")
+//	public String memberReview(int memberNo) {
+//		List<Review> reviewList = service.selectMemberReview(memberNo);
+//		return new Gson().toJson(reviewList);
+//	}
 	
 	// 내 상점 조회
 	@GetMapping("/myShop")
@@ -65,10 +65,29 @@ public class MyShopController {
 					   , Model model) {
 		
 		List<Member> member = service.selectMemberInfo(loginMember.getMemberNo());
+		model.addAttribute("member", member);
 		
-		List<ItemBoard> itemList = itemService.selectItemList();
-		model.addAttribute("itemList", itemList);
+		int boardCount = service.selectBoardCount(loginMember.getMemberNo());
+		model.addAttribute("boardCount", boardCount);
 		
 		return "member/profile";
+	}
+	
+	// 내 상점 물건 조회 ajax
+	@ResponseBody
+	@GetMapping("selectItemsList")
+	public String selectItemsList(int memberNo) {
+		
+		List<ItemBoard> memberItemList =  service.selectMemberShop(memberNo);
+
+		return new Gson().toJson(memberItemList);
+	}
+	
+	// 내 상점 후기 조회 ajax
+	@ResponseBody
+	@GetMapping("/selectReviewsList")
+	public String memberReview(int memberNo) {
+		List<Review> reviewList = service.selectMemberReview(memberNo);
+		return new Gson().toJson(reviewList);
 	}
 }

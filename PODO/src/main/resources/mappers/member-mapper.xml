@@ -16,6 +16,7 @@
 	<result property="memberTown" 		column="MEMBER_TOWN"/>
 	<result property="createDate" 		column="CREATE_DT"/>
 	<result property="admin"  			column="ADMIN" />
+	<result property="shopInfo"  			column="SHOP_INFO" />
 	
 	</resultMap>
 

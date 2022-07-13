@@ -25,7 +25,6 @@ public class MainController {
 	public String mainForward(Model model) {
 		
 		List<ItemBoard> itemList = service.selectItemList();
-		
 		model.addAttribute("itemList", itemList);
 	
 		return "common/main";
