@@ -11,7 +11,7 @@ const checkObj={
 
 
 // 비밀번호 변경 수정
-function infoValidate(){
+function changePwValidate(){
     
     const pw =document.getElementById("pw");
     const newPw =document.getElementById("newPw");

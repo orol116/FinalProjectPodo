@@ -51,10 +51,64 @@
                     </div>
                 </nav>
 
-                <!-- 판매 내역 출력 -->
+                <!-- 구매/판매 내역 조회 -->
                 <div class="">
                     <div class="">구매/판매 내역이 없습니다.</div>
                 </div>
+
+
+                <table class="list-table">
+                    
+                    <thead>
+                        <tr>
+                            <th>제목</th>
+                            <th>이미지</th>
+                            <th>가격</th>
+                            <th>작성일</th>
+                            <th>판매지역</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <c:choose>
+                            <c:when test="${empty ItemBoard}">
+                                <!-- 조회 결과가 비어있다면 -->
+                                <tr>
+                                    <th colspan="5">구매/판매 내역이 없습니다.</th>
+                                </tr>
+                            </c:when>
+
+                            <c:otherwise>
+                                <!-- 조회 결과가 비어있지 않다면 -->
+
+                                <c:forEach var="board" items="${ItemBoard}">
+                                    <tr>
+                                        <%-- 제목 --%>
+                                        <td>${board.boardTitle}</td>
+                                        <%-- 이미지 --%>
+                                        <td> 
+                                            <c:if test="${!empty boardImage.imageOriginal}">
+                                                <img class="list-thumbnail" src="${contextPath}${boardImage.imageOriginal}">
+                                            </c:if>  
+                                        </td>
+                                        <%-- 가격 --%>
+                                        <td>${board.price}</td>
+                                        <%-- 작성일 --%>
+                                        <td>${board.createDate}</td>
+                                        <%-- 판매지역 --%>
+                                        <td>${board.sellArea}</td>
+                                    </tr>
+                                </c:forEach>
+
+                            </c:otherwise>
+                        </c:choose>
+                    </tbody>
+
+
+                </table>
+
+
             </div>
         </nav>
     </main>
