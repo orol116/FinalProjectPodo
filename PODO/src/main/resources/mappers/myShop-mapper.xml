@@ -47,13 +47,15 @@
 		<result property="memberTown" 		column="MEMBER_TOWN"/>
 		<result property="createDate" 		column="CREATE_DT"/>
 		<result property="admin"  			column="ADMIN" />
+		<result property="shopInfo"  			column="SHOP_INFO" />
 	</resultMap>
 
+	<!-- 판매자 판매상품 조회 -->
 	<select id="selectMemberShop" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, PRICE, TRADE_CONDITION, ITEM_IMAGE,
 		CASE WHEN SYSDATE - UPDATE_DT &lt; 1
-		THEN TO_CHAR(UPDATE_DT, 'HH:MI')
-		ELSE TO_CHAR(UPDATE_DT, 'YYYY-MM-DD')
+			THEN TO_CHAR(UPDATE_DT, 'HH:MI')
+			ELSE TO_CHAR(UPDATE_DT, 'YYYY-MM-DD')
 		END UPDATE_DT
 		FROM ITEM_BOARD
 		WHERE MEMBER_NO = ${memberNo}
@@ -61,6 +63,7 @@
 		ORDER BY BOARD_NO
 	</select>
 
+	<!-- 회원 후기 조회 -->
 	<select id="selectMemberReview" resultMap="review_rm">
 		SELECT REVIEW_NO, REVIEW_CONTENT, MEMBER_NICK, BOARD_TITLE
 		FROM REVIEW
@@ -70,9 +73,13 @@
 	</select>
 
 	<select id="selectMemberInfo" resultMap="member_rm">
-		SELECT MEMBER_NICK, MEMBER_GRAPE, COUNT(BOARD_NO)
+		SELECT MEMBER_NICK, MEMBER_GRAPE, MEMBER_ADDR, SHOP_INFO
 		FROM MEMBER
-		JOIN ITEM_BOARD USING (MEMBER_NO)
+		WHERE MEMBER_NO = ${memberNo}
+	</select>
+
+	<select id="selectBoardCount" resultType="_int">
+		SELECT COUNT(*) FROM ITEM_BOARD 
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
   

@@ -26,4 +26,10 @@ public interface MyShopService {
 	 */
 	List<Member> selectMemberInfo(int memberNo);
 
+	/** 내 상점 판매 상품 개수 조회 Service
+	 * @param memberNo
+	 * @return boardCount
+	 */
+	int selectBoardCount(int memberNo);
+
 }

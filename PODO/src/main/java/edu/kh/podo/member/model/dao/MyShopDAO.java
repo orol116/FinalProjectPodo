@@ -40,4 +40,12 @@ public class MyShopDAO {
 		return sqlSession.selectList("myShopMapper.selectMemberInfo", memberNo);
 	}
 
+	/** 내 상점 판매 상품 개수 조회 DAO
+	 * @param memberNo
+	 * @return boardCount
+	 */
+	public int selectBoardCount(int memberNo) {
+		return sqlSession.selectOne("myShopMapper.selectBoardCount", memberNo);
+	}
+
 }

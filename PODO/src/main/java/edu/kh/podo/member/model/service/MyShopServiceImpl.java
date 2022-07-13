@@ -33,6 +33,12 @@ public class MyShopServiceImpl implements MyShopService {
 	public List<Member> selectMemberInfo(int memberNo) {
 		return dao.selectMemberInfo(memberNo);
 	}
+
+	// 내 상점 판매 상품 개수 조회 Service 구현
+	@Override
+	public int selectBoardCount(int memberNo) {
+		return dao.selectBoardCount(memberNo);
+	}
 	
 	
 
