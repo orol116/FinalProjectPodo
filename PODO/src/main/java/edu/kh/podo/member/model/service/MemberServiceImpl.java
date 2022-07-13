@@ -3,6 +3,7 @@ package edu.kh.podo.member.model.service;
 import java.util.HashMap;
 
 import org.json.simple.JSONObject;
+//import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
 
 	private Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 
-	// 로그인 service 구현
+	// 濡쒓렇�씤 service 援ы쁽
 	@Override
 	public Member login(Member inputMember) {
 
@@ -56,7 +57,7 @@ public class MemberServiceImpl implements MemberService {
 		return dao.login(inputMember);
 	}
 
-	// 회원가입 service 구현
+	// �쉶�썝媛��엯 service 援ы쁽
 	@Override
 	public int signUp(Member inputMember) {
 

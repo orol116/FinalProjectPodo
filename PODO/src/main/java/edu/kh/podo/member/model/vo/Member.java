@@ -22,5 +22,6 @@ public class Member {
 	private String memberAddress;
 	private String memberTown;
 	private String createDate;
-
+	private char admin;
+	private String shopInfo;
 }

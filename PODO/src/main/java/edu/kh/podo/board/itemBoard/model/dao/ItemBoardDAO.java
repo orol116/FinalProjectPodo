@@ -1,6 +1,7 @@
 package edu.kh.podo.board.itemBoard.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.member.model.vo.Member;
 
 @Repository
 public class ItemBoardDAO {
@@ -44,5 +46,38 @@ public class ItemBoardDAO {
 
 	public int insertBoardImageList(List<BoardImage> boardImageList) {
 		return sqlSession.insert("itemBoardMapper.insertBoardImageList",boardImageList);
+	}
+
+	/** 판매글 상세조회 DAO
+	 * @param boardNo
+	 * @return itemList
+	 */
+	public List<ItemBoard> selectItem(int boardNo) {
+		return sqlSession.selectList("itemBoardMapper.selectItem", boardNo);
+	}
+
+	/** 판매글에 해당하는 회원 번호 조회 DAO
+	 * @param boardNo
+	 * @return memberNo
+	 */
+	public int selectMemberNo(int boardNo) {
+		return sqlSession.selectOne("itemBoardMapper.selectMemberNo", boardNo);
+	}
+
+
+	/** 판매자 다른 상품 보기 DAO
+	 * @param daoMap
+	 * @return sellList
+	 */
+	public List<ItemBoard> selectOtherItems(Map<String, Object> daoMap) {
+		return sqlSession.selectList("itemBoardMapper.selectOtherItems", daoMap);
+	}
+
+	/** 회원 정보 조회 DAO
+	 * @param memberNo
+	 * @return sellMember
+	 */
+	public List<Member> sellMemberInfo(int memberNo) {
+		return sqlSession.selectList("itemBoardMapper.sellMemberInfo", memberNo);
 	}
 }

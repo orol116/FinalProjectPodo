@@ -3,7 +3,9 @@ package edu.kh.podo.board.itemBoard.model.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import edu.kh.podo.board.itemBoard.model.dao.ItemBoardDAO;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
+import edu.kh.podo.member.model.vo.Member;
 
 @Service
 public class ItemBoardServiceImpl implements ItemBoardService {
@@ -32,7 +35,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
 		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
 
-		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
+//		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
 		
 		int boardNo = dao.insertBoard(item);
 		
@@ -101,6 +104,36 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		List<ItemBoard> searchList = dao.searchBoard(searchBar);
 
 		return searchList;
+	}
+
+	// 판매글 상세조회 Service 구현
+	@Override
+	public Map<String, Object> itemDetail(int boardNo) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		// 상품 상세조회
+		List<ItemBoard> itemList = dao.selectItem(boardNo);
+		int memberNo = dao.selectMemberNo(boardNo);
+		
+		map.put("itemList", itemList);
+		map.put("memberNo", memberNo);
+		
+		Map<String, Object> daoMap = new HashMap<String, Object>();
+		daoMap.put("boardNo", boardNo);
+		daoMap.put("memberNo", memberNo);
+		
+		// 판매자 다른 상품 조회
+		List<ItemBoard> sellList = dao.selectOtherItems(daoMap);
+		map.put("sellList", sellList);
+		
+		// 회원 정보 조회
+		List<Member> sellMember = dao.sellMemberInfo(memberNo);
+		map.put("sellMember", sellMember);
+		
+		
+		
+		return map;
 	}
 
 }

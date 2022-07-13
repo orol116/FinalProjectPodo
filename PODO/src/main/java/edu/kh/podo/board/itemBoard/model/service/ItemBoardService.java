@@ -1,6 +1,7 @@
 package edu.kh.podo.board.itemBoard.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +26,13 @@ public interface ItemBoardService {
 	List<ItemBoard> searchBoard(String searchBar);
 
 	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath);
+
+
+	/** 판매글 상세조회 Service
+	 * @param boardNo
+	 * @return map
+	 */
+	Map<String, Object> itemDetail(int boardNo);
 
 
 	

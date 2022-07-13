@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="memberList" value="${map.memberList}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +21,7 @@
 <header>
     <div id="header">
         <section id="menu"> 
-            <a href="main" >
+            <a href="3" >
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>
@@ -29,9 +32,9 @@
 
 <div class="top-menu">
     <nav id="mainMenu">
-        <a href="#">회원관리</a>
-        <a href="#">상품관리</a>
-        <a href="#">1:1 문의</a>
+        <a href="5">회원관리</a>
+        <a href="4">상품관리</a>
+        <a href="3">1:1 문의</a>
         <a href="#">신고관리</a>
     </nav>
     <nav id="mainMenu2">
@@ -75,126 +78,34 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >1</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>  
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >2</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >3</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >4</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >5</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >6</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >7</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >8</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >9</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >10</td>
-                <td >홍길동</td>
-                <td >아나바다</td>
-                <td >010-1234-5678</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2022-06-30 18:07</td>
-                <td >0</td>
-                <td >0</td>
-                <td >N</td>
-            </tr>
+            <c:choose>
+                <c:when test ="${empty memberList}">
+                    <tr>
+                        <th colspan="5">게시글이 존재하지 않습니다.</th>
+                    </tr>
+                </c:when>
+
+                <c:otherwise>
+                    
+                    <c:forEach var="member" items="${memberList}">
+                        
+                        <tr>
+                            <td ><input type="checkbox"></td>
+                            <td >${member.memberNo}</td>
+                            <td >홍길동</td>
+                            <td >${member.memberNickname}</td>
+                            <td >${member.memberTel}</td>
+                            <td>${member.memberAddress}</td>
+                            <td >${member.createDate}</td>
+                            <td >0</td>
+                            <td >${member.memberGrape}</td>
+                            <td >${member.secessionFlag}</td>
+                        </tr>      
+                    </c:forEach>      
+                </c:otherwise>
+
+            </c:choose>
+
 
         </tbody>
     </table>
@@ -210,14 +121,33 @@
     </div>
 
     <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
+        <c:set var="url" value="5?cp="/>
+
+
+            <ul class="pagination">
+                <!-- 첫 페이지로 이동 -->
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+
+                <!-- 범위가 정해진 일반 for문 사용 -->
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>        
+                        </c:otherwise>
+                    </c:choose>
+
+                </c:forEach>
+                
+
+                <!-- 끝 페이지로 이동 -->
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+
+            </ul>
     </div>
 
 </div>

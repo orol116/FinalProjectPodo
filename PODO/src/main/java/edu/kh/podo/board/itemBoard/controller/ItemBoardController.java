@@ -34,17 +34,9 @@ public class ItemBoardController {
 		
 		return "member/itemUpload";
 	}
-	
-	
-		
 		
 
-	@GetMapping("/write")
-	public String boardWriteForm() {
-
-		return "member/itemUpload";
-	}
-
+	// 게시글 작성
 	@PostMapping("/board/write/{boardCode}")
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
@@ -54,7 +46,8 @@ public class ItemBoardController {
 							,@PathVariable("boardCode") int boardCode) {
 
 		item.setMemberNo(loginMember.getMemberNo());
-
+		item.setBoardCode(boardCode);
+		
 		String webPath = "/resources/images/item";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
@@ -73,22 +66,20 @@ public class ItemBoardController {
 		}
 		ra.addFlashAttribute("message",message);
 		
-		return "redirect:"+path;
+		return "redirect:" + path;
 
-	}
-
-	// 상품 상세페이지
-		@GetMapping("/detail/{boardCode}/{boardNo}")
-		public String itemDetail(@PathVariable("boardCode") int boardCode,
-								@PathVariable("boardNo") 	int boardNo) {
+	}	
+		
+	// 상품 상세
+	@GetMapping("/board/detail/{boardNo}")
+	public String itemDetail(/*@ModelAttribute("loginMember") Member loginMember*/
+						     @PathVariable("boardNo") int boardNo
+						   , Model model) {
 			
-			return "/item/item-detail";
-		}
+		Map<String, Object> map = service.itemDetail(boardNo);
 		
-		
-		
-	@GetMapping("/board/detail")
-	public String itemDetail() {
+		model.addAttribute("map", map);
+
 		return "/item/item-detail";
 	}
 

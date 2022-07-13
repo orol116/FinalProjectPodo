@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="itemList" value="${map.itemList}"/>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +21,7 @@
 <header>
     <div id="header">
         <section id="menu"> 
-            <a href="main" >
+            <a href="3" >
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>
@@ -28,9 +32,9 @@
 
 <div class="top-menu">
     <nav id="mainMenu">
-        <a href="#">회원관리</a>
-        <a href="#">상품관리</a>
-        <a href="#">1:1 문의</a>
+        <a href="5">회원관리</a>
+        <a href="4">상품관리</a>
+        <a href="3">1:1 문의</a>
         <a href="#">신고관리</a>
     </nav>
     <nav id="mainMenu2">
@@ -76,130 +80,30 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >1</td>
-                <td >스포츠 의류</td>
-                <td> 나이키 신발 235</td>
-                <td >20000원</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >5</td>
-                <td >2022-06-30 18:07</td>
-                <td>새상품</td>
-                <td>판매중</td>
-           
-            </tr>  
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >2</td>
-                <td>스포츠 의류</td>
-                <td> 아디다스 운동복</td>
-                <td >3000원</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >8</td>
-                <td >2022-06-30 18:07</td>
-                <td>중고 상품</td>
-                <td>판매완료</td>
-            
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >3</td>
-                <td >여성 의류</td>
-                <td >미쏘 원피스 55</td>
-                <td>50,000원</td>
-                <td >서울시 중랑구 면목동</td>
-                <td >0</td>
-                <td >2022-06-30 18:07</td>
-                <td >중고 상품</td>
-                <td >판매중</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>4</td>
-                <td>식료품</td>
-                <td>새우깡</td>
-                <td>500원</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td>7</td>
-                <td>2022-06-30 18:07</td>
-                <td>중고 상품</td>
-                <td>판매중</td>
-             
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >5</td>
-                <td >디지털 가전</td>
-                <td >마우스</td>
-                <td>15000원</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >6</td>
-                <td >2022-06-30 18:07</td>
-                <td>중고 상품</td>
-                <td>판매중</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >6</td>
-                <td >디지털 가전</td>
-                <td >선풍기</td>
-                <td>90000원</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >2</td>
-                <td >2022-06-30 18:07</td>
-                <td>중고 상품</td>
-                <td>판매중</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >7</td>
-                <td >잡화</td>
-                <td >로션세트</td>
-                <td>35000원</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td>3</td>
-                <td >2022-06-30 18:07</td>
-                <td>중고 상품</td>
-                <td>판매 완료</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >8</td>
-                <td >디지털 가전</td>
-                <td >스마트 TV</td>
-                <td>600000원</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td >0</td>
-                <td >2022-06-30 18:07</td>
-                <td >새상품</td>
-                <td >판매완료</td>
-            </tr>
-            <tr>
-                <td ><input type="checkbox"></td>
-                <td >9</td>
-                <td >남성의류</td>
-                <td>와이드 팬츠 32</td>
-                <td >5000원</td>
-                
-                <td>서울특별시 중구 남대문로 120</td>
-                <td>4</td>
-                <td>2022-06-30 18:07</td>
-                <td>새상품</td>
-                <td>판매 완료</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>10</td>
-                <td >여성의류</td>
-                <td>베이지 린넨바지</td>
-                <td >10000원</td>
-                <td>서울특별시 중구 남대문로 120</td>
-                <td>4</td>
-                <td>2022-06-30 18:07</td>
-                <td>새상품</td>
-                <td>판매 완료</td>
-            </tr>
+            <c:choose>
+                    <c:when test ="${empty itemList}">
+                        <tr>
+                            <th colspan="5">게시글이 존재하지 않습니다.</th>
+                        </tr>
+                    </c:when>
+
+                    <c:otherwise>
+                        <c:forEach var="item" items="${itemList}">
+                            <tr>
+                                <td ><input type="checkbox"></td>
+                                <td >${item.boardNo}</td>
+                                <td >${item.categoryName}</td>
+                                <td >${item.boardTitle}</td>
+                                <td >${item.price}</td>
+                                <td >${item.sellArea}</td>
+                                <td >${item.bookmarkCount}</td>
+                                <td >${item.createDate}</td>
+                                <td>${item.itemCondition}</td>
+                                <td>${item.tradeCondition}</td>
+                            </tr>    
+                        </c:forEach>      
+                    </c:otherwise>
+            </c:choose>
 
         </tbody>
     </table>
@@ -215,14 +119,33 @@
     </div>
 
     <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
+       <c:set var="url" value="4?cp="/>
+
+
+            <ul class="pagination">
+                <!-- 첫 페이지로 이동 -->
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+
+                <!-- 범위가 정해진 일반 for문 사용 -->
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>        
+                        </c:otherwise>
+                    </c:choose>
+
+                </c:forEach>
+                
+
+                <!-- 끝 페이지로 이동 -->
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+
+            </ul>
     </div>
 
 </div>

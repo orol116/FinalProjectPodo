@@ -41,6 +41,9 @@ footer {
     justify-content: center;
     align-items: center;
 
+    margin-top: 40px;
+    margin-bottom: 40px;
+
 }
 
 /* 전체 페이지 크기 */
@@ -182,11 +185,6 @@ footer {
 
 
 
-.box {
-    border: 1px solid #ccc;
-
-}
-
 
 /* 상품 목록 */
 #seller-items,
@@ -247,24 +245,35 @@ footer {
     width: 400px;
     height: 50px;
     font-size: 20px;
-    border: 1px solid #ccc;
+    
     
 }
 
-#user-category > div:first-child{
-   
-    border-right: 1px solid #ccc;
-}
 
-#user-category > div{
+
+#user-category > button{
     width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
 
 }
 
+#user-category > button:hover{
+
+    cursor: pointer;
+}
+
 /* 후기 작성 box */
+#reviews-area{
+    display: none;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+
 #user-reviews{
     width: 1000px;
     height: 240px;

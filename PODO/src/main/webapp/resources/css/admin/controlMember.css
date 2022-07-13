@@ -21,8 +21,7 @@ body{
 }
 
 #header{
-    position: fixed;
-    top: 0 ;
+
     width: 1400px;
     height:  180px;
     background-color: white;
@@ -182,18 +181,37 @@ th:nth-child(10){width:5%;}
     /* margin-right: 3px; */
 }
 #stop,#delete{
-    width: 50px;
-    height: 35px;
+    width: 70px;
+    height: 40px;
     font-size: 18px;
     background-color: rgb(95, 0, 129);
     color: white;
     margin-left: 10px;
     border-radius: 3px;
-    border:0;
+    border: 0;
 }
-#stop,#delete:hover{
+#write:hover{
     cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
 }
+#delete:hover{
+    cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
+    font-weight: bold;
+
+}
+#stop:hover{
+    cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
+    font-weight: bold;
+}
+
 
 /* 페이지네이션 */
 .pagination{
@@ -202,7 +220,11 @@ th:nth-child(10){width:5%;}
     justify-content: center;
     
 }
-.pagination>a{
+
+.pagination>li{
+    list-style: none;
+}
+.pagination>li>a{
     color: black;
     float: left;
     padding: 8px 16px;

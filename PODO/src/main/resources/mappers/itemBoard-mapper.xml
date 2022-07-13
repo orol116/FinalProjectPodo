@@ -2,6 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="itemBoardMapper">
 
+	<resultMap type="member" id="member_rm">
+	
+		<id property="memberNo" 			column="MEMBER_NO"/>
+		<result property="memberId" 		column="MEMBER_ID"/>
+		<result property="memberPw" 		column="MEMBER_PW"/>
+		<result property="memberNickname" 	column="MEMBER_NICK"/>
+		<result property="memberTel" 		column="MEMBER_TEL"/>
+		<result property="secessionFlag" 	column="SECESSION_FL"/>
+		<result property="memberProfile" 	column="MEMBER_PROFILE"/>
+		<result property="memberGrape" 		column="MEMBER_GRAPE"/>
+		<result property="memberAddress" 	column="MEMBER_ADDR"/>
+		<result property="memberTown" 		column="MEMBER_TOWN"/>
+		<result property="createDate" 		column="CREATE_DT"/>
+		<result property="admin"  			column="ADMIN" />
+		<result property="shopInfo"  			column="SHOP_INFO" />
+	
+	</resultMap>
+
 	<resultMap type="boardType" id="boardType_rm">
 		<id property="boardCode" column="BOARD_CD"/>
 		
@@ -30,9 +48,9 @@
 		<result property="categoryNo" column="M_CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="itemImage" column="ITEM_IMAGE" />
+		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 
 	</resultMap>
-	
 	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
 	
@@ -42,7 +60,8 @@
 	
 		INSERT INTO BOARD VALUES(
 			#{boardNo}, #{boardTitle}, #{boardContent},
-			DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberNo}, #{boardCode}
+			DEFAULT, DEFAULT, DEFAULT, '사용감 있음', '판매 중', '착불', #{price}, DEFAULT, '서울', 
+			#{boardCode}, #{memberNo}, 13, NULL, NULL, 0 
 		)
 	</insert>
 	
@@ -63,10 +82,11 @@
 	
 	</insert>
 	
-	
 	<select id="selectItemList" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO
 		FROM ITEM_BOARD
+		WHERE UPDATE_DT >= SYSDATE - 7
+		ORDER BY READ_COUNT
 	</select>
 
 
@@ -94,9 +114,42 @@
 		ORDER BY BOARD_NO DESC
 
 	</select>
+	
+	
+	<!-- 판매글 상세조회 -->
+	<select id="selectItem" resultMap="itemBoard_rm">
+		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION
+			, PRICE
+		FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 판매글에 해당하는 회원번호 조회 -->
+	<select id="selectMemberNo" resultType="_int">
+		SELECT MEMBER_NO
+		FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 판매자 다른 상품 보기 -->
+	<select id="selectOtherItems" resultMap="itemBoard_rm">
+		SELECT * FROM (
+			SELECT BOARD_TITLE, PRICE, UPDATE_DT, BOARD_NO
+			FROM ITEM_BOARD
+			WHERE MEMBER_NO = ${memberNo}
+			AND BOARD_NO != ${boardNo}
+			ORDER BY READ_COUNT DESC)
+		<![CDATA[WHERE ROWNUM <= 5]]>
+	</select>
+	
+	<!-- 판매자 회원 정보 조회 -->
+	<select id="sellMemberInfo" resultMap="member_rm">
+		SELECT MEMBER_NICK, MEMBER_GRAPE
+		FROM MEMBER
+		WHERE MEMBER_NO = ${memberNo}
+	</select>
 
 
 </mapper>
-
 
 

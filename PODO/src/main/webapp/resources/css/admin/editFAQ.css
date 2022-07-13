@@ -1,0 +1,171 @@
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {font-family: "NanumSquareRound";}
+
+*{box-sizing: border-box;}
+
+body{
+    width: 1400px;
+    margin: auto;
+}
+ /* 로고 */ 
+ header{
+    height: 180px;
+    width: 1400px;
+    /*margin-top: 15px; */
+}
+
+#header{
+    width: 1400px;
+    height:  180px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    /* margin-top: 15px; */
+    z-index: 2;
+}
+#menu{
+    display: flex;
+    align-items: center;
+
+}
+
+#home-logo{
+    height: 170px;
+    width: 300px;
+}
+
+section>#menu{
+    display: flex;
+    justify-content: left;
+}
+
+/* 메뉴 */
+.top-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0;
+    height: 70px;
+    font-size: 20px;
+    border-bottom: 1px solid lightgray ;
+    border-top: 1px solid lightgray;
+}
+
+#mainMenu>a{
+    text-decoration: none;
+    padding: 8px;
+    color: black;
+    font-weight:8px ;
+}
+
+#mainMenu>a:hover{
+    cursor: pointer;
+    color: rgb(95, 0, 129);
+
+}
+#mainMenu2>a{
+    text-decoration:  none;
+    color: rgb(95, 0, 129);
+    font-weight: 900;
+
+}
+#mainMenu2>a:hover{
+    color: rgb(95, 0, 129);
+    font-weight: 900;
+}
+
+/* 중간 분류 + 제목 */
+.option{
+    height: 120px;
+     /* display: flex; */
+     flex-basis: 100%;
+    align-content: left; 
+    border-bottom: 1px solid lightgray;
+    padding-left: 30px;
+}
+.select{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  
+}
+select {
+    width: 100px;
+    height: 35px;
+    padding-left: 5px;
+    font-size: 15px;
+    margin-left: 20px;
+    border-radius: 3px;
+}
+/* 제목 */
+.title{
+    display: flex;
+    align-items: center; 
+}
+
+#title2{
+    width: 800px;
+    margin-left: 20px;
+    color: gray;
+    font-size: 25px;
+    border: 0;
+}
+
+#title2:focus{
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+/* 글쓰는 부분 */
+textarea{
+    width: 1350px;
+    height: 1000px;
+    resize:none;
+    margin:30px 30px 0;
+    border-color: gray;
+    font-size: 25px;
+    padding: 30px 35px 30px;
+}
+textarea:focus{
+    outline: none ;
+    /* padding: 5px; */
+    font-size: 25px;
+    padding: 30px 35px 30px;
+}
+.box{
+    width: 1400px;
+    height: 1100px;
+    border-bottom: 1px solid lightgray;
+
+}
+
+.div1{
+    display: flex;
+    justify-content: end;
+    margin: 10px 20px 0;
+}
+.sumbit{
+    width: 55px;
+    height: 40px;
+    color: white;
+    background-color: rgb(95, 0, 129);
+    border: none;
+    font-size: 19px;
+
+}
+.sumbit:hover{
+    cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
+    font-weight: bold;
+
+}

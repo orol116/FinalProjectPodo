@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>   
 
+<c:set var="LCategory" value="${LCategoryList}" />
+<c:set var="MCategory" value="${MCategoryList}" />
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> 
+
 <header>
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+
+
     
     <div id="top">
     <c:choose>
@@ -24,7 +29,7 @@
 
     <div id="header">
         <section id="menu"> 
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars" id="fa-bars"></i>
             <a href="${contextPath}" >
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
@@ -51,57 +56,14 @@
                 전체 카테고리
             </li>
 
-            <li class="category-name" href="#">
-                인기매물
-            </li>
+            <c:forEach var="LCategory" items="${LCategory}">
 
-            <li class="category-name" href="#">
-                생활가전
-            </li>
+                <li class="category-name" href="#">
+                    ${LCategory.LCategoryName}
+                </li>
+            </c:forEach>
 
-            <li class="category-name" href="#">
-                남성의류
-            </li>
-
-            <li class="category-name" href="#">
-                여성의류
-            </li>
-
-            <li class="category-name" href="#">
-                전자기기(디지털기기)
-            </li>
-
-            <li class="category-name" href="#">
-                가구/ 인테리어
-            </li>
-
-            <li class="category-name" href="#">
-                도서 /티켓/ 음반
-            </li>
-
-            <li class="category-name" href="#">
-                식품
-            </li>
-
-            <li class="category-name" href="#">
-                식물
-            </li>
-
-            <li class="category-name" href="#">
-                스포츠/ 레저
-            </li>
-
-            <li class="category-name" href="#">
-                뷰티/ 미용
-            </li>
-
-            <li class="category-name" href="#">
-                게임취미
-            </li>
-            
-            <li class="category-name" href="#">
-                삽니다
-            </li>
+           
         </ul>
 
 
@@ -114,6 +76,26 @@
 
         </ul>
     </div>
+    
+    <script>
+    const category = document.getElementById("fa-bars");
+
+    area = document.getElementById("category-area");
+
+    category.addEventListener("mouseenter", function(){
+
+        area.style.display = "flex";
+
+    });
+
+    area.addEventListener("mouseleave", function(){
+
+        area.style.display = "none";
+
+    });
+
+    </script>
+
     <!-- ------------------------------------------------------- -->
 
     </div>
