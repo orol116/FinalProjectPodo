@@ -36,6 +36,7 @@ public class ItemBoardController {
 	}
 		
 
+	// 게시글 작성
 	@PostMapping("/board/write/{boardCode}")
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
@@ -46,7 +47,6 @@ public class ItemBoardController {
 
 		item.setMemberNo(loginMember.getMemberNo());
 		item.setBoardCode(boardCode);
-		item.setMemberNo(loginMember.getMemberNo());
 		
 		String webPath = "/resources/images/item";
 
@@ -75,7 +75,7 @@ public class ItemBoardController {
 	public String itemDetail(/*@ModelAttribute("loginMember") Member loginMember*/
 						     @PathVariable("boardNo") int boardNo
 						   , Model model) {
-		
+			
 		Map<String, Object> map = service.itemDetail(boardNo);
 		
 		model.addAttribute("map", map);

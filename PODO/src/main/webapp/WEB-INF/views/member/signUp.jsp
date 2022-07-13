@@ -44,7 +44,7 @@
                         <h4>비밀번호 확인</h4>
                         <input type="password" id="memberPwConfirm" name="memberPwConfirm" placeholder="비밀번호를 다시 입력해주세요.">
                     </section>
-                    <span class="signUp-message" id="pwMessage">* 비밀번호는 동일해야 합니다.</span>
+                    <span class="signUp-message" id="pwConfirmMessage">* 비밀번호는 동일해야 합니다.</span>
 
                     <section>
                         <h4>닉네임</h4>
@@ -65,7 +65,7 @@
                         <input type="text" id="memberAddress" name="memberAddress" placeholder="주소를 입력하세요">
 
                     </section>
-                    <span class="signUp-message" id="addressMessage">* 본인의 전화번호를 입력해주세요.</span>
+                    <span class="signUp-message" id="addressMessage">* 주소 입력.</span>
                     
 
                     <section id="submitBtn-area">

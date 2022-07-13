@@ -111,7 +111,12 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 
 			resp.addCookie(cookie);
-			path = "redirect:/";
+			if(loginMember.getAdmin()=='Y') {
+				
+				path="redirect:/admin/main";
+			}else {
+				path = "redirect:/";
+			}
 
 		} else {
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
