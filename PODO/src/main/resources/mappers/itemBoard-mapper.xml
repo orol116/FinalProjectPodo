@@ -58,7 +58,8 @@
 	
 		INSERT INTO BOARD VALUES(
 			#{boardNo}, #{boardTitle}, #{boardContent},
-			DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberNo}, #{boardCode}
+			DEFAULT, DEFAULT, DEFAULT, '사용감 있음', '판매 중', '착불', #{price}, DEFAULT, '서울', 
+			#{boardCode}, #{memberNo}, 13, NULL, NULL, 0 
 		)
 	</insert>
 	

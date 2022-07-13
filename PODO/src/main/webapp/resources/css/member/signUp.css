@@ -99,6 +99,15 @@ main >#contaioner {
  }
 
 
+ .confirm{
+   
+   color: cornflowerblue;
+   
+ }
+
+ .error{
+   color: crimson;
+ }
 
 
 
