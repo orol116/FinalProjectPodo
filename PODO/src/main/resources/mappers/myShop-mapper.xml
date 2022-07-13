@@ -69,9 +69,11 @@
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
 
-	<!-- <select id="selectMemberInfo" resultMap="member_rm">
-		SELECT MEMBER_NICK, MEMBER_GRAPE, READ_COUNT
+	<select id="selectMemberInfo" resultMap="member_rm">
+		SELECT MEMBER_NICK, MEMBER_GRAPE, COUNT(BOARD_NO)
+		FROM MEMBER
+		JOIN ITEM_BOARD USING (MEMBER_NO)
 		WHERE MEMBER_NO = ${memberNo}
-	</select> -->
+	</select>
   
 </mapper>
