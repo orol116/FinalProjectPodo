@@ -1,0 +1,133 @@
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {font-family: "NanumSquareRound";}
+
+*{box-sizing: border-box;}
+
+body{
+    width: 1400px;
+    margin: auto;
+}
+
+/* 메뉴 */
+.top-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 0;
+    height: 70px;
+    font-size: 20px;
+    border-bottom: 1px solid lightgray ;
+    border-top: 1px solid lightgray;
+}
+#mainMenu{   
+    color: rgb(95, 0, 129);
+    font-weight: 900;
+}
+
+/* 중간 분류 + 제목 */
+title>div{
+    margin: 0;
+    width: 50px;
+}
+
+.option{
+    width: 1000px;
+    height: 130px;
+    padding-left: 100px;
+}
+.select{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  
+}
+select {
+    width: 100px;
+    height: 35px;
+    padding-left: 5px;
+    font-size: 15px;
+    margin-left: 20px;
+    border-radius: 3px;
+}
+/* 제목 */
+.title{
+    display: flex;
+    align-items: center; 
+}
+
+#title2{
+    width: 800px;
+    margin-left: 20px;
+    color: gray;
+    font-size: 25px;
+    border: 0;
+}
+
+#title2:focus{
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+/* 글쓰는 부분 */
+textarea{
+    width: 1000px;
+    height: 600px;
+    resize:none;
+    margin:30px 30px 0;
+    border-color: gray;
+    font-size: 25px;
+    padding: 30px 35px 30px;
+}
+textarea:focus{
+    outline: none ;
+    /* padding: 5px; */
+    font-size: 25px;
+    padding: 30px 35px 30px;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    height: 670px;
+    width: 1400px;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+}
+
+.div1{
+    display: flex;
+    justify-content: end;
+    margin: 10px 20px 10px;
+}
+.photo{
+    display: none;
+}
+label{
+    width: 100px;
+    height: 100px;
+    color: aquamarine;
+}
+
+#submit{
+    width: 55px;
+    height: 40px;
+    color: white;
+    background-color: rgb(95, 0, 129);
+    border: none;
+    font-size: 19px;
+
+}
+#submit:hover{
+    cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
+    font-weight: bold;
+
+}
