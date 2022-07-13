@@ -33,24 +33,47 @@
 		<result property="createDate" column="CREATE_DT" />
 	</resultMap>
   
-  <select id="selectMemberShop" resultMap="itemBoard_rm">
-      SELECT BOARD_NO, BOARD_TITLE, PRICE, TRADE_CONDITION, ITEM_IMAGE,
-          CASE WHEN SYSDATE - UPDATE_DT &lt; 1
-	          THEN TO_CHAR(UPDATE_DT, 'HH:MI')
-	          ELSE TO_CHAR(UPDATE_DT, 'YYYY-MM-DD')
-	      END UPDATE_DT
-	   FROM ITEM_BOARD
-	   WHERE MEMBER_NO = ${memberNo}
-	   AND SECESSION_FL = 'N'
-	   ORDER BY BOARD_NO
-  </select>
-  
-  <select id="selectMemberReview">
-      SELECT REVIEW_NO, REVIEW_CONTENT, MEMBER_NICK, BOARD_TITLE
-      FROM REVIEW
-      JOIN MEMBER USING(MEMBER_NO)
-      JOIN ITEM_BOARD USING(MEMBER_NO)
-      WHERE MEMBER_NO = ${memberNo}
-  </select>
+	<resultMap type="member" id="member_rm">
+		<id property="memberNo" 			column="MEMBER_NO"/>
+		
+		<result property="memberId" 		column="MEMBER_ID"/>
+		<result property="memberPw" 		column="MEMBER_PW"/>
+		<result property="memberNickname" 	column="MEMBER_NICK"/>
+		<result property="memberTel" 		column="MEMBER_TEL"/>
+		<result property="secessionFlag" 	column="SECESSION_FL"/>
+		<result property="memberProfile" 	column="MEMBER_PROFILE"/>
+		<result property="memberGrape" 		column="MEMBER_GRAPE"/>
+		<result property="memberAddress" 	column="MEMBER_ADDR"/>
+		<result property="memberTown" 		column="MEMBER_TOWN"/>
+		<result property="createDate" 		column="CREATE_DT"/>
+		<result property="admin"  			column="ADMIN" />
+	</resultMap>
+
+	<select id="selectMemberShop" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, TRADE_CONDITION, ITEM_IMAGE,
+		CASE WHEN SYSDATE - UPDATE_DT &lt; 1
+		THEN TO_CHAR(UPDATE_DT, 'HH:MI')
+		ELSE TO_CHAR(UPDATE_DT, 'YYYY-MM-DD')
+		END UPDATE_DT
+		FROM ITEM_BOARD
+		WHERE MEMBER_NO = ${memberNo}
+		AND SECESSION_FL = 'N'
+		ORDER BY BOARD_NO
+	</select>
+
+	<select id="selectMemberReview" resultMap="review_rm">
+		SELECT REVIEW_NO, REVIEW_CONTENT, MEMBER_NICK, BOARD_TITLE
+		FROM REVIEW
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN ITEM_BOARD USING(MEMBER_NO)
+		WHERE MEMBER_NO = ${memberNo}
+	</select>
+
+	<select id="selectMemberInfo" resultMap="member_rm">
+		SELECT MEMBER_NICK, MEMBER_GRAPE, COUNT(BOARD_NO)
+		FROM MEMBER
+		JOIN ITEM_BOARD USING (MEMBER_NO)
+		WHERE MEMBER_NO = ${memberNo}
+	</select>
   
 </mapper>

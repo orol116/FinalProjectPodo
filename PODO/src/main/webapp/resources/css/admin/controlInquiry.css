@@ -176,8 +176,8 @@ th:nth-child(6){width:25%;}
     /* margin-right: 3px; */
 }
 #delete{
-    width: 50px;
-    height: 35px;
+    width: 70px;
+    height: 40px;
     font-size: 18px;
     background-color: rgb(95, 0, 129);
     color: white;
@@ -185,9 +185,16 @@ th:nth-child(6){width:25%;}
     border-radius: 3px;
     border: 0;
 }
+
 #delete:hover{
     cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
+    font-weight: bold;
+
 }
+
 
 /* 페이지네이션 */
 .pagination{

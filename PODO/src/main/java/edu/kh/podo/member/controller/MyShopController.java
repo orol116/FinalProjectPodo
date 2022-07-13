@@ -64,10 +64,9 @@ public class MyShopController {
 	public String myShop(@ModelAttribute("loginMember") Member loginMember
 					   , Model model) {
 		
-//		List<Member> shopMember = memberService.selectMember();
+		List<Member> member = service.selectMemberInfo(loginMember.getMemberNo());
 		
 		List<ItemBoard> itemList = itemService.selectItemList();
-		
 		model.addAttribute("itemList", itemList);
 		
 		return "member/profile";
