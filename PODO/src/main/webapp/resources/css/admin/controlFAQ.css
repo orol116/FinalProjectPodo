@@ -165,14 +165,15 @@ th:nth-child(6){width:25%;}
     margin: 10px 25px 0;
     display: flex;
     justify-content: space-between;
+    font-size: 18px;
 }
 .last>div{
     font-size: 18px;
     /* margin-right: 3px; */
 }
-#delete{
-    width: 50px;
-    height: 35px;
+#write{
+    width: 70px;
+    height: 40px;
     font-size: 18px;
     background-color: rgb(95, 0, 129);
     color: white;
@@ -180,8 +181,29 @@ th:nth-child(6){width:25%;}
     border-radius: 3px;
     border: 0;
 }
+#delete{
+    width: 70px;
+    height: 40px;
+    font-size: 18px;
+    background-color: rgb(95, 0, 129);
+    color: white;
+    margin-left: 10px;
+    border-radius: 3px;
+    border: 0;
+}
+#write:hover{
+    cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
+}
 #delete:hover{
     cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
+    font-weight: bold;
+
 }
 
 /* 페이지네이션 */
