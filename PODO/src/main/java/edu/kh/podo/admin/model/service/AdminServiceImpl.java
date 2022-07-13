@@ -27,6 +27,7 @@ public class AdminServiceImpl implements AdminService{
 	public Map<String, Object> inquiryList(int cp) {
 		
 		int listCount = dao.inquiryListCount();
+		
 		Pagination pagination = new Pagination(cp, listCount);
 		
 		List<Admin> InquiryList = dao.selectInquiryList(pagination);

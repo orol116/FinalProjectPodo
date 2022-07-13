@@ -22,9 +22,6 @@ public class AdminDAO {
 		return sqlSession.selectList("");
 	}
 
-	public Map<String, Object> inquiryList(int cp) {
-		return null;
-	}
 
 	public int inquiryListCount() {
 		return sqlSession.selectOne("adminMapper.inquiryListCount");
@@ -36,7 +33,7 @@ public class AdminDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("adminMapper.selectInquiryList", rowBounds);
+		return sqlSession.selectList("adminMapper.selectInquiryList", null,rowBounds);
 	}
 	
 }
