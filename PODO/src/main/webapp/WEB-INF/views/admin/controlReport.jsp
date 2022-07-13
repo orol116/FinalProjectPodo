@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>adiminPage-신고관리</title>
 
-    <link rel="stylesheet" href="../../css/admin/controlReport.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlReport.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
 </head>
@@ -15,7 +19,7 @@
     <div id="header">
         <section id="menu"> 
             <a href="main" >
-                <img src="../../images/logo.png" id="home-logo">
+                <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>
         </section>

@@ -21,8 +21,7 @@ body{
 }
 
 #header{
-    position: fixed;
-    top: 0 ;
+
     width: 1400px;
     height:  180px;
     background-color: white;

@@ -22,8 +22,14 @@ public class AdminController {
 	@GetMapping("/main")
 	public String adminMain() {
 		
+		return "admin/controlInquiry";
+	}
+	
+	
+	@GetMapping("/controlItem")
+	public String controllItem() {
 		
-		return null;
+		return "admin/controlItem";
 	}
 	
 	@GetMapping("/memberList")

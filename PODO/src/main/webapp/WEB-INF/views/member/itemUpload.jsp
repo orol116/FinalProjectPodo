@@ -20,7 +20,6 @@
     <main>
 
     <form action="${contextPath}/board/write/1" enctype="multipart/form-data" method="POST" name="itemUpload" id="itemUpload">
-
         <div class="top-menu">
             <nav id="mainMenu">
                 <a href="${contextPath}/member/itemUpload">상품등록</a>

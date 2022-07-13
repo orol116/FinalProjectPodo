@@ -15,6 +15,7 @@
 	<result property="memberAddress" 	column="MEMBER_ADDR"/>
 	<result property="memberTown" 		column="MEMBER_TOWN"/>
 	<result property="createDate" 		column="CREATE_DT"/>
+	<result property="admin"  			column="ADMIN" />
 	
 	</resultMap>
 
@@ -22,7 +23,7 @@
 	<select id="login" parameterType="member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NICK, MEMBER_TEL,
 			SECESSION_FL, MEMBER_PROFILE, MEMBER_GRAPE, MEMBER_ADDR, 
-			TO_CHAR( CREATE_DT, 'YYYY-MM-DD HH24:MI:SS' ) AS CREATE_DT, MEMBER_TOWN, MEMBER_PW
+			TO_CHAR( CREATE_DT, 'YYYY-MM-DD HH24:MI:SS' ) AS CREATE_DT, MEMBER_TOWN, MEMBER_PW, ADMIN
 		FROM MEMBER
 		WHERE MEMBER_ID = #{memberId}
 		AND SECESSION_FL = 'N'	
