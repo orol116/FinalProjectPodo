@@ -29,7 +29,7 @@
 <div class="top-menu">
     <nav id="mainMenu">
         <a href="#">회원관리</a>
-        <a href="#">상품관리</a>
+        <a href="controlItem">상품관리</a>
         <a href="#">1:1 문의</a>
         <a href="#">신고관리</a>
     </nav>
