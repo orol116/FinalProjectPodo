@@ -103,15 +103,30 @@
                 <span>${loginMember.memberNickname}</span>
             </div>
 
-            <div class="myPage-row">
+            <div class="myPage-row info-title">
                 <label>주소</label>
-                
                 <span>${loginMember.memberAddress}</span>
+            </div>
+
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
+
+                <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
+            </div>
+
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+            </div>
+            
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
             </div>
 
             <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
             <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
             <input type="hidden" name="delete" id="delete" value="0">
+
+            <button>변경하기</button>
         </form>
 
     </section>
