@@ -29,6 +29,11 @@
 
     </header>
 
+<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
+    <c:if test="${!empty param.key}">
+        <c:set var="sURL" value="&key=${param.key}&query=${param.query}" />
+    </c:if>
+
     <div class="top-menu">
         <nav id="mainMenu">
             <a href="controlMember">회원관리</a>
@@ -83,16 +88,14 @@
                 </c:when>
 
                 <c:otherwise>
-                
-
                     <c:forEach var="inquiry" items="${InquiryList}">
                         <tr>
-                            <td><input type="checkbox"></td>
-                            <td>${inquiry.boardNo}</td>
-                            <td>구매/판매</td>
-                            <td>${inquiry.boardTitle}</td>
-                            <td>${inquiry.memberNick}</td>
-                            <td>${inquiry.createDate}</td>
+                            <th><input type="checkbox"></th>
+                            <th>${inquiry.boardNo}</th>
+                            <th>구매/판매</th>
+                            <th> <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardTitle}</a> </th>                           
+                            <th>${inquiry.memberNick}</th>
+                            <th>${inquiry.createDate}</th>
                         </tr>    
                     </c:forEach>      
                 </c:otherwise>
@@ -112,14 +115,43 @@
         </div>
 
         <div class="pagination">
-            <a href="#">&laquo;</a>
+
+          <c:set var="url" value="controlInquiry?cp="/>
+
+
+            <ul class="pagination">
+                <!-- 첫 페이지로 이동 -->
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+
+                <!-- 범위가 정해진 일반 for문 사용 -->
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>        
+                        </c:otherwise>
+                    </c:choose>
+
+                </c:forEach>
+                
+
+                <!-- 끝 페이지로 이동 -->
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+
+            </ul>
+
+            <%-- <a href="#">&laquo;</a>
             <a href="#">1</a>
             <a class="active" href="#">2</a>
             <a href="#">3</a>
             <a href="#">4</a>
             <a href="#">5</a>
             <a href="#">6</a>
-            <a href="#">&raquo;</a>
+            <a href="#">&raquo;</a> --%>
         </div>
 
     </div>
