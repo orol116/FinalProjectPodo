@@ -10,8 +10,9 @@
     <title>거래내역 조회 페이지</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
 </head>
 <header>
     <link rel="stylesheet" href="../WEB-INF/resources/css/main-style.css">
