@@ -35,7 +35,13 @@
             
                 <div class="fourth">
                     <a href="#">공지사항&nbsp|</a>
-                    <a href="#">1:1 문의사항&nbsp|</a>
+
+                    <c:if test="${!empty loginMember}">
+                        <a href="${contextPath}/member/InquiryPage">1:1 문의사항&nbsp|</a>
+                    </c:if>
+                    
+
+
                     <a href="#">자주 묻는 질문</a>
                 </div>
         </div>
