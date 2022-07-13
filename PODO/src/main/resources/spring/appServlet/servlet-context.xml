@@ -27,22 +27,15 @@
 	
 	<context:component-scan base-package="edu.kh.podo" />
 	
-	<!-- <interceptors>
-		
-		interceptor : 요청이 Dispatcher Servlet에서 Controller에 도달하기 전 또는 후에
-						   요청/응답 객체(req, resp)를 가로채서 사용할 수 있는 객체
+	<interceptors>
 		
 		<interceptor>
-		
-			가로챌 요청의 패턴을 지정
 			<mapping path="/**" />
-			
-			인터셉터 역할을 수행한 클래스를 찾아 bean으로 등록
-			<beans:bean id='boardTypeInterceptor' class="edu.kh.comm.common.interceptor.BoardTypeInterceptor" />
+			<beans:bean id='categoryInterceptor' class="edu.kh.podo.common.interceptor.CategoryInterceptor" />
 			
 		</interceptor>
 		
-	</interceptors> -->
+	</interceptors>
 	
 	<!-- 트랜잭션 처리 시 @Transactional 어노테이션을 사용할 예정
 		 
