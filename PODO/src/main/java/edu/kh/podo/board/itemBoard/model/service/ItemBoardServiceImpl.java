@@ -112,12 +112,26 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
+		// 상품 상세조회
 		List<ItemBoard> itemList = dao.selectItem(boardNo);
 		int memberNo = dao.selectMemberNo(boardNo);
-		List<Member> member = null;
 		
 		map.put("itemList", itemList);
 		map.put("memberNo", memberNo);
+		
+		Map<String, Object> daoMap = new HashMap<String, Object>();
+		daoMap.put("boardNo", boardNo);
+		daoMap.put("memberNo", memberNo);
+		
+		// 판매자 다른 상품 조회
+		List<ItemBoard> sellList = dao.selectOtherItems(daoMap);
+		map.put("sellList", sellList);
+		
+		// 회원 정보 조회
+		List<Member> sellMember = dao.sellMemberInfo(memberNo);
+		map.put("sellMember", sellMember);
+		
+		
 		
 		return map;
 	}

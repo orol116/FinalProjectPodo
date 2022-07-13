@@ -75,7 +75,7 @@ public class ItemBoardController {
 	public String itemDetail(/*@ModelAttribute("loginMember") Member loginMember*/
 						     @PathVariable("boardNo") int boardNo
 						   , Model model) {
-		
+			
 		Map<String, Object> map = service.itemDetail(boardNo);
 		
 		model.addAttribute("map", map);
