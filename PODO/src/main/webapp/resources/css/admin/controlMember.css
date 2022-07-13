@@ -220,7 +220,11 @@ th:nth-child(10){width:5%;}
     justify-content: center;
     
 }
-.pagination>a{
+
+.pagination>li{
+    list-style: none;
+}
+.pagination>li>a{
     color: black;
     float: left;
     padding: 8px 16px;

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,8 +24,9 @@ public class AdminController {
 	@Autowired
 	private AdminService service;
 	
-	@GetMapping("/controlInquiry")
+	@GetMapping("/{boardCode}")
 	public String adminMain(@RequestParam(value="cp", required = false , defaultValue="1") int cp
+							, @PathVariable("boardCode") int boardCode
 							, Model model,
 							@RequestParam Map<String,Object> paramMap) {
 		
@@ -32,7 +34,7 @@ public class AdminController {
 		
 		if(paramMap.get("key")==null) { // 검색이 아닌 경우
 			
-			 map = service.inquiryList(cp); 
+			 map = service.inquiryList(cp, boardCode); 
 			
 		}else { // 검색인 경우
 			
@@ -45,9 +47,18 @@ public class AdminController {
 		}
 		
 		model.addAttribute("map",map);
-		
-		return "admin/controlInquiry";
+		if(boardCode ==3) {
+			
+			return "admin/controlInquiry";
+		}else if(boardCode ==4) {
+			
+			return "admin/controlItem";
+		}else {
+			
+			return "admin/controlMember";
+		}
 	}
+	
 	
 	@GetMapping("/controlItem")
 	public String controllItem() {
@@ -59,14 +70,6 @@ public class AdminController {
 	public String controlMember() {
 		
 		return "admin/controlMember";
-	}
-	
-	@PostMapping("/controlMember")
-	public String selectMemberList() {
-		
-		List<Member> memberList = service.selectMemberList();
-		
-		return new Gson().toJson(memberList);
 	}
 	
 	
