@@ -23,16 +23,15 @@ public class MainController {
 	private ItemBoardService service;
 
 	@RequestMapping("/main")
-	public String mainForward(String searchBar, RedirectAttributes ra, Model model) {
+	public String mainForward(String query, RedirectAttributes ra, Model model) {
 		
-		
-		if (searchBar == null) {
+		if(query == null) {
 			
 			List<ItemBoard> itemList = service.selectItemList();
 			model.addAttribute("itemList", itemList);
 		} else {
 			
-			List<ItemBoard> searchList = service.searchBoard(searchBar);
+			List<ItemBoard> searchList = service.searchBoard(query);
 			model.addAttribute("searchList", searchList);
 		}
 	
