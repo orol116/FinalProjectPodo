@@ -32,9 +32,15 @@ public class AdminServiceImpl implements AdminService{
 		}else if(boardCode ==4) {
 			
 			listCount = dao.itemListCount();
-		}else {
+		}else if(boardCode ==5){
 			
 			listCount = dao.memberListCount();
+		}else if(boardCode ==6){
+			
+			listCount = dao.reportListCount();
+		}else {
+			
+			listCount = dao.FAQListCount();
 		}
 		
 		
@@ -53,10 +59,18 @@ public class AdminServiceImpl implements AdminService{
 			
 			List<ItemBoard> itemList = dao.selectItemList(pagination, boardCode);
 			map.put("itemList", itemList);
-		}else {
+		}else if(boardCode == 5){
 			
 			List<Member> memberList = dao.selectMemberList(pagination, boardCode);
 			map.put("memberList", memberList);
+		}else if(boardCode == 6){
+			
+			List<Admin> reportList = dao.selectInquiryList(pagination, boardCode);
+			map.put("reportList", reportList);
+		}else {
+			
+			List<Admin> FAQList = dao.selectInquiryList(pagination, boardCode);
+			map.put("FAQList", FAQList);
 		}
 		
 		return map;

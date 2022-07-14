@@ -34,7 +34,7 @@
 	<!-- 회원가입 -->
 	<insert id="signUp" parameterType="member">
 		INSERT INTO MEMBER 
-		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberTel}, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberAddress}, DEFAULT)
+		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberTel}, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberAddress}, DEFAULT, DEFAULT)
 	</insert>
 	
 	<!-- 네이버 회원가입 -->

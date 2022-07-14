@@ -193,8 +193,10 @@ th:nth-child(6){width:15%;}
     
 }
 
+
 .pagination>li>a{
     list-style: none;
+
     color: black;
     float: left;
     padding: 8px 16px;

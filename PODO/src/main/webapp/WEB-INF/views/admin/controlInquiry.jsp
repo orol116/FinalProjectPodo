@@ -20,7 +20,7 @@
     <header>
         <div id="header">
             <section id="menu"> 
-                <a href="3" >
+                <a href="5" >
                     <img src="${contextPath}/resources/images/logo.png" id="home-logo">
                 </a>
                 <div><h1>관리자 페이지</h1></div>
@@ -39,10 +39,10 @@
             <a href="5">회원관리</a>
             <a href="4">상품관리</a>
             <a href="3">1:1 문의</a>
-            <a href="#">신고관리</a>
+            <a href="6">신고관리</a>
         </nav>
         <nav id="mainMenu2">
-            <a href="#">자주 묻는 질문(FAQ)</a>
+            <a href="7">자주 묻는 질문(FAQ)</a>
         </nav>
     </div>
 
