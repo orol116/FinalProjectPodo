@@ -20,8 +20,8 @@
 <header>
     <div id="header">
         <section id="menu"> 
-            <a href="main" >
-                <img src="../../images/logo.png" id="home-logo">
+            <a href="5" >
+                <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>
         </section>
@@ -89,7 +89,7 @@
                                 <td><input type="checkbox"></td>
                                 <td>${faq.boardNo}</td>
                                 <td>${faq.classification}</td>
-                                <td>${faq.boardContent}</td>
+                                <td>${faq.boardTitle}</td>
                                 <td>${faq.memberNick}</td>
                                 <td>${faq.createDate}</td>
                             </tr>    
@@ -104,7 +104,7 @@
             <input type="checkbox" id="checkbox"><label for="checkbox"> 전체선택</label>
         </div>
         <div>
-            <button id="write">글쓰기</button>
+            <button id="write" onclick="location.href='${contextPath}/admin/7/write'">글쓰기</button>
             <button id="delete">삭제</button>
         </div>
     </div>

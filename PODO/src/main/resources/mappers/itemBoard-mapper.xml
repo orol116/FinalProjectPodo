@@ -148,6 +148,14 @@
 		FROM MEMBER
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
+	
+	<insert id="addFav">
+		INSERT INTO BOOKMARK VALUES(${loginMemberNo}, ${boardNo})
+	</insert>
+	
+	<insert id="addCountAdd">
+		INSERT INTO ITEM_BOARD(BOOKMARK_COUNT) VALUES(BOOKMARK_COUNT + 1)
+	</insert>
 
 
 </mapper>
