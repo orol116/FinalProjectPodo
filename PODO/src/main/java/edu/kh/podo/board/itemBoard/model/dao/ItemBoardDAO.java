@@ -22,9 +22,9 @@ public class ItemBoardDAO {
 	private Logger logger = LoggerFactory.getLogger(ItemBoardDAO.class);
 
 	
-	public List<ItemBoard> searchBoard(String searchBar) {
+	public List<ItemBoard> searchBoard(String query) {
 
-		List<ItemBoard> searchList = sqlSession.selectList("itemBoardMapper.searchBoard", searchBar);
+		List<ItemBoard> searchList = sqlSession.selectList("itemBoardMapper.searchBoard", query);
 
 		return searchList;
 

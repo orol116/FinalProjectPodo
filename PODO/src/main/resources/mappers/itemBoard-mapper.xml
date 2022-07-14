@@ -92,22 +92,17 @@
 
 	<!-- 상품명 검색 -->
 	<select id="searchBoard" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, PRICE, CREATE_DT
+		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO
 
-		(SELECT IMG_RENAME FROM ITEM_IMAGE
-		WHERE BOARD.BOARD_NO = ITEM_IMAGE.BOARD_NO
-		AND IMG_LEVEL = 0) THUMBNAIL
 		FROM ITEM_BOARD
-		JOIN MEMBER USING(MEMBER_NO)
 		WHERE SECESSION_FL = 'N'
 
 		<if test='query != null and query != ""'>
-
+		
+			AND
 			( BOARD_TITLE LIKE '%${query}%'
 			OR
-			BOARD_CONTENT LIKE '%${query}%'
-			OR
-			MEMBER_NICK LIKE '%${query}%')
+			BOARD_CONTENT LIKE '%${query}%')
 
 		</if>
 
