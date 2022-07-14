@@ -52,10 +52,10 @@
  
    
     <section class="basic">
-        <form class="search1" action="#" method="post" id="search">
+    <form class="search1" action="deleteMember" id="search"  name="list-form" onsubmit="return ckBox()">
             <input id="search2" type="text" placeholder="회원명을 입력해주세요.">
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+       
     </section>
 </div>
 
@@ -65,7 +65,7 @@
     <table>
         <thead>
             <tr id="head">
-                <th><input type="checkbox"></th>
+                <th>선택</th>
                 <th>번호</th>
                 <th>아이디</th>
                 <th>닉네임</th>
@@ -81,7 +81,7 @@
             <c:choose>
                 <c:when test ="${empty memberList}">
                     <tr>
-                        <th colspan="5">게시글이 존재하지 않습니다.</th>
+                        <td colspan="5">게시글이 존재하지 않습니다.</td>
                     </tr>
                 </c:when>
 
@@ -90,7 +90,7 @@
                     <c:forEach var="member" items="${memberList}">
                         
                         <tr>
-                            <td ><input type="checkbox"></td>
+                            <td><input type="checkbox" name="memList" id="chkbox" value="${{member.memberNo}}"></td>
                             <td >${member.memberNo}</td>
                             <td >${member.memberId}</td>
                             <td >${member.memberNickname}</td>
@@ -109,17 +109,17 @@
 
         </tbody>
     </table>
-    
+     
     <div class="last">
         <div>
-            <input type="checkbox" id="checkbox"><label for="checkbox"> 전체선택</label>
+            <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
         </div>
         <div>
-            <button id="stop">정지</button>
-            <button id="delete">삭제</button>
+            <%-- <button id="stop">정지</button> --%>
+            <button  type="submit" class="btn" id="deleteBtn">삭제</button>
         </div>
     </div>
-
+</form>
     <div class="pagination">
         <c:set var="url" value="5?cp="/>
 
@@ -151,5 +151,8 @@
     </div>
 
 </div>
+
+<script src="${contextPath}/resources/js/admin/controlMember.js"></script>
+
 </body>
 </html>

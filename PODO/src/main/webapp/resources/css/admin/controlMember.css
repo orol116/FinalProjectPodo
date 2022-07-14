@@ -190,7 +190,7 @@ th:nth-child(10){width:6%;}
     font-size: 13px;
     /* margin-right: 3px; */
 }
-#stop,#delete{
+#stop,#deleteBtn{
     width: 40px;
     height: 30px;
     font-size: 14px;
@@ -206,7 +206,7 @@ th:nth-child(10){width:6%;}
     background-color: white;
     border: 1px solid gray;
 }
-#delete:hover{
+#deleteBtn:hover{
     cursor: pointer;
     color: rgb(95, 0, 129);
     background-color: white;
