@@ -39,7 +39,7 @@
             <div class="profile-image-area">
 
                 <c:if test="${empty loginMember.memberProfile}">
-                    <img src="${contextPath}/resources/images/user.png" id="profile-image">
+                    <img src="${contextPath}/resources/images/user.jpg" id="profile-image">
                 </c:if>
 
                 <c:if test="${!empty loginMember.memberProfile}">
@@ -54,7 +54,7 @@
 
             <div class="profile-btn-area">
                 <label for="input-image">이미지 선택</label>
-                <input type="file" name="memberProfile" id="input-image" accept="image/*">
+                <input type="file" name="uploadImage" id="input-image" accept="image/*">
                 <!-- accept="image/*" : 이미지 파일 확장자만 선택 허용 -->
                 <!-- accept="video/*" : 동영상 파일 확장자만 선택 허용 -->
                 <!-- accept=".pdf" : pdf파일만 선택 허용 -->
@@ -64,41 +64,37 @@
                 
                 <div class="myPage-row">
                     <label>닉네임</label>
-                    <input type="text" name="memberNickname" class="input_box" placeholder="2글자 이상 8글자 이내" maxlength="8">
+                    <input type="text" name="updateNickname"  id="memberNickname" class="input_box" value="${loginMember.memberNickname}" maxlength="8">
                 </div>
     
                 
+                <c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  />
+
+                <div class="myPage-row info-title">
+                    <label>주소</label>
+                </div>
+
+                <div class="myPage-row info-address">
+                    <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
+
+                    <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
+                </div>
+
+                <div class="myPage-row info-address">
+                    <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+                </div>
+                
+                <div class="myPage-row info-address">
+                    <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
+                </div>
+
+                <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
+                <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
+                <input type="hidden" name="delete" id="delete" value="0">
+
+                <button>변경하기</button>
             </form>
 
-            <div class="myPage-row">
-                <label>닉네임</label>
-                <span>${loginMember.memberNickname}</span>
-            </div>
-
-            <div class="myPage-row info-title">
-                <label>주소</label>
-                <span>${loginMember.memberAddress}</span>
-            </div>
-
-            <div class="myPage-row info-address">
-                <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
-
-                <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
-            </div>
-
-            <div class="myPage-row info-address">
-                <input type="text" name="updateAddress" id="address" value="${addr[1]}">
-            </div>
-            
-            <div class="myPage-row info-address">
-                <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
-            </div>
-
-            <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
-            <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
-            <input type="hidden" name="delete" id="delete" value="0">
-
-            <button>변경하기</button>
 
     </section>
     

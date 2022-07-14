@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
@@ -31,36 +32,52 @@ public class MyPageController {
 	@Autowired
 	private MyPageService service;
 	
-	// 회원 정보 수정
+	// 회원 정보 수정 페이지 전환
 	@GetMapping("/profileUpdate")
+	public String profileUpdate() {
+		return "member/myPage/myPage-profileUpdate";
+	}
+	
+	// 회원 정보 수정
+	@PostMapping("/profile")
 	public String updateInfo(@ModelAttribute("loginMember") Member loginMember
 						   , @RequestParam Map<String, Object> paramMap
+						   , @RequestParam("uploadImage") MultipartFile uploadImage
+						   , HttpServletRequest req
 						   , String[] updateAddress
-						   , RedirectAttributes ra) {
+						   , RedirectAttributes ra) throws Exception {
 		
-//		String memberAddress = String.join(",,", updateAddress);
-//		
-//		if (memberAddress.equals(",,,,")) memberAddress = null;
-//		
-//		paramMap.put("memberNo", loginMember.getMemberNo());
-//		paramMap.put("memberAddress", memberAddress);
-//		
-//		int result = service.updateInfo(paramMap);
-//		
-//		String message = null;
-//		
-//		if (result > 0) {
-//			message = "회원 정보가 수정되었습니다.";
-//			
-//			loginMember.setMemberNickname((String)paramMap.get("updateNickname"));
-//			loginMember.setMemberTel((String)paramMap.get("updateNickname"));
-//			loginMember.setMemberAddress((String)paramMap.get("updateNickname"));
-//		} else {
-//			message = "회원 정보 수정에 실패하였습니다.";
-//		}
-//		ra.addFlashAttribute("message", message);
+		String webPath = "/resources/images/memberProfile/";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 		
-		return "member/myPage/myPage-profileUpdate";
+		paramMap.put("webPath", webPath);
+		paramMap.put("folderPath", folderPath);
+		paramMap.put("uploadImage", uploadImage);
+		
+		String memberAddress = String.join(",,", updateAddress);
+		
+		if (memberAddress.equals(",,,,")) memberAddress = null;
+		
+		paramMap.put("memberNo", loginMember.getMemberNo());
+		paramMap.put("memberAddress", memberAddress);
+		
+		int result = service.updateInfo(paramMap);
+		
+		String message = null;
+		
+		if (result > 0) {
+			message = "회원 정보가 수정되었습니다.";
+			
+			loginMember.setMemberNickname((String)paramMap.get("updateNickname"));
+			loginMember.setMemberAddress((String)paramMap.get("memberAddress"));
+			loginMember.setMemberProfile((String)paramMap.get("profileImage"));
+			
+		} else {
+			message = "회원 정보 수정에 실패하였습니다.";
+		}
+		ra.addFlashAttribute("message", message);
+		
+		return "redirect:profileUpdate";
 	}
 	
 	// 비밀번호 변경

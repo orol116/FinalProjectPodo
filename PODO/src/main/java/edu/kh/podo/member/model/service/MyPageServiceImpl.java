@@ -1,13 +1,16 @@
 package edu.kh.podo.member.model.service;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.dao.MyPageDAO;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -22,8 +25,26 @@ public class MyPageServiceImpl implements MyPageService {
 
 	// 회원 정보 수정 Service 구현
 	@Override 
-	public int updateInfo(Map<String, Object> paramMap) {
-		return dao.updateInfo(paramMap);
+	public int updateInfo(Map<String, Object> paramMap) throws Exception {
+		
+		MultipartFile uploadImage = (MultipartFile)paramMap.get("uploadImage");
+		String delete = (String)paramMap.get("delete");
+		String renameImage = null;
+		
+		if (delete.equals("0")) {
+			renameImage = Util.fileRename(uploadImage.getOriginalFilename());
+			paramMap.put("profileImage", paramMap.get("webPath") + renameImage); 
+		} else {
+			paramMap.put("profileImage", null);
+		}
+		
+		int result = dao.updateInfo(paramMap);
+		
+		if (result > 0 && paramMap.get("profileImage") != null) {
+			uploadImage.transferTo(new File(paramMap.get("folderPath") + renameImage));
+		}
+		
+		return result;
 	}
 
 	// 회원 비밀번호 수정 Service 구현
