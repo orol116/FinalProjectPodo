@@ -1,6 +1,7 @@
 package edu.kh.podo.member.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.vo.Member;
@@ -9,7 +10,7 @@ import edu.kh.podo.member.model.vo.Review;
 public interface MyShopService {
 
 	/** 판매자 판매상품 조회 Service
-	 * @param memberNo
+	 * @param map
 	 * @return memberSellList
 	 */
 	List<ItemBoard> selectMemberShop(int memberNo);
@@ -31,5 +32,11 @@ public interface MyShopService {
 	 * @return boardCount
 	 */
 	int selectBoardCount(int memberNo);
+
+	/** 내 판매목록 조회
+	 * @param map
+	 * @return
+	 */
+	Map<String, Object> selectManageItem(Map<String, Object> map);
 
 }

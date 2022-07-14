@@ -93,7 +93,7 @@
                                 <td ><input type="checkbox"></td>
                                 <td >${item.boardNo}</td>
                                 <td >${item.categoryName}</td>
-                                <td >${item.boardTitle}</td>
+                                <td ><a href="../board/detail/${item.boardNo}">${item.boardTitle}</a></td>
                                 <td >${item.price}</td>
                                 <td >${item.sellArea}</td>
                                 <td >${item.bookmarkCount}</td>
