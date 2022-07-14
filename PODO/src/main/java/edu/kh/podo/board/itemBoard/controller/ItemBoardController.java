@@ -75,7 +75,7 @@ public class ItemBoardController {
 	public String itemDetail(/*@ModelAttribute("loginMember") Member loginMember*/
 						     @PathVariable("boardNo") int boardNo
 						   , Model model) {
-			
+			                                              
 		Map<String, Object> map = service.itemDetail(boardNo);
 		
 		model.addAttribute("map", map);
@@ -83,17 +83,5 @@ public class ItemBoardController {
 		return "/item/item-detail";
 	}
 
-	@GetMapping("")
-	public String itemSearch(String searchBar, RedirectAttributes ra, Model model) {
-
-		List<ItemBoard> searchList = service.searchBoard(searchBar);
-
-		if (searchList != null) {
-
-			model.addAttribute(searchList);
-		}
-
-		return "redirect:/";
-	}
 
 }

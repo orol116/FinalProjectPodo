@@ -26,7 +26,7 @@ import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
 @RequestMapping("/member")
-@SessionAttributes({ "loginMember" })
+@SessionAttributes({"loginMember"})
 @Controller
 public class MemberController {
 
@@ -244,6 +244,12 @@ public class MemberController {
 		return Integer.toString(randomNumber);
 	}
 
+	// 아이디 찾기 
+	@PostMapping("/findId")
+	public String findId(Member inputMember, RedirectAttributes ra) {
+		return "redirect:/";
+	}
+	
 
 	// 비밀번호 찾기 페이지 전환
 	@GetMapping("/findPw")
