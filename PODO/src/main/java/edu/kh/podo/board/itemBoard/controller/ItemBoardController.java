@@ -76,9 +76,6 @@ public class ItemBoardController {
 	public String itemDetail(/* HttpSession session
 						   , */@PathVariable("boardNo") int boardNo
 						   , Model model) {
-		
-		// int memberNo = session.getAttribute("loginMember") != null ? ((Member)session.getAttribute("loginMember")).getMemberNo() : 0; 
-			
 		Map<String, Object> map = service.itemDetail(boardNo);
 		map.put("boardNo", boardNo);
 		model.addAttribute("map", map);
@@ -107,17 +104,5 @@ public class ItemBoardController {
 		return result;
 	}
 
-	@GetMapping("")
-	public String itemSearch(String searchBar, RedirectAttributes ra, Model model) {
-
-		List<ItemBoard> searchList = service.searchBoard(searchBar);
-
-		if (searchList != null) {
-
-			model.addAttribute(searchList);
-		}
-
-		return "redirect:/";
-	}
 
 }
