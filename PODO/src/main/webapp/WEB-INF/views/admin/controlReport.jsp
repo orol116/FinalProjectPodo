@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="reportList" value="${map.reportList}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,13 +31,13 @@
 
 <div class="top-menu">
     <nav id="mainMenu">
-        <a href="#">회원관리</a>
-        <a href="#">상품관리</a>
-        <a href="#">1:1 문의</a>
-        <a href="#">신고관리</a>
+        <a href="5">회원관리</a>
+        <a href="4">상품관리</a>
+        <a href="3">1:1 문의</a>
+        <a href="6">신고관리</a>
     </nav>
     <nav id="mainMenu2">
-        <a href="#">자주 묻는 질문(FAQ)</a>
+        <a href="7">자주 묻는 질문(FAQ)</a>
     </nav>
 </div>
 
@@ -75,88 +77,29 @@
       
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>광고</td>
-                <td>상점 및 사이트 홍보</td>
-                <td>홍길동</td>
-                <td>2022-06-30 18:07</td>
-            </tr>    
-             <tr>
-                <td><input type="checkbox"></td>
-                <td>2</td>
-                <td>상품 정보 부정확</td>
-                <td>가격 신고 합니다</td>
-                <td>김영희</td>
-                <td>2022-07-12 03:07</td>
-            </tr>  
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>3</td>
-                <td>거래 금지 품목</td>
-                <td>가품(위조품/이미테이션)</td>
-                <td>이영수</td>
-                <td>2022-07-12 03:07</td>
-            </tr>  
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>4</td>
-                <td>사기의심(외부채널 유도)</td>
-                <td>내용 textarea</td>
-                <td>강영환</td>
-                <td>2022-07-12 03:07</td>
-            </tr>  
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>5</td>
-                <td>기타(사유)</td>
-                <td>내용 textarea </td>
-                <td>박예준</td>
-                <td>2022-07-12 03:07</td>
-            </tr>  
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>6</td>
-                <td>광고 (상점 및 타사이트 홍보, 상품도배)</td>
-                <td>상품 도배</td>
-                <td>박서준</td>
-                <td>2022-07-28 03:07</td>
-            </tr>  
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>7</td>
-                <td>구매/판매</td>
-                <td>택배로 받기를 원할 때, 예상 배송 기간 문의</td>
-                <td>박서준</td>
-                <td>2022-07-28 03:07</td>
-            </tr>  
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>8</td>
-                <td>상품 정보 부정확</td>
-                <td>내용 textarea</td>
-                <td>곽민수</td>
-                <td>2022-07-28 03:07</td>
-            </tr>  
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>9</td>
-                <td>거래 금지 품목</td>
-                <td>반려동물(분양/입양 글)</td>
-                <td>사하준</td>
-                <td>2022-07-28 03:07</td>
-            </tr>  
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>10</td>
-                <td>거래 금지 품목</td>
-                <td>조건부 무료나눔</td>
-                <td>곽민수</td>
-                <td>2022-07-28 03:07</td>
-            </tr>  
 
+        <tbody>
+            
+             <c:choose>
+                    <c:when test ="${empty reportList}">
+                        <tr>
+                            <th colspan="5">게시글이 존재하지 않습니다.</th>
+                        </tr>
+                    </c:when>
+
+                    <c:otherwise>
+                        <c:forEach var="report" items="${reportList}">
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>${report.boardNo}</td>
+                                <td>${report.classification}</td>
+                                <td>${report.boardContent}</td>
+                                <td>${report.memberNick}</td>
+                                <td>${report.createDate}</td>
+                            </tr>    
+                        </c:forEach>      
+                    </c:otherwise>
+            </c:choose>
         </tbody>
     </table>
     
@@ -171,14 +114,33 @@
     </div>
 
     <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
+       <c:set var="url" value="6?cp="/>
+
+
+            <ul class="pagination">
+                <!-- 첫 페이지로 이동 -->
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+
+                <!-- 범위가 정해진 일반 for문 사용 -->
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>        
+                        </c:otherwise>
+                    </c:choose>
+
+                </c:forEach>
+                
+
+                <!-- 끝 페이지로 이동 -->
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+
+            </ul>
     </div>
 
 </div>
