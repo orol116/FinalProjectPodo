@@ -1,11 +1,13 @@
 package edu.kh.podo.member.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.member.model.dao.MyShopDAO;
 import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.Review;
@@ -38,6 +40,19 @@ public class MyShopServiceImpl implements MyShopService {
 	@Override
 	public int selectBoardCount(int memberNo) {
 		return dao.selectBoardCount(memberNo);
+	}
+
+	// 내 판매목록 조회
+	@Override
+	public Map<String, Object> selectManageItem(Map<String, Object> map) {
+		Pagination pagination = new Pagination((Integer.parseInt(map.get("cp").toString())), (Integer.parseInt(map.get("boardCount").toString())));
+		
+		List<ItemBoard> boardList = dao.selectManageItem(pagination, (Integer.parseInt(map.get("memberNo").toString())));
+		
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+		
+		return map;
 	}
 	
 	

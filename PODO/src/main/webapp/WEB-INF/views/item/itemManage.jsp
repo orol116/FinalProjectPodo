@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="boardList" value="${map.boardList}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,27 +39,7 @@
                 <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </section>
-        <div>
-            <div>
-                <select>
-                    <option>10개씩</option>
-                    <option>20개씩</option>
-                    <option>30개씩</option>
-                    <option>40개씩</option>
-                    <option>50개씩</option>
-                </select>
-            </div>
-        </div>
-        <div>
-            <div>
-                <select>
-                    <option>전체</option>
-                    <option>판매 중</option>
-                    <option>예약 중</option>
-                    <option>판매완료</option>
-                </select>
-            </div>
-        </div>
+        
     </div>   
     <div>
         <table>
@@ -67,131 +49,50 @@
                     <th>판매상태</th>
                     <th>상품명</th>
                     <th>가격</th>
-                    <th>찜/댓글</th>
+                    <th>조회수</th>
                     <th>최근수정일</th>
                     <th>기능</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <a><img src="${contextPath}/resources/images/items/image1.jpg"></a>
-                    </td>
-                    
-                    <td>
-                        <select>
-                            <option>전체</option>
-                            <option>판매 중</option>
-                            <option>예약 중</option>
-                            <option>판매완료</option>
-                        </select>
-                    </td>
-                    <td><a href="#" id="name">썬크림</a></td>
-                    <td>5000원</td>
-                    <td>0/0</td>
-                    <td>2022-06-30 18:07</td>
-                    <td class="choice">
-                        <button class="choice1">UP</button>
-                        <a href="#" class="choice2">수정</a>
-                    </td>
-                </tr>  
 
-                <tr>
-                    <td>
-                        <a><img src="${contextPath}/resources/images/items/image2.jpg"></a>
-                    </td>
-                    
-                    <td>
-                        <select>
-                            <option>전체</option>
-                            <option>판매 중</option>
-                            <option>예약 중</option>
-                            <option>판매완료</option>
-                        </select>
-                    </td>
-                    <td><a href="#" id="name">썬크림</a></td>
-                    <td>5000원</td>
-                    <td>0/0</td>
-                    <td>2022-06-30 18:07</td>
-                    <td class="choice">
-                        <button class="choice1">UP</button>
-                        <a href="#" class="choice2">수정</a>
-                    </td>
-                </tr>    
-                <tr>
-                    <td>
-                        <a><img src="${contextPath}/resources/images/items/image3.jpg"></a>
-                    </td>
-                    
-                    <td>
-                        <select>
-                            <option>전체</option>
-                            <option>판매 중</option>
-                            <option>예약 중</option>
-                            <option>판매완료</option>
-                        </select>
-                    </td>
-                    <td><a href="#" id="name">썬크림</a></td>
-                    <td>5000원</td>
-                    <td>0/0</td>
-                    <td>2022-06-30 18:07</td>
-                    <td class="choice">
-                        <button class="choice1">UP</button>
-                        <a href="#" class="choice2">수정</a>
-                    </td>
-                </tr>    
-                <tr>
-                    <td>
-                        <a><img src="${contextPath}/resources/images/items/image4.jpg"></a>
-                    </td>
-                    
-                    <td>
-                        <select>
-                            <option>전체</option>
-                            <option>판매 중</option>
-                            <option>예약 중</option>
-                            <option>판매완료</option>
-                        </select>
-                    </td>
-                    <td><a href="#" id="name">썬크림</a></td>
-                    <td>5000원</td>
-                    <td>0/0</td>
-                    <td>2022-06-30 18:07</td>
-                    <td class="choice">
-                        <button class="choice1">UP</button>
-                        <a href="#" class="choice2">수정</a>
-                    </td>
-                </tr>    
-                <tr>
-                    <td>
-                        <a><img src="${contextPath}/resources/images/items/image5.jpg"></a>
-                    </td>
-                    
-                    <td>
-                        <select>
-                            <option>전체</option>
-                            <option>판매 중</option>
-                            <option>예약 중</option>
-                            <option>판매완료</option>
-                        </select>
-                    </td>
-                    <td><a href="#" id="name">썬크림</a></td>
-                    <td>5000원</td>
-                    <td>0/0</td>
-                    <td>2022-06-30 18:07</td>
-                    <td class="choice">
-                        <button class="choice1">UP</button>
-                        <a href="#" class="choice2">수정</a>
-                    </td>
-                </tr>    
-                
-                
-                
+                <c:if test="${boardList == null}">
+                    판매중인 물건이 없습니다.
+                </c:if>
+                <c:if test="${boardList != null}">
+
+                    <c:forEach var="item" items="${boardList}">
+                        <tr>
+                            <td>
+                                <a><img src="${contextPath}/resources/images/items/image1.jpg"></a>
+                            </td>
+                            
+                            <td>
+                                <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
+                               <select>
+                                    <option>${item.tradeCondition}</option>
+                                    <option>판매 중</option>
+                                    <option>예약 중</option>
+                                    <option>판매완료</option>
+                                </select>
+                            </td>
+                            <td><a href="#" id="name">${item.boardTitle}</a></td>
+                            <td>${item.price} 원</td>
+                            <td>${item.readCount}</td>
+                            <td>${item.updateDate}</td>
+                            <td class="choice">
+                                <button class="choice1">UP</button>
+                                <a href="#" class="choice2">수정</a>
+                            </td>
+                        </tr>  
+                    </c:forEach>
+                </c:if>
+                        
             </tbody>
         </table>
     </div>
  
-    <div class="pagination">
+    <%-- <ul class="pagination">
         <a href="#">&laquo;</a>
         <a href="#">1</a>
         <a class="active" href="#">2</a>
@@ -200,6 +101,39 @@
         <a href="#">5</a>
         <a href="#">6</a>
         <a href="#">&raquo;</a>
+    </ul> --%>
+
+    <div class="pagination-area">
+
+        <!-- 페이지네이션 a태그에 사용될 공통 주소를 저장한 변수 선언 -->
+        <c:set var="url" value="?cp="/>
+                            <%-- /board/list/1?cp=1  --%>
+
+
+        <ul class="pagination">
+
+            <!-- 이전 목록 마지막 번호로 이동 -->
+            <li><a href="${url}${pagination.prevPage}$">&laquo;</a></li>
+
+            <!-- 범위가 정해진 일반 for문 사용 -->
+            <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                <c:choose>
+                    <c:when test="${i == pagination.currentPage}">
+                        <li><a class="current">${i}</a></li>
+                    </c:when>
+
+                    <c:otherwise>
+                        <li><a href="${url}${i}">${i}</a></li>        
+                    </c:otherwise>
+                </c:choose>
+
+            </c:forEach>
+            
+            <!-- 다음 목록 시작 번호로 이동 -->
+            <li><a href="${url}${pagination.nextPage}">&raquo;</a></li>
+
+        </ul>
     </div>
 
     </form>
