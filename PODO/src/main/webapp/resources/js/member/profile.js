@@ -101,10 +101,10 @@ function selectItemsList(){
 
 }
 
+
 reviewCategory.addEventListener("click", reviewsList);
 
 
-reviewsList();
 
 /* 후기 ajax */
 function reviewsList(){
@@ -117,13 +117,22 @@ function reviewsList(){
         success : function(rList){
             console.log(rList);
 
+            reviewList.innerHTML = "";
             itemList.innerHTML = "";
+            reviewList.style.display = "flex";
+            itemList.style.display = "none";
 
-            if(rList == null) {
-                const reviewBox = document.createElement("section");
-                reviewBox.id = "user-reviews";
-                reviewBox.innerText = "내 후기가 없습니다.";
-                reviewList.append(reviewBox);
+
+            if(rList == "") {
+                reviewList.innerText = "내 후기가 없습니다.";
+                
+                
+                reviewList.style.fontSize = "20px";
+                reviewList.style.height = "320px";
+                reviewList.style.padding = "30px 0 40px 0";
+                
+
+                
             } else {
                 for(let review of rList){
                     
@@ -194,3 +203,6 @@ function reviewsList(){
     });
 
 }
+
+
+
