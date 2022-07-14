@@ -52,14 +52,14 @@
         </section>
         <div id="category-area">
         <ul id="item-category">
-            <li class="category-name" href="#" id="zzzz">
+            <li class="category-name" href="#" id="0">
                 전체 카테고리
             </li>
 
-            <c:forEach var="LCategory" items="${LCategory}">
+            <c:forEach var="ct" items="${LCategory}">
 
-                <li class="category-name" href="#">
-                    ${LCategory.LCategoryName}
+                <li class="category-name" href="#" id="${ct.LCategoryNo}">
+                    ${ct.LCategoryName}
                 </li>
             </c:forEach>
 
@@ -68,12 +68,13 @@
 
 
         <ul id="div-category">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+            <c:forEach var="ct" items="${MCategory}">
 
+                <li class="sub-category-name" href="#" id="${ct.MCategoryNo}">
+                    ${ct.MCategoryName}
+                </li>
+            </c:forEach>
+           
         </ul>
     </div>
     
@@ -86,10 +87,15 @@
 
         area.style.display = "flex";
 
-     for(obj in "${LCategory}"){
+     $(".category-name").on("click", function(){
 
-        console.log("${LCategory.LCategoryName}");
-    }
+         console.log($(this).attr("id"));
+
+
+     })
+
+       
+    
 
     
 

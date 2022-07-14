@@ -219,3 +219,7 @@ section>button>.fa-solid{
     margin: 10px 0 10px 0;
 
 }
+
+#div-category{
+    display: none;
+}
