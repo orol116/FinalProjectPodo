@@ -7,6 +7,7 @@
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 <script>
     const contextPath = "${contextPath}";
+    const mcNo = "${param.mCategoryNo}";
 </script>
 <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> 
 
