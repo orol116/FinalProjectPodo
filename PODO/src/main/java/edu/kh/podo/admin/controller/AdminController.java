@@ -47,15 +47,22 @@ public class AdminController {
 		}
 		
 		model.addAttribute("map",map);
+		
 		if(boardCode ==3) {
 			
 			return "admin/controlInquiry";
 		}else if(boardCode ==4) {
 			
 			return "admin/controlItem";
-		}else {
+		}else if(boardCode ==5){
 			
 			return "admin/controlMember";
+		}else if(boardCode==6) {
+		
+			return "admin/controlReport";
+		}else{
+		
+			return "admin/controlFAQ";
 		}
 	}
 	
@@ -71,6 +78,8 @@ public class AdminController {
 		
 		return "admin/controlMember";
 	}
+	
+
 	
 	
 	

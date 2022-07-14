@@ -193,7 +193,10 @@ th:nth-child(6){width:15%;}
     justify-content: center;
     
 }
-.pagination>a{
+.pagination>li{
+    list-style: none;
+}
+.pagination>li>a{
     color: black;
     float: left;
     padding: 8px 16px;
