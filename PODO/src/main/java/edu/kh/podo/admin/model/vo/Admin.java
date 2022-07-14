@@ -20,5 +20,6 @@ public class Admin {
 	private int boardCode;
 	private int memberNo;
 	private String memberNick;
+	private String classification;
 	
 }
