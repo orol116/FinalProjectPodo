@@ -32,7 +32,14 @@ public class ItemBoardDAO {
 	 
 
 	public int insertBoard(ItemBoard item) {
-		return sqlSession.insert("itemBoardMapper.insertBoard", item);
+		int result = sqlSession.insert("itemBoardMapper.insertBoard", item);
+		
+		if(result>0) {
+			
+			result = item.getBoardNo();
+		}
+		
+		return result;
 
 	}
 

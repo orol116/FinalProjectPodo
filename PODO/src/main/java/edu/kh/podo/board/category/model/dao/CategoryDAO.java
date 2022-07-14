@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.board.category.model.vo.LargeCategory;
 import edu.kh.podo.board.category.model.vo.MiddleCategory;
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 @Repository
 public class CategoryDAO {
@@ -27,6 +28,14 @@ public class CategoryDAO {
 	 */
 	public List<MiddleCategory> selectMCategory() {
 		return sqlSession.selectList("categoryMapper.selectMCategory");
+	}
+
+	/** 카테고리 내 조회 결과 DAO
+	 * @param mCategoryNo
+	 * @return categoryResult
+	 */
+	public List<ItemBoard> categoryResultList(int mCategoryNo) {
+		return sqlSession.selectList("categoryMapper.categoryResultList", mCategoryNo);
 	}
 	
 	
