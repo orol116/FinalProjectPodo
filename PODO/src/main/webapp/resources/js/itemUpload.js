@@ -11,7 +11,6 @@ const deleteList = document.getElementById("deleteList");
 const deleteSet = new Set(); // 순서 X, 중복 허용 X (여러번 클릭 시 중복 값 저장 방지)
 
 
-
 for(let i=0 ; i<inputImage.length ; i++){
 
     // 파일이 선택 되었을 때의 동작
@@ -59,6 +58,40 @@ for(let i=0 ; i<inputImage.length ; i++){
     });
 
 }
+
+
+
+
+
+// 컨트롤러에서 데이터 받기
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -213,12 +213,12 @@ public class MemberController {
 		return "redirect:" + path;
 	}
 
-	// 판매관리 페이지
-	@GetMapping("/itemUpload")
-	public String upload() {
-	
-		return "member/itemUpload";
-	}
+//	// 판매관리 페이지
+//	@GetMapping("/itemUpload")
+//	public String upload() {
+//	
+//		return "member/itemUpload";
+//	}
 
 	// 상품관리 페이지
 	@GetMapping("/itemManage")

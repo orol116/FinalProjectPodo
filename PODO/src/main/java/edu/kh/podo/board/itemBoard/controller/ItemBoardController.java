@@ -30,24 +30,23 @@ public class ItemBoardController {
 	@Autowired
 	private ItemBoardService service;
 	
-	@GetMapping("/board/write/{boardCode}")
-	public String boardWriteForm(@PathVariable("boardCode") int boardCode) {
+	@GetMapping("/member/itemUpload")
+	public String boardWriteForm() {
 		
 		return "member/itemUpload";
 	}
 		
 
 	// 게시글 작성
-	@PostMapping("/board/write/{boardCode}")
+	@PostMapping("/board/itemUpload")
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
 							ItemBoard item,
 							HttpServletRequest req
 							,RedirectAttributes ra
-							,@PathVariable("boardCode") int boardCode) {
+							) {
 
 		item.setMemberNo(loginMember.getMemberNo());
-		item.setBoardCode(boardCode);
 		
 		String webPath = "/resources/images/item";
 
@@ -59,7 +58,7 @@ public class ItemBoardController {
 		String message = null;
 		
 		if(boardNo>0) { // 게시글 등록 성공
-			path="../detail/"+boardCode+"/"+boardNo;
+			path="../board/detail/"+boardNo;
 			message = "게시글이 등록되었습니다.";
 		}else {
 			path = req.getHeader("referer");
