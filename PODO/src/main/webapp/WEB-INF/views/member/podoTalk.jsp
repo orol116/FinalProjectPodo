@@ -22,7 +22,7 @@
     
     
     <!-- 채팅 -->
-    <section class="content">
+    <%-- <section class="content">
 
         <div class="main_area">
             <!-- 좌측 -->
@@ -130,7 +130,13 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --%>
+
+
+    <!-- 채팅 아이콘 -->
+    <div class="chatIcon font_jua">
+        <img src="resources/img/chat-icon.png" class="iconImg">
+    </div>
 
 
     <!-- footer include -->

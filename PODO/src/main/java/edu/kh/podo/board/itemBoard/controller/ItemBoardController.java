@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.net.http.HttpRequest;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -72,15 +74,36 @@ public class ItemBoardController {
 		
 	// 상품 상세
 	@GetMapping("/board/detail/{boardNo}")
-	public String itemDetail(/*@ModelAttribute("loginMember") Member loginMember*/
-						     @PathVariable("boardNo") int boardNo
+	public String itemDetail(/* HttpSession session
+						   , */@PathVariable("boardNo") int boardNo
 						   , Model model) {
+		
+		// int memberNo = session.getAttribute("loginMember") != null ? ((Member)session.getAttribute("loginMember")).getMemberNo() : 0; 
 			
 		Map<String, Object> map = service.itemDetail(boardNo);
-		
+		map.put("boardNo", boardNo);
 		model.addAttribute("map", map);
 
 		return "/item/item-detail";
+	}
+	
+	// 찜하기 버튼 ajax
+	@PostMapping("/board/addFav")
+	public int addFav(int loginMemberNo
+					, @PathVariable("boardNo") int boardNo) {
+		
+		Map<String, Object> map = null;
+		map.put("loginMemberNo", loginMemberNo);
+		map.put("boardNo", boardNo);
+		
+		int result = service.addFav(map);
+		
+		if (result > 0) {
+			result = service.addCountAdd(map);
+			return result;
+		} else {
+			return result;
+		}
 	}
 
 	@GetMapping("")
