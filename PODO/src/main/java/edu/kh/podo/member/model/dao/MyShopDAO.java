@@ -2,11 +2,13 @@ package edu.kh.podo.member.model.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.Review;
 
@@ -46,6 +48,17 @@ public class MyShopDAO {
 	 */
 	public int selectBoardCount(int memberNo) {
 		return sqlSession.selectOne("myShopMapper.selectBoardCount", memberNo);
+	}
+
+	/** 내 판매목록 조회 DAO
+	 * @param pagination
+	 * @param memberNo
+	 * @return boardLIst
+	 */
+	public List<ItemBoard> selectManageItem(Pagination pagination, int memberNo) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		return sqlSession.selectList("myShopMapper.selectManageItem", memberNo, rowBounds);
 	}
 
 }
