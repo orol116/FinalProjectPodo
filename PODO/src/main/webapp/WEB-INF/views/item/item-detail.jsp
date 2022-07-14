@@ -69,8 +69,15 @@
                             <span id="sell-area-detail">${itemList[0].sellArea}</span>
                         </div>
 
+                        
+   
+
                         <div id="info-button-area">
-                            <button id="do-bookmark">찜하기</button>
+                            <%-- <button id="do-bookmark">찜하기</button> --%>
+                            <p class="add-fav">
+                                <button type="button" class="add-fav-btn">찜하기</button>
+                            </p>
+
                             <button id="do-chat">1:1 채팅하기</button>
                         </div>
                     </div>
@@ -244,6 +251,13 @@
 
     </main>
 
-    
+
+
+    <%-- 찜 버튼 JS --%>
+    <script>
+        const contextPath = "${contextPath}";
+    </script>
+    <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
+    <script src="${contextPath}/resources/js/fav/favorites.js"></script>
 </body>
 </html>
