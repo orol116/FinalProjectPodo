@@ -42,7 +42,7 @@
 	</select>
 	
 	<update id="secession">
-		UPDATE MEMBER_S SET
+		UPDATE MEMBER SET
 		SECESSION_FL = 'Y'
 		WHERE MEMBER_NO = ${memberNo}
 	</update>

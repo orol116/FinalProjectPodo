@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>   
 
+<c:set var="LCategory" value="${LCategoryList}" />
+<c:set var="MCategory" value="${MCategoryList}" />
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> 
+
 <header>
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+
+
     
     <div id="top">
     <c:choose>
@@ -24,23 +29,75 @@
 
     <div id="header">
         <section id="menu"> 
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars" id="fa-bars"></i>
             <a href="${contextPath}" >
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
         </section>
         
         <section class="mid-header">
-            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+            <!-- <form action="$[contextPath}" method="get" id="boardSerch" onclick="return searchValidate()"> -->
+                <input id="search2" type="text" name="searchBar" placeholder="상품명을 입력해주세요.">
+                <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <!-- </form> -->
+
         </section>
         <section class="right-header">
             <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
 
             <button class="button" onclick = "location.href = '${contextPath}/shop/myShop'"><i class="fa-solid fa-house-user"></i>내 상점</button>
 
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
+            <button class="button" onclick = "location.href = '${contextPath}/member/podoTalk'"><i class="fa-solid fa-message"></i>포도톡</button>
         </section>
+        <div id="category-area">
+        <ul id="item-category">
+            <li class="category-name" href="#" id="zzzz">
+                전체 카테고리
+            </li>
+
+            <c:forEach var="LCategory" items="${LCategory}">
+
+                <li class="category-name" href="#">
+                    ${LCategory.LCategoryName}
+                </li>
+            </c:forEach>
+
+           
+        </ul>
+
+
+        <ul id="div-category">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+
+        </ul>
+    </div>
+    
+    <script>
+    const category = document.getElementById("fa-bars");
+
+    area = document.getElementById("category-area");
+
+    category.addEventListener("mouseenter", function(){
+
+        area.style.display = "flex";
+
+    });
+
+    area.addEventListener("mouseleave", function(){
+
+        area.style.display = "none";
+
+    });
+
+    </script>
+
+    <!-- ------------------------------------------------------- -->
+
     </div>
 </header>
    

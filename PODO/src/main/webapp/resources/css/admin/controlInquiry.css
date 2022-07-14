@@ -21,8 +21,7 @@ body{
 }
 
 #header{
-    position: fixed;
-    top: 0 ;
+
     width: 1400px;
     height:  180px;
     background-color: white;
@@ -148,6 +147,10 @@ th{
     border-bottom: 1px solid lightgray;
     /* padding-bottom: 5px; */
 }
+th>a{
+    text-decoration: none;
+    color : black;
+}
 
 tbody>tr{
     border-bottom: 1px solid lightgray;
@@ -173,8 +176,8 @@ th:nth-child(6){width:25%;}
     /* margin-right: 3px; */
 }
 #delete{
-    width: 50px;
-    height: 35px;
+    width: 70px;
+    height: 40px;
     font-size: 18px;
     background-color: rgb(95, 0, 129);
     color: white;
@@ -182,9 +185,16 @@ th:nth-child(6){width:25%;}
     border-radius: 3px;
     border: 0;
 }
+
 #delete:hover{
     cursor: pointer;
+    color: rgb(95, 0, 129);
+    background-color: white;
+    border: 1px solid gray;
+    font-weight: bold;
+
 }
+
 
 /* 페이지네이션 */
 .pagination{
@@ -193,13 +203,17 @@ th:nth-child(6){width:25%;}
     justify-content: center;
     
 }
-.pagination>a{
+.pagination>li{
+    list-style: none;
+}
+.pagination>li>a{
+
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
     
-  }
+}
   
   .pagination a.active {
 

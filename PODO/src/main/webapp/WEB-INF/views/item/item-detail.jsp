@@ -1,6 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="itemList" value="${map.itemList}" />
+<c:set var="memberNo" value="${map.memberNo}" />
+<c:set var="sellList" value="${map.sellList}" />
+<c:set var="sellMember" value="${map.sellMember}" />
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,29 +44,29 @@
                 <section id="item-detail-head">
                     <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
                     <div id="item-info">
-                        <div id="item-title">상품 제목</div>
-                        <div id="item-price">20000원</div>
+                        <div id="item-title">${itemList[0].boardTitle}</div>
+                        <div id="item-price">${itemList[0].price}원</div>
                         <div id="item-layer">
-                            <div id="bookmark"> 찜 : 2 </div>
-                            <div id="read-count"> 조회수 : 4 </div>
-                            <div id="create-DT">  5분전 </div>
+                            <div id="bookmark"> 찜 : ${itemList[0].bookmarkCount} </div>
+                            <div id="read-count"> 조회수 : ${itemList[0].readCount} </div>
+                            <div id="create-DT">  ${itemList[0].updateDate} </div>
                             <a href="#" id="item-report">신고하기</a>
                         </div>
 
                         
                         <div id="item-condition">
                             
-                            <span id="condition-detail">미개봉</span>
+                            <span id="condition-detail">${itemList[0].itemCondition}</span>
                         </div>
 
                         <div id="item-delivery">
                             
-                            <span id="delivery-detail">배송비 별도</span>
+                            <span id="delivery-detail">${itemList[0].tradeCondition}</span>
                         </div>
 
                         <div id="item-sell-area">
                             
-                            <span id="sell-area-detail">서울시 중구</span>
+                            <span id="sell-area-detail">${itemList[0].sellArea}</span>
                         </div>
 
                         <div id="info-button-area">
@@ -71,6 +77,9 @@
                     
                 </section>
 
+
+                <c:if test="${!empty sellList}">
+
                 <div id="under-head">
                     <h3>판매자 다른 상품 보기</h3>
                     <a href="#"> - 전체보기</a>
@@ -78,82 +87,26 @@
 
                 <section id="seller-items">
 
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
+                    <c:forEach var="sellList" items="${sellList}">
+                        <div class="box">
+                            <a href="#" class="title">
+                                <div class="image">
+                                    <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
+                                </div>   
+                                <div class="title1">
+                                    <div class="title2">${sellList.boardTitle}</div>
+                                    <div class="name2">
+                                        <div class="price">${sellList.price}</div>
+                                        <div class="time">${sellList.updateDate}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    </c:forEach>
 
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                </c:if>
 
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image ">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
+                 
 
                 </section>
 
@@ -162,9 +115,7 @@
                     <div id="body-info">
                         
                         <div id="body-info-text">
-                            상세 상세 상세 상세 상세
-                           
-
+                            ${itemList[0].boardContent}
                         </div>
 
 
@@ -174,10 +125,10 @@
                         <div id="profile-box">
                             <div id="profile-detail">
                                 <div id="profile-name">
-                                    이원석
+                                    ${sellMember[0].memberNickname}
                                 </div>
                                 <div id="profile-podo">
-                                    100개
+                                    포도알 : ${sellMember[0].memberGrape}
                                 </div>
                      
 

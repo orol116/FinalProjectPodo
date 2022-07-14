@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/member-profile.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/member-profile.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>find-ID</title>
@@ -30,12 +30,12 @@
                 <section id="profile-head">
                     <div id="user-profile-left">
                         <div id="user-image-area">
-                            <image class="profile-image" src="${contextPath}/images/logo.png" ></image>
+                            <image class="profile-image" src="${contextPath}/resources/images/logo.png" ></image>
                         </div>
-                        <div id="user-name-left">유저 이름</div>
+                        <div id="user-name-left">${member[0].memberNickname}</div>
                         <div id="user-info">
-                            <div id="user-podo">포도 : 100개</div>
-                            <div id="user-items-count">상품 : 20개</div>
+                            <div id="user-podo">포도 : ${member[0].memberGrape}개</div>
+                            <div id="user-items-count">상품 : ${boardCount}개</div>
                             
                         </div>
                         <div>
@@ -44,16 +44,20 @@
                     </div>
 
                     <div id="user-profile-right">
-                        <div id="user-name-right">유저 이름이름이름</div>
-                        <div id="user-town">서울시 중구</div>
-                        <div id="user-intro">상세 페이지를 적는 곳입니다.</div>
+                        <div id="user-name-right">${member[0].memberNickname}</div>
+                        <div id="user-town">${member[0].memberAddress}</div>
+
+                        <c:if test="${member[0].shopInfo != null}">
+                            <div id="user-intro">${member[0].shopInfo}</div>
+                        </c:if>
+
+                        <c:if test="${member[0].shopInfo == null}">
+                            <div id="user-intro">상점 소개가 없습니다.</div>
+                        </c:if>
+
                         <div id="user-cutoff"><a href="#">신고/차단하기</a></div>
                         
-                        <div id="user-detail">
-                            <div id="user-subscript">상점 개시일 : 10일 전 </div>
-                            <div id="user-views">조회수 : 10회</div>
-                            <div id="sell-count">판매 이력 : 12회</div>
-                        </div>
+                        
                         
                     </div>
 
@@ -62,131 +66,22 @@
                 </section>
 
                 <div id="user-category">
-                    <div id="item-category">상품 20개</div>
-                    <div id="review-category">후기 5개</div>
+                    <button id="item-list" type="button">상품 20개</button>
+                    <button id="review-category" type="button">후기 5개</button>
                 </div>
 
                 <section id="seller-items">
-
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image ">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="box">
-                        <a href="../images/logo.png" class="title">
-                            <div class="image">
-                                <img src="#"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
+               
                 </section>
+                
 
 
-                <section id="user-reviews">
-                    <div id="reviews-top">
-                        <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
-                        <div id="reviews-user-nick">유저 닉네임</div>
-                        <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
-                        
-                    </div>
-                    <div id="reviews-shorts"> 아쉬워요.</div>
-                    <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
-                    <div id="reviews-footer">
-                        <div id="reviews-user-item">구매상품 | 소니 a6000</div>
-                        <div id="hideBtn-area">
-                            <button id="hideBtn">후기 숨기기</button>
-                        </div>
-                        
 
-                    </div>
+                <section id="reviews-area">
 
-                </section>
+                </section> 
 
-                <section id="user-reviews">
-                    <div id="reviews-top">
-                        <image id="reviews-image" src="${contextPath}/images/logo.png"  alt="유저 이름"></image>
-                        <div id="reviews-user-nick">유저 닉네임</div>
-                        <div id="create-date-area"><div id="reviews-create-date">7일 전</div></div>
-                        
-                    </div>
-                    <div id="reviews-shorts"> 아쉬워요.</div>
-                    <div id="reviews-user-text">친절하시고 배송도 빨랐고, 물건 상태도 너무 좋아요 감사합니다!</div>
-                    <div id="reviews-footer">
-                        <div id="reviews-user-item">구매상품 | 소니 a6000</div>
-                        <div id="hideBtn-area">
-                            <button id="hideBtn">후기 숨기기</button>
-                        </div>
-                        
-
-                    </div>
-
-                </section>
+                      
 
             </div>
 
@@ -194,8 +89,15 @@
 
         <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+
     </main>
 
+        <script>
+            const memberNo = ${loginMember.memberNo}
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="${contextPath}/resources/js/member/profile.js"></script>
     
 </body>
 </html>

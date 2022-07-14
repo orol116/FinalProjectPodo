@@ -32,40 +32,40 @@ public class MyPageController {
 	private MyPageService service;
 	
 	// 회원 정보 수정
-	@GetMapping("/info")
+	@GetMapping("/profileUpdate")
 	public String updateInfo(@ModelAttribute("loginMember") Member loginMember
 						   , @RequestParam Map<String, Object> paramMap
 						   , String[] updateAddress
 						   , RedirectAttributes ra) {
 		
-		String memberAddress = String.join(",,", updateAddress);
+//		String memberAddress = String.join(",,", updateAddress);
+//		
+//		if (memberAddress.equals(",,,,")) memberAddress = null;
+//		
+//		paramMap.put("memberNo", loginMember.getMemberNo());
+//		paramMap.put("memberAddress", memberAddress);
+//		
+//		int result = service.updateInfo(paramMap);
+//		
+//		String message = null;
+//		
+//		if (result > 0) {
+//			message = "회원 정보가 수정되었습니다.";
+//			
+//			loginMember.setMemberNickname((String)paramMap.get("updateNickname"));
+//			loginMember.setMemberTel((String)paramMap.get("updateNickname"));
+//			loginMember.setMemberAddress((String)paramMap.get("updateNickname"));
+//		} else {
+//			message = "회원 정보 수정에 실패하였습니다.";
+//		}
+//		ra.addFlashAttribute("message", message);
 		
-		if (memberAddress.equals(",,,,")) memberAddress = null;
-		
-		paramMap.put("memberNo", loginMember.getMemberNo());
-		paramMap.put("memberAddress", memberAddress);
-		
-		int result = service.updateInfo(paramMap);
-		
-		String message = null;
-		
-		if (result > 0) {
-			message = "회원 정보가 수정되었습니다.";
-			
-			loginMember.setMemberNickname((String)paramMap.get("updateNickname"));
-			loginMember.setMemberTel((String)paramMap.get("updateNickname"));
-			loginMember.setMemberAddress((String)paramMap.get("updateNickname"));
-		} else {
-			message = "회원 정보 수정에 실패하였습니다.";
-		}
-		ra.addFlashAttribute("message", message);
-		
-		return "member/myPage-profileUpdate";
+		return "member/myPage/myPage-profileUpdate";
 	}
 	
 	// 비밀번호 변경
 	@GetMapping("/changePw")
-	public String change() {
+	public String changePw() {
 		return "member/myPage/myPage-changePw";
 	}
 	
@@ -134,15 +134,7 @@ public class MyPageController {
 		
 		model.addAttribute("favorBoard", favorBoard);
 		
-		return "member/myPage-favorites";
-	}
-	
-	// 회원 프로필 이미지 조회
-	@GetMapping("/changeImage")
-	public String changeImage() {
-		
-		
-		return "member/myPage-profileImage";
+		return "member/myPage/myPage-favorites";
 	}
 
 }

@@ -244,7 +244,6 @@
 
         <div class="submit">
             <button class="submit2" type="submit">등록하기</button>
-
         </div>
 
       </form>

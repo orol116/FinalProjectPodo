@@ -156,10 +156,10 @@ tbody>tr{
 /* table th size */
 th:nth-child(1){width:5%;}
 th:nth-child(2){width:7%;}
-th:nth-child(3){width:15%;}
-th:nth-child(4){width:53%;}
-th:nth-child(5){width:15%;}
-th:nth-child(6){width:25%;}
+th:nth-child(3){width:20%;}
+th:nth-child(4){width:45%;}
+th:nth-child(5){width:8%;}
+th:nth-child(6){width:15%;}
 
 
 /* 전체선택 */

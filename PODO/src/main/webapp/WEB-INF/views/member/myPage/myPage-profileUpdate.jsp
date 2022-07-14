@@ -12,8 +12,8 @@
     <title>회원 이미지 변경</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/sideMenu.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/myPage-profileUpdate-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
 </head>
 <body>
     <main>
@@ -37,12 +37,12 @@
 
             <div class="profile-image-area">
 
-                <c:if test="${empty loginMember.profileImage}">
+                <c:if test="${empty loginMember.memberProfile}">
                     <img src="${contextPath}/resources/images/user.png" id="profile-image">
                 </c:if>
 
-                <c:if test="${!empty loginMember.profileImage}">
-                    <img src="${contextPath}${loginMember.profileImage}" id="profile-image">
+                <c:if test="${!empty loginMember.memberProfile}">
+                    <img src="${contextPath}${loginMember.memberProfile}" id="profile-image">
                 </c:if>
 
                 <!-- 프로필 이미지 삭제 버튼 -->
@@ -53,31 +53,51 @@
 
             <div class="profile-btn-area">
                 <label for="input-image">이미지 선택</label>
-                <input type="file" name="profileImage" id="input-image" accept="image/*">
+                <input type="file" name="memberProfile" id="input-image" accept="image/*">
                 <!-- accept="image/*" : 이미지 파일 확장자만 선택 허용 -->
                 <!-- accept="video/*" : 동영상 파일 확장자만 선택 허용 -->
                 <!-- accept=".pdf" : pdf파일만 선택 허용 -->
-
-                <button type="submit">변경하기</button>
             </div>
 
             
                 
                 <div class="myPage-row">
                     <label>닉네임</label>
-                    <input type="text" name="memberNickname" class="input_box" placeholder="2글자 이상 8글자 이내로 작성" maxlength="8">
+                    <input type="text" name="memberNickname" class="input_box" placeholder="2글자 이상 8글자 이내" maxlength="8">
                 </div>
     
-                <div class="myPage-row">
-                    <label>주소</label>
-                    <input type="text" name="memberAddress" class="input_box" maxlength="30">
-                </div>
+                
             </form>
 
+            <div class="myPage-row">
+                <label>닉네임</label>
+                <span>${loginMember.memberNickname}</span>
+            </div>
+
+            <div class="myPage-row info-title">
+                <label>주소</label>
+                <span>${loginMember.memberAddress}</span>
+            </div>
+
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
+
+                <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
+            </div>
+
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+            </div>
+            
+            <div class="myPage-row info-address">
+                <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
+            </div>
 
             <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
             <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
             <input type="hidden" name="delete" id="delete" value="0">
+
+            <button>변경하기</button>
 
     </section>
     
@@ -92,6 +112,13 @@
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <%-- 다음 주소 API --%>
+    <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:11;-webkit-overflow-scrolling:touch;">
+        <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+    </div>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
     <!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>

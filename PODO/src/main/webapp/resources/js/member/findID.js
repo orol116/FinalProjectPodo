@@ -20,10 +20,10 @@ document.getElementById("submitBtn").addEventListener("click", function(){
 
     //전화번호가 입력되지 않은 경우 false
     if(inputTel.value.trim().length == 0){
-        alert("비밀번호를 입력해주세요.");
+        alert("전화번호를 입력해주세요.");
         inputTel.value = "";
         inputTel.focus();
-        result = 1;
+        result = 0;
         return false; 
         
     }
@@ -31,7 +31,7 @@ document.getElementById("submitBtn").addEventListener("click", function(){
     const submitBtn = document.getElementById("submitBtn");
     const CerArea = document.getElementById("Cer-area");
     
-    if(result = 1){
+    if(result != 0){
     
         submitBtn.addEventListener("click",function(){
     
@@ -49,6 +49,5 @@ document.getElementById("submitBtn").addEventListener("click", function(){
 
 });
 
- 
 
 

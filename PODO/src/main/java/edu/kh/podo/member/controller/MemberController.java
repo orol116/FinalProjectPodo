@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -110,7 +111,12 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 
 			resp.addCookie(cookie);
-			path = "redirect:/";
+			if(loginMember.getAdmin()=='Y') {
+				
+				path="redirect:/admin/controlInquiry";
+			}else {
+				path = "redirect:/";
+			}
 
 		} else {
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
@@ -220,10 +226,10 @@ public class MemberController {
 		return "/member/member-find-ID";
 	}
 
+
 	// 비밀번호 찾기 페이지 전환
 	@GetMapping("/findPw")
 	public String findPw() {
 		return "/member/member-find-PW";
 	}
-
 }

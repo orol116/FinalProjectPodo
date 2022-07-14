@@ -9,9 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>판매상품관리 페이지</title>
 
-    <link rel="stylesheet" href="resources/css/main-style.css">
-    <link rel="stylesheet" href="resources/css/member/myPage-myProduct.css">
-    <link rel="stylesheet" href="resources/css/member/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-myProduct.css">
     
 
 </head>

@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.google.gson.Gson;
 
+import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.service.MyShopService;
 import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.Review;
@@ -28,6 +30,12 @@ public class MyShopController {
 	
 	@Autowired
 	private MyShopService service;
+	
+	@Autowired
+	private ItemBoardService itemService;
+	
+	@Autowired
+	private MemberService memberService;
 
 	// 판매자 판매상품 조회
 	@GetMapping("/main")
@@ -40,20 +48,46 @@ public class MyShopController {
 		List<ItemBoard> memberSellList = service.selectMemberShop(itemBoard.getMemberNo());
 		model.addAttribute("memberSellList", memberSellList);
 		
-		return "member/itemManage";
+		return "item/itemManage";
 	}
 	
-	// 판매자 후기 조회
-	@ResponseBody
-	@GetMapping("/memberReview")
-	public String memberReview(int memberNo) {
-		List<Review> reviewList = service.selectMemberReview(memberNo);
-		return new Gson().toJson(reviewList);
-	}
+//	// 판매자 후기 조회
+//	@ResponseBody
+//	@GetMapping("/memberReview")
+//	public String memberReview(int memberNo) {
+//		List<Review> reviewList = service.selectMemberReview(memberNo);
+//		return new Gson().toJson(reviewList);
+//	}
 	
 	// 내 상점 조회
 	@GetMapping("/myShop")
-	public String myShop() {
+	public String myShop(@ModelAttribute("loginMember") Member loginMember
+					   , Model model) {
+		
+		List<Member> member = service.selectMemberInfo(loginMember.getMemberNo());
+		model.addAttribute("member", member);
+		
+		int boardCount = service.selectBoardCount(loginMember.getMemberNo());
+		model.addAttribute("boardCount", boardCount);
+		
 		return "member/profile";
+	}
+	
+	// 내 상점 물건 조회 ajax
+	@ResponseBody
+	@GetMapping("selectItemsList")
+	public String selectItemsList(int memberNo) {
+		
+		List<ItemBoard> memberItemList =  service.selectMemberShop(memberNo);
+
+		return new Gson().toJson(memberItemList);
+	}
+	
+	// 내 상점 후기 조회 ajax
+	@ResponseBody
+	@GetMapping("/selectReviewsList")
+	public String memberReview(int memberNo) {
+		List<Review> reviewList = service.selectMemberReview(memberNo);
+		return new Gson().toJson(reviewList);
 	}
 }
