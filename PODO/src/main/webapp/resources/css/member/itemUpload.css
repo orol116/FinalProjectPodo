@@ -146,14 +146,18 @@ img {
 }
 
 /* 카테고리 */
+form>ul:nth-child(4){
+    height: 60px;
+}
+
 #category{
-    width: 250px;
-    height: 200px;
+    width: 160px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: left;
     overflow-x: hidden;
-    border: 1px solid rgba(195, 194, 204, 0.781);
+    /* border: 1px solid rgba(195, 194, 204, 0.781); */
 }
 .select{
     width: 250px;
@@ -177,8 +181,11 @@ img {
 }
 
 .category1-1{
+    width: 150px;
+    height: 30px;
     padding: 0 !important;
     margin-left: 5px;
+    font-size: 15px;
 }
 #category3{
     padding: 10px;
