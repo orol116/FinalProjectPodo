@@ -66,7 +66,7 @@
                 </section>
 
                 <div id="user-category">
-                    <button id="item-list" type="button">상품 20개</button>
+                    <button id="item-list" type="button">상품 ${boardCount}개</button>
                     <button id="review-category" type="button">후기 5개</button>
                 </div>
 
