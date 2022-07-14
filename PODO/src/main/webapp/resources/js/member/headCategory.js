@@ -24,12 +24,18 @@ $(".category-name").on("mouseenter", function(){
 
 var subCategoryName = document.querySelectorAll(".sub-category-name");
 
-(function(){
-    location.href = contextPath;
-    subCategoryName.forEach((target) => target.addEventListener("click", categoryFunction));
-})();
+
+    /* location.href = contextPath; */
+    subCategoryName.forEach((target) => target.addEventListener("click",goBackFunction ,categoryFunction));
+
 
 /* const names = categoryName.target.getAttribute('id'); */
+/* function goBackFunction(){
+    href
+
+};
+ */
+
 
 function categoryFunction(){    
 

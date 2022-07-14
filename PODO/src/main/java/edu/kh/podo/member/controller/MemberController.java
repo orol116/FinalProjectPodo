@@ -26,7 +26,7 @@ import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
 @RequestMapping("/member")
-@SessionAttributes({"loginMember"})
+@SessionAttributes({ "loginMember" })
 @Controller
 public class MemberController {
 
@@ -76,7 +76,7 @@ public class MemberController {
 			path = "redirect:/";
 
 		} else {
-			path = "redirect:/member/naverSingUp?email="+email;
+			path = "redirect:/member/naverSingUp?email=" + email;
 		}
 
 		return path;
@@ -111,10 +111,10 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 
 			resp.addCookie(cookie);
-			if(loginMember.getAdmin()=='Y') {
-				
-				path="redirect:/admin/3";
-			}else {
+			if (loginMember.getAdmin() == 'Y') {
+
+				path = "redirect:/admin/3";
+			} else {
 				path = "redirect:/";
 			}
 
@@ -160,13 +160,13 @@ public class MemberController {
 	@PostMapping("/signUp")
 	public String SignUp(Member inputMember, String memberAddress[], RedirectAttributes ra) {
 
-		inputMember.setMemberAddress( String.join(",,", memberAddress));
-		
-		if(inputMember.getMemberAddress().equals(",,,,")) {
-			
+		inputMember.setMemberAddress(String.join(",,", memberAddress));
+
+		if (inputMember.getMemberAddress().equals(",,,,")) {
+
 			inputMember.setMemberAddress(null);
 		}
-		
+
 		int result = service.signUp(inputMember);
 
 		String path = null;
@@ -185,15 +185,14 @@ public class MemberController {
 
 		return "redirect:" + path;
 	}
-	
+
 	// 네이버 회원가입
 	@GetMapping("/naverSingUp")
-	public String naverSignUp(@RequestParam("email") String email
-							   , RedirectAttributes ra) {
+	public String naverSignUp(@RequestParam("email") String email, RedirectAttributes ra) {
 		Member inputMember = new Member();
-		
+
 		inputMember.setMemberId(email);
-		
+
 		int result = service.naverSignUp(inputMember);
 
 		String path = null;
@@ -232,24 +231,23 @@ public class MemberController {
 	public String fingId() {
 		return "/member/member-find-ID";
 	}
-	
+
 	// 핸드폰 본인인증(아이디 찾기)
 	@GetMapping("/phoneCheck")
 	@ResponseBody
-	public String sendSMS(@RequestParam("phone") String memberTel) { 
-		int randomNumber = (int)((Math.random()* (9999 - 1000 + 1)) + 1000);
+	public String sendSMS(@RequestParam("phone") String memberTel) {
+		int randomNumber = (int) ((Math.random() * (9999 - 1000 + 1)) + 1000);
 
-		service.certifiedPhoneNumber(memberTel,randomNumber);
-		
+		service.certifiedPhoneNumber(memberTel, randomNumber);
+
 		return Integer.toString(randomNumber);
 	}
 
-	// 아이디 찾기 
+	// 아이디 찾기
 	@PostMapping("/findId")
 	public String findId(Member inputMember, RedirectAttributes ra) {
 		return "redirect:/";
 	}
-	
 
 	// 비밀번호 찾기 페이지 전환
 	@GetMapping("/findPw")
