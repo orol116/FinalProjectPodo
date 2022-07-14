@@ -5,6 +5,9 @@
 <c:set var="MCategory" value="${MCategoryList}" />
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
+<script>
+    const contextPath = "${contextPath}";
+</script>
 <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> 
 
 <header>
@@ -79,23 +82,24 @@
         </ul>
     </div>
     
-    <%-- <script>
-        // 검색창 유효성 검사
-        function searchValidate(){
+	 <script>
+       // 검색창 유효성 검사
+       function searchValidate(){
 
-        const query = document.getElementById("search2");
+       const query = document.getElementById("search2");
 
-        if(query.value.trim().length == 0){ // 미작성
-            query.value = ""; // 빈칸
-            query.focus();
+       if(query.value.trim().length == 0){ // 미작성
+           query.value = ""; // 빈칸
+           query.focus();
 
-            return false;
-        }
+           return false;
+       }
 
-        return true;
-        }
 
-    </script> --%>
+       return true;
+       }
+
+    </script> 
 
     </div>
 </header>

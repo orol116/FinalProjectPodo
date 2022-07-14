@@ -25,12 +25,11 @@ public class MainController {
 	@RequestMapping("/main")
 	public String mainForward(String query, RedirectAttributes ra, Model model) {
 		
-		
 		if(query == null) {
 			
 			List<ItemBoard> itemList = service.selectItemList();
 			model.addAttribute("itemList", itemList);
-		}else {
+		} else {
 			
 			List<ItemBoard> searchList = service.searchBoard(query);
 			model.addAttribute("searchList", searchList);
