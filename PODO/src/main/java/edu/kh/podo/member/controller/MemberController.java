@@ -113,7 +113,7 @@ public class MemberController {
 			resp.addCookie(cookie);
 			if(loginMember.getAdmin()=='Y') {
 				
-				path="redirect:/admin/controlInquiry";
+				path="redirect:/admin/3";
 			}else {
 				path = "redirect:/";
 			}
@@ -224,6 +224,16 @@ public class MemberController {
 	@GetMapping("/findId")
 	public String fingId() {
 		return "/member/member-find-ID";
+	}
+	
+	@GetMapping("/phoneCheck")
+	@ResponseBody
+	public String sendSMS(@RequestParam("phone") String memberTel) { 
+		int randomNumber = (int)((Math.random()* (9999 - 1000 + 1)) + 1000);
+
+		service.certifiedPhoneNumber(memberTel,randomNumber);
+		
+		return Integer.toString(randomNumber);
 	}
 
 

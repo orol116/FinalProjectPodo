@@ -19,7 +19,6 @@
 
     <main>
 
-    <form action="${contextPath}/board/write/1" enctype="multipart/form-data" method="POST" name="itemUpload" id="itemUpload">
         <div class="top-menu">
             <nav id="mainMenu">
                 <a href="${contextPath}/member/itemUpload">상품등록</a>
@@ -36,19 +35,58 @@
             </section>
         </div>   
 
+    <form action="${contextPath}/board/write/1" enctype="multipart/form-data" method="POST" class="itemUpload" onsubmit="return writeValidate()">
+   
         <ul class="basic2">
             <li class="frist">
                 <div class="title">
                     상품이미지
                     <span>*</span>
-                    <small>(0/5)</small>
+                    
                 </div>
                 <ul class="second">
-                <li style="display: flex;">
-                    <input type="file" class="real-upload" accept="image/*" name="images" required multiple>
-                    <div class="upload"><img src="${contextPath}/resources/images/image.png"></div>
-                    <ul class="image-preview"></ul>
-                </li>  
+                    <div class="img-box">
+                        <div class="boardImg">
+                            <label for="img1">
+                                <img class="preview" src="#">
+                            </label>
+                            <input type="file" class="inputImage" id="img1" name="images" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+                        <div class="boardImg">
+                            <label for="img2">
+                                <img class="preview" src="#">
+                            </label>
+                            <input type="file" class="inputImage" id="img2" name="images" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+        
+                        <div class="boardImg">
+                            <label for="img3">
+                                <img class="preview" src="#">
+                            </label>
+                            <input type="file" class="inputImage" id="img3" name="images" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+                        
+                        <div class="boardImg">
+                            <label for="img4">
+                                <img class="preview" src="#">
+                            </label>
+                            <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+                        <div class="boardImg">
+                            <label for="img5">
+                                <img class="preview" src="#">
+                            </label>
+                            <input type="file" class="inputImage" id="img5" name="images" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+                   
+                    </div>
+
+
                 <div id="ex">
                     <br>* 상품이미지는 600x600에 최적화 되어있습니다.
                     <br>- 이미지는 상품 등록 시 정사각형으로 잘려서 등록됩니다. 
@@ -69,6 +107,9 @@
                     </div>
                 </li>
                 <ul class="second">
+
+
+
                     <li>
                         <section class="search1">                        
                         <input id="search2" type="text" placeholder="상품명 입력" name="boardTitle">  
@@ -245,6 +286,17 @@
         <div class="submit">
             <button class="submit2" type="submit">등록하기</button>
         </div>
+
+
+       <!-- 수정0> 상세조회 -> 목록으로 or 삭제 -->
+            
+            <!-- 존재하던 이미지가 제거되었음을 기록하여 전달하는 input -->
+            <!-- value에 제거된 이미지의 레벨을 기록 (X버튼 클릭 시)-->
+            <!-- DELETE FROM BOARD_IMG 
+                 WHERE BOARD_NO = 1000 
+                 AND IMG_LEVEL IN (0,3,1,2) -->
+
+        <input type="hidden" name="deleteList" id="deleteList" value="">
 
       </form>
     </main>

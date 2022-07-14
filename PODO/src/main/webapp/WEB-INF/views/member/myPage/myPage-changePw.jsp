@@ -30,7 +30,7 @@
             
         <section class="myPage-main">
             
-            <form action="changePw" method="POST" name="myPage-form" onsubmit="return infoValidate()" >
+            <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()" >
                 
                 <h1 class="myPage-title">비밀번호 변경</h1>
                 
@@ -54,7 +54,7 @@
 
                     <!-- 소셜연동? -->
 
-                    <button type="button" id="info-update-btn" onclick="location.href='${contextPath}/member/myPage/secession'">탈퇴하기</button>
+                    <button type="button" id="info-update-btn" onclick="location.href='${contextPath}/views/member/mypage/secession'">탈퇴하기</button>
                     <button id="info-update-btn">변경하기</button>
 
                 </div>

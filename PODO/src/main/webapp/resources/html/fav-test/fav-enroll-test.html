@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>찜 상품 조회</title>
+
+    <link rel="stylesheet" href="../../css/main-style.css">
+    <link rel="stylesheet" href="../../css/mypage/sideMenu.css">
+    <link rel="stylesheet" href="../../css/mypage/myPage-favorites-style.css">
+
+</head>
+<body>
+
+    
+    <!-- 찜 등록 부분 -->
+    <p class="add-fav">
+
+        <!-- 나중에 하트 모양 이미지나 svg로 변경 예정 -->
+        <button type="button" class="add-fav-btn">찜 목록 추가</button>
+    </p>
+
+
+    <!-- 찜 출력 부분 -->
+    <section id="content">
+    <ul>
+        <c:forEach items="${favList}" var="favList">
+            <li>
+                <div class="thumb">
+                    <img src="${cartList.gdsThumbImg}" />
+                </div>
+                 <div class="gdsInfo">
+                    <p>
+                        <span>상품명</span>${cartList.gdsName}<br />
+                        <span>개당 가격</span><fmt:formatNumber pattern="###,###,###" value="${cartList.gdsPrice}" /> 원<br />
+                        <span>구입 수량</span>${cartList.cartStock} 개<br />
+                        <span>최종 가격</span><fmt:formatNumber pattern="###,###,###" value="${cartList.gdsPrice * cartList.cartStock}" /> 원
+                    </p>
+                </div>
+        
+                <div class="delete">
+                    <button type="button" class="delete_btn">삭제</button>
+                </div>
+                </div>   
+        </li>
+        </c:forEach>
+    </ul>
+    </section>
+
+
+</body>
+</html>
