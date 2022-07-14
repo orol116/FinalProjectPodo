@@ -81,10 +81,29 @@ public class ItemBoardController {
 		// int memberNo = session.getAttribute("loginMember") != null ? ((Member)session.getAttribute("loginMember")).getMemberNo() : 0; 
 			
 		Map<String, Object> map = service.itemDetail(boardNo);
-		
+		map.put("boardNo", boardNo);
 		model.addAttribute("map", map);
 
 		return "/item/item-detail";
+	}
+	
+	// 찜하기 버튼 ajax
+	@PostMapping("/board/addFav")
+	public int addFav(int loginMemberNo
+					, @PathVariable("boardNo") int boardNo) {
+		
+		Map<String, Object> map = null;
+		map.put("loginMemberNo", loginMemberNo);
+		map.put("boardNo", boardNo);
+		
+		int result = service.addFav(map);
+		
+		if (result > 0) {
+			result = service.addCountAdd(map);
+			return result;
+		} else {
+			return result;
+		}
 	}
 
 	@GetMapping("")
