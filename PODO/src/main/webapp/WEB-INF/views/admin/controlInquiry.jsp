@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adiminPage-controlItem</title>
+    <title>adiminPage-controlInquiry</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlInquiry.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
@@ -103,6 +103,7 @@
                 </c:choose>
             </tbody>
         </table>
+        
         
         <div class="last">
             <div>
