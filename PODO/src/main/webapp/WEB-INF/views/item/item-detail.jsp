@@ -70,8 +70,10 @@
                         </div>
 
                         <div id="info-button-area">
-                            <button id="do-bookmark">찜하기</button>
-                            <button id="do-chat">1:1 채팅하기</button>
+                            <c:if test="${memberNo != loginMember.memberNo}"> 
+                                <button id="do-bookmark">찜하기</button>
+                                <button id="do-chat">1:1 채팅하기</button>
+                                </c:if>
                         </div>
                     </div>
                     
