@@ -33,7 +33,13 @@ public class AdminDAO {
 	public int memberListCount() {
 		return sqlSession.selectOne("adminMapper.memberListCount");
 	}
+	public int reportListCount() {
+		return sqlSession.selectOne("adminMapper.reportListCount");
+	}
 	
+	public int FAQListCount() {
+		return sqlSession.selectOne("adminMapper.FAQListCount");
+	}
 
 	public List<Admin> selectInquiryList(Pagination pagination, int boardCode) {
 		
@@ -60,6 +66,10 @@ public class AdminDAO {
 		
 		return sqlSession.selectList("adminMapper.selectMemberList", boardCode, rowBounds);
 	}
+
+	
+
+	
 
 	
 }

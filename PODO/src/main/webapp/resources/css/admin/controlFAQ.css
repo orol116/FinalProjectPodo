@@ -9,20 +9,21 @@
 
 *{box-sizing: border-box;}
 
-body{
-    width: 1400px;
+html{
+    width: 1000px;
     margin: auto;
 }
+
  /* 로고 */ 
  header{
     height: 180px;
-    width: 1400px;
+    width: 1000px;
     /*margin-top: 15px; */
 }
 
 #header{
 
-    width: 1400px;
+    width: 1000px;
     height:  180px;
     background-color: white;
     display: flex;
@@ -54,7 +55,7 @@ section>#menu{
     align-items: center;
     padding: 0 20px 0;
     height: 70px;
-    font-size: 20px;
+    font-size: 15px;
     border-bottom: 1px solid lightgray ;
     border-top: 1px solid lightgray;
 }
@@ -131,21 +132,24 @@ select {
     width: 90px;
     height: 40px;
     padding-left: 5px;
-    font-size: 15px;
+    font-size: 13px;
     margin-right: 20px;
 }
 table{
-    width: 100%;
+    width: 1000px;
+ 
     text-align: center;
     border-collapse: collapse;
     table-layout: fixed;
+    font-size: 12px;
 }
 th{
-    font-size: 18px;
+    font-size: 13px;
     height: 50px;
     border-bottom: 1px solid lightgray;
     /* padding-bottom: 5px; */
 }
+
 
 tbody>tr{
     border-bottom: 1px solid lightgray;
@@ -165,16 +169,16 @@ th:nth-child(6){width:25%;}
     margin: 10px 25px 0;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 13px;
 }
 .last>div{
-    font-size: 18px;
+    font-size: 13px;
     /* margin-right: 3px; */
 }
 #write{
     width: 70px;
     height: 40px;
-    font-size: 18px;
+    font-size: 14px;
     background-color: rgb(95, 0, 129);
     color: white;
     margin-left: 10px;
@@ -184,7 +188,7 @@ th:nth-child(6){width:25%;}
 #delete{
     width: 70px;
     height: 40px;
-    font-size: 18px;
+    font-size: 14px;
     background-color: rgb(95, 0, 129);
     color: white;
     margin-left: 10px;
@@ -205,7 +209,6 @@ th:nth-child(6){width:25%;}
     font-weight: bold;
 
 }
-
 /* 페이지네이션 */
 .pagination{
     margin: 50px;
@@ -213,19 +216,24 @@ th:nth-child(6){width:25%;}
     justify-content: center;
     
 }
-.pagination>a{
+
+.pagination>li>a{
+    list-style: none;
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    
-  }
+}
+
   
-  .pagination a.active {
+  .pagination a.current {
 
     background-color: rgb(95, 0, 129);
     border-radius: 3px;
     color: white;
+  }
+  ul{
+    list-style: none;
   }
 
   .pagination a:hover:not(.active) {background-color: #ddd;}
