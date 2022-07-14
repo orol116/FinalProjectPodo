@@ -5,7 +5,7 @@ document.getElementById("do-bookmark").addEventListener("click", function(){
         url : contextPath + "/board/addFav",
         data : {"loginMemberNo" : loginMemberNo
               , "boardNo" : boardNo},
-        type : "POST",
+        type : "GET",
         success : function(result){
         
             if(result > 0) {
