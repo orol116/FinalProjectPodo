@@ -129,5 +129,20 @@
 		FROM MEMBER
 		ORDER BY MEMBER_NO 
 	</select>
+	
+	
+	<insert id="insertBoard"  useGeneratedKeys="true"> 
+	
+		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+		
+		</selectKey>
+	
+		INSERT INTO ADMIN_BOARD VALUES(
+			#{boardNo}, #{boardTitle}, #{boardContent},
+			DEFAULT, DEFAULT, DEFAULT, #{boardCode}, #{memberNo}, #{classification}
+		)
+	
+	</insert>
 
 </mapper>
