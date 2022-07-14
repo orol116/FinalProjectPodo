@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
 
 	private Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 
-	// 濡쒓렇�씤 service 援ы쁽
+	// 로그인 service 구현
 	@Override
 	public Member login(Member inputMember) {
 
@@ -57,7 +57,7 @@ public class MemberServiceImpl implements MemberService {
 		return dao.login(inputMember);
 	}
 
-	// �쉶�썝媛��엯 service 援ы쁽
+	// 회원가입 service 구현
 	@Override
 	public int signUp(Member inputMember) {
 
