@@ -151,9 +151,13 @@ th{
     border-bottom: 1px solid lightgray;
     /* padding-bottom: 5px; */
 }
-th>a{
+tr>td>a{
     text-decoration: none;
     color : black;
+}
+tr>td>a:hover{
+    text-decoration-line: underline ;
+    text-decoration-color:rgb(95, 0, 129);
 }
 
 tbody>tr{
