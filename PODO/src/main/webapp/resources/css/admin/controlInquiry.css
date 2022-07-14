@@ -10,19 +10,19 @@
 *{box-sizing: border-box;}
 
 body{
-    width: 1400px;
+    width: 1000px;
     margin: auto;
 }
  /* 로고 */ 
  header{
     height: 180px;
-    width: 1400px;
+    width: 1000px;
     /*margin-top: 15px; */
 }
 
 #header{
 
-    width: 1400px;
+    width: 1000px;
     height:  180px;
     background-color: white;
     display: flex;
@@ -54,7 +54,7 @@ section>#menu{
     align-items: center;
     padding: 0 20px 0;
     height: 70px;
-    font-size: 20px;
+    font-size: 15px;
     border-bottom: 1px solid lightgray ;
     border-top: 1px solid lightgray;
 }
@@ -136,13 +136,16 @@ select {
     margin-right: 20px;
 }
 table{
-    width: 100%;
+    width: 1000px;
+ 
     text-align: center;
     border-collapse: collapse;
     table-layout: fixed;
+    font-size: 12px;
 }
+
 th{
-    font-size: 18px;
+    font-size: 13px;
     height: 50px;
     border-bottom: 1px solid lightgray;
     /* padding-bottom: 5px; */
@@ -172,12 +175,12 @@ th:nth-child(6){width:25%;}
     justify-content: space-between;
 }
 .last>div{
-    font-size: 18px;
+    font-size: 13px;
     /* margin-right: 3px; */
 }
 #delete{
-    width: 70px;
-    height: 40px;
+    width: 40px;
+    height: 30px;
     font-size: 18px;
     background-color: rgb(95, 0, 129);
     color: white;

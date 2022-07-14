@@ -9,7 +9,7 @@
 
 *{box-sizing: border-box;}
 
-body{
+html{
     width: 1000px;
     margin: auto;
 }
@@ -21,8 +21,7 @@ body{
 }
 
 #header{
-    position: fixed;
-    top: 0 ;
+
     width: 1000px;
     height:  180px;
     background-color: white;
