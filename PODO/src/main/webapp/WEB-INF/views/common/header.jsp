@@ -37,10 +37,10 @@
         
         <section class="mid-header">
 
-            <!-- <form action="$[contextPath}" method="get" id="boardSerch" onclick="return searchValidate()"> -->
-                <input id="search2" type="text" name="searchBar" placeholder="상품명을 입력해주세요.">
+            <form action="main" method="get" id="boardSerch" onclick="return searchValidate()"> 
+                <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
                 <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <!-- </form> -->
+            </form> 
 
         </section>
         <section class="right-header">
@@ -79,15 +79,23 @@
         </ul>
     </div>
     
-    <script>
-        
-       
+    <%-- <script>
+        // 검색창 유효성 검사
+        function searchValidate(){
 
+        const query = document.getElementById("search2");
 
+        if(query.value.trim().length == 0){ // 미작성
+            query.value = ""; // 빈칸
+            query.focus();
 
-    </script>
+            return false;
+        }
 
-    <!-- ------------------------------------------------------- -->
+        return true;
+        }
+
+    </script> --%>
 
     </div>
 </header>
