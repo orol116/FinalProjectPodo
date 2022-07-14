@@ -22,14 +22,13 @@ public class ItemBoardDAO {
 	private Logger logger = LoggerFactory.getLogger(ItemBoardDAO.class);
 
 	
-	  public List<ItemBoard> searchBoard(String searchBar) {
-	  
-	  List<ItemBoard> searchList =
-	  sqlSession.selectList("itemBoardMapper.searchBoard", searchBar);
-	  
-	 return searchList;
-	  
-	 }
+	public List<ItemBoard> searchBoard(String searchBar) {
+
+		List<ItemBoard> searchList = sqlSession.selectList("itemBoardMapper.searchBoard", searchBar);
+
+		return searchList;
+
+	}
 	 
 
 	public int insertBoard(ItemBoard item) {
@@ -79,5 +78,20 @@ public class ItemBoardDAO {
 	 */
 	public List<Member> sellMemberInfo(int memberNo) {
 		return sqlSession.selectList("itemBoardMapper.sellMemberInfo", memberNo);
+	}
+
+	/** 찜 등록 DAO
+	 * @param map
+	 * @return result
+	 */
+	public int addFav(Map<String, Object> map) {
+		return sqlSession.insert("itemBoardMapper.addFav", map);
+	}
+
+	/** 찜 개수 +1 DAO
+	 * @return result
+	 */
+	public int addCountAdd(Map<String, Object> map) {
+		return sqlSession.insert("itemBoardMapper.addCountAdd", map);
 	}
 }

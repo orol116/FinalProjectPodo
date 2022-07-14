@@ -1,6 +1,7 @@
 package edu.kh.podo.member.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.google.gson.Gson;
@@ -41,12 +42,23 @@ public class MyShopController {
 	@GetMapping("/main")
 	public String memberShopMain(ItemBoard itemBoard
 							   , @ModelAttribute("loginMember") Member loginMember
+							   , @RequestParam(value="cp", required=false, defaultValue="1") int cp
+							   , @RequestParam Map<String, Object> paramMap
 							   , Model model) {
 		
-		itemBoard.setMemberNo(loginMember.getMemberNo());
+		int memberNo = loginMember.getMemberNo();
 		
-		List<ItemBoard> memberSellList = service.selectMemberShop(itemBoard.getMemberNo());
-		model.addAttribute("memberSellList", memberSellList);
+		paramMap.put("cp", cp);
+		paramMap.put("memberNo", memberNo);
+		
+		int boardCount = service.selectBoardCount(memberNo);
+		paramMap.put("boardCount", boardCount);
+		
+		Map<String, Object> map = null;
+		
+		map = service.selectManageItem(paramMap);
+		
+		model.addAttribute("map", map);
 		
 		return "item/itemManage";
 	}

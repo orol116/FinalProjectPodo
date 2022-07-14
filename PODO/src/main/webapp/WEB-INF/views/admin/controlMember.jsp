@@ -21,7 +21,7 @@
 <header>
     <div id="header">
         <section id="menu"> 
-            <a href="3" >
+            <a href="5" >
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>
@@ -35,10 +35,10 @@
         <a href="5">회원관리</a>
         <a href="4">상품관리</a>
         <a href="3">1:1 문의</a>
-        <a href="#">신고관리</a>
+        <a href="6">신고관리</a>
     </nav>
     <nav id="mainMenu2">
-        <a href="#">자주 묻는 질문(FAQ)</a>
+        <a href="7">자주 묻는 질문(FAQ)</a>
     </nav>
 </div>
 
@@ -67,7 +67,7 @@
             <tr id="head">
                 <th><input type="checkbox"></th>
                 <th>번호</th>
-                <th>이름</th>
+                <th>아이디</th>
                 <th>닉네임</th>
                 <th>전화번호</th>
                 <th>주소</th>
@@ -92,7 +92,7 @@
                         <tr>
                             <td ><input type="checkbox"></td>
                             <td >${member.memberNo}</td>
-                            <td >홍길동</td>
+                            <td >${member.memberId}</td>
                             <td >${member.memberNickname}</td>
                             <td >${member.memberTel}</td>
                             <td>${member.memberAddress}</td>

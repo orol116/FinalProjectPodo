@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:set var="pagination" value="${map.pagination}"/>
-<c:set var="reportList" value="${map.reportList}"/>
+<c:set var="FAQList" value="${map.FAQList}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adiminPage-신고관리</title>
+    <title>adiminPage-자주묻는질문(FAQ)</title>
 
-    <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlReport.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlFAQ.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
 </head>
@@ -44,19 +44,17 @@
 
 <div class="option">
     <select>
-        <option>신고사유</option>
-        <option>광고</option>
-        <option>상품 정보 부정확</option>
-        <option>거래 금지 품목</option>
-        <option>허위 매물</option>
-        <option>사기 의심</option>
-        <option>기타</option>
+        <option>운영정책</option>
+        <option>계정/인증</option>
+        <option>구매/판매</option>
+        <option>본인인증</option>
+        
     </select>
  
    
     <section class="basic">
         <form class="search1" action="#" method="post" id="search">
-            <input id="search2" type="text" placeholder="신고글 사유를 입력해주세요.">
+            <input id="search2" type="text" placeholder="수정할 글의 제목을 입력해주세요.">
             <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </section>
@@ -71,31 +69,29 @@
                 <th><input type="checkbox"></th>
                 <th>번호</th>
                 <th>분류</th>
-                <th>사유</th>
+                <th>제목</th>
                 <th>작성자</th>
-                <th>신고일</th>
+                <th>등록일</th>
       
             </tr>
         </thead>
-
         <tbody>
-            
              <c:choose>
-                    <c:when test ="${empty reportList}">
+                    <c:when test ="${empty FAQList}">
                         <tr>
                             <th colspan="5">게시글이 존재하지 않습니다.</th>
                         </tr>
                     </c:when>
 
                     <c:otherwise>
-                        <c:forEach var="report" items="${reportList}">
+                        <c:forEach var="faq" items="${FAQList}">
                             <tr>
                                 <td><input type="checkbox"></td>
-                                <td>${report.boardNo}</td>
-                                <td>${report.classification}</td>
-                                <td>${report.boardContent}</td>
-                                <td>${report.memberNick}</td>
-                                <td>${report.createDate}</td>
+                                <td>${faq.boardNo}</td>
+                                <td>${faq.classification}</td>
+                                <td>${faq.boardTitle}</td>
+                                <td>${faq.memberNick}</td>
+                                <td>${faq.createDate}</td>
                             </tr>    
                         </c:forEach>      
                     </c:otherwise>
@@ -108,39 +104,20 @@
             <input type="checkbox" id="checkbox"><label for="checkbox"> 전체선택</label>
         </div>
         <div>
-           
+            <button id="write" onclick="location.href='${contextPath}/admin/7/write'">글쓰기</button>
             <button id="delete">삭제</button>
         </div>
     </div>
 
     <div class="pagination">
-       <c:set var="url" value="6?cp="/>
-
-
-            <ul class="pagination">
-                <!-- 첫 페이지로 이동 -->
-                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
-
-                <!-- 범위가 정해진 일반 for문 사용 -->
-                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
-
-                    <c:choose>
-                        <c:when test="${i == pagination.currentPage}">
-                            <li><a class="current">${i}</a></li>
-                        </c:when>
-
-                        <c:otherwise>
-                            <li><a href="${url}${i}${sURL}">${i}</a></li>        
-                        </c:otherwise>
-                    </c:choose>
-
-                </c:forEach>
-                
-
-                <!-- 끝 페이지로 이동 -->
-                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
-
-            </ul>
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a class="active" href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
     </div>
 
 </div>
