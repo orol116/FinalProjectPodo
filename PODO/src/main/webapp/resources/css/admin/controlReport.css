@@ -10,20 +10,20 @@
 *{box-sizing: border-box;}
 
 body{
-    width: 1400px;
+    width: 1000px;
     margin: auto;
 }
  /* 로고 */ 
  header{
     height: 180px;
-    width: 1400px;
+    width: 1000px;
     /*margin-top: 15px; */
 }
 
 #header{
     position: fixed;
     top: 0 ;
-    width: 1400px;
+    width: 1000px;
     height:  180px;
     background-color: white;
     display: flex;
@@ -55,7 +55,7 @@ section>#menu{
     align-items: center;
     padding: 0 20px 0;
     height: 70px;
-    font-size: 20px;
+    font-size: 15px;
     border-bottom: 1px solid lightgray ;
     border-top: 1px solid lightgray;
 }
@@ -133,7 +133,7 @@ select {
     width: 130px;
     height: 40px;
     padding-left: 5px;
-    font-size: 15px;
+    font-size: 13px;
     margin-right: 20px;
 }
 table{
@@ -143,7 +143,7 @@ table{
     table-layout: fixed;
 }
 th{
-    font-size: 18px;
+    font-size: 13px;
     height: 50px;
     border-bottom: 1px solid lightgray;
     /* padding-bottom: 5px; */
@@ -169,13 +169,13 @@ th:nth-child(6){width:15%;}
     justify-content: space-between;
 }
 .last>div{
-    font-size: 18px;
+    font-size: 13px;
     /* margin-right: 3px; */
 }
 #delete{
     width: 50px;
     height: 35px;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(95, 0, 129);
     color: white;
     margin-left: 10px;
@@ -185,7 +185,6 @@ th:nth-child(6){width:15%;}
 #delete:hover{
     cursor: pointer;
 }
-
 /* 페이지네이션 */
 .pagination{
     margin: 50px;
@@ -193,22 +192,26 @@ th:nth-child(6){width:15%;}
     justify-content: center;
     
 }
-.pagination>li{
-    list-style: none;
-}
+
+
 .pagination>li>a{
+    list-style: none;
+
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    
-  }
+}
+
   
-  .pagination a.active {
+  .pagination a.current {
 
     background-color: rgb(95, 0, 129);
     border-radius: 3px;
     color: white;
+  }
+  ul{
+    list-style: none;
   }
 
   .pagination a:hover:not(.active) {background-color: #ddd;}
