@@ -39,38 +39,36 @@
     </nav>
 </div>
 
+<form class="faq" action="${contextPath}/admin/7/write" method="post" id="faq">
 
-<div class="option">
-    <div class="select">
-        <h4>분류</h4>
-        <select>
-            <option>운영정책</option>
-            <option>계정/인증</option>
-            <option>구매/판매</option>
-            <option>본인인증</option>
-        </select>
+    <div class="option">
+        <div class="select">
+            <h4>분류</h4>
+            <select name="classification">
+                <option>운영정책</option>
+                <option>계정/인증</option>
+                <option>구매/판매</option>
+                <option>본인인증</option>
+            </select>
+        </div>
     </div>
-<form class="faq" action="#" method="post" id="faq">
-   
+
+    
     <div class="title">
         <h4>제목</h4>
         <div class="title1">
-            <input id="title2" type="text" maxlength="60" placeholder="제목을 입력해주세요.">
+            <input id="title2" type="text" maxlength="60" placeholder="제목을 입력해주세요." name="boardTitle">
         </div>
-        
     </div>
-</div>
 
 
 
-<div class="box">
-    <form action="#" method="post" id="FAQ" name="FAQ">
-        <textarea id="textarea" type="text" placeholder="수정내용을 입력해주세요."></textarea>    
-        <div class="div1">
-            <button class="sumbit">등록</button>
-        </div>
-    </form>
-</div>
+    <div class="box">
+            <textarea id="textarea" type="text" placeholder="수정내용을 입력해주세요." name="boardContent"></textarea>    
+            <div class="div1">
+                <button class="sumbit">등록</button>
+            </div>
+    </div>
 </form>
 
 

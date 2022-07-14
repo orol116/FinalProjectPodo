@@ -10,11 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>포도챗</title>
 
-    <link rel="stylesheet" href="../css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
 
 </head>
 <body>
-    <-- header -->
+    <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 사이드 메뉴 -->
@@ -22,7 +23,7 @@
     
     
     <!-- 채팅 -->
-    <section class="content">
+    <%-- <section class="content">
 
         <div class="main_area">
             <!-- 좌측 -->
@@ -130,13 +131,72 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --%>
 
+
+    <!-- 채팅 아이콘 -->
+    <div class="chatIcon font_jua">
+        <img src="resources/images/favicon.ico" class="iconImg">
+    </div>
+
+    <!-- 채팅 창 -->
+    <div class="chatContainer display-none">
+        <div class="chatTop">
+            <div class="floatLeft" id="loginOn">
+                <img class="profile_img" id="setPic"><!-- src 사진 경로 동적 생성 -->
+            </div>
+            <div class="name_container font_noto" id="setName"><!-- 이름 동적 생성 --></div>
+            <div class="floatRight">
+                <img src="resources/img/chat-close.png" class="btnImg close">
+            </div>
+            <div class="floatRight">
+                <img src="resources/img/chat-minus.png" class="btnImg down">
+            </div>
+        </div>
+        <div class="chatMiddle">
+            <ul>
+                <!-- 동적 생성 -->
+            </ul>
+        </div>
+        <div class="chatBottom">
+            <textarea placeholder="메세지를 입력해 주세요."></textarea>
+        </div>
+    </div>
+
+
+    <!-- format -->
+    <div class="chatMiddle format">
+        <ul>
+            <li>
+                <div class="sender">
+                    <span></span>
+                </div>
+                <div class="message">
+                    <span></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+ 
+    <!-- 채팅 리스트 -->
+    <div class="chatListContainer font_jua display-none">
+        <div class="chatTop">
+            <div style="padding: 10px; margin-left: 4px;">포도톡 리스트</div>
+        </div>
+        <div class="chatList">
+            <!-- 동적 생성 -->
+        </div>
+    </div>
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <script src="${contextPath}/resources/js/chat.js"></script>
+    <script>
+        const contextPath = "${contextPath}";
+    </script>
+
+    <%-- js --%>
+    <script src="${contextPath}/resources/js/podoTalk.js"></script>
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -35,6 +35,18 @@ public interface ItemBoardService {
 	Map<String, Object> itemDetail(int boardNo);
 
 
+	/** 찜 등록 Service
+	 * @param map
+	 * @return result
+	 */
+	int addFav(Map<String, Object> map);
+
+	/** 게시글 찜 개수 +1 Service
+	 * @return result
+	 */
+	int addCountAdd(Map<String, Object> map);
+
+
 	
 
 
