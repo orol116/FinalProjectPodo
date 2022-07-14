@@ -160,6 +160,13 @@ public class MemberController {
 	@PostMapping("/signUp")
 	public String SignUp(Member inputMember, String memberAddress[], RedirectAttributes ra) {
 
+		inputMember.setMemberAddress( String.join(",,", memberAddress));
+		
+		if(inputMember.getMemberAddress().equals(",,,,")) {
+			
+			inputMember.setMemberAddress(null);
+		}
+		
 		int result = service.signUp(inputMember);
 
 		String path = null;
@@ -226,6 +233,7 @@ public class MemberController {
 		return "/member/member-find-ID";
 	}
 	
+	// 핸드폰 본인인증(아이디 찾기)
 	@GetMapping("/phoneCheck")
 	@ResponseBody
 	public String sendSMS(@RequestParam("phone") String memberTel) { 
