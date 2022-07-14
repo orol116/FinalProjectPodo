@@ -70,7 +70,7 @@
         <ul id="div-category">
             <c:forEach var="subCt" items="${MCategory}">
 
-                <li class="sub-category-name ${subCt.LCategoryNo}-sub" href="#" id="${subCt.MCategoryNo}" name="sub-category">
+                <li class="sub-category-name ${subCt.LCategoryNo}-sub" href="#" id="s-${subCt.MCategoryNo}">
                     ${subCt.MCategoryName}
                     
                 </li>
@@ -81,8 +81,8 @@
     
     <script>
         
-        
-    
+       
+
 
 
     </script>

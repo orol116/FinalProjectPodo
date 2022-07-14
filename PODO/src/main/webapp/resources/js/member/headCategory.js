@@ -22,36 +22,36 @@ $(".category-name").on("mouseenter", function(){
 });
 
 
-var categoryName = document.querySelectorAll("#div-category>li");
+var subCategoryName = document.querySelectorAll(".sub-category-name");
 
-categoryName.forEach((target) => target.addEventListener("click",categoryFuncion ));
+subCategoryName.forEach((target) => target.addEventListener("click",categoryFunction ));
 
 /* const names = categoryName.target.getAttribute('id'); */
 
-var categoryFuncion = function(){
+function categoryFunction(){
+
+    let mCategoryNo = this.getAttribute("id");
+
+    mCategoryNo = mCategoryNo.replace("s-","");
     
-/*     $.ajax({
-        url : "selectCategory",  
-        data : { "midNo" : midNo }, 
-        type : "GET", 
-
-        success : function(){ 
-            console.log(midNo);
-            
-        },
-
-        error : function(){ 
-            console.log("에러 발생");
-        }
-    });  */
+         $.ajax({
+            url : "selectCategory",  
+            data : { "mCategoryNo" : mCategoryNo }, 
+            type : "GET", 
     
-    console.log();
-};
-
-
-
-
-
+            success : function(){ 
+                console.log(mCategoryNo);
+                
+            },
+    
+            error : function(){ 
+                console.log("에러 발생");
+            }
+        });  
+        
+         
+    };
+    
 
 /* 
 
