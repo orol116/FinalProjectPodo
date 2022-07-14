@@ -21,7 +21,7 @@
 <header>
     <div id="header">
         <section id="menu"> 
-            <a href="3" >
+            <a href="5" >
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>

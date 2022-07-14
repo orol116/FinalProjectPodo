@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>adiminPage-자주묻는질문(FAQ)수정</title>
 
-    <link rel="stylesheet" href="../../css/admin/editFAQ.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/admin/editFAQ.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
 </head>
@@ -18,8 +18,8 @@
 <header>
     <div id="header">
         <section id="menu"> 
-            <a href="main" >
-                <img src="../../images/logo.png" id="home-logo">
+            <a href="../5" >
+                <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
             <div><h1>관리자 페이지</h1></div>
         </section>
@@ -29,13 +29,13 @@
 
 <div class="top-menu">
     <nav id="mainMenu">
-        <a href="#">회원관리</a>
-        <a href="#">상품관리</a>
-        <a href="#">1:1 문의</a>
-        <a href="#">신고관리</a>
+        <a href="5">회원관리</a>
+        <a href="4">상품관리</a>
+        <a href="3">1:1 문의</a>
+        <a href="6">신고관리</a>
     </nav>
     <nav id="mainMenu2">
-        <a href="#">자주 묻는 질문(FAQ)</a>
+        <a href="7">자주 묻는 질문(FAQ)</a>
     </nav>
 </div>
 

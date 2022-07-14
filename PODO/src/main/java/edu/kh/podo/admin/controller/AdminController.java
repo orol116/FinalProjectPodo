@@ -67,17 +67,12 @@ public class AdminController {
 	}
 	
 	
-	@GetMapping("/controlItem")
-	public String controllItem() {
+	@GetMapping("{boardCode}/write")
+	public String FAQWrite(@PathVariable("boardCode") int boardCode) {
 		
-		return "admin/controlItem";
+		return "admin/editFAQ";
 	}
 	
-	@GetMapping("/controlMember")
-	public String controlMember() {
-		
-		return "admin/controlMember";
-	}
 	
 
 	
