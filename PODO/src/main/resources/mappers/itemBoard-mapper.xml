@@ -154,7 +154,8 @@
 	</insert>
 	
 	<insert id="addCountAdd">
-		INSERT INTO ITEM_BOARD(BOOKMARK_COUNT) VALUES(BOOKMARK_COUNT + 1)
+		UPDATE ITEM_BOARD SET BOOKMARK_COUNT = BOOKMARK_COUNT + 1
+		WHERE BOARD_NO = ${boardNo}
 	</insert>
 
 
