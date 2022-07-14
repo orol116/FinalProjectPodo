@@ -86,6 +86,13 @@
 
         area.style.display = "flex";
 
+     for(obj in "${LCategory}"){
+
+        console.log("${LCategory.LCategoryName}");
+    }
+
+    
+
     });
 
     area.addEventListener("mouseleave", function(){
@@ -93,8 +100,6 @@
         area.style.display = "none";
 
     });
-
-    
 
     </script>
 
