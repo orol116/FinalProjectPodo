@@ -7,8 +7,7 @@ import edu.kh.podo.member.model.vo.Member;
 
 public interface AdminService {
 
-	List<Member> selectMemberList();
 
-	Map<String, Object> inquiryList(int cp);
+	Map<String, Object> inquiryList(int cp, int boardCode);
 
 }

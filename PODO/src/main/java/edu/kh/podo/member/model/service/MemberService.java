@@ -29,6 +29,10 @@ public interface MemberService {
 
 
 	int naverSignUp(Member inputMember);
+
+
+
+	void certifiedPhoneNumber(String memberTel, int randomNumber);
 	
 	
 

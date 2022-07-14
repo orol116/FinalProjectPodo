@@ -20,7 +20,7 @@
     <header>
         <div id="header">
             <section id="menu"> 
-                <a href="main" >
+                <a href="3" >
                     <img src="${contextPath}/resources/images/logo.png" id="home-logo">
                 </a>
                 <div><h1>관리자 페이지</h1></div>
@@ -36,9 +36,9 @@
 
     <div class="top-menu">
         <nav id="mainMenu">
-            <a href="controlMember">회원관리</a>
-            <a href="controlItem">상품관리</a>
-            <a href="controlInquiry">1:1 문의</a>
+            <a href="5">회원관리</a>
+            <a href="4">상품관리</a>
+            <a href="3">1:1 문의</a>
             <a href="#">신고관리</a>
         </nav>
         <nav id="mainMenu2">
@@ -80,27 +80,27 @@
             </thead>
 
             <tbody>
-            <c:choose>
-                <c:when test ="${empty InquiryList}">
-                    <tr>
-                        <th colspan="5">게시글이 존재하지 않습니다.</th>
-                    </tr>
-                </c:when>
-
-                <c:otherwise>
-                    <c:forEach var="inquiry" items="${InquiryList}">
+                <c:choose>
+                    <c:when test ="${empty InquiryList}">
                         <tr>
-                            <th><input type="checkbox"></th>
-                            <th>${inquiry.boardNo}</th>
-                            <th>구매/판매</th>
-                            <th> <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardTitle}</a> </th>                           
-                            <th>${inquiry.memberNick}</th>
-                            <th>${inquiry.createDate}</th>
-                        </tr>    
-                    </c:forEach>      
-                </c:otherwise>
+                            <th colspan="5">게시글이 존재하지 않습니다.</th>
+                        </tr>
+                    </c:when>
 
-            </c:choose>
+                    <c:otherwise>
+                        <c:forEach var="inquiry" items="${InquiryList}">
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>${inquiry.boardNo}</th>
+                                <th>구매/판매</th>
+                                <th> <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardTitle}</a> </th>                           
+                                <th>${inquiry.memberNick}</th>
+                                <th>${inquiry.createDate}</th>
+                            </tr>    
+                        </c:forEach>      
+                    </c:otherwise>
+
+                </c:choose>
             </tbody>
         </table>
         
@@ -116,7 +116,7 @@
 
         <div class="pagination">
 
-          <c:set var="url" value="controlInquiry?cp="/>
+          <c:set var="url" value="3?cp="/>
 
 
             <ul class="pagination">

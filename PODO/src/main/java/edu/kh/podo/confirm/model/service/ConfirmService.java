@@ -7,6 +7,5 @@ public interface ConfirmService {
 	 * @param userPhoneNumber
 	 * @param randomNumber
 	 */
-	void certifiedPhoneNumber(String userPhoneNumber, int randomNumber);
 
 }
