@@ -39,6 +39,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		
 		int boardNo = dao.insertBoard(item);
 		
+		
 		if(boardNo>0) {
 			List<BoardImage> boardImageList = new ArrayList<BoardImage>();
 			List<String> reNameList = new ArrayList<String>();
@@ -92,6 +93,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 				}
 			}
 		}
+		
 		
 		return boardNo;
 
