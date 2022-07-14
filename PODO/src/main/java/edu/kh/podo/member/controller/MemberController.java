@@ -163,7 +163,6 @@ public class MemberController {
 		inputMember.setMemberAddress(String.join(",,", memberAddress));
 
 		if (inputMember.getMemberAddress().equals(",,,,")) {
-
 			inputMember.setMemberAddress(null);
 		}
 

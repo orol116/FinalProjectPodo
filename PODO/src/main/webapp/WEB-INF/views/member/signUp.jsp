@@ -62,11 +62,25 @@
 
                     <section>
                         <h4>주소</h4>
-                        <input type="text" id="memberAddress" name="memberAddress" placeholder="주소를 입력하세요">
-
                     </section>
-                    <span class="signUp-message" id="addressMessage">* 주소 입력.</span>
-                    
+                    <span class="signUp-message" id="addressMessage">
+
+                        <div class="signUp-input-area">
+                            <input type="text" id="sample4_postcode" class="memberAddress" name="memberAddress"
+                                    placeholder="우편번호" maxlength="6">
+                            
+                            <button type="button" onclick="sample4_execDaumPostcode()">검색</button>
+                        </div>
+        
+                        <div class="signUp-input-area">
+                            <input type="text" id="sample4_roadAddress" class="memberAddress" name="memberAddress" placeholder="도로명주소">
+                        </div>
+        
+                        <div class="signUp-input-area">
+                            <input type="text" id="sample4_detailAddress" class="memberAddress" name="memberAddress" placeholder="상세주소">
+                        </div>
+                    </span>
+                        
 
                     <section id="submitBtn-area">
                         <button id="submitBtn">회원가입하기</button>
@@ -81,10 +95,9 @@
     </main>
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
-    
     <script src="${contextPath}/resources/js/member/signUp.js"></script> 
 
     

@@ -12,7 +12,7 @@ public interface MyPageService {
 	 * @param paramMap
 	 * @return result
 	 */
-	int updateInfo(Map<String, Object> paramMap);
+	int updateInfo(Map<String, Object> paramMap) throws Exception;
 
 	/** 회원 비밀번호 수정 Service
 	 * @param pwMap
