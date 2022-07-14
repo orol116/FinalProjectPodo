@@ -15,12 +15,12 @@
     
     <div id="top">
     <c:choose>
-        <c:when test="${empty loginMember}">
+        <c:when test="${empty sessionScope.loginMember}">
                 <a href="${contextPath}/member/login">로그인
                 <a href="${contextPath}/member/signUp">회원가입
         </c:when>
         <c:otherwise>
-                <a href="${contextPath}/member/login">로그아웃
+                <a href="${contextPath}/member/logout">로그아웃
                 <a href="${contextPath}/member/myPage/changePw">마이페이지
         </c:otherwise>
     </c:choose>    
@@ -52,6 +52,9 @@
         </section>
         <div id="category-area">
         <ul id="item-category">
+            <li class="category-name" href="#" id="0">
+                전체 카테고리
+            </li>
 
             <c:forEach var="ct" items="${LCategory}">
 
@@ -65,10 +68,11 @@
 
 
         <ul id="div-category">
-            <c:forEach var="ct" items="${MCategory}">
+            <c:forEach var="subCt" items="${MCategory}">
 
-                <li class="sub-category-name" href="#" id="${ct.MCategoryNo}">
-                    ${ct.MCategoryName}
+                <li class="sub-category-name ${subCt.LCategoryNo}-sub" href="#" id="${subCt.MCategoryNo}" name="sub-category">
+                    ${subCt.MCategoryName}
+                    
                 </li>
             </c:forEach>
            
@@ -76,32 +80,10 @@
     </div>
     
     <script>
-    const category = document.getElementById("fa-bars");
-    area = document.getElementById("category-area");
+        
+        
     
-    category.addEventListener("mouseenter", function(){
-        area.style.display = "flex";
-     $(".category-name").on("click", function(){
 
-         console.log($(this).attr("id"));
-
-
-     })
-
-    
-    });
-
-    area.addEventListener("mouseleave", function(){
-        area.style.display = "none";
-    });
-
-    for (var i in ${LCategory}) {
-        document.getElementsByClassName("category-name")[i].addEventListener("mouseenter", function(){
-            area.style.display = "flex";
-        });
-    }
-
-    
 
     </script>
 

@@ -92,6 +92,6 @@ public class ItemBoardDAO {
 	 * @return result
 	 */
 	public int addCountAdd(Map<String, Object> map) {
-		return sqlSession.insert("itemBoardMapper.addCountAdd", map);
+		return sqlSession.update("itemBoardMapper.addCountAdd", map);
 	}
 }
