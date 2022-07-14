@@ -1,4 +1,4 @@
-document.getElementById("submitBtn").addEventListener("click", function(){
+/* document.getElementById("submitBtn").addEventListener("click", function(){
 
     var result = 0;
 
@@ -47,7 +47,7 @@ document.getElementById("submitBtn").addEventListener("click", function(){
 
 
 
-});
+}); */
 
 
 

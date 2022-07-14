@@ -225,6 +225,16 @@ public class MemberController {
 	public String fingId() {
 		return "/member/member-find-ID";
 	}
+	
+	@GetMapping("/phoneCheck")
+	@ResponseBody
+	public String sendSMS(@RequestParam("phone") String memberTel) { 
+		int randomNumber = (int)((Math.random()* (9999 - 1000 + 1)) + 1000);
+
+		service.certifiedPhoneNumber(memberTel,randomNumber);
+		
+		return Integer.toString(randomNumber);
+	}
 
 
 	// 비밀번호 찾기 페이지 전환
