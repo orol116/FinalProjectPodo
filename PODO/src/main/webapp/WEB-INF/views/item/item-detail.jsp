@@ -29,7 +29,7 @@
 <body>
     <main>
 
-        <%-- <jsp:include page="/WEB-INF/views/common/header.jsp" /> --%>
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
             
         <div id="contaioner">
             <!-- body 전체 div -->

@@ -11,6 +11,7 @@ import edu.kh.podo.admin.model.dao.AdminDAO;
 import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.board.itemBoard.model.vo.Pagination;
+import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.vo.Member;
 
 @Service
@@ -74,6 +75,24 @@ public class AdminServiceImpl implements AdminService{
 		}
 		
 		return map;
+	}
+
+
+
+	@Override
+	public int insertBoard(Map<String, Object> paramMap) {
+		
+		paramMap.put("boardTitle",Util.XSSHandling((String)paramMap.get("boardTitle")));
+		paramMap.put("boardContent",Util.XSSHandling((String)paramMap.get("boardContent")));
+		
+		paramMap.put("boardContent",Util.newLineHandling((String)paramMap.get("boardContent")));
+	
+//		System.out.println(		paramMap.get("boardContent"));
+//		System.out.println(paramMap.get("boardTitle"));
+
+		int boardNo = dao.insertBoard(paramMap);
+		
+		return boardNo;
 	}
 	
 }

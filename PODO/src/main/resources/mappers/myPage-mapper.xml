@@ -49,7 +49,7 @@
 	
 	<!-- 찜 상품 조회 -->
 	<select id="selectFavorList" resultMap="itemBoard_rm">
-		SELECT BOARD_TITLE, BOARD_CONTENT, ITEM_IMAGE, SELL_AREA, UPDATE_DT
+		SELECT BOARD_TITLE, SELL_AREA, UPDATE_DT, PRICE
 		FROM ITEM_BOARD
 		JOIN BOOKMARK USING(MEMBER_NO)
 		WHERE MEMBER_NO = ${memberNo}

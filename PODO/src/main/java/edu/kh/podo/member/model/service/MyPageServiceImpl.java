@@ -54,12 +54,5 @@ public class MyPageServiceImpl implements MyPageService {
 	public List<ItemBoard> selectFavorList(int memberNo) {
 		return dao.selectFavorList(memberNo);
 	}
-	
-	
-	
-	
- 
-	
-	
 
 }

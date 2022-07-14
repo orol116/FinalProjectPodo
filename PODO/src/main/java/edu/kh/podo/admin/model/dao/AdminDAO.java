@@ -67,6 +67,19 @@ public class AdminDAO {
 		return sqlSession.selectList("adminMapper.selectMemberList", boardCode, rowBounds);
 	}
 
+	public int insertBoard(Map<String, Object> paramMap) {
+		
+		int result = sqlSession.insert("adminMapper.insertBoard",paramMap); // 0 또는 1
+		
+		if(result>0) {
+			
+			result = (int) paramMap.get("boardNo"); // 게시글 삽입 성공시 <selectKey> 태그를 이용해 세팅된 boardNo값을 반환함
+										  // -> 게시글 번호 사용 가능해짐!
+		}
+		
+		return result;	
+	}
+
 	
 
 	
