@@ -90,7 +90,7 @@
                     <c:otherwise>
                         <c:forEach var="report" items="${reportList}">
                             <tr>
-                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox" name="checked"></td>
                                 <td>${report.boardNo}</td>
                                 <td>${report.classification}</td>
                                 <td>${report.boardContent}</td>

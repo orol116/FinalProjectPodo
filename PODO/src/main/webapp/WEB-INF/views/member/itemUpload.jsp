@@ -35,7 +35,7 @@
             </section>
         </div>   
 
-    <form action="${contextPath}/board/write/1" enctype="multipart/form-data" method="POST" class="itemUpload" onsubmit="return writeValidate()">
+    <form action="${contextPath}/board/itemUpload" enctype="multipart/form-data" method="POST" class="itemUpload" onsubmit="return writeValidate()">
    
         <ul class="basic2">
             <li class="frist">
