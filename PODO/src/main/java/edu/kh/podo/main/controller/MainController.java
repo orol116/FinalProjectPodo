@@ -26,11 +26,11 @@ public class MainController {
 	public String mainForward(String searchBar, RedirectAttributes ra, Model model) {
 		
 		
-		if(searchBar == null) {
+		if (searchBar == null) {
 			
 			List<ItemBoard> itemList = service.selectItemList();
 			model.addAttribute("itemList", itemList);
-		}else {
+		} else {
 			
 			List<ItemBoard> searchList = service.searchBoard(searchBar);
 			model.addAttribute("searchList", searchList);

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import edu.kh.podo.board.category.model.dao.CategoryDAO;
 import edu.kh.podo.board.category.model.vo.LargeCategory;
 import edu.kh.podo.board.category.model.vo.MiddleCategory;
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -25,6 +26,12 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public List<MiddleCategory> selectMCategory() {
 		return dao.selectMCategory();
+	}
+
+	// 카테고리 별 검색 조회
+	@Override
+	public List<ItemBoard> categoryResultList(int mCategoryNo) {
+		return dao.categoryResultList(mCategoryNo);
 	}
 
 }
