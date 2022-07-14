@@ -5,6 +5,9 @@
 <c:set var="MCategory" value="${MCategoryList}" />
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
+<script>
+    const contextPath = "${contextPath}";
+</script>
 <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> 
 
 <header>
@@ -79,13 +82,7 @@
         </ul>
     </div>
     
-    <script>
-        
-       
-
-
-
-    </script>
+ 
 
     <!-- ------------------------------------------------------- -->
 

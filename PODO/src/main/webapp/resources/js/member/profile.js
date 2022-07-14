@@ -31,11 +31,11 @@ function selectItemsList(){
                 
                 itembox.innerText = "판매중인 상품이 없습니다.";
 
-            reviewList.style.display = "none";
-            itemList.style.display = "block";
-            itembox.style.border = "none";
-            
-            itemList.style.fontSize = "20px";
+                reviewList.style.display = "none";
+                itemList.style.display = "block";
+                itembox.style.border = "none";
+                
+                itemList.style.fontSize = "20px";
 
                 
                 itemList.append(itembox);
