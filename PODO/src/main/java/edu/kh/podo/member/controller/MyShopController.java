@@ -63,14 +63,6 @@ public class MyShopController {
 		return "item/itemManage";
 	}
 	
-//	// 판매자 후기 조회
-//	@ResponseBody
-//	@GetMapping("/memberReview")
-//	public String memberReview(int memberNo) {
-//		List<Review> reviewList = service.selectMemberReview(memberNo);
-//		return new Gson().toJson(reviewList);
-//	}
-	
 	// 내 상점 조회
 	@GetMapping("/myShop")
 	public String myShop(@ModelAttribute("loginMember") Member loginMember
