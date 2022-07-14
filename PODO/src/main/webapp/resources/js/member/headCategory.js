@@ -26,18 +26,18 @@ var subCategoryName = document.querySelectorAll(".sub-category-name");
 
 
     /* location.href = contextPath; */
-    subCategoryName.forEach((target) => target.addEventListener("click",goBackFunction ,categoryFunction));
+    subCategoryName.forEach((target) => target.addEventListener("click" ,goBackFunction,categoryFunction));
 
 
 /* const names = categoryName.target.getAttribute('id'); */
-/* function goBackFunction(){
-    href
-
+function goBackFunction(){
+    
+    location.href = contextPath();
 };
- */
 
 
-function categoryFunction(){    
+
+function categoryFunction(){   
 
     
 
@@ -114,9 +114,9 @@ function categoryFunction(){
                 console.log("에러 발생");
             }
         });  
-        
+    }
          
-    };
+    
     
 
 /* 
