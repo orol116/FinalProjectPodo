@@ -7,6 +7,7 @@ const itemList = document.getElementById("seller-items");
 
 
 selectItemsList();
+itemCategory.addEventListener("click", selectItemsList);
 
 /* 상품 ajax */
 function selectItemsList(){
@@ -20,6 +21,9 @@ function selectItemsList(){
             console.log(iList);
 
             itemList.innerHTML = "";
+
+            reviewList.style.display = "none";
+            itemList.style.display = "block";
 
             if (iList == "") {
                 const itembox = document.createElement("div");
@@ -99,7 +103,7 @@ function selectItemsList(){
 
 
 reviewCategory.addEventListener("click", reviewsList);
-itemCategory.addEventListener("click", selectItemsList);
+
 
 
 /* 후기 ajax */
