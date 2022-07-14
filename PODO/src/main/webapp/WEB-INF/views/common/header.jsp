@@ -52,10 +52,11 @@
         </section>
         <div id="category-area">
         <ul id="item-category">
-            <c:forEach var="LCategory" items="${LCategory}">
 
-                <li class="category-name" href="#">
-                    ${LCategory.LCategoryName}
+            <c:forEach var="ct" items="${LCategory}">
+
+                <li class="category-name" href="#" id="${ct.LCategoryNo}">
+                    ${ct.LCategoryName}
                 </li>
             </c:forEach>
 
@@ -64,20 +65,30 @@
 
 
         <ul id="div-category">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+            <c:forEach var="ct" items="${MCategory}">
 
+                <li class="sub-category-name" href="#" id="${ct.MCategoryNo}">
+                    ${ct.MCategoryName}
+                </li>
+            </c:forEach>
+           
         </ul>
     </div>
     
     <script>
     const category = document.getElementById("fa-bars");
     area = document.getElementById("category-area");
+    
     category.addEventListener("mouseenter", function(){
         area.style.display = "flex";
+     $(".category-name").on("click", function(){
+
+         console.log($(this).attr("id"));
+
+
+     })
+
+    
     });
 
     area.addEventListener("mouseleave", function(){
