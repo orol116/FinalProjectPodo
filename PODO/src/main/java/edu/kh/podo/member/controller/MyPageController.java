@@ -128,8 +128,6 @@ public class MyPageController {
 	public String myFavorites(@ModelAttribute("loginMember") Member loginMember
 							, Model model) {
 		
-//		Map<String, Object> favorMap = null;
-		
 		List<ItemBoard> favorBoard = service.selectFavorList(loginMember.getMemberNo());
 		
 		model.addAttribute("favorBoard", favorBoard);

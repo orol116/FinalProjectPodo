@@ -38,100 +38,91 @@
             <!-- 찜 목록 본문 -->
             <div class="fav-contents">
 
-                <!-- 찜 상단 체크 박스 / 선택 삭제 -->
-                <div class="fav-header">
-                    <div class="fav-header-left">
+                <c:if test="${favorBoard != null}">
 
-                        <!-- 상단 체크박스 -->
-                        <div class="check-area">
-                            <button type="button" class="fav-check-btn"></button>
-                        </div>
+                    <!-- 찜 상단 체크 박스 / 선택 삭제 -->
+                    <div class="fav-header">
+                        <div class="fav-header-left">
 
-                        <!-- 선택삭제 -->
-                        <button class="fav-delete">선택삭제</button>
-
-                    </div>
-
-                    <!-- 찜 정렬 메뉴 -->
-                    <select>
-                        <option value="new-wish">최신순</option>
-                        <option value="high-wish">찜 많은 상품순</option>
-                        <option value="lowprice">저가순</option>
-                        <option value="highprice">고가순</option>
-                    </select>
-                </div>
-
-                <!-- 출력부 -->
-                <div class="">
-                    <!-- 개별 상품 -->
-                    <div class="">
-
-                        <!-- 상품 세부 -->
-                        <div class="product-detail" href="/products/?ref=?">
-
-                            <!-- 상품 체크박스 -->
+                            <!-- 상단 체크박스 -->
                             <div class="check-area">
                                 <button type="button" class="fav-check-btn"></button>
                             </div>
-                            
-                            <!-- 조회된 찜 상품 좌측 이미지 영역 -->
-                            <div class="product-img">
-                                <img src="" alt="상품 이미지">
-                                <div></div>
-                            </div>
-                                
-                            <!-- 조회된 찜 상품 우측 상세 내용 영역 -->
-                            <div class="product-wholeContent">
-                                <div class="product-info">
 
-                                    <section id="content">
-                                        <ul>
-                                            <c:forEach items="${cartList}" var="cartList">
-                                                <li>
-                                                    <div class="thumb">
-                                                        <img src="${cartList.gdsThumbImg}" />
-                                                    </div>
-                                                    <div class="gdsInfo">
-                                                        <p>
-                                                            <span>제목</span>${board.boardTitle}<br />
-                                                            <span>가격</span><fmt:formatNumber pattern="###,###,###" value="${board.price}"/> 원<br />
-                                                            <span>등록일</span>${board.createDate}<br />
-                                                            <span>위치</span>
-                                                                <!-- 위치 로고 이미지 -->
-                                                                <img src="resources/images/location-logo.png" width="15" height="17" alt="위치 아이콘">
-                                                                ${board.sellArea}
-                                                        </p>
-                                                        
-                                                        <div class="delete">
-                                                            <button type="button" class="delete_btn">삭제</button>
-                                                        </div>
-                                                    </div>   
-                                                </li>
-                                            </c:forEach>
-                                        </ul>
-                                    </section>
-                                    
-                                    <%-- <!-- 판매 상품 제목 -->
-                                    <div class="product-title">${board.boardTitle}</div>
+                            <!-- 선택삭제 -->
+                            <button class="fav-delete">선택삭제</button>
 
-                                    <!-- 판매 상품 가격 -->
-                                    <div class="product-price">
-                                        <div>
-                                            ${board.price}
-                                        </div>
-                                    </div>
+                        </div>
 
-                                    <!-- 판매 상품 등록일 -->
-                                    <div class="upload-date">${board.createDate}</div> --%>
+                        <!-- 찜 정렬 메뉴 -->
+                        <select>
+                            <option value="new-wish">최신순</option>
+                            <option value="high-wish">찜 많은 상품순</option>
+                            <option value="lowprice">저가순</option>
+                            <option value="highprice">고가순</option>
+                        </select>
+                    </div>
+
+                    <!-- 출력부 -->
+                    <div class="">
+                        <!-- 개별 상품 -->
+                        <div class="">
+
+                            <!-- 상품 세부 -->
+                            <div class="product-detail" href="/products/?ref=?">
+
+                                <!-- 상품 체크박스 -->
+                                <div class="check-area">
+                                    <button type="button" class="fav-check-btn"></button>
                                 </div>
                                 
-                                
-                            </div>
+                                <!-- 조회된 찜 상품 좌측 이미지 영역 -->
+                                <div class="product-img">
+                                    <img src="" alt="상품 이미지">
+                                    <div></div>
+                                </div>
+                                    
+                                <!-- 조회된 찜 상품 우측 상세 내용 영역 -->
+                                <div class="product-wholeContent">
+                                    <div class="product-info">
 
-                            
-                        </a>
+                                        <section id="content">
+                                            <ul>
+                                                <c:forEach items="${favorBoard}" var="favor">
+                                                    <li>
+                                                        <div class="thumb">
+                                                            <img src="#" />
+                                                        </div>
+                                                        <div class="gdsInfo">
+                                                            <p>
+                                                                <span>제목</span>${favor.boardTitle}<br>
+                                                                <span>가격</span>"${favor.price}"원<br>
+                                                                <span>등록일</span>${favor.updateDate}<br>
+                                                                <span>위치</span>
+                                                                    <!-- 위치 로고 이미지 -->
+                                                                    <img src="${contextPath}/resources/images/location-logo.png" width="15" height="17" alt="위치 아이콘">
+                                                                    ${favor.sellArea}
+                                                            </p>
+                                                            
+                                                            <div class="delete">
+                                                                <button type="button" class="delete_btn">삭제</button>
+                                                            </div>
+                                                        </div>   
+                                                    </li>
+                                                </c:forEach>
+                                            </ul>
+                                        </section>
+                    
+                                    </div>
+                                    
+                                    
+                                </div>
+
+                                
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </c:if>
             </div>
 
         </section>
