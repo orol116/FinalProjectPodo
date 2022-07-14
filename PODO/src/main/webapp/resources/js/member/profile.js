@@ -4,10 +4,103 @@ const reviewCategory = document.getElementById("review-category");
 const reviewList = document.getElementById("reviews-area");
 const itemList = document.getElementById("seller-items");
 
+
+
+selectItemsList();
+
+/* 상품 ajax */
+function selectItemsList(){
+
+    $.ajax({
+        url : "selectItemsList",
+        data : {"memberNo" : memberNo},
+        type : "GET",
+        dataType : "JSON",
+        success : function(iList){
+            console.log(iList);
+
+            itemList.innerHTML = "";
+
+            if (iList == "") {
+                const itembox = document.createElement("div");
+                itembox.classList.add("box");
+                
+                itembox.innerText = "판매중인 상품이 없습니다.";
+
+            reviewList.style.display = "none";
+            itemList.style.display = "block";
+            itembox.style.border = "none";
+            
+            itemList.style.fontSize = "20px";
+
+                
+                itemList.append(itembox);
+            } else {
+
+                for(let item of iList){
+                
+                    const itembox = document.createElement("div");
+                    itembox.classList.add("box");
+
+                    const mainTitle = document.createElement("a");
+                    mainTitle.classList.add("title");
+
+                    const imageArea = document.createElement("div");
+                    imageArea.classList.add("image");
+
+                    const itemImage = document.createElement("image");
+
+                    const title1 = document.createElement("div");
+                    title1.classList.add("title1")
+
+                    const title2 = document.createElement("div");
+                    title2.classList.add("title2");
+                    title2.innerText = item.boardTitle;
+
+                    const name2 = document.createElement("div");
+                    name2.classList.add("name2");
+
+                    const price = document.createElement("div");
+                    price.classList.add("price");
+                    price.innerText = item.price;
+
+                    const time = document.createElement("div");
+                    time.classList.add("time");
+                    time.innerText = item.updateDate
+
+                    name2.append(price, time);
+
+                    title1.append(title2,name2 );
+
+                    imageArea.append(itemImage);
+
+                    mainTitle.append(imageArea, title1);
+
+                    itembox.append(mainTitle);
+
+                    itemList.append(itembox);
+                    
+                }
+            }
+
+
+
+
+        },
+        error : function(req, status, error){
+            console.log("에러 발생");
+            console.log(req.responseText);
+        }
+
+
+    });
+
+}
+
+
 reviewCategory.addEventListener("click", reviewsList);
 itemCategory.addEventListener("click", selectItemsList);
 
-reviewsList();
 
 /* 후기 ajax */
 function reviewsList(){
@@ -20,13 +113,22 @@ function reviewsList(){
         success : function(rList){
             console.log(rList);
 
+            reviewList.innerHTML = "";
             itemList.innerHTML = "";
+            reviewList.style.display = "flex";
+            itemList.style.display = "none";
 
-            if(rList == null) {
-                const reviewBox = document.createElement("section");
-                reviewBox.id = "user-reviews";
-                reviewBox.innerText = "내 후기가 없습니다.";
-                reviewList.append(reviewBox);
+
+            if(rList == "") {
+                reviewList.innerText = "내 후기가 없습니다.";
+                
+                
+                reviewList.style.fontSize = "20px";
+                reviewList.style.height = "320px";
+                reviewList.style.padding = "30px 0 40px 0";
+                
+
+                
             } else {
                 for(let review of rList){
                     
@@ -100,86 +202,4 @@ function reviewsList(){
 
 
 
-/* 상품 ajax */
-function selectItemsList(){
 
-    $.ajax({
-        url : "selectItemsList",
-        data : {"memberNo" : memberNo},
-        type : "GET",
-        dataType : "JSON",
-        success : function(iList){
-            console.log(iList);
-
-            document.getElementById("seller-items").innerHTML = "";
-
-            if (iList == null) {
-                const itembox = document.createElement("div");
-                itembox.classList.add("box");
-                itembox.innerText = "판매중인 상품이 없습니다.";
-
-                
-                itemList.append(itembox);
-            } else {
-
-                for(let item of iList){
-                
-                    const itembox = document.createElement("div");
-                    itembox.classList.add("box");
-
-                    const mainTitle = document.createElement("a");
-                    mainTitle.classList.add("title");
-
-                    const imageArea = document.createElement("div");
-                    imageArea.classList.add("image");
-
-                    const itemImage = document.createElement("image");
-
-                    const title1 = document.createElement("div");
-                    title1.classList.add("title1")
-
-                    const title2 = document.createElement("div");
-                    title2.classList.add("title2");
-                    title2.innerText = item.boardTitle;
-
-                    const name2 = document.createElement("div");
-                    name2.classList.add("name2");
-
-                    const price = document.createElement("div");
-                    price.classList.add("price");
-                    price.innerText = item.price;
-
-                    const time = document.createElement("div");
-                    time.classList.add("time");
-                    time.innerText = item.updateDate
-
-                    name2.append(price, time);
-
-                    title1.append(title2,name2 );
-
-                    imageArea.append(itemImage);
-
-                    mainTitle.append(imageArea, title1);
-
-                    itembox.append(mainTitle);
-
-                    itemList.append(itembox);
-                    
-                }
-            }
-
-
-
-
-        },
-        error : function(req, status, error){
-            console.log("에러 발생");
-            console.log(req.responseText);
-        }
-
-
-    });
-
-}
-
-selectItemsList();

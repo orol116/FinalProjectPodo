@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="resources/css/main-style.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+    <link rel="shorcut icon" href="images/favicon.ico">
 </head>
 
 <body>
