@@ -31,7 +31,7 @@
             <!-- 찜 상품 카운트 -->
             <div class="fav-count"> <!-- 찜 카운트 영역 -->
                 <div>"찜"
-                    <span class="count">1</span>
+                    <span class="count">${bookmark.bookmarkCount}</span>
                 </div>
             </div>
 
@@ -83,8 +83,35 @@
                             <!-- 조회된 찜 상품 우측 상세 내용 영역 -->
                             <div class="product-wholeContent">
                                 <div class="product-info">
+
+                                    <section id="content">
+                                        <ul>
+                                            <c:forEach items="${cartList}" var="cartList">
+                                                <li>
+                                                    <div class="thumb">
+                                                        <img src="${cartList.gdsThumbImg}" />
+                                                    </div>
+                                                    <div class="gdsInfo">
+                                                        <p>
+                                                            <span>제목</span>${board.boardTitle}<br />
+                                                            <span>가격</span><fmt:formatNumber pattern="###,###,###" value="${board.price}"/> 원<br />
+                                                            <span>등록일</span>${board.createDate}<br />
+                                                            <span>위치</span>
+                                                                <!-- 위치 로고 이미지 -->
+                                                                <img src="resources/images/location-logo.png" width="15" height="17" alt="위치 아이콘">
+                                                                ${board.sellArea}
+                                                        </p>
+                                                        
+                                                        <div class="delete">
+                                                            <button type="button" class="delete_btn">삭제</button>
+                                                        </div>
+                                                    </div>   
+                                                </li>
+                                            </c:forEach>
+                                        </ul>
+                                    </section>
                                     
-                                    <!-- 판매 상품 제목 -->
+                                    <%-- <!-- 판매 상품 제목 -->
                                     <div class="product-title">${board.boardTitle}</div>
 
                                     <!-- 판매 상품 가격 -->
@@ -95,15 +122,10 @@
                                     </div>
 
                                     <!-- 판매 상품 등록일 -->
-                                    <div class="upload-date">${board.createDate}</div>
+                                    <div class="upload-date">${board.createDate}</div> --%>
                                 </div>
                                 
-                                <!-- 위치 정보 -->
-                                <div class="location">
-                                    <!-- 위치 로고 이미지 -->
-                                    <img src="resources/images/location-logo.png" width="15" height="17" alt="위치 아이콘">
-                                    ${board.sellArea}
-                                </div>
+                                
                             </div>
 
                             
@@ -127,6 +149,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- js -->
-    <script src="${contextPath}/resources/js/fav.js"></script>
+    <script src="${contextPath}/resources/js/fav/favorites.js"></script>
+    <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
 </body>
 </html>

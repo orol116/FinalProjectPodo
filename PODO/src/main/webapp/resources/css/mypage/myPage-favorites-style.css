@@ -259,3 +259,23 @@ form[name="myPage-form"]{
     transform-origin: 100% 100%;
     transition: width 0.1s ease-out 0s, height 0.1s ease-out 0.1s;
 }
+
+
+
+ /*
+ section#content ul li { display:inline-block; margin:10px; }
+ section#content div.goodsThumb img { width:200px; height:200px; }
+ section#content div.goodsName { padding:10px 0; text-align:center; }
+ section#content div.goodsName a { color:#000; }
+ */
+ section#content ul li { margin:10px 0; }
+ section#content ul li img { width:250px; height:250px; }
+ section#content ul li::after { content:""; display:block; clear:both; }
+ section#content div.thumb { float:left; width:250px; }
+ section#content div.gdsInfo { float:right; width:calc(100% - 270px); }
+ section#content div.gdsInfo { font-size:20px; line-height:2; }
+ section#content div.gdsInfo span { display:inline-block; width:100px; font-weight:bold; margin-right:10px; }
+ section#content div.gdsInfo .delete { text-align:right; }
+ section#content div.gdsInfo .delete button { font-size:22px;
+            padding:5px 10px; border:1px solid #eee; background:#eee;}
+ 

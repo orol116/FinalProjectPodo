@@ -82,5 +82,18 @@
 		SELECT COUNT(*) FROM ITEM_BOARD 
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
+	
+	<select id="selectManageItem" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, BOARD_TITLE, TRADE_CONDITION, READ_COUNT, PRICE,
+		    CASE WHEN SYSDATE - UPDATE_DT &lt; 1
+		        THEN TO_CHAR(UPDATE_DT, 'HH:MI')
+		        ELSE TO_CHAR(UPDATE_DT, 'YYYY-MM-DD')
+		    END UPDATE_DT
+		    
+		FROM ITEM_BOARD
+		WHERE SECESSION_FL = 'N'
+		AND MEMBER_NO = ${memberNo}
+		ORDER BY BOARD_NO DESC
+	</select>
   
 </mapper>
