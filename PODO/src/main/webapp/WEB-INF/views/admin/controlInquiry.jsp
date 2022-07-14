@@ -93,7 +93,7 @@
                                 <th><input type="checkbox"></th>
                                 <th>${inquiry.boardNo}</th>
                                 <th>구매/판매</th>
-                                <th> <a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardTitle}</a> </th>                           
+                                <th><a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardTitle}</a> </th>                           
                                 <th>${inquiry.memberNick}</th>
                                 <th>${inquiry.createDate}</th>
                             </tr>    
