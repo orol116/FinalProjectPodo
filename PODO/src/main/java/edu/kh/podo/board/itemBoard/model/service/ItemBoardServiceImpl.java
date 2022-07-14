@@ -136,4 +136,16 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		return map;
 	}
 
+	// 찜 등록 Service 구현
+	@Override
+	public int addFav(Map<String, Object> map) {
+		return dao.addFav(map);
+	}
+
+	// 찜 개수 +1 Service 구현 
+	@Override
+	public int addCountAdd(Map<String, Object> map) {
+		return dao.addCountAdd(map);
+	}
+
 }

@@ -9,20 +9,21 @@
 
 *{box-sizing: border-box;}
 
-body{
-    width: 1400px;
+html{
+    width: 1000px;
     margin: auto;
 }
+
  /* 로고 */ 
  header{
     height: 180px;
-    width: 1400px;
+    width: 1000px;
     /*margin-top: 15px; */
 }
 
 #header{
 
-    width: 1400px;
+    width: 1000px;
     height:  180px;
     background-color: white;
     display: flex;
@@ -135,10 +136,12 @@ select {
     margin-right: 20px;
 }
 table{
-    width: 100%;
+    width: 1000px;
+ 
     text-align: center;
     border-collapse: collapse;
     table-layout: fixed;
+    font-size: 12px;
 }
 th{
     font-size: 13px;

@@ -6,6 +6,7 @@
 <c:set var="memberNo" value="${map.memberNo}" />
 <c:set var="sellList" value="${map.sellList}" />
 <c:set var="sellMember" value="${map.sellMember}" />
+<c:set var="boardNo" value="${boardNo}" />
 
 
 <!DOCTYPE html>
@@ -73,12 +74,14 @@
    
 
                         <div id="info-button-area">
-                            <%-- <button id="do-bookmark">찜하기</button> --%>
-                            <p class="add-fav">
-                                <button type="button" class="add-fav-btn">찜하기</button>
-                            </p>
+                            <c:if test="${memberNo != loginMember.memberNo}"> 
+                                <button id="do-bookmark">찜하기</button> 
+                                <%-- <p class="add-fav">
+                                    <button type="button" class="add-fav-btn">찜하기</button>
+                                </p> --%>
 
-                            <button id="do-chat">1:1 채팅하기</button>
+                                <button id="do-chat">1:1 채팅하기</button>
+                            </c:if>
                         </div>
                     </div>
                     
@@ -256,7 +259,12 @@
     <%-- 찜 버튼 JS --%>
     <script>
         const contextPath = "${contextPath}";
+        
+        const loginMemberNo = "${loginMember.memberNo}";
+
+        const boardNo = "${boardNo}";
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
 </body>

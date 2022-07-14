@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.google.gson.Gson;
@@ -63,14 +62,6 @@ public class MyShopController {
 		
 		return "item/itemManage";
 	}
-	
-//	// 판매자 후기 조회
-//	@ResponseBody
-//	@GetMapping("/memberReview")
-//	public String memberReview(int memberNo) {
-//		List<Review> reviewList = service.selectMemberReview(memberNo);
-//		return new Gson().toJson(reviewList);
-//	}
 	
 	// 내 상점 조회
 	@GetMapping("/myShop")
