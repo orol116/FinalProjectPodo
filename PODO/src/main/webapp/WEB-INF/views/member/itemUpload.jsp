@@ -51,14 +51,14 @@
                     <div class="img-box">
                         <div class="boardImg">
                             <label for="img1">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img1" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
                         <div class="boardImg">
                             <label for="img2">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img2" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
@@ -66,7 +66,7 @@
         
                         <div class="boardImg">
                             <label for="img3">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img3" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
@@ -74,14 +74,14 @@
                         
                         <div class="boardImg">
                             <label for="img4">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
                         <div class="boardImg">
                             <label for="img5">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img5" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
