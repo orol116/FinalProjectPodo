@@ -54,6 +54,12 @@ public class MyShopServiceImpl implements MyShopService {
 		
 		return map;
 	}
+
+	// 내 후기 개수 조회
+	@Override
+	public int selectReviewCount(int memberNo) {
+		return dao.selectReviewCount(memberNo);
+	}
 	
 	
 

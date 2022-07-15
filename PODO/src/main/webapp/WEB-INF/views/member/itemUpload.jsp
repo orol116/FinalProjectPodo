@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:set var="LCategory" value="${LCategoryList}" />
+<c:set var="MCategory" value="${MCategoryList}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +26,7 @@
             <nav id="mainMenu">
                 <a href="${contextPath}/member/itemUpload">상품등록</a>
                 <a href="${contextPath}/shop/main">상품관리</a>
-                <a href="#">구매/판매 내역</a>
+                <a href="${contextPath}/member/purchases">구매/판매 내역</a>
             </nav>
         </div>
 
@@ -48,14 +51,14 @@
                     <div class="img-box">
                         <div class="boardImg">
                             <label for="img1">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img1" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
                         <div class="boardImg">
                             <label for="img2">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img2" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
@@ -63,7 +66,7 @@
         
                         <div class="boardImg">
                             <label for="img3">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img3" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
@@ -71,14 +74,14 @@
                         
                         <div class="boardImg">
                             <label for="img4">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
                         <div class="boardImg">
                             <label for="img5">
-                                <img class="preview" src="#">
+                                <img class="preview" src="${contextPath}/resources/images/image.png">
                             </label>
                             <input type="file" class="inputImage" id="img5" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
@@ -131,28 +134,32 @@
                         <div id="category">
                             <div id="category1">
                                 <ul class="category1-1">
-                                    <li> <button type="button" class="select" >여성의류</button></li>
+
+                                    <c:forEach var="LCate" items="${LCategory}">
+                                        <li> <button type="button" class="select" name="LCate" id="${LCate.LCategoryNo}">${LCate.LCategoryName}</button></li>
+                                    </c:forEach>
+                                    <%-- <li> <button type="button" class="select" >여성의류</button></li>
                                     <li> <button type="button" class="select" value="남성의류">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
                                     <li><button type="button" class="select">시계/쥬얼리</button></li>
                                     <li><button type="button" class="select">패션 액세사리</button></li>
                                     <li><button type="button" class="select">디지털/가전</button> </li>
-                                    <li><button type="button" class="select">스포츠/레저</button></li>
+                                    <li><button type="button" class="select">스포츠/레저</button></li> --%>
                                 </ul>
                             </div>
                         </div>
                         <div id="category">
                              <div id="category2">
-                                <ul class="category1-1">
-                                    <li> <button type="button" class="select">여성의류</button></li>
-                                    <li> <button type="button" class="select">남성의류</button></li>
+                                <ul class="category1-1" name="category2">
+                                    <li> <button type="button" class="select"></button></li>
+                                    <%-- <li> <button type="button" class="select">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
                                     <li><button type="button" class="select">시계/쥬얼리</button></li>
                                     <li><button type="button" class="select">패션 액세사리</button></li>
                                     <li><button type="button" class="select">디지털/가전</button> </li>
-                                    <li><button type="button" class="select">스포츠/레저</button></li>
+                                    <li><button type="button" class="select">스포츠/레저</button></li> --%>
                                 </ul>
                              </div>
                         </div>
@@ -297,6 +304,9 @@
                  AND IMG_LEVEL IN (0,3,1,2) -->
 
         <input type="hidden" name="deleteList" id="deleteList" value="">
+
+        <input type="hidden" name="lCateValue" id="lCateValue">
+        <input type="hidden" name="mCateValue" id="mCateValue">
 
       </form>
     </main>

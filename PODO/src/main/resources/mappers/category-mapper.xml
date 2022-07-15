@@ -53,6 +53,14 @@
 		ORDER BY CATEGORY_NO
 	</select>
 	
+	<!-- 대분류에 해당하는 중분류 카테고리 조회 -->
+	<select id="mcategoryList" resultMap="mCategory_rm">
+		SELECT CATEGORY_NO, M_CATEGORY_NO, M_CATEGORY_NM
+		FROM M_CATEGORY
+		WHERE CATEGORY_NO = #{lCategoryNo}
+		ORDER BY CATEGORY_NO
+	</select>
+	
 	<!-- 카테고리 내 조회 결과 -->
 	<select id="categoryResultList" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO

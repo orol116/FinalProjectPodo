@@ -42,26 +42,26 @@
     </nav>
 </div>
 
+<form action="${item.boardNo}" method="get" id="itemSearch" onsubmit="return searchValidate()">
 
 <div class="option">
-    <select>
-        <option>대분류</option>
-        <option>여성의류</option>
-        <option>남성의류</option>
-        <option>시계/쥬얼리</option>
-        <option>디지털 가전</option>
+    <select name="key" id="search-key">
+        <option value="all">대분류</option>
+        <option value="w">여성의류</option>
+        <option value="m">남성의류</option>
+        <option value="j">시계/쥬얼리</option>
+        <option value="d">디지털 가전</option>
     </select>
  
-   
     <section class="basic">
-        <form class="search1" action="#" method="post" id="search">
-            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
+            <button class="button" type= "submit" id="searchItem" ><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </section>
 </div>
 
 
+    <form class="search1" action="controlItem" id="search"  name="list-form" onsubmit="return ckBox()">
 
 <div>
     <table>
@@ -90,7 +90,7 @@
                     <c:otherwise>
                         <c:forEach var="item" items="${itemList}">
                             <tr>
-                                <td ><input type="checkbox"></td>
+                            <td><input type="checkbox" name="itemList" id="chkbox" value="${{item.boardNo}}"></td>
                                 <td >${item.boardNo}</td>
                                 <td >${item.categoryName}</td>
                                 <td><a href="../board/detail/${item.boardNo}">${item.boardTitle}</a></td>
@@ -110,18 +110,18 @@
     
     <div class="last">
         <div>
-            <input type="checkbox" id="checkbox"><label for="checkbox"> 전체선택</label>
+            <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
         </div>
         <div>
            
-            <button id="delete">삭제</button>
+            <button type="submit" class="btn" id="deleteBtn" onclick='deleteItem()'>삭제</button>
         </div>
     </div>
 
     <div class="pagination">
        <c:set var="url" value="4?cp="/>
 
-
+</form>
             <ul class="pagination">
                 <!-- 첫 페이지로 이동 -->
                 <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
@@ -146,7 +146,10 @@
                 <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
 
             </ul>
+
     </div>
+    <script src="${contextPath}/resources/js/admin/controlItem.js"></script>
+
 
 </div>
 </body>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,7 +39,7 @@ public class MyShopController {
 	@Autowired
 	private MemberService memberService;
 
-	// 판매자 판매상품 조회
+	// 내 상품관리
 	@GetMapping("/main")
 	public String memberShopMain(ItemBoard itemBoard
 							   , @ModelAttribute("loginMember") Member loginMember
@@ -64,34 +65,61 @@ public class MyShopController {
 	}
 	
 	// 내 상점 조회
-	@GetMapping("/myShop")
-	public String myShop(@ModelAttribute("loginMember") Member loginMember
+	@GetMapping("/myShop/{memberNo}")
+	public String myShop(@PathVariable("memberNo") int memberNo
 					   , Model model) {
 		
-		List<Member> member = service.selectMemberInfo(loginMember.getMemberNo());
+		List<Member> member = service.selectMemberInfo(memberNo);
 		model.addAttribute("member", member);
 		
-		int boardCount = service.selectBoardCount(loginMember.getMemberNo());
+		int boardCount = service.selectBoardCount(memberNo);
 		model.addAttribute("boardCount", boardCount);
+		
+		int reviewCount = service.selectReviewCount(memberNo);
+		model.addAttribute("reviewCount", reviewCount);
+		
+		return "member/profile";
+	}
+	
+	// 판매자 상점 조회
+	@GetMapping("/memberShop/{memberNo}")
+	public String memberShop(@PathVariable("memberNo") int memberNo
+						   , Model model) {
+		
+		List<Member> member = service.selectMemberInfo(memberNo);
+		model.addAttribute("member", member);
+		
+		int boardCount = service.selectBoardCount(memberNo);
+		model.addAttribute("boardCount", boardCount);
+		
+		int reviewCount = service.selectReviewCount(memberNo);
+		model.addAttribute("reviewCount", reviewCount);
+		
+		
 		
 		return "member/profile";
 	}
 	
 	// 내 상점 물건 조회 ajax
 	@ResponseBody
-	@GetMapping("selectItemsList")
-	public String selectItemsList(int memberNo) {
-		
+	@GetMapping("/selectItemsList/{memberNo}")
+	public String selectItemsList(@PathVariable("memberNo") int memberNo) {
 		List<ItemBoard> memberItemList =  service.selectMemberShop(memberNo);
-
 		return new Gson().toJson(memberItemList);
 	}
 	
 	// 내 상점 후기 조회 ajax
 	@ResponseBody
-	@GetMapping("/selectReviewsList")
-	public String memberReview(int memberNo) {
+	@GetMapping("/selectReviewsList/{memberNo}")
+	public String memberReview(@PathVariable("memberNo") int memberNo) {
 		List<Review> reviewList = service.selectMemberReview(memberNo);
 		return new Gson().toJson(reviewList);
+	}
+	
+	// 내 구매/판매 조회
+	@GetMapping("/myMall")
+	public String myMall() {
+		
+		return "member/myPage/myPage-purchases";
 	}
 }
