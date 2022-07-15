@@ -26,6 +26,10 @@
             </a>
             <div><h1>관리자 페이지</h1></div>
         </section>
+        <section>
+            <a id="logout" href="#">로그아웃</a>
+            <a id="gotoMain" href="${contextPath}">메인으로</a>
+        </section>
     </div>    
 
 </header>
@@ -43,24 +47,28 @@
 </div>
 
 
-<div class="option">
-    <select>
-        <option>탈퇴여부</option>
-        <option>N</option>
-        <option>Y</option>
+<form action="${memberNo}" method="get" id="memSearch" onsubmit="return searchValidate()">
+    <div class="option">    
+    <select name="key" id="search-key">
+        <option value="all">탈퇴여부</option>
+        <option value="n">N</option>
+        <option value="y">Y</option>
     </select>
  
    
     <section class="basic">
-    <form class="search1" action="deleteMember" id="search"  name="list-form" onsubmit="return ckBox()">
-            <input id="search2" type="text" placeholder="회원명을 입력해주세요.">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
-       
+    <%-- 회원검색창 --%>
+
+            <input id="search2" type="text" name="query" placeholder="회원 아이디를 입력해주세요.">
+            <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    
+     </form>  
     </section>
 </div>
 
 
 
+    <form class="search1" action="controlMember" id="search"  name="list-form" onsubmit="return ckBox()">
 <div>
     <table>
         <thead>
@@ -116,7 +124,7 @@
         </div>
         <div>
             <%-- <button id="stop">정지</button> --%>
-            <button  type="submit" class="btn" id="deleteBtn">삭제</button>
+            <button  type="submit" class="btn" id="deleteBtn" onclick='deleteMem()'>삭제</button>
         </div>
     </div>
 </form>
