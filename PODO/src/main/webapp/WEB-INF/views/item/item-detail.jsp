@@ -54,6 +54,22 @@
                             <a href="#" id="item-report">신고하기</a>
                         </div>
 
+                        <%-- 모달창 --%>
+                        <div class="background">
+                            <div class="window">
+                              <div class="popup">
+                                <button id="close" type="button">팝업닫기</button>
+                                <div id="report-text">신고할 내용을 입력해주세요.</div>
+                                <div id="report-area">
+                                    <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
+                                </div>
+                                <button id="reportBtn">제출</button>
+                              </div>
+                              <div>
+                              </div>
+                            </div>
+                        </div>
+
                         
                         <div id="item-condition">
                             
@@ -265,5 +281,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
+    <script src="${contextPath}/resources/js/modal.js"></script>
 </body>
 </html>
