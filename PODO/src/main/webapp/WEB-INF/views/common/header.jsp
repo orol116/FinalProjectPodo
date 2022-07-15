@@ -18,16 +18,16 @@
 
     
     <div id="top">
-    <c:choose>
-        <c:when test="${empty sessionScope.loginMember}">
-                <a href="${contextPath}/member/login">로그인
-                <a href="${contextPath}/member/signUp">회원가입
-        </c:when>
-        <c:otherwise>
-                <a href="${contextPath}/member/logout">로그아웃
-                <a href="${contextPath}/member/myPage/changePw">마이페이지
-        </c:otherwise>
-    </c:choose>    
+        <c:choose>
+            <c:when test="${empty sessionScope.loginMember}">
+                    <a href="${contextPath}/member/login">로그인
+                    <a href="${contextPath}/member/signUp">회원가입
+            </c:when>
+            <c:otherwise>
+                    <a href="${contextPath}/member/logout">로그아웃
+                    <a href="${contextPath}/member/myPage/changePw">마이페이지
+            </c:otherwise>
+        </c:choose>    
        
     </div>
 
