@@ -37,6 +37,10 @@ public class CategoryDAO {
 	public List<ItemBoard> categoryResultList(int mCategoryNo) {
 		return sqlSession.selectList("categoryMapper.categoryResultList", mCategoryNo);
 	}
+
+	public List<MiddleCategory> mcategoryList(int lCategoryNo) {
+		return sqlSession.selectList("categoryMapper.mcategoryList", lCategoryNo);
+	}
 	
 	
 }

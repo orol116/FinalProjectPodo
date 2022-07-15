@@ -65,33 +65,62 @@ for(let i=0 ; i<inputImage.length ; i++){
 
 // 컨트롤러에서 데이터 받기
 
+   
+
+var LCategoryBtn = document.getElementsByName("LCate");
+
+// LCategoryBtn.forEach((target)=> target.addEventListener("click",(target)=>{
+
+//         McategoryList
+//         console.log(target.id)
+//      }
+//     )
+// );
+
+
+LCategoryBtn.forEach((target)=> target.addEventListener("click", McategoryList));
 
 
 
+function McategoryList(event){
+    
+    $.ajax({
+        url : contextPath + "/mCategory",  
+        data : { "lCategoryNo" : event.target.getAttribute('id') }, 
+        type : "GET", 
+        dataType : "JSON",
+    
+        success : function(mCategoryList){ 
+            
+            document.getElementsByName("category2")[0].innerHTML="";
 
+            for(let mct of mCategoryList){
 
+                const li = document.createElement("li");
+                const button =document.createElement("button");
 
+                button.innerHTML=mct.MCategoryName
+                button.classList.add("select");
+                
+                button.setAttribute('type','button')
+                button.setAttribute('id',mct.MCategoryNo)
+                
+                li.append(button);
+                document.getElementsByName("category2")[0].append(li);
 
+                console.log(mct.MCategoryName)
+                console.log(mct.MCategoryNo)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
+        
+        },
+ 
+        error : function(){ 
+            console.log("에러 발생");
+        }
+  
+    })
+}
 
 
 

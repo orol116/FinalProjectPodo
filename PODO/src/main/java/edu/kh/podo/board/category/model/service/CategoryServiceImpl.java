@@ -34,4 +34,10 @@ public class CategoryServiceImpl implements CategoryService {
 		return dao.categoryResultList(mCategoryNo);
 	}
 
+	
+	@Override
+	public List<MiddleCategory> mcategoryList(int lCategoryNo) {
+		return dao.mcategoryList(lCategoryNo);
+	}
+
 }

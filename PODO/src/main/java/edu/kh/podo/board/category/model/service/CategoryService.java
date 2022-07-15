@@ -26,4 +26,6 @@ public interface CategoryService {
 	 */
 	List<ItemBoard> categoryResultList(int mCategoryNo);
 
+	List<MiddleCategory> mcategoryList(int lCategoryNo);
+
 }
