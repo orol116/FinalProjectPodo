@@ -49,10 +49,11 @@
 	
 	<!-- 찜 상품 조회 -->
 	<select id="selectFavorList" resultMap="itemBoard_rm">
-		SELECT BOARD_TITLE, SELL_AREA, UPDATE_DT, PRICE
-		FROM ITEM_BOARD
-		JOIN BOOKMARK USING(MEMBER_NO)
-		WHERE MEMBER_NO = ${memberNo}
+		SELECT BOARD_TITLE,SELL_AREA,UPDATE_DT,PRICE
+		FROM BOOKMARK A
+		JOIN ITEM_BOARD B USING (BOARD_NO)
+		WHERE A.MEMBER_NO = ${memberNo}
+		ORDER BY BOARD_NO DESC
 	</select>
 	
 	

@@ -38,7 +38,7 @@
                 <section id="category">
                     <a href="#">홈</a> >
                     <a href="#">대분류</a> >
-                    <a href="#">${itemList[0]}</a>
+                    <a href="#">중분류</a>
                 </section>
 
 
