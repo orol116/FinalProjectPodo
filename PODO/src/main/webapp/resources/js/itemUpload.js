@@ -118,7 +118,9 @@ function McategoryList(event){
 
                 function mCategoryClick(event){
     
-                    document.getElementsByName("mCateValue")[0].value="";
+
+                    document.getElementsByName("mCateValue")[0].value='';
+   
                     console.log(event.target)
                     document.getElementsByName("mCateValue")[0].value = event.target.getAttribute('id');          
                     console.log(document.getElementsByName("mCateValue")[0].value);
