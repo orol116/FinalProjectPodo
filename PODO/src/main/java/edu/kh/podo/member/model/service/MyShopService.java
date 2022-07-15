@@ -39,4 +39,10 @@ public interface MyShopService {
 	 */
 	Map<String, Object> selectManageItem(Map<String, Object> map);
 
+	/** 내 후기 개수 조회
+	 * @param memberNo
+	 * @return reviewCount
+	 */
+	int selectReviewCount(int memberNo);
+
 }

@@ -13,7 +13,7 @@ itemCategory.addEventListener("click", selectItemsList);
 function selectItemsList(){
 
     $.ajax({
-        url : "selectItemsList",
+        url : contextPath + "/shop/selectItemsList/" + memberNo,
         data : {"memberNo" : memberNo},
         type : "GET",
         dataType : "JSON",
@@ -29,7 +29,7 @@ function selectItemsList(){
                 const itembox = document.createElement("div");
                 itembox.classList.add("box");
                 
-                itembox.innerText = "판매중인 상품이 없습니다.";
+                itembox.innerText = "등록된 상품이 없습니다.";
 
                 reviewList.style.display = "none";
                 itemList.style.display = "block";
@@ -110,7 +110,7 @@ reviewCategory.addEventListener("click", reviewsList);
 function reviewsList(){
 
     $.ajax({
-        url : "selectReviewsList",
+        url : contextPath + "/shop/selectReviewsList/" + memberNo,
         data : {"memberNo" : memberNo},
         type : "GET",
         dataType : "JSON",
@@ -124,7 +124,7 @@ function reviewsList(){
 
 
             if(rList == "") {
-                reviewList.innerText = "내 후기가 없습니다.";
+                reviewList.innerText = "등록된 후기가 없습니다.";
                 
                 
                 reviewList.style.fontSize = "20px";

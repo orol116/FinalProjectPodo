@@ -17,7 +17,7 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <form action="itemUpload" method="POST" name="itemUpload" id="itemUpload">
+    <%-- <form action="itemUpload" method="POST" name="itemUpload" id="itemUpload"> --%>
 
     <div class="top-menu">
         <nav id="mainMenu">

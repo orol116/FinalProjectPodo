@@ -61,4 +61,12 @@ public class MyShopDAO {
 		return sqlSession.selectList("myShopMapper.selectManageItem", memberNo, rowBounds);
 	}
 
+	/** 내 후기 개수 조회 DAO
+	 * @param memberNo
+	 * @return reviewCount
+	 */
+	public int selectReviewCount(int memberNo) {
+		return sqlSession.selectOne("myShopMapper.selectReviewCount", memberNo);
+	}
+
 }

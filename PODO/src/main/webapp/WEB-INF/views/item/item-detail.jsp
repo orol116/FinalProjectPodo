@@ -54,6 +54,22 @@
                             <a href="#" id="item-report">신고하기</a>
                         </div>
 
+                        <%-- 모달창 --%>
+                        <div class="background">
+                            <div class="window">
+                              <div class="popup">
+                                <button id="close" type="button">팝업닫기</button>
+                                <div id="report-text">신고할 내용을 입력해주세요.</div>
+                                <div id="report-area">
+                                    <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
+                                </div>
+                                <button id="reportBtn">제출</button>
+                              </div>
+                              <div>
+                              </div>
+                            </div>
+                        </div>
+
                         
                         <div id="item-condition">
                             
@@ -131,20 +147,28 @@
 
                     </div>
 
+                    <c:if test="${memberNo != loginMember.memberNo}">
+                    <a href="${contextPath}/shop/memberShop/${memberNo}">
+                    </c:if>
+
+                    <c:if test="${memberNo == loginMember.memberNo}">
+                    <a href="${contextPath}/shop/myShop/${loginMember.memberNo}">
+                    </c:if>
+
                     <div id="body-profile-area">
                         <div id="profile-box">
-                            <div id="profile-detail">
-                                <div id="profile-name">
-                                    ${sellMember[0].memberNickname}
-                                </div>
-                                <div id="profile-podo">
-                                    포도알 : ${sellMember[0].memberGrape}
-                                </div>
-                     
+                                
+                                <div id="profile-detail">
+                                    <div id="profile-name">
+                                        ${sellMember[0].memberNickname}
+                                    </div>
+                                    <div id="profile-podo">
+                                        포도알 : ${sellMember[0].memberGrape}
+                                    </div>
+                        
 
-                            </div>
-
-                            <img id="profile-image" src="${contextPath}/resources/images/logo.png"  alt="회원 프로필 이미지">
+                                </div>
+                            <img id="profile-image" src="${contextPath}${sellMember[0].memberProfile}"  alt="회원 프로필 이미지">
                         </div>
 
                         <div id="review-text">후기</div>
@@ -160,6 +184,7 @@
                         </div>
 
                     </div>
+                    </a>
                     
                 </section>
 
@@ -258,14 +283,13 @@
 
     <%-- 찜 버튼 JS --%>
     <script>
-        const contextPath = "${contextPath}";
-        
         const loginMemberNo = "${loginMember.memberNo}";
-
         const boardNo = "${boardNo}";
+        const memberNo = "${memberNo}";
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
+    <script src="${contextPath}/resources/js/modal.js"></script>
 </body>
 </html>

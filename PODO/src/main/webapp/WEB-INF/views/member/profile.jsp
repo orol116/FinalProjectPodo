@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="addr"  value="${fn:split(member[0].memberAddress, ',,')}"  />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +33,7 @@
                 <section id="profile-head">
                     <div id="user-profile-left">
                         <div id="user-image-area">
-                            <image class="profile-image" src="${contextPath}/resources/images/logo.png" ></image>
+                            <image class="profile-image" src="${contextPath}${loginMember.memberProfile}" ></image>
                         </div>
                         <div id="user-name-left">${member[0].memberNickname}</div>
                         <div id="user-info">
@@ -43,9 +46,11 @@
                         </div>
                     </div>
 
+
                     <div id="user-profile-right">
                         <div id="user-name-right">${member[0].memberNickname}</div>
-                        <div id="user-town">${member[0].memberAddress}</div>
+                        <div id="user-town">${addr[1]}</div>
+                        <div id="user-town">${addr[2]}</div>
 
                         <c:if test="${member[0].shopInfo != null}">
                             <div id="user-intro">${member[0].shopInfo}</div>
@@ -67,7 +72,7 @@
 
                 <div id="user-category">
                     <button id="item-list" type="button">상품 ${boardCount}개</button>
-                    <button id="review-category" type="button">후기 5개</button>
+                    <button id="review-category" type="button">후기 ${reviewCount}개</button>
                 </div>
 
                 <section id="seller-items">
@@ -93,7 +98,7 @@
     </main>
 
         <script>
-            const memberNo = ${loginMember.memberNo}
+            const memberNo = ${memberNo}
         </script>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

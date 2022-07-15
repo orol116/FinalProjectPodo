@@ -139,7 +139,7 @@
 	
 	<!-- 판매자 회원 정보 조회 -->
 	<select id="sellMemberInfo" resultMap="member_rm">
-		SELECT MEMBER_NICK, MEMBER_GRAPE
+		SELECT MEMBER_NICK, MEMBER_GRAPE, MEMBER_PROFILE
 		FROM MEMBER
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
