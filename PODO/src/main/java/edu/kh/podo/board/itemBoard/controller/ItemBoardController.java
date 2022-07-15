@@ -42,8 +42,10 @@ public class ItemBoardController {
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
 							ItemBoard item,
-							HttpServletRequest req
-							,RedirectAttributes ra
+							HttpServletRequest req,
+							RedirectAttributes ra,
+							String lCateValue,
+							String mCateValue
 							) {
 
 		item.setMemberNo(loginMember.getMemberNo());
@@ -51,6 +53,8 @@ public class ItemBoardController {
 		String webPath = "/resources/images/item";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		
 
 		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
 		
