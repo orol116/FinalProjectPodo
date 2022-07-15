@@ -38,7 +38,7 @@ public class MyShopController {
 	@Autowired
 	private MemberService memberService;
 
-	// 판매자 판매상품 조회
+	// 내 상품관리
 	@GetMapping("/main")
 	public String memberShopMain(ItemBoard itemBoard
 							   , @ModelAttribute("loginMember") Member loginMember
@@ -73,6 +73,9 @@ public class MyShopController {
 		
 		int boardCount = service.selectBoardCount(loginMember.getMemberNo());
 		model.addAttribute("boardCount", boardCount);
+		
+		int reviewCount = service.selectReviewCount(loginMember.getMemberNo());
+		model.addAttribute("reviewCount", reviewCount);
 		
 		return "member/profile";
 	}
