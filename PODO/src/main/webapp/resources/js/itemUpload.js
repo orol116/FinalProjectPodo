@@ -103,24 +103,52 @@ function McategoryList(event){
                 button.classList.add("select");
                 
                 button.setAttribute('type','button')
-                button.setAttribute('id',mct.MCategoryNo)
-                
+                button.setAttribute('id','m'+mct.MCategoryNo)
+                button.setAttribute('onclick','mCategoryClick()')
+                button.setAttribute('name', 'MCate')
+
                 li.append(button);
                 document.getElementsByName("category2")[0].append(li);
 
                 console.log(mct.MCategoryName)
                 console.log(mct.MCategoryNo)
 
+
+
+
+                var MCategoryBtn = document.getElementsByName("MCate");
+                MCategoryBtn.forEach((target)=> target.addEventListener("click", mCategoryClick));
+
+                function mCategoryClick(event){
+    
+                    document.getElementsByName("mCateValue")[0].value="";
+    
+                    console.log(event.target)
+    
+                    document.getElementsByName("mCateValue")[0].value = event.target.getAttribute('id');
+                    
+                    console.log(document.getElementsByName("mCateValue")[0].value);
+                }
+                
             }
-        
+            
+            document.getElementsByName("mCateValue")[0].value = '';
+            document.getElementsByName("lCateValue")[0].value='';
+            document.getElementsByName("lCateValue")[0].value=event.target.getAttribute('id');
+
         },
- 
+        
         error : function(){ 
             console.log("에러 발생");
         }
-  
+        
     })
 }
+
+
+
+
+
 
 
 
