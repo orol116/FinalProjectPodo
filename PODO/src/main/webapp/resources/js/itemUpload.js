@@ -110,22 +110,19 @@ function McategoryList(event){
                 li.append(button);
                 document.getElementsByName("category2")[0].append(li);
 
-                // console.log(mct.MCategoryName)
-                // console.log(mct.MCategoryNo)
+                console.log(mct.MCategoryName)
+                console.log(mct.MCategoryNo)
 
                 var MCategoryBtn = document.getElementsByName("MCate");
                 MCategoryBtn.forEach((target)=> target.addEventListener("click", mCategoryClick));
 
                 function mCategoryClick(event){
     
-
                     document.getElementsByName("mCateValue")[0].value='';
-   
                     console.log(event.target)
-                    document.getElementsByName("mCateValue")[0].value = event.target.getAttribute('id');          
+                    document.getElementsByName("mCateValue")[0].value =   event.target.getAttribute('id').substring(1);          
                     console.log(document.getElementsByName("mCateValue")[0].value);
-                }
-                
+                } 
             }
             
             document.getElementsByName("mCateValue")[0].value = '';
@@ -142,21 +139,27 @@ function McategoryList(event){
 }
 
 
-
-
-
-
-
-
   /* 카테고리 선택 시 값 가져오기 */
 
 $('.select').on('click', function(){
   $('#category4').text($(this).text());
 });
 $('.select2').on('click', function(){
-    $("#category5").html(MCateValue.value);
+    $("#category5").html(mct.MCategoryName);
 
   });
+
+
+const selectList = document.getElementsByClassName("select");
+
+for(let select of selectList){
+
+    select.addEventListener("click", function(){
+        document.getElementById("lCateValue").value = this.getAttribute("id");
+    });
+}
+
+
 
 
 
