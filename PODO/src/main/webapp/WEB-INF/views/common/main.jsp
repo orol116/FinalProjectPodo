@@ -33,7 +33,7 @@
         </div>
    
         
-        <c:choose>
+               <c:choose>
             <c:when test="${empty itemList}">
 
                 <div>
@@ -67,7 +67,7 @@
                                 </div>
                             </a>
                         </div>
-        						
+                          
                     <c:if test="${ vs.index % 5 eq 4}">
                         </div>
                     </c:if>
@@ -76,10 +76,7 @@
             </c:otherwise>
         </c:choose>
                     
-        </div>       
-            
-                
-        </div>
+
 
     </section>
     </main>
