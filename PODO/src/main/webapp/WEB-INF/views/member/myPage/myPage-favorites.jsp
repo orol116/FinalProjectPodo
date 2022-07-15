@@ -51,6 +51,7 @@
                             </div>
 
                             <!-- 선택삭제(전체 선택) -->
+                            <input type="checkbox">
                             <button class="fav-delete">선택삭제</button>
 
                         </div>
@@ -74,7 +75,7 @@
                                 <%-- <div class="check-area">
                                     <button type="button" class="fav-check-btn"></button>
                                 </div> --%>
-                                <input type="checkbox">
+                                
 
 
                                 
@@ -102,6 +103,9 @@
                                                         <c:otherwise>
                                                             <c:forEach items="${favorBoard}" var="favor">
                                                                 <li>
+                                                                    <div class=checkbox>
+                                                                        <input type="checkbox">
+                                                                    </div> 
                                                                     <div class="thumb">
 
                                                                         <%-- <!-- 업로드 이미지가 있는 경우 -->
@@ -132,8 +136,8 @@
                                                                                 <img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">
                                                                                 ${favor.sellArea}
                                                                         </p>
-                                                                        
                                                                         <div class="delete">
+                                                                            
                                                                             <button type="button" class="delete_btn">삭제</button>
                                                                         </div>
                                                                     </div>   
