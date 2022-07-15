@@ -60,6 +60,7 @@ main>ul:nth-child(4){
 
 .frist{
     display: flex;
+    
 }
 span{
     color: rgb(95, 0, 129);
@@ -178,7 +179,29 @@ form>ul:nth-child(4){
     font-size: 100%;
 
 }
+
+.select2{
+    width: 250px;
+    height: 100%;
+    padding: 6px 1.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: 0px;
+    font-size: 16px;
+    display: flex;
+    justify-content:left;
+    padding: 5px;
+    font-size: 100%;
+
+}
+
 .select:hover{
+    height: 100%;
+    background-size:length 200px ;
+    background-color:rgba(195, 194, 204, 0.288);
+}
+.select2:hover{
     height: 100%;
     background-size:length 200px ;
     background-color:rgba(195, 194, 204, 0.288);
