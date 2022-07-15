@@ -19,3 +19,30 @@ function reviewValidate(){
 
     return true;
 }
+
+
+// 좋아요, 싫어요
+
+function updateLike(){ 
+    $.ajax({
+        type : "POST",  
+        url : contextPath + "/member/updateLike",       
+        dataType : "JSON",   
+        data : {"memberNo" : loginMemberNo,
+                "memberGrape" : memberGrape},
+        success : function(likeCheck) {
+            
+                if(likeCheck == 0){
+                    alert("추천완료.");
+                    location.reload();
+                }
+                else if (likeCheck == 1){
+                    alert("추천취소");
+                    location.reload();
+            }
+        },
+        error : function(){
+            console.log("추천 기능 수행 중 오류 발생");
+        }
+    });
+}
