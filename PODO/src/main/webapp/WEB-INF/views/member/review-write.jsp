@@ -28,8 +28,17 @@
         <div class="review-table">
             <div class="review-table-title">만족도</div>
             <div class="review-table-thumbs">
-                <a href="javascript:void(0);" class="icon-thumbs thumbs-down _thumbs-down" data-answer-id="8" data-thumbs-status="DOWN">thumbs down</a>
-                <a href="javascript:void(0);" class="icon-thumbs thumbs-up _thumbs-up" data-answer-id="7" data-thumbs-status="UP">thumbs up</a>
+                <%-- <a href="javascript:void(0);" class="icon-thumbs thumbs-down _thumbs-down" data-answer-id="8" data-thumbs-status="DOWN">thumbs down</a>
+                <a href="javascript:void(0);" class="icon-thumbs thumbs-up _thumbs-up" data-answer-id="7" data-thumbs-status="UP">thumbs up</a> --%>
+                
+                <button type="button" class="btn btn-warning " id="like-btn" onclick="updateLike()">
+                    <img src="${contextPath}/resources/images/icon-thumb-up">
+                </button>
+                <button type="button" class="btn btn-danger" id="dislike-btn" onclick="updateDislike()">
+                    <img src="${contextPath}/resources/images/icon-thumb-down">
+                </button>
+				        
+
             </div>
         </div>
 

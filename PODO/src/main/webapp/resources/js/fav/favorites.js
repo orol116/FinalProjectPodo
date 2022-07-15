@@ -23,3 +23,18 @@ document.getElementById("do-bookmark").addEventListener("click", function(){
     });
 });
 
+
+// 전체 선택
+const $checkArea = document.querySelector('.checkArea');
+const $inputs = [...$product-detail.children];
+const $checkBtn = document.querySelector('.fav-check-btn');
+
+$$checkBtn .onclick = () => {
+    if ($inputs.filter(input => input.checked).length === $inputs.length) {
+    $inputs.forEach(input => { input.checked = false; });
+    } else {
+    $inputs.forEach(input => {
+        input.checked = true;
+    });
+    }
+};
