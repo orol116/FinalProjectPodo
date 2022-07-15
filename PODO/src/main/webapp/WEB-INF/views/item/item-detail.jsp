@@ -38,7 +38,7 @@
                 <section id="category">
                     <a href="#">홈</a> >
                     <a href="#">대분류</a> >
-                    <a href="#">중분류</a>
+                    <a href="#">${itemList[0]}</a>
                 </section>
 
 
@@ -51,7 +51,7 @@
                             <div id="bookmark"> 찜 : ${itemList[0].bookmarkCount} </div>
                             <div id="read-count"> 조회수 : ${itemList[0].readCount} </div>
                             <div id="create-DT">  ${itemList[0].updateDate} </div>
-                            <a href="#" id="item-report">신고하기</a>
+                            <div id="item-report">신고하기</div>
                         </div>
 
                         <%-- 모달창 --%>
@@ -277,10 +277,15 @@
     <script>
         const loginMemberNo = "${loginMember.memberNo}";
         const boardNo = "${boardNo}";
+        const updateDT = "${itemList[0].updateDate}";
+        
+        
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
     <script src="${contextPath}/resources/js/modal.js"></script>
+    <script src="${contextPath}/resources/js/date.js"></script>
+    
 </body>
 </html>
