@@ -65,28 +65,85 @@ for(let i=0 ; i<inputImage.length ; i++){
 
 // 컨트롤러에서 데이터 받기
 
+   
+
+var LCategoryBtn = document.getElementsByName("LCate");
+
+// LCategoryBtn.forEach((target)=> target.addEventListener("click",(target)=>{
+
+//         McategoryList
+//         console.log(target.id)
+//      }
+//     )
+// );
+
+
+LCategoryBtn.forEach((target)=> target.addEventListener("click", McategoryList));
+
+
+
+function McategoryList(event){
+    
+    $.ajax({
+        url : contextPath + "/mCategory",  
+        data : { "lCategoryNo" : event.target.getAttribute('id') }, 
+        type : "GET", 
+        dataType : "JSON",
+    
+        success : function(mCategoryList){ 
+            
+            document.getElementsByName("category2")[0].innerHTML="";
+
+            for(let mct of mCategoryList){
+
+                const li = document.createElement("li");
+                const button =document.createElement("button");
+
+                button.innerHTML=mct.MCategoryName
+                button.classList.add("select");
+                
+                button.setAttribute('type','button')
+                button.setAttribute('id','m'+mct.MCategoryNo)
+                button.setAttribute('onclick','mCategoryClick()')
+                button.setAttribute('name', 'MCate')
+
+                li.append(button);
+                document.getElementsByName("category2")[0].append(li);
+
+                console.log(mct.MCategoryName)
+                console.log(mct.MCategoryNo)
 
 
 
 
+                var MCategoryBtn = document.getElementsByName("MCate");
+                MCategoryBtn.forEach((target)=> target.addEventListener("click", mCategoryClick));
 
+                function mCategoryClick(event){
+    
+                    document.getElementsByName("mCateValue")[0].value="";
+    
+                    console.log(event.target)
+    
+                    document.getElementsByName("mCateValue")[0].value = event.target.getAttribute('id');
+                    
+                    console.log(document.getElementsByName("mCateValue")[0].value);
+                }
+                
+            }
+            
+            document.getElementsByName("mCateValue")[0].value = '';
+            document.getElementsByName("lCateValue")[0].value='';
+            document.getElementsByName("lCateValue")[0].value=event.target.getAttribute('id');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        },
+        
+        error : function(){ 
+            console.log("에러 발생");
+        }
+        
+    })
+}
 
 
 
@@ -96,7 +153,7 @@ for(let i=0 ; i<inputImage.length ; i++){
 
 
   /* 카테고리 선택 시 값 가져오기 */
- 
+ $()
 
 $('.select').on('click', function(){
 

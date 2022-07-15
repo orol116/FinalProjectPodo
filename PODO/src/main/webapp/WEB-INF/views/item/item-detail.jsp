@@ -147,9 +147,17 @@
 
                     </div>
 
-                    <a href="${contextPath}/shop/memberShop">
+                    <c:if test="${memberNo != loginMember.memberNo}">
+                    <a href="${contextPath}/shop/memberShop/${memberNo}">
+                    </c:if>
+
+                    <c:if test="${memberNo == loginMember.memberNo}">
+                    <a href="${contextPath}/shop/myShop/${loginMember.memberNo}">
+                    </c:if>
+
                     <div id="body-profile-area">
                         <div id="profile-box">
+                                
                                 <div id="profile-detail">
                                     <div id="profile-name">
                                         ${sellMember[0].memberNickname}
@@ -277,9 +285,8 @@
     <script>
         const loginMemberNo = "${loginMember.memberNo}";
         const boardNo = "${boardNo}";
-        const updateDT = "${itemList[0].updateDate}";
-        
-        
+
+        const memberNo = "${memberNo}";
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>

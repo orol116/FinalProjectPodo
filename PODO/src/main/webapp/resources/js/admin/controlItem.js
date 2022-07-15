@@ -4,15 +4,18 @@ function selectAll(selectAll){
     checkboxes.forEach((checkbox)=>{checkbox.checked=selectAll.checked})
 };
 
+// 삭제 버튼 누를 때
 (function(){
     const deleteBtn = document.getElementById("deleteBtn"); 
 
     if(deleteBtn != null){// 버튼이 화면에 존재할때
         deleteBtn.addEventListener("click", function(){
+
             return true;
         });
     }
 })();
+
 
 // 삭제 버튼 누를 때
 function ckBox() {
@@ -21,17 +24,18 @@ function ckBox() {
     }   
 
 const deleteBtn = document.getElementById("deleteBtn");
-let memBoard = document.querySelectorAll("[name='memList']:checked");
+let itemBoard = document.querySelectorAll("[name='itemList']:checked");
 
 let deleteNo = [];
-    
 
 // 작성글
-if(document.querySelectorAll("[name='memList']").length != 0 ){
 
-    // 체크박스 선택 안됐을때
-     if(document.querySelectorAll("[name='memList']:checked").length == 0){
-        alert("삭제할 글을 선택해주세요.");
+if(document.querySelectorAll("[name='itemList']").length != 0 ){
+
+
+    // 체크박스 선택 안됐을때, 
+    if(document.querySelectorAll("[name='itemList']:checked").length == 0){
+        alert("삭제할 상품을 선택해주세요.");
         return false;
      }
 
@@ -43,8 +47,9 @@ if(document.querySelectorAll("[name='memList']").length != 0 ){
     
     return true;
   
-}
 
+
+}
 
 
 
@@ -79,16 +84,15 @@ if(document.querySelectorAll("[name='memList']").length != 0 ){
 
 })();
 
+
 // 검색 유효성 검사(검색어를 입력 했는지 확인)
 function searchValidate(){
 
     const query = document.getElementById("search-query");
 
     if(query.value.trim().length == 0){ // 미작성
-
         query.value = ""; // 빈칸
         query.focus();
-        alert("검색할 글을 선택해주세요.");
 
         return false;
     }

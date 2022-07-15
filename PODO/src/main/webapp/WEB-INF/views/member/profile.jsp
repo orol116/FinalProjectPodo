@@ -33,7 +33,7 @@
                 <section id="profile-head">
                     <div id="user-profile-left">
                         <div id="user-image-area">
-                            <image class="profile-image" src="${contextPath}${loginMember.memberProfile}" ></image>
+                            <image class="profile-image" src="${contextPath}${member[0].memberProfile}" ></image>
                         </div>
                         <div id="user-name-left">${member[0].memberNickname}</div>
                         <div id="user-info">
@@ -98,7 +98,7 @@
     </main>
 
         <script>
-            const memberNo = ${loginMember.memberNo}
+            const memberNo = ${memberNo}
         </script>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
