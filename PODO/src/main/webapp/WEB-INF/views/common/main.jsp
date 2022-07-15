@@ -28,41 +28,58 @@
 
     <section>
     
-        <div id="itmes"><h2 style="margin:0;">이번주 상품 추천</h2></div>
-        <div>
-            <div>
-                <div class="frame">
+        <div id="itmes">
+            <h2 style="margin:0;">이번주 상품 추천</h2>
+        </div>
+   
+        
+        <c:choose>
+            <c:when test="${empty itemList}">
 
-                    <c:choose>
-                        <c:when test="${empty itemList}">
-                            <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                            게시글이 존재하지 않습니다.
-                        </c:when>
-
-                        <c:otherwise>
-                            <c:forEach var="item" items="${itemList}">
-
-                                <div class="box">
-                                    <a href="${contextPath}/board/detail/${item.boardNo}" class="title">
-                                        <div class="image">
-                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
-                                        </div>   
-                                        <div class="title1">
-                                            <div class="title2">${item.boardTitle}</div>
-                                            <div class="name2">
-                                                <div class="price">${item.price}원</div>
-                                                <div class="time">${item.updateDate}</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            
-                            </c:forEach>
-                        </c:otherwise>
-                    </c:choose>
-                    
+                <div>
+                    <div class="frame">
+                        
+                        <!-- 게시글 목록 조회 결과가 비어있다면 -->
+                        게시글이 존재하지 않습니다.
+                    </div>
                 </div>
-            </div>
+            
+            </c:when>
+    
+            <c:otherwise>
+                <c:forEach var="item" items="${itemList}" varStatus="status">
+                    <c:if test="${ status.index % 5 eq 0}">
+                
+                    <div class="frame">
+                        <c:forEach var="i" begin="${ status.index }" end="${ status.index + (5 - 1) }" step="1">
+                            <c:if test="${itemList[i] ne null}" >
+                            <div class="box">
+                                <a href="${contextPath}/board/detail/${item.boardNo}" class="title">
+                                    <div class="image">
+                                        <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
+                                    </div>   
+                                    <div class="title1">
+                                        <div class="title2">${item.boardTitle}</div>
+                                        <div class="name2">
+                                            <div class="price">${item.price}원</div>
+                                            <div class="time">${item.updateDate}</div>
+                                        </div>
+                                    </div>
+                                </a>
+        					</div>
+        						
+        						
+        				</c:if>
+                        </c:forEach>
+                    </div>
+                    
+                    </c:if>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
+                    
+        </div>       
+            
                 
         </div>
 
