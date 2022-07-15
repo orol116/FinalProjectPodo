@@ -29,33 +29,24 @@
 
                     <section>
                         <h4>이름</h4>
-                        <input type="text" id="name-box" maxlength="20" name="memberNickname" placeholder="이름을 입력해주세요.">
-                        <%-- <h4>전화번호</h4>
-                        <input type="text" id="phone-box" name="memberTel1" placeholder="전화번호를 입력해주세요.">
-                   
-
+                        <input type="text" id="name-box" maxlength="20" name="memberName" placeholder="이름을 입력해주세요.">
+                        <!-- <h4>전화번호</h4>
+                        <input id="phone" type="text" name="memberTel" title="전화번호 입력" placeholder="전화번호를 입력해주세요."/>
                     
-                        <button id="submitBtn" class="submitBtn" type="button">전화번호 인증번호 받기</button>
-                        <div id="Cer-area">
-                            <input type="text" id="Cer-number" placeholder="인증번호를 입력하세요">
-                            <button id="Cer-number-check" type="button">인증번호 확인</button>
-                        </div> --%>
+          
                         
-                        <tr class="mobileNo">
-                            <th>
-                                <label for="phone">휴대폰 번호</label>
-                            </th>
-                            <td>
-                                <p>
-                                    <input id="phone" type="text" name="memberTel" title="전화번호 입력" required/>
-                                    <span id="phoneChk" class="doubleChk">인증번호 보내기</span><br/>
-                                    <input id="phone2" type="text" name="phone2" title="인증번호 입력" disabled required/>
-                                    <span id="phoneChk2" class="doubleChk">본인인증</span>
-                                    <span class="point successPhoneChk">휴대폰 번호 입력후 인증번호 보내기를 해주십시오.</span>
-                                    <input type="hidden" id="phoneDoubleChk"/>
-                                </p>
-                            </td>
-                        </tr>
+                       
+                            
+                            <button id="phoneChk" class="doubleChk" type="button">인증번호 보내기</button>
+                            
+                            <div id ="Cer-area">
+                                <input id="phone2" type="text" name="phone2" title="인증번호 입력" placeholder="인증번호를 입력하세요" disabled required/>
+                                <button id="phoneChk2" class="doubleChk" type="button">인증번호 확인</button>
+                                <input type="hidden" id="phoneDoubleChk"/>
+                            </div>
+                            <span class="point successPhoneChk"></span> -->
+
+    
                         <button id="finalSubmitBtn">제출</button>
                     </section>
 

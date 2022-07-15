@@ -1,0 +1,69 @@
+h3 {
+    margin-bottom: 10px;
+    width: 37%;
+}
+
+.an_message{
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+#confirm_area{
+    margin: 40px 0;
+}
+
+ul{
+    list-style: none;
+    padding-bottom: 20px;
+}
+
+.id_box{
+    padding: 40px 40px 20px;
+    border: 1px solid #e5e5e5;;
+    margin-bottom: 40px;
+}
+
+.id_list{
+    display: inline-block;
+}
+
+.id_list strong{
+    display: inline-block;
+    padding-right: 150px;
+}
+
+.list_id li {
+    padding-bottom: 8px;
+    text-align: left;
+}
+
+#an_createDt {
+    font-size: 15px;
+}
+
+.btn_area{
+    text-align: center;
+}
+
+#login_btn{
+    width: 105px;
+    height: 40px;
+    margin-left: 4px;
+
+    border: none;
+    background-color: #5f0081;
+    color: #fff;
+}
+
+
+#findPw_btn{
+    width: 105px;
+    height: 40px;
+    margin-left: 4px;
+    
+    border: solid 0.5px #ccc;
+    background-color: #fff;
+    color: #000;
+}

@@ -50,7 +50,7 @@
             </form>
 
             <section id="outside-login">
-            <span><button onclick = "location.href = '${contextPath}/member/member/signUp'">>회원가입</button></span>
+            <span><button onclick = "location.href = '${contextPath}/member/member/signUp'">회원가입</button></span>
 
                 <button>카카오로 시작하기</button>
                 <!-- 네이버 로그인 버튼 노출 영역 -->

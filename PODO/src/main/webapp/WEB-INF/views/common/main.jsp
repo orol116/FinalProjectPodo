@@ -32,7 +32,7 @@
         <div>
             <div>
                 <div class="frame">
-
+   
                     <c:choose>
                         <c:when test="${empty itemList}">
                             <!-- 게시글 목록 조회 결과가 비어있다면 -->
