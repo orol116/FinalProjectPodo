@@ -61,7 +61,7 @@
 		INSERT INTO ITEM_BOARD VALUES(
 			#{boardNo}, #{boardTitle}, #{boardContent},
 			DEFAULT, DEFAULT, DEFAULT, '사용감 있음', '판매 중', '착불', #{price}, DEFAULT, '서울', 
-			1, #{memberNo}, 13, NULL, NULL, 0 
+			1, #{memberNo}, #{categoryNo}, NULL, NULL, 0 
 		)
 	</insert>
 	
