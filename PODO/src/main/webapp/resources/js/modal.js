@@ -1,17 +1,35 @@
-window.onload = function(){
+function show() {
+    document.querySelector(".background").className = "background show";
+  }
 
-    function onclick(){
-        document.querySelector(".modal_wrap").style.display = "block";
-        document.querySelector(".blank").style.display = "block";
+  function close() {
+    document.querySelector(".background").className = "background";
+  }
 
-        function offClick(){
-        document.querySelector(".modal_wrap").style.display = "none";
-        document.querySelector(".blank").style.display = "none";
+  document.querySelector("#item-report").addEventListener("click", show);
+  document.querySelector("#close").addEventListener("click", close);
+
+
+  const report = document.getElementById("report");
+
+  document.getElementById("reportBtn").addEventListener("click", function(){
+
+    $.ajax({
+        url : "report",      
+        data : { "memberNo" : loginMemberNo, "report" : report.value},
+        
+        type : "GET", // 데이터 전달 방식 type
+
+        success : function(result){
+            
+            alert("신고되었습니다.")
+
+        },
+        
+        error : function(req, status, error){
+            console.log(req.responseText);
         }
+    });
 
-        document.getElementById("item-report").addEventListener("click", onclick);
-        document.getElementById("modal-close").addEventListener("click", offClick);
 
-    }
-
-}
+  });

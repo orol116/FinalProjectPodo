@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:set var="LCategory" value="${LCategoryList}" />
+<c:set var="MCategory" value="${MCategoryList}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,28 +134,32 @@
                         <div id="category">
                             <div id="category1">
                                 <ul class="category1-1">
-                                    <li> <button type="button" class="select" >여성의류</button></li>
+
+                                    <c:forEach var="LCate" items="${LCategory}">
+                                        <li> <button type="button" class="select" name="LCate" id="${LCate.LCategoryNo}">${LCate.LCategoryName}</button></li>
+                                    </c:forEach>
+                                    <%-- <li> <button type="button" class="select" >여성의류</button></li>
                                     <li> <button type="button" class="select" value="남성의류">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
                                     <li><button type="button" class="select">시계/쥬얼리</button></li>
                                     <li><button type="button" class="select">패션 액세사리</button></li>
                                     <li><button type="button" class="select">디지털/가전</button> </li>
-                                    <li><button type="button" class="select">스포츠/레저</button></li>
+                                    <li><button type="button" class="select">스포츠/레저</button></li> --%>
                                 </ul>
                             </div>
                         </div>
                         <div id="category">
                              <div id="category2">
-                                <ul class="category1-1">
+                                <ul class="category1-1" name="category2">
                                     <li> <button type="button" class="select">여성의류</button></li>
-                                    <li> <button type="button" class="select">남성의류</button></li>
+                                    <%-- <li> <button type="button" class="select">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
                                     <li><button type="button" class="select">시계/쥬얼리</button></li>
                                     <li><button type="button" class="select">패션 액세사리</button></li>
                                     <li><button type="button" class="select">디지털/가전</button> </li>
-                                    <li><button type="button" class="select">스포츠/레저</button></li>
+                                    <li><button type="button" class="select">스포츠/레저</button></li> --%>
                                 </ul>
                              </div>
                         </div>
@@ -297,6 +304,9 @@
                  AND IMG_LEVEL IN (0,3,1,2) -->
 
         <input type="hidden" name="deleteList" id="deleteList" value="">
+
+        <input type="hidden" name="LCateValue" value="">
+        <input type="hidden" name="MCateValue" value="">
 
       </form>
     </main>
