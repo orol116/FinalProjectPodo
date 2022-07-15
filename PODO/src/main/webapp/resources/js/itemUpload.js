@@ -144,9 +144,8 @@ function McategoryList(event){
 $('.select').on('click', function(){
   $('#category4').text($(this).text());
 });
-$('.select2').on('click', function(){
-    $("#category5").html(mct.MCategoryName);
-
+$('#category3').on('click', function(){
+    $('#category5').text($(this).text());
   });
 
 
