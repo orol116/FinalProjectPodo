@@ -32,7 +32,7 @@ public class MainController {
 		} else {
 			
 			List<ItemBoard> searchList = service.searchBoard(query);
-			model.addAttribute("searchList", searchList);
+			model.addAttribute("itemList", searchList);
 		}
 	
 		return "common/main";
