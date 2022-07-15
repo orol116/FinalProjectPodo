@@ -33,7 +33,8 @@
 
     <div id="header">
         <section id="menu"> 
-            <i class="fa-solid fa-bars" id="fa-bars"></i>
+        
+            <a><i class="fa-solid fa-bars" id="fa-bars"></i></a>
             <a href="${contextPath}" >
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
@@ -47,6 +48,7 @@
             </form> 
 
         </section>
+
         <section class="right-header">
             <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
 
