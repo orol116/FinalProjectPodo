@@ -152,7 +152,7 @@
                         <div id="category">
                              <div id="category2">
                                 <ul class="category1-1" name="category2">
-                                    <li> <button type="button" class="select">여성의류</button></li>
+                                    <li> <button type="button" class="select"></button></li>
                                     <%-- <li> <button type="button" class="select">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
