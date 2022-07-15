@@ -133,10 +133,11 @@
             </div>
         </section> --%>
 
+	<!-- 임시, 테스트중 -->
 
     <!-- 채팅 아이콘 -->
     <div class="chatIcon font_jua">
-        <img src="resources/images/favicon.ico" class="iconImg">
+        <img src="${contextPath}/resources/images/favicon.ico" class="chatIconImg">
     </div>
 
     <!-- 채팅 창 -->
@@ -187,6 +188,8 @@
             <!-- 동적 생성 -->
         </div>
     </div>
+
+
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

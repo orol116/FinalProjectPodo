@@ -269,7 +269,8 @@ form[name="myPage-form"]{
  section#content div.goodsName a { color:#000; }
  */
  section#content ul li { margin:10px 0; }
- section#content ul li img { width:250px; height:250px; }
+ section#content ul li img { width:200px; height:200px; }
+ section#content ul li p img { width:25px; height:25px; }
  section#content ul li::after { content:""; display:block; clear:both; }
  section#content div.thumb { float:left; width:250px; }
  section#content div.gdsInfo { float:right; width:calc(100% - 270px); }
