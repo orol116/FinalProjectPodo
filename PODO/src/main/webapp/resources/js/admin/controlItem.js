@@ -16,9 +16,13 @@ function selectAll(selectAll){
     }
 })();
 
-// form onsubmit return
+
+// 삭제 버튼 누를 때
 function ckBox() {
-   
+    if(!confirm("정말로 삭제 하시겠습니까?")){
+        return false;
+    }   
+
 const deleteBtn = document.getElementById("deleteBtn");
 let itemBoard = document.querySelectorAll("[name='itemList']:checked");
 
@@ -28,9 +32,6 @@ let deleteNo = [];
 
 if(document.querySelectorAll("[name='itemList']").length != 0 ){
 
-     if(!confirm("정말로 삭제 하시겠습니까?")){
-        return false;
-    }
 
     // 체크박스 선택 안됐을때, 
     if(document.querySelectorAll("[name='itemList']:checked").length == 0){
@@ -49,6 +50,40 @@ if(document.querySelectorAll("[name='itemList']").length != 0 ){
 
 
 }
+
+
+
+// 검색창에 이전 검색기록 반영하기
+(function(){
+    const select = document.getElementById("search-key");
+
+    // const option = select.children;
+    const option = document.querySelectorAll("#search-key > option");
+
+    const input = document.getElementById("search-query");
+
+    if(select != null){ // 검색창이 화면이 존재할 때에만 코드 적용
+
+        // 현재 주소에서 쿼리스트링(파라미터) 얻어오기
+        const params = new URL(location.href).searchParams;
+
+        // 얻어온 파라미터 중 key, query만 변수에 저장
+        const key = params.get("key");
+        const query = params.get("query");
+
+        // input에 query 값 대입
+        input.value = query;
+
+        // option을 반복 접근해서 value와 key가 같으면 selected 속성 추가
+        for(let op of option){
+            if(op.value == key ){
+                op.selected = true;
+            }
+        }
+    }
+
+})();
+
 
 // 검색 유효성 검사(검색어를 입력 했는지 확인)
 function searchValidate(){
