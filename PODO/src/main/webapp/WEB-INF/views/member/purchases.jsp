@@ -10,48 +10,22 @@
     <title>거래내역 조회 페이지</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <%-- <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css"> --%>
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
-</head>
-<header>
-    <link rel="stylesheet" href="../WEB-INF/resources/css/main-style.css">
-    <link rel="stylesheet" href="../WEB-INF/resources/css/header-style.css">
-
+    
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
-     
-    <div id="top">
-        <a href="#">로그인
-        <a href="#">회원가입
-        <a href="#">고객센터
-    </div>
+    
+</head>
 
-    <div id="header">
-        <section id="menu"> 
-            <i class="fa-solid fa-bars"></i>
-            <a href="main" >
-                <img src="../../images/logo.png" id="home-logo">
-            </a>
-        </section>
-        <section class="mid-header">
-            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </section>
-        <section class="right-header">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-house-user"></i> 내상점</button>   
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
-        </section>
-    </div>
-    </div>
-</header>
 <body>
     
     <div class="top-menu">
         <nav id="mainMenu">
-            <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/shop/main">상품관리</a>
-            <a href="${contextPath}/shop/myMall">구매/판매 내역</a>
+            <a href="#">상품등록</a>
+            <a href="#">상품관리</a>
+            <a href="#">구매/판매 내역</a>
         </nav>
     </div>
 
