@@ -305,8 +305,8 @@
 
         <input type="hidden" name="deleteList" id="deleteList" value="">
 
-        <input type="hidden" name="LCateValue" value="">
-        <input type="hidden" name="MCateValue" value="">
+        <input type="hidden" name="lCateValue" value="">
+        <input type="hidden" name="mCateValue" value="">
 
       </form>
     </main>
