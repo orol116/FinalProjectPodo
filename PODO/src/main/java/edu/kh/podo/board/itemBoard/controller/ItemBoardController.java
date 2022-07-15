@@ -72,11 +72,12 @@ public class ItemBoardController {
 		
 	// 상품 상세
 	@GetMapping("/board/detail/{boardNo}")
-	public String itemDetail(/* HttpSession session
-						   , */@PathVariable("boardNo") int boardNo
+	public String itemDetail(@PathVariable("boardNo") int boardNo
 						   , Model model) {
+		
 		Map<String, Object> map = service.itemDetail(boardNo);
 		map.put("boardNo", boardNo);
+		
 		model.addAttribute("map", map);
 
 		return "/item/item-detail";
