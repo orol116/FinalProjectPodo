@@ -26,7 +26,7 @@
             <nav id="mainMenu">
                 <a href="${contextPath}/member/itemUpload">상품등록</a>
                 <a href="${contextPath}/shop/main">상품관리</a>
-                <a href="${contextPath}/member/purchases">구매/판매 내역</a>
+                <a href="${contextPath}/shop/myMall">구매/판매 내역</a>
             </nav>
         </div>
 
@@ -305,8 +305,8 @@
 
         <input type="hidden" name="deleteList" id="deleteList" value="">
 
-        <input type="hidden" name="lCateValue" value="">
-        <input type="hidden" name="mCateValue" value="">
+        <input type="hidden" name="LCateValue" value="">
+        <input type="hidden" name="MCateValue" value="">
 
       </form>
     </main>
