@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import edu.kh.podo.board.category.model.service.CategoryService;
+import edu.kh.podo.board.category.model.vo.MiddleCategory;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 @Controller
@@ -28,6 +29,15 @@ public class CategoryController {
 		model.addAttribute("itemList", itemList);
 		
 		return new Gson().toJson(itemList);
+	}
+	
+	@ResponseBody
+	@GetMapping("/mCategory")
+	public String mcategoryList(int lCategoryNo) {
+		
+		List<MiddleCategory> mCategoryList = service.mcategoryList(lCategoryNo);
+		
+		return new Gson().toJson(mCategoryList);
 	}
 	
 
