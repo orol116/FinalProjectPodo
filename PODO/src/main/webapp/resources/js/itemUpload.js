@@ -153,7 +153,7 @@ function McategoryList(event){
 
 
   /* 카테고리 선택 시 값 가져오기 */
- 
+ $()
 
 $('.select').on('click', function(){
 

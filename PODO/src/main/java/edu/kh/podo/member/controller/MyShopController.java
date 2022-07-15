@@ -115,4 +115,11 @@ public class MyShopController {
 		List<Review> reviewList = service.selectMemberReview(memberNo);
 		return new Gson().toJson(reviewList);
 	}
+	
+	// 내 구매/판매 조회
+	@GetMapping("/myMall")
+	public String myMall() {
+		
+		return "member/myPage/myPage-purchases";
+	}
 }
