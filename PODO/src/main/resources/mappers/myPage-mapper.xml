@@ -24,8 +24,8 @@
 
 	<update id="updateInfo">
 		UPDATE MEMBER SET
+		MEMBER_PROFILE = #{profileImage},
 		MEMBER_NICK = #{updateNickname},
-		MEMBER_TEL = #{updateTel},
 		MEMBER_ADDR = #{memberAddress}
 		WHERE MEMBER_NO = ${memberNo}
 	</update>

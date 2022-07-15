@@ -73,7 +73,7 @@
 	</select>
 
 	<select id="selectMemberInfo" resultMap="member_rm">
-		SELECT MEMBER_NICK, MEMBER_GRAPE, MEMBER_ADDR, SHOP_INFO
+		SELECT MEMBER_NICK, MEMBER_GRAPE, MEMBER_ADDR, SHOP_INFO, MEMBER_PROFILE
 		FROM MEMBER
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
@@ -96,4 +96,8 @@
 		ORDER BY BOARD_NO DESC
 	</select>
   
+	<select id="selectReviewCount" resultType="_int">
+		SELECT COUNT(*) FROM REVIEW 
+		WHERE MEMBER_NO = ${memberNo}
+	</select>
 </mapper>

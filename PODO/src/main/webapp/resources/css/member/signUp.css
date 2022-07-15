@@ -110,7 +110,12 @@ main >#contaioner {
  }
 
 
-
+.memberAddress{
+   width: 340px;
+   height: 45px;
+   margin-top: 10px;
+   padding-left: 10px;
+}
 
 
  
