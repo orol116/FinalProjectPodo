@@ -40,14 +40,14 @@
             </a>
         </section>
         
+        <form action="main" method="get" id="boardSerch" onclick="return searchValidate()"> 
         <section class="mid-header">
 
-            <form action="main" method="get" id="boardSerch" onclick="return searchValidate()"> 
-                <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
-                <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form> 
-
+            <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
+            <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>       
         </section>
+
+        </form> 
 
         <section class="right-header">
             <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>

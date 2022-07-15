@@ -27,7 +27,9 @@ function loginValidate(){ //로그인 유효성 검사
 
 }
 
-document.getElementById("saveId").addEventListener("change", function(){
+
+if(document.getElementById("saveId")  != null){ 
+    document.getElementById("saveId").addEventListener("change", function(){
 
     if(this.checked){
 
@@ -40,3 +42,5 @@ document.getElementById("saveId").addEventListener("change", function(){
     }
 
 });
+}
+

@@ -1,6 +1,7 @@
 package edu.kh.podo.member.model.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.json.simple.JSONObject;
 //import org.json.simple.JSONObject;
@@ -104,6 +105,34 @@ public class MemberServiceImpl implements MemberService {
 	    
 	}
 
+	// 아이디 중복체크 구현
+	@Override
+	public int idDupCheck(String memberId) {
+		
+		return dao.idDupCheck(memberId);
+	}
+
+	// 닉네임 중복체크 구현
+	@Override
+	public int nicknameDupCheck(String memberNickname) {
+		
+		return dao.nicknameDupCheck(memberNickname);
+	}
+
 	
+	
+	// 아이디 찾기 구현
+	@Override
+	public List<Member> findId(Member inputMember) {
+		
+		return dao.findId(inputMember);
+	}
+
+	// 비밀번호 찾기 구현
+	@Override
+	public int findPw(Member inputMember) {
+		
+		return dao.findPw(inputMember);
+	}
 
 }
