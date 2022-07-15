@@ -3,6 +3,7 @@ package edu.kh.podo.board.itemBoard.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.velocity.runtime.directive.Parse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,8 +45,7 @@ public class ItemBoardController {
 							ItemBoard item,
 							HttpServletRequest req,
 							RedirectAttributes ra,
-							String lCateValue,
-							String mCateValue
+							@RequestParam(value="mCateValue", required=false, defaultValue="1") String mCateValue
 							) {
 
 		item.setMemberNo(loginMember.getMemberNo());
@@ -53,6 +53,9 @@ public class ItemBoardController {
 		String webPath = "/resources/images/item";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		
+		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
 		
 		
 
