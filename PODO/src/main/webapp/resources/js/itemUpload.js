@@ -154,9 +154,9 @@ $('.select').on('click', function(){
   $('#category4').text($(this).text());
 });
 $('.select2').on('click', function(){
-    $("#category5").html(MCateValue.value);
+    $("#category5").html(mCateValue.value);
 
-  });
+});
 
 
 

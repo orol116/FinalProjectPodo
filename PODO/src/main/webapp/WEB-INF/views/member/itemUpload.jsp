@@ -152,7 +152,7 @@
                         <div id="category">
                              <div id="category2">
                                 <ul class="category1-1" name="category2">
-                                    <li> <button type="button" class="select">여성의류</button></li>
+                                    <%-- <li> <button type="button" class="select">여성의류</button></li> --%>
                                     <%-- <li> <button type="button" class="select">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
@@ -209,10 +209,10 @@
                 <li>
                     <section class="states">
                         
-                        <input type="radio" id="secondHand1" name="itemCondition" >
+                        <input type="radio" id="secondHand1" name="itemCondition" value='중고상품'>
                         <label for="secondHand1">중고상품</label>
                     
-                        <input type="radio" id="secondHand2" name="itemCondition">
+                        <input type="radio" id="secondHand2" name="itemCondition" value='새상품'>
                         <label for="secondHand2">새상품</label>
 
                     </section>
@@ -234,13 +234,13 @@
             <ul class="second">
                 <li>
                     <section class="states">
-                        <input type="radio" name="delivery" id="delivery1">
+                        <input type="radio" name="delivery" id="delivery1" value='직거래'>
                         <label for="delivery1">직거래</label>
 
-                        <input type="radio" name="delivery" id="delivery2">
+                        <input type="radio" name="delivery" id="delivery2" value='무료배송'>
                         <label for="delivery2">무료배송</label>
 
-                        <input type="radio" name="delivery" id="delivery3">
+                        <input type="radio" name="delivery" id="delivery3" value='배송비 본인부담'>
                         <label for="delivery3">배송비 본인부담</label>
                     </section>
                 </li>
