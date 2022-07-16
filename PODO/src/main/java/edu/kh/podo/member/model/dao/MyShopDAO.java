@@ -1,6 +1,7 @@
 package edu.kh.podo.member.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -67,6 +68,14 @@ public class MyShopDAO {
 	 */
 	public int selectReviewCount(int memberNo) {
 		return sqlSession.selectOne("myShopMapper.selectReviewCount", memberNo);
+	}
+
+	/** 내 상점 소개 수정 DAO
+	 * @param map
+	 * @return
+	 */
+	public int introChange(Map<String, Object> map) {
+		return sqlSession.update("myShopMapper.introChange", map);
 	}
 
 }

@@ -59,7 +59,7 @@
                         <c:if test="${member[0].shopInfo == null}">
                             <div id="user-intro">상점 소개가 없습니다.</div>
                         </c:if>
-
+                        
                         <div id="user-cutoff"><a href="#">신고/차단하기</a></div>
                         
                         
