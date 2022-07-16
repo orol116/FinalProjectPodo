@@ -99,7 +99,7 @@ function McategoryList(event){
                 const li = document.createElement("li");
                 const button =document.createElement("button");
 
-                button.innerHTML=mct.MCategoryName
+                button.innerHTML=mct.MCategoryName;
                 button.classList.add("select2");
                 
                 button.setAttribute('type','button')
@@ -122,6 +122,7 @@ function McategoryList(event){
                     console.log(event.target)
                     document.getElementsByName("mCateValue")[0].value =   event.target.getAttribute('id').substring(1);          
                     console.log(document.getElementsByName("mCateValue")[0].value);
+                    
                 } 
             }
             
@@ -144,11 +145,26 @@ function McategoryList(event){
 $('.select').on('click', function(){
   $('#category4').text($(this).text());
 });
+
+
+// $(".select2").click(function(){
+//     $('#category5').text('MCate')
+// });
+
+function mCategoryClick(click){
+    const btnElement = document.getElementById('category5');
+    btnElement.innerText = 'mct.MCategoryName';
+}
+
+
+
+$('.select').on('click', function(){
+  $('#category4').text($(this).text());
+});
 $('.select2').on('click', function(){
-    $("#category5").html(mct.MCategoryName);
+    $("#category5").html(mCateValue.value);
 
-  });
-
+});
 
 const selectList = document.getElementsByClassName("select");
 

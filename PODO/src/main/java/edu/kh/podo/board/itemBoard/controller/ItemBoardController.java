@@ -1,5 +1,6 @@
 package edu.kh.podo.board.itemBoard.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -45,25 +46,24 @@ public class ItemBoardController {
 							ItemBoard item,
 							HttpServletRequest req,
 							RedirectAttributes ra,
-							@RequestParam(value="mCateValue", required=false, defaultValue="1") String mCateValue
-							) {
+							@RequestParam(value="mCateValue", required=false, defaultValue="1") int mCateValue
+							) throws IOException {
 
 		item.setMemberNo(loginMember.getMemberNo());
+		item.setCategoryNo(mCateValue);
+		
+//		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
 		
 		String webPath = "/resources/images/item";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		
-		
-		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
-		
 		
 
 		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
 		
 		String path = null;
 		String message = null;
-		
+			
 		if(boardNo>0) { // 게시글 등록 성공
 			path="../board/detail/"+boardNo;
 			message = "게시글이 등록되었습니다.";
