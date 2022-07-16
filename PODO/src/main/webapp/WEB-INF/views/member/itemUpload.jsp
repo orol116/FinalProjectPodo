@@ -153,6 +153,7 @@
                              <div id="category2">
                                 <ul class="category1-1" name="category2">
                                     <%-- <li> <button type="button" class="select">여성의류</button></li> --%>
+                                    <li> <button type="button" class="select"></button></li>
                                     <%-- <li> <button type="button" class="select">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
@@ -305,8 +306,8 @@
 
         <input type="hidden" name="deleteList" id="deleteList" value="">
 
-        <input type="hidden" name="lCateValue" value="">
-        <input type="hidden" name="mCateValue" value="">
+        <input type="hidden" name="lCateValue" id="lCateValue">
+        <input type="hidden" name="mCateValue" id="mCateValue">
 
       </form>
     </main>

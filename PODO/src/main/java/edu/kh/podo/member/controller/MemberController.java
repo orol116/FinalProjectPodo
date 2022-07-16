@@ -1,5 +1,7 @@
 package edu.kh.podo.member.controller;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -111,6 +113,7 @@ public class MemberController {
 			cookie.setPath(req.getContextPath());
 
 			resp.addCookie(cookie);
+			
 			if (loginMember.getAdmin() == 'Y') {
 
 				path = "redirect:/admin/3";
@@ -145,15 +148,22 @@ public class MemberController {
 	}
 
 	// 아이디 중복확인
-	@GetMapping("/DupliCheckId")
-	public String DupliCheckId() {
-		return "";
+	@ResponseBody
+	@GetMapping("/idDupCheck")
+	public int idDupCheck(String memberId) {
+		
+		int result = service.idDupCheck(memberId);
+		return result;
 	}
 
-	// 로그인 중복확인
-	@GetMapping("DupliCheckPw")
-	public String DupliCheckPw() {
-		return "";
+	// 닉네임 중복확인
+	@ResponseBody
+	@GetMapping("nicknameDupCheck")
+	public int nicknameDupCheck(String memberNickname) {
+		
+		int result = service.nicknameDupCheck(memberNickname);
+		
+		return result;
 	}
 
 	// 회원가입
@@ -169,7 +179,6 @@ public class MemberController {
 		int result = service.signUp(inputMember);
 
 		String path = null;
-		String message = null;
 
 		if (result > 0) {
 
@@ -244,8 +253,50 @@ public class MemberController {
 
 	// 아이디 찾기
 	@PostMapping("/findId")
-	public String findId(Member inputMember, RedirectAttributes ra) {
-		return "redirect:/";
+	public String findId(@ModelAttribute Member inputMember, Model model) {
+		
+		List<Member> findMemberList = service.findId(inputMember);
+		
+		String path = null;
+		
+		if(!findMemberList.isEmpty()) {
+			path = "member/comfirmId";
+			model.addAttribute("message", "본인인증 성공");
+			model.addAttribute("findMemberList", findMemberList);
+
+		
+		}else {
+			path = "member/member-find-ID";
+			model.addAttribute("message", "회원정보가 일치하지 않습니다");
+		}
+		
+		return path;
+	}
+	
+	// 비밀번호 찾기
+	@PostMapping("/findPw")
+	public String findPw(@ModelAttribute Member inputMember, Model model) {
+		
+		int result = service.findPw(inputMember);
+		
+		String path = null;
+		
+		if(result > 0) {
+			path = "/member/myPage/inputPw";
+			model.addAttribute("message", "본인인증 성공");
+		
+		}else {
+			path = "/member/member-find-ID";
+			model.addAttribute("message", "회원정보가 일치하지 않습니다");
+		}
+		
+		return path;
+	}
+	
+	// 아이디 찾기에서 비밀번호 찾기 전환
+	@GetMapping("/myPage/inputPw")
+	public String idTofindPw() {
+		return "/member/myPage/inputPw";
 	}
 
 	// 비밀번호 찾기 페이지 전환

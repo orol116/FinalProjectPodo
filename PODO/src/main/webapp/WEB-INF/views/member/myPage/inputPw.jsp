@@ -9,43 +9,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 정보 수정</title>
 
-    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/find-IDPW.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
 
 
 </head>
 <body>
     <main>
-
     <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
+    <section class="myPage-inner" style="margin-top: 60px;">
+        <section class="myPage-main">
+            <form action="resetPw" method="POST" name="myPage-form" onsubmit="return changePwValidate()" >
+        
+                <h1 class="myPage-title">비밀번호 재설정</h1>
+                
+          
+                <div class="wrapper">
+    
+                    <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
+                    <div class="myPage-row">
+                        <label>아이디</label>
+                        <input type="text" name="memberId" id="id" class="input_box">
+                    </div>
+                    <div class="myPage-row">
+                        <label>새 비밀번호</label>
+                        <input type="password" name="memberPw" id="newPw" class="input_box" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성" maxlength="15">
+                    </div>
+                    <div class="myPage-row">
+                        <label>새 비밀번호 확인</label>
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="15">
+                    </div>
 
-            <div id="contaioner">
-            <h3>비밀번호 변경</h3>
-            <form action="inputPw" method="POST" name="new-PW-form" id="new-PW-form">
-                <fieldset id="ID-area">
+                    <button id="info-update-btn">변경하기</button>
 
-                    <section>
-                        <h4>새 비밀번호</h4>
-                        <input type="password" id="new-password" maxlength="20" name="memberPw" placeholder="새 비밀번호를 입력해주세요.">
-                        <h4>새 비밀번호 확인</h4>
-                        <input type="password" id="new-password-confirm" name="memberPwConfirm" placeholder="비밀번호를 다시 입력해주세요.">
-                   
+                </div>
+    
 
-                        <button id="submitBtn">제출</button>
-                    </section>
-
-                </fieldset>
             </form>
-
-        </div>
-    
-    
-    </main>
+        </section>
+    </section>
     
 
     <!-- footer include -->

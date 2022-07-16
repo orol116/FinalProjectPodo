@@ -47,6 +47,11 @@
                     <span class="signUp-message" id="pwConfirmMessage">* 비밀번호는 동일해야 합니다.</span>
 
                     <section>
+                        <h4>이름</h4>
+                        <input type="text" id="memberName" name="memberName" placeholder="이름을 입력해주세요.">
+                    </section>
+
+                    <section>
                         <h4>닉네임</h4>
                         <input type="text" id="memberNickname" maxlength="20" name="memberNickname" placeholder="닉네임을 입력해주세요.">
                         <button id="nicknameDupCheck" type="button">중복검사</button>

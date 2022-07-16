@@ -1,5 +1,6 @@
 package edu.kh.podo.board.itemBoard.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -45,11 +46,13 @@ public class ItemBoardController {
 							ItemBoard item,
 							HttpServletRequest req,
 							RedirectAttributes ra,
-							@RequestParam(value="mCateValue", required=false, defaultValue="1") String mCateValue
-							) {
+							@RequestParam(value="mCateValue", required=false, defaultValue="1") int mCateValue
+							) throws IOException {
 
 		item.setMemberNo(loginMember.getMemberNo());
-		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
+		item.setCategoryNo(mCateValue);
+		
+//		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
 		
 		String webPath = "/resources/images/item";
 
