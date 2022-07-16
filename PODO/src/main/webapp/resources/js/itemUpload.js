@@ -158,6 +158,13 @@ function mCategoryClick(click){
 
 
 
+$('.select').on('click', function(){
+  $('#category4').text($(this).text());
+});
+$('.select2').on('click', function(){
+    $("#category5").html(mCateValue.value);
+
+});
 
 const selectList = document.getElementsByClassName("select");
 

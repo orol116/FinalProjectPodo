@@ -1,5 +1,6 @@
 package edu.kh.podo.board.itemBoard.model.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public interface ItemBoardService {
 	 */
 	List<ItemBoard> searchBoard(String query);
 
-	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath);
+	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
 
 
 	/** 판매글 상세조회 Service

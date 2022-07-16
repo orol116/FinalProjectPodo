@@ -30,7 +30,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	}
 
 	@Override
-	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) {
+	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException {
 
 		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
 		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
@@ -75,12 +75,8 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 						int index = boardImageList.get(i).getImageLevel();
 
-						try {
 							imageList.get(index).transferTo(new File(folderPath + reNameList.get(i)));
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-						;
+						
 						// imageList에는 multipartFile로 된 실제로 삽입된 이미지가 존재한다.
 						// 그것을 파일로 변화해서 업로드를 하는 것이다.
 						// 1. 우선 이미지 리스트에 파일을 저장한다. 파일이 비어있더라도 받아온다.

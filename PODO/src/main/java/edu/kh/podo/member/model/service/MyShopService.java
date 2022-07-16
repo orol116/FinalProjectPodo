@@ -45,4 +45,11 @@ public interface MyShopService {
 	 */
 	int selectReviewCount(int memberNo);
 
+	/** 내 상점 소개 수정
+	 * @param loginMemberNo
+	 * @param report
+	 * @return result
+	 */
+	int introChange(int loginMemberNo, String report);
+
 }

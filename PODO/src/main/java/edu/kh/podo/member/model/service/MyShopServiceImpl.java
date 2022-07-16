@@ -1,5 +1,6 @@
 package edu.kh.podo.member.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,17 @@ public class MyShopServiceImpl implements MyShopService {
 	@Override
 	public int selectReviewCount(int memberNo) {
 		return dao.selectReviewCount(memberNo);
+	}
+
+	// 내 상점 소개 수정 Service 구현
+	@Override
+	public int introChange(int loginMemberNo, String report) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("loginMemberNo", loginMemberNo);
+		map.put("report", report);
+		
+		return dao.introChange(map);
 	}
 	
 	

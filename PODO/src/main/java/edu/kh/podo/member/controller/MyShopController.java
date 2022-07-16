@@ -122,4 +122,13 @@ public class MyShopController {
 		
 		return "member/myPage/myPage-purchases";
 	}
+	
+	// 내 상점 소개 변경 ajax
+	@GetMapping("/introChange")
+	public int introChange(int loginMemberNo
+							, String report
+							, int boardNo) {
+		
+		return service.introChange(loginMemberNo, report);
+	}
 }
