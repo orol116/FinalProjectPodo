@@ -56,11 +56,11 @@
             <section class="right-main">
 
                 <%-- 연결된 채팅 회원 정보 헤더 --%>
-                <div class="chat_header">
+                <div class="chat-header">
                     <a href="" target="_blank" rel="noopener noreferrer">
                         <%-- 회원 프로필 이미지 --%>
-                        <div class="image_box">
-                            <div class="image_table">
+                        <div class="image-box">
+                            <div class="image-table">
                                 <img src="${contextPath}${member.memberProfile}">
                             </div>
                         </div>
@@ -85,6 +85,7 @@
                 <%-- 채팅창 --%>
                 <div class="chatting-area" style="bottom: 49px;">
 
+                    <%-- 채팅창 영역 --%>
                     <ul class="display-chatting">
                 
                         <c:forEach items="${list}" var="msg">
@@ -107,15 +108,30 @@
                         </c:forEach>
                     </ul>	
                 
-                    <div class="input-area">
+
+                    <%-- 전송 --%>
+                    <div class="chat-footer">
+                        <div class="chat-footer-area">
+                            <%-- <div class="chat-input" contenteditable="true" placeholder="메세지를 입력해주세요."></div> --%>
+                            <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
+                            <button type="send">전송</button>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                   <%--  <div class="input-area">
                         <textarea id="inputChatting" rows="3"></textarea>
                         <button id="send">보내기</button>
-                    </div>
+                    </div> --%>
                 </div>
+
             </section>
 
-
-
+        </div>
+        
+    </section>
 
 
     <!-- footer include -->
@@ -127,7 +143,7 @@
 	<!-- https://github.com/sockjs/sockjs-client -->
 	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     
-	<script>
+<%-- 	<script>
 		const memberNo = "${loginMember.memberNo}";
 		const memberEmail = "${loginMember.memberEmail}";
 		const memberNickname = "${loginMember.memberNickname}";
@@ -138,7 +154,7 @@
 		// /chat 이라는 요청 주소로 통신할 수 있는  WebSocket 객체 생성
 		let chattingSock = new SockJS(contextPath+"/chat");
 	</script>
-
+ --%>
     <%-- js --%>
     <script src="${contextPath}/resources/js/chat.js"></script>
 
