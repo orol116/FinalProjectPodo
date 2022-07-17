@@ -1,14 +1,13 @@
 body{
     width: 1400px;
 }
-
 /* container 가운데 정렬 */
 main >#login-contaioner {
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
-    
+    height: 500px;
 }
 
 #login-contaioner{
