@@ -147,25 +147,24 @@ $('.select').on('click', function(){
 });
 
 
-// $(".select2").click(function(){
-//     $('#category5').text('MCate')
+
+
+
+// 글씨 안나옴 포기
+
+// function mCategoryClick(click){
+//     const btnElement = document.getElementById('category5');
+//     btnElement.innerText = 'event.target';
+// }
+// $('.select').on('click', function(){
+//   $('#category4').text($(this).text());
+// });
+// $('.select2').on('click', function(){
+//     $("#category5").html('.select2');
+
 // });
 
-function mCategoryClick(click){
-    const btnElement = document.getElementById('category5');
-    btnElement.innerText = 'mct.MCategoryName';
-}
-
-
-
-$('.select').on('click', function(){
-  $('#category4').text($(this).text());
-});
-$('.select2').on('click', function(){
-    $("#category5").html(mCateValue.value);
-
-});
-
+// 중분류 목록 조회
 const selectList = document.getElementsByClassName("select");
 
 for(let select of selectList){
@@ -175,7 +174,90 @@ for(let select of selectList){
     });
 }
 
+// // 거래지역 선택 부분?!
+// function none(){
+//     document.getElementsByClassName('placeResult').innerText = '지역설정안함';
+// }
 
+
+// 게시글 작성 유효성 검사
+function writeValidate(){
+    const images = document.getElementsByName("images")[0];
+    const boardTitle = document.getElementsByName("boardTitle")[0];
+    const placeResult = document.getElementsByName("placeResult")[0];
+    const itemCondition = document.getElementsByName("itemCondition")[0];
+    const deliveryMethod = document.getElementsByName("deliveryMethod")[0];
+    const price = document.getElementsByName("price")[0];
+    const boardContent = document.querySelector("[name='boardContent']");
+
+    if(images.value.length == 0){
+        alert("상품의 사진을 선택해주세요!!!");
+        images.value = "";
+        images.focus();
+        return false;
+    }
+
+    if(boardTitle.value.trim().length == 0){
+        alert("상품명을 입력해주세요!!!");
+        boardTitle.value = "";
+        boardTitle.focus();
+        return false;
+    }
+
+    function none() {
+        const btnElement = document.getElementsByName('placeResult');
+        btnElement.innerText = '지역설정안함';
+    }
+
+    if(placeResult.value.length == 0){
+        alert("선호 거래지역을 선택해주세요!!!");
+        placeResult.value = "";
+        placeResult.focus();
+        return false;
+    }
+    
+    if(itemCondition.value.length == 0){
+        alert("상품 상태를 선택해주세요!!!");
+        itemCondition.value = "";
+        itemCondition.focus();
+        return false;
+    }
+
+    if(deliveryMethod.value.length == 0){
+        alert("배송방법을 선택해주세요!!!");
+        deliveryMethod.value = "";
+        deliveryMethod.focus();
+        return false;
+    }
+
+    if(price.value.trim().length == 0){
+        alert("가격을 입력해주세요!!!");
+        price.value = "";
+        price.focus();
+        return false;
+    }
+
+    if(boardContent.value.trim().length == 0){
+        alert("상품에 대해 설명해주세요!!!");
+        boardContent.value = "";
+        boardContent.focus();
+        return false;
+    }
+    
+
+    // 제목, 내용이 유효한 경우
+    // deleteList(input 태그)에 deleteSet(삭제된 이미지 레벨)을 추가
+    // -> JS 배열 특징 사용
+    //  --> JS 배열을 HTML요소 또는 console 에 출력하게 되는 경우 1,2,3 같은 문자열로 출력됨
+    //      (배열 기호가 벗겨짐)
+
+    // * Set -> Array로 변경 -> deleteList.value에 대입
+
+    // Array.from(유사배열 | 컬렉션) : 유사배열 | 컬렉션을 배열로 변환해서 반환
+    deleteList.value = Array.from(deleteSet);
+
+    return true;
+}
 
 
 
