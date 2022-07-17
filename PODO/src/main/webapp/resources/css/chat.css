@@ -1,0 +1,59 @@
+/* 본문 영역 */
+.content{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    width: 100%;
+}
+
+/* 채팅 전체 영역(리스트+채팅창) */
+.main-area{
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* 좌측 리스트 영역 */
+.left-main{
+    padding: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    width: 270px;
+    height: 77vh;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    margin: 20px 20px 0 0;
+    float: left;
+    position: relative;
+}
+
+/* 채팅 리스트 박스 영역 */
+.left-main ul{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    height: 77vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* --------------------------------------------- */
+
+/* 채팅창 */
