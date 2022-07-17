@@ -93,7 +93,7 @@ function McategoryList(event){
                 
                 button.setAttribute('type','button')
                 button.setAttribute('id','m'+mct.MCategoryNo)
-                button.setAttribute('onclick','mCategoryClick()')
+                // button.setAttribute('onclick','mCategoryClick()')
                 button.setAttribute('name', 'MCate')
 
                 li.append(button);
@@ -108,10 +108,12 @@ function McategoryList(event){
                 function mCategoryClick(event){
     
                     document.getElementsByName("mCateValue")[0].value='';
-                    console.log(event.target)
+                    // console.log(event.target) 
                     document.getElementsByName("mCateValue")[0].value =   event.target.getAttribute('id').substring(1);          
-                    console.log(document.getElementsByName("mCateValue")[0].value);
+                    // console.log(document.getElementsByName("mCateValue")[0].value);
                     
+                      /* 카테고리 선택 시 중분류 값 표기 */
+                    $('#category5').text($(this).text());
                 } 
             }
             
@@ -129,29 +131,32 @@ function McategoryList(event){
 }
 
 
-  /* 카테고리 선택 시 값 가져오기 */
+  /* 카테고리 선택 시 대분류 값 표기 */
+  $('.select').on('click', function(){
+  $('#category4').text($(this).text()+' > ');
 
-$('.select').on('click', function(){
-  $('#category4').text($(this).text());
 });
 
+window.addEventListener('click', (e)=>{
+    const target = e.target;
+    const targetName = target.nodeName;
+    if(targetName !== 'BUTTON'){return}
 
-
-
-
-// 글씨 안나옴 포기
-
-// function mCategoryClick(click){
-//     const btnElement = document.getElementById('category5');
-//     btnElement.innerText = 'event.target';
-// }
-// $('.select').on('click', function(){
-//   $('#category4').text($(this).text());
-// });
+    if(target.classList.contains('.select2')){
+        $('#category5').text($(this).text());
+    console.log($('#category5').text($(this).text()))
+    }
+})
 // $('.select2').on('click', function(){
-//     $("#category5").html('.select2');
+//     $('#category5').text($(this).text());
+//     console.log($('#category5').text($(this).text()))
+  
+//   });
 
-// });
+
+
+
+
 
 // 중분류 목록 조회
 const selectList = document.getElementsByClassName("select");

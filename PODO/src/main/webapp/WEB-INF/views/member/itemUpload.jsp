@@ -165,10 +165,10 @@
                              </div>
                         </div>
                     </li>
-                    <%-- <div id="category3"> 선택한 카테고리 : 
+                    <div id="category3"> 선택한 카테고리 : 
                         <div id="category4"></div> 
                         <div id="category5"></div> 
-                    </div> --%>
+                    </div>
                 </ul>
             </li>
         </ul>
@@ -191,7 +191,7 @@
                         </section>
                         <section class="place2">
                         <%-- readonly : input 박스 value 값을 form 전송이 가능하지만 --%>
-                            <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" name="placeResult" readonly>
+                            <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" name="placeResult" >
                         </section>
                     </li>
                 </ul>
