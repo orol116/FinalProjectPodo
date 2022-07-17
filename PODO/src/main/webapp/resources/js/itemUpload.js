@@ -64,22 +64,11 @@ for(let i=0 ; i<inputImage.length ; i++){
 
 
 // 컨트롤러에서 데이터 받기
+var LCategoryBtn = document.getElementsByClassName('category1-1')[0];
+LCategoryBtn.addEventListener('click', McategoryList);
 
-   
-
-var LCategoryBtn = document.getElementsByName("LCate");
-
-// LCategoryBtn.forEach((target)=> target.addEventListener("click",(target)=>{
-
-//         McategoryList
-//         console.log(target.id)
-//      }
-//     )
-// );
-
-
-LCategoryBtn.forEach((target)=> target.addEventListener("click", McategoryList));
-
+// var LCategoryBtn = document.getElementsByName("LCate");
+// LCategoryBtn.forEach((a)=> a.addEventListener("click", McategoryList));
 
 
 function McategoryList(event){
