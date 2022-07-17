@@ -100,4 +100,10 @@
 		SELECT COUNT(*) FROM REVIEW 
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
+	
+	<update id="introChange">
+		UPDATE MEMBER SET 
+		SHOP_INFO = #{report}
+		WHERE MEMBER_NO = ${loginMemberNo}
+	</update>
 </mapper>
