@@ -126,7 +126,7 @@
                         <div class="box">
                             <a href="#" class="title">
                                 <div class="image">
-                                    <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
+                                    <img src="${contextPath}${sellList.img.imageReName}"  alt="상품 이미지1">
                                 </div>   
                                 <div class="title1">
                                     <div class="title2">${sellList.boardTitle}</div>
