@@ -44,7 +44,27 @@ public class AdminDAO {
 	
 	// 관리자 1대1문의 게시글 수
 	public int searchAdminListCount(Map<String, Object> paramMap) {
-		return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+		
+		int boardCode = (int) paramMap.get("boardCode");
+		
+		if(boardCode == 3) {
+			return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+			
+		}else if(boardCode ==4) {
+			
+			return sqlSession.selectOne("adminMapper.searchItemListCount",paramMap);
+		}else if(boardCode == 5){
+			
+			return sqlSession.selectOne("adminMapper.searchMemberListCount",paramMap);
+		}else if(boardCode == 6){
+			
+			return sqlSession.selectOne("adminMapper.searchReportListCount",paramMap);
+		}else {
+			
+			return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+		}
+		
+	
 	}
 
 	
@@ -79,35 +99,41 @@ public class AdminDAO {
 	
 	
 	// ADMIN 검색 목록 조회
-	public List<Member> selectSearchMemberList(Pagination pagination, Map<String, Object> paramMap) {
+	public List<Member> searchMemberList(Pagination pagination, Map<String, Object> paramMap) {
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("adminMapper.selectSearchMemberList", paramMap, rowBounds);
+		return sqlSession.selectList("adminMapper.searchMemberList", paramMap, rowBounds);
 	}
 	
 	
-	public List<Admin> selectSearchInquiryList(Pagination pagination, Map<String, Object> paramMap) {
+	public List<Admin> searchInquiryList(Pagination pagination, Map<String, Object> paramMap) {
 		
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("adminMapper.selectSearchInquiryList", paramMap, rowBounds);
+		return sqlSession.selectList("adminMapper.searchInquiryList", paramMap, rowBounds);
 	}
 	
 	
-	public List<ItemBoard> selectSearchItemList(Pagination pagination, Map<String, Object> paramMap) {
+	public List<ItemBoard> searchItemList(Pagination pagination, Map<String, Object> paramMap) {
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("adminMapper.selectSearchItemList", paramMap, rowBounds);
+		return sqlSession.selectList("adminMapper.searchItemList", paramMap, rowBounds);
 	}
 	
 	
-	
+	public List<Admin> searchReportList(Pagination pagination, Map<String, Object> paramMap) {
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.searchReportList", paramMap, rowBounds);
+	}
 	
 
 
@@ -126,6 +152,8 @@ public class AdminDAO {
 		
 		return result;	
 	}
+
+	
 
 
 
