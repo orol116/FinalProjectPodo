@@ -191,10 +191,15 @@ footer {
 #item-detail-foot {
     padding-top: 30px;
     display: flex;
-    justify-content: space-between;
     padding-bottom: 40px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
+}
+
+.itemContainer{
+    display: flex;
+    
+    border: 1px solid #ccc;
 }
 
 .box {
@@ -212,10 +217,14 @@ footer {
 
 /* 제목 */
 
+
 .title {
     text-decoration: none;
     color: black;
+    width: 250px;
+
 }
+
 
 .name2 {
     display: flex;
