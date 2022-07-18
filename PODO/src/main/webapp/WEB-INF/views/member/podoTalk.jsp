@@ -121,10 +121,10 @@
                     
                     
                     
-                   <%--  <div class="input-area">
+                   <div class="input-area">
                         <textarea id="inputChatting" rows="3"></textarea>
                         <button id="send">보내기</button>
-                    </div> --%>
+                    </div>
                 </div>
 
             </section>
