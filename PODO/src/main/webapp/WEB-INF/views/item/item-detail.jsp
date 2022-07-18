@@ -43,7 +43,13 @@
 
 
                 <section id="item-detail-head">
-                    <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
+                    <%-- <c:set var="start" value="0"/>
+                    <c:forEach var="i" begin="${start}" end="${fn:length(itemList.imageList)-1}">
+
+                    </c:forEach> --%>
+                    
+                    <img id="item-image" src="${contextPath}${itemList.imageList[0].imageReName}"  alt="상품 이미지"></img>
+                    <img id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></img>
                     <div id="item-info">
                         <div id="item-title">${itemList[0].boardTitle}</div>
                         <div id="item-price">${itemList[0].price}원</div>

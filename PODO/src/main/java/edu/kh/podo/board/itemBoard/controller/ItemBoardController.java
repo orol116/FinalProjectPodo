@@ -89,6 +89,8 @@ public class ItemBoardController {
 		
 		model.addAttribute("map", map);
 
+		System.out.println(map.get("itemList"));
+		
 		return "/item/item-detail";
 	}
 	
