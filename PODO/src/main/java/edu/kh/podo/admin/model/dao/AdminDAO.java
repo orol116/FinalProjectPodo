@@ -104,7 +104,7 @@ public class AdminDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("adminMapper.selectSearchMemberList", paramMap, rowBounds);
+		return sqlSession.selectList("adminMapper.searchMemberList", paramMap, rowBounds);
 	}
 	
 	
@@ -114,7 +114,7 @@ public class AdminDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("adminMapper.selectSearchInquiryList", paramMap, rowBounds);
+		return sqlSession.selectList("adminMapper.searchInquiryList", paramMap, rowBounds);
 	}
 	
 	
@@ -123,11 +123,17 @@ public class AdminDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("adminMapper.selectSearchItemList", paramMap, rowBounds);
+		return sqlSession.selectList("adminMapper.searchItemList", paramMap, rowBounds);
 	}
 	
 	
-	
+	public List<Admin> searchReportList(Pagination pagination, Map<String, Object> paramMap) {
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.searchReportList", paramMap, rowBounds);
+	}
 	
 
 
@@ -146,6 +152,8 @@ public class AdminDAO {
 		
 		return result;	
 	}
+
+	
 
 
 

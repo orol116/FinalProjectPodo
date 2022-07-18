@@ -122,7 +122,7 @@ public class AdminServiceImpl implements AdminService{
 			map.put("memberList", memberList);
 		}else if(boardCode == 6){
 			
-			List<Admin> reportList = dao.selectSearchInquiryList(pagination, paramMap);
+			List<Admin> reportList = dao.searchReportList(pagination, paramMap);
 			map.put("reportList", reportList);
 		}else {
 			
