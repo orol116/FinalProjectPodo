@@ -1,5 +1,7 @@
 package edu.kh.podo.board.itemBoard.model.vo;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,7 +30,8 @@ public class ItemBoard {
 	private int categoryNo;
 	private String categoryName;
 	private int buyMemberNo;
-	private String itemImage;
 	private int bookmarkCount;
+	
+	private List<BoardImage> imageList;
 
 }
