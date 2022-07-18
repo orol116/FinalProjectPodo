@@ -155,7 +155,8 @@ img{
     justify-content: center;
     
 }
-.pagination a {
+
+.pagination>li {
     color: black;
     float: left;
     padding: 8px 16px;
