@@ -101,4 +101,20 @@ public class ItemBoardDAO {
 	public int addCountAdd(Map<String, Object> map) {
 		return sqlSession.update("itemBoardMapper.addCountAdd", map);
 	}
+
+	/** 게시글 상세조회 이미지 조회 DAO
+	 * @param boardNo
+	 * @return list
+	 */
+	public List<BoardImage> selectBoardImageList(int boardNo) {
+		return sqlSession.selectList("itemBoardMapper.selectBoardImageList", boardNo);
+	}
+
+	/** 판매자 다른 상품 이미지 조회 DAO
+	 * @param daoMap 
+	 * @return list
+	 */
+	public List<BoardImage> selectOtherImage(Map<String, Object> daoMap) {
+		return sqlSession.selectList("itemBoardMapper.selectOtherImage", daoMap);
+	}
 }
