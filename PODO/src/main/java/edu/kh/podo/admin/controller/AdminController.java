@@ -40,18 +40,17 @@ public class AdminController {
 		
 		Map<String, Object> map = null;
 		
+		
 		if(paramMap.get("key")==null) { // 검색이 아닌 경우
 			
 			 map = service.inquiryList(cp, boardCode); 
 			
 		}else { // 검색인 경우
 			
-			// 검색에 필요한 데이터를 paramMap에 모두 담아서 서비스 호출
-			// key, query, cp, boardCode가 필요하다
-			paramMap.put("cp", cp); // 있으면 같은 값으로 덮어쓰기, 없으면 추가. 
-									// cp를 requestParam으로 디폴트값이라도 가져왔으니깐 cp=1 이라는 값을 추가할 수 있다.
+			paramMap.put("cp", cp); 
+			paramMap.put("boardCode", boardCode);
 			
-//			map = service.searchBoardList(paramMap);
+			map = service.searchBoardList(paramMap);
 		}
 		
 		model.addAttribute("map",map);

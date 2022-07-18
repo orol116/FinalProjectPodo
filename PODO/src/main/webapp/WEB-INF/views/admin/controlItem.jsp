@@ -53,6 +53,8 @@
         <option value="d">디지털 가전</option>
     </select>
  
+    <%--  검색창 --%>
+
     <section class="basic">
             <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
             <button class="button" type= "submit" id="searchItem" ><i class="fa-solid fa-magnifying-glass"></i></button>

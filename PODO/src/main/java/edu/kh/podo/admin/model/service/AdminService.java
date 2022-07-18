@@ -12,4 +12,6 @@ public interface AdminService {
 
 	int insertBoard(Map<String, Object> paramMap);
 
+	Map<String, Object> searchBoardList(Map<String, Object> paramMap);
+
 }
