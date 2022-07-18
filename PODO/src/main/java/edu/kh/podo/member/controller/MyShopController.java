@@ -1,6 +1,7 @@
 package edu.kh.podo.member.controller;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -145,5 +146,18 @@ public class MyShopController {
 		map.put("condition", condition);
 
 		return service.changeTradeCondition(map);
+	}
+	
+	public String name(int[] arr) {
+		
+		int sum = 0;
+		
+		for (int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+		}
+		
+		double answer = (sum / arr.length);
+		
+		return null;
 	}
 }

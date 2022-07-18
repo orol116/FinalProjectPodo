@@ -1,11 +1,14 @@
 var update = document.getElementById("tradeCondition");
 
-
 // select 옵션 값 변경 시 제출
-function tradeCondition(changeVal){
-    
-    var condition = $("#changeCondition > option:selected").attr("value");
+function tradeCondition(){
+
+    var condition = $("#changeCondition").val();
     var boardNo = $("#changeCondition > option:selected").attr("value2");
+    
+    console.log(boardNo);
+    console.log(condition);
+    
     /* var indexNo = update[0].selectedIndex;
 
     console.log(indexNo);
@@ -52,6 +55,7 @@ function update(){
         data : {"updateDate":updateDate,
                 "tradeContition" : tradeContition},
         type: "POST",
+
         success : function(result){
             if(update[2]||update[4]){
                 alert("예약중/판매완료 상품은 UP하기를 이용할 수 없습니다.");
@@ -67,3 +71,4 @@ function update(){
     });
 
 };
+
