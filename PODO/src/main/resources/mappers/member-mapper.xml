@@ -42,7 +42,7 @@
 	<!-- 네이버 회원가입 -->
 	<insert id="naverSignUp" parameterType="member">
 		INSERT INTO MEMBER 
-		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberId}, 'xxxx', #{memberId}, 01011111111, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, 'aaa', DEFAULT)
+		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberId}, 'xxxx', #{memberId}, 01011111111, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, 'aaa', DEFAULT, DEFAULT, NULL)
 	</insert>
 	
 	

@@ -72,6 +72,12 @@ public class MyShopServiceImpl implements MyShopService {
 		
 		return dao.introChange(map);
 	}
+
+	// 상품관리 판매상태 ajax
+	@Override
+	public int changeTradeCondition(Map<String, Object> map) {
+		return dao.changeTradeCondition(map);
+	}
 	
 	
 
