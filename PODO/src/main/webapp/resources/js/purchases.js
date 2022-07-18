@@ -1,8 +1,14 @@
+(function(){
+
+	
+
+})();
+
 function showSellList(){
     $('.sellContents').show();
     $('.buyContents').hide();
 }
-function showSellList(){
+function showBuyList(){
     $('.buyContents').show();
     $('.sellContents').hide();
 }

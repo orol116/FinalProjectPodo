@@ -7,6 +7,7 @@
 <c:set var="sellList" value="${map.sellList}" />
 <c:set var="sellMember" value="${map.sellMember}" />
 <c:set var="boardNo" value="${boardNo}" />
+<c:set var="boardImageList" value="${map.boardImageList}" />
 
 
 <!DOCTYPE html>
@@ -43,7 +44,15 @@
 
 
                 <section id="item-detail-head">
-                    <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
+                
+                    <c:if test="${fn:length(boardImageList) != null}">
+                        <image id="item-image" src="${contextPath}${boardImageList[0].imageReName}"  alt="상품 이미지"></image>
+                    </c:if>
+
+                        <c:if test="${fn:length(boardImageList) == null}">
+                        <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
+                    </c:if>
+                    
                     <div id="item-info">
                         <div id="item-title">${itemList[0].boardTitle}</div>
                         <div id="item-price">${itemList[0].price}원</div>
@@ -139,6 +148,23 @@
                 <h3 id="body-info-head">상품 정보</h3>
                 <section id="item-detail-body">
                     <div id="body-info">
+
+                        <c:if test="${fn:length(boardImageList) != null}">
+
+                            <!-- 업로드 이미지 영역 -->
+                            <h5>상품 이미지</h5>
+                            <div class="img-box">
+                                <c:forEach var="i" begin="${start}" end="${fn:length(boardImageList) - 1}">
+                                
+                                    <div class="boardImg">
+                                        <img src="${contextPath}${boardImageList[i].imageReName}">
+                                    </div>
+
+                                </c:forEach>
+                            </div>
+
+                        </c:if>        
+
                         
                         <div id="body-info-text">
                             ${itemList[0].boardContent}
