@@ -1,0 +1,199 @@
+/* 본문 영역 */
+.content{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    width: 100%;
+}
+
+/* 채팅 전체 영역(리스트+채팅창) */
+.main-area{
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* 좌측 리스트 영역 */
+.left-main{
+    padding: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    width: 270px;
+    height: 77vh;
+    /* border: 1px solid #ebebeb; */
+    border: 1px solid #000;/* 가시성을 위한 test용 */
+    background-color: #ddd;
+    margin: 20px 20px 0 0;
+    float: left;
+    position: relative;
+}
+
+/* 채팅 리스트 박스 영역 */
+.left-main ul{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    height: 77vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* --------------------------------------------- */
+
+/* 채팅창 */
+
+/* 우측 채팅창 본문 전체 */
+.right-main{
+
+    padding: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    width: 686px;
+    height: 77vh;
+    /* border: 1px solid #ebebeb; */
+    border: 1px solid #000;/* 가시성을 위한 test용 */
+    background-color: #fff;
+    float: right;
+    margin: 20px 0 165px;
+}
+
+
+/* 채팅창 태그 */
+.chat-header{
+    margin: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    border-bottom: 1px solid #ebebeb;
+    padding: 15px 20px;
+    height: 50px;
+}
+
+/* 채팅창 헤더의 a태그 */
+.chat-header a{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    text-decoration: none;
+}
+
+/* 신고 영역 */
+.declaration{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    float: right;
+    display: table;
+}
+
+.declaration div{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.declaration img{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    width: 18px;
+    cursor: pointer;
+}
+
+/* 채팅 전송 영역 */
+.chat-footer{
+    margin: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+    height: 40px;
+    /* padding: 15px 15px 15px 21px; */
+    padding: auto;
+}
+
+.chat-footer-area{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    color: #333;
+    font-family: 돋움,Dotum,Arial;
+}
+
+.chat-footer .chat-input{
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: 400;
+    font-family: 돋움,Dotum,Arial;
+    position: relative;
+    width: 570px;
+    overflow: auto;
+    height: 40px;
+    outline: 0;
+    line-height: 21px;
+    color: #000;
+    font-size: 15px;
+    float: left;
+}
+
+.chat-footer button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #0484f6;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 0;
+    text-align: center;
+    width: 80px;
+}

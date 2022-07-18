@@ -153,7 +153,7 @@
                              <div id="category2">
                                 <ul class="category1-1" name="category2">
                                     <%-- <li> <button type="button" class="select">여성의류</button></li> --%>
-                                    <li> <button type="button" class="select"></button></li>
+                                    <%-- <li> <button type="button" class="select"></button></li> --%>
                                     <%-- <li> <button type="button" class="select">남성의류</button></li>
                                     <li><button type="button" class="select">신발</button></li>
                                     <li><button type="button" class="select">가방</button></li>
@@ -187,10 +187,11 @@
                             <button>내 위치</button>
                             <button>최근지역</button>
                             <button>주소검색</button>
-                            <button>지역설정안함</button>
+                            <button onchange="none()">지역설정안함</button>
                         </section>
                         <section class="place2">
-                            <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" value="" readonly>
+                        <%-- readonly : input 박스 value 값을 form 전송이 가능하지만 --%>
+                            <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" name="placeResult" >
                         </section>
                     </li>
                 </ul>
@@ -235,13 +236,13 @@
             <ul class="second">
                 <li>
                     <section class="states">
-                        <input type="radio" name="delivery" id="delivery1" value='직거래'>
+                        <input type="radio" name="delivery" id="delivery1" value='직거래' name="deliveryMethod">
                         <label for="delivery1">직거래</label>
 
-                        <input type="radio" name="delivery" id="delivery2" value='무료배송'>
+                        <input type="radio" name="delivery" id="delivery2" value='무료배송' name="deliveryMethod">
                         <label for="delivery2">무료배송</label>
 
-                        <input type="radio" name="delivery" id="delivery3" value='배송비 본인부담'>
+                        <input type="radio" name="delivery" id="delivery3" value='배송비 본인부담' name="deliveryMethod">
                         <label for="delivery3">배송비 본인부담</label>
                     </section>
                 </li>
@@ -292,7 +293,7 @@
         </ul>
 
         <div class="submit">
-            <button class="submit2" type="submit">등록하기</button>
+            <button class="submit2" type="submit" id="writebtn">등록하기</button>
         </div>
 
 

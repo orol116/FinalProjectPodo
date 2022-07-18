@@ -17,10 +17,10 @@
 </head>
 
 
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
 <body>
     <main>
 
-        <jsp:include page="/WEB-INF/views/common/header.jsp" />
 		<div id="login-contaioner">
 			<h3>로그인</h3>
 			<form action="login" method="POST" name="login-form" id="login-form" onsubmit="return loginValidate()">
@@ -60,7 +60,6 @@
 
     </main>
 
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 	<script type="text/javascript">
 		var naver_id_login = new naver_id_login("7CM27UMDND6X1zZ8Ekqr","http://kh-classa.xyz:10000/podo/member/loginNaver/");
@@ -74,4 +73,7 @@
 
     <script src="${contextPath}/resources/js/member/login.js"></script>
 </body>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+
 </html>

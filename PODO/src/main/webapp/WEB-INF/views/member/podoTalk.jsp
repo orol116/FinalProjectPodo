@@ -12,194 +12,151 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/chat.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/chat-style.css">
 
 </head>
 <body>
     <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
-
-    <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
     
     
     <!-- 채팅 -->
-    <%-- <section class="content">
+    <%-- 본문 영역 --%>
+    <section class="content">
+		
+        <%-- 채팅 전체 영역(리스트+채팅창) --%>
+        <div class="main-area">
 
-        <div class="main_area">
-            <!-- 좌측 -->
-            <div class="left_main">
-
-                <div class="left_main_header">
-                    <div class="title">포도톡</div>
-                </div>
-
+            <%-- 좌측 채팅 리스트 영역 --%>
+            <section class="left-main">
+                <%-- 좌측 리스트 박스 영역 --%>
                 <ul>
-                    <div class="card_box active">
-                        <a href="/messages/00000000000022055476">
+                    <div class="card-box">
+                        <%-- 클릭 시 우측 채팅창으로 이동 --%>
+                        <a href="">
                             <li>
+                                <%-- 회원 이미지 --%>
                                 <div class="profile">
-                                    <img src="https://ccimg.hellomarket.com/images/2019/member_profile/07/08/17/3614_660257_1.jpg?size=s4" alt="조자룡2">
+                                    <img src="${contextPath}${member.memberProfile}">
                                 </div>
                                 <div class="info">
-                                    <div class="nick">조자룡2</div>
-                                    <div class="description">궁금하신점 있으시면 편하게 여쭤보세요</div>
-                                    <div class="time_ago">7월2일</div>
+                                    <div class="memberNick">${member.memberNickname}</div><%-- 회원 닉네임 --%>
+                                    <div class="sentDate">${chatroom.sentDate}</div><%-- 전송날짜 --%>
                                 </div>
                             </li>
                         </a>
-                        <div class="etc_dots"></div>
                     </div>
-                    <div class="card_box"><a href="/messages/00000000000022045529">
-                        <li>
-                            <div class="profile">
-                                <img src="https://ccimg.hellomarket.com/images/2017/member_profile/s4/04/10/11/2139_53080_1.png?size=s4" alt="헬로마켓_알림">
-                            </div>
-                            <div class="info">
-                                <div class="nick">헬로마켓_알림</div>
-                                <div class="description">(헬로마켓)</div>
-                                <div class="time_ago">6월30일</div>
-                            </div>
-                        </li>
-                    </a>
-                    <div class="etc_dots"></div>
-                </div>
-            </ul>
-            
-        </div>
+                </ul>
+            </section>
 
-        <!-- 우측 채팅 내역 -->
-        <div class="right_main">
-            <div class="chat_header">
-                <a href="https://www.hellomarket.com/s/660257" target="_blank" rel="noopener noreferrer">
-                    <div class="image_box">
-                        <div class="image_table">
-                            <img src="https://ccimg.hellomarket.com/images/2019/member_profile/07/08/17/3614_660257_1.jpg?size=s4" alt="조자룡2님의 프로필 이미지">
+            <%-- -------------------------------------------------------------------------------------------------- --%>
+
+            <%-- 우측 채팅창 영역 --%>
+            <section class="right-main">
+
+                <%-- 연결된 채팅 회원 정보 헤더 --%>
+                <div class="chat-header">
+                    <a href="" target="_blank" rel="noopener noreferrer">
+                        <%-- 회원 프로필 이미지 --%>
+                        <div class="image-box">
+                            <div class="image-table">
+                                <img src="${contextPath}${member.memberProfile}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="info">
+                        <%-- 회원 정보(닉네임) --%>
+                        <div class="info">
+                            <div>
+                                <span>${member.memberNickname}</span>    
+                            </div>
+                        </div>
+                    </a>
+                    <%-- 신고하기 --%>
+                    <div class="declaration">
                         <div>
-                            <span>조자룡2</span>
-                            <span>판매아이템 11개</span>
+                            <img src="${contextPath}/resources/images/report.png" alt="신고 이미지">
                         </div>
                     </div>
-                </a>
-                <div class="declaration">
-                    <div>
-                        <img src="https://ccimage.hellomarket.com/web/2019/chat/btn_hellotalk_report_x2.png" alt="신고 이미지"></div>
-                    </div>
-                    <a href="/messages">
-                        <div class="chat_close"></div>
-                    </a>
+                        <a href="#"><div class="chat_close"></div></a>
                 </div>
-                <div class="chat_description" style="bottom: 49px;">
-                    <div>
-                        <div class="chat_timeago">
-                            <div class="chat_timeago_box">
-                                <span class="chat_timeago_text">2022년 07월 02일</span>
-                            </div>
-                        </div>
-                        <div class="chat_opponent">
-                            <div class="chat_opponent_box">
-                                <div class="chat_opponent_image_box">
-                                    <img class="chat_opponent_profile_image" src="https://ccimg.hellomarket.com/images/2019/member_profile/07/08/17/3614_660257_1.jpg?size=s4" alt="상대방이미지">
-                                </div>
-                                <div class="chat_opponent_title">조자룡2</div>
-                                <div class="chat_opponent_message">
-                                    <span>반가워요</span>
-                                    <div class="chat_opponent_timeago">오후 7:44</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chat_opponent">
-                            <div class="chat_opponent_box">
-                                <div class="chat_opponent_image_box">
-                                    <img class="chat_opponent_profile_image" src="https://ccimg.hellomarket.com/images/2019/member_profile/07/08/17/3614_660257_1.jpg?size=s4" alt="상대방이미지"></div>
-                                    <div class="chat_opponent_title">조자룡2</div>
-                                    <div class="chat_opponent_message">
-                                        <span>궁금하신점 있으시면 편하게 여쭤보세요</span>
-                                        <div class="chat_opponent_timeago">오후 7:48</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chat_footer">
-                        <div class="chat_footer_area">
-                            <div class="chat_input" contenteditable="true" placeholder="메세지를 입력해주세요."></div>
-                            <button type="button">전송</button>
+
+
+
+                <%-- 채팅창 --%>
+                <div class="chatting-area" style="bottom: 49px;">
+
+                    <%-- 채팅창 영역 --%>
+                    <ul class="display-chatting">
+                
+                        <c:forEach items="${list}" var="msg">
+                            <fmt:formatDate var="chatDate" value="${msg.createDate }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
+                            <c:if test="${msg.memberNo == loginMember.memberNo }">
+                                <li class="myChat">
+                                    <span class="chatDate">${chatDate}</span>
+                                    <p class="chat">${msg.message }</p>
+                                </li>
+                            </c:if>
+                            
+                            <c:if test="${msg.memberNo != loginMember.memberNo }">
+                                <li>
+                                    <b>${msg.memberNickname }</b>	<br>
+                                    <p class="chat">${msg.message }</p>
+                                    <span class="chatDate">${chatDate}</span>
+                                </li>
+                            </c:if>
+                        
+                        </c:forEach>
+                    </ul>	
+                
+
+                    <%-- 전송 --%>
+                    <div class="chat-footer">
+                        <div class="chat-footer-area">
+                            <%-- <div class="chat-input" contenteditable="true" placeholder="메세지를 입력해주세요."></div> --%>
+                            <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
+                            <button type="send">전송</button>
                         </div>
                     </div>
+                    
+                    
+                    
+                    
+                   <%--  <div class="input-area">
+                        <textarea id="inputChatting" rows="3"></textarea>
+                        <button id="send">보내기</button>
+                    </div> --%>
                 </div>
-            </div>
-        </section> --%>
 
-	<!-- 임시, 테스트중 -->
+            </section>
 
-    <!-- 채팅 아이콘 -->
-    <div class="chatIcon font_jua">
-        <img src="${contextPath}/resources/images/favicon.ico" class="chatIconImg">
-    </div>
-
-    <!-- 채팅 창 -->
-    <div class="chatContainer display-none">
-        <div class="chatTop">
-            <div class="floatLeft" id="loginOn">
-                <img class="profile_img" id="setPic"><!-- src 사진 경로 동적 생성 -->
-            </div>
-            <div class="name_container font_noto" id="setName"><!-- 이름 동적 생성 --></div>
-            <div class="floatRight">
-                <img src="resources/img/chat-close.png" class="btnImg close">
-            </div>
-            <div class="floatRight">
-                <img src="resources/img/chat-minus.png" class="btnImg down">
-            </div>
         </div>
-        <div class="chatMiddle">
-            <ul>
-                <!-- 동적 생성 -->
-            </ul>
-        </div>
-        <div class="chatBottom">
-            <textarea placeholder="메세지를 입력해 주세요."></textarea>
-        </div>
-    </div>
-
-
-    <!-- format -->
-    <div class="chatMiddle format">
-        <ul>
-            <li>
-                <div class="sender">
-                    <span></span>
-                </div>
-                <div class="message">
-                    <span></span>
-                </div>
-            </li>
-        </ul>
-    </div>
- 
-    <!-- 채팅 리스트 -->
-    <div class="chatListContainer font_jua display-none">
-        <div class="chatTop">
-            <div style="padding: 10px; margin-left: 4px;">포도톡 리스트</div>
-        </div>
-        <div class="chatList">
-            <!-- 동적 생성 -->
-        </div>
-    </div>
-
+        
+    </section>
 
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <script>
-        const contextPath = "${contextPath}";
-    </script>
+    <!--------------------------------------- sockjs를 이용한 WebSocket 구현을 위해 라이브러리 추가 ---------------------------------------------->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	
+	<!-- https://github.com/sockjs/sockjs-client -->
+	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    
+<%-- 	<script>
+		const memberNo = "${loginMember.memberNo}";
+		const memberEmail = "${loginMember.memberEmail}";
+		const memberNickname = "${loginMember.memberNickname}";
+		const chatRoomNo = "${chatRoomNo}";
+		const contextPath = "${contextPath}";
 
+		// 로그인이 되어 있을 경우에만
+		// /chat 이라는 요청 주소로 통신할 수 있는  WebSocket 객체 생성
+		let chattingSock = new SockJS(contextPath+"/chat");
+	</script>
+ --%>
     <%-- js --%>
-    <script src="${contextPath}/resources/js/podoTalk.js"></script>
+    <script src="${contextPath}/resources/js/chat.js"></script>
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
