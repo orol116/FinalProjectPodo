@@ -78,4 +78,12 @@ public class MyShopDAO {
 		return sqlSession.update("myShopMapper.introChange", map);
 	}
 
+	/** 상품관리 판매상태 ajax
+	 * @param map
+	 * @return result
+	 */
+	public int changeTradeCondition(Map<String, Object> map) {
+		return sqlSession.update("myShopMapper.changeTradeCondition", map);
+	}
+
 }

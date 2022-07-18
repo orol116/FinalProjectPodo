@@ -1,21 +1,44 @@
 var update = document.getElementById("tradeCondition");
 
-// select 옵션 값 변경 시 제출
-function condition(){
 
-    var indexNo = update[0].selectedIndex;
+// select 옵션 값 변경 시 제출
+function tradeCondition(changeVal){
+    
+    var condition = $("#changeCondition > option:selected").attr("value");
+    var boardNo = $("#changeCondition > option:selected").attr("value2");
+    /* var indexNo = update[0].selectedIndex;
 
     console.log(indexNo);
 
     document.forms["tradeCondition"].submit();
 
-    alert("상품 상태가 변경되었습니다.");
-
     // // select element에서 선택된 option의 value가 저장됩니다
     // var selectedValue = update.options[update.selectedIndex].value;
 
     // // select element에서 선택된 option의 text가 저장된다.
-    // var selectedText = update.options[update.selectedIndex].text;
+    // var selectedText = update.options[update.selectedIndex].text; */
+
+    $.ajax({
+        url : contextPath + "/shop/main/tradeCondition",
+
+        data : {"boardNo" : boardNo,
+                "condition" : condition},
+
+        type: "POST",
+
+        success : function(result) {
+            if (result > 0) {
+                alert("상품 상태가 변경되었습니다.");
+            } else {
+                alert("상태 변경에 실패하였습니다.");
+            }
+        },
+
+        error : function(){
+            alert("에러 발생");
+        }
+
+    });
 
 }
 

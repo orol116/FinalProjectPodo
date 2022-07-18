@@ -110,15 +110,15 @@ public class AdminServiceImpl implements AdminService{
 		
 		if(boardCode == 3) {
 			
-			List<Admin> InquiryList = dao.selectSearchInquiryList(pagination, paramMap);
+			List<Admin> InquiryList = dao.searchInquiryList(pagination, paramMap);
 			map.put("InquiryList", InquiryList);
 		}else if(boardCode ==4) {
 			
-			List<ItemBoard> itemList = dao.selectSearchItemList(pagination, paramMap);
+			List<ItemBoard> itemList = dao.searchItemList(pagination, paramMap);
 			map.put("itemList", itemList);
 		}else if(boardCode == 5){
 			
-			List<Member> memberList = dao.selectSearchMemberList(pagination, paramMap);
+			List<Member> memberList = dao.searchMemberList(pagination, paramMap);
 			map.put("memberList", memberList);
 		}else if(boardCode == 6){
 			
@@ -126,7 +126,7 @@ public class AdminServiceImpl implements AdminService{
 			map.put("reportList", reportList);
 		}else {
 			
-			List<Admin> FAQList = dao.selectSearchInquiryList(pagination, paramMap);
+			List<Admin> FAQList = dao.searchInquiryList(pagination, paramMap);
 			map.put("FAQList", FAQList);
 		}
 		

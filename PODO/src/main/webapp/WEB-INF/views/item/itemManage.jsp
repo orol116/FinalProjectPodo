@@ -62,31 +62,31 @@
                 </c:if>
                 <c:if test="${boardList != null}">
 
-                    <c:forEach var="item" items="${boardList}">
+                    <c:forEach var="item" items="${boardList}" varStatus="status">
 
-                        <form id="tradeCondition" method="post">
-                            <tr>
-                                <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
-                                <td>
-                                    <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
-                                        <select onchange="condition()">
-                                                <option value="${item.tradeCondition}" disabled>${item.tradeCondition}</option>
-                                                <option value="판매중">판매 중</option>
-                                                <option value="예약중">예약 중</option>
-                                                <option value="판매완료">판매완료</option>
-                                                <option value="삭제">삭제</option>
-                                        </select>
-                                </td>
-                                <td><a href="#" id="name">${item.boardTitle}</a></td>
-                                <td>${item.price} 원</td>
-                                <td>${item.readCount}</td>
-                                <td>${item.updateDate}</td>
-                                <td class="choice">
-                                    <button class="choice1" onclick="update()">UP</button>
-                                    <a href="itemUpload" class="choice2">수정</a>
-                                </td>
-                            </tr>  
-                        </form>  
+                        <%-- <form id="tradeCondition" method="post"> --%>
+                        <tr>
+                            <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
+                            <td>
+                                <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
+                                <select id="changeCondition" onchange="tradeCondition(change${status.index})">
+                                    <option value="${item.tradeCondition}" disabled>${item.tradeCondition}</option>
+                                    <option value="판매 중" value2="${item.boardNo}">판매 중</option>
+                                    <option value="예약 중" value2="${item.boardNo}">예약 중</option>
+                                    <option value="판매완료" value2="${item.boardNo}">판매완료</option>
+                                    <option value="삭제" value2="${item.boardNo}">삭제</option>
+                                </select>
+                            </td>
+                            <td><a href="#" id="name">${item.boardTitle}</a></td>
+                            <td>${item.price} 원</td>
+                            <td>${item.readCount}</td>
+                            <td>${item.updateDate}</td>
+                            <td class="choice">
+                                <button class="choice1" onclick="update()">UP</button>
+                                <a href="itemUpload" class="choice2">수정</a>
+                            </td>
+                        </tr>  
+                        <%-- </form>  --%> 
                     </c:forEach>
                 </c:if>
                         
@@ -146,7 +146,6 @@
     <script>
         const updateDate = "${item.updateDate}"
         const tradeContition = "${item.tradeContition}"
-    
     </script>
 
       <!-- footer include -->

@@ -16,7 +16,7 @@
 		<result property="memberTown" 		column="MEMBER_TOWN"/>
 		<result property="createDate" 		column="CREATE_DT"/>
 		<result property="admin"  			column="ADMIN" />
-		<result property="shopInfo"  			column="SHOP_INFO" />
+		<result property="shopInfo"  		column="SHOP_INFO" />
 	
 	</resultMap>
 
@@ -49,8 +49,6 @@
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 		
-		<collection property="imageList" column="BOARD_NO" javaType="java.util.ArrayList" ofType="boardImage" select="selectImageList"/> 
-
 	</resultMap>
 	
 	<resultMap type="boardImage" id="boardImage_rm">
@@ -61,12 +59,34 @@
 		<result property="boardNo" column="BOARD_NO"/>
 	</resultMap>
 	
-	<select id="selectImageList" resultMap="boardImage_rm">
+	<select id="selectBoardImageList" resultMap="boardImage_rm">
 		SELECT * FROM BOARD_IMG
 		WHERE BOARD_NO = #{boardNo}
 		ORDER BY IMG_LEVEL
 	</select>
 	
+	<!-- 판매글 상세조회 -->
+	<select id="selectItem" resultMap="itemBoard_rm">
+		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION
+			, PRICE
+		FROM ITEM_BOARD
+		JOIN BOARD_IMG USING(BOARD_NO)
+		WHERE BOARD_NO = #{boardNo}
+	</select>
+	
+	<!-- sql돌겠다 진짜  -->
+	<!-- <select id="selectOtherImage" resultMap="boardImage_rm">
+		SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL FROM ITEM_BOARD
+		JOIN BOARD_IMG USING(BOARD_NO)
+		WHERE BOARD_NO != ${boardNo}
+		AND BOARD_NO IN (
+			SELECT BOARD_NO
+			FROM ITEM_BOARD
+			WHERE MEMBER_NO = ${memberNo}
+		)
+		ORDER BY UPDATE_DT
+		<![CDATA[WHERE ROWNUM <= 5]]>
+	</select> -->
 	
 	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
@@ -129,13 +149,6 @@
 	</select>
 	
 	
-	<!-- 판매글 상세조회 -->
-	<select id="selectItem" resultMap="itemBoard_rm">
-		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION
-			, PRICE
-		FROM ITEM_BOARD
-		WHERE BOARD_NO = ${boardNo}
-	</select>
 	
 	<!-- 판매글에 해당하는 회원번호 조회 -->
 	<select id="selectMemberNo" resultType="_int">
@@ -151,7 +164,7 @@
 			FROM ITEM_BOARD
 			WHERE MEMBER_NO = ${memberNo}
 			AND BOARD_NO != ${boardNo}
-			ORDER BY READ_COUNT DESC)
+			ORDER BY UPDATE_DT DESC)
 		<![CDATA[WHERE ROWNUM <= 5]]>
 	</select>
 	

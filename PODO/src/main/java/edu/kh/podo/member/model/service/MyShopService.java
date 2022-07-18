@@ -52,4 +52,10 @@ public interface MyShopService {
 	 */
 	int introChange(int loginMemberNo, String report);
 
+	/** 상품관리 판매상태 ajax
+	 * @param map
+	 * @return result
+	 */
+	int changeTradeCondition(Map<String, Object> map);
+
 }
