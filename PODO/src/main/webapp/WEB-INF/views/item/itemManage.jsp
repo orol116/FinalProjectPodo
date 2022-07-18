@@ -70,12 +70,14 @@
                             
                             <td>
                                 <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
-                               <select>
-                                    <option>${item.tradeCondition}</option>
-                                    <option>판매 중</option>
-                                    <option>예약 중</option>
-                                    <option>판매완료</option>
-                                </select>
+                              <form:select id="tradeCondition" onchange="Condition()">
+                                    <optgroup label="선택">
+                                        <form:option value="${item.tradeCondition}">${item.tradeCondition}</form:option>
+                                        <form:option value="1">판매 중</form:option>
+                                        <form:option value="2">예약 중</form:option>
+                                        <form:option value="3">판매완료</form:option>
+                                    <optgroup>
+                                </form:select>
                             </td>
                             <td><a href="#" id="name">${item.boardTitle}</a></td>
                             <td>${item.price} 원</td>
@@ -143,7 +145,9 @@
       <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
+        <script src="${contextPath}/resources/js/member/headCategory.js"></script>
+        <script src="${contextPath}/resources/js/member/itemManage.js"></script>
+
     </body>
 
 </html>

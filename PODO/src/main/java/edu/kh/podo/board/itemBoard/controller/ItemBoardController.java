@@ -46,11 +46,13 @@ public class ItemBoardController {
 							ItemBoard item,
 							HttpServletRequest req,
 							RedirectAttributes ra,
-							@RequestParam(value="mCateValue", required=false, defaultValue="1") int mCateValue
+							@RequestParam(value="mCateValue", required=false, defaultValue="1") int mCateValue,
+							@RequestParam(value="placeResult", required=false) String sellArea
 							) throws IOException {
 
 		item.setMemberNo(loginMember.getMemberNo());
 		item.setCategoryNo(mCateValue);
+		item.setSellArea(sellArea);
 		
 //		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
 		
