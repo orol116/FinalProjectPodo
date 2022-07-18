@@ -44,24 +44,24 @@
 
 <form action="${item.boardNo}" method="get" id="itemSearch" onsubmit="return searchValidate()">
 
-<div class="option">
-    <select name="key" id="search-key">
-        <option value="all">대분류</option>
-        <option value="w">여성의류</option>
-        <option value="m">남성의류</option>
-        <option value="j">시계/쥬얼리</option>
-        <option value="d">디지털 가전</option>
-    </select>
- 
-    <section class="basic">
-            <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
-            <button class="button" type= "submit" id="searchItem" ><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-    </section>
-</div>
+    <div class="option">
+        <select name="key" id="search-key">
+            <option value="all">대분류</option>
+            <option value="w">여성의류</option>
+            <option value="m">남성의류</option>
+            <option value="j">시계/쥬얼리</option>
+            <option value="d">디지털 가전</option>
+        </select>
+    
+        <section class="basic">
+                <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
+                <button class="button" type= "submit" id="searchItem" ><i class="fa-solid fa-magnifying-glass"></i></button>
+        </section>
+    </div>
+</form>
 
 
-    <form class="search1" action="controlItem" id="search"  name="list-form" onsubmit="return ckBox()">
+<form class="search1" action="controlItem" id="search"  name="list-form" onsubmit="return ckBox()">
 
 <div>
     <table>

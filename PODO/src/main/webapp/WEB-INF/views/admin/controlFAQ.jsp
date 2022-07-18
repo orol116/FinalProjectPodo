@@ -42,23 +42,22 @@
 </div>
 
 
-<div class="option">
-    <select>
-        <option>운영정책</option>
-        <option>계정/인증</option>
-        <option>구매/판매</option>
-        <option>본인인증</option>
-        
-    </select>
- 
-   
-    <section class="basic">
-        <form class="search1" action="#" method="post" id="search">
-            <input id="search2" type="text" placeholder="수정할 글의 제목을 입력해주세요.">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-    </section>
-</div>
+<form class="search1" action="7" method="get" id="search">
+
+    <div class="option">
+        <select name="key" id="search-key">
+            <option value="1">운영정책</option>
+            <option value="2">계정/인증</option>
+            <option value="3">구매/판매</option>
+            <option value="4">본인인증</option>
+        </select>
+    
+        <section class="basic">
+                <input id="search2" type="text" name="query" placeholder="1:1문의 글의 제목을 입력해주세요.">
+                <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </section>
+    </div>
+</form>
 
 
 

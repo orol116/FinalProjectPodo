@@ -116,7 +116,7 @@ public class MemberController {
 			
 			if (loginMember.getAdmin() == 'Y') {
 
-				path = "redirect:/admin/3";
+				path = "redirect:/admin/5";
 			} else {
 				path = "redirect:/";
 			}
