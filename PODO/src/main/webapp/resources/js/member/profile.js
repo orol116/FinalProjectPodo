@@ -41,9 +41,13 @@ function selectItemsList(){
                 itemList.append(itembox);
             } else {
 
-                for(let item of iList){
                 
-                    const itembox = document.createElement("div");
+
+                for(let item of iList){
+
+                    
+                
+                    itembox = document.createElement("div");
                     itembox.classList.add("box");
 
                     const mainTitle = document.createElement("a");
@@ -74,7 +78,7 @@ function selectItemsList(){
 
                     name2.append(price, time);
 
-                    title1.append(title2,name2 );
+                    title1.append(title2,name2);
 
                     imageArea.append(itemImage);
 
@@ -85,6 +89,8 @@ function selectItemsList(){
                     itemList.append(itembox);
                     
                 }
+
+                
             }
 
 

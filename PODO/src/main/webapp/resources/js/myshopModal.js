@@ -26,7 +26,6 @@ function show() {
   document.querySelector("#item-report").addEventListener("click", show);
   document.querySelector("#close").addEventListener("click", close);
 
-
   const report = document.getElementById("report");
 
   document.getElementById("reportBtn").addEventListener("click", function(){
@@ -58,7 +57,7 @@ function show() {
     $.ajax({
         url : "introChange",      
         data : { "memberNo" : loginMemberNo, "report" : report.value, "boardNo" : boardNo},
-        
+    
         type : "GET", // 데이터 전달 방식 type
 
         success : function(result){

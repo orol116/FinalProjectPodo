@@ -60,7 +60,28 @@
                             <div id="user-intro">상점 소개가 없습니다.</div>
                         </c:if>
                         
-                        <div id="user-cutoff"><a href="#">신고/차단하기</a></div>
+                        <div id="user-cutoff">
+                            <div id="user-intro-change">소개 수정</div>
+                            <div id="item-report">신고/차단하기</div>
+                        </div>
+
+                        <!-- <%-- 모달창 --%> -->
+                        <div class="background">
+                            <div class="window">
+                              <div class="popup">
+                                <button id="close" type="button">팝업닫기</button>
+                                <div id="report-text">신고할 내용을 입력해주세요.</div>
+                                <div id="report-area">
+                                    <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
+                                </div>
+                                <button id="introChange">수정하기</button>
+                                <button id="reportBtn">신고하기</button>
+                              </div>
+                              <div>
+                              </div>
+                            </div>
+                        </div>
+                        
                         
                         
                         
