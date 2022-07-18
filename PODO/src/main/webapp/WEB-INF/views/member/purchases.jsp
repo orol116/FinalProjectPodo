@@ -70,9 +70,35 @@
                                     </div>
                                 </c:when>
 
+                                <%-- 구매내역 출력부 --%>
                                 <c:otherwise>
                                     <c:forEach var="buy" items="${buyList}">
-                                        <%-- 구매내역 출력부 --%>
+
+                                        <%-- 구매내역 카드 --%>
+                                        <div class="history">
+                                            <div class="productSummaryCard">
+                                                <div class="productSummaryCard-thumbNail">
+                                                    <img src="#" alt="상품 이미지">
+                                                    <span class="ProductSummaryCard__Status-jzxv65-7 koxSJW">
+                                                        <img src="https://assets.bunjang.co.kr/img/trade/ic-circle-tick@3x.png" alt="">거래완료
+                                                    </span>
+                                                </div>
+                                                <aside class="ProductSummaryCard__Container-jzxv65-6 bzmWkB">
+                                                    <span class="ProductSummaryCard__ProductName-jzxv65-2 duxMKt">${board.boardTitle}</span>
+                                                    <span class="ProductSummaryCard__ProductPrice-jzxv65-3 kjdheW"><strong>${board.price}</strong>원</span>
+                                                    <span class="ProductSummaryCard__UserName-jzxv65-4 ikoRLR">${member.memberNick}</span>
+                                                </aside>
+                                                <span class="ProductSummaryCard__UpdateDate-jzxv65-5 jMguaT">
+                                                    <time datetime="1658064101000">board.updateDate</time>
+                                                </span>
+                                                
+                                                </div>
+                                                <div class="ButtonsContainer__StyledButtonsContainer-sc-1rirys4-0 gyHHrh ActionButtons__CustomButtonsContainer-sc-11sua5i-0 faQgPX">
+                                                    <button class="TextButton-sc-1xlt5rs-0 ePJBUA">후기 작성</button>
+                                                </div>
+                                            </div>
+                                        </div>
+        
                                     </c:forEach>
                                 </c:otherwise>
                             </c:choose>    

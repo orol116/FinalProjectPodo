@@ -3,24 +3,45 @@
 <mapper namespace="myShopMapper">
 
 	<resultMap type="itemBoard" id="itemBoard_rm">
-		<id property="boardNo" column="BOARD_NO"/>
+
+		<id property="boardNo" column="BOARD_NO" />
+
+		<result property="boardTitle" column="BOARD_TITLE" />
+		<result property="boardContent" column="BOARD_CONTENT" />
+		<result property="readCount" column="READ_COUNT" />
+		<result property="createDate" column="CREATE_DT" />
+		<result property="updateDate" column="UPDATE_DT" />
+		<result property="itemCondition" column="ITEM_CONDITION" />
+		<result property="tradeCondition" column="TRADE_CONDITION" />
+
+		<result property="delivery" column="DELIVERY" />
+
+		<result property="price" column="PRICE" />
+		<result property="secessionFlag" column="SECESSION_FL" />
+		<result property="sellArea" column="SELL_AREA" />
+		<result property="boardCode" column="BOARD_CD" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="categoryNo" column="M_CATEGORY_NO" />
+		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
+		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 		
-		<result property="boardTitle" 		column="BOARD_TITLE"/>
-		<result property="boardContent" 	column="BOARD_CONTENT"/>
-		<result property="readCount" 		column="READ_COUNT"/>
-		<result property="createDate" 	column="CREATE_DT"/>
-		<result property="updateDate" 	column="UPDATE_DT"/>
-		<result property="itemCondition" 		column="ITEM_CONDITION"/>
-		<result property="tradeCondition" 	column="TRADE_CONDITION"/>
-		<result property="delivery" 	column="DELIVERY"/>
-		<result property="price" 	column="PRICE"/>
-		<result property="secessionFlag" 	column="SECESSION_FL"/>
-		<result property="sellArea" 	column="SELL_AREA"/>
-		<result property="boardCode" 	column="BOARD_CD"/>
-		<result property="memberNo" 	column="MEMBER_NO"/>
-		<result property="categoryNo" 	column="CATEGORY_NO"/>
-		<result property="buyMemberNo" 	column="BUY_MEMBER_NO"/>
+		<collection property="imageList" column="BOARD_NO" javaType="java.util.ArrayList" ofType="boardImage" select="selectImageList"/> 
+
 	</resultMap>
+	
+	<resultMap type="boardImage" id="boardImage_rm">
+		<id property="imageNo" column="IMG_NO"/>
+		<result property="imageReName" column="IMG_RENAME"/>
+		<result property="imageOriginal" column="IMG_ORIGINAL"/>
+		<result property="imageLevel" column="IMG_LEVEL"/>
+		<result property="boardNo" column="BOARD_NO"/>
+	</resultMap>
+	
+	<select id="selectImageList" resultMap="boardImage_rm">
+		SELECT * FROM BOARD_IMG
+		WHERE BOARD_NO = #{boardNO}
+		ORDER BY IMG_LEVEL
+	</select>
 	
 	<resultMap type="review" id="review_rm">
 		<id property="reviewNo" column="REVIEW_NO" />
