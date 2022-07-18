@@ -155,6 +155,7 @@ img{
     margin: 50px;
     display: flex;
     justify-content: center;
+    list-style:none;
     
 }
 
@@ -170,4 +171,6 @@ img{
     color: white;
   }
 
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+   .pagination a:hover/*:not(.active) */{ 
+    background-color: #ddd;
+}

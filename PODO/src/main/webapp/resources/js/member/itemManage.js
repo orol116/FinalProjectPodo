@@ -20,13 +20,14 @@ function condition(){
 }
 
 
+
 // 끌올 기능 ajax
 function update(){
 
     $.ajax({
         url : "itemManage",
-        data : {"item.updateDate":"item.updateDate",
-                "item.tradeContition" : "item.tradeContition"},
+        data : {"updateDate":updateDate,
+                "tradeContition" : tradeContition},
         type: "POST",
         success : function(result){
             if(update[2]||update[4]){

@@ -83,7 +83,7 @@
                                 <td>${item.updateDate}</td>
                                 <td class="choice">
                                     <button class="choice1" onclick="update()">UP</button>
-                                    <a href="#" class="choice2">수정</a>
+                                    <a href="itemUpload" class="choice2">수정</a>
                                 </td>
                             </tr>  
                         </form>  
@@ -141,12 +141,20 @@
     <%-- </form> --%>
     </main>
 
+    </body> 
+    
+    <script>
+        const updateDate = "${item.updateDate}"
+        const tradeContition = "${item.tradeContition}"
+    
+    </script>
+
       <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="${contextPath}/resources/js/member/headCategory.js"></script>
-        <script src="${contextPath}/resources/js/member/itemManage.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
+    <script src="${contextPath}/resources/js/member/itemManage.js"></script>
 
-    </body>
+    
 
 </html>
