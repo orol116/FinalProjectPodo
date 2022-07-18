@@ -21,7 +21,7 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <form action="itemManage" method="POST" name="itemManage" id="itemManage">
+    <%-- <form action="itemManage" method="POST" name="itemManage" id="itemManage"> --%>
 
     <div class="top-menu">
         <nav id="mainMenu">
@@ -63,31 +63,30 @@
                 <c:if test="${boardList != null}">
 
                     <c:forEach var="item" items="${boardList}">
-                        <tr>
-                            <td>
-                                <a><img src="${contextPath}/resources/images/items/image1.jpg"></a>
-                            </td>
-                            
-                            <td>
-                                <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
-                              <form:select id="tradeCondition" onchange="Condition()">
-                                    <optgroup label="선택">
-                                        <form:option value="${item.tradeCondition}">${item.tradeCondition}</form:option>
-                                        <form:option value="1">판매 중</form:option>
-                                        <form:option value="2">예약 중</form:option>
-                                        <form:option value="3">판매완료</form:option>
-                                    <optgroup>
-                                </form:select>
-                            </td>
-                            <td><a href="#" id="name">${item.boardTitle}</a></td>
-                            <td>${item.price} 원</td>
-                            <td>${item.readCount}</td>
-                            <td>${item.updateDate}</td>
-                            <td class="choice">
-                                <button class="choice1">UP</button>
-                                <a href="#" class="choice2">수정</a>
-                            </td>
-                        </tr>  
+
+                        <form id="tradeCondition" method="post">
+                            <tr>
+                                <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
+                                <td>
+                                    <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
+                                        <select onchange="condition()">
+                                                <option value="${item.tradeCondition}" disabled>${item.tradeCondition}</option>
+                                                <option value="판매중">판매 중</option>
+                                                <option value="예약중">예약 중</option>
+                                                <option value="판매완료">판매완료</option>
+                                                <option value="삭제">삭제</option>
+                                        </select>
+                                </td>
+                                <td><a href="#" id="name">${item.boardTitle}</a></td>
+                                <td>${item.price} 원</td>
+                                <td>${item.readCount}</td>
+                                <td>${item.updateDate}</td>
+                                <td class="choice">
+                                    <button class="choice1" onclick="update()">UP</button>
+                                    <a href="itemUpload" class="choice2">수정</a>
+                                </td>
+                            </tr>  
+                        </form>  
                     </c:forEach>
                 </c:if>
                         
@@ -139,15 +138,23 @@
         </ul>
     </div>
 
-    </form>
+    <%-- </form> --%>
     </main>
+
+    </body> 
+    
+    <script>
+        const updateDate = "${item.updateDate}"
+        const tradeContition = "${item.tradeContition}"
+    
+    </script>
 
       <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="${contextPath}/resources/js/member/headCategory.js"></script>
-        <script src="${contextPath}/resources/js/member/itemManage.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
+    <script src="${contextPath}/resources/js/member/itemManage.js"></script>
 
-    </body>
+    
 
 </html>
