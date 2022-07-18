@@ -35,8 +35,24 @@
 		<result property="categoryNo" column="M_CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
+		
+		<collection property="imageList" column="BOARD_NO" javaType="java.util.ArrayList" ofType="boardImage" select="selectImageList"/> 
 
 	</resultMap>
+	
+	<resultMap type="boardImage" id="boardImage_rm">
+		<id property="imageNo" column="IMG_NO"/>
+		<result property="imageReName" column="IMG_RENAME"/>
+		<result property="imageOriginal" column="IMG_ORIGINAL"/>
+		<result property="imageLevel" column="IMG_LEVEL"/>
+		<result property="boardNo" column="BOARD_NO"/>
+	</resultMap>
+	
+	<select id="selectImageList" resultMap="boardImage_rm">
+		SELECT * FROM BOARD_IMG
+		WHERE BOARD_NO = #{boardNO}
+		ORDER BY IMG_LEVEL
+	</select>
 	
 	<!-- 대분류 카테고리 조회 -->
 	<select id="selectLCategory" resultMap="lCategory_rm">
