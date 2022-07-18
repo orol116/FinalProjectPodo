@@ -21,11 +21,9 @@ function show() {
     document.getElementById("report").setAttribute("placeholder", "수정할 소개를 입력하세요.");
     
   }
-
   document.querySelector("#user-intro-change").addEventListener("click", introShow);
   document.querySelector("#item-report").addEventListener("click", show);
   document.querySelector("#close").addEventListener("click", close);
-
 
   const report = document.getElementById("report");
 
@@ -58,7 +56,7 @@ function show() {
     $.ajax({
         url : "introChange",      
         data : { "memberNo" : loginMemberNo, "report" : report.value, "boardNo" : boardNo},
-        
+    
         type : "GET", // 데이터 전달 방식 type
 
         success : function(result){

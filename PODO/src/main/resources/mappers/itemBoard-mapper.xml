@@ -47,10 +47,11 @@
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="categoryNo" column="M_CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
-		<result property="itemImage" column="ITEM_IMAGE" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 
 	</resultMap>
+	
+	
 	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
 	
@@ -83,7 +84,7 @@
 	</insert>
 	
 	<select id="selectItemList" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO
 		FROM ITEM_BOARD
 		WHERE UPDATE_DT >= SYSDATE - 7
 		ORDER BY READ_COUNT
@@ -92,7 +93,7 @@
 
 	<!-- 상품명 검색 -->
 	<select id="searchBoard" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, ITEM_IMAGE, PRICE, UPDATE_DT, MEMBER_NO
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO
 
 		FROM ITEM_BOARD
 		WHERE SECESSION_FL = 'N'

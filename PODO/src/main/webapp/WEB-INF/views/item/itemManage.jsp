@@ -33,6 +33,7 @@
     </div>
     <main>
     <div class="basic1">
+    
         <section class="basic">
             <form class="search1" action="#" method="post" id="search">
                 <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
