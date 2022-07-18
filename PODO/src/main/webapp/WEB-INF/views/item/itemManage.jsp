@@ -65,11 +65,11 @@
                     <c:forEach var="item" items="${boardList}" varStatus="status">
 
                         <%-- <form id="tradeCondition" method="post"> --%>
-                        <tr>
+                        <tr id=tradeCondition>
                             <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
                             <td>
                                 <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
-                                <select id="changeCondition" onchange="tradeCondition(change${status.index})">
+                                <select id="changeCondition" onchange="tradeCondition(this)">
                                     <option value="${item.tradeCondition}" disabled>${item.tradeCondition}</option>
                                     <option value="판매 중" value2="${item.boardNo}">판매 중</option>
                                     <option value="예약 중" value2="${item.boardNo}">예약 중</option>
@@ -142,6 +142,8 @@
     </main>
 
     </body> 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     
     <script>
         const updateDate = "${item.updateDate}"
@@ -150,7 +152,6 @@
 
       <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     <script src="${contextPath}/resources/js/member/itemManage.js"></script>
 
