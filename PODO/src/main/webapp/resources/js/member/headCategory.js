@@ -34,7 +34,6 @@ subCategoryName.forEach((target) => target.addEventListener("click", categoryFun
 /* const names = categoryName.target.getAttribute('id'); */
 /* function goBackFunction(){
     href
-
 };
  */
 
