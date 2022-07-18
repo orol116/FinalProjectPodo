@@ -13,12 +13,13 @@
 		<typeAlias type="edu.kh.podo.member.model.vo.Note" alias="note"/> 
 		<typeAlias type="edu.kh.podo.member.model.vo.Review" alias="review"/> 
 		<typeAlias type="edu.kh.podo.admin.model.vo.Admin" alias="admin"/> 
+		
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.ItemBoard" alias="itemBoard"/> 
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.BoardImage" alias="boardImage"/> 
+		
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.BoardType" alias="boardType"/> 
 		<typeAlias type="edu.kh.podo.board.category.model.vo.LargeCategory" alias="lCategory"/> 
 		<typeAlias type="edu.kh.podo.board.category.model.vo.MiddleCategory" alias="mCategory"/> 
-		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.BoardImage" alias="boardImage"/> 
 	</typeAliases>
 	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->

@@ -7,6 +7,7 @@
 <c:set var="sellList" value="${map.sellList}" />
 <c:set var="sellMember" value="${map.sellMember}" />
 <c:set var="boardNo" value="${boardNo}" />
+<c:set var="boardImageList" value="${map.boardImageList}" />
 
 
 <!DOCTYPE html>
@@ -43,8 +44,15 @@
 
 
                 <section id="item-detail-head">
+                
+                    <c:if test="${fn:length(boardImageList) != null}">
+                        <image id="item-image" src="${contextPath}${boardImageList[0].imageReName}"  alt="상품 이미지"></image>
+                    </c:if>
+
+                        <c:if test="${fn:length(boardImageList) == null}">
+                        <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
+                    </c:if>
                     
-                    <img id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></img>
                     <div id="item-info">
                         <div id="item-title">${itemList[0].boardTitle}</div>
                         <div id="item-price">${itemList[0].price}원</div>
@@ -141,16 +149,15 @@
                 <section id="item-detail-body">
                     <div id="body-info">
 
-                        <c:if test="${fn:length(itemList[0].imageList) > start}">
+                        <c:if test="${fn:length(boardImageList) != null}">
 
                             <!-- 업로드 이미지 영역 -->
                             <h5>상품 이미지</h5>
                             <div class="img-box">
-                                <c:forEach var="i" begin="${start}" end="${fn:length(itemList[0].imageList) -1 }">
+                                <c:forEach var="i" begin="${start}" end="${fn:length(boardImageList) - 1}">
                                 
                                     <div class="boardImg">
-                                        <img src="${contextPath}${itemList[0].imageList[i].imageReName}">
-                                        <%-- <a href="${contextPath}${itemList[0].imageList[i].imageReName}"></a>                 --%>
+                                        <img src="${contextPath}${boardImageList[i].imageReName}">
                                     </div>
 
                                 </c:forEach>
