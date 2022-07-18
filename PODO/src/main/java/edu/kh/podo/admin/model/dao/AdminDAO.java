@@ -40,7 +40,15 @@ public class AdminDAO {
 	public int FAQListCount() {
 		return sqlSession.selectOne("adminMapper.FAQListCount");
 	}
+	
+	
+	// 관리자 1대1문의 게시글 수
+	public int searchAdminListCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+	}
 
+	
+	// ADMIN 목록조회
 	public List<Admin> selectInquiryList(Pagination pagination, int boardCode) {
 		
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
@@ -66,7 +74,46 @@ public class AdminDAO {
 		
 		return sqlSession.selectList("adminMapper.selectMemberList", boardCode, rowBounds);
 	}
+	
+	
+	
+	
+	// ADMIN 검색 목록 조회
+	public List<Member> selectSearchMemberList(Pagination pagination, Map<String, Object> paramMap) {
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.selectSearchMemberList", paramMap, rowBounds);
+	}
+	
+	
+	public List<Admin> selectSearchInquiryList(Pagination pagination, Map<String, Object> paramMap) {
+		
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.selectSearchInquiryList", paramMap, rowBounds);
+	}
+	
+	
+	public List<ItemBoard> selectSearchItemList(Pagination pagination, Map<String, Object> paramMap) {
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.selectSearchItemList", paramMap, rowBounds);
+	}
+	
+	
+	
+	
 
+
+	
+	
+	// 관리자 게시물 작성 
 	public int insertBoard(Map<String, Object> paramMap) {
 		
 		int result = sqlSession.insert("adminMapper.insertBoard",paramMap); // 0 또는 1
@@ -79,6 +126,8 @@ public class AdminDAO {
 		
 		return result;	
 	}
+
+
 
 	
 

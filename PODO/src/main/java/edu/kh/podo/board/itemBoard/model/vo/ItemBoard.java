@@ -33,5 +33,5 @@ public class ItemBoard {
 	private int bookmarkCount;
 	
 	private List<BoardImage> imageList;
-
+	
 }

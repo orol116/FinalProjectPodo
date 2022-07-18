@@ -94,5 +94,45 @@ public class AdminServiceImpl implements AdminService{
 		
 		return boardNo;
 	}
+
+
+
+	@Override
+	public Map<String, Object> searchBoardList(Map<String, Object> paramMap) {
+		
+		int boardCode = (int) paramMap.get("boardCode");
+		int listCount = dao.searchAdminListCount(paramMap);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		Pagination pagination = new Pagination((int)paramMap.get("cp"), listCount);
+
+		
+		if(boardCode == 3) {
+			
+			List<Admin> InquiryList = dao.selectSearchInquiryList(pagination, paramMap);
+			map.put("InquiryList", InquiryList);
+		}else if(boardCode ==4) {
+			
+			List<ItemBoard> itemList = dao.selectSearchItemList(pagination, paramMap);
+			map.put("itemList", itemList);
+		}else if(boardCode == 5){
+			
+			List<Member> memberList = dao.selectSearchMemberList(pagination, paramMap);
+			map.put("memberList", memberList);
+		}else if(boardCode == 6){
+			
+			List<Admin> reportList = dao.selectSearchInquiryList(pagination, paramMap);
+			map.put("reportList", reportList);
+		}else {
+			
+			List<Admin> FAQList = dao.selectSearchInquiryList(pagination, paramMap);
+			map.put("FAQList", FAQList);
+		}
+		
+		map.put("pagination", pagination);
+		
+		return map;
+	}
 	
 }

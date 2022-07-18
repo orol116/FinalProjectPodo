@@ -97,7 +97,7 @@
 	
 		INSERT INTO ITEM_BOARD VALUES(
 			#{boardNo}, #{boardTitle}, #{boardContent},
-			DEFAULT, DEFAULT, DEFAULT, #{itemCondition}, '판매 중', #{delivery}, #{price}, DEFAULT, '서울', 
+			DEFAULT, DEFAULT, DEFAULT, #{itemCondition}, '판매 중', #{delivery}, #{price}, DEFAULT, #{sellArea}, 
 			1, #{memberNo}, #{categoryNo}, NULL, 0 
 
 		)
