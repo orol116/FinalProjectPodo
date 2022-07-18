@@ -55,17 +55,17 @@
             <option value="y">Y</option>
         </select>
    
-        <%-- 회원검색창 --%>
+        <%-- 검색창 --%>
         <section class="basic">
-            <input id="search2" type="text" name="query" placeholder="회원 아이디를 입력해주세요.">
-            <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input id="search2" type="text"  name="search-query" placeholder="회원 아이디를 입력해주세요.">
+            <button class="button" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
     </div>  
 </form>  
 
 
 
-    <form class="search1" action="controlMember" id="search"  name="list-form" onsubmit="return ckBox()">
+    <form class="search1" action="controlMember" id="search" name="list-form" onsubmit="return ckBox()">
 <div>
     <table>
         <thead>
@@ -77,7 +77,7 @@
                 <th>전화번호</th>
                 <th>주소</th>
                 <th>가입날짜</th>
-                <th> 상품</th>
+                <th>상품</th>
                 <th>포도알</th>
                 <th>탈퇴여부</th>
             </tr>
@@ -95,7 +95,7 @@
                     <c:forEach var="member" items="${memberList}">
                         
                         <tr>
-                            <td><input type="checkbox" name="memList" id="chkbox" value="${{member.memberNo}}"></td>
+                            <td><input type="checkbox" name="memList" id="chkbox" value="${member.memberNo}"></td>
                             <td >${member.memberNo}</td>
                             <td >${member.memberId}</td>
                             <td >${member.memberNickname}</td>
@@ -121,7 +121,7 @@
         </div>
         <div>
             <%-- <button id="stop">정지</button> --%>
-            <button  type="submit" class="btn" id="deleteBtn" onclick='deleteMem()'>삭제</button>
+            <button type="submit" class="btn" id="deleteBtn">삭제</button>
         </div>
     </div>
 </form>
