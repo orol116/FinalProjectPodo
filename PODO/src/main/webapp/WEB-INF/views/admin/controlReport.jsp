@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlReport.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
-
+    
 </head>
 
 <header>
@@ -42,25 +42,25 @@
 </div>
 
 
-<div class="option">
-    <select>
-        <option>신고사유</option>
-        <option>광고</option>
-        <option>상품 정보 부정확</option>
-        <option>거래 금지 품목</option>
-        <option>허위 매물</option>
-        <option>사기 의심</option>
-        <option>기타</option>
-    </select>
- 
-   
-    <section class="basic">
-        <form class="search1" action="#" method="post" id="search">
-            <input id="search2" type="text" placeholder="신고글 사유를 입력해주세요.">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-    </section>
-</div>
+<form class="search1" action="6" method="get" id="search">
+    <div class="option">
+        <select name="key" id="search-key">
+            <option value="1">신고사유</option>
+            <option value="2">광고</option>
+            <option value="3">상품 정보 부정확</option>
+            <option value="4">거래 금지 품목</option>
+            <option value="5">허위 매물</option>
+            <option value="6">사기 의심</option>
+            <option value="7">기타</option>
+        </select>
+    
+    
+        <section class="basic">
+                <input id="search2" type="text" placeholder="신고글 사유를 입력해주세요." name="query">
+                <button class="button" ><i class="fa-solid fa-magnifying-glass"></i></button>
+        </section>
+    </div>
+</form>
 
 
 

@@ -44,7 +44,27 @@ public class AdminDAO {
 	
 	// 관리자 1대1문의 게시글 수
 	public int searchAdminListCount(Map<String, Object> paramMap) {
-		return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+		
+		int boardCode = (int) paramMap.get("boardCode");
+		
+		if(boardCode == 3) {
+			return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+			
+		}else if(boardCode ==4) {
+			
+			return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+		}else if(boardCode == 5){
+			
+			return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+		}else if(boardCode == 6){
+			
+			return sqlSession.selectOne("adminMapper.searchReportListCount",paramMap);
+		}else {
+			
+			return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
+		}
+		
+	
 	}
 
 	
