@@ -94,6 +94,16 @@ section>#menu{
     padding-left: 20px;
 }
 
+.search1> :nth-child(2){
+    color: white;
+    background-color: rgb(95, 0, 129);
+    border: 0;
+}
+/* 검색 */
+.basic{
+    justify-content: left;
+    display: flex;
+}
 .basic1{
     padding-left: 20px;
     border-bottom: 1px solid lightgray;
@@ -103,16 +113,14 @@ section>#menu{
     margin-right: 1em;
     margin-bottom: 0.5em;
 }
-.search1> :nth-child(2){
+.basic> :nth-child(2) {
     color: white;
     background-color: rgb(95, 0, 129);
     border: 0;
+    height: 30px;
+    border-radius: 3px;
 }
-.basic{
-    /* padding: 0 5px 5px;     */
-    margin-right: 20px;
-    /* border: 1.5px solid lightgray; */
-}
+
 .search1{
     flex-basis: 30%;
     width: 500px;
@@ -125,18 +133,18 @@ section>#menu{
 #search2:focus{
     outline: none;
 }
-#search2{
+#search2 {
     margin: 0;
-    width: 300px;
+    width: 200px;
+    height: 30px;
 }
-
 /* table */
 select {
     width: 90px;
-    height: 40px;
+    height: 30px;
     padding-left: 5px;
     font-size: 13px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 table{
     width: 1000px;
