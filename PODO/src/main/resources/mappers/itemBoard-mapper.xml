@@ -47,10 +47,11 @@
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="categoryNo" column="M_CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
-		<result property="itemImage" column="ITEM_IMAGE" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 
 	</resultMap>
+	
+	
 	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
 	

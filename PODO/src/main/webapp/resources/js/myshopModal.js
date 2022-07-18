@@ -21,7 +21,6 @@ function show() {
     document.getElementById("report").setAttribute("placeholder", "수정할 소개를 입력하세요.");
     
   }
-
   document.querySelector("#user-intro-change").addEventListener("click", introShow);
   document.querySelector("#item-report").addEventListener("click", show);
   document.querySelector("#close").addEventListener("click", close);
