@@ -139,6 +139,24 @@
                 <h3 id="body-info-head">상품 정보</h3>
                 <section id="item-detail-body">
                     <div id="body-info">
+
+                        <c:if test="${fn:length(itemList[0].imageList) > start}">
+
+                            <!-- 업로드 이미지 영역 -->
+                            <h5>상품 이미지</h5>
+                            <div class="img-box">
+                                <c:forEach var="i" begin="${start}" end="${fn:length(itemList[0].imageList) -1 }">
+                                
+                                    <div class="boardImg">
+                                        <img src="${contextPath}${itemList[0].imageList[i].imageReName}">
+                                        <%-- <a href="${contextPath}${itemList[0].imageList[i].imageReName}"></a>                 --%>
+                                    </div>
+
+                                </c:forEach>
+                            </div>
+
+                        </c:if>        
+
                         
                         <div id="body-info-text">
                             ${itemList[0].boardContent}
