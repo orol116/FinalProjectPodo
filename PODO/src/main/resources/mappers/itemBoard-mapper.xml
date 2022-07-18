@@ -79,6 +79,7 @@
 			#{boardNo}, #{boardTitle}, #{boardContent},
 			DEFAULT, DEFAULT, DEFAULT, #{itemCondition}, '판매 중', #{delivery}, #{price}, DEFAULT, '서울', 
 			1, #{memberNo}, #{categoryNo}, NULL, 0 
+
 		)
 	</insert>
 	
