@@ -34,4 +34,6 @@ public class ItemBoard {
 	
 	private List<BoardImage> imageList;
 	
+	private BoardImage img;
+	
 }

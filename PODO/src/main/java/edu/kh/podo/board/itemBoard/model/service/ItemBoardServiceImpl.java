@@ -125,6 +125,19 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 		// 판매자 다른 상품 조회
 		List<ItemBoard> sellList = dao.selectOtherItems(daoMap);
+		
+		// 판매자 다른 상품의 이미지 레벨 0번 이미지 조회
+		List<BoardImage> sellListImg = dao.selectOtherItemsImg(daoMap);
+		
+		for(ItemBoard sell : sellList) {
+
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
 		map.put("sellList", sellList);
 		
 //		// 판매자 다른 상품 이미지 조회
