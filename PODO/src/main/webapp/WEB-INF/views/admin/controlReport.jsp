@@ -41,30 +41,8 @@
     </nav>
 </div>
 
-<<<<<<< HEAD
-<form action="6" method="get" id="reportSearch" onsubmit="return searchValidate()">
-    <div class="option">
-        <select name="key" id="search-key">
-            <option value="신고사유">신고사유</option>
-            <option value="광고">광고</option>
-            <option value="상품 정보 부정확">상품 정보 부정확</option>
-            <option value="거래 금지 품">거래 금지 품목</option>
-            <option value="허위 매물">허위 매물</option>
-            <option value="사기 의심">사기 의심</option>
-            <option value="기타">기타</option>
-        </select>
-        
-        <%-- 검색창 --%>
-        <section class="basic">
-                <input id="search2" type="text" name="search-query" placeholder="신고글 사유를 입력해주세요.">
-                <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </section>
-    </div>
-</form>
-=======
 
-<form class="search1" action="6" method="get" id="search">
+<form  class="search1" action="6" method="get" id="reportSearch" onsubmit="return searchValidate()">
     <div class="option">
         <select name="key" id="search-key">
             <option value="1">신고사유</option>
@@ -76,15 +54,15 @@
             <option value="7">기타</option>
         </select>
     
-    
+    <%-- 검색창 --%>
         <section class="basic">
                 <input id="search2" type="text" placeholder="신고글 사유를 입력해주세요." name="query">
-                <button class="button" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
     </div>
 </form>
 
->>>>>>> origin/LSH
+
 
 
 <form class="search1" action="controlReport" id="search"  name="list-form" onsubmit="return ckBox()">
