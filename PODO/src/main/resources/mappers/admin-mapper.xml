@@ -62,7 +62,6 @@
 		<result property="categoryNo" column="M_CATEGORY_NO" />
 		<result property="categoryName" column="M_CATEGORY_NM" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
-		<result property="itemImage" column="ITEM_IMAGE" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 
 	</resultMap>

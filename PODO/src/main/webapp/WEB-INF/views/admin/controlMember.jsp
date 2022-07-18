@@ -47,24 +47,21 @@
 </div>
 
 
-<form action="${memberNo}" method="get" id="memSearch" onsubmit="return searchValidate()">
+<form action="5" method="get" id="memSearch" onsubmit="return searchValidate()">
     <div class="option">    
-    <select name="key" id="search-key">
-        <option value="all">탈퇴여부</option>
-        <option value="n">N</option>
-        <option value="y">Y</option>
-    </select>
- 
+        <select name="key" id="search-key">
+            <option value="all">탈퇴여부</option>
+            <option value="n">N</option>
+            <option value="y">Y</option>
+        </select>
    
-    <section class="basic">
-    <%-- 회원검색창 --%>
-
+        <%-- 회원검색창 --%>
+        <section class="basic">
             <input id="search2" type="text" name="query" placeholder="회원 아이디를 입력해주세요.">
             <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    
-     </form>  
-    </section>
-</div>
+        </section>
+    </div>  
+</form>  
 
 
 
