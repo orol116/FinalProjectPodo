@@ -1,8 +1,6 @@
 function timeForToday(updateDT){
     const today = new Date();
     /* const timeValue = new Date(updateDT); */
-
-
     /* const betweenTime = Math.floor((today.getTime() - timeValue.getTime())/ 1000/ 60);
     if(betweenTime < 1) return '방금전';
     if(betweenTime < 60){
@@ -27,6 +25,7 @@ const today = new Date();
 
 
 document.getElementById("create-DT").innerText = today;
+
 
 
 

@@ -405,13 +405,20 @@ footer {
     
     width: 150px;
     height: 40px;
-    margin: 10px 0 0 400px;
+    margin-left: 140px;
     z-index: 300;
   }
 
   #report-text{
     margin-top: 0px;
     margin-left: 200px;
+  }
+
+  #selectBtn-area{
+    padding-top: 20px;
+    height: 55px;
+    display: flex;
+    justify-content: space-around;
   }
 
 

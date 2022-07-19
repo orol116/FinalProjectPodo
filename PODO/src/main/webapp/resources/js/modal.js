@@ -12,11 +12,15 @@ function show() {
 
   const report = document.getElementById("report");
 
-  document.getElementById("reportBtn").addEventListener("click", function(){
+  const searchKey = document.getElementById("search-key");
+  
+
+
+   document.getElementById("reportBtn").addEventListener("click", function(){
 
     $.ajax({
         url : "report",      
-        data : { "memberNo" : loginMemberNo, "report" : report.value},
+        data : { "report" : report.value, "selectOption" :searchKey.value},
         
         type : "GET", // 데이터 전달 방식 type
 
