@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
-    
-    <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+
+    <%-- 파비콘 --%>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
     
 </head>
 
