@@ -72,94 +72,94 @@
             <%-- 우측 채팅창 영역 --%>
             <section class="right-main">
 
-                <%-- 연결된 채팅 회원 정보 헤더 --%>
-                <div class="chat-header">
-
-                    
-                    <a href="" target="_blank" rel="noopener noreferrer">
-                        <%-- 회원 프로필 이미지 --%>
-                        <div class="image-box">
-                            <div class="image-table">
-                                <img src="${contextPath}${member.memberProfile}">
-                            </div>
-                        </div>
-                        <%-- 회원 정보(닉네임) --%>
-                        <div class="info">
-                            <div>
-                                <span>${member.memberNickname}</span>    
-                            </div>
-                        </div>
-                    </a>
-                    <%-- 신고하기 --%>
-                    <div class="declaration">
-                        <div>
-                            <img src="${contextPath}/resources/images/report.png" alt="신고 이미지">
-                        </div>
-                    </div>
-                        <a href="#"><div class="chat_close"></div></a>
-                </div>
-
-
-
-                <%-- 채팅창 --%>
-                <div class="chatting-area" style="bottom: 49px;">
-
-                    <%-- 채팅창 영역 --%>
-                    <ul class="display-chatting">
-
-                        <c:choose>
+                <c:choose>
 						
-							<%-- 조회된 게시글 목록이 없을 때 --%>
-							<c:when test="${empty chatRoomList }">
-								<tr>
-									<td colspan="4">대화방을 선택해주세요</td>
-								</tr>
-							</c:when>
-							
-							<%-- 조회된 채팅방 목록이 있을 때 --%>
-							<c:otherwise>
-								
-								<c:forEach items="${list}" var="msg">
+                    <%-- 조회된 게시글 목록이 없을 때 --%>
+                    <c:when test="${empty chatRoomList }">
+                        <tr>
+                            <td colspan="4">대화방을 선택해주세요</td>
+                        </tr>
+                    </c:when>
 
-                                    <fmt:formatDate var="chatDate" value="${msg.createDate }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
+                    <c:otherwise>
 
-                                    <c:if test="${msg.memberNo == loginMember.memberNo }">
-                                        <li class="myChat">
-                                            <span class="chatDate">${chatDate}</span>
-                                            <p class="chat">${msg.message }</p>
-                                        </li>
-                                    </c:if>
-                                    
-                                    <c:if test="${msg.memberNo != loginMember.memberNo }">
-                                        <li>
-                                            <b>${msg.memberNickname }</b>	<br>
-                                            <p class="chat">${msg.message }</p>
-                                            <span class="chatDate">${chatDate}</span>
-                                        </li>
-                                    </c:if>
+                        <%-- 연결된 채팅 회원 정보 헤더 --%>
+                        <div class="chat-header">
 
-                                </c:forEach>
-
-							</c:otherwise>
-						</c:choose>
-                
-                        
-                    </ul>	
-                
-
-                    <%-- 전송 버튼 --%>
-                    <div class="chat-footer">
-                        <div class="chat-footer-area">
-                            <%-- <div class="chat-input" contenteditable="true" placeholder="메세지를 입력해주세요."></div> --%>
-                            <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
-                            <button type="send">전송</button>
+                            
+                            <a href="" target="_blank" rel="noopener noreferrer">
+                                <%-- 회원 프로필 이미지 --%>
+                                <div class="image-box">
+                                    <div class="image-table">
+                                        <img src="${contextPath}${member.memberProfile}">
+                                    </div>
+                                </div>
+                                <%-- 회원 정보(닉네임) --%>
+                                <div class="info">
+                                    <div>
+                                        <span>${member.memberNickname}</span>    
+                                    </div>
+                                </div>
+                            </a>
+                            <%-- 신고하기 --%>
+                            <div class="declaration">
+                                <div>
+                                    <img src="${contextPath}/resources/images/report.png" alt="신고 이미지">
+                                </div>
+                            </div>
+                                <a href="#"><div class="chat_close"></div></a>
                         </div>
-                    </div>
-                   <%-- <div class="input-area">
-                        <textarea id="inputChatting" rows="3"></textarea>
-                        <button id="send">보내기</button>
-                    </div> --%>
-                </div>
+
+
+
+                        <%-- 채팅창 --%>
+                        <div class="chatting-area" style="bottom: 49px;">
+
+                            <%-- 채팅창 영역 --%>
+                            <ul class="display-chatting">
+    
+                                <%-- 조회된 채팅방 목록이 있을 때 --%>
+                                
+                                    
+                                    <c:forEach items="${list}" var="msg">
+
+                                        <fmt:formatDate var="chatDate" value="${msg.createDate }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
+
+                                        <c:if test="${msg.memberNo == loginMember.memberNo }">
+                                            <li class="myChat">
+                                                <span class="chatDate">${chatDate}</span>
+                                                <p class="chat">${msg.message }</p>
+                                            </li>
+                                        </c:if>
+                                        
+                                        <c:if test="${msg.memberNo != loginMember.memberNo }">
+                                            <li>
+                                                <b>${msg.memberNickname }</b>	<br>
+                                                <p class="chat">${msg.message }</p>
+                                                <span class="chatDate">${chatDate}</span>
+                                            </li>
+                                        </c:if>
+
+                                    </c:forEach>
+                            </ul>	
+                
+
+                            <%-- 전송 버튼 --%>
+                            <div class="chat-footer">
+                                <div class="chat-footer-area">
+                                    <%-- <div class="chat-input" contenteditable="true" placeholder="메세지를 입력해주세요."></div> --%>
+                                    <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
+                                    <button type="send">전송</button>
+                                </div>
+                            </div>
+                            <%-- <div class="input-area">
+                                <textarea id="inputChatting" rows="3"></textarea>
+                                <button id="send">보내기</button>
+                            </div> --%>
+                        </div>
+                    </c:otherwise>
+                    
+                </c:choose>
 
             </section>
 
@@ -177,7 +177,7 @@
 	<!-- https://github.com/sockjs/sockjs-client -->
 	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     
-<%-- 	<script>
+<script>
 		const memberNo = "${loginMember.memberNo}";
 		const memberEmail = "${loginMember.memberEmail}";
 		const memberNickname = "${loginMember.memberNickname}";
@@ -188,7 +188,7 @@
 		// /chat 이라는 요청 주소로 통신할 수 있는  WebSocket 객체 생성
 		let chattingSock = new SockJS(contextPath+"/chat");
 	</script>
- --%>
+ 
     <%-- js --%>
     <script src="${contextPath}/resources/js/chat.js"></script>
 
