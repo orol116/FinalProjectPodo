@@ -43,54 +43,30 @@
     <form action="${contextPath}/board/itemUpload" enctype="multipart/form-data" method="POST" class="itemUpload" onsubmit="return writeValidate()">
 
         <%-- imageList에 존재하는 이미지 레벨을 이용하여 변수 생성 --%>
-        <c:forEach items="${boardImageList}" var="boardImage">
+        <c:forEach items="${boardImageList}" var="boardImage" varStatus="status">
 
             <c:choose>
                 <c:when test="${boardImage.imageLevel == 0}">
                     <c:set var="img0"  value="${contextPath}${boardImage.imageReName}" />
                 </c:when>
-                <c:otherwise>
-                    <c:set var="img0"  value="${contextPath}/resources/images/image.png" />
-                </c:otherwise>
-            </c:choose>
-
-            <c:choose>
                 <c:when test="${boardImage.imageLevel == 1}">
                     <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
                     <c:set var="img1"  value="${contextPath}${boardImage.imageReName}" />
                 </c:when>
-                <c:otherwise>
-                    <c:set var="img1"  value="${contextPath}/resources/images/image.png" />
-                </c:otherwise>
-            </c:choose>
-
-            <c:choose>
                 <c:when test="${boardImage.imageLevel == 2}">
                     <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
                     <c:set var="img2"  value="${contextPath}${boardImage.imageReName}" />
                 </c:when>
-                <c:otherwise>
-                    <c:set var="img2"  value="${contextPath}/resources/images/image.png" />
-                </c:otherwise>
-            </c:choose>
-
-            <c:choose>
                 <c:when test="${boardImage.imageLevel == 3}">
                     <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
                     <c:set var="img3"  value="${contextPath}${boardImage.imageReName}" />
                 </c:when>
-                <c:otherwise>
-                    <c:set var="img3"  value="${contextPath}/resources/images/image.png" />
-                </c:otherwise>
-            </c:choose>
-
-            <c:choose>
                 <c:when test="${boardImage.imageLevel == 4}">
                     <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
                     <c:set var="img4"  value="${contextPath}${boardImage.imageReName}" />
                 </c:when>
                 <c:otherwise>
-                    <c:set var="img4"  value="${contextPath}/resources/images/image.png" />
+                    <c:set var="img${status.index}"  value="${contextPath}/resources/images/image.png" />
                 </c:otherwise>
             </c:choose>
             
@@ -107,14 +83,14 @@
                 <ul class="second">
                     <div class="img-box">
                         <div class="boardImg">
-                            <label for="img1">
+                            <label for="img0">
                                 <img class="preview" src="${img0}">
                             </label>
                             <input type="file" class="inputImage" id="img0" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
                         <div class="boardImg">
-                            <label for="img2">
+                            <label for="img1">
                                 <img class="preview" src="${img1}">
                             </label>
                             <input type="file" class="inputImage" id="img1" name="images" accept="image/*">
@@ -122,7 +98,7 @@
                         </div>
         
                         <div class="boardImg">
-                            <label for="img3">
+                            <label for="img2">
                                 <img class="preview" src="${img2}">
                             </label>
                             <input type="file" class="inputImage" id="img2" name="images" accept="image/*">
@@ -130,14 +106,14 @@
                         </div>
                         
                         <div class="boardImg">
-                            <label for="img4">
+                            <label for="img3">
                                 <img class="preview" src="${img3}">
                             </label>
                             <input type="file" class="inputImage" id="img3" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
                         <div class="boardImg">
-                            <label for="img5">
+                            <label for="img4">
                                 <img class="preview" src="${img4}">
                             </label>
                             <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
