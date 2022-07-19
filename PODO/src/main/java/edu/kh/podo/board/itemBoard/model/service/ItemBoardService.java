@@ -48,6 +48,16 @@ public interface ItemBoardService {
 	int addCountAdd(Map<String, Object> map);
 
 
+	/** 게시글 수정 Service
+	 * @param item
+	 * @param imageList
+	 * @param webPath
+	 * @param folderPath
+	 * @return result
+	 */
+	int updateBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
+
+
 	
 
 

@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlItem.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 </head>
 
@@ -67,7 +68,7 @@
     <table>
         <thead>
             <tr id="head">
-                <th><input type="checkbox"></th>
+                <th>선택</th>
                 <th>번호</th>
                 <th>분류</th>
                 <th>상품명</th>

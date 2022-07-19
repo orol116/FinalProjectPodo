@@ -74,6 +74,8 @@
 		WHERE BOARD_NO = #{boardNo}
 	</select>
 	
+	
+	
 	<!-- sql돌겠다 진짜  -->
 	<!-- <select id="selectOtherImage" resultMap="boardImage_rm">
 		SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL FROM ITEM_BOARD
@@ -125,6 +127,16 @@
 		FROM ITEM_BOARD
 		WHERE UPDATE_DT >= SYSDATE - 7
 		ORDER BY READ_COUNT
+	</select>
+	
+	 <!-- 메인화면 섬네일 -->
+	<select id="selectItemsImg" resultMap="boardImage_rm">
+		SELECT * FROM (
+			SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, BOARD_NO, MEMBER_NO
+			FROM BOARD_IMG
+			JOIN ITEM_BOARD USING(BOARD_NO)
+			WHERE IMG_LEVEL = 0
+			ORDER BY UPDATE_DT DESC)
 	</select>
 
 
@@ -201,6 +213,28 @@
 	<insert id="addCountAdd">
 		UPDATE ITEM_BOARD SET BOOKMARK_COUNT = BOOKMARK_COUNT + 1
 		WHERE BOARD_NO = ${boardNo}
+	</insert>
+	
+	<update id="updateBoard">
+		UPDATE ITEM_BOARD SET
+		BOARD_TITLE = #{boardTitle},
+		BOARD_CONTENT = #{boardContent},
+		UPDATE_DT = SYSDATE
+		WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<update id="updateBoardImage">
+		UPDATE BOARD_IMG SET
+		IMG_RENAME = #{imageReName},
+		IMG_ORIGINAL = #{imageOriginal}
+		WHERE BOARD_NO = #{boardNo}
+		AND IMG_LEVEL = #{imageLevel}
+	</update>
+	
+	<insert id="insertBoardImage">
+		INSERT INTO BOARD_IMG VALUES (
+			SEQ_IMG_NO.NEXTVAL, #{imageReName}, #{imageOriginal}, #{imageLevel}, #{boardNo}
+		)
 	</insert>
 
 

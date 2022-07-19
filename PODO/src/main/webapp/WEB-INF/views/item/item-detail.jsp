@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/item-detail.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
     <title>상품 상세페이지</title>
 </head>
@@ -72,10 +72,19 @@
                                 <div id="report-area">
                                     <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
                                 </div>
-                                <button id="reportBtn">제출</button>
-                              </div>
-                              <div>
-                              </div>
+                                <div id="selectBtn-area">
+                                    <select name="key" id="search-key">
+                                        <option value="기타">기타</option>
+                                        <option value="광고">광고</option>
+                                        <option value="상품 정보 부정확">상품 정보 부정확</option>
+                                        <option value="거래 금지 품목">거래 금지 품목</option>
+                                        <option value="허위 매물">허위 매물</option>
+                                        <option value="사기 의심">사기 의심</option> 
+                                    </select>
+                                    <button id="reportBtn">제출</button>
+                                </div>
+                                <div>
+                                </div>
                             </div>
                         </div>
 
@@ -124,9 +133,9 @@
 
                     <c:forEach var="sellList" items="${sellList}">
                         <div class="box">
-                            <a href="#" class="title">
+                            <a href="${contextPath}/board/detail/${sellList.boardNo}" class="title">
                                 <div class="image">
-                                    <img src="${contextPath}${sellList.img.imageReName}"  alt="상품 이미지1">
+                                    <img src="${contextPath}${sellList.img.imageReName}"  class="img-other" alt="상품 이미지1">
                                 </div>   
                                 <div class="title1">
                                     <div class="title2">${sellList.boardTitle}</div>
@@ -318,7 +327,7 @@
     <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
     <script src="${contextPath}/resources/js/modal.js"></script>
-    <script src="${contextPath}/resources/js/date.js"></script>
+    
     
 </body>
 </html>

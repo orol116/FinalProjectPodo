@@ -13,9 +13,8 @@
     <title>PODO 상품관리</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
-
-    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 <body>
 
@@ -69,8 +68,8 @@
                             <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
                             <td>
                                 <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
-                                <select id="changeCondition" onchange="tradeCondition(this)">
-                                    <option value="${item.tradeCondition}" disabled>${item.tradeCondition}</option>
+                                <select class="changeCondition" onchange="tradeCondition(this)">
+                                    <option value="${item.tradeCondition}" selected>${item.tradeCondition}</option>
                                     <option value="판매 중" value2="${item.boardNo}">판매 중</option>
                                     <option value="예약 중" value2="${item.boardNo}">예약 중</option>
                                     <option value="판매완료" value2="${item.boardNo}">판매완료</option>
@@ -82,8 +81,8 @@
                             <td>${item.readCount}</td>
                             <td>${item.updateDate}</td>
                             <td class="choice">
-                                <button class="choice1" onclick="update()">UP</button>
-                                <a href="itemUpload" class="choice2">수정</a>
+                                <button class="choice1" onclick="updateDt(this)" value="${item.boardNo}">UP</button>
+                                <a href="${contextPath}/board/itemUpload" class="choice2">수정</a>
                             </td>
                         </tr>  
                         <%-- </form>  --%> 
