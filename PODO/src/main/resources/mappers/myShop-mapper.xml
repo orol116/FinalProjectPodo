@@ -125,7 +125,7 @@
 	<update id="introChange">
 		UPDATE MEMBER SET 
 		SHOP_INFO = #{report}
-		WHERE MEMBER_NO = ${loginMemberNo}
+		WHERE MEMBER_NO = ${memberNo}
 	</update>
 	
 	<update id="changeTradeCondition">

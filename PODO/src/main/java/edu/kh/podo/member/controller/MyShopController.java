@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,6 +42,8 @@ public class MyShopController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	private Logger logger;
 
 	// 내 상품관리
 	@GetMapping("/main")
@@ -127,37 +130,26 @@ public class MyShopController {
 	}
 	
 	// 내 상점 소개 변경 ajax
-	@GetMapping("/introChange")
-	public int introChange(int loginMemberNo
-						 , String report
-						 , int boardNo) {
-	
-		return service.introChange(loginMemberNo, report);
+	@ResponseBody
+	@GetMapping("/myShop/introChange/intro")
+	public int introChange(@ModelAttribute("loginMember") Member loginMember
+						 , String report) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		return service.introChange(memberNo, report);
 	}
 	
 	// 상품관리 판매상태 ajax
-	@PostMapping("/main/tradeCondition")
+	@GetMapping("/main/tradeCondition")
 	@ResponseBody
 	public int tradeCondition(int boardNo
-							   , String condition) {
+							, String condition) {
 		
 		Map<String, Object>	map = new HashMap<String, Object>();
 		map.put("boardNo", boardNo);
 		map.put("condition", condition);
 
 		return service.changeTradeCondition(map);
-	}
-	
-	public String name(int[] arr) {
-		
-		int sum = 0;
-		
-		for (int i = 0; i < arr.length; i++) {
-			sum += arr[i];
-		}
-		
-		double answer = (sum / arr.length);
-		
-		return null;
 	}
 }

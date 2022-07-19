@@ -64,11 +64,11 @@
                     <c:forEach var="item" items="${boardList}" varStatus="status">
 
                         <%-- <form id="tradeCondition" method="post"> --%>
-                        <tr id=tradeCondition>
+                        <tr class=tradeCondition>
                             <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
                             <td>
                                 <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
-                                <select id="changeCondition" onchange="tradeCondition(this)">
+                                <select class="changeCondition" onchange="tradeCondition(this)">
                                     <option value="${item.tradeCondition}" disabled>${item.tradeCondition}</option>
                                     <option value="판매 중" value2="${item.boardNo}">판매 중</option>
                                     <option value="예약 중" value2="${item.boardNo}">예약 중</option>

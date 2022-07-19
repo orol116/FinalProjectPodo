@@ -152,4 +152,5 @@ public class MyPageController {
 		return "member/myPage/myPage-favorites";
 	}
 
+
 }

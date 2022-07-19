@@ -50,7 +50,7 @@ public interface MyShopService {
 	 * @param report
 	 * @return result
 	 */
-	int introChange(int loginMemberNo, String report);
+	int introChange(int memberNo, String report);
 
 	/** 상품관리 판매상태 ajax
 	 * @param map
