@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/chat.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/chat-style.css">
 
+    <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+
+    <%-- 파비콘 --%>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
 </head>
 <body>
     <!-- header -->
@@ -36,9 +41,14 @@
 						
                         <%-- 조회된 게시글 목록이 없을 때 --%>
                         <c:when test="${empty chatRoomList }">
-                            <tr>
-                                <td colspan="4">대화목록이 없습니다</td>
-                            </tr>
+                            <%-- <tr>
+                                <td colspan="4">
+                                    <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화목록이 없습니다</b>
+                                </td>
+                            </tr> --%>
+                            <div class="sc-not-found-list">
+                                <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화목록이 없습니다</b>
+                            </div>
                         </c:when>
                         
                         <%-- 조회된 채팅방 목록이 있을 때 --%>
@@ -76,9 +86,14 @@
 						
                     <%-- 조회된 게시글 목록이 없을 때 --%>
                     <c:when test="${empty chatRoomList }">
-                        <tr>
-                            <td colspan="4">대화방을 선택해주세요</td>
-                        </tr>
+                        <%-- <tr>
+                            <td colspan="4">
+                                <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화방을 선택해주세요</b>
+                            </td>
+                        </tr> --%>
+                        <div class="sc-not-found-room">
+                            <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화방을 선택해주세요</b>
+                        </div>
                     </c:when>
 
                     <c:otherwise>
