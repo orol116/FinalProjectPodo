@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
     
+
+    <%-- 파비콘 --%>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+    
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
     
 </head>

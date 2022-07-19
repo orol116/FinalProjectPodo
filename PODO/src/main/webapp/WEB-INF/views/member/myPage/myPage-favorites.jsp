@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-favorites-style.css">
+
+    <%-- 파비콘 --%>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 </head>
 <body>
 
@@ -32,7 +35,7 @@
             <!-- 찜 상품 카운트 -->
             <div class="fav-count"> <!-- 찜 카운트 영역 -->
                 <div>"찜"
-                    <span class="count">${bookmark.bookmarkCount}</span>
+                    <span class="count"></span>
                 </div>
             </div>
 
@@ -51,8 +54,8 @@
                             </div>
 
                             <!-- 선택삭제(전체 선택) -->
-                            <input type="checkbox">
-                            <button class="fav-delete">선택삭제</button>
+                            <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">
+                            <button type="button" class="deleteAll">선택삭제</button>
 
                         </div>
 
@@ -71,22 +74,6 @@
                             <!-- 상품 세부 -->
                             <div class="product-detail" href="/products/?ref=?">
 
-                                <!-- 상품 체크박스 -->
-                                <%-- <div class="check-area">
-                                    <button type="button" class="fav-check-btn"></button>
-                                </div> --%>
-                                
-
-
-                                
-                                <!-- 조회된 찜 상품 좌측 이미지 영역 -->
-                                <%-- 
-                                <div class="product-img">
-                                    <img src="" alt="상품 이미지">
-                                    <div></div>
-                                </div>
-                                 --%>
-
                                 <!-- 조회된 찜 상품 우측 상세 내용 영역 -->
                                 <div class="product-wholeContent">
                                     <div class="product-info">
@@ -103,29 +90,17 @@
                                                         <c:otherwise>
                                                             <c:forEach items="${favorBoard}" var="favor">
                                                                 <li>
+                                                                    <%-- 목록 별 체크박스 --%>
                                                                     <div class=checkbox>
-                                                                        <input type="checkbox">
+                                                                        <input type="checkbox" class="select" name="select">
                                                                     </div> 
+                                                                    <%-- 상품 이미지 --%>
                                                                     <div class="thumb">
-
-                                                                        <%-- <!-- 업로드 이미지가 있는 경우 -->
-                                                                        <c:if test="${fn:length(favor.imageOriginal) > start}">
-
-                                                                            <!-- 업로드 이미지 영역 -->
-                                                                            <h5>업로드 이미지</h5>
-                                                                            <div class="img-box">
-                                                                                <c:forEach var="i" begin="${start}" end="${fn:length(favor.imageOriginal) -1 }">
-                                                                                
-                                                                                    <div class="boardImg">
-                                                                                        <img src="${contextPath}${favor.imageOriginal[i].imageReName}">
-                                                                                    </div>
-
-                                                                                </c:forEach>
-                                                                            </div>
-
-                                                                        </c:if> --%>
-
+                                                                        <c:if test="${!empty board.imageReName}">
+                                                                            <img class="list-thumbnail" src="${contextPath}${favor.imageReName}">
+                                                                        </c:if>     
                                                                     </div>
+                                                                    <%-- 상품 정보 --%>
                                                                     <div class="gdsInfo">
                                                                         <p>
                                                                             <span>제목</span>${favor.boardTitle}<br>
@@ -136,9 +111,9 @@
                                                                                 <img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">
                                                                                 ${favor.sellArea}
                                                                         </p>
+                                                                        <%-- 삭제 버튼 --%>
                                                                         <div class="delete">
-                                                                            
-                                                                            <button type="button" class="delete_btn">삭제</button>
+                                                                            <button type="button" class="delete-btn" onclick="deleteOne()">삭제</button>
                                                                         </div>
                                                                     </div>   
                                                                 </li>
@@ -178,6 +153,5 @@
 
     <!-- js -->
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
-    <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
 </body>
 </html>
