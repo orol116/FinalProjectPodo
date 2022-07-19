@@ -157,6 +157,14 @@ public class ItemBoardDAO {
 	public ItemBoard selectBoardDetail(int boardNo) {
 		return sqlSession.selectOne("itemBoardMapper.selectBoardDetail", boardNo);
 	}
+	
+	/** 게시글 이미지 삭제 DAO
+	 * @param map
+	 * @return result
+	 */
+	public int deleteBoardImage(Map<String, Object> map) {
+		return sqlSession.delete("itemBoardMapper.deleteBoardImage", map);
+	}
 
 
 	

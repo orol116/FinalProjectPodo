@@ -164,7 +164,7 @@
 	
 	<!-- 판매글에 해당하는 회원번호 조회 -->
 	<select id="selectMemberNo" resultType="_int">
-		SELECT MEMBER_NO
+		SELECT MEMBER_NO, BUY_MEMBER_NO
 		FROM ITEM_BOARD
 		WHERE BOARD_NO = ${boardNo}
 	</select>
@@ -239,11 +239,17 @@
 	
 	<!-- 수정용 상세 조회 (글)-->
 	<select id="selectBoardDetail" resultMap="itemBoard_rm">
-		SELECT BOARD_TITLE, BOARD_CONTENT, SELL_AREA, ITEM_CONDITION, DELIVERY, PRICE
+		SELECT BOARD_TITLE, BOARD_CONTENT, SELL_AREA, ITEM_CONDITION, DELIVERY, PRICE, MEMBER_NO
 		FROM ITEM_BOARD
-		JOIN BOARD_IMG USING(BOARD_NO)
 		WHERE BOARD_NO = ${boardNo}
 	</select>
+	
+	<!-- 게시글 이미지 삭제 (IN 구문 작성 시 삭제되는 deleteList에 ''가 없도록 주의해야 한다) -->
+	<delete id="deleteBoardImage">
+		DELETE FROM BOARD_IMG
+		WHERE BOARD_NO = ${boardNo}
+		AND IMG_LEVEL IN (${deleteList})
+	</delete>
 	
 		
 

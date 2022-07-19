@@ -2,6 +2,7 @@ package edu.kh.podo.board.itemBoard.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.velocity.runtime.directive.Parse;
@@ -102,15 +103,15 @@ public class ItemBoardController {
 							  @PathVariable("boardNo") int boardNo,
 							  HttpServletRequest req,
 							  ItemBoard item,
-							  List<BoardImage> boardImageList,
 							  RedirectAttributes ra,
+							  @RequestParam(value = "deleteList", required = false) String deleteList,
 							  @RequestParam(value="images", required=false) List<MultipartFile> imageList
 							  ) throws IOException {
 		
 		String webPath = "/resources/images/items/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 		
-		int result = service.updateBoard(item, imageList, webPath, folderPath);
+		int result = service.updateBoard(item, imageList, webPath, folderPath, deleteList);
 		
 		String path = null;
 		String message = null;
@@ -163,6 +164,5 @@ public class ItemBoardController {
 		
 		return result;
 	}
-
 
 }

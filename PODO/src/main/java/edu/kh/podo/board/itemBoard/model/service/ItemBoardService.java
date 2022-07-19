@@ -54,9 +54,10 @@ public interface ItemBoardService {
 	 * @param imageList
 	 * @param webPath
 	 * @param folderPath
+	 * @param deleteList 
 	 * @return result
 	 */
-	int updateBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
+	int updateBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath, String deleteList) throws IOException;
 
 
 	/** 수정용 상세조회
