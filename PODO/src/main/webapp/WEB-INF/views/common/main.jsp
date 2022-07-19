@@ -56,21 +56,21 @@
                         <div class="box">
                             <a href="${contextPath}/board/detail/${item.boardNo}" class="title">
                                 <div class="image">
+                                    <c:choose>
 
-                                <c:choose>
+                                        <c:when test="${!empty item.img.imageReName}">
 
-                                    <c:when test="${!empty item.img.imageReName}">
+                                            <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
 
-                                        <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
+                                        </c:when>
 
-                                    </c:when>
+                                        <c:otherwise>
 
-                                    <c:otherwise>
-
-                                        <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
-                                    </c:otherwise>
-                                </c:choose>
+                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>   
+                                
                                 <div class="title1">
                                     <div class="title2">${item.boardTitle}</div>
                                     <div class="name2">
@@ -100,6 +100,7 @@
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
+    
     <!-- main.js 연결 -->
     <script src="${contextPath}/resources/js/main.js"></script>
 

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.board.itemBoard.model.vo.Time;
 import edu.kh.podo.member.model.service.MemberService;
 
 @Controller
@@ -29,6 +30,7 @@ public class MainController {
 			
 			List<ItemBoard> itemList = service.selectItemList();
 			model.addAttribute("itemList", itemList);
+			
 		} else {
 			
 			List<ItemBoard> searchList = service.searchBoard(query);
