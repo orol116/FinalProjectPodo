@@ -224,6 +224,16 @@
 			SEQ_IMG_NO.NEXTVAL, #{imageReName}, #{imageOriginal}, #{imageLevel}, #{boardNo}
 		)
 	</insert>
+	
+	<!-- 수정용 상세 조회 (글)-->
+	<select id="selectBoardDetail" resultMap="itemBoard_rm">
+		SELECT BOARD_TITLE, BOARD_CONTENT, SELL_AREA, ITEM_CONDITION, DELIVERY, PRICE
+		FROM ITEM_BOARD
+		JOIN BOARD_IMG USING(BOARD_NO)
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+		
 
 
 </mapper>

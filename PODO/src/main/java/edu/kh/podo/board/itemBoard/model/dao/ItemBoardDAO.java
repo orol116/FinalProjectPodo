@@ -143,6 +143,14 @@ public class ItemBoardDAO {
 		return sqlSession.insert("itemBoardMapper.insertBoardImage", img);
 	}
 
+	/** 수정용 상세조회
+	 * @param boardNo
+	 * @return item
+	 */
+	public ItemBoard selectBoardDetail(int boardNo) {
+		return sqlSession.selectOne("itemBoardMapper.selectBoardDetail", boardNo);
+	}
+
 
 	
 

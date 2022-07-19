@@ -241,4 +241,15 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		return result;
 	}
 
+	// 수정용 상세조회
+	@Override
+	public ItemBoard selectBoardDetail(int boardNo) {
+		return dao.selectBoardDetail(boardNo);
+	}
+
+	@Override
+	public List<BoardImage> selectBoardImageList(int boardNo) {
+		return dao.selectBoardImageList(boardNo);
+	}
+
 }
