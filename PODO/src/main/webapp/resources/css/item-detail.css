@@ -422,5 +422,10 @@ footer {
   }
 
 
+.img-box{
+    display: flex;
+}
 
-
+.boardImg{
+    padding: 5px;
+}
