@@ -22,12 +22,12 @@ html{
 }
 
 #header{
-
-    width: 1000px;
-    height:  180px;
+    width: 950px;
+    height: 180px;
     background-color: white;
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    justify-content: space-between;
     margin-left: 40px;
     /* margin-top: 15px; */
     z-index: 2;

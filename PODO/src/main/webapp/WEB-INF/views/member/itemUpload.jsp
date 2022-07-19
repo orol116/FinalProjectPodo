@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 </head>
 
 <body>
