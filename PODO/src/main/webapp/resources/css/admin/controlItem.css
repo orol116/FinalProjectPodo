@@ -22,16 +22,40 @@ html{
 }
 
 #header{
-    width: 950px;
+    width: 1000px;
     height: 180px;
     background-color: white;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    margin-left: 40px;
+    padding-right: 20px;
     /* margin-top: 15px; */
     z-index: 2;
+    
 }
+#logout{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+#gotoMain{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold; 
+}
+
+#logout:hover{
+    background-color:rgb(95, 0, 129) ;
+    color: white;
+}
+
+#gotoMain:hover{
+    background-color:rgb(95, 0, 129) ;
+    color: white;
+}
+
 #menu{
     display: flex;
     align-items: center;
@@ -59,6 +83,7 @@ section>#menu{
     font-size: 15px;
     border-bottom: 1px solid lightgray ;
     border-top: 1px solid lightgray;
+    font-weight: bold;
 }
 
 #mainMenu>a{

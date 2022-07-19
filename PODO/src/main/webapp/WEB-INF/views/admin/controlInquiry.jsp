@@ -27,9 +27,9 @@
                 <div><h1>관리자 페이지</h1></div>
             </section>
             <section>
-            <a id="logout" href="#">로그아웃</a>
-            <a id="gotoMain" href="${contextPath}">메인으로</a>
-        </section>
+                <a id="logout" href="#">로그아웃</a>
+                <a id="gotoMain" href="${contextPath}">메인으로</a>
+            </section>
         </div>    
 
     </header>
@@ -76,7 +76,7 @@
 
             <thead>
                 <tr id="head">
-                    <th><input type="checkbox"></th>
+                    <th>선택</th>
                     <th>번호</th>
                     <th>분류</th>
                     <th>제목</th>
@@ -116,7 +116,7 @@
             <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
             </div>
             <div>
-                <button type="submit" class="btn" id="deleteBtn" onclick='deleteReport()'>삭제</button>
+                <button type="submit" class="btn" id="deleteBtn" '>삭제</button>
             </div>
         </div>
 </form>
