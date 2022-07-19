@@ -53,7 +53,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 //		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
 
-		int boardNo = dao.insertBoard(item);
+		int boardNo = dao.insertBoard(item);		
 
 		if (boardNo > 0) {
 			List<BoardImage> boardImageList = new ArrayList<BoardImage>();
@@ -180,7 +180,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	// 게시글 수정 Service 구현
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
-	public int updateBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException {
+	public int updateBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath, String deleteList) throws IOException {
 		
 		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
 		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
@@ -210,15 +210,15 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	            }
 	        } 
 			
-//			// 4) deleteList를 이용해서 삭제된 이미지 delete
-//			if (!deleteList.equals("")) {
-//				Map<String, Object> map = new HashMap<String, Object>();
-//				
-//				map.put("boardNo", detail.getBoardNo());
-//				map.put("deleteList", deleteList);
-//				
-//				result = dao.deleteBoardImage(map);
-//			}
+			// 4) deleteList를 이용해서 삭제된 이미지 delete
+			if (!deleteList.equals("")) {
+				Map<String, Object> map = new HashMap<String, Object>();
+				
+				map.put("boardNo", item.getBoardNo());
+				map.put("deleteList", deleteList);
+				
+				result = dao.deleteBoardImage(map);
+			}
 			
 			if (result > 0) {
 				
@@ -253,6 +253,17 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		}
 		
 		return result;
+	}
+
+	// 수정용 상세조회
+	@Override
+	public ItemBoard selectBoardDetail(int boardNo) {
+		return dao.selectBoardDetail(boardNo);
+	}
+
+	@Override
+	public List<BoardImage> selectBoardImageList(int boardNo) {
+		return dao.selectBoardImageList(boardNo);
 	}
 
 }
