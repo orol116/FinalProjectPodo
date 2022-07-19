@@ -59,25 +59,65 @@ public class ItemBoardController {
 		String webPath = "/resources/images/item";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		
-
 		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
 		
 		String path = null;
 		String message = null;
-			
-		if(boardNo>0) { // 게시글 등록 성공
+		
+		if(boardNo > 0) { // 게시글 등록 성공
 			path="../board/detail/"+boardNo;
 			message = "게시글이 등록되었습니다.";
 		}else {
 			path = req.getHeader("referer");
 			message = "게시글삽입 실패...";
 		}
-		ra.addFlashAttribute("message",message);
+		ra.addFlashAttribute("message", message);
 		
 		return "redirect:" + path;
+			
 
 	}	
+	
+	// 게시글 수정
+	@GetMapping("/board/updateBoard")
+	public String boardUpdate(@ModelAttribute("loginMember") Member loginMember,
+							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
+							ItemBoard item,
+							HttpServletRequest req,
+							RedirectAttributes ra,
+							@RequestParam(value="mCateValue", required=false, defaultValue="1") int mCateValue,
+							@RequestParam(value="placeResult", required=false) String sellArea
+							) throws IOException {
+	
+		item.setMemberNo(loginMember.getMemberNo());
+		item.setCategoryNo(mCateValue);
+		item.setSellArea(sellArea);
+		
+//		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
+		
+		String webPath = "/resources/images/item";
+
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
+		
+		String path = null;
+		String message = null;
+		
+		int result = service.updateBoard(item, imageList, webPath, folderPath);
+		
+		if (result > 0) {
+			message = "게시글이 수정되었습니다.";
+			path =  "../board/item-detail" + boardNo;
+		} else {
+			message = "게시글 수정 실패";
+			path = req.getHeader("referer");
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return "redirect:" + path;
+	}
+	
 		
 	// 상품 상세
 	@GetMapping("/board/detail/{boardNo}")
