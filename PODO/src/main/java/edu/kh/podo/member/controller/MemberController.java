@@ -151,30 +151,30 @@ public class MemberController {
 		return path;
 	}
 	// 카카오 회원가입
-		@GetMapping("/kakaoSingUp")
-		public String kakaoSignUp(@RequestParam("email") String email, RedirectAttributes ra) {
-			Member inputMember = new Member();
+	@GetMapping("/kakaoSingUp")
+	public String kakaoSignUp(@RequestParam("email") String email, RedirectAttributes ra) {
+		Member inputMember = new Member();
+		
+		inputMember.setMemberId(email);
+		
+		int result = service.naverSignUp(inputMember);
+		
+		String path = null;
+		String message = null;
+		
+		if (result > 0) {
 			
-			inputMember.setMemberId(email);
+			path = "/";
+			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
 			
-			int result = service.naverSignUp(inputMember);
+		} else {
 			
-			String path = null;
-			String message = null;
-			
-			if (result > 0) {
-				
-				path = "/";
-				ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
-				
-			} else {
-				
-				path = "/member/login";
-				ra.addFlashAttribute("message", "회원가입 실패");
-			}
-			
-			return "redirect:" + path;
+			path = "/member/login";
+			ra.addFlashAttribute("message", "회원가입 실패");
 		}
+		
+		return "redirect:" + path;
+	}
 
 	// 로그인
 	@PostMapping("/login")
