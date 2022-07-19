@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.board.itemBoard.model.dao.ItemBoardDAO;
@@ -26,7 +27,22 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	// 메인화면 상품 조회 Service
 	@Override
 	public List<ItemBoard> selectItemList() {
-		return dao.selectitemList();
+		
+		List<ItemBoard> sellList = dao.selectitemList();
+		
+		// 판매자 다른 상품의 이미지 레벨 0번 이미지 조회
+		List<BoardImage> sellListImg = dao.selectItemsImg();
+		
+		for(ItemBoard sell : sellList) {
+
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		return sellList;
 	}
 
 	@Override
@@ -160,6 +176,84 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	@Override
 	public int addCountAdd(Map<String, Object> map) {
 		return dao.addCountAdd(map);
+	}
+
+	// 게시글 수정 Service 구현
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int updateBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException {
+		
+		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
+		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
+		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
+		
+		int result = dao.updateBoard(item);
+		
+		if (result > 0) {
+			
+			List<BoardImage> boardImageList = new ArrayList<BoardImage>();
+			List<String> reNameList = new ArrayList<String>();
+			 
+			for(int i=0 ; i<imageList.size() ; i++) {
+			   
+			    if( imageList.get(i).getSize() > 0  ) { 
+			   
+				    String reName = Util.fileRename( imageList.get(i).getOriginalFilename()  );
+				    reNameList.add(reName);
+				    
+				    BoardImage img = new BoardImage();
+				    img.setBoardNo(item.getBoardNo()); // 게시글 번호
+				    img.setImageLevel(i); // 이미지 순서(파일 레벨)
+				    img.setImageOriginal( imageList.get(i).getOriginalFilename() ); // 원본 파일명
+				    img.setImageReName( webPath + reName ); // 웹 접근 경로 + 변경된 파일명
+				    
+				    boardImageList.add(img);
+	            }
+	        } 
+			
+//			// 4) deleteList를 이용해서 삭제된 이미지 delete
+//			if (!deleteList.equals("")) {
+//				Map<String, Object> map = new HashMap<String, Object>();
+//				
+//				map.put("boardNo", detail.getBoardNo());
+//				map.put("deleteList", deleteList);
+//				
+//				result = dao.deleteBoardImage(map);
+//			}
+			
+			if (result > 0) {
+				
+				// 5) boardImageList를 순차접근하면서 하나씩 업데이트
+				for (BoardImage img : boardImageList) {
+					
+					result = dao.updateBoardImage(img); // 변경명, 원본명, 게시글 번호, 레벨
+					// 결과 1 -> 수정 O -> 기존 이미지가 있었다.
+					
+					// 결과 0 -> 수정 X -> 기존 이미지가 없었다.
+					// -> insert 작업 수행
+					
+					// 6) update를 실패하면 insert
+					if (result == 0) {
+						result = dao.insertBoardImage(img);
+						// -> 값을 하나씩 대입해서 삽입하는 경우 결과가 0이 나올 수 없다!
+						//    단, 예외(제약조건 위배, SQL 문법 오류 등)은 발생할 수 있다.
+					}
+					
+				}
+				
+				// 7) 업로드 된 이미지가 있다면 서버에 저장
+				if (!boardImageList.isEmpty() && result != 0) {
+					for (int i = 0; i < boardImageList.size(); i++) {
+						int index = boardImageList.get(i).getImageLevel();
+						imageList.get(index).transferTo(new File(folderPath + "/" + reNameList.get(i)));
+					}
+				}
+				
+			}
+		
+		}
+		
+		return result;
 	}
 
 }

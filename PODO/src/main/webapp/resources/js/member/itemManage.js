@@ -52,15 +52,23 @@ function tradeCondition(select){
 
 
 // 끌올 기능 ajax
-function update(){
+function updateDt(select){
+
+    var boardNo = $(select).val();
+
+    // for(let sel of select.children){
+    //     if(sel.selected)  boardNo = sel.getAttribute("value2");
+    // }
+
+    console.log(boardNo);
 
     $.ajax({
         url : "itemManage",
-        data : {"updateDate":updateDate,
-                "tradeContition" : tradeContition},
+        data : {"boardNo":boardNo},
         type: "POST",
 
         success : function(result){
+
             if(update[2]||update[4]){
                 alert("예약중/판매완료 상품은 UP하기를 이용할 수 없습니다.");
             }else{

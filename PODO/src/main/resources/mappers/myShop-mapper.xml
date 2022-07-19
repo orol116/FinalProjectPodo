@@ -133,4 +133,10 @@
 		TRADE_CONDITION = #{condition}
 		WHERE BOARD_NO = ${boardNo}
 	</update>
+	
+	<update id="updateDate">
+		UPDATE ITEM_BOARD SET 
+		UPDATE_DT = SYSDATE
+		WHERE BOARD_NO = ${boardNo}
+	</update>
 </mapper>
