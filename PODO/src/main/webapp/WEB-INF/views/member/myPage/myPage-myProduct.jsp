@@ -14,7 +14,8 @@
     
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-myProduct.css">
     
-
+    <%-- 파비콘 --%>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 </head>
 <body>
     <main>

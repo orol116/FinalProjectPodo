@@ -25,17 +25,37 @@ document.getElementById("do-bookmark").addEventListener("click", function(){
 
 
 // 전체 선택
-const $checkArea = document.querySelector('.checkArea');
-const $inputs = [...$product-detail.children];
-const $checkBtn = document.querySelector('.fav-check-btn');
+/* function selectAll(selectAll)  {
+  const selects 
+       = document.getElementsByName('select');
+  
+    selects.forEach((checkbox) => {
+    checkbox.checked = selectAll.checked;
+  })
+} */
+var selectAll = document.querySelector(".selectAll");
+var list = document.querySelectorAll(".select");
 
-$$checkBtn .onclick = () => {
-    if ($inputs.filter(input => input.checked).length === $inputs.length) {
-    $inputs.forEach(input => { input.checked = false; });
-    } else {
-    $inputs.forEach(input => {
-        input.checked = true;
-    });
+selectAll.onclick = () => {
+    if(selectAll.checked){
+        for(var i=0; i<list.length; i++){
+            list[i].checked = true;
+        }
+    }else{
+        for(var i=0; i<list.length; i++){
+            list[i].checked = false;
+        }
     }
-};
+}
 
+
+// 선택 삭제
+var deleteAll = document.querySelector(".deleteAll");
+
+deleteAll.onclick = () => {
+    for(var i=0; i<list.length; i++){
+        if(list[i].checked){
+            list[i].parentElement.parentElement.remove();
+        }
+    }
+}
