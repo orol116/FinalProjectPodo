@@ -1,10 +1,14 @@
 var update = document.getElementById("tradeCondition");
 
 // select 옵션 값 변경 시 제출
-function tradeCondition(){
+function tradeCondition(select){
 
-    var condition = $("#changeCondition").val();
-    var boardNo = $("#changeCondition > option:selected").attr("value2");
+    var condition = $(select).val();
+    var boardNo;
+
+    for(let sel of select.children){
+        if(sel.selected)  boardNo = sel.getAttribute("value2");
+    }
     
     console.log(boardNo);
     console.log(condition);
@@ -48,15 +52,23 @@ function tradeCondition(){
 
 
 // 끌올 기능 ajax
-function update(){
+function updateDt(select){
+
+    var boardNo = $(select).val();
+
+    // for(let sel of select.children){
+    //     if(sel.selected)  boardNo = sel.getAttribute("value2");
+    // }
+
+    console.log(boardNo);
 
     $.ajax({
         url : "itemManage",
-        data : {"updateDate":updateDate,
-                "tradeContition" : tradeContition},
+        data : {"boardNo":boardNo},
         type: "POST",
 
         success : function(result){
+
             if(update[2]||update[4]){
                 alert("예약중/판매완료 상품은 UP하기를 이용할 수 없습니다.");
             }else{

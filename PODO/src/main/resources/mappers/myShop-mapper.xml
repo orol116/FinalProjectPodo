@@ -125,12 +125,18 @@
 	<update id="introChange">
 		UPDATE MEMBER SET 
 		SHOP_INFO = #{report}
-		WHERE MEMBER_NO = ${loginMemberNo}
+		WHERE MEMBER_NO = ${memberNo}
 	</update>
 	
 	<update id="changeTradeCondition">
 		UPDATE ITEM_BOARD SET 
 		TRADE_CONDITION = #{condition}
+		WHERE BOARD_NO = ${boardNo}
+	</update>
+	
+	<update id="updateDate">
+		UPDATE ITEM_BOARD SET 
+		UPDATE_DT = SYSDATE
 		WHERE BOARD_NO = ${boardNo}
 	</update>
 </mapper>
