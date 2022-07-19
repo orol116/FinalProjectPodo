@@ -78,6 +78,14 @@ public class ItemBoardDAO {
 	public List<ItemBoard> selectOtherItems(Map<String, Object> daoMap) {
 		return sqlSession.selectList("itemBoardMapper.selectOtherItems", daoMap);
 	}
+	
+	/** 판매자 다른 상품 이미지 보기 DAO
+	 * @param daoMap
+	 * @return sellList
+	 */
+	public List<BoardImage> selectOtherItemsImg(Map<String, Object> daoMap) {
+		return sqlSession.selectList("itemBoardMapper.selectOtherItemsImg", daoMap);
+	}
 
 	/** 회원 정보 조회 DAO
 	 * @param memberNo
@@ -109,6 +117,9 @@ public class ItemBoardDAO {
 	public List<BoardImage> selectBoardImageList(int boardNo) {
 		return sqlSession.selectList("itemBoardMapper.selectBoardImageList", boardNo);
 	}
+
+
+	
 
 //	/** 판매자 다른 상품 이미지 조회 DAO
 //	 * @param daoMap 
