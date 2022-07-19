@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/item-detail.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
     <title>상품 상세페이지</title>
 </head>
@@ -124,7 +124,7 @@
 
                     <c:forEach var="sellList" items="${sellList}">
                         <div class="box">
-                            <a href="#" class="title">
+                            <a href="${contextPath}/board/detail/${sellList.boardNo}" class="title">
                                 <div class="image">
                                     <img src="${contextPath}${sellList.img.imageReName}"  alt="상품 이미지1">
                                 </div>   

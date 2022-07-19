@@ -21,15 +21,38 @@ html{
 }
 
 #header{
-
-    width: 1000px;
-    height:  180px;
+    width: 950px;
+    height: 180px;
     background-color: white;
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    justify-content: space-between;
     margin-left: 40px;
     /* margin-top: 15px; */
     z-index: 2;
+}
+
+#logout{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+#gotoMain{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold; 
+}
+
+#logout:hover{
+    background-color:rgb(95, 0, 129) ;
+    color: white;
+}
+
+#gotoMain:hover{
+    background-color:rgb(95, 0, 129) ;
+    color: white;
 }
 #menu{
     display: flex;
@@ -222,7 +245,6 @@ th:nth-child(6){width:10%;}
 
 .pagination>li>a{
     list-style: none;
-
     color: black;
     float: left;
     padding: 8px 16px;
@@ -230,14 +252,13 @@ th:nth-child(6){width:10%;}
 }
 
   
-  .pagination a.current {
+.pagination a.current {
+background-color: rgb(95, 0, 129);
+border-radius: 3px;
+color: white;
+}
+ul{
+list-style: none;
+}
 
-    background-color: rgb(95, 0, 129);
-    border-radius: 3px;
-    color: white;
-  }
-  ul{
-    list-style: none;
-  }
-
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {background-color: #ddd;}
