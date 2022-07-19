@@ -68,7 +68,7 @@
     <table>
         <thead>
             <tr id="head">
-                <th><input type="checkbox"></th>
+                <th>선택</th>
                 <th>번호</th>
                 <th>분류</th>
                 <th>상품명</th>
