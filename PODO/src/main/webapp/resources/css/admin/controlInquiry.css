@@ -21,15 +21,38 @@ body{
 }
 
 #header{
-
-    width: 1000px;
-    height:  180px;
+    width: 950px;
+    height: 180px;
     background-color: white;
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    justify-content: space-between;
     margin-left: 40px;
     /* margin-top: 15px; */
     z-index: 2;
+}
+
+#logout{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+#gotoMain{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold; 
+}
+
+#logout:hover{
+    background-color:rgb(95, 0, 129) ;
+    color: white;
+}
+
+#gotoMain:hover{
+    background-color:rgb(95, 0, 129) ;
+    color: white;
 }
 #menu{
     display: flex;
@@ -49,6 +72,7 @@ section>#menu{
 
 /* 메뉴 */
 .top-menu{
+    width: 1000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,6 +81,7 @@ section>#menu{
     font-size: 15px;
     border-bottom: 1px solid lightgray ;
     border-top: 1px solid lightgray;
+    font-weight: bold;
 }
 
 #mainMenu>a{
@@ -74,7 +99,7 @@ section>#menu{
     color: rgb(95, 0, 129);
 
 }
-#mainMenu2>a{
+a{
     text-decoration:  none;
     color: black;
 }
@@ -84,6 +109,7 @@ section>#menu{
 
 /* 중간 카테고리 및 검색창 */
 .option{
+    width: 1000px;
     height: 60px;
     display: flex;
     align-items: center;
@@ -122,18 +148,31 @@ section>#menu{
 #search2:focus{
     outline: none;
 }
-#search2{
+#search2 {
     margin: 0;
-    width: 300px;
+    width: 250px;
+    height: 30px;
+}
+
+.basic> :nth-child(2) {
+    color: white;
+    background-color: rgb(95, 0, 129);
+    border: 0;
+    height: 30px;
+    border-radius: 3px;
 }
 
 /* table */
 select {
     width: 90px;
-    height: 40px;
+    height: 30px;
     padding-left: 5px;
     font-size: 13px;
-    margin-right: 20px;
+    margin-right: 10px;
+}
+.basic {
+    justify-content: left;
+    display: flex;
 }
 table{
     width: 1000px;
@@ -141,7 +180,6 @@ table{
     text-align: center;
     border-collapse: collapse;
     table-layout: fixed;
-    font-size: 12px;
 }
 
 th{
@@ -150,9 +188,8 @@ th{
     border-bottom: 1px solid lightgray;
     /* padding-bottom: 5px; */
 }
-th>a{
-    text-decoration: none;
-    color : black;
+tbody{
+    font-size: 13px;
 }
 
 tbody>tr{
@@ -178,7 +215,7 @@ th:nth-child(6){width:10%;}
     font-size: 13px;
     /* margin-right: 3px; */
 }
-#delete{
+#deleteBtn{
     width: 40px;
     height: 30px;
     font-size:  14px;
@@ -189,7 +226,7 @@ th:nth-child(6){width:10%;}
     border: 0;
 }
 
-#delete:hover{
+#deleteBtn:hover{
     cursor: pointer;
     color: rgb(95, 0, 129);
     background-color: white;

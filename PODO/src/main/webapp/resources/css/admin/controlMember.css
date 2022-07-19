@@ -35,16 +35,17 @@ html{
 }
 
 #logout{
-    font-size: 13px;
+    font-size: 15px;
     text-decoration: none;
     color: black;
+    font-weight: bold;
 }
 #gotoMain{
-    font-size: 13px;
+    font-size: 15px;
     text-decoration: none;
     color: black;
+    font-weight: bold; 
 }
-
 
 #logout:hover{
     background-color:rgb(95, 0, 129) ;

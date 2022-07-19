@@ -14,7 +14,8 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlReport.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
-    
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
 </head>
 
 <header>
@@ -25,9 +26,19 @@
             </a>
             <div><h1>관리자 페이지</h1></div>
         </section>
+        <section>
+            <a id="logout" href="#">로그아웃</a>
+            <a id="gotoMain" href="${contextPath}">메인으로</a>
+        </section>
     </div>    
 
 </header>
+
+
+<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
+    <c:if test="${!empty param.key}">
+        <c:set var="sURL" value="&key=${param.key}&query=${param.query}" />
+    </c:if>
 
 <div class="top-menu">
     <nav id="mainMenu">
@@ -56,7 +67,7 @@
     
     <%-- 검색창 --%>
         <section class="basic">
-                <input id="search2" type="text" placeholder="신고글 사유를 입력해주세요." name="query">
+                <input id="search2" type="text" name="query" placeholder="신고글 사유를 입력해주세요." >
                 <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
     </div>

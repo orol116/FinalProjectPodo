@@ -13,9 +13,8 @@
     <title>PODO 상품관리</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
-
-    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 <body>
 
