@@ -118,6 +118,31 @@ public class ItemBoardDAO {
 		return sqlSession.selectList("itemBoardMapper.selectBoardImageList", boardNo);
 	}
 
+	/** 게시글 수정 DAO
+	 * @param item
+	 * @return result
+	 */
+	public int updateBoard(ItemBoard item) {
+		return sqlSession.update("itemBoardMapper.updateBoard", item);
+	}
+
+
+	/** 게시글 이미지 1개 수정
+	 * @param img
+	 * @return result
+	 */
+	public int updateBoardImage(BoardImage img) {
+		return sqlSession.update("itemBoardMapper.updateBoardImage", img);
+	}
+
+	/** 게시글 이미지 1개 삽입
+	 * @param img
+	 * @return result
+	 */
+	public int insertBoardImage(BoardImage img) {
+		return sqlSession.insert("itemBoardMapper.insertBoardImage", img);
+	}
+
 
 	
 

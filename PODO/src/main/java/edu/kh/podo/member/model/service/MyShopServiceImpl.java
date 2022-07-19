@@ -78,6 +78,12 @@ public class MyShopServiceImpl implements MyShopService {
 	public int changeTradeCondition(Map<String, Object> map) {
 		return dao.changeTradeCondition(map);
 	}
+
+	// 끌올 기능 ajax
+	@Override
+	public int updateDate(int boardNo) {
+		return dao.updateDate(boardNo);
+	}
 	
 	
 

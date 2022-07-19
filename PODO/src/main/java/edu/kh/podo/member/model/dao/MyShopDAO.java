@@ -12,6 +12,7 @@ import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.Review;
+import oracle.net.aso.b;
 
 @Repository
 public class MyShopDAO {
@@ -84,6 +85,14 @@ public class MyShopDAO {
 	 */
 	public int changeTradeCondition(Map<String, Object> map) {
 		return sqlSession.update("myShopMapper.changeTradeCondition", map);
+	}
+
+	/** 끌올 기능 ajax
+	 * @param boardNo
+	 * @return result
+	 */
+	public int updateDate(int boardNo) {
+		return sqlSession.update("myShopMapper.updateDate", boardNo);
 	}
 
 }
