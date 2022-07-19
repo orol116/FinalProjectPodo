@@ -48,6 +48,8 @@ public class MemberController {
 		return "/member/naver-login";
 	}
 
+	
+	// 네이버 로그인
 	@GetMapping("/selectNaver")
 	public String selectNaver(@RequestParam(value = "email", required = false) String email, Model model,
 			RedirectAttributes ra, @RequestParam(value = "saveId", required = false) String saveId,
@@ -83,6 +85,96 @@ public class MemberController {
 
 		return path;
 	}
+	// 네이버 회원가입
+	@GetMapping("/naverSingUp")
+	public String naverSignUp(@RequestParam("email") String email, RedirectAttributes ra) {
+		Member inputMember = new Member();
+
+		inputMember.setMemberId(email);
+
+		int result = service.naverSignUp(inputMember);
+
+		String path = null;
+		String message = null;
+
+		if (result > 0) {
+
+			path = "/";
+			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
+
+		} else {
+
+			path = "/signUp";
+			ra.addFlashAttribute("message", "회원가입 실패");
+		}
+
+		return "redirect:" + path;
+	}
+		
+	
+	// 카카오 로그인
+	@GetMapping("/selectKakao")
+	public String selectKakao(@RequestParam(value = "email", required = false) String email, Model model,
+			RedirectAttributes ra, @RequestParam(value = "saveId", required = false) String saveId,
+			HttpServletResponse resp, HttpServletRequest req) {
+
+		Member inputMember = new Member();
+		email = email+"_Ka";
+		inputMember.setMemberId(email);
+		
+
+		Member loginMember = service.naverLogin(inputMember);
+
+		String path = null;
+
+		if (loginMember != null) {
+			model.addAttribute("loginMember", loginMember);
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
+
+			if (saveId != null) {
+
+				cookie.setMaxAge(60 * 60 * 24 * 365);
+
+			} else {
+				cookie.setMaxAge(0);
+			}
+
+			cookie.setPath(req.getContextPath());
+
+			resp.addCookie(cookie);
+			path = "redirect:/";
+
+		} else {
+			path = "redirect:/member/kakaoSingUp?email=" + email;
+		}
+
+		return path;
+	}
+	// 카카오 회원가입
+		@GetMapping("/kakaoSingUp")
+		public String kakaoSignUp(@RequestParam("email") String email, RedirectAttributes ra) {
+			Member inputMember = new Member();
+			
+			inputMember.setMemberId(email);
+			
+			int result = service.naverSignUp(inputMember);
+			
+			String path = null;
+			String message = null;
+			
+			if (result > 0) {
+				
+				path = "/";
+				ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
+				
+			} else {
+				
+				path = "/member/login";
+				ra.addFlashAttribute("message", "회원가입 실패");
+			}
+			
+			return "redirect:" + path;
+		}
 
 	// 로그인
 	@PostMapping("/login")
@@ -194,31 +286,7 @@ public class MemberController {
 		return "redirect:" + path;
 	}
 
-	// 네이버 회원가입
-	@GetMapping("/naverSingUp")
-	public String naverSignUp(@RequestParam("email") String email, RedirectAttributes ra) {
-		Member inputMember = new Member();
-
-		inputMember.setMemberId(email);
-
-		int result = service.naverSignUp(inputMember);
-
-		String path = null;
-		String message = null;
-
-		if (result > 0) {
-
-			path = "/";
-			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
-
-		} else {
-
-			path = "/signUp";
-			ra.addFlashAttribute("message", "회원가입 실패");
-		}
-
-		return "redirect:" + path;
-	}
+	
 
 //	// 판매관리 페이지
 //	@GetMapping("/itemUpload")
