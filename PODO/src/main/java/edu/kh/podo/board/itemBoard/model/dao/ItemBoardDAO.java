@@ -49,6 +49,13 @@ public class ItemBoardDAO {
 	public List<ItemBoard> selectitemList() {
 		return sqlSession.selectList("itemBoardMapper.selectItemList");
 	}
+	
+	/** 메인화면 상품 썸네일 조회 DAO
+	 * @return itemList
+	 */
+	public List<BoardImage> selectItemsImg() {
+		return sqlSession.selectList("itemBoardMapper.selectItemsImg");
+	}
 
 	public int insertBoardImageList(List<BoardImage> boardImageList) {
 		return sqlSession.insert("itemBoardMapper.insertBoardImageList",boardImageList);
