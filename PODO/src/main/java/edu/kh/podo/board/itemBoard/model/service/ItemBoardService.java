@@ -48,6 +48,12 @@ public interface ItemBoardService {
 	int addCountAdd(Map<String, Object> map);
 
 
+	/** 게시글 등록일 조회 Service
+	 * @return dateList
+	 */
+	List<ItemBoard> selectDate();
+
+
 	
 
 

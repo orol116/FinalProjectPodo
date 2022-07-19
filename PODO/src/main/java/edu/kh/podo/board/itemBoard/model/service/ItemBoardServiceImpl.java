@@ -162,4 +162,11 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		return dao.addCountAdd(map);
 	}
 
+	//  게시글 등록일 Service 구현
+	@Override
+	public List<ItemBoard> selectDate() {
+		
+		return dao.selectDate();
+	}
+
 }

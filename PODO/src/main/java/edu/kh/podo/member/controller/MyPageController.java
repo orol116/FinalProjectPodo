@@ -152,4 +152,13 @@ public class MyPageController {
 		return "member/myPage/myPage-favorites";
 	}
 
+	
+	// 비밀번호 재설정(본인인증 이후)
+	@PostMapping("/myPage/resetPw")
+	public String resetPw(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra) {
+		
+		int result = service.resetPw(inputMember);
+		
+		return null;
+	}
 }

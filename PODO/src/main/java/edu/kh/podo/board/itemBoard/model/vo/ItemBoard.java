@@ -1,5 +1,6 @@
 package edu.kh.podo.board.itemBoard.model.vo;
 
+import java.util.Date;
 import java.util.List;
 
 import lombok.Getter;
@@ -35,5 +36,13 @@ public class ItemBoard {
 	private List<BoardImage> imageList;
 	
 	private BoardImage img;
+	 
 	
+	public String getUpdateDate() {
+		return updateDate;
+	}
+	public void setDate(Date updateDate) {
+		this.updateDate = Time.calculateTime(updateDate);
+	}	
+
 }
