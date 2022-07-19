@@ -27,7 +27,7 @@
             <div><h1>관리자 페이지</h1></div>
         </section>
         <section>
-            <a id="logout" href="#">로그아웃</a>
+            <a id="logout" href="${contextPath}/member/logout">로그아웃</a>
             <a id="gotoMain" href="${contextPath}">메인으로</a>
         </section>
     </div>    
@@ -57,7 +57,7 @@
    
         <%-- 검색창 --%>
         <section class="basic">
-            <input id="search2" type="text"  name="search-query" placeholder="회원 아이디를 입력해주세요.">
+            <input id="search2" type="text"  name="query" placeholder="회원 아이디를 입력해주세요.">
             <button class="button" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
     </div>  
