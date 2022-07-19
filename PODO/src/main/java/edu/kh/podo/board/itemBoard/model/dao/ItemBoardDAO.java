@@ -150,6 +150,30 @@ public class ItemBoardDAO {
 		return sqlSession.insert("itemBoardMapper.insertBoardImage", img);
 	}
 
+	/** 수정용 상세조회
+	 * @param boardNo
+	 * @return item
+	 */
+	public ItemBoard selectBoardDetail(int boardNo) {
+		return sqlSession.selectOne("itemBoardMapper.selectBoardDetail", boardNo);
+	}
+	
+	/** 게시글 이미지 삭제 DAO
+	 * @param map
+	 * @return result
+	 */
+	public int deleteBoardImage(Map<String, Object> map) {
+		return sqlSession.delete("itemBoardMapper.deleteBoardImage", map);
+	}
+
+
+	public List<ItemBoard> selectDate() {
+		
+		return sqlSession.selectList("itemBoardMapper.selectDate");
+	}
+
+
+
 
 	
 

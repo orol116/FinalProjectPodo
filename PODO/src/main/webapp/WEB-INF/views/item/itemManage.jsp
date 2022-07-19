@@ -82,7 +82,7 @@
                             <td>${item.updateDate}</td>
                             <td class="choice">
                                 <button class="choice1" onclick="updateDt(this)" value="${item.boardNo}">UP</button>
-                                <a href="${contextPath}/board/itemUpload" class="choice2">수정</a>
+                                <a href="${contextPath}/member/updateBoard/${item.boardNo}" class="choice2">수정</a>
                             </td>
                         </tr>  
                         <%-- </form>  --%> 

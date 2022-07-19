@@ -28,13 +28,13 @@
 
         <div id="footer2" >
             <div class="second">고객센터</div>
-            <div class="third">02)9874-6541</div>
+            <div class="third">02&#41;9874-6541</div>
             <div>
             운영시간 9시 - 18시 (주말/공휴일 휴무, 점심시간 13시 - 14시)
             </div>
             
                 <div class="fourth">
-                    <a href="#">공지사항&nbsp|</a>
+                    <%-- <a href="#">공지사항&nbsp|</a> --%>
 
                     <c:if test="${!empty loginMember}">
                         <a href="${contextPath}/member/InquiryPage">1:1 문의사항&nbsp|</a>
