@@ -237,7 +237,11 @@
 		)
 	</insert>
 
-
+	<select id="selectDate" resultMap="itemBoard_rm">
+		SELECT UPDATE_DT
+		FROM ITEM_BOARD
+	</select>
+	
 </mapper>
 
 

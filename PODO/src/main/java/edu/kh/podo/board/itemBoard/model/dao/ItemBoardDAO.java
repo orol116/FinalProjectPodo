@@ -151,6 +151,14 @@ public class ItemBoardDAO {
 	}
 
 
+	public List<ItemBoard> selectDate() {
+		
+		return sqlSession.selectList("itemBoardMapper.selectDate");
+	}
+
+
+
+
 	
 
 //	/** 판매자 다른 상품 이미지 조회 DAO

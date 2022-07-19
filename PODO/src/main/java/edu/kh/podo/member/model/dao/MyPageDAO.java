@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.member.model.vo.Member;
 
 @Repository
 public class MyPageDAO {
@@ -53,6 +54,11 @@ public class MyPageDAO {
 	 */
 	public List<ItemBoard> selectFavorList(int memberNo) {
 		return sqlSession.selectList("myPageMapper.selectFavorList", memberNo);
+	}
+
+	public int resetPw(Member inputMember) {
+		
+		return 0;
 	}
 
 }

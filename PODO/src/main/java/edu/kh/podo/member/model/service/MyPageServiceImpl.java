@@ -59,6 +59,13 @@ public class MyPageServiceImpl implements MyPageService {
 		return 0;
 	}
 
+	// 비밀번호 재설정
+	@Override
+	public int resetPw(Member inputMember) {
+		
+		return dao.resetPw(inputMember);
+	}
+
 	// 회원 탈퇴 Service 구현
 	@Override
 	public int secession(Member loginMember) {

@@ -372,4 +372,6 @@ public class MemberController {
 	public String findPw() {
 		return "/member/member-find-PW";
 	}
+	
+	
 }

@@ -177,7 +177,6 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	public int addCountAdd(Map<String, Object> map) {
 		return dao.addCountAdd(map);
 	}
-
 	// 게시글 수정 Service 구현
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
