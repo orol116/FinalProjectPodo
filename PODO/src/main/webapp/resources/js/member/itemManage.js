@@ -1,10 +1,14 @@
 var update = document.getElementById("tradeCondition");
 
 // select 옵션 값 변경 시 제출
-function tradeCondition(){
+function tradeCondition(select){
 
-    var condition = $("#changeCondition").val();
-    var boardNo = $("#changeCondition > option:selected").attr("value2");
+    var condition = $(select).val();
+    var boardNo;
+
+    for(let sel of select.children){
+        if(sel.selected)  boardNo = sel.getAttribute("value2");
+    }
     
     console.log(boardNo);
     console.log(condition);
