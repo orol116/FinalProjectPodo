@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
+
+    <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
     
     <%-- 파비콘 --%>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
