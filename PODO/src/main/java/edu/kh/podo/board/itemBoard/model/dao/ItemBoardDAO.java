@@ -49,6 +49,13 @@ public class ItemBoardDAO {
 	public List<ItemBoard> selectitemList() {
 		return sqlSession.selectList("itemBoardMapper.selectItemList");
 	}
+	
+	/** 메인화면 상품 썸네일 조회 DAO
+	 * @return itemList
+	 */
+	public List<BoardImage> selectItemsImg() {
+		return sqlSession.selectList("itemBoardMapper.selectItemsImg");
+	}
 
 	public int insertBoardImageList(List<BoardImage> boardImageList) {
 		return sqlSession.insert("itemBoardMapper.insertBoardImageList",boardImageList);
@@ -116,6 +123,31 @@ public class ItemBoardDAO {
 	 */
 	public List<BoardImage> selectBoardImageList(int boardNo) {
 		return sqlSession.selectList("itemBoardMapper.selectBoardImageList", boardNo);
+	}
+
+	/** 게시글 수정 DAO
+	 * @param item
+	 * @return result
+	 */
+	public int updateBoard(ItemBoard item) {
+		return sqlSession.update("itemBoardMapper.updateBoard", item);
+	}
+
+
+	/** 게시글 이미지 1개 수정
+	 * @param img
+	 * @return result
+	 */
+	public int updateBoardImage(BoardImage img) {
+		return sqlSession.update("itemBoardMapper.updateBoardImage", img);
+	}
+
+	/** 게시글 이미지 1개 삽입
+	 * @param img
+	 * @return result
+	 */
+	public int insertBoardImage(BoardImage img) {
+		return sqlSession.insert("itemBoardMapper.insertBoardImage", img);
 	}
 
 

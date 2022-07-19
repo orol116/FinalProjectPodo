@@ -197,3 +197,114 @@
     text-align: center;
     width: 80px;
 }
+
+/* -------------------- */
+/* 조회 결과 없을 시 */
+.sc-not-found-list{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.sc-not-found-room{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.sc-not-found-list img{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    aspect-ratio: auto 120 / 120;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    width: 120px;
+    height: 120px;
+}
+
+.sc-not-found-list b{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.sc-not-found-room img{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    aspect-ratio: auto 120 / 120;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    width: 120px;
+    height: 120px;
+}
+
+.sc-not-found-room b{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}

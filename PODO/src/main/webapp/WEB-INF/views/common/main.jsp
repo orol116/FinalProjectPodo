@@ -56,8 +56,21 @@
                         <div class="box">
                             <a href="${contextPath}/board/detail/${item.boardNo}" class="title">
                                 <div class="image">
-                                    <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
+                                    <c:choose>
+
+                                        <c:when test="${!empty item.img.imageReName}">
+
+                                            <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
+
+                                        </c:when>
+
+                                        <c:otherwise>
+
+                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>   
+                                
                                 <div class="title1">
                                     <div class="title2">${item.boardTitle}</div>
                                     <div class="name2">
