@@ -141,7 +141,7 @@ public class MyShopController {
 	}
 	
 	// 상품관리 판매상태 ajax
-	@GetMapping("/main/tradeCondition")
+	@PostMapping("/main/tradeCondition")
 	@ResponseBody
 	public int tradeCondition(int boardNo
 							, String condition) {
@@ -151,5 +151,12 @@ public class MyShopController {
 		map.put("condition", condition);
 
 		return service.changeTradeCondition(map);
+	}
+	
+	// 끌올 기능 ajax 
+	@PostMapping("/itemManage")
+	@ResponseBody
+	public int itemManage(int boardNo) {
+		return service.updateDate(boardNo);
 	}
 }

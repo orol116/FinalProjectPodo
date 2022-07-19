@@ -58,4 +58,10 @@ public interface MyShopService {
 	 */
 	int changeTradeCondition(Map<String, Object> map);
 
+	/** 끌올 기능 ajax
+	 * @param boardNo
+	 * @return result
+	 */
+	int updateDate(int boardNo);
+
 }
