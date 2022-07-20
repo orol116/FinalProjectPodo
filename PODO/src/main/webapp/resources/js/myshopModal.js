@@ -22,7 +22,6 @@ function show() {
     
   }
 
-
   document.querySelector("#user-intro-change").addEventListener("click", introShow,);
   document.querySelector("#item-report").addEventListener("click", show);
   document.querySelector("#close").addEventListener("click", close);
