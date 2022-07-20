@@ -11,13 +11,17 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class ChatRoom {
-
+public class ChatList {
+	
 	private int chatNo;
 	private int boardNo;
 	private String chatStatus;
 	
 	private int memberNo;
-	private int buyMemberNo;
 	private String memberNickname;
+	private String memberProfile;
+	
+	private String messageContent;
+	private Date messageTime;
+
 }
