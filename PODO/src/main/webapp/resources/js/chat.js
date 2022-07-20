@@ -1,7 +1,7 @@
-/* (()=>{
-	if(document.getElementById("openChatRoom") != null){
+(()=>{
+	if(document.getElementById("chatting") != null){
 
-		document.getElementById("openChatRoom").addEventListener("click", () => {
+		document.getElementById("chatting").addEventListener("click", () => {
 			const modal = document.querySelector('.modal');
 			modal.classList.add('show');
 			modal.classList.remove('hide');
@@ -21,7 +21,7 @@
 			}
 		});
 	}
-})(); */
+})();
 
 // -------------------------------------------------------------------------
 
