@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1:1문의하기</title>
+    <title>1:1문의</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/inquire.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@
 <div class="body">
     <div class="top-menu">
         <nav id="mainMenu">
-            <h3 >1:1문의하기</h3>
+            <h3 >1:1문의</h3>
         </nav>
     </div>
 
