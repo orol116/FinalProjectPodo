@@ -63,6 +63,18 @@
                             <div id="item-report">신고하기</div>
                         </div>
 
+
+                        <div id="info-button-area">
+                            <c:if test="${memberNo != loginMember.memberNo}"> 
+                                <button id="do-bookmark">찜하기</button> 
+                                <%-- <p class="add-fav">
+                                    <button type="button" class="add-fav-btn">찜하기</button>
+                                </p> --%>
+
+                                <button id="do-chat">1:1 채팅하기</button>
+                            </c:if>
+                        </div>
+
                         <%-- 모달창 --%>
                         <div class="background">
                             <div class="window">
@@ -107,16 +119,7 @@
                         
    
 
-                        <div id="info-button-area">
-                            <c:if test="${memberNo != loginMember.memberNo}"> 
-                                <button id="do-bookmark">찜하기</button> 
-                                <%-- <p class="add-fav">
-                                    <button type="button" class="add-fav-btn">찜하기</button>
-                                </p> --%>
-
-                                <button id="do-chat">1:1 채팅하기</button>
-                            </c:if>
-                        </div>
+                        
                     </div>
                     
                 </section>
