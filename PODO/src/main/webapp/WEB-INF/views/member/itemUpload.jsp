@@ -65,9 +65,6 @@
                     <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
                     <c:set var="img4"  value="${contextPath}${boardImage.imageReName}" />
                 </c:when>
-                <c:otherwise>
-                    <c:set var="img${status.index}"  value="${contextPath}/resources/images/image.png" />
-                </c:otherwise>
             </c:choose>
             
         </c:forEach>
