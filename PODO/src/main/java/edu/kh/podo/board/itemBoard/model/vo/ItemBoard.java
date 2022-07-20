@@ -36,7 +36,8 @@ public class ItemBoard {
 	private List<BoardImage> imageList;
 	
 	private BoardImage img;
-	 
+	
+	private Coordinate coordinate;
 	
 	public String getUpdateDate() {
 		return updateDate;

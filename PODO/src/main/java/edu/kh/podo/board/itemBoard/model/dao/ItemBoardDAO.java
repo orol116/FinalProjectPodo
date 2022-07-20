@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
+import edu.kh.podo.board.itemBoard.model.vo.Coordinate;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -32,11 +33,19 @@ public class ItemBoardDAO {
 	 
 
 	public int insertBoard(ItemBoard item) {
+		
 		int result = sqlSession.insert("itemBoardMapper.insertBoard", item);
 		
 		if(result>0) {
 			
-			result = item.getBoardNo();
+			Coordinate crdnt = item.getCoordinate();
+			crdnt.setBoardNo(item.getBoardNo());
+			
+			int result2 = sqlSession.insert("itemBoardMapper.insertCoordinate", crdnt);
+			
+			if(result2>0) {
+				result = item.getBoardNo();
+			}
 		}
 		
 		return result;
