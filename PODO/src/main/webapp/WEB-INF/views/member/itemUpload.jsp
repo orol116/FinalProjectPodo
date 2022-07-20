@@ -199,12 +199,17 @@
                         <section class="place">
                             <button>내 위치</button>
                             <button>최근지역</button>
-                            <button>주소검색</button>
-                            <button onchange="none()">지역설정안함</button>
+                            <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" id="searchBtn"><br>
+                            <button onchange="none()" id="noneLocation">지역설정안함</button>
                         </section>
                         <section class="place2">
+                            <input type="text" id="sample5_address" placeholder="주소"
+                            class="placeResult" name="placeResult">
                         <%-- readonly : input 박스 value 값을 form 전송이 가능하지만 --%>
-                            <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" name="placeResult" value="${item.sellArea}">
+                            <%-- <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" name="placeResult" value="${item.sellArea}"> --%>
+                            <section id="map-area" style="display:none;">
+                                <div id="map" style="width:500px;height:400px;margin-top:10px;"></div>
+                            </section>
                         </section>
                     </li>
                 </ul>
@@ -323,11 +328,17 @@
         <input type="hidden" name="lCateValue" id="lCateValue">
         <input type="hidden" name="mCateValue" id="mCateValue">
 
+        <input type="hidden" name="dLat" id="dLat" value="">
+        <input type="hidden" name="dLon" id="dLon" value="">
+
       </form>
     </main>
     
          <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=06bb10cd60ad6e59265c29b83ff6ec2d&libraries=services"></script>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/itemUpload.js"></script>
