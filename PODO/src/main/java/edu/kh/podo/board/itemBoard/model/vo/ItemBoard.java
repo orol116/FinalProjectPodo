@@ -41,7 +41,7 @@ public class ItemBoard {
 	public String getUpdateDate() {
 		return updateDate;
 	}
-	public void setDate(Date updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = Time.calculateTime(updateDate);
 	}	
 
