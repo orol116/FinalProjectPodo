@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="chatMapper">
+
+	<resultMap type="chatRoom" id="chatRoom_rm">
+
+		<id property="chatNo" column="CHAT_NO" />
+		
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
+		<result property="chat" column="CHAT_STATUS" />
+		<result property="memberNickname" column="MEMBER_NICK" />
+		<result property="memberProfile" column="MEMBER_PROFILE" />
+
+	</resultMap>
+	
+	<resultMap type="chatMessage" id="chatMessage_rm">
+
+		<id property="messageNo" column="MESSAGE_NO" />
+		
+		<result property="messageContent" column="MESSAGE_CONTENT" />
+		<result property="messageTime" column="MESSAGE_TIME" />
+		<result property="chatNo" column="CHAT_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICK" />
+		<result property="memberProfile" column="MEMBER_PROFILE" />
+
+	</resultMap>
+	
+	<!-- 이 위로 resultMap 작성부 -->
+	
+	<!-- 내가 참여중인 채팅방 번호 조회 -->
+	<select id="selectChatNoList" resultType="_int">
+		SELECT CHAT_NO
+		FROM CHAT_ROOM
+		WHERE BUY_MEMBER_NO = ${memberNo}
+		OR MEMBER_NO = ${memberNo}
+	</select>
+	
+	<!--  내가 참여중인 채팅방에서 상대방 프로필 조회
+	<select id="selectChatMemberInfo" resultMap="chatRoom_rm">
+
+		SELECT MEMBER_NICK, MEMBER_PROFILE 
+		FROM CHAT_ROOM A
+		
+		JOIN MEMBER B ON MEMBER.MEMBER_NO = CHAT_ROOM.BUY_MEMBER_NO
+	
+			WHERE BUY_MEMBER_NO != ${memberNo}
+		<foreach collection="chatNoList" item="chatNo" index='i'>
+			AND B.MEMBER_NO IN(
+				
+			)
+		</foreach>
+		 
+	</select> -->
+
+
+</mapper>

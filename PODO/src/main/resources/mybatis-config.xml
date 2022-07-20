@@ -20,6 +20,9 @@
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.BoardType" alias="boardType"/> 
 		<typeAlias type="edu.kh.podo.board.category.model.vo.LargeCategory" alias="lCategory"/> 
 		<typeAlias type="edu.kh.podo.board.category.model.vo.MiddleCategory" alias="mCategory"/> 
+		
+		<typeAlias type="edu.kh.podo.chat.model.vo.ChatRoom" alias="chatRoom"/> 
+		<typeAlias type="edu.kh.podo.chat.model.vo.ChatMessage" alias="chatMessage"/> 
 	</typeAliases>
 	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -31,6 +34,7 @@
 		<mapper resource="/mappers/itemBoard-mapper.xml" />
 		<mapper resource="/mappers/admin-mapper.xml" />
 		<mapper resource="/mappers/category-mapper.xml" />
+		<mapper resource="/mappers/chat-mapper.xml" />
 	</mappers>
 	
 </configuration>

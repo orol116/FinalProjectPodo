@@ -74,6 +74,13 @@
 		WHERE BOARD_NO = #{boardNo}
 	</select>
 	
+	<!-- 조회수 증가 -->
+	<update id="updateReadCount">
+		UPDATE ITEM_BOARD SET 
+		READ_COUNT = READ_COUNT + 1
+		WHERE BOARD_NO = ${boardNo}
+	</update>
+	
 	
 	
 	<!-- sql돌겠다 진짜  -->

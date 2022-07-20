@@ -34,7 +34,7 @@
                             <ul class="id_list">
                                 <c:forEach var="findMember" items="${findMemberList}">
                                     <li>
-                                        <strong>${findMember.memberId}</strong>
+                                        <strong name="${findMember.memberId}">${findMember.memberId}</strong>
                                         <span id="an_createDt">가입 : ${findMember.createDate}</span>
                                     </li>
                                 </c:forEach>
