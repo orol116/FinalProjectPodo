@@ -40,32 +40,42 @@
                     <c:choose>
 						
                         <%-- 조회된 게시글 목록이 없을 때 --%>
-                        <c:when test="${empty chatRoomList }">
+                        <c:when test="${empty chatRoomList}">
                             <%-- <tr>
                                 <td colspan="4">
                                     <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화목록이 없습니다</b>
                                 </td>
                             </tr> --%>
                             <div class="sc-not-found-list">
-                                <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화목록이 없습니다</b>
+                                <img src="${contextPath}/resources/images/icon-not-found.png" width="30" height="30"><b>대화목록이 없습니다</b>
                             </div>
                         </c:when>
                         
                         <%-- 조회된 채팅방 목록이 있을 때 --%>
                         <c:otherwise>
                             
-                            <c:forEach var="chatRoom" items="${chatRoomList}">
+                            <c:forEach var="chatList" items="${chatRoomList}">
                                 <div class="card-box">
                                     <%-- 클릭 시 우측 채팅창으로 이동 --%>
                                     <a href="">
-                                        <li>
-                                            <%-- 회원 이미지 --%>
-                                            <div class="profile">
-                                                <img src="${contextPath}${member.memberProfile}">
-                                            </div>
+                                        <li class="chatList">
+
+                                            <c:if test="${chatList.memberProfile == null}">
+                                                <%-- 회원 이미지 --%>
+                                                <div class="profile">
+                                                    <img src="${contextPath}/resources/images/icon-not-found.png" width="30" height="30">
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${chatList.memberProfile != null}">
+                                                <%-- 회원 이미지 --%>
+                                                <div class="profile">
+                                                    <img src="${contextPath}${chatList.memberProfile}"  width="30" height="30">
+                                                </div>
+                                            </c:if>
+
                                             <div class="info">
-                                                <div class="memberNick">${member.memberNickname}</div><%-- 회원 닉네임 --%>
-                                                <div class="sentDate">${chatroom.sentDate}</div><%-- 전송날짜 --%>
+                                                <div class="memberNick">${chatList.memberNickname}</div><%-- 회원 닉네임 --%>
+                                                <div class="sentDate">${chatList.messageTime}</div><%-- 전송날짜 --%>
                                             </div>
                                         </li>
                                     </a>
@@ -138,20 +148,20 @@
                                     
                                     <c:forEach items="${list}" var="msg">
 
-                                        <fmt:formatDate var="chatDate" value="${msg.createDate }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
+                                        <fmt:formatDate var="chatDate" value="${msg.messageTime }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
                                         <c:if test="${msg.memberNo == loginMember.memberNo }">
                                             <li class="myChat">
-                                                <span class="chatDate">${chatDate}</span>
-                                                <p class="chat">${msg.message }</p>
+                                                <span class="chatDate">${messageTime}</span>
+                                                <p class="chat">${msg.messageContent }</p>
                                             </li>
                                         </c:if>
                                         
                                         <c:if test="${msg.memberNo != loginMember.memberNo }">
                                             <li>
                                                 <b>${msg.memberNickname }</b>	<br>
-                                                <p class="chat">${msg.message }</p>
-                                                <span class="chatDate">${chatDate}</span>
+                                                <p class="chat">${msg.messageContent }</p>
+                                                <span class="chatDate">${messageTime}</span>
                                             </li>
                                         </c:if>
 
@@ -183,6 +193,7 @@
     </section>
 
 
+
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
@@ -196,7 +207,6 @@
 		const memberNo = "${loginMember.memberNo}";
 		const memberNickname = "${loginMember.memberNickname}";
 		const chatRoomNo = "${chatRoomNo}";
-		const contextPath = "${contextPath}";
 
 		// 로그인이 되어 있을 경우에만
 		// /chat 이라는 요청 주소로 통신할 수 있는  WebSocket 객체 생성

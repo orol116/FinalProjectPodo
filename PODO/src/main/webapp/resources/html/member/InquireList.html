@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1:1문의</title>
+
+    <link rel="stylesheet" href="../../css/member/inquireList.css">
+    <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+
+</head>
+
+<header>
+    <header>
+
+        <link rel="stylesheet" href="../../css/header-style.css">
+    
+        <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+        
+        <div id="top">
+            <a href="#">로그인
+            <a href="#">회원가입
+            <a href="#">고객센터
+        </div>
+    
+        <div id="header">
+            <section id="menu"> 
+                <i class="fa-solid fa-bars"></i>
+                <a href="${contextPath}" >
+                    <img src="../../images/logo.png" id="home-logo">
+                </a>
+            </section>
+            
+            <section class="mid-header">
+                <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
+                <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </section>
+            <section class="right-header">
+                <button class="button" onclick = "location.href = '${contextPath}/member-upload'"><i class="fa-solid fa-won-sign"></i>판매하기</button>
+                <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-house-user"></i>내상점</button>   
+                <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
+            </section>
+        </div>
+    </header>
+
+</header>
+<div class="body">
+    <div class="top-menu">
+        <nav id="mainMenu">
+            <h3>1:1문의</h3>
+            <a id="inquire" href="#">문의하기</a>
+        </nav>
+    </div>
+    <div class="list1">
+        <ul>
+            <form id="list" method="post" onclick="inquireList()">
+                <li id="one">
+                    <div class="list2">
+                        <section class="list3">
+                            <h5>기타</h5>
+                            <a href="#">기타서비스</a>
+                        </section>
+                        <button name="cancel" id="cancel"  method="submit" onclick="cancel()">문의취소</button>
+                    </div>
+
+                    <p>접수완료</p>
+                </li>
+                <li id="one">
+                    <div class="list2">
+                        <section class="list3">
+                            <h5>기타</h5>
+                            <a href="#">기타서비스</a>
+                        </section>
+                        <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                    </div>
+
+                    <p>접수완료</p>
+                </li>
+                <li id="one">
+                    <div class="list2">
+                        <section class="list3">
+                            <h5>기타</h5>
+                            <a href="#">기타서비스</a>
+                        </section>
+                        <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                    </div>
+
+                    <p>접수완료</p>
+                </li>
+                <li id="one">
+                    <div class="list2">
+                        <section class="list3">
+                            <h5>기타</h5>
+                            <a href="#">기타서비스</a>
+                        </section>
+                        <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                    </div>
+
+                    <p>접수완료</p>
+                </li>
+                <li id="one">
+                    <div class="list2">
+                        <section class="list3">
+                            <h5>기타</h5>
+                            <a href="#">기타서비스</a>
+                        </section>
+                        <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                    </div>
+                    <p>접수완료</p>
+                </li>
+            </form>
+        </ul>
+    </div>
+
+    <div class="inform">
+        <h4>유의사항</h4>
+        <ul>
+            <li>자주묻는 질문을 확인하면 답변을 빨리 받을 수 있어요.</li>
+            <li>접수는 24시간 가능하지만, 답변은 9시~18시 사이에 순차적으로 받을 수 있어요.</li>
+            <li>문의 취소는 접수상태에서만 가능해요.</li>
+        </ul>
+    </div>
+
+  
+      
+</div>
+
+</body>
+<footer>
+    <link rel="stylesheet" href="../../css/footer-style.css">
+
+    <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+	
+    <div id="footer">
+        <div id="footer1">
+            <div class="frist">PODO(주) 사업자정보</div>
+            <div>
+                호스팅서비스 제공자 : 최강1팀
+                <br>
+                Email : help@podo.co.kr
+                <br>
+                주소 : 주소 : 서울특별시 중구 남대문로 120 대일빌딩 2F, 3F
+                <br>
+                (남대문로 1가 대일빌딩)
+            </div>
+            <div class="fifth">
+                <a href="#">회사소개&nbsp|</a>
+                <a href="#">이용약관&nbsp|</a>
+                <a href="#">운영정책</a>
+            </div>
+        </div>
+
+        <div id="footer2" >
+            <div class="second">고객센터</div>
+            <div class="third">02)9874-6541</div>
+            <div>
+            운영시간 9시 - 18시 (주말/공휴일 휴무, 점심시간 13시 - 14시)
+            </div>
+            
+                <div class="fourth">
+                    <a href="#">공지사항&nbsp|</a>
+                    <a href="#">1:1 문의사항&nbsp|</a>
+                    <a href="#">자주 묻는 질문</a>
+                </div>
+        </div>
+    </div>
+</footer>
+</html>
