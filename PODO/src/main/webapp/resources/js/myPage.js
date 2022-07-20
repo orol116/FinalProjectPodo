@@ -13,6 +13,7 @@ const checkObj={
 // 비밀번호 변경 수정
 function changePwValidate(){
     
+    const id = document.getElementById("id");
     const pw =document.getElementById("pw");
     const newPw =document.getElementById("newPw");
     const newPwConfirm =document.getElementById("newPwConfirm");
@@ -21,8 +22,6 @@ function changePwValidate(){
 
     const doro = /^(([가-힣A-Za-z·\d~\-\.]{2,}(로|길).[\d]+)|([가-힣A-Za-z·\d~\-\.]+(읍|동)\s)[\d]+)$/; // 도로명
     const jibun = /^(([가-힣A-Za-z·\d~\-\.]+(읍|동)\s)[\d-]+)|(([가-힣A-Za-z·\d~\-\.]+(읍|동)\s)[\d][^시]+)$/; // 지번
-
-    
 
     //현재 비밀번호 미작성
     if(pw.value.trim().length==0){

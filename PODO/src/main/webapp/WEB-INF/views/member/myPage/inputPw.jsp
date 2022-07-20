@@ -27,11 +27,11 @@
                 
           
                 <div class="wrapper">
-    
                     <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                     <div class="myPage-row">
-                        <label>아이디</label>
-                        <input type="text" name="memberId" id="id" class="input_box">
+                        <c:forEach var="findMember" items="${findMemberList}">
+                            <label name="memberId">${findMember.memberId}</label>  
+                        </c:forEach>
                     </div>
                     <div class="myPage-row">
                         <label>새 비밀번호</label>
@@ -63,6 +63,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 	<!-- js -->
-    
+    <script src="${contextPath}/resources/js/myPage.js"></script>
 </body>
 </html>

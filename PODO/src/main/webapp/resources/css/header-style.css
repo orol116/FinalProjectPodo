@@ -20,8 +20,8 @@
 /* header */
 *{box-sizing: border-box;}
 body{
-    width: 1400px;
     margin: auto;
+    
 }
 header{
     height: 100px;

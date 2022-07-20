@@ -57,8 +57,12 @@ footer {
 #category a {
     margin-left: 20px;
     width: 300px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     font-size: 20px;
+}
+#category a:hover {
+    background-color: #5f0081;
+    color:white;
 }
 
 
@@ -80,8 +84,11 @@ footer {
 /* head 이미지 크기 */
 #item-image {
     width: 40%;
+    height: auto;
 
 }
+
+
 
 /* head 이미지 오른쪽 상품 정보 크기 */
 #item-info {
@@ -241,7 +248,14 @@ footer {
 .image {
 
     height: 214px;
+    width: 100%;
     border: 1px solid gray;
+}
+
+/* 추가한 것 */
+.image>img{
+    width: 100%;
+    height: 100%;
 }
 
 /* 제목 */
@@ -405,7 +419,7 @@ footer {
     
     width: 150px;
     height: 40px;
-    margin: 10px 0 0 400px;
+    margin-left: 140px;
     z-index: 300;
   }
 
@@ -414,6 +428,18 @@ footer {
     margin-left: 200px;
   }
 
+  #selectBtn-area{
+    padding-top: 20px;
+    height: 55px;
+    display: flex;
+    justify-content: space-around;
+  }
 
 
+.img-box{
+    display: flex;
+}
 
+.boardImg{
+    padding: 5px;
+}

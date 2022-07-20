@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/editFAQ.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 </head>
 

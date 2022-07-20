@@ -59,8 +59,40 @@
                         <c:if test="${member[0].shopInfo == null}">
                             <div id="user-intro">상점 소개가 없습니다.</div>
                         </c:if>
+                        
+                        <div id="user-cutoff">
+                            <div id="user-intro-change">소개 수정</div>
+                            <div id="item-report">신고/차단하기</div>
+                        </div>
 
-                        <div id="user-cutoff"><a href="#">신고/차단하기</a></div>
+                        <!-- <%-- 모달창 --%> -->
+                        <div class="background">
+                            <div class="window">
+                              <div class="popup">
+                                <button id="close" type="button">팝업닫기</button>
+                                <div id="report-text">신고할 내용을 입력해주세요.</div>
+                                <div id="report-area">
+                                    <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
+                                </div>
+                                <div id="selectBtn-area">
+                                    <select name="key" id="search-key">
+                                        <option value="기타">기타</option>
+                                        <option value="광고">광고</option>
+                                        <option value="상품 정보 부정확">상품 정보 부정확</option>
+                                        <option value="거래 금지 품목">거래 금지 품목</option>
+                                        <option value="허위 매물">허위 매물</option>
+                                        <option value="사기 의심">사기 의심</option> 
+                                    </select>
+                                    <button id="introChange">수정하기</button>
+                                    <button id="reportBtn">신고하기</button>
+                                </div>
+
+                              </div>
+                              <div>
+                              </div>
+                            </div>
+                        </div>
+                        
                         
                         
                         
@@ -76,6 +108,9 @@
                 </div>
 
                 <section id="seller-items">
+
+
+
                
                 </section>
                 

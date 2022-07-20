@@ -54,7 +54,7 @@
 
             <button class="button" onclick = "location.href = '${contextPath}/shop/myShop/${loginMember.memberNo}'"><i class="fa-solid fa-house-user"></i>내 상점</button>
 
-            <button class="button" onclick = "location.href = '${contextPath}/member/podoTalk'"><i class="fa-solid fa-message"></i>포도톡</button>
+            <button class="button" onclick = "location.href = '${contextPath}/chat/roomList'"><i class="fa-solid fa-message"></i>포도톡</button>
         </section>
         <div id="category-area">
         <ul id="item-category">

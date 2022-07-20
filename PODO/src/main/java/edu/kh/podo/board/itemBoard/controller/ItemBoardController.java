@@ -1,6 +1,8 @@
 package edu.kh.podo.board.itemBoard.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.velocity.runtime.directive.Parse;
@@ -19,7 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
+import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.common.Util;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.member.model.vo.Member;
@@ -36,6 +41,21 @@ public class ItemBoardController {
 		
 		return "member/itemUpload";
 	}
+	
+	@GetMapping("/member/updateBoard/{boardNo}")
+	public String boardUpdateForm(@PathVariable("boardNo") int boardNo
+								, Model model) {
+		
+		ItemBoard item = service.selectBoardDetail(boardNo);
+		item.setBoardContent(Util.newLineClear(item.getBoardContent()));
+		model.addAttribute("item", item);
+		
+		List<BoardImage> boardImageList = service.selectBoardImageList(boardNo);
+		model.addAttribute("boardImageList", boardImageList);
+		
+		
+		return "member/itemUpload";
+	}
 		
 
 	// 게시글 작성
@@ -45,37 +65,71 @@ public class ItemBoardController {
 							ItemBoard item,
 							HttpServletRequest req,
 							RedirectAttributes ra,
-							@RequestParam(value="mCateValue", required=false, defaultValue="1") String mCateValue
-							) {
+							@RequestParam(value="mCateValue", required=false, defaultValue="1") int mCateValue,
+							@RequestParam(value="placeResult", required=false) String sellArea
+							) throws IOException {
 
 		item.setMemberNo(loginMember.getMemberNo());
+		item.setCategoryNo(mCateValue);
+		item.setSellArea(sellArea);
+		
+//		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
 		
 		String webPath = "/resources/images/item";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		
-		
-		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
-		
-		
-
 		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
 		
 		String path = null;
 		String message = null;
 		
-		if(boardNo>0) { // 게시글 등록 성공
+		if(boardNo > 0) { // 게시글 등록 성공
 			path="../board/detail/"+boardNo;
 			message = "게시글이 등록되었습니다.";
 		}else {
 			path = req.getHeader("referer");
 			message = "게시글삽입 실패...";
 		}
-		ra.addFlashAttribute("message",message);
+		ra.addFlashAttribute("message", message);
 		
 		return "redirect:" + path;
+			
 
 	}	
+	
+	// 게시글 수정
+	@PostMapping("/board/updateBoard/{boardNo}")
+	public String boardUpdate(@ModelAttribute("loginMember") Member loginMember,
+							  @PathVariable("boardNo") int boardNo,
+							  HttpServletRequest req,
+							  ItemBoard item,
+							  RedirectAttributes ra,
+							  @RequestParam(value = "deleteList", required = false) String deleteList,
+							  @RequestParam(value="images", required=false) List<MultipartFile> imageList
+							  ) throws IOException {
+		
+		String webPath = "/resources/images/items/";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		int result = service.updateBoard(item, imageList, webPath, folderPath, deleteList);
+		
+		String path = null;
+		String message = null;
+		
+		if (result > 0) {
+			message = "게시글이 수정되었습니다.";
+			path = "../board/detail/" + boardNo;
+		} else {
+			message = "게시글 수정 실패";
+			path = req.getHeader("referer");
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+			
+		return "redirect:" + path;
+	}
+	
 		
 	// 상품 상세
 	@GetMapping("/board/detail/{boardNo}")
@@ -110,6 +164,5 @@ public class ItemBoardController {
 		
 		return result;
 	}
-
 
 }

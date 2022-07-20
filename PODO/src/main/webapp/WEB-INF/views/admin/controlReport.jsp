@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlReport.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 </head>
 
@@ -25,9 +26,19 @@
             </a>
             <div><h1>관리자 페이지</h1></div>
         </section>
+        <section>
+            <a id="logout" href="#">로그아웃</a>
+            <a id="gotoMain" href="${contextPath}">메인으로</a>
+        </section>
     </div>    
 
 </header>
+
+
+<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
+    <c:if test="${!empty param.key}">
+        <c:set var="sURL" value="&key=${param.key}&query=${param.query}" />
+    </c:if>
 
 <div class="top-menu">
     <nav id="mainMenu">
@@ -42,33 +53,35 @@
 </div>
 
 
-<div class="option">
-    <select>
-        <option>신고사유</option>
-        <option>광고</option>
-        <option>상품 정보 부정확</option>
-        <option>거래 금지 품목</option>
-        <option>허위 매물</option>
-        <option>사기 의심</option>
-        <option>기타</option>
-    </select>
- 
-   
-    <section class="basic">
-        <form class="search1" action="#" method="post" id="search">
-            <input id="search2" type="text" placeholder="신고글 사유를 입력해주세요.">
-            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-    </section>
-</div>
+<form  class="search1" action="6" method="get" id="reportSearch" onsubmit="return searchValidate()">
+    <div class="option">
+        <select name="key" id="search-key">
+            <option value="1">신고사유</option>
+            <option value="2">광고</option>
+            <option value="3">상품 정보 부정확</option>
+            <option value="4">거래 금지 품목</option>
+            <option value="5">허위 매물</option>
+            <option value="6">사기 의심</option>
+            <option value="7">기타</option>
+        </select>
+    
+    <%-- 검색창 --%>
+        <section class="basic">
+                <input id="search2" type="text" name="query" placeholder="신고글 사유를 입력해주세요." >
+                <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </section>
+    </div>
+</form>
 
 
 
+
+<form class="search1" action="controlReport" id="search"  name="list-form" onsubmit="return ckBox()">
 <div>
     <table>
         <thead>
             <tr id="head">
-                <th><input type="checkbox"></th>
+                <th>선택</th>
                 <th>번호</th>
                 <th>분류</th>
                 <th>사유</th>
@@ -90,7 +103,7 @@
                     <c:otherwise>
                         <c:forEach var="report" items="${reportList}">
                             <tr>
-                                <td><input type="checkbox" name="checked"></td>
+                                <td><input type="checkbox" name="reportList" id="chkbox" value="${report.boardNo}"></td>
                                 <td>${report.boardNo}</td>
                                 <td>${report.classification}</td>
                                 <td>${report.boardContent}</td>
@@ -105,17 +118,16 @@
     
     <div class="last">
         <div>
-            <input type="checkbox" id="checkbox"><label for="checkbox"> 전체선택</label>
+            <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
         </div>
         <div>
-           
-            <button id="delete">삭제</button>
+            <button type="submit" class="btn" id="deleteBtn" onclick='deleteReport()'>삭제</button>
         </div>
     </div>
+</form>
 
     <div class="pagination">
        <c:set var="url" value="6?cp="/>
-
 
             <ul class="pagination">
                 <!-- 첫 페이지로 이동 -->
@@ -136,7 +148,6 @@
 
                 </c:forEach>
                 
-
                 <!-- 끝 페이지로 이동 -->
                 <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
 
@@ -144,5 +155,9 @@
     </div>
 
 </div>
+
+<script src="${contextPath}/resources/js/admin/controlReport.js"></script>
+
+
 </body>
 </html>

@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 </head>
 
 <body>
@@ -26,7 +28,7 @@
             <nav id="mainMenu">
                 <a href="${contextPath}/member/itemUpload">상품등록</a>
                 <a href="${contextPath}/shop/main">상품관리</a>
-                <a href="${contextPath}/member/purchases">구매/판매 내역</a>
+                <a href="${contextPath}/member/myPage/myPage-purchases">거래 내역</a>
             </nav>
         </div>
 
@@ -39,6 +41,34 @@
         </div>   
 
     <form action="${contextPath}/board/itemUpload" enctype="multipart/form-data" method="POST" class="itemUpload" onsubmit="return writeValidate()">
+
+        <%-- imageList에 존재하는 이미지 레벨을 이용하여 변수 생성 --%>
+        <c:forEach items="${boardImageList}" var="boardImage" varStatus="status">
+
+            <c:choose>
+                <c:when test="${boardImage.imageLevel == 0}">
+                    <c:set var="img0"  value="${contextPath}${boardImage.imageReName}" />
+                </c:when>
+                <c:when test="${boardImage.imageLevel == 1}">
+                    <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
+                    <c:set var="img1"  value="${contextPath}${boardImage.imageReName}" />
+                </c:when>
+                <c:when test="${boardImage.imageLevel == 2}">
+                    <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
+                    <c:set var="img2"  value="${contextPath}${boardImage.imageReName}" />
+                </c:when>
+                <c:when test="${boardImage.imageLevel == 3}">
+                    <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
+                    <c:set var="img3"  value="${contextPath}${boardImage.imageReName}" />
+                </c:when>
+                <c:when test="${boardImage.imageLevel == 4}">
+                    <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
+                    <c:set var="img4"  value="${contextPath}${boardImage.imageReName}" />
+                </c:when>
+            </c:choose>
+            
+        </c:forEach>
+        <%-- <img class="preview" src="${contextPath}/resources/images/image.png"> --%>
    
         <ul class="basic2">
             <li class="frist">
@@ -50,40 +80,40 @@
                 <ul class="second">
                     <div class="img-box">
                         <div class="boardImg">
+                            <label for="img0">
+                                <img class="preview" src="${img0}">
+                            </label>
+                            <input type="file" class="inputImage" id="img0" name="images" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+                        <div class="boardImg">
                             <label for="img1">
-                                <img class="preview" src="${contextPath}/resources/images/image.png">
+                                <img class="preview" src="${img1}">
                             </label>
                             <input type="file" class="inputImage" id="img1" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
+        
                         <div class="boardImg">
                             <label for="img2">
-                                <img class="preview" src="${contextPath}/resources/images/image.png">
+                                <img class="preview" src="${img2}">
                             </label>
                             <input type="file" class="inputImage" id="img2" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
-        
+                        
                         <div class="boardImg">
                             <label for="img3">
-                                <img class="preview" src="${contextPath}/resources/images/image.png">
+                                <img class="preview" src="${img3}">
                             </label>
                             <input type="file" class="inputImage" id="img3" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
-                        
                         <div class="boardImg">
                             <label for="img4">
-                                <img class="preview" src="${contextPath}/resources/images/image.png">
+                                <img class="preview" src="${img4}">
                             </label>
                             <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
-                            <span class="delete-image">&times;</span>
-                        </div>
-                        <div class="boardImg">
-                            <label for="img5">
-                                <img class="preview" src="${contextPath}/resources/images/image.png">
-                            </label>
-                            <input type="file" class="inputImage" id="img5" name="images" accept="image/*">
                             <span class="delete-image">&times;</span>
                         </div>
                    
@@ -115,7 +145,7 @@
 
                     <li>
                         <section class="search1">                        
-                        <input id="search2" type="text" placeholder="상품명 입력" name="boardTitle">  
+                        <input id="search2" type="text" placeholder="상품명 입력" name="boardTitle" value="${item.boardTitle}">  
                     </li> 
                     </section>
                 </ul>
@@ -138,28 +168,12 @@
                                     <c:forEach var="LCate" items="${LCategory}">
                                         <li> <button type="button" class="select" name="LCate" id="${LCate.LCategoryNo}">${LCate.LCategoryName}</button></li>
                                     </c:forEach>
-                                    <%-- <li> <button type="button" class="select" >여성의류</button></li>
-                                    <li> <button type="button" class="select" value="남성의류">남성의류</button></li>
-                                    <li><button type="button" class="select">신발</button></li>
-                                    <li><button type="button" class="select">가방</button></li>
-                                    <li><button type="button" class="select">시계/쥬얼리</button></li>
-                                    <li><button type="button" class="select">패션 액세사리</button></li>
-                                    <li><button type="button" class="select">디지털/가전</button> </li>
-                                    <li><button type="button" class="select">스포츠/레저</button></li> --%>
                                 </ul>
                             </div>
                         </div>
                         <div id="category">
                              <div id="category2">
                                 <ul class="category1-1" name="category2">
-                                    <li> <button type="button" class="select"></button></li>
-                                    <%-- <li> <button type="button" class="select">남성의류</button></li>
-                                    <li><button type="button" class="select">신발</button></li>
-                                    <li><button type="button" class="select">가방</button></li>
-                                    <li><button type="button" class="select">시계/쥬얼리</button></li>
-                                    <li><button type="button" class="select">패션 액세사리</button></li>
-                                    <li><button type="button" class="select">디지털/가전</button> </li>
-                                    <li><button type="button" class="select">스포츠/레저</button></li> --%>
                                 </ul>
                              </div>
                         </div>
@@ -186,10 +200,11 @@
                             <button>내 위치</button>
                             <button>최근지역</button>
                             <button>주소검색</button>
-                            <button>지역설정안함</button>
+                            <button onchange="none()">지역설정안함</button>
                         </section>
                         <section class="place2">
-                            <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" value="" readonly>
+                        <%-- readonly : input 박스 value 값을 form 전송이 가능하지만 --%>
+                            <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" name="placeResult" value="${item.sellArea}">
                         </section>
                     </li>
                 </ul>
@@ -209,10 +224,10 @@
                 <li>
                     <section class="states">
                         
-                        <input type="radio" id="secondHand1" name="itemCondition" >
+                        <input type="radio" id="secondHand1" name="itemCondition" value='중고상품'>
                         <label for="secondHand1">중고상품</label>
                     
-                        <input type="radio" id="secondHand2" name="itemCondition">
+                        <input type="radio" id="secondHand2" name="itemCondition" value='새상품'>
                         <label for="secondHand2">새상품</label>
 
                     </section>
@@ -234,13 +249,13 @@
             <ul class="second">
                 <li>
                     <section class="states">
-                        <input type="radio" name="delivery" id="delivery1">
+                        <input type="radio" name="delivery" id="delivery1" value='직거래' name="deliveryMethod">
                         <label for="delivery1">직거래</label>
 
-                        <input type="radio" name="delivery" id="delivery2">
+                        <input type="radio" name="delivery" id="delivery2" value='무료배송' name="deliveryMethod">
                         <label for="delivery2">무료배송</label>
 
-                        <input type="radio" name="delivery" id="delivery3">
+                        <input type="radio" name="delivery" id="delivery3" value='배송비 본인부담' name="deliveryMethod">
                         <label for="delivery3">배송비 본인부담</label>
                     </section>
                 </li>
@@ -261,7 +276,7 @@
             <ul class="second">
                 <li>
                     <section class="price">
-                        <input id="search2" type="number" placeholder="숫자만 입력해주세요."  minlength="2" name="price" >원&nbsp;
+                        <input id="search2" type="number" placeholder="숫자만 입력해주세요."  minlength="2" name="price" value="${item.price}">원&nbsp;
                     </section>
                 </li>
             </ul> 
@@ -281,7 +296,7 @@
             <ul class="second">
                 <li>
                     <div class="info">
-                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)" name="boardContent"></textarea>
+                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)" name="boardContent">${item.boardContent}</textarea>
                         <div id="inform">
                         <small>0/1000</small>
                         </div>
@@ -291,7 +306,7 @@
         </ul>
 
         <div class="submit">
-            <button class="submit2" type="submit">등록하기</button>
+            <button class="submit2" type="submit" id="writebtn">등록하기</button>
         </div>
 
 

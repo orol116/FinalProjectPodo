@@ -45,55 +45,84 @@
     </header>
 
 </header>
-
-<div class="top-menu">
-    <nav id="mainMenu">
-        <h3>1:1문의</h3>
-    </nav>
-</div>
-
-
-<div class="option">
-    <div class="select">
-        <h4>분류</h4>
-        <select>
-            <option>운영정책</option>
-            <option>계정/인증</option>
-            <option>구매/판매</option>
-            <option>본인인증</option>
-        </select>
+<div class="body">
+    <div class="top-menu">
+        <nav id="mainMenu">
+            <h3 >1:1문의하기</h3>
+        </nav>
     </div>
-    <form class="inquiry" action="#" method="post" id="inquiry">
-    <div class="title">
-        <div>
-            <h4>제목</h4>
-        </div>
-        <div class="title1">
-            <input id="title2" type="text" maxlength="60" placeholder="제목을 입력해주세요.">
-        </div>
 
+    <form action="InquiryPage" method="post" id="inquiry" class="inquiry">
+
+    <div class="option">
+        <div class="select">
+            <h4>분류</h4>
+            <select>
+                <option disabled>유형을 선택해주세요.</option>
+                <option>거래신고</option>
+                <option>회원/계정</option>
+                <option>기타서비스</option>
+                <option>판매광고</option>
+                <option>오류/신고/제안</option>
+            </select>
+        </div>
+        <div class="title">
+            
+        </div>
     </div>
-</div>
 
-
-
-<div>
-    <form action="#" method="post" id="FAQ" name="FAQ">
+    <div>
         <div  class="box" >
-          <textarea id="textarea" type="text" placeholder="문의내역을 입력해주세요."></textarea>    
+        <textarea id="textarea" type="text" placeholder="문의내역을 입력해주세요."></textarea>    
         </div>
-        <div id="photo">
-            <input type="file" class="photo"><label for="photo"></label>
-            <input type="file" class="photo"><label for="photo"></label>
-            <input type="file" class="photo"><label for="photo"></label>
-        </div>
-        <div class="div1">
-            <button type="submit" form="FAQ" id="submit">등록</button>
-        </div>
+        <section class="place">
+            <h4>사진첨부</h4>
+            <p>사진을 첨부하면 정확한 답변을 받을 수 있어요.</p>
+        </section>
+            <div class="img-box">
+                <div class="boardImg">
+                    <label for="img1">
+                        <img class="preview" src="../../images/image.png">
+                    </label>
+                    <input type="file" class="inputImage" id="img1" name="images" accept="image/*">
+                    <span class="delete-image">&times;</span>
+                </div>
+                <div class="boardImg">
+                    <label for="img1">
+                        <img class="preview" src="../../images/image.png">
+                    </label>
+                    <input type="file" class="inputImage" id="img2" name="images" accept="image/*">
+                    <span class="delete-image">&times;</span>
+                </div>
+                <div class="boardImg">
+                    <label for="img1">
+                        <img class="preview" src="../../images/image.png">
+                    </label>
+                    <input type="file" class="inputImage" id="img3" name="images" accept="image/*">
+                    <span class="delete-image">&times;</span>
+                </div>
+                <div class="boardImg">
+                    <label for="img1">
+                        <img class="preview" src="../../images/image.png">
+                    </label>
+                    <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
+                    <span class="delete-image">&times;</span>
+                </div>
+                <div class="boardImg">
+                    <label for="img1">
+                        <img class="preview" src="../../images/image.png">
+                    </label>
+                    <input type="file" class="inputImage" id="img5" name="images" accept="image/*">
+                    <span class="delete-image">&times;</span>
+                </div>
+            </div>
+            <div class="div1">
+                <button type="submit" form="FAQ" id="submit">등록</button>
+            </div>
+        </form>
+    </div>
     </form>
 </div>
-</form>
-
 
 </body>
 <footer>

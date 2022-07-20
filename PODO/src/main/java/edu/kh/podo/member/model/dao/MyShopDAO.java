@@ -1,6 +1,7 @@
 package edu.kh.podo.member.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -11,6 +12,7 @@ import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.Review;
+import oracle.net.aso.b;
 
 @Repository
 public class MyShopDAO {
@@ -67,6 +69,30 @@ public class MyShopDAO {
 	 */
 	public int selectReviewCount(int memberNo) {
 		return sqlSession.selectOne("myShopMapper.selectReviewCount", memberNo);
+	}
+
+	/** 내 상점 소개 수정 DAO
+	 * @param map
+	 * @return
+	 */
+	public int introChange(Map<String, Object> map) {
+		return sqlSession.update("myShopMapper.introChange", map);
+	}
+
+	/** 상품관리 판매상태 ajax
+	 * @param map
+	 * @return result
+	 */
+	public int changeTradeCondition(Map<String, Object> map) {
+		return sqlSession.update("myShopMapper.changeTradeCondition", map);
+	}
+
+	/** 끌올 기능 ajax
+	 * @param boardNo
+	 * @return result
+	 */
+	public int updateDate(int boardNo) {
+		return sqlSession.update("myShopMapper.updateDate", boardNo);
 	}
 
 }

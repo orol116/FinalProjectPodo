@@ -13,15 +13,14 @@
     <title>PODO 상품관리</title>
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
-
-    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 <body>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <form action="itemManage" method="POST" name="itemManage" id="itemManage">
+    <%-- <form action="itemManage" method="POST" name="itemManage" id="itemManage"> --%>
 
     <div class="top-menu">
         <nav id="mainMenu">
@@ -33,6 +32,7 @@
     </div>
     <main>
     <div class="basic1">
+    
         <section class="basic">
             <form class="search1" action="#" method="post" id="search">
                 <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
@@ -61,19 +61,19 @@
                 </c:if>
                 <c:if test="${boardList != null}">
 
-                    <c:forEach var="item" items="${boardList}">
-                        <tr>
-                            <td>
-                                <a><img src="${contextPath}/resources/images/items/image1.jpg"></a>
-                            </td>
-                            
+                    <c:forEach var="item" items="${boardList}" varStatus="status">
+
+                        <%-- <form id="tradeCondition" method="post"> --%>
+                        <tr id=tradeCondition>
+                            <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
                             <td>
                                 <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
-                               <select>
-                                    <option>${item.tradeCondition}</option>
-                                    <option>판매 중</option>
-                                    <option>예약 중</option>
-                                    <option>판매완료</option>
+                                <select class="changeCondition" onchange="tradeCondition(this)">
+                                    <option value="${item.tradeCondition}" selected>${item.tradeCondition}</option>
+                                    <option value="판매 중" value2="${item.boardNo}">판매 중</option>
+                                    <option value="예약 중" value2="${item.boardNo}">예약 중</option>
+                                    <option value="판매완료" value2="${item.boardNo}">판매완료</option>
+                                    <option value="삭제" value2="${item.boardNo}">삭제</option>
                                 </select>
                             </td>
                             <td><a href="#" id="name">${item.boardTitle}</a></td>
@@ -81,10 +81,11 @@
                             <td>${item.readCount}</td>
                             <td>${item.updateDate}</td>
                             <td class="choice">
-                                <button class="choice1">UP</button>
-                                <a href="#" class="choice2">수정</a>
+                                <button class="choice1" onclick="updateDt(this)" value="${item.boardNo}">UP</button>
+                                <a href="${contextPath}/member/updateBoard/${item.boardNo}" class="choice2">수정</a>
                             </td>
                         </tr>  
+                        <%-- </form>  --%> 
                     </c:forEach>
                 </c:if>
                         
@@ -136,13 +137,23 @@
         </ul>
     </div>
 
-    </form>
+    <%-- </form> --%>
     </main>
+
+    </body> 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    <script>
+        const updateDate = "${item.updateDate}"
+        const tradeContition = "${item.tradeContition}"
+    </script>
 
       <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
-    </body>
+    <script src="${contextPath}/resources/js/member/itemManage.js"></script>
+
+    
 
 </html>

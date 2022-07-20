@@ -34,7 +34,6 @@ subCategoryName.forEach((target) => target.addEventListener("click", categoryFun
 /* const names = categoryName.target.getAttribute('id'); */
 /* function goBackFunction(){
     href
-
 };
  */
 
@@ -82,7 +81,7 @@ function selectList(mCategoryNo){
  
         success : function(itemList){ 
             
-            if(document.getElementsByClassName("box")[0] != "") {
+            if (document.getElementsByClassName("box")[0] != "") {
                 document.getElementsByClassName("frame")[0].innerHTML = "";
             }
  

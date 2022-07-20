@@ -1,11 +1,13 @@
 package edu.kh.podo.board.itemBoard.model.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
@@ -25,7 +27,7 @@ public interface ItemBoardService {
 	 */
 	List<ItemBoard> searchBoard(String query);
 
-	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath);
+	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
 
 
 	/** 판매글 상세조회 Service
@@ -46,6 +48,25 @@ public interface ItemBoardService {
 	 */
 	int addCountAdd(Map<String, Object> map);
 
+
+	/** 게시글 수정 Service
+	 * @param item
+	 * @param imageList
+	 * @param webPath
+	 * @param folderPath
+	 * @param deleteList 
+	 * @return result
+	 */
+	int updateBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath, String deleteList) throws IOException;
+
+
+	/** 수정용 상세조회
+	 * @param boardNo
+	 * @return item
+	 */
+	ItemBoard selectBoardDetail(int boardNo);
+
+	List<BoardImage> selectBoardImageList(int boardNo);
 
 	
 

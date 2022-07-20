@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlInquiry.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 </head>
 <body>
@@ -24,6 +25,10 @@
                     <img src="${contextPath}/resources/images/logo.png" id="home-logo">
                 </a>
                 <div><h1>관리자 페이지</h1></div>
+            </section>
+            <section>
+                <a id="logout" href="#">로그아웃</a>
+                <a id="gotoMain" href="${contextPath}">메인으로</a>
             </section>
         </div>    
 
@@ -47,30 +52,31 @@
     </div>
 
 
+<form  class="search1" action="3" method="get" id="reportSearch" onsubmit="return searchValidate()">
     <div class="option">
-        <select>
-            <option>운영정책</option>
-            <option>계정/인증</option>
-            <option>구매/판매</option>
-            <option>본인인증</option>
+        <select name="key" id="search-key">
+            <option value="1">운영정책</option>
+            <option value="2">계정/인증</option>
+            <option value="3">구매/판매</option>
+            <option value="4">본인인증</option>
         </select>
     
-    
         <section class="basic">
-            <form class="search1" action="#" method="post" id="search">
-                <input id="search2" type="text" placeholder="1:1문의 글의 제목을 입력해주세요.">
-                <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
+                <input id="search2" type="text" name="query" placeholder="1:1문의 글의 제목을 입력해주세요.">
+                <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
+        
     </div>
+</form>
 
+<form class="search1" action="controlInquiry" id="search"  name="list-form" onsubmit="return ckBox()">
 
     <div>
         <table>
 
             <thead>
                 <tr id="head">
-                    <th><input type="checkbox"></th>
+                    <th>선택</th>
                     <th>번호</th>
                     <th>분류</th>
                     <th>제목</th>
@@ -90,12 +96,12 @@
                     <c:otherwise>
                         <c:forEach var="inquiry" items="${InquiryList}">
                             <tr>
-                                <th><input type="checkbox"></th>
-                                <th>${inquiry.boardNo}</th>
-                                <th>구매/판매</th>
-                                <th><a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardTitle}</a> </th>                           
-                                <th>${inquiry.memberNick}</th>
-                                <th>${inquiry.createDate}</th>
+                                <td><input type="checkbox" name="InquiryList" id="chkbox" value="${inquiry.boardNo}"></td>
+                                <td>${inquiry.boardNo}</td>
+                                <td>구매/판매</td>
+                                <td><a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardTitle}</a> </td>                           
+                                <td>${inquiry.memberNick}</td>
+                                <td>${inquiry.createDate}</td>
                             </tr>    
                         </c:forEach>      
                     </c:otherwise>
@@ -107,19 +113,16 @@
         
         <div class="last">
             <div>
-                <input type="checkbox" id="checkbox"><label for="checkbox"> 전체선택</label>
+            <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
             </div>
             <div>
-            
-                <button id="delete">삭제</button>
+                <button type="submit" class="btn" id="deleteBtn" '>삭제</button>
             </div>
         </div>
+</form>
 
         <div class="pagination">
-
           <c:set var="url" value="3?cp="/>
-
-
             <ul class="pagination">
                 <!-- 첫 페이지로 이동 -->
                 <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
@@ -156,5 +159,8 @@
         </div>
 
     </div>
+
+    <script src="${contextPath}/resources/js/admin/controlInquiry.js"></script>
+
 </body>
 </html>

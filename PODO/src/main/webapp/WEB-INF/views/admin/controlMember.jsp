@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/controlMember.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 </head>
 
@@ -27,7 +28,7 @@
             <div><h1>관리자 페이지</h1></div>
         </section>
         <section>
-            <a id="logout" href="#">로그아웃</a>
+            <a id="logout" href="${contextPath}/member/logout">로그아웃</a>
             <a id="gotoMain" href="${contextPath}">메인으로</a>
         </section>
     </div>    
@@ -47,28 +48,25 @@
 </div>
 
 
-<form action="${memberNo}" method="get" id="memSearch" onsubmit="return searchValidate()">
+<form action="5" method="get" id="memSearch" onsubmit="return searchValidate()">
     <div class="option">    
-    <select name="key" id="search-key">
-        <option value="all">탈퇴여부</option>
-        <option value="n">N</option>
-        <option value="y">Y</option>
-    </select>
- 
+        <select name="key" id="search-key">
+            <option value="all">탈퇴여부</option>
+            <option value="n">N</option>
+            <option value="y">Y</option>
+        </select>
    
-    <section class="basic">
-    <%-- 회원검색창 --%>
-
-            <input id="search2" type="text" name="query" placeholder="회원 아이디를 입력해주세요.">
-            <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    
-     </form>  
-    </section>
-</div>
+        <%-- 검색창 --%>
+        <section class="basic">
+            <input id="search2" type="text"  name="query" placeholder="회원 아이디를 입력해주세요.">
+            <button class="button" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
+        </section>
+    </div>  
+</form>  
 
 
 
-    <form class="search1" action="controlMember" id="search"  name="list-form" onsubmit="return ckBox()">
+    <form class="search1" action="controlMember" id="search" name="list-form" onsubmit="return ckBox()">
 <div>
     <table>
         <thead>
@@ -80,7 +78,7 @@
                 <th>전화번호</th>
                 <th>주소</th>
                 <th>가입날짜</th>
-                <th> 상품</th>
+                <th>상품</th>
                 <th>포도알</th>
                 <th>탈퇴여부</th>
             </tr>
@@ -98,7 +96,7 @@
                     <c:forEach var="member" items="${memberList}">
                         
                         <tr>
-                            <td><input type="checkbox" name="memList" id="chkbox" value="${{member.memberNo}}"></td>
+                            <td><input type="checkbox" name="memList" id="chkbox" value="${member.memberNo}"></td>
                             <td >${member.memberNo}</td>
                             <td >${member.memberId}</td>
                             <td >${member.memberNickname}</td>
@@ -124,7 +122,7 @@
         </div>
         <div>
             <%-- <button id="stop">정지</button> --%>
-            <button  type="submit" class="btn" id="deleteBtn" onclick='deleteMem()'>삭제</button>
+            <button type="submit" class="btn" id="deleteBtn">삭제</button>
         </div>
     </div>
 </form>

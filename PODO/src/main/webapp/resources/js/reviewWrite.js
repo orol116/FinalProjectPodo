@@ -21,8 +21,7 @@ function reviewValidate(){
 }
 
 
-// 좋아요, 싫어요
-
+// 추천, 비추천
 function updateLike(){ 
     $.ajax({
         type : "POST",  
@@ -33,7 +32,7 @@ function updateLike(){
         success : function(likeCheck) {
             
                 if(likeCheck == 0){
-                    alert("추천완료.");
+                    alert("추천완료");
                     location.reload();
                 }
                 else if (likeCheck == 1){

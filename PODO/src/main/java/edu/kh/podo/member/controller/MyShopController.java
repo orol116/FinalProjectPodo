@@ -1,16 +1,20 @@
 package edu.kh.podo.member.controller;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,6 +42,8 @@ public class MyShopController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	private Logger logger;
 
 	// 내 상품관리
 	@GetMapping("/main")
@@ -121,5 +127,36 @@ public class MyShopController {
 	public String myMall() {
 		
 		return "member/myPage/myPage-purchases";
+	}
+	
+	// 내 상점 소개 변경 ajax
+	@ResponseBody
+	@GetMapping("/myShop/introChange/intro")
+	public int introChange(@ModelAttribute("loginMember") Member loginMember
+						 , String report) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		return service.introChange(memberNo, report);
+	}
+	
+	// 상품관리 판매상태 ajax
+	@PostMapping("/main/tradeCondition")
+	@ResponseBody
+	public int tradeCondition(int boardNo
+							, String condition) {
+		
+		Map<String, Object>	map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("condition", condition);
+
+		return service.changeTradeCondition(map);
+	}
+	
+	// 끌올 기능 ajax 
+	@PostMapping("/itemManage")
+	@ResponseBody
+	public int itemManage(int boardNo) {
+		return service.updateDate(boardNo);
 	}
 }

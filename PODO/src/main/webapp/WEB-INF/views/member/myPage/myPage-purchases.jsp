@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
-    
-    <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+
+    <%-- 파비콘 --%>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
     
 </head>
 
@@ -62,48 +65,13 @@
                             </nav>
 
                             <div class="purchases-contents">
-                                
-                            <%-- test --%>
                             <%-- 
-                            <tbody>
-                                <th  class="font-alt" style="text-align: center; vertical-align : middle; width:13%;" >주문번호</th>
-                                <th  class="font-alt" style="text-align: center; vertical-align : middle; width:8%;">image</th>
-                                <th  class="font-alt" class="hidden-xs" style="text-align: center; vertical-align : middle;">item</th>
-                                <th  class="font-alt" style="text-align: center; vertical-align : middle; width:14%;">price</th>
-                                <th  class="font-alt" style="text-align: center; vertical-align : middle; width:8%;">수량</th>
-                                <th  class="font-alt" class="hidden-xs" style="text-align: center; vertical-align : middle; width:13%;">주문상태</th>
-                                </tr>
-
-                                    <c:forEach items="${buyList}" var="buyList">
-                                    
-                                        <tr style="text-align: center; ">
-                                        
-                                            <td style="padding-left: 0px; padding-right: 0px; vertical-align : middle;">
-                                                <fmt:formatDate value="${getOrderList.order_item_date}"/><br/>
-                                                <a href="/member/orderDetail?ordered_no=${getOrderList.orderedVO.ordered_no}">${getOrderList.orderedVO.ordered_no}</a>
-                                            </td>
-                                            <td class="hidden-xs" style="vertical-align : middle;">
-                                                <a href="/main/itemContent?item_no=${getOrderList.order_item_no}">
-                                                    <img src="/img/${getOrderList.order_item_img}" alt="Accessories Pack"/>
-                                                </a>
-                                            </td>
-                                            <td style="vertical-align : middle;">
-                                                <h5 class="product-title font-alt">${getOrderList.order_item_name}</h5>
-                                            </td>
-                                            <td class="hidden-xs" style="vertical-align : middle;">
-                                                <h5 class="product-title font-alt">₩ <fmt:formatNumber pattern="###,###,###" value="${getOrderList.order_item_price}"/><br>
-                                                                                
-                                                </h5>
-                                            </td>
-                                            <td class="hidden-xs" style="vertical-align : middle;">
-                                                <h5 class="product-title font-alt"> ${getOrderList.order_select_vol}</h5>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                            </tbody>
+                                판매 / 구매 내역 처음 페이지 로드 시 전부 가져옴
+                                즉시실행함수로 판매 내역 부터 보이게 설정
+                                판매 내역 조회 버튼 클릭 시 구매 내역 div 부분 스크립트로 hide 처리
+                                반대로 구매 내역 조회 버튼 클릭 시 판매 내역 div 부분 스크립트로 hide 처리
                             --%>
-                            <%-- test --%>
-                            
+                                        
                                 <%-- 판매 내역 --%>
                                 <div class="sellContents">
                                     <c:choose>
@@ -113,49 +81,50 @@
                                                 <div class="purchases-info">판매 내역이 없습니다.</div>
                                             </div>
                                         </c:when>
-                                    
+
+                                        <%-- -------------------------------------------------------------------------------------------------- --%>
+                                        <%-- 구매내역 출력부 --%>
+
+                                        <%-- 출력 부 테스트 --%>
                                         <c:otherwise>
-                                            <c:forEach var="sell" items="${sellList}">
-                                                <%-- 구매내역 출력부 --%>
-                                                <li>
-                                                    <div class="thumb">
+                                            <c:forEach var="buy" items="${buyList}">
 
-                                                        <%-- <!-- 업로드 이미지가 있는 경우 -->
-                                                        <c:if test="${fn:length(favor.imageOriginal) > start}">
-
-                                                            <!-- 업로드 이미지 영역 -->
-                                                            <h5>업로드 이미지</h5>
-                                                            <div class="img-box">
-                                                                <c:forEach var="i" begin="${start}" end="${fn:length(favor.imageOriginal) -1 }">
-                                                                
-                                                                    <div class="boardImg">
-                                                                        <img src="${contextPath}${favor.imageOriginal[i].imageReName}">
-                                                                    </div>
-
-                                                                </c:forEach>
+                                                <%-- 구매내역 카드 --%>
+                                                <div class="history">
+                                                    <div>
+                                                        <div class="productSummaryCard">
+                                                            <%-- 상품 썸네일 영역 --%>
+                                                            <div class="productSummaryCard-thumbNail">
+                                                                <img src="#" alt="상품 이미지">
+                                                                <span class="productSummaryCard-status">
+                                                                    <img src="${contextPath}/resources/images/ic-circle-tick@3x.png" alt="">거래완료
+                                                                </span>
                                                             </div>
-
-                                                        </c:if> --%>
-
-                                                    </div>
-                                                    <div class="gdsInfo">
-                                                        <p>
-                                                            <span>제목</span>${sell.boardTitle}<br>
-                                                            <span>가격</span>"${sell.price}"원<br>
-                                                            <span>등록일</span>${sell.updateDate}<br>
-                                                            <span>위치</span>
-                                                                <!-- 위치 로고 이미지 -->
-                                                                <img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">
-                                                                ${sell.sellArea}
-                                                        </p>
-                                                        
-                                                        <div class="review">
-                                                            <button type="button" class="review-btn" onclick="location.href='${contextPath}/member/review-write'">후기 작성</button>
+                                                            <%-- 물품 정보 --%>
+                                                            <aside class="productSummaryCard-container">
+                                                                <span class="productSummaryCard boardTitle">${board.boardTitle}</span>
+                                                                <span class="productSummaryCard price"><strong>${board.price}</strong>원</span>
+                                                                <span class="productSummaryCard memberNick">${member.memberNick}</span>
+                                                                <%-- 거래 완료일시, 컬럼 추가 필요?? --%>
+                                                                <span class="productSummaryCard-updateDate">
+                                                                    <time datetime="">board.updateDate</time>
+                                                                </span>
+                                                            </aside>
+                                                            
+                                                            </div>
+                                                            <%-- 후기 작성 --%>
+                                                            <div class="buttonContainer">
+                                                                <button class="review-button">후기 작성</button>
+                                                            </div>
                                                         </div>
-                                                    </div>   
-                                                </li>
+                                                    </div>
+                                                </div>
+                
                                             </c:forEach>
                                         </c:otherwise>
+                                        <%-- -------------------------------------------------------------------------------------------------- --%>
+                                    
+                                        
                                     </c:choose>
                                 </div>
 
@@ -172,10 +141,10 @@
                                         <c:otherwise>
                                             <c:forEach var="buy" items="${buyList}">
                                                 <%-- 구매내역 출력부 --%>
-                                                <li>
+                                                <%-- <li>
                                                     <div class="thumb">
 
-                                                        <%-- <!-- 업로드 이미지가 있는 경우 -->
+                                                        <!-- 업로드 이미지가 있는 경우 -->
                                                         <c:if test="${fn:length(favor.imageOriginal) > start}">
 
                                                             <!-- 업로드 이미지 영역 -->
@@ -190,7 +159,7 @@
                                                                 </c:forEach>
                                                             </div>
 
-                                                        </c:if> --%>
+                                                        </c:if>
 
                                                     </div>
                                                     <div class="gdsInfo">
@@ -208,7 +177,7 @@
                                                             <button type="button" class="review-btn" onclick="location.href='${contextPath}/member/review-write'">후기 작성</button>
                                                         </div>
                                                     </div>   
-                                                </li>
+                                                </li> --%>
                                             </c:forEach>
                                         </c:otherwise>
                                     </c:choose>

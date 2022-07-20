@@ -82,7 +82,7 @@ if(document.querySelectorAll("[name='memList']").length != 0 ){
 // 검색 유효성 검사(검색어를 입력 했는지 확인)
 function searchValidate(){
 
-    const query = document.getElementById("search-query");
+    const query = document.getElementsByName("search-query");
 
     if(query.value.trim().length == 0){ // 미작성
 

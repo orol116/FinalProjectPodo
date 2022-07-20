@@ -1,5 +1,8 @@
 package edu.kh.podo.board.itemBoard.model.vo;
 
+import java.util.Date;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,7 +31,18 @@ public class ItemBoard {
 	private int categoryNo;
 	private String categoryName;
 	private int buyMemberNo;
-	private String itemImage;
 	private int bookmarkCount;
+	
+	private List<BoardImage> imageList;
+	
+	private BoardImage img;
+	 
+	
+	public String getUpdateDate() {
+		return updateDate;
+	}
+	public void setDate(Date updateDate) {
+		this.updateDate = Time.calculateTime(updateDate);
+	}	
 
 }

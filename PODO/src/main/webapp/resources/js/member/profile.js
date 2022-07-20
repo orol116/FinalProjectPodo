@@ -9,15 +9,15 @@ const itemList = document.getElementById("seller-items");
 selectItemsList();
 itemCategory.addEventListener("click", selectItemsList);
 
-/* 상품 ajax */
-function selectItemsList(){
+
+function selectItemsList() {
 
     $.ajax({
-        url : contextPath + "/shop/selectItemsList/" + memberNo,
-        data : {"memberNo" : memberNo},
-        type : "GET",
-        dataType : "JSON",
-        success : function(iList){
+        url: contextPath + "/shop/selectItemsList/" + memberNo,
+        data: { "memberNo": memberNo },
+        type: "GET",
+        dataType: "JSON",
+        success: function (iList) {
             console.log(iList);
 
             itemList.innerHTML = "";
@@ -25,26 +25,41 @@ function selectItemsList(){
             reviewList.style.display = "none";
             itemList.style.display = "block";
 
+
+
             if (iList == "") {
                 const itembox = document.createElement("div");
                 itembox.classList.add("box");
-                
+
                 itembox.innerText = "등록된 상품이 없습니다.";
 
                 reviewList.style.display = "none";
                 itemList.style.display = "block";
                 itembox.style.border = "none";
-                
+
                 itemList.style.fontSize = "20px";
 
-                
+
                 itemList.append(itembox);
+
+
             } else {
 
-                for(let item of iList){
-                
+                let itemContainer;
+
+                for (let k = 0; k < iList.length; k++) {
+
+                    if(k % 4 == 0){
+                        itemContainer = document.createElement("div");
+                        itemContainer.classList.add("itemContainer");
+                        itemList.append(itemContainer);
+                    }
+
+
                     const itembox = document.createElement("div");
                     itembox.classList.add("box");
+                    /* const boxNumber = 1;
+                    boxNumber++; */
 
                     const mainTitle = document.createElement("a");
                     mainTitle.classList.add("title");
@@ -55,26 +70,26 @@ function selectItemsList(){
                     const itemImage = document.createElement("image");
 
                     const title1 = document.createElement("div");
-                    title1.classList.add("title1")
+                    title1.classList.add("title1");
 
                     const title2 = document.createElement("div");
                     title2.classList.add("title2");
-                    title2.innerText = item.boardTitle;
+                    title2.innerText = iList[k].boardTitle;
 
                     const name2 = document.createElement("div");
                     name2.classList.add("name2");
 
                     const price = document.createElement("div");
                     price.classList.add("price");
-                    price.innerText = item.price;
+                    price.innerText = iList[k].price;
 
                     const time = document.createElement("div");
                     time.classList.add("time");
-                    time.innerText = item.updateDate
+                    time.innerText = iList[k].updateDate;
 
                     name2.append(price, time);
 
-                    title1.append(title2,name2 );
+                    title1.append(title2, name2);
 
                     imageArea.append(itemImage);
 
@@ -82,16 +97,14 @@ function selectItemsList(){
 
                     itembox.append(mainTitle);
 
-                    itemList.append(itembox);
-                    
+                    itemContainer.append(itembox);
+
                 }
+
             }
 
-
-
-
         },
-        error : function(req, status, error){
+        error: function (req, status, error) {
             console.log("에러 발생");
             console.log(req.responseText);
         }
@@ -107,14 +120,14 @@ reviewCategory.addEventListener("click", reviewsList);
 
 
 /* 후기 ajax */
-function reviewsList(){
+function reviewsList() {
 
     $.ajax({
-        url : contextPath + "/shop/selectReviewsList/" + memberNo,
-        data : {"memberNo" : memberNo},
-        type : "GET",
-        dataType : "JSON",
-        success : function(rList){
+        url: contextPath + "/shop/selectReviewsList/" + memberNo,
+        data: { "memberNo": memberNo },
+        type: "GET",
+        dataType: "JSON",
+        success: function (rList) {
             console.log(rList);
 
             reviewList.innerHTML = "";
@@ -123,19 +136,19 @@ function reviewsList(){
             itemList.style.display = "none";
 
 
-            if(rList == "") {
+            if (rList == "") {
                 reviewList.innerText = "등록된 후기가 없습니다.";
-                
-                
+
+
                 reviewList.style.fontSize = "20px";
                 reviewList.style.height = "320px";
                 reviewList.style.padding = "30px 0 40px 0";
-                
 
-                
+
+
             } else {
-                for(let review of rList){
-                    
+                for (let review of rList) {
+
                     const reviewBox = document.createElement("section");
                     reviewBox.id = "user-reviews";
 
@@ -178,14 +191,14 @@ function reviewsList(){
                     const hideBtn = document.createElement("button");
                     hideBtn.id = "hideBtn";
                     hideBtn.innerText = "후기 숨기기";
-                    
+
 
                     btnArea.append(hideBtn);
-                    footReview.append(itemReview,btnArea);
+                    footReview.append(itemReview, btnArea);
 
-                    reviewBox.append(reviewRow,shortReview, textReview,footReview);
+                    reviewBox.append(reviewRow, shortReview, textReview, footReview);
 
-                    
+
                     reviewList.append(reviewBox);
                 }
             }
@@ -194,7 +207,7 @@ function reviewsList(){
 
 
         },
-        error : function(req, status, error){
+        error: function (req, status, error) {
             console.log("에러 발생");
             console.log(req.responseText);
         }
