@@ -25,14 +25,13 @@ document.getElementById("do-bookmark").addEventListener("click", function(){
 
 
 // 전체 선택
-/* function selectAll(selectAll)  {
-  const selects 
-       = document.getElementsByName('select');
+function selectAll(selectAll)  {
+  const selects = document.getElementsByName('select');
   
     selects.forEach((checkbox) => {
     checkbox.checked = selectAll.checked;
   })
-} */
+} 
 var selectAll = document.querySelector(".selectAll");
 var list = document.querySelectorAll(".select");
 
@@ -62,7 +61,7 @@ deleteAll.onclick = () => {
 
 
 /* 찜 목록 조회 */
-function favorBoardList(){
+/* function favorBoardList(){
 
     $.ajax({
         url : contextPath + "/board/favorBoardList",
@@ -87,7 +86,7 @@ function favorBoardList(){
     });
     
 }
-
+ */
 // 찜 삭제
 function deleteBoard(boardNo){
     if(confirm("찜 목록에서 삭제 하시겠습니까?")){
