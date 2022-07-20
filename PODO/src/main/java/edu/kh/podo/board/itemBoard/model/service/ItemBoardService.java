@@ -68,8 +68,5 @@ public interface ItemBoardService {
 
 	List<BoardImage> selectBoardImageList(int boardNo);
 
-	
-
-
-
+	List<ItemBoard> selectItemFour(int boardNo);
 }

@@ -26,8 +26,9 @@ function show() {
     searchKey.style.display = "none";
     document.getElementById("introChange").style.marginLeft = "350px";
   }
-
-  document.querySelector("#user-intro-change").addEventListener("click", introShow,);
+  
+  
+  document.querySelector("#user-intro-change").addEventListener("click", introShow);
   document.querySelector("#item-report").addEventListener("click", show);
   document.querySelector("#close").addEventListener("click", close);
 
@@ -36,7 +37,7 @@ function show() {
   document.getElementById("reportBtn").addEventListener("click", function(){
 
     $.ajax({
-        url : "report",      
+        url : "report", 
         data : { "memberNo" : loginMemberNo, "report" : report.value},
         
         type : "GET", // 데이터 전달 방식 type

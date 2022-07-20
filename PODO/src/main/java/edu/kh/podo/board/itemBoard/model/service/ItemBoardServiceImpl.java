@@ -44,6 +44,29 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		}
 		return sellList;
 	}
+	
+	// 메인화면 상품 4개만 조회 Service (ajax)
+	@Override
+	public List<ItemBoard> selectItemFour(int boardNo) {
+		
+		// 해당 보드 넘버로부터 뒤의 4개의게시물 가져오기
+		List<ItemBoard> sellList = dao.selectitemFor(boardNo);
+		
+		
+		// 해당 보드 넘버로부터 뒤의 5개의 게시물 중 이미지 레벨 0번 이미지 조회
+		List<BoardImage> sellListImg = dao.selectItemsFor(boardNo);
+		
+		for(ItemBoard sell : sellList) {
+			
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		return sellList;
+	}
 
 	@Override
 	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException {
@@ -125,6 +148,9 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
+		// 조회수 증가
+		dao.updateReadCount(boardNo);
+		
 		// 상품 상세조회
 		List<ItemBoard> itemList = dao.selectItem(boardNo);
 		int memberNo = dao.selectMemberNo(boardNo);
