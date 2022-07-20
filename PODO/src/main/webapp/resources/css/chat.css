@@ -310,6 +310,8 @@
 }
 
 
+
+
 /* --------------------- */
 /* 채팅방 생성 버튼 */
 #openChatRoom{ width: 120px; }
@@ -403,3 +405,8 @@
     background-color: black;
     color: white;
   } 
+  
+  
+.chatList{
+    display: flex;
+}

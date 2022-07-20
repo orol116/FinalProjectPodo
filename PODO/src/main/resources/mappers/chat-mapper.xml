@@ -43,7 +43,7 @@
 	<!-- 이 위로 resultMap 작성부 -->
 	
 	<!-- 내가 참여중인 채팅방 번호 조회 -->
-	<select id="selectChatRoomList" resultType="_int">
+	<select id="selectChatRoomList" resultMap="chatList_rm">
 		SELECT MEMBER_NO, CHAT_NO, MEMBER_NICK, MEMBER_PROFILE,
 	        (SELECT MESSAGE_CONTENT FROM MESSAGE WHERE MESSAGE_NO = FN_LAST_MESSAGE_NO(CHAT_ROOM_JOIN.CHAT_NO)) MESSAGE_CONTENT,
 	        (SELECT MESSAGE_TIME FROM MESSAGE WHERE MESSAGE_NO = FN_LAST_MESSAGE_NO(CHAT_ROOM_JOIN.CHAT_NO)) MESSAGE_TIME
