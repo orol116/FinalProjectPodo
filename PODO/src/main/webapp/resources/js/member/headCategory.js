@@ -80,12 +80,15 @@ function selectList(mCategoryNo){
         dataType : "JSON",
  
         success : function(itemList){ 
+
+            document.getElementById("main-container").innerHTML = "";
             
             if (document.getElementsByClassName("box")[0] != "") {
                 document.getElementsByClassName("frame")[0].innerHTML = "";
             }
  
             if (itemList != "") {
+                
  
                 for (let item of itemList) {
                     console.log(item);
