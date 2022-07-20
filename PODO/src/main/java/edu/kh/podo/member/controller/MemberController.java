@@ -287,26 +287,24 @@ public class MemberController {
 	}
 
 	
+		// 1:1문의 페이지
+		@GetMapping("/inquire")
+		public String inquire() {
+			return "member/inquire";
+		}
 
-//	// 판매관리 페이지
-//	@GetMapping("/itemUpload")
-//	public String upload() {
-//	
-//		return "member/itemUpload";
-//	}
+		// 상품관리 페이지
+		@GetMapping("/itemManage")
+		public String manage() {
+	
+			return "member/itemManage";
+		}
 
-	// 상품관리 페이지
-	@GetMapping("/itemManage")
-	public String manage() {
-
-		return "member/itemManage";
-	}
-
-	// 아이디 찾기 페이지 전환
-	@GetMapping("/findId")
-	public String fingId() {
-		return "/member/member-find-ID";
-	}
+		// 아이디 찾기 페이지 전환
+		@GetMapping("/findId")
+		public String fingId() {
+			return "/member/member-find-ID";
+		}
 
 	// 핸드폰 본인인증(아이디 찾기)
 	@GetMapping("/phoneCheck")

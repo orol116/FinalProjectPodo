@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1:1문의하기</title>
 
-    <link rel="stylesheet" href="${contextPath}/resources/css/admin/InquiryPage.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/inquire.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
@@ -25,7 +25,7 @@
         </nav>
     </div>
 
-    <form action="InquiryPage" method="post" id="inquiry" class="inquiry">
+    <form action="inquire" method="post" id="inquire" class="inquire">
 
     <div class="option">
         <div class="select">
@@ -54,38 +54,38 @@
         </section>
             <div class="img-box">
                 <div class="boardImg">
+                    <label for="img0">
+                        <img class="preview" src="${contextPath}/resources/images/image.png">
+                    </label>
+                    <input type="file" class="inputImage" id="img0" name="images" accept="image/*">
+                    <span class="delete-image">&times;</span>
+                </div>
+                <div class="boardImg">
                     <label for="img1">
-                        <img class="preview" src="../../images/image.png">
+                        <img class="preview" src="${contextPath}/resources/images/image.png">
                     </label>
                     <input type="file" class="inputImage" id="img1" name="images" accept="image/*">
                     <span class="delete-image">&times;</span>
                 </div>
                 <div class="boardImg">
-                    <label for="img1">
-                        <img class="preview" src="../../images/image.png">
+                    <label for="img2">
+                        <img class="preview" src="${contextPath}/resources/images/image.png">
                     </label>
                     <input type="file" class="inputImage" id="img2" name="images" accept="image/*">
                     <span class="delete-image">&times;</span>
                 </div>
                 <div class="boardImg">
-                    <label for="img1">
-                        <img class="preview" src="../../images/image.png">
+                    <label for="img3">
+                        <img class="preview" src="${contextPath}/resources/images/image.png">
                     </label>
                     <input type="file" class="inputImage" id="img3" name="images" accept="image/*">
                     <span class="delete-image">&times;</span>
                 </div>
                 <div class="boardImg">
-                    <label for="img1">
-                        <img class="preview" src="../../images/image.png">
+                    <label for="img4">
+                        <img class="preview" src="${contextPath}/resources/images/image.png">
                     </label>
                     <input type="file" class="inputImage" id="img4" name="images" accept="image/*">
-                    <span class="delete-image">&times;</span>
-                </div>
-                <div class="boardImg">
-                    <label for="img1">
-                        <img class="preview" src="../../images/image.png">
-                    </label>
-                    <input type="file" class="inputImage" id="img5" name="images" accept="image/*">
                     <span class="delete-image">&times;</span>
                 </div>
             </div>
@@ -96,6 +96,7 @@
     </div>
     </form>
 </div>
+    <script src="${contextPath}/resources/js/member/inquire.js"></script>
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

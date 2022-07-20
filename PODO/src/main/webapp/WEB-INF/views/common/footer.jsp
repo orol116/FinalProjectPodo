@@ -40,7 +40,7 @@
                             <a href="javascript:alert('로그인 후 이용해주세요.');"/> 1:1 문의사항&nbsp|</a>
                         </c:when>
                         <c:otherwise>
-                            <a href="${contextPath}/member/InquiryPage">1:1 문의사항&nbsp|</a>
+                            <a href="${contextPath}/member/inquire">1:1 문의사항&nbsp|</a>
                         </c:otherwise>
                     </c:choose> 
                     <a href="#">자주 묻는 질문</a>
