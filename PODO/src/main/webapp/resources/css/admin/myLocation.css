@@ -1,0 +1,96 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1200px;
+    height: 800px;
+}
+
+#right-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+
+#map-area{
+    width: 500px;
+    height: 400px;
+}
+
+
+
+#addr-area{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#addr-area > section > div{
+    font-size: 20px;
+    margin: 10px 0 10px 60px;
+}
+
+#addr-area > section:first-child > div{
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+h3{
+    margin: 10px 0 10px 60px; 
+}
+
+#addr-input{
+    display: flex;
+    flex-direction: row;
+    width: 550px;
+    
+}
+
+#addr-input > input:first-child{
+    margin: 20px 20px 20px 80px;
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+#addr-input > input:last-child{
+    width: 200px;
+}
+
+#addr-form > div:last-child{
+    display: flex;
+    justify-content: center;
+}
+
+#addr-form > div:last-child> button{
+    margin: 30px 20px 30px 20px;
+    width: 150px;
+    height: 40px;
+}
+
+#addrBtn-area{
+    display: flex;
+    align-items: center;
+}
+
+#searchBtn{
+    width: 80px;
+    height: 45px;
+}
+
+#AddressBtn-area{
+    height: 40px;
+    margin: 10px 0 0 60px;
+    
+}
+
+#AddressBtn-area > button{
+    width: 180px;
+    height: 40px;
+
+}
