@@ -83,4 +83,5 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.selectFavorList(memberNo);
 	}
 
+
 }

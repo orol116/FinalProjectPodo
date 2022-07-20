@@ -27,7 +27,7 @@ function show() {
     document.getElementById("introChange").style.marginLeft = "350px";
   }
 
-  document.querySelector("#user-intro-change").addEventListener("click", introShow,);
+  document.querySelector("#user-intro-change").addEventListener("click", introShow);
   document.querySelector("#item-report").addEventListener("click", show);
   document.querySelector("#close").addEventListener("click", close);
 

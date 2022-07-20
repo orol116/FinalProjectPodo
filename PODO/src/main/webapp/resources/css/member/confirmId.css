@@ -1,6 +1,5 @@
 h3 {
     margin-bottom: 10px;
-    width: 37%;
 }
 
 .an_message{
@@ -17,6 +16,10 @@ h3 {
 ul{
     list-style: none;
     padding-bottom: 20px;
+}
+
+li{
+    padding-bottom: 15px;
 }
 
 .id_box{

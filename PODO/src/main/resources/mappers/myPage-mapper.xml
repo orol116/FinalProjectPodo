@@ -76,7 +76,8 @@
 		WHERE A.MEMBER_NO = ${memberNo}
 		ORDER BY BOARD_NO DESC
 	</select>
-	
+ 	
+
 	
 
 </mapper>
