@@ -108,14 +108,14 @@ function sample5_execDaumPostcode() {
                     marker.setPosition(coords);
                     
 
+                    document.getElementById("dLon").value = dLon;
+                    document.getElementById("dLat").value = dLat; 
                 }
             });
         }
     }).open();
 }
 
-document.getElementById("dLon").value = dLon;
-document.getElementById("dLat").value = dLat; 
 
 
 // 컨트롤러에서 데이터 받기
