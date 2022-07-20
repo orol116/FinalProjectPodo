@@ -119,9 +119,7 @@
 
                 <section id="reviews-area">
 
-                </section> 
-
-                      
+                </section>                    
 
             </div>
 
