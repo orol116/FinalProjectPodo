@@ -71,12 +71,20 @@
   	</select>
   	
   	<!-- 비밀번호 찾기 -->
-  	<select id="findPw" parameterType="member" resultType="_int">
-  		SELECT COUNT(*) FROM MEMBER
+  	<select id="findPw" parameterType="string" resultType="string">
+  		SELECT MEMBER_ID
+  		FROM MEMBER
   		WHERE MEMBER_ID = #{memberId}
   		AND MEMBER_NM  = #{memberName}
   		<!-- AND MEMBER_TEL = #{memberTel} -->
   		AND SECESSION_FL ='N'
+  	</select>
+  	
+  	<!-- 비밀번호 찾기 아이디 조회 -->
+  	<select id="searchId" parameterType="string" resultType="string">
+  		SELECT MEMBER_ID
+  		FROM MEMBER
+  		WHERE MEMBER_ID = #{memberId}
   	</select>
   	
 </mapper>

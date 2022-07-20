@@ -64,7 +64,15 @@ public interface MemberService {
 	 * @param inputMember
 	 * @return result
 	 */
-	int findPw(Member inputMember);
+	String findPw(Member inputMember);
+
+
+	/** 비밀번호찾기 아이디 조회 service
+	 * @param memberId
+	 * @return searchId
+	 */
+	String searchId(String memberId);
+
 
 
 

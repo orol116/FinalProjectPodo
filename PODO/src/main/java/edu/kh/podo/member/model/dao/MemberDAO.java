@@ -83,9 +83,20 @@ public class MemberDAO {
 	 * @param inputMember
 	 * @return result
 	 */
-	public int findPw(Member inputMember) {
+	public String findPw(Member inputMember) {
 		
 		return sqlSession.selectOne("memberMapper.findPw", inputMember);
+	}
+
+
+
+	/** 비밀번호 찾기 아이디 조회 DAO
+	 * @param memberId
+	 * @return searchId
+	 */
+	public String searchId(String memberId) {
+		
+		return sqlSession.selectOne("memberMapper.searchId", memberId);
 	}
 
 

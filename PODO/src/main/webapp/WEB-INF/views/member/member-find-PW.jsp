@@ -22,16 +22,16 @@
 
         <div id="contaioner">
             <h3>비밀번호 찾기</h3>
-            <form action="findPw" method="POST" name="ID-form" id="ID-form" onsubmit="return CerValidate()">
+            <form action="inputPw2" method="POST" name="ID-form" id="ID-form" onsubmit="return CerValidate()">
                 <fieldset id="ID-area">
 
                     <section>
                         <h4>이름</h4>
-                        <input type="text" id="name-box" maxlength="20" name="memberNickname" placeholder="이름을 입력해주세요.">
+                        <input type="text" id="name-box" maxlength="20" name="memberName" placeholder="이름을 입력해주세요.">
                         <h4>아이디</h4>
                         <input type="text" id="name-box" maxlength="20" name="memberId" placeholder="아이디를 입력해주세요.">
 
-                        <h4>전화번호</h4>
+                        <!-- <h4>전화번호</h4>
                         <input id="phone" type="text" name="memberTel" title="전화번호 입력" placeholder="전화번호를 입력해주세요."/>
                     
           
@@ -45,7 +45,7 @@
                                 <button id="phoneChk2" class="doubleChk">인증번호 확인</button>
                                 <input type="hidden" id="phoneDoubleChk"/>
                             </div>
-                            <span class="point successPhoneChk"></span>
+                            <span class="point successPhoneChk"></span> -->
     
                         <button id="finalSubmitBtn">제출</button>
                     </section>
@@ -102,7 +102,7 @@
 
         </script>        
 
-        <script src="${contextPath}/js/member/findPW.js"></script>
+        <script src="${contextPath}/resources/js/member/findPW.js"></script>
 
     </main>
 
