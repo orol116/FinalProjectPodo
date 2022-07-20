@@ -37,7 +37,7 @@
             <!-- 찜 상품 카운트 -->
             <div class="fav-count"> <!-- 찜 카운트 영역 -->
                 <div>"찜"
-                    <span class="count"></span>
+                    <span class="count">${fn:length(favorBoard)}</span>
                 </div>
             </div>
 
@@ -52,12 +52,12 @@
 
                             <!-- 상단 체크박스 -->
                             <div class="checkArea">
-                                <button type="button" class="fav-check-btn"></button>
-                            </div>
+                                <%-- <button type="button" class="fav-check-btn"></button> --%>
 
-                            <!-- 선택삭제(전체 선택) -->
-                            <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">
-                            <button type="button" class="deleteAll">선택삭제</button>
+                                <!-- 선택삭제(전체 선택) -->
+                                <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">
+                                <button type="button" class="deleteAll">선택삭제</button>
+                            </div>
 
                         </div>
 
@@ -91,14 +91,14 @@
                                                         </c:when>
                                                         <c:otherwise>
                                                             <c:forEach items="${favorBoard}" var="favor">
-                                                                <li>
+                                                                <li class="fav-list">
                                                                     <%-- 목록 별 체크박스 --%>
                                                                     <div class=checkbox>
                                                                         <input type="checkbox" class="select" name="select">
                                                                     </div> 
                                                                     <%-- 상품 이미지 --%>
                                                                     <div class="thumb">
-                                                                        <c:if test="${!empty board.imageReName}">
+                                                                        <c:if test="${!empty favor.imageReName}">
                                                                             <img class="list-thumbnail" src="${contextPath}${favor.imageReName}">
                                                                         </c:if>     
                                                                     </div>
@@ -115,7 +115,7 @@
                                                                         </p>
                                                                         <%-- 삭제 버튼 --%>
                                                                         <div class="delete">
-                                                                            <button type="button" class="delete-btn" onclick="deleteOne()">삭제</button>
+                                                                            <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne()">삭제</button>
                                                                         </div>
                                                                     </div>   
                                                                 </li>
