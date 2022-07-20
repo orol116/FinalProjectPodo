@@ -20,7 +20,6 @@ function carousel() {
 
 (() => {
   // let boardNo = document.querySelector('.frame:nth-child(2) ').getAttribute('id')
-  
   const section = document.querySelectorAll('section')[3];
   let frame = document.querySelector('.frame:last-child');
   // let count = section.children.length;
@@ -51,20 +50,18 @@ function carousel() {
         console.log(result[0]);
         
         console.log('현재 보이는 타켓', ioTarget)
-        // 5. 현재 보이는 target 감시 취소해줘
+        // 5. 현재 보이는 target 감시 취소
         io.unobserve(frame);
   
-        // 6. 새로운 frame 추가해
+        // 6. 새로운 frame 추가
         frame = section.appendChild(document.createElement('div'));
         frame.classList.add('frame');
         // frame.setAttribute('id',result[0].boardNo)
   
-        // frame.textContent = ++count;
   
         for(let res of result){
 
           div = document.createElement('div')
-          // div.setAttribute('style','height:500px;')
           div.classList.add('box')
           div.setAttribute('id', res.boardNo)
           frame.appendChild(div);
@@ -96,14 +93,26 @@ function carousel() {
 
           divTitle2 = document.createElement('div');
           divTitle2.classList.add('title2');
-
           divTitle2.innerText = res.boardTitle;
-          // divTitle2.InnerText = 'res.boardTitle';
           divTitle1.append(divTitle2);
-        }
 
+          divName = document.createElement('div');
+          divName.classList.add('name2');
+          divTitle1.append(divName);
+
+          divPrice = document.createElement('div');
+          divPrice.classList.add('price');
+          divPrice.innerText=res.price+'원';
+          divName.append(divPrice);
+          
+          divTime = document.createElement('div');
+          divTime.classList.add('time');
+          divTime.innerText=res.updateDate;
+          divName.append(divTime);
+
+        }
   
-        // 7. 새로 추가된 li 감시해!
+        // 7. 새로 추가된 frame 감시
         io.observe(frame);
         },
         error : function(){ 
@@ -115,11 +124,11 @@ function carousel() {
     }
   
   }, {
-    // 8. 타겟이 50% 이상 보이면 해줘!
+    // 8. 타겟이 50% 이상 보이면 작동
     threshold: 0.5
   });
 
-  // 2. li감시해!
+  // 2. fream감시
   io.observe(frame);
   
 })();

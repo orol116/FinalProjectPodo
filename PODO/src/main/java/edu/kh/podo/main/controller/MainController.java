@@ -53,7 +53,6 @@ public class MainController {
 		
 		List<ItemBoard> itemList = service.selectItemFour(boardNo);
 		
-			
 		return new Gson().toJson(itemList);
 	}
 	
