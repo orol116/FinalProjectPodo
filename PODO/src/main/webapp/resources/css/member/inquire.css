@@ -105,6 +105,12 @@ textarea:focus{
     border-top: 1px solid lightgray; */
 }
 
+/* 사진첨부 글 */
+.place{
+    padding: 0 50px 10px;
+}
+
+
 .div1{
     display: flex;
     justify-content: end;
