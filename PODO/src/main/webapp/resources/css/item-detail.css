@@ -57,8 +57,12 @@ footer {
 #category a {
     margin-left: 20px;
     width: 300px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     font-size: 20px;
+}
+#category a:hover {
+    background-color: #5f0081;
+    color:white;
 }
 
 

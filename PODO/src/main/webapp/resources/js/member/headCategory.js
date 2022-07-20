@@ -83,7 +83,7 @@ function selectList(mCategoryNo){
 
             document.getElementById("main-container").innerHTML = "";
             
-            if(document.getElementsByClassName("box")[0] != "") {
+            if (document.getElementsByClassName("box")[0] != "") {
                 document.getElementsByClassName("frame")[0].innerHTML = "";
             }
  

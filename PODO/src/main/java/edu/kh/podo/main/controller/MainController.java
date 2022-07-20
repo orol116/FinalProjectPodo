@@ -2,6 +2,8 @@ package edu.kh.podo.main.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.board.itemBoard.model.vo.Time;
 import edu.kh.podo.member.model.service.MemberService;
 
 @Controller
@@ -21,6 +26,8 @@ public class MainController {
 	
 	@Autowired
 	private ItemBoardService service;
+	
+	private Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	@RequestMapping("/main")
 	public String mainForward(String query, RedirectAttributes ra, Model model) {
@@ -29,6 +36,7 @@ public class MainController {
 			
 			List<ItemBoard> itemList = service.selectItemList();
 			model.addAttribute("itemList", itemList);
+			
 		} else {
 			
 			List<ItemBoard> searchList = service.searchBoard(query);
@@ -36,6 +44,16 @@ public class MainController {
 		}
 	
 		return "common/main";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/mainItem")
+	public String mainItem(String query, RedirectAttributes ra, Model model, int boardNo) {
+		
+		List<ItemBoard> itemList = service.selectItemFour(boardNo);
+		
+			
+		return new Gson().toJson(itemList);
 	}
 	
 

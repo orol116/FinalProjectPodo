@@ -185,14 +185,14 @@ function writeValidate(){
     const boardContent = document.querySelector("[name='boardContent']");
 
     if(images.value.length == 0){
-        alert("상품의 사진을 선택해주세요!!!");
+        alert("상품의 사진을 선택해주세요 :) ");
         images.value = "";
         images.focus();
         return false;
     }
 
     if(boardTitle.value.trim().length == 0){
-        alert("상품명을 입력해주세요!!!");
+        alert("상품명을 입력해주세요 :) ");
         boardTitle.value = "";
         boardTitle.focus();
         return false;
@@ -204,35 +204,35 @@ function writeValidate(){
     }
 
     if(placeResult.value.length == 0){
-        alert("선호 거래지역을 선택해주세요!!!");
+        alert("선호 거래지역을 선택해주세요 :) ");
         placeResult.value = "";
         placeResult.focus();
         return false;
     }
     
     if(itemCondition.value.length == 0){
-        alert("상품 상태를 선택해주세요!!!");
+        alert("상품 상태를 선택해주세요 :) ");
         itemCondition.value = "";
         itemCondition.focus();
         return false;
     }
 
     if(deliveryMethod.value.length == 0){
-        alert("배송방법을 선택해주세요!!!");
+        alert("배송방법을 선택해주세요 :) ");
         deliveryMethod.value = "";
         deliveryMethod.focus();
         return false;
     }
 
     if(price.value.trim().length == 0){
-        alert("가격을 입력해주세요!!!");
+        alert("가격을 입력해주세요 :) ");
         price.value = "";
         price.focus();
         return false;
     }
 
     if(boardContent.value.trim().length == 0){
-        alert("상품에 대해 설명해주세요!!!");
+        alert("상품에 대해 설명해주세요 :) ");
         boardContent.value = "";
         boardContent.focus();
         return false;
