@@ -50,10 +50,10 @@
                 <c:forEach var="item" items="${itemList}" begin="0" end="19" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
-                        <div class="frame" id="${item.boardNo}">
+                        <div class="frame" >
                     </c:if>
 
-                            <div class="box" >
+                            <div class="box" id="${item.boardNo}">
                                 <a href="${contextPath}/board/detail/${item.boardNo}"  class="title">
                                     <div class="image">
                                         <c:choose>

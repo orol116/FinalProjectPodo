@@ -38,7 +38,7 @@ function carousel() {
     // 4. viewport에 target이 보이면 하는 일
     if (entry[0].isIntersecting) {
       
-      let boardNo = document.querySelector('.frame:last-child').getAttribute('id');
+      let boardNo = document.querySelector('.frame:last-child>.box:last-child').getAttribute('id');
       //ajax
       $.ajax({
         url : contextPath + "/mainItem",  
@@ -57,7 +57,7 @@ function carousel() {
         // 6. 새로운 frame 추가해
         frame = section.appendChild(document.createElement('div'));
         frame.classList.add('frame');
-        frame.setAttribute('id',result[0].boardNo)
+        // frame.setAttribute('id',result[0].boardNo)
   
         // frame.textContent = ++count;
   
@@ -66,6 +66,7 @@ function carousel() {
           div = document.createElement('div')
           // div.setAttribute('style','height:500px;')
           div.classList.add('box')
+          div.setAttribute('id', res.boardNo)
           frame.appendChild(div);
 
           a = document.createElement('a');
