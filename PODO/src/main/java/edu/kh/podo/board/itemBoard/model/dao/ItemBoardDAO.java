@@ -56,7 +56,27 @@ public class ItemBoardDAO {
 	public List<BoardImage> selectItemsImg() {
 		return sqlSession.selectList("itemBoardMapper.selectItemsImg");
 	}
+	
+	
+	/**해당 보드 넘버로부터 뒤의 4개의게시물 가져오기
+	 * @param boardNo
+	 * @return
+	 */
+	public List<ItemBoard> selectitemFor(int boardNo) {
+		return sqlSession.selectList("itemBoardMapper.selectitemFor", boardNo);
+	}
 
+	/** 해당 보드 넘버로부터 뒤의 4개의 게시물 중 이미지 레벨 0번 이미지 조회
+	 * @param boardNo
+	 * @return
+	 */
+	public List<BoardImage> selectItemsFor(int boardNo) {
+		return sqlSession.selectList("itemBoardMapper.selectItemsFor", boardNo);
+	}
+
+	
+	
+	
 	public int insertBoardImageList(List<BoardImage> boardImageList) {
 		return sqlSession.insert("itemBoardMapper.insertBoardImageList",boardImageList);
 	}
@@ -171,6 +191,9 @@ public class ItemBoardDAO {
 		
 		return sqlSession.selectList("itemBoardMapper.selectDate");
 	}
+
+
+	
 
 
 
