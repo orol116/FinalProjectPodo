@@ -308,3 +308,7 @@
     font-weight: bold;
     margin-top: 10px;
 }
+
+.chatList{
+    display: flex;
+}

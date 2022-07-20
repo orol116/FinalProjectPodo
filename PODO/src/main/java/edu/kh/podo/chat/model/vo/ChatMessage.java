@@ -20,6 +20,5 @@ public class ChatMessage {
 	
 	private int memberNo;
 	private String memberNickname;
-	private String memberProfile;
 
 }
