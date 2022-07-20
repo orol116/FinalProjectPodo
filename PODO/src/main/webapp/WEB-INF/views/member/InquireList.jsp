@@ -36,6 +36,12 @@
                             <a href="#">기타서비스</a>
                         </section>
                         <button name="cancel" id="cancel"  method="submit" onclick="cancel()">문의취소</button>
+                         <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
 
                     <p>접수완료</p>
@@ -47,6 +53,12 @@
                             <a href="#">기타서비스</a>
                         </section>
                         <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                         <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
 
                     <p>접수완료</p>
@@ -58,6 +70,12 @@
                             <a href="#">기타서비스</a>
                         </section>
                         <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                         <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
 
                     <p>접수완료</p>
@@ -69,6 +87,12 @@
                             <a href="#">기타서비스</a>
                         </section>
                         <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                         <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
 
                     <p>접수완료</p>
@@ -80,6 +104,12 @@
                             <a href="#">기타서비스</a>
                         </section>
                         <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                         <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
                     <p>접수완료</p>
                 </li>

@@ -41,6 +41,7 @@
                 <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-house-user"></i>내상점</button>   
                 <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
             </section>
+
         </div>
     </header>
 
@@ -54,14 +55,38 @@
     </div>
     <div class="list1">
         <ul>
-            <form id="list" method="post" onclick="inquireList()">
+            <!-- <form id="list" method="post" onclick="inquireList()"> -->
                 <li id="one">
                     <div class="list2">
                         <section class="list3">
                             <h5>기타</h5>
                             <a href="#">기타서비스</a>
                         </section>
-                        <button name="cancel" id="cancel"  method="submit" onclick="cancel()">문의취소</button>
+                        <button name="cancel" class="btn-open-popup" id="cancel" >문의취소</button>
+                        <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p>접수완료</p>
+                </li>
+                <li id="one">
+                    <div class="list2">
+                        <section class="list3">
+                            <h5>기타</h5>
+                            <a href="#">기타서비스</a>
+                        </section>
+                        <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                        <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
 
                     <p>접수완료</p>
@@ -73,6 +98,12 @@
                             <a href="#">기타서비스</a>
                         </section>
                         <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                        <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
 
                     <p>접수완료</p>
@@ -84,6 +115,12 @@
                             <a href="#">기타서비스</a>
                         </section>
                         <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                        <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
 
                     <p>접수완료</p>
@@ -95,17 +132,12 @@
                             <a href="#">기타서비스</a>
                         </section>
                         <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
-                    </div>
-
-                    <p>접수완료</p>
-                </li>
-                <li id="one">
-                    <div class="list2">
-                        <section class="list3">
-                            <h5>기타</h5>
-                            <a href="#">기타서비스</a>
-                        </section>
-                        <button name="cancel" id="cancel" method="submit" onclick="cancel()">문의취소</button>
+                        <div class="modal">
+                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
+                                <button id="close">닫기</button>
+                                <button id="confirm">확인</button>
+                            </div>
+                        </div>
                     </div>
                     <p>접수완료</p>
                 </li>
@@ -166,4 +198,7 @@
         </div>
     </div>
 </footer>
+
+<script src="../../js/member/inquireList.js"></script>
+
 </html>
