@@ -50,6 +50,8 @@ public class MainController {
 	@RequestMapping("/mainItem")
 	public String mainItem(String query, RedirectAttributes ra, Model model, int boardNo) {
 		
+		boardNo+= 4;
+		
 		List<ItemBoard> itemList = service.selectItemFour(boardNo);
 		
 			
