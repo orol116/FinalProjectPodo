@@ -138,20 +138,20 @@
                                     
                                     <c:forEach items="${list}" var="msg">
 
-                                        <fmt:formatDate var="chatDate" value="${msg.createDate }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
+                                        <fmt:formatDate var="chatDate" value="${msg.messageTime }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
                                         <c:if test="${msg.memberNo == loginMember.memberNo }">
                                             <li class="myChat">
-                                                <span class="chatDate">${chatDate}</span>
-                                                <p class="chat">${msg.message }</p>
+                                                <span class="chatDate">${messageTime}</span>
+                                                <p class="chat">${msg.messageContent }</p>
                                             </li>
                                         </c:if>
                                         
                                         <c:if test="${msg.memberNo != loginMember.memberNo }">
                                             <li>
                                                 <b>${msg.memberNickname }</b>	<br>
-                                                <p class="chat">${msg.message }</p>
-                                                <span class="chatDate">${chatDate}</span>
+                                                <p class="chat">${msg.messageContent }</p>
+                                                <span class="chatDate">${messageTime}</span>
                                             </li>
                                         </c:if>
 
@@ -181,6 +181,7 @@
         </div>
         
     </section>
+
 
 
     <!-- footer include -->
