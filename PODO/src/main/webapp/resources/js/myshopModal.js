@@ -35,7 +35,7 @@ function show() {
   document.getElementById("reportBtn").addEventListener("click", function(){
 
     $.ajax({
-        url : "report",      
+        url : "report", 
         data : { "memberNo" : loginMemberNo, "report" : report.value},
         
         type : "GET", // 데이터 전달 방식 type

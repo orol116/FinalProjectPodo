@@ -26,7 +26,7 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-1.png"></div>
     </div>
 
-    <section>
+    <section id="main-container">
     
         <div id="itmes">
             <h2 style="margin:0;">이번주 상품 추천</h2>
@@ -52,7 +52,7 @@
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame">
                     </c:if>
-
+                    
                         <div class="box">
                             <a href="${contextPath}/board/detail/${item.boardNo}" class="title">
                                 <div class="image">
