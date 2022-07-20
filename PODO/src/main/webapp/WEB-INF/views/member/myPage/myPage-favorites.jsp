@@ -98,8 +98,8 @@
                                                                     </div> 
                                                                     <%-- 상품 이미지 --%>
                                                                     <div class="thumb">
-                                                                        <c:if test="${!empty favor.imageReName}">
-                                                                            <img class="list-thumbnail" src="${contextPath}${favor.imageReName}">
+                                                                        <c:if test="${!empty boardImage.imageReName}">
+                                                                            <img class="list-thumbnail" src="${contextPath}${boardImage.imageReName}">
                                                                         </c:if>     
                                                                     </div>
                                                                     <%-- 상품 정보 --%>
