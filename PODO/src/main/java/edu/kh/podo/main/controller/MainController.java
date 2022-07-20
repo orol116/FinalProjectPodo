@@ -50,9 +50,9 @@ public class MainController {
 	@RequestMapping("/mainItem")
 	public String mainItem(String query, RedirectAttributes ra, Model model, int boardNo) {
 		
+		
 		List<ItemBoard> itemList = service.selectItemFour(boardNo);
 		
-			
 		return new Gson().toJson(itemList);
 	}
 	

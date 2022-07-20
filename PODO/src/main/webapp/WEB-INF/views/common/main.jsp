@@ -47,10 +47,10 @@
             </c:when>
     
             <c:otherwise>
-                <c:forEach var="item" items="${itemList}" varStatus="vs">
+                <c:forEach var="item" items="${itemList}" begin="0" end="19" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
-                        <div class="frame">
+                        <div class="frame" >
                     </c:if>
 
                             <div class="box" id="${item.boardNo}">
@@ -90,7 +90,6 @@
         </c:choose>
                     
 
-
     </section>
     </main>
 
@@ -104,6 +103,8 @@
     <!-- main.js 연결 -->
     <script src="${contextPath}/resources/js/main.js"></script>
 
-
+    <script>
+        // const contextPath = "${contextPath}";
+    </script>
 </body>
 </html>

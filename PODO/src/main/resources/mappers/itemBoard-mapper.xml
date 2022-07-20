@@ -147,17 +147,17 @@
 	</select>
 	
 	
-	<!-- 메인화면에 아이템 4개만 가져오는 ajax -->
+	<!-- 메인화면에 아이템 5개만 가져오는 ajax -->
 	<select id="selectitemFor" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO
 		FROM ITEM_BOARD
 		WHERE UPDATE_DT >= SYSDATE - 7
 		AND BOARD_NO &gt; #{boardNo}
-		AND ROWNUM &lt; 5 
+		AND ROWNUM &lt; 6 
 		ORDER BY BOARD_NO ASC
 	</select>
 	
-	 <!-- 메인화면 4개만 가져오는 ajax 썸네일 -->
+	 <!-- 메인화면 5개만 가져오는 ajax 썸네일 -->
 	<select id="selectItemsFor" resultMap="boardImage_rm">
 		SELECT * FROM (
 			SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, BOARD_NO, MEMBER_NO
@@ -166,7 +166,7 @@
 			WHERE IMG_LEVEL = 0
 			ORDER BY BOARD_NO ASC)
 			WHERE BOARD_NO &gt; #{boardNo}
-			AND ROWNUM &lt; 5 
+			AND ROWNUM &lt; 6 
 	</select>
 
 
