@@ -53,18 +53,18 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		List<ItemBoard> sellList = dao.selectitemFor(boardNo);
 		
 		
-//		// 해당 보드 넘버로부터 뒤의 4개의 게시물 중 이미지 레벨 0번 이미지 조회
-//		List<BoardImage> sellListImg = dao.selectItemsFor(boardNo);
-//		
-//		for(ItemBoard sell : sellList) {
-//			
-//			for(BoardImage img : sellListImg) {
-//				if(img.getBoardNo()== sell.getBoardNo()) {
-//					sell.setImg(img);
-//				}
-//			}
-//			
-//		}
+		// 해당 보드 넘버로부터 뒤의 5개의 게시물 중 이미지 레벨 0번 이미지 조회
+		List<BoardImage> sellListImg = dao.selectItemsFor(boardNo);
+		
+		for(ItemBoard sell : sellList) {
+			
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
 		return sellList;
 	}
 
@@ -148,6 +148,9 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
+		// 조회수 증가
+		dao.updateReadCount(boardNo);
+		
 		// 상품 상세조회
 		List<ItemBoard> itemList = dao.selectItem(boardNo);
 		int memberNo = dao.selectMemberNo(boardNo);

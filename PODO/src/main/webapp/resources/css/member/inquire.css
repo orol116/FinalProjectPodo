@@ -113,9 +113,9 @@ textarea:focus{
 
 .div1{
     display: flex;
-    justify-content: end;
-    margin: 20px 50px 20px;
-    padding-bottom: 50px;
+    justify-content: center;
+    margin: 20px 0 20px;
+    padding: 50px 50px 0;
 }
 .img-box{
     display: flex;
@@ -170,7 +170,7 @@ label>img{
 }
 
 #submit{
-    width: 45px;
+    width: 340px;
     height: 38px;
     color: white;
     background-color: rgb(95, 0, 129);

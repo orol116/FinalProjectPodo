@@ -13,8 +13,10 @@ public class ChatRoom {
 
 	private int chatNo;
 	private int boardNo;
+	private String chatStatus;
+	
 	private int memberNo;
 	private int buyMemberNo;
 	private String memberNickname;
-	private String chatStatus;
+	private String memberProfile;
 }

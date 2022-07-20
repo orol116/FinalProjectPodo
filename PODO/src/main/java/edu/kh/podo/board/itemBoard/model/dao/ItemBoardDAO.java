@@ -192,9 +192,13 @@ public class ItemBoardDAO {
 		return sqlSession.selectList("itemBoardMapper.selectDate");
 	}
 
-
-	
-
+	/** 조회수 증가 DAO
+	 * @param boardNo
+	 * @return result
+	 */
+	public int updateReadCount(int boardNo) {
+		return sqlSession.update("itemBoardMapper.updateReadCount", boardNo);
+	}
 
 
 
