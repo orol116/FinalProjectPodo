@@ -148,6 +148,9 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
+		// 조회수 증가
+		dao.updateReadCount(boardNo);
+		
 		// 상품 상세조회
 		List<ItemBoard> itemList = dao.selectItem(boardNo);
 		int memberNo = dao.selectMemberNo(boardNo);
