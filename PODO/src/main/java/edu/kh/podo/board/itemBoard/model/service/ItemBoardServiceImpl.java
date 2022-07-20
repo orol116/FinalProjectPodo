@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.board.itemBoard.model.dao.ItemBoardDAO;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
+import edu.kh.podo.board.itemBoard.model.vo.Coordinate;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.vo.Member;
@@ -69,13 +70,14 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	}
 
 	@Override
-	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException {
+	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath, Coordinate crdnt) throws IOException {
 
 		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
 		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
-
+		item.setCoordinate(crdnt);
+		crdnt.setBoardNo(item.getBoardNo());
 //		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
-
+		
 		int boardNo = dao.insertBoard(item);		
 
 		if (boardNo > 0) {

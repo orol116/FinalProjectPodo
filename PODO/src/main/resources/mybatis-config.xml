@@ -16,8 +16,10 @@
 		
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.ItemBoard" alias="itemBoard"/> 
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.BoardImage" alias="boardImage"/> 
+		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.Coordinate" alias="coordinate"/> 
 		
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.BoardType" alias="boardType"/> 
+		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.Coordinate" alias="coordinate"/> 
 		<typeAlias type="edu.kh.podo.board.category.model.vo.LargeCategory" alias="lCategory"/> 
 		<typeAlias type="edu.kh.podo.board.category.model.vo.MiddleCategory" alias="mCategory"/> 
 		

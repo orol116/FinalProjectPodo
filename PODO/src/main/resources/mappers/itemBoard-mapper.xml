@@ -49,6 +49,7 @@
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 		
+		
 	</resultMap>
 	
 	<resultMap type="boardImage" id="boardImage_rm">
@@ -109,6 +110,12 @@
 			DEFAULT, DEFAULT, DEFAULT, #{itemCondition}, '판매 중', #{delivery}, #{price}, DEFAULT, #{sellArea}, 
 			1, #{memberNo}, #{categoryNo}, NULL, 0 
 
+		)
+	</insert>
+	
+	<insert id="insertCoordinate" parameterType="coordinate"> 
+		INSERT INTO SELLAREA_XY VALUES(
+			SEQ_CRDNT_NO.NEXTVAL, #{boardNo}, #{dLon}, #{dLat}
 		)
 	</insert>
 	
