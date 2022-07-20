@@ -19,44 +19,116 @@ function carousel() {
 
 
 (() => {
+  // let boardNo = document.querySelector('.frame:nth-child(2) ').getAttribute('id')
   const section = document.querySelectorAll('section')[3];
   let frame = document.querySelector('.frame:last-child');
-  let count = section.children.length;
+  // let count = section.children.length;
   
   console.log(section);
   console.log(frame);
-  console.log(count);
-
+  // console.log(count);
+  
   // 1. 인터섹션 옵저버 생성
   const io = new IntersectionObserver((entry, observer) => {
+
     // 3. 현재 보이는 target 출력
     const ioTarget = entry[0].target;
-
+    
     // 4. viewport에 target이 보이면 하는 일
     if (entry[0].isIntersecting) {
-      console.log('현재 보이는 타켓', ioTarget)
-      // 5. 현재 보이는 target 감시 취소해줘
-      io.unobserve(title);
+      
+      let boardNo = document.querySelector('.frame:last-child>.box:last-child').getAttribute('id');
+      //ajax
+      $.ajax({
+        url : contextPath + "/mainItem",  
+        data : { "boardNo" : boardNo }, 
+        type : "GET", 
+        dataType : "JSON",
+        success : function(result){
+      
+        console.log(result);
+        console.log(result[0]);
+        
+        console.log('현재 보이는 타켓', ioTarget)
+        // 5. 현재 보이는 target 감시 취소
+        io.unobserve(frame);
+  
+        // 6. 새로운 frame 추가
+        frame = section.appendChild(document.createElement('div'));
+        frame.classList.add('frame');
+        // frame.setAttribute('id',result[0].boardNo)
+  
+  
+        for(let res of result){
 
-      // 6. 새로운 li 추가해
-      title = box.appendChild(document.createElement('a'));
-      box.appendChild(document.createElement('br'))
-      title.textContent = ++count;
+          div = document.createElement('div')
+          div.classList.add('box')
+          div.setAttribute('id', res.boardNo)
+          frame.appendChild(div);
 
-      img = document.createElement("img");
-      img.setAttribute("src","resources/images/items/image1.jpg");
-      img.setAttribute("style","width:100px;");
-      title.appendChild(img);
+          a = document.createElement('a');
+          a.setAttribute('href',contextPath+'/board/detail/'+res.boardNo)
+          a.classList.add('title')
+          div.append(a);
 
-      // 7. 새로 추가된 li 감시해!
-      io.observe(title);
+          divImg = document.createElement('div');
+          divImg.classList.add('image');
+          a.append(divImg);
+
+          img = document.createElement('img');
+          
+          if(res.img != null){
+
+            img.setAttribute('src',contextPath+res.img.imageReName)
+          }else{
+            
+            img.setAttribute('src','resources/images/items/image1.jpg')
+          }
+          img.setAttribute('alt','상품 이미지')
+          divImg.append(img);
+
+          divTitle1 = document.createElement('div');
+          divTitle1.classList.add('title1')
+          a.append(divTitle1)
+
+          divTitle2 = document.createElement('div');
+          divTitle2.classList.add('title2');
+          divTitle2.innerText = res.boardTitle;
+          divTitle1.append(divTitle2);
+
+          divName = document.createElement('div');
+          divName.classList.add('name2');
+          divTitle1.append(divName);
+
+          divPrice = document.createElement('div');
+          divPrice.classList.add('price');
+          divPrice.innerText=res.price+'원';
+          divName.append(divPrice);
+          
+          divTime = document.createElement('div');
+          divTime.classList.add('time');
+          divTime.innerText=res.updateDate;
+          divName.append(divTime);
+
+        }
+  
+        // 7. 새로 추가된 frame 감시
+        io.observe(frame);
+        },
+        error : function(){ 
+            console.log("에러 발생");
+        }
+      })
+
+      //ajax
     }
+  
   }, {
-    // 8. 타겟이 50% 이상 보이면 해줘!
+    // 8. 타겟이 50% 이상 보이면 작동
     threshold: 0.5
   });
 
-  // 2. li감시해!
-  io.observe(title);
-
+  // 2. fream감시
+  io.observe(frame);
+  
 })();

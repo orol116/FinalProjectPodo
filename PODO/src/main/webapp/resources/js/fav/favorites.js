@@ -25,14 +25,13 @@ document.getElementById("do-bookmark").addEventListener("click", function(){
 
 
 // 전체 선택
-/* function selectAll(selectAll)  {
-  const selects 
-       = document.getElementsByName('select');
+function selectAll(selectAll)  {
+  const selects = document.getElementsByName('select');
   
     selects.forEach((checkbox) => {
     checkbox.checked = selectAll.checked;
   })
-} */
+} 
 var selectAll = document.querySelector(".selectAll");
 var list = document.querySelectorAll(".select");
 
@@ -49,7 +48,7 @@ selectAll.onclick = () => {
 }
 
 
-// 선택 삭제
+// 전체 선택 삭제
 var deleteAll = document.querySelector(".deleteAll");
 
 deleteAll.onclick = () => {
@@ -57,5 +56,55 @@ deleteAll.onclick = () => {
         if(list[i].checked){
             list[i].parentElement.parentElement.remove();
         }
+    }
+}
+
+
+/* 찜 목록 조회 */
+/* function favorBoardList(){
+
+    $.ajax({
+        url : contextPath + "/board/favorBoardList",
+        data : {"boardNo" : boardNo},
+        type : "GET",
+        datatype : "JSON",
+        success : function(favBoard){
+
+            console.log(favBoard);
+
+            if( loginMemberNo == board.memberNo ){
+                const deleteBtn = document.createElement("button");
+                deleteBtn.innerText="삭제";
+
+                deleteBtn.setAttribute("onclick", "deleteBoard("+board.boardNo+")");
+            }
+
+        },
+        error : function(req, status, error){
+            console.log("에러 발생");
+        }
+    });
+    
+}
+ */
+// 찜 삭제
+function deleteBoard(boardNo){
+    if(confirm("찜 목록에서 삭제 하시겠습니까?")){
+        $.ajax({
+            url : contextPath + "board/delete",
+            data : {"boardNo" : boardNo},
+            type : "GET",
+            success: function(result){
+                if(result > 0){
+                    alert("삭제되었습니다");
+                    favBoard(); // 목록을 다시 조회해서 삭제된 글을 제거
+                }else{
+                    alert("삭제 실패");
+                }
+            },
+            error : function(req, status, error){
+                console.log("찜 삭제 삭제 실패");
+            }
+        });
     }
 }

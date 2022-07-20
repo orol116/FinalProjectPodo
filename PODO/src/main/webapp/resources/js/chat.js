@@ -1,7 +1,7 @@
 (()=>{
-	if(document.getElementById("openChatRoom") != null){
+	if(document.getElementById("chatting") != null){
 
-		document.getElementById("openChatRoom").addEventListener("click", () => {
+		document.getElementById("chatting").addEventListener("click", () => {
 			const modal = document.querySelector('.modal');
 			modal.classList.add('show');
 			modal.classList.remove('hide');
@@ -26,7 +26,7 @@
 // -------------------------------------------------------------------------
 
 // 페이지 로딩 완료 시 채팅창을 제일 밑으로 내리기
-(function(){
+/* (function(){
 
 	const display = document.getElementsByClassName("display-chatting")[0];
 	
@@ -34,7 +34,7 @@
 		display.scrollTop = display.scrollHeight;
 	}
 
-})();
+})(); */
 
 
 
@@ -61,9 +61,9 @@ function sendMessage(){
 		// 메세지 입력 시 필요한 데이터를 js객체로 생성
 		const chatMessage = {
 			"memberNo" : memberNo,
-			"memberEmail" : memberEmail,
-			"memberNickname" : memberNickname,
-			"chatRoomNo" : chatRoomNo,
+			"buyMemberNo" : buyMemberNo,
+			"chatNo" : chatNo,
+			"boardNo" : boardNo,
 			"message" : inputChatting.value
 		};
 

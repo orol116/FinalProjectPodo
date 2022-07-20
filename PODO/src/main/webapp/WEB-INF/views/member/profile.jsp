@@ -42,7 +42,14 @@
                             
                         </div>
                         <div>
-                            <button id="chatting">1대1 채팅하기</button>
+                            <%-- <button id="chatting">1대1 채팅하기</button> --%>
+                            <form class="openChat" id="openChat" method="POST" action="${contextPath}/member/podoTalk">
+                                <c:if test="${!empty loginMember }">
+                                    <div class="btn-area">
+                                        <button id="chatting">1대1 채팅하기</button>
+                                    </div>
+                                </c:if>
+                            </form>
                         </div>
                     </div>
 
@@ -119,9 +126,7 @@
 
                 <section id="reviews-area">
 
-                </section> 
-
-                      
+                </section>                    
 
             </div>
 
@@ -143,6 +148,10 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="${contextPath}/resources/js/member/profile.js"></script>
         <script src="${contextPath}/resources/js/myshopModal.js"></script>
+
+    <%-- 카테고리 js --%>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
+import edu.kh.podo.board.itemBoard.model.vo.Coordinate;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -32,11 +33,19 @@ public class ItemBoardDAO {
 	 
 
 	public int insertBoard(ItemBoard item) {
+		
 		int result = sqlSession.insert("itemBoardMapper.insertBoard", item);
 		
 		if(result>0) {
 			
-			result = item.getBoardNo();
+			Coordinate crdnt = item.getCoordinate();
+			crdnt.setBoardNo(item.getBoardNo());
+			
+			int result2 = sqlSession.insert("itemBoardMapper.insertCoordinate", crdnt);
+			
+			if(result2>0) {
+				result = item.getBoardNo();
+			}
 		}
 		
 		return result;
@@ -56,7 +65,27 @@ public class ItemBoardDAO {
 	public List<BoardImage> selectItemsImg() {
 		return sqlSession.selectList("itemBoardMapper.selectItemsImg");
 	}
+	
+	
+	/**해당 보드 넘버로부터 뒤의 4개의게시물 가져오기
+	 * @param boardNo
+	 * @return
+	 */
+	public List<ItemBoard> selectitemFor(int boardNo) {
+		return sqlSession.selectList("itemBoardMapper.selectitemFor", boardNo);
+	}
 
+	/** 해당 보드 넘버로부터 뒤의 4개의 게시물 중 이미지 레벨 0번 이미지 조회
+	 * @param boardNo
+	 * @return
+	 */
+	public List<BoardImage> selectItemsFor(int boardNo) {
+		return sqlSession.selectList("itemBoardMapper.selectItemsFor", boardNo);
+	}
+
+	
+	
+	
 	public int insertBoardImageList(List<BoardImage> boardImageList) {
 		return sqlSession.insert("itemBoardMapper.insertBoardImageList",boardImageList);
 	}
@@ -172,6 +201,13 @@ public class ItemBoardDAO {
 		return sqlSession.selectList("itemBoardMapper.selectDate");
 	}
 
+	/** 조회수 증가 DAO
+	 * @param boardNo
+	 * @return result
+	 */
+	public int updateReadCount(int boardNo) {
+		return sqlSession.update("itemBoardMapper.updateReadCount", boardNo);
+	}
 
 
 

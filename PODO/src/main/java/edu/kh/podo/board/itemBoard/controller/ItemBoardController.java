@@ -2,31 +2,29 @@ package edu.kh.podo.board.itemBoard.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.velocity.runtime.directive.Parse;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
+import edu.kh.podo.board.itemBoard.model.vo.Coordinate;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
-
-import org.springframework.web.multipart.MultipartFile;
-
 import edu.kh.podo.member.model.vo.Member;
 
 @Controller
@@ -63,6 +61,7 @@ public class ItemBoardController {
 	public String boardWrite(@ModelAttribute("loginMember") Member loginMember,
 							@RequestParam(value="images", required=false) List<MultipartFile> imageList,
 							ItemBoard item,
+							Coordinate crdnt,
 							HttpServletRequest req,
 							RedirectAttributes ra,
 							@RequestParam(value="mCateValue", required=false, defaultValue="1") int mCateValue,
@@ -73,12 +72,14 @@ public class ItemBoardController {
 		item.setCategoryNo(mCateValue);
 		item.setSellArea(sellArea);
 		
+		
+		System.out.println(crdnt);
 //		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
 		
 		String webPath = "/resources/images/item";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		int boardNo = service.insertBoard(item, imageList, webPath, folderPath);
+		int boardNo = service.insertBoard(item, imageList, webPath, folderPath, crdnt);
 		
 		String path = null;
 		String message = null;

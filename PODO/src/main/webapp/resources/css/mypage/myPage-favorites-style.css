@@ -301,3 +301,7 @@ form[name="myPage-form"]{
     top: 20px;
     right: 12px;
 }
+
+.fav-list{
+    border-bottom: 1px solid rgb(226, 226, 242);
+}

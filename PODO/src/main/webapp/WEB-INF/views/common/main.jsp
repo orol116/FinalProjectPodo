@@ -47,39 +47,39 @@
             </c:when>
     
             <c:otherwise>
-                <c:forEach var="item" items="${itemList}" varStatus="vs">
+                <c:forEach var="item" items="${itemList}" begin="0" end="19" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
-                        <div class="frame">
+                        <div class="frame" >
                     </c:if>
 
-                        <div class="box">
-                            <a href="${contextPath}/board/detail/${item.boardNo}" class="title">
-                                <div class="image">
-                                    <c:choose>
+                            <div class="box" id="${item.boardNo}">
+                                <a href="${contextPath}/board/detail/${item.boardNo}"  class="title">
+                                    <div class="image">
+                                        <c:choose>
 
-                                        <c:when test="${!empty item.img.imageReName}">
+                                            <c:when test="${!empty item.img.imageReName}">
 
-                                            <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
+                                                <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
 
-                                        </c:when>
+                                            </c:when>
 
-                                        <c:otherwise>
+                                            <c:otherwise>
 
-                                            <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
-                                        </c:otherwise>
-                                    </c:choose>
-                                </div>   
-                                
-                                <div class="title1">
-                                    <div class="title2">${item.boardTitle}</div>
-                                    <div class="name2">
-                                        <div class="price">${item.price}원</div>
-                                        <div class="time">${item.updateDate}</div>
+                                                <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>   
+                                    
+                                    <div class="title1">
+                                        <div class="title2">${item.boardTitle}</div>
+                                        <div class="name2">
+                                            <div class="price">${item.price}원</div>
+                                            <div class="time">${item.updateDate}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
                           
                     <c:if test="${ vs.index % 5 eq 4}">
                         </div>
@@ -89,7 +89,6 @@
             </c:otherwise>
         </c:choose>
                     
-
 
     </section>
     </main>
@@ -104,6 +103,8 @@
     <!-- main.js 연결 -->
     <script src="${contextPath}/resources/js/main.js"></script>
 
-
+    <script>
+        // const contextPath = "${contextPath}";
+    </script>
 </body>
 </html>

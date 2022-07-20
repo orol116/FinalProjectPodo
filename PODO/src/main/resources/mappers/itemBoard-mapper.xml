@@ -49,6 +49,7 @@
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 		
+		
 	</resultMap>
 	
 	<resultMap type="boardImage" id="boardImage_rm">
@@ -73,6 +74,13 @@
 		JOIN BOARD_IMG USING(BOARD_NO)
 		WHERE BOARD_NO = #{boardNo}
 	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="updateReadCount">
+		UPDATE ITEM_BOARD SET 
+		READ_COUNT = READ_COUNT + 1
+		WHERE BOARD_NO = ${boardNo}
+	</update>
 	
 	
 	
@@ -102,6 +110,12 @@
 			DEFAULT, DEFAULT, DEFAULT, #{itemCondition}, '판매 중', #{delivery}, #{price}, DEFAULT, #{sellArea}, 
 			1, #{memberNo}, #{categoryNo}, NULL, 0 
 
+		)
+	</insert>
+	
+	<insert id="insertCoordinate" parameterType="coordinate"> 
+		INSERT INTO SELLAREA_XY VALUES(
+			SEQ_CRDNT_NO.NEXTVAL, #{boardNo}, #{dLon}, #{dLat}
 		)
 	</insert>
 	
@@ -137,6 +151,29 @@
 			JOIN ITEM_BOARD USING(BOARD_NO)
 			WHERE IMG_LEVEL = 0
 			ORDER BY UPDATE_DT DESC)
+	</select>
+	
+	
+	<!-- 메인화면에 아이템 5개만 가져오는 ajax -->
+	<select id="selectitemFor" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO
+		FROM ITEM_BOARD
+		WHERE UPDATE_DT >= SYSDATE - 7
+		AND BOARD_NO &gt; #{boardNo}
+		AND ROWNUM &lt; 6 
+		ORDER BY BOARD_NO ASC
+	</select>
+	
+	 <!-- 메인화면 5개만 가져오는 ajax 썸네일 -->
+	<select id="selectItemsFor" resultMap="boardImage_rm">
+		SELECT * FROM (
+			SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, BOARD_NO, MEMBER_NO
+			FROM BOARD_IMG
+			JOIN ITEM_BOARD USING(BOARD_NO)
+			WHERE IMG_LEVEL = 0
+			ORDER BY BOARD_NO ASC)
+			WHERE BOARD_NO &gt; #{boardNo}
+			AND ROWNUM &lt; 6 
 	</select>
 
 

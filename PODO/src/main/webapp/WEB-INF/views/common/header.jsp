@@ -44,17 +44,26 @@
         <section class="mid-header">
 
             <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
-            <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>       
+            <button class="button" method="submit"><i class="fa-solid fa-magnifying-glass"></i></button>       
         </section>
 
         </form> 
 
         <section class="right-header">
-            <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
 
-            <button class="button" onclick = "location.href = '${contextPath}/shop/myShop/${loginMember.memberNo}'"><i class="fa-solid fa-house-user"></i>내 상점</button>
+            <c:choose>
+                <c:when test="${empty loginMember}">
+                    <button class="button" onclick="alert('로그인 후 이용해주세요.');return false;"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
+                    <button class="button" onclick="alert('로그인 후 이용해주세요.');return false;"><i class="fa-solid fa-house-user"></i>내 상점</button>
+                    <button class="button" onclick="alert('로그인 후 이용해주세요.');return false;"><i class="fa-solid fa-message"></i>포도톡</button>
+                </c:when>
+                <c:otherwise>
+                    <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
+                    <button class="button" onclick = "location.href = '${contextPath}/shop/myShop/${loginMember.memberNo}'"><i class="fa-solid fa-house-user"></i>내 상점</button>
+                    <button class="button" onclick = "location.href = '${contextPath}/chat/roomList'"><i class="fa-solid fa-message"></i>포도톡</button>
+                </c:otherwise>
+            </c:choose> 
 
-            <button class="button" onclick = "location.href = '${contextPath}/chat/roomList'"><i class="fa-solid fa-message"></i>포도톡</button>
         </section>
         <div id="category-area">
         <ul id="item-category">
@@ -89,17 +98,16 @@
        // 검색창 유효성 검사
        function searchValidate(){
 
-       const query = document.getElementById("search2");
+            const query = document.getElementById("search2");
 
-       if(query.value.trim().length == 0){ // 미작성
-           query.value = ""; // 빈칸
-           query.focus();
+            if(query.value.trim().length == 0){ // 미작성
+                query.value = ""; // 빈칸
+                query.focus();
 
-           return false;
-       }
+                return false;
+            }
 
-
-       return true;
+            return true;
        }
 
     </script> 

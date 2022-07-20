@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.board.itemBoard.model.dao.ItemBoardDAO;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
+import edu.kh.podo.board.itemBoard.model.vo.Coordinate;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.vo.Member;
@@ -44,15 +45,39 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		}
 		return sellList;
 	}
+	
+	// 메인화면 상품 4개만 조회 Service (ajax)
+	@Override
+	public List<ItemBoard> selectItemFour(int boardNo) {
+		
+		// 해당 보드 넘버로부터 뒤의 4개의게시물 가져오기
+		List<ItemBoard> sellList = dao.selectitemFor(boardNo);
+		
+		
+		// 해당 보드 넘버로부터 뒤의 5개의 게시물 중 이미지 레벨 0번 이미지 조회
+		List<BoardImage> sellListImg = dao.selectItemsFor(boardNo);
+		
+		for(ItemBoard sell : sellList) {
+			
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		return sellList;
+	}
 
 	@Override
-	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException {
+	public int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath, Coordinate crdnt) throws IOException {
 
 		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
 		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
-
+		item.setCoordinate(crdnt);
+		crdnt.setBoardNo(item.getBoardNo());
 //		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
-
+		
 		int boardNo = dao.insertBoard(item);		
 
 		if (boardNo > 0) {
@@ -125,6 +150,9 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
+		// 조회수 증가
+		dao.updateReadCount(boardNo);
+		
 		// 상품 상세조회
 		List<ItemBoard> itemList = dao.selectItem(boardNo);
 		int memberNo = dao.selectMemberNo(boardNo);
