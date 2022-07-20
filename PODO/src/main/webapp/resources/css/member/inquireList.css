@@ -1,0 +1,114 @@
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {font-family: "NanumSquareRound";}
+
+*{box-sizing: border-box;}
+
+body{
+    width: 1400px;
+    margin: auto;
+}
+
+.body{
+    width: 1000px;
+    margin: auto;
+    height: 1000px;
+
+}
+
+/* 메뉴 */
+.top-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px 0;
+    height: 70px;
+    font-size: 20px;
+    /* border-bottom: 1px solid lightgray ;*/
+    /* border-top: 1px solid lightgray;  */
+}
+/* 제목 */
+#mainMenu>h3{   
+    color: rgb(95, 0, 129);
+}
+
+#mainMenu{
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#inquire{
+    font-size: 13px;
+    border-bottom: 1px solid gray;
+    /* padding: 1px; */
+}
+#inquire:hover{
+    color: rgb(95, 0, 129);
+    font-weight: bold;
+}
+
+/* 목록 */
+.list1{
+    height: 700px;
+}
+ul{
+    padding: 0 60px 0;
+}
+#one{
+    margin: 30px 0 30px;
+}
+.list2{
+   
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.list3{
+    font-size: 20px;
+    height: 30px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0 10px 0;
+}
+.list3>a{
+    padding-left: 10px;
+}
+
+#list>li{
+    list-style: none;
+}
+p,h5{
+    margin: 0;
+}
+p{
+    color: gray;
+    padding: 0 10px 0;
+
+}
+#cancel{
+    color: gray;
+    background-color: rgba(128, 128, 128, 0.05);
+    /* border: 1px solid gray; */
+}
+#cancel:hover{
+    cursor: pointer;
+}
+
+/* 하단 유의사항 */
+.inform{
+    /* position: fixed;
+    top: 900px; */
+    border-top: 1px solid lightgray;
+    color: gray;
+    margin:  0 40px 0;
+}
+.inform>ul>li{
+    padding: 3px;
+}

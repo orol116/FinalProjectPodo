@@ -63,15 +63,21 @@
                             <div id="item-report">신고하기</div>
                         </div>
 
-
                         <div id="info-button-area">
                             <c:if test="${memberNo != loginMember.memberNo}"> 
+                            
                                 <button id="do-bookmark">찜하기</button> 
                                 <%-- <p class="add-fav">
                                     <button type="button" class="add-fav-btn">찜하기</button>
                                 </p> --%>
 
-                                <button id="do-chat">1:1 채팅하기</button>
+                                <form class="openChat" id="openChat" method="POST" action="${contextPath}/member/podoTalk">
+                                    
+                                    <button id="do-chat">1:1 채팅하기</button>
+                                    <%-- <button id="chatting">1:1 채팅하기</button> --%>
+                                    
+                                </form>
+                        
                             </c:if>
                         </div>
 
@@ -117,7 +123,7 @@
                         </div>
 
                         
-   
+                        
 
                         
                     </div>
