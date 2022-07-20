@@ -59,3 +59,32 @@ for(let i=0 ; i<inputImage.length ; i++){
 
 }
 
+// 게시글 작성 유효성 검사
+// 게시글 작성 유효성 검사
+function writeValidate(){
+    const select = document.getElementsByClassName("select")[0];
+    const textarea = document.getElementById("textarea");
+    const images = document.getElementsByName("images")[0];
+
+    if(select.value == ""){
+        alert("문의 유형을 선택해주세요. :) ");
+        select.focus();
+        return false;
+    }
+    
+    if(textarea.value.trim().length == 0){
+        alert("문의 내역을 작성해주세요 :) ");
+        textarea.value = "";
+        textarea.focus();
+        return false;
+    }
+    if(images.value.length == 0){
+        alert("상품의 사진을 선택해주세요 :) ");
+        images.value = "";
+        images.focus();
+        return false;
+    }
+    deleteList.value = Array.from(deleteSet);
+
+    return true;
+}

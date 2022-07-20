@@ -127,13 +127,12 @@ function McategoryList(event){
             console.log("에러 발생");
         }
         
-    })
-}
+        })
+    }
 
-
-  /* 카테고리 선택 시 대분류 값 표기 */
-  $('.select').on('click', function(){
-  $('#category4').text($(this).text()+' > ');
+     /* 카테고리 선택 시 대분류 값 표기 */
+    $('.select').on('click', function(){
+    $('#category4').text($(this).text()+' > ');
 
 });
 
@@ -147,15 +146,6 @@ window.addEventListener('click', (e)=>{
     console.log($('#category5').text($(this).text()))
     }
 })
-// $('.select2').on('click', function(){
-//     $('#category5').text($(this).text());
-//     console.log($('#category5').text($(this).text()))
-  
-//   });
-
-
-
-
 
 
 // 중분류 목록 조회
