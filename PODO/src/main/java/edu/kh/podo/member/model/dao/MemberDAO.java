@@ -183,6 +183,15 @@ public class MemberDAO {
 	}
 
 
+	/** 본인이 쓴 1대1 문의 글 전체 조회
+	 * @param boardNo
+	 * @return list
+	 */
+	public List<Admin> inquireList(int memberNo) {
+		return sqlSession.selectList("memberMapper.inquireList", memberNo);
+	}
+
+
 
 
 }
