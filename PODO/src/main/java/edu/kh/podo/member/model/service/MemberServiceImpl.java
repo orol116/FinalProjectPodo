@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.dao.MemberDAO;
 import edu.kh.podo.member.model.vo.Member;
@@ -215,6 +216,30 @@ public class MemberServiceImpl implements MemberService {
 		
 		return boardNo;
 	}
+	
+	// 1대1 문의 상세 페이지
+	@Override
+	public Map<String, Object> itemDetail(int boardNo) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		int memberNo = dao.selectMemberNo(boardNo);
+
+		map.put("memberNo", memberNo);
+
+		Map<String, Object> daoMap = new HashMap<String, Object>();
+		daoMap.put("boardNo", boardNo);
+		daoMap.put("memberNo", memberNo);
+		
+		List<BoardImage> boardImageList = dao.selectBoardImageList(boardNo);
+		map.put("boardImageList", boardImageList);
+
+		// 회원 정보 조회
+		List<Member> sellMember = dao.sellMemberInfo(memberNo);
+		map.put("sellMember", sellMember);
+
+		return map;
+	}
 
 	// 본인이 쓴 문의글 수 조회
 	@Override
@@ -235,6 +260,8 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+
+	
 
 	
 

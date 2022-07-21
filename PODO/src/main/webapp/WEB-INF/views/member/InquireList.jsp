@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1:1문의</title>
 
-    <link rel="stylesheet" href="${contextPath}/css/member/inquireList.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/inquireList.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 

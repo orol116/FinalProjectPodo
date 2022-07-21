@@ -92,6 +92,10 @@ public interface MemberService {
 
 
 	int inquireCount(int memberNo);
+
+
+
+	Map<String, Object> itemDetail(int boardNo);
 	
 
 
