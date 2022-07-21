@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import edu.kh.podo.chat.model.dao.ChatDAO;
 import edu.kh.podo.chat.model.vo.ChatList;
+import edu.kh.podo.chat.model.vo.ChatMessage;
 import edu.kh.podo.chat.model.vo.ChatRoom;
+import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.vo.Member;
 
 @Service
@@ -55,10 +57,12 @@ public class ChatServiceImpl implements ChatService {
 		map.put("myMemberNo", myMemberNo);
 		map.put("boardNo", boardNo);
 		
-		// 채팅방이 이미 존재하는지 조회
+		// 채팅방이 이미 존재하는지 DAO 호출하여 조회
 		int chatNo  = dao.selectChatRoom(map);
 		
 		if (chatNo == 0) {
+			
+			// 채팅방 참여 DAO 호출
 			chatNo = dao.createChat(map);
 			
 			dao.joinChat(map);
@@ -66,6 +70,15 @@ public class ChatServiceImpl implements ChatService {
 		
 			
 		return chatNo;
+	}
+
+	// 채팅 메세지 삽입 Service 구현
+	@Override
+	public int insertMessage(ChatMessage chatMessage) {
+		
+		chatMessage.setMessageContent(Util.newLineHandling(chatMessage.getMessageContent()));
+		
+		return dao.insertMessage(chatMessage);
 	}
 
 }

@@ -1,4 +1,6 @@
+var chattingNo = 0;
 
+// 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
 	
 	console.log(chatNo);
@@ -14,6 +16,8 @@ function listClickFn(chatNo) {
 
 			console.log(data.myDetail);
 			console.log(data.otherDetail);
+
+			chattingNo = chatNo;
 		},
 
 		error : function() {
@@ -22,6 +26,22 @@ function listClickFn(chatNo) {
 	});
 
 }
+
+// 1:1 채팅 시 만들어진 방이 있다면 바로 참여하기
+(function(){
+
+	if(createChatNo != ""){
+		const chatDivList = document.getElementsByClassName("chatDiv");
+
+		for(let chatDiv of chatDivList){
+			if(chatDiv.getAttribute("id") == createChatNo){
+				chatDiv.click();
+				break;
+			}
+		}
+	}
+
+})();
 
 
 
@@ -62,16 +82,10 @@ function sendMessage(){
 
 		// 메세지 입력 시 필요한 데이터를 js객체로 생성
 		const chatMessage = {
-			"chatNo" : chatNo,
-			"boardNo" : boardNo,
+			"chatNo" : chattingNo,
 			"memberNo" : memberNo,
 			"memberNickname" : memberNickname,
-			"message" : inputChatting.value
-			/* "memberNo" : memberNo,
-			"buyMemberNo" : buyMemberNo,
-			"chatNo" : chatNo,
-			"boardNo" : boardNo,
-			"message" : inputChatting.value */
+			"messageContent" : inputChatting.value
 		};
 
 
@@ -83,6 +97,8 @@ function sendMessage(){
 		// chattingSock(웹소켓 객체)을 이용하여 메세지 보내기
 		// chattingSock.send(값) : 웹소켓 핸들러로 값을 보냄
 		chattingSock.send( JSON.stringify(chatMessage) );
+
+		console.log("메세지 보내기 성공");
 
 		inputChatting.value = ""; // 입력된 채팅 내용 삭제
 	}
@@ -166,17 +182,3 @@ function addZero(temp){
 
 
 
-(function(){
-
-	if(createChatNo != ""){
-		const chatDivList = document.getElementsByClassName("chatDiv");
-
-		for(let chatDiv of chatDivList){
-			if(chatDiv.getAttribute("id") == createChatNo){
-				chatDiv.click();
-				break;
-			}
-		}
-	}
-
-})();

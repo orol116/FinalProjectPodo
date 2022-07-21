@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -27,8 +26,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.google.gson.Gson;
-
+import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -350,7 +348,13 @@ public class MemberController {
 	
 	// 본인이 쓴 문의글 리스트 조회
 	@GetMapping("/inquireList")
-	public String inquireWrite() {
+	public String inquireWrite(@ModelAttribute("loginMember") Member loginMember
+								, Model model) {
+		
+		int memberNo = loginMember.getMemberNo();
+		List<Admin> inquireList= service.inquireList(memberNo);
+		
+		model.addAttribute("inquireList", inquireList);
 		
 		return "member/inquireList";
 	}

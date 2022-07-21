@@ -2,6 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 
+<c:set var="memberNo" value="${map.memberNo}" />
+<c:set var="sellMember" value="${map.sellMember}" />
+<c:set var="inquireDetail" value="${map.inquireDetail}" />
+<c:set var="boardNo" value="${boardNo}" />
+<c:set var="boardImageList" value="${map.boardImageList}" />
+
+<c:set var="inquireList" value="${inquireList}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,33 +35,36 @@
         </nav>
     </div>
     <div class="list1">
-        <ul> 
-            <li id="one">
-                <div class="list2">
-                    <section class="list3">
-                        <section class="list4">
-                            <h4>기타</h4>
-                            <a href="#">기타서비스</a>
+
+        <c:forEach var="list" items="${inquireList}">
+            <ul> 
+                <li id="one">
+                    <div class="list2">
+                        <section class="list3">
+                            <section class="list4">
+                                <h4>${list.classification}</h4>
+                                <a href="inquireList/detail/${list.boardNo}">${list.classification}</a>
+                            </section>
+                            <button id="show">문의취소</button>
                         </section>
-                        <button id="show">문의취소</button>
-                    </section>
-                    <p>접수완료</p>
-                    <div class="background">
-                        <div class="window">
-                          <div class="popup">
-                            <button id="close" type="button">x</button>
-                            <div id="report-text">해당문의를 취소하시겠습니까?</div>
-                            <div id="report-area">
-                                <button id="ok">확인</button>
-                                <button id="cancel">취소</button>  
+                        <p>접수완료</p>
+                        <div class="background">
+                            <div class="window">
+                            <div class="popup">
+                                <button id="close" type="button">x</button>
+                                <div id="report-text">해당문의를 취소하시겠습니까?</div>
+                                <div id="report-area">
+                                    <button id="ok">확인</button>
+                                    <button id="cancel">취소</button>  
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </c:forEach>
               
-          <ul> 
+          <%-- <ul> 
             <li id="one">
                 <div class="list2">
                     <section class="list3">
@@ -103,7 +114,7 @@
                 </div>
             </li>
         </ul>
-        
+         --%>
     </div>
 
     <div class="inform">
