@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.kh.podo.chat.model.vo.ChatList;
+import edu.kh.podo.chat.model.vo.ChatMessage;
 import edu.kh.podo.chat.model.vo.ChatRoom;
 
 public interface ChatService {
@@ -28,5 +29,11 @@ public interface ChatService {
 	 * @return result
 	 */
 	int startChat(int memberNo, int myMemberNo, int boardNo);
+
+	/** 채팅 메세지 삽입 Service
+	 * @param chatMessage
+	 * @return result
+	 */
+	int insertMessage(ChatMessage chatMessage);
 
 }
