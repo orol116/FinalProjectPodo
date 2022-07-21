@@ -57,7 +57,7 @@
                             <c:forEach var="chatList" items="${chatRoomList}">
                                 <div class="card-box">
                                     <%-- 클릭 시 우측 채팅창으로 이동 --%>
-                                    <a href="">
+                                    <div class="chatDiv" onclick="listClickFn(${chatList.chatNo})">
                                         <li class="chatList">
 
                                             <c:if test="${chatList.memberProfile == null}">
@@ -78,7 +78,7 @@
                                                 <div class="sentDate">${chatList.messageTime}</div><%-- 전송날짜 --%>
                                             </div>
                                         </li>
-                                    </a>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </c:otherwise>
@@ -146,7 +146,7 @@
                                 <%-- 조회된 채팅방 목록이 있을 때 --%>
                                 
                                     
-                                    <c:forEach items="${list}" var="msg">
+                                    <c:forEach items="${chatDetail}" var="msg">
 
                                         <fmt:formatDate var="chatDate" value="${msg.messageTime }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 

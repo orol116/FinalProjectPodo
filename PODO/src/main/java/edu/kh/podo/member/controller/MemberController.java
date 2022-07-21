@@ -1,6 +1,8 @@
 package edu.kh.podo.member.controller;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
@@ -104,7 +107,7 @@ public class MemberController {
 
 		} else {
 
-			path = "/signUp";
+			path = "/member/signUp";
 			ra.addFlashAttribute("message", "회원가입 실패");
 		}
 
@@ -279,7 +282,7 @@ public class MemberController {
 
 		} else {
 
-			path = "/signUp";
+			path = "/member/signUp";
 			ra.addFlashAttribute("message", "회원가입 실패");
 		}
 
@@ -287,24 +290,62 @@ public class MemberController {
 	}
 
 	
-		// 1:1문의 페이지
-		@GetMapping("/inquire")
-		public String inquire() {
-			return "member/inquire";
-		}
-
-		// 상품관리 페이지
-		@GetMapping("/itemManage")
-		public String manage() {
+	// 1:1문의 페이지
+	@GetMapping("/inquire")
+	public String inquire() {
+		return "member/inquire";
+	}
 	
-			return "member/itemManage";
-		}
+	@PostMapping("/inquire")
+	public String inquireWrite(@RequestParam Map<String, Object> paramMap
+							 , @ModelAttribute("loginMember") Member loginMember
+							 , @RequestParam(value="images", required=false) List<MultipartFile> imageList
+							 , HttpServletRequest req
+							 , RedirectAttributes ra) throws IOException  {
+		
+		paramMap.put("memberNo", loginMember.getMemberNo());
+		
+		String webPath = "/resources/images/item";
 
-		// 아이디 찾기 페이지 전환
-		@GetMapping("/findId")
-		public String fingId() {
-			return "/member/member-find-ID";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		int boardNo = service.inquireWrite(paramMap, imageList, webPath, folderPath);
+		
+		String path = null;
+		String message = null;
+		
+		if(boardNo>0) { // 게시글 등록 성공
+			path="/member/inquireList?memberNo="+loginMember.getMemberNo();
+			message = "문의가 등록되었습니다.";
+		}else {
+			path = req.getHeader("referer");
+			message = "문의 등록 실패...";
 		}
+		ra.addFlashAttribute("message",message);
+		
+		return "redirect:"+path;
+	}
+	
+	@GetMapping("/inquireList")
+	public String inquireWrite() {
+		
+		
+		return "member/inquireList";
+	}
+		
+
+	// 상품관리 페이지
+	@GetMapping("/itemManage")
+	public String manage() {
+
+		return "member/itemManage";
+	}
+
+	// 아이디 찾기 페이지 전환
+	@GetMapping("/findId")
+	public String fingId() {
+		return "/member/member-find-ID";
+	}
 
 	// 핸드폰 본인인증(아이디 찾기)
 	@GetMapping("/phoneCheck")
@@ -397,4 +438,73 @@ public class MemberController {
 
 		return "/member/inputPw";
 	}
+	
+	
+	// 비밀번호 재설정(아이디 찾기)
+	@PostMapping("/resetPw")
+	public String resetPw(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra) {
+		
+		int result = service.resetPw(inputMember);
+		
+		String path = null;
+		if(result > 0) {
+			ra.addFlashAttribute("message", "비밀번호가 변경되었습니다.");
+			path = "/member/login";
+		
+		} else {
+			ra.addFlashAttribute("message", "비밀번호가 변경실패");
+			path = "/member/findId";
+		}
+		
+		return "redirect:" + path;
+		
+	}
+	
+	// 비밀번호 재설정(아이디 찾기)
+	@PostMapping("/resetPw2")
+	public String resetPw2(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra) {
+		
+		int result = service.resetPw(inputMember);
+		
+		String path = null;
+		
+		if(result > 0) {
+			ra.addFlashAttribute("message", "비밀번호가 변경되었습니다.");
+			path = "/member/login";
+		
+		} else {
+			ra.addFlashAttribute("message", "비밀번호가 변경실패");
+			path = "/member/findId";
+		}
+		
+		return "redirect:" + path;
+		
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

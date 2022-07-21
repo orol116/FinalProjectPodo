@@ -76,17 +76,29 @@ function CerValidate(){
 }; 
 
 
-const checkId = document.getElementsByName("memberId");
 
 function CheckId() {
+    
+    const checkId = document.getElementsByName("memberId");
 
-    if(!checkId.checked) {
-        alert("아이디를 선택해주세요.");
+    var idType = null;
 
+    for(var i=0; i<checkId.length; i++){
+
+        if(checkId[i].checked == true){
+            idType = checkId[i].value;
+        }
     }
-    return false;
 
-}
+    if(idType == null){
+        alert("아이디를 선택해주세요");
+            return false;
+    }
+    
+   
+
+    return true;
+};
 
         
 

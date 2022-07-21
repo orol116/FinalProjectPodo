@@ -71,7 +71,7 @@
                                     <button type="button" class="add-fav-btn">찜하기</button>
                                 </p> --%>
 
-                                <form class="openChat" id="openChat" method="POST" action="${contextPath}/member/podoTalk">
+                                <form class="openChat" id="openChat" method="POST" action="${contextPath}/chat/roomList">
                                     
                                     <button id="do-chat">1:1 채팅하기</button>
                                     <%-- <button id="chatting">1:1 채팅하기</button> --%>

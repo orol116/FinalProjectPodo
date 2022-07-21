@@ -74,8 +74,9 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 		item.setBoardTitle(Util.XSSHandling(item.getBoardTitle()));
 		item.setBoardContent(Util.XSSHandling(item.getBoardContent()));
+		
 		item.setCoordinate(crdnt);
-		crdnt.setBoardNo(item.getBoardNo());
+		
 //		item.setBoardContent(Util.newLineHandling(item.getBoardContent()));
 		
 		int boardNo = dao.insertBoard(item);		
@@ -124,8 +125,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 						// 2. 이것을 파일이 존재하는 것만 boardImageList에 저장한다. 이 때, 경로 webPath가 붙어서 이동한다.
 						// 3. reNameList는 바뀐 이름을 저장한다.
 					}
-
-				} else {
+				}else{
 
 				}
 			}

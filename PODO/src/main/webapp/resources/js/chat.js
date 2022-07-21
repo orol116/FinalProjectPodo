@@ -1,27 +1,29 @@
-(()=>{
-	if(document.getElementById("chatting") != null){
 
-		document.getElementById("chatting").addEventListener("click", () => {
-			const modal = document.querySelector('.modal');
-			modal.classList.add('show');
-			modal.classList.remove('hide');
-		});
+function listClickFn(chatNo) {
+	
+	console.log(chatNo);
 
-		document.getElementById("modal-close").addEventListener("click", () => {
-			const modal = document.querySelector('.modal');
-			modal.classList.add('hide');
-			modal.classList.remove('show');
-		});
+	$.ajax({
+		url : contextPath + "/chat/chatDetail",
+		data : { "chatNo" : chatNo },
+		type : "GET",
+		dataType : "JSON",
 
-		document.getElementById("open-form").addEventListener("submit", e => {
-			const chatRoomTitle = document.getElementById("chatRoomTitle");
-			if( chatRoomTitle.value.trim().length == 0){
-				alert("채팅방 제목을 입력해주세요.");
-				e.preventDefault(); // form태그 기본 이벤트 제거
-			}
-		});
-	}
-})();
+		success : function(data) {
+			console.log(chatNo);
+
+			console.log(data.myDetail);
+			console.log(data.otherDetail);
+		},
+
+		error : function() {
+			alert("에러 발생");
+		}
+	});
+
+}
+
+
 
 // -------------------------------------------------------------------------
 
@@ -60,11 +62,16 @@ function sendMessage(){
 
 		// 메세지 입력 시 필요한 데이터를 js객체로 생성
 		const chatMessage = {
+			"chatNo" : chatNo,
+			"boardNo" : boardNo,
 			"memberNo" : memberNo,
+			"memberNickname" : memberNickname,
+			"message" : inputChatting.value
+			/* "memberNo" : memberNo,
 			"buyMemberNo" : buyMemberNo,
 			"chatNo" : chatNo,
 			"boardNo" : boardNo,
-			"message" : inputChatting.value
+			"message" : inputChatting.value */
 		};
 
 

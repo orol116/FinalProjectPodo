@@ -27,7 +27,7 @@
         <div id="contaioner">
             
             <h3>아이디 찾기</h3>
-            <form action="inputPw" method="POST" >
+            <form action="inputPw" method="POST" onsubmit="return CheckId()">
                 <fieldset id="comfirm_id">
                     <span id="an_message">고객님의 정보와 일치하는 아이디 목록입니다.</span>
                         <section id="confirm_area">
@@ -47,7 +47,7 @@
                             </div>
                             <div class="btn_area">
                                 <button id="login_btn" type="button" onclick="location.href = '${contextPath}/member/login'">로그인하기</button>
-                                <button id="findPw_btn" onclick="CheckId()">비밀번호 찾기</button>
+                                <button id="findPw_btn">비밀번호 찾기</button>
                             </div>
                         </section>
                 </fieldset>

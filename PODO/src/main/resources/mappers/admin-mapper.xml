@@ -238,32 +238,22 @@
 		<!-- 검색어가 있을 경우 -->
 		<if test='query !=null and query != ""'>
 		
-			AND
+			WHERE
 			<choose>
-				<when test='key == "all"'>
+				<when test='key == "s"'>
 					BOARD_TITLE LIKE '%${query}%'
-					AND CLASSIFICATION = '대분류'
+					AND TRADE_CONDITION = '판매 중'
 				</when>
 				
-				<when test='key == "w"'>
+				<when test='key == "r"'>
 					BOARD_TITLE LIKE '%${query}%'
-					AND CLASSIFICATION = '여성의류'
+					AND TRADE_CONDITION = '예약 중'
 				</when>
 				
-				<when test='key == "m"'>
+				<when test='key == "e"'>
 					BOARD_TITLE LIKE '%${query}%'
-					AND CLASSIFICATION = '남성의류'
+					AND TRADE_CONDITION = '판매완료' 
 				</when>
-				
-				<when test='key == "j"'>
-					BOARD_TITLE LIKE '%${query}%'
-					AND CLASSIFICATION = '시계/쥬얼리'
-				</when>
-				<when test='key == "d"'>
-					BOARD_TITLE LIKE '%${query}%'
-					AND CLASSIFICATION = '디지털 가전'
-				</when>
-				
 			</choose>
 		</if>
 	
@@ -406,30 +396,26 @@
 		JOIN M_CATEGORY USING(M_CATEGORY_NO)
 		
 		<!-- 검색어가 있을 경우 -->
-		<if test='query !=null and query != ""'>
+		<if test='query !=null'>
 		
-			AND
+			WHERE
 					
 			<choose>
-				<when test='key == "1"'>
+				<when test='key == "s"'>
 					BOARD_TITLE LIKE '%${query}%'
-					AND CLASSIFICATION = #{key}
+					AND TRADE_CONDITION = '판매 중'
 				</when>
 				
-				<when test='key == "2"'>
-					BOARD_CONTENT LIKE '%${query}%'
-					AND CLASSIFICATION = #{key}
-				</when>
-				
-				<when test='key == "3"'>
+				<when test='key == "r"'>
 					BOARD_TITLE LIKE '%${query}%'
-					AND CLASSIFICATION = #{key}
+					AND TRADE_CONDITION = '예약 중'
 				</when>
 				
-				<when test='key == "4"'>
-					MEMBER_NICK LIKE '%${query}%'
-					AND CLASSIFICATION = #{key}
+				<when test='key == "e"'>
+					BOARD_TITLE LIKE '%${query}%'
+					AND TRADE_CONDITION = '판매완료' 
 				</when>
+				
 			</choose>
 		</if>
 		
@@ -467,7 +453,7 @@
 	<insert id="insertBoard"  useGeneratedKeys="true"> 
 	
 		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
-			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+			SELECT SEQ_ADMIN_BOARD_NO.NEXTVAL FROM DUAL
 		
 		</selectKey>
 	
