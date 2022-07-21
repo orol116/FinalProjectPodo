@@ -4,82 +4,116 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1:1문의</title>
+    <title>1:1문의 상세페이지</title>
 
     <link rel="stylesheet" href="../../css/member/inquireDetail.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
 </head>
 
+
 <header>
-    <header>
 
-        <link rel="stylesheet" href="../../css/header-style.css">
+    <link rel="stylesheet" href="../../css/header-style.css">
+
+    <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
     
-        <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
+    <div id="top">
+        <a href="#">로그인
+        <a href="#">회원가입
+        <a href="#">고객센터
+    </div>
+
+    <div id="header">
+        <section id="menu"> 
+            <i class="fa-solid fa-bars"></i>
+            <a href="${contextPath}" >
+                <img src="../../images/logo.png" id="home-logo">
+            </a>
+        </section>
         
-        <div id="top">
-            <a href="#">로그인
-            <a href="#">회원가입
-            <a href="#">고객센터
-        </div>
-    
-        <div id="header">
-            <section id="menu"> 
-                <i class="fa-solid fa-bars"></i>
-                <a href="${contextPath}" >
-                    <img src="../../images/logo.png" id="home-logo">
-                </a>
-            </section>
-            
-            <section class="mid-header">
-                <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
-                <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </section>
-            <section class="right-header">
-                <button class="button" onclick = "location.href = '${contextPath}/member-upload'"><i class="fa-solid fa-won-sign"></i>판매하기</button>
-                <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-house-user"></i>내상점</button>   
-                <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
-            </section>
+        <section class="mid-header">
+            <input id="search2" type="text" placeholder="상품명을 입력해주세요.">
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </section>
+        <section class="right-header">
+            <button class="button" onclick = "location.href = '${contextPath}/member-upload'"><i class="fa-solid fa-won-sign"></i>판매하기</button>
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-house-user"></i>내상점</button>   
+            <button class="button" onclick = "location.href = '#'"><i class="fa-solid fa-message"></i>포도톡</button>
+        </section>
 
-        </div>
-    </header>
-
+    </div>
 </header>
+
+
+
 <body>
 <div class="body">
     <div class="top-menu">
         <nav id="mainMenu">
             <h3>1:1문의</h3>
-            <a id="inquire" href="#">문의하기</a>
+            <!-- <a id="inquire" href="#">문의하기</a> -->
         </nav>
     </div>
     <div class="list1">
-        
 
+        <div class="list2">
+            <section class="list3">
+                <p>기타서비스</p>
+                <h2>기타</h2>
+                <p>2022.07.19 15:44:35</p>
+            </section>
+            <section class="list4">
+                <div class="list5">
+                  
+                    <div> 문의글 내용</div>
+                    <section>
+                        <a href="#" >
+                            <img src="../../images/logo.png" id="photo1">
+                        </a>
+                        <a href="#" >
+                            <img src="../../images/logo.png" id="photo1">
+                        </a>
+                        <a href="#" >
+                            <img src="../../images/logo.png" id="photo1">
+                        </a>
+                        <a href="#">
+                            <img src="../../images/logo.png" id="photo1">
+                        </a>
+                        <a href="#">
+                            <img src="../../images/logo.png" id="photo1">
+                        </a>
+                    </section>
+                </div>
+                <img href="../../images/image.png">
+            </section>
+        </div>
+    
+    </div>
+        <div id="chat">
+            <p>고객센터가 문제를 알아보고 있어요.<br>조금만 기다려주세요.</p>
+                
+            <div id="reply1">
 
+                <textarea placeholder="답변을 입력해 주세요." ></textarea>
+                <button id="reply2">등록</button>
 
-
-
-
-
-
-
-
-
-
-
-
+            </div>
+        </div>
 
 
     </div>
-
-    <div class="inform">
-        
-    </div>
-
   
-      
+    
+   
+</div>
+<div class="inform">
+    <h4>유의사항</h4>
+    <ul>
+        <li>자주묻는 질문을 확인하면 답변을 빨리 받을 수 있어요.</li>
+        <li>접수는 24시간 가능하지만, 답변은 9시~18시 사이에 순차적으로 받을 수 있어요.</li>
+        <li>문의 취소는 접수상태에서만 가능해요.</li>
+    </ul>
 </div>
 </body>
 <footer>
