@@ -117,6 +117,7 @@ chattingSock.onmessage = function(e){
 	span.innerText = currentTime(); // 날짜
 
 	// 내가 쓴 채팅 : span -> p
+	
 	// 남이 쓴 채팅 : p -> span
 
 	// 내가 쓴 채팅일 경우
