@@ -88,6 +88,10 @@ public interface MemberService {
 	 * @return result
 	 */
 	int resetPw(Member inputMember);
+
+
+
+	int inquireCount(int memberNo);
 	
 
 

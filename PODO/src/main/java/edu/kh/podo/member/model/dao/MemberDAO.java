@@ -137,5 +137,15 @@ public class MemberDAO {
 
 
 
+	/** 본인이 쓴 1대1 문의글 숫자 조회 
+	 * @param memberNo
+	 * @return
+	 */
+	public int inquireCount(int memberNo) {
+		return sqlSession.selectOne("memberMapper.inquireCount",memberNo);
+	}
+
+
+
 
 }
