@@ -146,6 +146,33 @@ public class MemberDAO {
 	}
 
 
+	/** 1대1 문의에 해당하는 회원 번호 조회 DAO
+	 * @param boardNo
+	 * @return memberNo
+	 */
+	public int selectMemberNo(int boardNo) {
+		return sqlSession.selectOne("memberMapper.selectMemberNo", boardNo);
+	}
+
+
+	/** 1대1 문의에 해당하는 회원 번호의 상세조회 이미지 조회 DAO
+	 * @param boardNo
+	 * @return list
+	 */
+	public List<BoardImage> selectBoardImageList(int boardNo) {
+		return sqlSession.selectList("memberMapper.selectBoardImageList", boardNo);
+	}
+
+
+	/** 1대1 문의 회원 정보 조회 DAO
+	 * @param memberNo
+	 * @return sellMember
+	 */
+	public List<Member> sellMemberInfo(int memberNo) {
+		return sqlSession.selectList("memberMapper.sellMemberInfo", memberNo);
+	}
+
+
 
 
 }
