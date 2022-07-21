@@ -3,6 +3,7 @@ const checkObj = {
     "memberId"     : false,
     "memberPw"        : false,
     "memberPwConfirm" : false,
+    "memberName"      : false,
     "memberNickname"  : false,
     "memberTel"       : false,
     "memberAddress"   : false
@@ -92,7 +93,7 @@ memberId.addEventListener("input", function(){
                         idMessage.classList.remove("confirm");
                         checkObj.memberId = false; // 유효 X 기록
 
-                        idResult = 1;
+                        
     
                     } else { 
                         idMessage.innerText = "사용 가능한 아이디 입니다.";
@@ -100,7 +101,7 @@ memberId.addEventListener("input", function(){
                         idMessage.classList.remove("error");
                         checkObj.memberId = true; 
 
-                        idResult = 2;
+                        
                     }   
 
                 },
@@ -123,6 +124,27 @@ memberId.addEventListener("input", function(){
     }
 
 });
+// 닉네임 유효성 검사
+const memberName = document.getElementById("memberName");
+const nameMessage = document.getElementById("nameMessage");
+
+memberName.addEventListener("input", function(){
+
+       // 입력되지 않은 경우
+       if(memberName.value.length == 0){
+
+        checkObj.memberName = false; // 유효 X 기록
+        return;
+    }else{
+        // 입력이 된경우
+        checkObj.memberName = true;
+    }
+
+
+
+});
+
+
 
 // 닉네임 유효성 검사
 const memberNickname = document.getElementById("memberNickname");
@@ -278,24 +300,6 @@ function checkPw(){ // 비밀번호 일치 검사
     }
 }
 
-const memberAddress = document.getElementById("memberAddress");
-const addressMessage = document.getElementById("addressMessage");
-
-memberAddress.addEventListener("input", function(){
-
-    if(memberAddress.value.length == 0){
-        addressMessage.innerText = "주소를 작성해주세여.";
-        addressMessage.classList.remove("confirm", "error");
-
-        checkObj.memberAddress = false; // 유효 X 기록
-        return;
-    }else{
-        addressMessage.innerText = "주소가 작성되었습니다.";
-        checkObj.memberAddress = true;
-    }
-
-});
-
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = {
     center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
@@ -350,20 +354,56 @@ new daum.Postcode({
 }).open();
 }
 
+const memberAddress = document.getElementById("memberAddress");
+const addressMessage = document.getElementById("addressMessage");
 
 
+/* memberPw.addEventListener("input", function(){
+       // 입력되지 않은 경우
+       if(memberAddress.value.length == 0){
+        checkObj.memberAddress = false; // 유효 X 기록
+        return;
+    }else{
+        // 입력이 된경우
+        checkObj.memberAddress = true;
+        console.log("입력됨");
+        addressMessage.innerText = "주소가 입렫외었습니다.";
+        addressMessage.classList.add("confirm");
+        addressMessage.classList.remove("error");
+    }
+}); */
 
+function memberAddr(){
+
+
+    // 입력되지 않은 경우
+    if(memberAddress.value.length == 0){
+        checkObj.memberAddress = false; // 유효 X 기록
+        return;
+    }else{
+        // 입력이 된경우
+        checkObj.memberAddress = true;
+        console.log("입력됨");
+        addressMessage.innerText = "주소가 입렫외었습니다.";
+        addressMessage.classList.add("confirm");
+        addressMessage.classList.remove("error");
+    }
+}
 
 // 회원가입 버튼 클릭 시 유효성 검사가 완료 되었는지 확인하는 함수
 function signUpValidate(){
 
+    memberAddr();
+
     // checkObj에 있는 모든 속성을 반복 접근하여
     // false가 하나라도 있는 경우에는 form태그 기본 이벤트 제거
 
-    document.getElementById("dLon").value = dLon;
-    document.getElementById("dLat").value = dLat;
+    /* document.getElementById("dLon").value = dLon;
+    document.getElementById("dLat").value = dLat; */
 
     let str;
+
+    console.log(memberAddress.value.length);
 
     for( let key  in checkObj ){ // 객체용 향상된 for문
 
@@ -371,9 +411,10 @@ function signUpValidate(){
         if( !checkObj[key] ){ 
 
             switch(key){
-            case "memberEmail":     str="이메일이"; break;
+            case "memberId":     str="아이디가"; break;
             case "memberPw":        str="비밀번호가"; break;    
             case "memberPwConfirm": str="비밀번호 확인이"; break;
+            case "memberName":  str="이름이"; break;
             case "memberNickname":  str="닉네임이"; break;
             case "memberTel":       str="전화번호가"; break;
             case "memberAddress" : str="주소가"; break;
@@ -401,21 +442,3 @@ function signUpValidate(){
     return true; // form태그 기본 이벤트 수행
 
 };
-
-
-// 주소 검색
-function sample4_execDaumPostcode() {
-    new daum.Postcode({
-        oncomplete: function(data) {
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var roadAddr = data.roadAddress; // 도로명 주소 변수
-
-            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('sample4_postcode').value = data.zonecode;
-            document.getElementById("sample4_roadAddress").value = roadAddr;
-        }
-    }).open();
-}
