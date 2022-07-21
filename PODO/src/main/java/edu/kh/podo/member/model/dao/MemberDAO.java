@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.member.model.vo.Member;
 
 @Repository
@@ -122,6 +123,16 @@ public class MemberDAO {
 	public int resetPw(Member inputMember) {
 		
 		return sqlSession.update("memberMapper.resetPw",inputMember);
+	}
+
+
+
+	/**1대1 문의글 작성 및 이미지 삽입
+	 * @param boardImageList
+	 * @return
+	 */
+	public int insertBoardImageList(List<BoardImage> boardImageList) {
+		return sqlSession.insert("memberMapper.insertBoardImageList",boardImageList);
 	}
 
 
