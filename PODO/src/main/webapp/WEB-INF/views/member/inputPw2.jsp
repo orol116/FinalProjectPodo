@@ -31,6 +31,7 @@
                     <div class="myPage-row">
                         <c:forEach var="findMember" items="${findMember}">
                             <label name="memberId">PODO 아이디 :</label><span style="color: #5f0081; display: inline;">${findMember}</span> 
+                            <input type="hidden" name="memberId" value="${findMember}">
                         </c:forEach>
                     </div>
                     <div class="myPage-row">
