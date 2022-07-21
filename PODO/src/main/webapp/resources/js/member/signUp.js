@@ -8,9 +8,6 @@ const checkObj = {
     "memberAddress"   : false
     //"sendEmail"       : false   // 인증번호 발송 체크
 };
-
-
-
 // 전화번호 유효성 검사
 const memberTel = document.getElementById("memberTel");
 const telMessage = document.getElementById("telMessage");
@@ -50,10 +47,6 @@ memberTel.addEventListener("input", function(){
         checkObj.memberTel = false; // 유효하지 않은 상태임을 기록
     }
 });
-
-
-
-
 // 아dl디
 const memberId = document.getElementById("memberId");
 const idMessage = document.getElementById("idMessage");
@@ -74,8 +67,6 @@ memberId.addEventListener("input", function(){
 
     const idResult = 0;
 
-
-
     if( regExp.test(memberId.value) ){ // 유효한 경우
 
         
@@ -83,8 +74,6 @@ memberId.addEventListener("input", function(){
         idMessage.innerText = "사용 가능한 아이디 입니다.";
         idMessage.classList.add("confirm");
         idMessage.classList.remove("error");
-
-        
         
          document.getElementById("idDupCheck").addEventListener("click",function(){
             $.ajax({
@@ -97,7 +86,6 @@ memberId.addEventListener("input", function(){
     
                 success : function(result){
                     
-    
                     if(result == 1){ 
                         idMessage.innerText = "이미 사용중인 아이디 입니다.";
                         idMessage.classList.add("error");
@@ -113,8 +101,7 @@ memberId.addEventListener("input", function(){
                         checkObj.memberId = true; 
 
                         idResult = 2;
-                    }
-                    
+                    }   
 
                 },
                 
@@ -136,7 +123,6 @@ memberId.addEventListener("input", function(){
     }
 
 });
-
 
 // 닉네임 유효성 검사
 const memberNickname = document.getElementById("memberNickname");
@@ -215,7 +201,6 @@ memberNickname.addEventListener("input", function(){
 });
 
 
-
 // 비밀번호 유효성 검사
 const memberPw = document.getElementById("memberPw");
 const memberPwConfirm = document.getElementById("memberPwConfirm");
@@ -241,11 +226,7 @@ memberPw.addEventListener("input", function(){
         if(memberPwConfirm.value.length == 0){ // 비밀번호 유효, 확인 작성 X
             pwMessage.innerText = "유효한 비밀번호 형식입니다.";
             pwMessage.classList.add("confirm");
-            pwMessage.classList.remove("error");
-
-            
-            
-            
+            pwMessage.classList.remove("error");         
 
             checkObj.memberPw = true;
         
@@ -261,7 +242,6 @@ memberPw.addEventListener("input", function(){
         checkObj.memberPw = false; // 유효 X 기록
     }
 });
-
 
 // 비밀번호 확인 유효성 검사
 
@@ -316,7 +296,59 @@ memberAddress.addEventListener("input", function(){
 
 });
 
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+mapOption = {
+    center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+    level: 5 // 지도의 확대 레벨
+};
 
+//지도를 미리 생성
+var map = new daum.maps.Map(mapContainer, mapOption);
+//주소-좌표 변환 객체를 생성
+var geocoder = new daum.maps.services.Geocoder();
+//마커를 미리 생성
+var marker = new daum.maps.Marker({
+position: new daum.maps.LatLng(37.537187, 127.005476),
+map: map
+});
+
+let dLat = "";
+let dLon = "";
+
+
+function sample5_execDaumPostcode() {
+new daum.Postcode({
+    oncomplete: function(data) {
+        var addr = data.address; // 최종 주소 변수
+
+        // 주소 정보를 해당 필드에 넣는다.
+        document.getElementById("memberAddress").value = addr;
+        // 주소로 상세 정보를 검색
+        geocoder.addressSearch(data.address, function(results, status) {
+            // 정상적으로 검색이 완료됐으면
+            if (status === daum.maps.services.Status.OK) {
+
+                var result = results[0]; //첫번째 결과의 값을 활용
+
+                // 해당 주소에 대한 좌표를 받아서
+                var coords = new daum.maps.LatLng(result.y, result.x);
+
+                dLon = result.x;
+                dLat = result.y;
+
+                // 지도를 보여준다.
+                mapContainer.style.display = "block";
+                map.relayout();
+                // 지도 중심을 변경한다.
+                map.setCenter(coords);
+                // 마커를 결과값으로 받은 위치로 옮긴다.
+                marker.setPosition(coords);
+                
+            }
+        });
+    }
+}).open();
+}
 
 
 
@@ -327,6 +359,9 @@ function signUpValidate(){
 
     // checkObj에 있는 모든 속성을 반복 접근하여
     // false가 하나라도 있는 경우에는 form태그 기본 이벤트 제거
+
+    document.getElementById("dLon").value = dLon;
+    document.getElementById("dLat").value = dLat;
 
     let str;
 
