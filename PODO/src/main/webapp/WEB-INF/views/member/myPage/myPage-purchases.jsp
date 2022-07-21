@@ -83,13 +83,13 @@
                                         </c:when>
 
                                         <%-- -------------------------------------------------------------------------------------------------- --%>
-                                        <%-- 구매내역 출력부 --%>
+                                        <%-- 판매내역 출력부 --%>
 
                                         <%-- 출력 부 테스트 --%>
                                         <c:otherwise>
-                                            <c:forEach var="buy" items="${buyList}">
+                                            <c:forEach var="buy" items="${sellList}">
 
-                                                <%-- 구매내역 카드 --%>
+                                                <%-- 판매내역 카드 --%>
                                                 <div class="history">
                                                     <div>
                                                         <div class="productSummaryCard">
@@ -138,53 +138,45 @@
                                             </div>
                                         </c:when>
                                     
-                                        <c:otherwise>
+                                         <c:otherwise>
                                             <c:forEach var="buy" items="${buyList}">
-                                                <%-- 구매내역 출력부 --%>
-                                                <%-- <li>
-                                                    <div class="thumb">
 
-                                                        <!-- 업로드 이미지가 있는 경우 -->
-                                                        <c:if test="${fn:length(favor.imageOriginal) > start}">
-
-                                                            <!-- 업로드 이미지 영역 -->
-                                                            <h5>업로드 이미지</h5>
-                                                            <div class="img-box">
-                                                                <c:forEach var="i" begin="${start}" end="${fn:length(favor.imageOriginal) -1 }">
-                                                                
-                                                                    <div class="boardImg">
-                                                                        <img src="${contextPath}${favor.imageOriginal[i].imageReName}">
-                                                                    </div>
-
-                                                                </c:forEach>
+                                                <%-- 구매내역 카드 --%>
+                                                <div class="history">
+                                                    <div>
+                                                        <div class="productSummaryCard">
+                                                            <%-- 상품 썸네일 영역 --%>
+                                                            <div class="productSummaryCard-thumbNail">
+                                                                <img src="#" alt="상품 이미지">
+                                                                <span class="productSummaryCard-status">
+                                                                    <img src="${contextPath}/resources/images/ic-circle-tick@3x.png" alt="">거래완료
+                                                                </span>
                                                             </div>
-
-                                                        </c:if>
-
-                                                    </div>
-                                                    <div class="gdsInfo">
-                                                        <p>
-                                                            <span>제목</span>${buy.boardTitle}<br>
-                                                            <span>가격</span>"${buy.price}"원<br>
-                                                            <span>등록일</span>${buy.updateDate}<br>
-                                                            <span>위치</span>
-                                                                <!-- 위치 로고 이미지 -->
-                                                                <img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">
-                                                                ${buy.sellArea}
-                                                        </p>
-                                                        
-                                                        <div class="review">
-                                                            <button type="button" class="review-btn" onclick="location.href='${contextPath}/member/review-write'">후기 작성</button>
+                                                            <%-- 물품 정보 --%>
+                                                            <aside class="productSummaryCard-container">
+                                                                <span class="productSummaryCard boardTitle">${board.boardTitle}</span>
+                                                                <span class="productSummaryCard price"><strong>${board.price}</strong>원</span>
+                                                                <span class="productSummaryCard memberNick">${member.memberNick}</span>
+                                                                <%-- 거래 완료일시, 컬럼 추가 필요?? --%>
+                                                                <span class="productSummaryCard-updateDate">
+                                                                    <time datetime="">board.updateDate</time>
+                                                                </span>
+                                                            </aside>
+                                                            
+                                                            </div>
+                                                            <%-- 후기 작성 --%>
+                                                            <div class="buttonContainer">
+                                                                <button class="review-button">후기 작성</button>
+                                                            </div>
                                                         </div>
-                                                    </div>   
-                                                </li> --%>
+                                                    </div>
+                                                </div>
+                
                                             </c:forEach>
                                         </c:otherwise>
                                     </c:choose>
                                 </div>
                             </div>
-
-                            
 
                         </div>
                     </nav>
