@@ -251,6 +251,13 @@ public class MemberServiceImpl implements MemberService {
 	public int inquireCount(int memberNo) {
 		return dao.inquireCount(memberNo);
 	}
+	
+	// 본인이 쓴 문의 글 전체 조회
+	@Override
+	public List<Admin> inquireList(int memberNo) {
+		return dao.inquireList(memberNo);
+	}
+
 
 
 	// 비밀번호 재설정(아이디)

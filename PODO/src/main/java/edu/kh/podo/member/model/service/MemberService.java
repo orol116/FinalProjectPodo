@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.member.model.dao.MemberDAO;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -96,6 +97,10 @@ public interface MemberService {
 
 
 	Map<String, Object> inquireDetail(int boardNo);
+
+
+
+	List<Admin>  inquireList(int memberNo);
 	
 
 
