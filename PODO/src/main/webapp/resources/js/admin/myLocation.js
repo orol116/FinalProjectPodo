@@ -64,13 +64,16 @@ new daum.Postcode({
 const address =  document.getElementById("sample5_address");
 document.getElementById("reset-address").addEventListener("click", function(){
 
+    $("#dLon").val(dLon); 
+    $("#dLat").val(dLat); 
+
     if(address.value.length != ""){
         console.log(dLon);
         console.log(dLat);
 
          $.ajax({
             url : "resetAddr",                     
-            data : { "dLon" : dLon, "dLat" : dLat },                
+            data : { "dLon" : dLon, "dLat" : dLat, "sample5_address" : sample5_address.value },                
             type : "GET",    
             success : function(){
                 alert("주소가 변경되었습니다.");

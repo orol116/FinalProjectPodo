@@ -77,5 +77,21 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.selectFavorList(memberNo);
 	}
 
+	// 주소 변경
+	@Override
+	public int resetAddr(Map<String, Object> crdntMap) {
+		
+		return dao.resetAddr(crdntMap);
+	}
+
+	// 위도 경도 변경
+	@Override
+	public int resetCrdnt(Map<String, Object> crdntMap) {
+		
+		return dao.resetCrdnt(crdntMap);
+	}
+
+	
+	
 
 }

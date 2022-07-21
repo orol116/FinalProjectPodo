@@ -56,11 +56,25 @@ public class MyPageDAO {
 		return sqlSession.selectList("myPageMapper.selectFavorList", memberNo);
 	}
 
-	public int resetPw(Member inputMember) {
-		
-		return 0;
+	
+	/** 주소 변경
+	 * @param crdntMap
+	 * @return result
+	 */
+	public int resetAddr(Map<String, Object> crdntMap) {
+		return sqlSession.update("myPageMapper.resetAddr", crdntMap);
+	}
+
+	
+	/** 위도 경도 변경
+	 * @param crdntMap
+	 * @return
+	 */
+	public int resetCrdnt(Map<String, Object> crdntMap) {
+		return sqlSession.update("myPageMapper.resetCrdnt", crdntMap);
 	}
 	
 
+	
 
 }

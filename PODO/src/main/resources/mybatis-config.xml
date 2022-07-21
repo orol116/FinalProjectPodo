@@ -26,6 +26,9 @@
 		<typeAlias type="edu.kh.podo.chat.model.vo.ChatRoom" alias="chatRoom"/> 
 		<typeAlias type="edu.kh.podo.chat.model.vo.ChatMessage" alias="chatMessage"/> 
 		<typeAlias type="edu.kh.podo.chat.model.vo.ChatList" alias="chatList"/> 
+	
+		
+		<typeAlias type="edu.kh.podo.member.model.vo.MemberArea" alias="memberArea"/>
 	</typeAliases>
 	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
