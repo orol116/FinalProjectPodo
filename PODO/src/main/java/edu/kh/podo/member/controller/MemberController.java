@@ -363,7 +363,7 @@ public class MemberController {
 		
 		model.addAttribute("map", map);
 
-		return "/item/item-detail";
+		return "member/InquireDetail";
 	}
 		
 
