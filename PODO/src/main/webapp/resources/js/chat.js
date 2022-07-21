@@ -1,27 +1,25 @@
-(()=>{
-	if(document.getElementById("chatting") != null){
+function listClickFn(select) {
 
-		document.getElementById("chatting").addEventListener("click", () => {
-			const modal = document.querySelector('.modal');
-			modal.classList.add('show');
-			modal.classList.remove('hide');
-		});
+	var chatNo = $(select).val();
 
-		document.getElementById("modal-close").addEventListener("click", () => {
-			const modal = document.querySelector('.modal');
-			modal.classList.add('hide');
-			modal.classList.remove('show');
-		});
+	$.ajax({
+		url : contextPath + "/chat/chatDetail",
+		data : { "chatNo" : chatNo },
+		type : "GET",
+		dataType : "JSON",
 
-		document.getElementById("open-form").addEventListener("submit", e => {
-			const chatRoomTitle = document.getElementById("chatRoomTitle");
-			if( chatRoomTitle.value.trim().length == 0){
-				alert("채팅방 제목을 입력해주세요.");
-				e.preventDefault(); // form태그 기본 이벤트 제거
-			}
-		});
-	}
-})();
+		success : function() {
+			
+		},
+
+		error : function() {
+			alert("에러 발생");
+		}
+	});
+
+}
+
+
 
 // -------------------------------------------------------------------------
 
