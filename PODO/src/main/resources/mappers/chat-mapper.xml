@@ -62,7 +62,20 @@
 		JOIN MESSAGE B ON(B.CHAT_NO = C.CHAT_NO)
 		
 		WHERE B.CHAT_NO = ${chatNo}
+		AND B.MEMBER_NO != ${memberNo}
 		AND A.MEMBER_NO != ${memberNo}
+	</select>
+	
+	<!-- 내 채팅 정보 조회 (대화 내용 / 시간만) -->
+	<select id="selectMyDetail" resultMap="chatList_rm">
+		SELECT MESSAGE_CONTENT, MESSAGE_TIME, MESSAGE_NO
+		FROM CHAT_ROOM_JOIN B
+		
+		JOIN MESSAGE A USING(MEMBER_NO)
+		
+		WHERE A.CHAT_NO = ${chatNo}
+		AND B.CHAT_NO = ${chatNo}
+		AND MEMBER_NO = ${memberNo}
 	</select>
 	
 	

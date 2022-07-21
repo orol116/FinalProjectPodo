@@ -1,6 +1,7 @@
-function listClickFn(select) {
 
-	var chatNo = $(select).val();
+function listClickFn(chatNo) {
+	
+	console.log(chatNo);
 
 	$.ajax({
 		url : contextPath + "/chat/chatDetail",
@@ -8,8 +9,11 @@ function listClickFn(select) {
 		type : "GET",
 		dataType : "JSON",
 
-		success : function() {
-			
+		success : function(data) {
+			console.log(chatNo);
+
+			console.log(data.myDetail);
+			console.log(data.otherDetail);
 		},
 
 		error : function() {
@@ -58,11 +62,16 @@ function sendMessage(){
 
 		// 메세지 입력 시 필요한 데이터를 js객체로 생성
 		const chatMessage = {
+			"chatNo" : chatNo,
+			"boardNo" : boardNo,
 			"memberNo" : memberNo,
+			"memberNickname" : memberNickname,
+			"message" : inputChatting.value
+			/* "memberNo" : memberNo,
 			"buyMemberNo" : buyMemberNo,
 			"chatNo" : chatNo,
 			"boardNo" : boardNo,
-			"message" : inputChatting.value
+			"message" : inputChatting.value */
 		};
 
 
