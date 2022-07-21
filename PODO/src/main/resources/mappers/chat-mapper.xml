@@ -54,7 +54,7 @@
 		WHERE B.CHAT_NO IN (SELECT CHAT_NO FROM CHAT_ROOM_JOIN WHERE MEMBER_NO = ${memberNo})
 		AND A.MEMBER_NO != ${memberNo}
 		AND CHAT_STATUS = 'N'
-		ORDER BY MESSAGE_TIME;
+		ORDER BY MESSAGE_TIME
 	</select>
 	
 	<!-- 상대방 채팅 정보 조회 -->
