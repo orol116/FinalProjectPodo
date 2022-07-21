@@ -107,14 +107,20 @@ function sample5_execDaumPostcode() {
                     // 마커를 결과값으로 받은 위치로 옮긴다.
                     marker.setPosition(coords);
                     
-
-                    document.getElementById("dLon").value = dLon;
-                    document.getElementById("dLat").value = dLat; 
                 }
             });
         }
     }).open();
 }
+
+
+
+    $(".itemCondition").on("click", function(){
+        $("#dLon").val(dLon); 
+        $("#dLat").val(dLat); 
+
+    });
+
 
 
 

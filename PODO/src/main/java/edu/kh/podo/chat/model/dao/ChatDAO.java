@@ -17,11 +17,19 @@ public class ChatDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	/** 채팅방 목록 조회
+	/** 채팅방 목록 조회 DAO
 	 * @param memberNo
 	 * @return chatRoomList
 	 */
 	public List<ChatList> selectChatRoomList(int memberNo) {
 		return sqlSession.selectList("chatMapper.selectChatRoomList", memberNo);
+	}
+
+	/** 상대방 채팅 정보 조회 DAO
+	 * @param map
+	 * @return otherDetail
+	 */
+	public List<ChatList> selectOtherDetail(Map<String, Object> map) {
+		return sqlSession.selectList("chatMapper.selectOtherDetail", map);
 	}
 }
