@@ -104,7 +104,16 @@
   	</select>
   	
   	
+
+
+  	<update id="resetPw" parameterType="member">
+  		UPDATE MEMBER SET
+  		MEMBER_PW = #{memberPw}
+  		WHERE MEMBER_ID = #{memberId}
+  		
+  	</update>
   	
+  	<!-- 1대1 문의글 내용 작성 -->
   	<insert id="inquireWrite"  useGeneratedKeys="true"> 
 	
 		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
@@ -118,13 +127,22 @@
 		)
 	
 	</insert>
-
-
-  	<update id="resetPw" parameterType="member">
-  		UPDATE MEMBER SET
-  		MEMBER_PW = #{memberPw}
-  		WHERE MEMBER_ID = #{memberId}
-  		
-  	</update>
-  	
+	
+	<!-- 1대1 문의글 이미지 삽입 -->
+	<insert id="insertBoardImageList" parameterType="list" >
+		
+		INSERT INTO ADMIN_BOARD_IMG
+			SELECT SEQ_ADMIN_IMG_NO.NEXTVAL IMG_NO, A.* FROM(
+			
+				<foreach collection="list" item="img" separator="UNION ALL" >
+					SELECT 			#{img.imageReName} IMG_RENAME,
+									#{img.imageOriginal} IMG_ORIGINAL,
+									#{img.imageLevel} 			IMG_LEVEL,
+									#{img.boardNo}		ADMIN_BOARD_NO
+					FROM DUAL
+				</foreach>
+				
+			) A
+	
+	</insert>
 </mapper>
