@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -143,6 +144,42 @@ public class MemberDAO {
 	 */
 	public int inquireCount(int memberNo) {
 		return sqlSession.selectOne("memberMapper.inquireCount",memberNo);
+	}
+
+
+	/** 1대1 문의에 해당하는 회원 번호 조회 DAO
+	 * @param boardNo
+	 * @return memberNo
+	 */
+	public int selectMemberNo(int boardNo) {
+		return sqlSession.selectOne("memberMapper.selectMemberNo", boardNo);
+	}
+
+
+	/** 1대1 문의에 해당하는 회원 번호의 상세조회 이미지 조회 DAO
+	 * @param boardNo
+	 * @return list
+	 */
+	public List<BoardImage> selectBoardImageList(int boardNo) {
+		return sqlSession.selectList("memberMapper.selectBoardImageList", boardNo);
+	}
+
+
+	/** 1대1 문의 회원 정보 조회 DAO
+	 * @param memberNo
+	 * @return sellMember
+	 */
+	public List<Member> sellMemberInfo(int memberNo) {
+		return sqlSession.selectList("memberMapper.sellMemberInfo", memberNo);
+	}
+
+
+	/** 1대1 문의 상세 정보 조회 DAO
+	 * @param boardNo
+	 * @return list
+	 */
+	public List<Admin> inquireDetail(int boardNo) {
+		return sqlSession.selectList("memberMapper.inquireDetail", boardNo);
 	}
 
 

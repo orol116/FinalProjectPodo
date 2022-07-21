@@ -99,7 +99,7 @@
                                 <td><input type="checkbox" name="InquiryList" id="chkbox" value="${inquiry.boardNo}"></td>
                                 <td>${inquiry.boardNo}</td>
                                 <td>${inquiry.classification}</td>
-                                <td><a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardContent}</a> </td>                           
+                                <td><a href="../member/inquireList/detail/${inquiry.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardContent}</a> </td>                           
                                 <td>${inquiry.memberNick}</td>
                                 <td>${inquiry.createDate}</td>
                             </tr>    

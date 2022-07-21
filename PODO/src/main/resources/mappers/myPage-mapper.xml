@@ -2,6 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="myPageMapper">
 
+	<resultMap type="member" id="member_rm">
+	
+		<id property="memberNo" 			column="MEMBER_NO"/>
+		<result property="memberId" 		column="MEMBER_ID"/>
+		<result property="memberPw" 		column="MEMBER_PW"/>
+		<result property="memberNickname" 	column="MEMBER_NICK"/>
+		<result property="memberName"		column="MEMBER_NM"/>
+		<result property="memberTel" 		column="MEMBER_TEL"/>
+		<result property="secessionFlag" 	column="SECESSION_FL"/>
+		<result property="memberProfile" 	column="MEMBER_PROFILE"/>
+		<result property="memberGrape" 		column="MEMBER_GRAPE"/>
+		<result property="memberAddress" 	column="MEMBER_ADDR"/>
+		<result property="memberTown" 		column="MEMBER_TOWN"/>
+		<result property="createDate" 		column="CREATE_DT"/>
+		<result property="admin"  			column="ADMIN" />
+		<result property="shopInfo"  		column="SHOP_INFO" />
+	
+	</resultMap>
+	
 	<resultMap type="itemBoard" id="itemBoard_rm">
 
 		<id property="boardNo" column="BOARD_NO" />
@@ -35,6 +54,13 @@
 		<result property="imageOriginal" column="IMG_ORIGINAL"/>
 		<result property="imageLevel" column="IMG_LEVEL"/>
 		<result property="boardNo" column="BOARD_NO"/>
+	</resultMap>
+	
+	<resultMap type="memberArea" id="memberArea_rm">
+		<id property="mcrdntNo" column="MCRDNT_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="coordinateX" column="COORDINATE_X"/>
+		<result property="coordinateY" column="COORDINATE_Y"/>
 	</resultMap>
 	
 	<select id="selectImageList" resultMap="boardImage_rm">
@@ -76,8 +102,24 @@
 		WHERE A.MEMBER_NO = ${memberNo}
 		ORDER BY BOARD_NO DESC
 	</select>
+	
+	
+	<!-- 주소 변경 -->
+	<update id="resetAddr">
+		UPDATE MEMBER SET
+		MEMBER_ADDR = #{sample5_address}
+		WHERE MEMBER_NO = ${memberNo}
+	</update>
  	
-
+	<!-- 위도, 경도 변경 -->
+	<update id="resetCrdnt">
+		UPDATE MEMBERAREA_XY SET
+		COORDINATE_X = ${dLon},
+		COORDINATE_Y = ${dLat}
+		WHERE MEMBER_NO = ${memberNo}
+		
+		
+	</update>
 	
 
 </mapper>

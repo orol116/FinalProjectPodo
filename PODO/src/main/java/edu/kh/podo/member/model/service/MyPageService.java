@@ -32,6 +32,20 @@ public interface MyPageService {
 	 */
 	List<ItemBoard> selectFavorList(int memberNo);
 
+	
+	/** 주소 변경
+	 * @param crdntMap
+	 * @return result
+	 */
+	int resetAddr(Map<String, Object> crdntMap);
+
+	
+	/** 위도 경도 변경
+	 * @param crdntMap
+	 * @return
+	 */
+	int resetCrdnt(Map<String, Object> crdntMap);
+
 
 
 }

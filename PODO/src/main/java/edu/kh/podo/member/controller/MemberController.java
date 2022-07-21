@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -307,13 +308,11 @@ public class MemberController {
 			
 			if(count>0) {
 				return "redirect:/member/inquireList";
+				
 			}else {
 				return "member/inquire";
 			}
-			
-			
 		}
-		
 	}
 	
 	@PostMapping("/inquire")
@@ -350,8 +349,22 @@ public class MemberController {
 	@GetMapping("/inquireList")
 	public String inquireWrite() {
 		
-		
 		return "member/inquireList";
+	}
+	
+	
+	// 1대1 문의 상세 페이지
+	@GetMapping("/inquireList/detail/{boardNo}")
+	public String inquireDetail(@PathVariable("boardNo") int boardNo
+						   , Model model) {
+		
+		Map<String, Object> map = service.inquireDetail(boardNo);
+		map.put("boardNo", boardNo);
+		
+		model.addAttribute("map", map);
+		model.addAttribute("boardNo", boardNo);
+		
+		return "member/InquireDetail";
 	}
 		
 
