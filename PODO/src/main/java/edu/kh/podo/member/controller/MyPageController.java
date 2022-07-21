@@ -153,5 +153,10 @@ public class MyPageController {
 	}
 
 
+	// 주소 변경
+	@GetMapping("/myLocation")
+	public String myLocation() {
+		return "member/myPage/myLocation";
+	}
 
 }
