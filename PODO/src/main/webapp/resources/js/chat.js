@@ -62,11 +62,16 @@ function sendMessage(){
 
 		// 메세지 입력 시 필요한 데이터를 js객체로 생성
 		const chatMessage = {
+			"chatNo" : chatNo,
+			"boardNo" : boardNo,
 			"memberNo" : memberNo,
+			"memberNickname" : memberNickname,
+			"message" : inputChatting.value
+			/* "memberNo" : memberNo,
 			"buyMemberNo" : buyMemberNo,
 			"chatNo" : chatNo,
 			"boardNo" : boardNo,
-			"message" : inputChatting.value
+			"message" : inputChatting.value */
 		};
 
 
@@ -112,6 +117,7 @@ chattingSock.onmessage = function(e){
 	span.innerText = currentTime(); // 날짜
 
 	// 내가 쓴 채팅 : span -> p
+	
 	// 남이 쓴 채팅 : p -> span
 
 	// 내가 쓴 채팅일 경우

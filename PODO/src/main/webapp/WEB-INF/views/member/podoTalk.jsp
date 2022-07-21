@@ -110,7 +110,6 @@
 
                         <%-- 연결된 채팅 회원 정보 헤더 --%>
                         <div class="chat-header">
-
                             
                             <a href="" target="_blank" rel="noopener noreferrer">
                                 <%-- 회원 프로필 이미지 --%>
@@ -145,10 +144,9 @@
     
                                 <%-- 조회된 채팅방 목록이 있을 때 --%>
                                 
-                                    
-                                    <c:forEach items="${list}" var="msg">
+                                    <c:forEach items="${chatDetail}" var="msg">
 
-                                        <fmt:formatDate var="chatDate" value="${msg.messageTime }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
+                                        <fmt:formatDate var="chatDate" value="${msg.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
                                         <c:if test="${msg.memberNo == loginMember.memberNo }">
                                             <li class="myChat">
@@ -159,8 +157,8 @@
                                         
                                         <c:if test="${msg.memberNo != loginMember.memberNo }">
                                             <li>
-                                                <b>${msg.memberNickname }</b>	<br>
-                                                <p class="chat">${msg.messageContent }</p>
+                                                <b>${msg.memberNickname }</b><br>
+                                                <p class="chat">${msg.messageContent}</p>
                                                 <span class="chatDate">${messageTime}</span>
                                             </li>
                                         </c:if>
