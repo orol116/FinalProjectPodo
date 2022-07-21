@@ -163,3 +163,20 @@ function currentTime(){
 function addZero(temp){
 	return temp < 10 ? "0" + temp : temp;;
 }
+
+
+
+(function(){
+
+	if(createChatNo != ""){
+		const chatDivList = document.getElementsByClassName("chatDiv");
+
+		for(let chatDiv of chatDivList){
+			if(chatDiv.getAttribute("id") == createChatNo){
+				chatDiv.click();
+				break;
+			}
+		}
+	}
+
+})();

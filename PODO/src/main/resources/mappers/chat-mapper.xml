@@ -37,6 +37,7 @@
 		<result property="memberProfile" column="MEMBER_PROFILE" />
 		<result property="messageContent" column="MESSAGE_CONTENT" />
 		<result property="messageTime" column="MESSAGE_TIME" />
+		<result property="messageNo" column="MESSAGE_NO" />
 
 	</resultMap>
 	
@@ -55,7 +56,7 @@
 	
 	<!-- 상대방 채팅 정보 조회 -->
 	<select id="selectOtherDetail" resultMap="chatList_rm">
-		SELECT A.MEMBER_NICK, A.MEMBER_PROFILE, B.MESSAGE_CONTENT, B.MESSAGE_TIME, B.MESSAGE_NO
+		SELECT A.MEMBER_NICK, A.MEMBER_PROFILE, A.MEMBER_NO, B.MESSAGE_CONTENT, B.MESSAGE_TIME, B.MESSAGE_NO
 		FROM CHAT_ROOM_JOIN C
 		
 		JOIN MEMBER A ON(A.MEMBER_NO = C.MEMBER_NO)
@@ -68,7 +69,7 @@
 	
 	<!-- 내 채팅 정보 조회 (대화 내용 / 시간만) -->
 	<select id="selectMyDetail" resultMap="chatList_rm">
-		SELECT MESSAGE_CONTENT, MESSAGE_TIME, MESSAGE_NO
+		SELECT MESSAGE_CONTENT, MESSAGE_TIME, MESSAGE_NO, MEMBER_NO
 		FROM CHAT_ROOM_JOIN B
 		
 		JOIN MESSAGE A USING(MEMBER_NO)
@@ -77,6 +78,33 @@
 		AND B.CHAT_NO = ${chatNo}
 		AND MEMBER_NO = ${memberNo}
 	</select>
+	
+	<!-- 채팅방이 이미 존재하는지 조회 -->
+	<select id="selectChatRoom" resultType="_int">
+		SELECT NVL(
+			(SELECT CHAT_NO FROM CHAT_ROOM
+			WHERE BOARD_NO = ${boardNo}
+			AND MEMBER_NO = ${memberNo}
+			AND BUY_MEMBER_NO = ${myMemberNo}) , 0 ) CHAT_NO
+		FROM DUAL
+	</select>
+	
+	<!-- 채팅방 만들기 -->
+	<insert id="createChat" useGeneratedKeys="true">
+		<selectKey keyProperty="chatNo" order="BEFORE" resultType="_int">
+			SELECT SEQ_CHAT_NO.NEXTVAL FROM DUAL
+		</selectKey>
+	
+		INSERT INTO CHAT_ROOM VALUES(${chatNo}, ${boardNo}, ${memberNo}, ${myMemberNo}, DEFAULT)
+	</insert>
+	
+	<insert id="joinChat">
+		INSERT ALL 
+			INTO CHAT_ROOM_JOIN VALUES(${memberNo}, ${chatNo})
+			INTO CHAT_ROOM_JOIN VALUES(${myMemberNo}, ${chatNo})
+		SELECT *
+		FROM DUAL
+	</insert>
 	
 	
 
