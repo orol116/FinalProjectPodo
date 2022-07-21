@@ -32,4 +32,12 @@ public class ChatDAO {
 	public List<ChatList> selectOtherDetail(Map<String, Object> map) {
 		return sqlSession.selectList("chatMapper.selectOtherDetail", map);
 	}
+
+	/** 내 채팅 정보 조회 (대화 내용 / 시간만) DAO
+	 * @param map
+	 * @return myDetail
+	 */
+	public List<ChatList> selectMyDetail(Map<String, Object> map) {
+		return sqlSession.selectList("chatMapper.selectMyDetail", map);
+	}
 }

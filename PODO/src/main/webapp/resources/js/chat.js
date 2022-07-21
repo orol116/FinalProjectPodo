@@ -1,6 +1,7 @@
-function listClickFn(select) {
 
-	var chatNo = $(select).val();
+function listClickFn(chatNo) {
+	
+	console.log(chatNo);
 
 	$.ajax({
 		url : contextPath + "/chat/chatDetail",
@@ -8,8 +9,11 @@ function listClickFn(select) {
 		type : "GET",
 		dataType : "JSON",
 
-		success : function() {
-			
+		success : function(data) {
+			console.log(chatNo);
+
+			console.log(data.myDetail);
+			console.log(data.otherDetail);
 		},
 
 		error : function() {

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.google.gson.Gson;
+
 import edu.kh.podo.chat.model.service.ChatService;
 import edu.kh.podo.chat.model.vo.ChatList;
 import edu.kh.podo.chat.model.vo.ChatRoom;
@@ -42,9 +44,7 @@ public class ChatController {
 						   , int chatNo
 						   , @ModelAttribute("loginMember") Member loginMember) {
 		
-		Map<String, Object> chatDetailList = service.selectChatDetail(loginMember.getMemberNo(), chatNo); 
-		
-		return null;
+		return new Gson().toJson(service.selectChatDetail(loginMember.getMemberNo(), chatNo));
 	}
 
 }
