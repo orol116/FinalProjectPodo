@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
@@ -219,11 +220,15 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 1대1 문의 상세 페이지
 	@Override
-	public Map<String, Object> itemDetail(int boardNo) {
+	public Map<String, Object> inquireDetail(int boardNo) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		int memberNo = dao.selectMemberNo(boardNo);
+		
+		List<Admin> inquireDetail = dao.inquireDetail(boardNo);
+		
+		map.put("inquireDetail", inquireDetail);
 
 		map.put("memberNo", memberNo);
 
