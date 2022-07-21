@@ -23,5 +23,6 @@ public class ChatList {
 	
 	private String messageContent;
 	private Date messageTime;
+	private int messageNo;
 
 }

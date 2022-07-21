@@ -46,4 +46,26 @@ public class ChatServiceImpl implements ChatService {
 		return rtMap;
 	}
 
+	// 1:1 채팅하기(채팅 생성) Service 구현
+	@Override
+	public int startChat(int memberNo, int myMemberNo, int boardNo) {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("memberNo", memberNo);
+		map.put("myMemberNo", myMemberNo);
+		map.put("boardNo", boardNo);
+		
+		// 채팅방이 이미 존재하는지 조회
+		int chatNo  = dao.selectChatRoom(map);
+		
+		if (chatNo == 0) {
+			chatNo = dao.createChat(map);
+			
+			dao.joinChat(map);
+		}
+		
+			
+		return chatNo;
+	}
+
 }
