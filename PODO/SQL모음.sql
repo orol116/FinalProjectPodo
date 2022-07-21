@@ -596,5 +596,27 @@ JOIN MESSAGE A USING(MEMBER_NO)
 WHERE A.CHAT_NO = 9999
 AND B.CHAT_NO = 9999
 AND MEMBER_NO = 4;
+
+--------------------------------------------------
+
+SELECT NVL(
+	(SELECT CHAT_NO FROM CHAT_ROOM
+	WHERE BOARD_NO = 115
+	AND MEMBER_NO = 4
+	AND BUY_MEMBER_NO = 1) , 0 ) CHAT_NO
+FROM DUAL;
 		
 
+SELECT *
+  FROM all_sequences
+ WHERE sequence_name = 'SEQ_REVIEW_NO';
+
+
+ SELECT CHAT_NO FROM CHAT_ROOM
+
+
+---------------------
+
+INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, 
+'좋은 거래였습니다', 
+'좋음', DEFAULT, 4, 78, DEFAULT, 1);

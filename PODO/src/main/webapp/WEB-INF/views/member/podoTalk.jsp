@@ -57,7 +57,7 @@
                             <c:forEach var="chatList" items="${chatRoomList}">
                                 <div class="card-box">
                                     <%-- 클릭 시 우측 채팅창으로 이동 --%>
-                                    <div class="chatDiv" onclick="listClickFn(${chatList.chatNo})">
+                                    <div class="chatDiv" id="${chatList.chatNo}" onclick="listClickFn(${chatList.chatNo})">
                                         <li class="chatList">
 
                                             <c:if test="${chatList.memberProfile == null}">
@@ -207,7 +207,7 @@
 		const memberNo = "${loginMember.memberNo}";
 		const memberNickname = "${loginMember.memberNickname}";
 		const chatRoomNo = "${chatRoomNo}";
-
+        const createChatNo = "${createChatNo}";
 		// 로그인이 되어 있을 경우에만
 		// /chat 이라는 요청 주소로 통신할 수 있는  WebSocket 객체 생성
 		let chattingSock = new SockJS(contextPath+"/chat");
