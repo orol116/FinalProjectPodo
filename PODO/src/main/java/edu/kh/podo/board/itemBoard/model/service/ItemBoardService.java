@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
+import edu.kh.podo.board.itemBoard.model.vo.Coordinate;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
@@ -27,7 +28,7 @@ public interface ItemBoardService {
 	 */
 	List<ItemBoard> searchBoard(String query);
 
-	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
+	int insertBoard(ItemBoard item, List<MultipartFile> imageList, String webPath, String folderPath, Coordinate crdnt) throws IOException;
 
 
 	/** 판매글 상세조회 Service

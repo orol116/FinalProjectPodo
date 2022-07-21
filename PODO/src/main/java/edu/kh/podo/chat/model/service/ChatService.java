@@ -2,6 +2,7 @@ package edu.kh.podo.chat.model.service;
 
 import java.util.List;
 
+import edu.kh.podo.chat.model.vo.ChatList;
 import edu.kh.podo.chat.model.vo.ChatRoom;
 
 public interface ChatService {
@@ -10,6 +11,6 @@ public interface ChatService {
 	 * @param memberNo
 	 * @return chatRoomList
 	 */
-	List<ChatRoom> selectChatRoomList(int memberNo);
+	List<ChatList> selectChatRoomList(int memberNo);
 
 }

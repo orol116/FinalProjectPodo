@@ -60,7 +60,6 @@ for(let i=0 ; i<inputImage.length ; i++){
 }
 
 // 게시글 작성 유효성 검사
-// 게시글 작성 유효성 검사
 function writeValidate(){
     const select = document.getElementsByClassName("select")[0];
     const textarea = document.getElementById("textarea");

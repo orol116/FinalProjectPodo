@@ -76,4 +76,19 @@ function CerValidate(){
 }; 
 
 
+const checkId = document.getElementsByName("memberId");
+
+function CheckId() {
+
+    if(!checkId.checked) {
+        alert("아이디를 선택해주세요.");
+
+    }
+    return false;
+
+}
+
+        
+
+
 

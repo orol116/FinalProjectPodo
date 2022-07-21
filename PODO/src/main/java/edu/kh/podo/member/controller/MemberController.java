@@ -339,32 +339,7 @@ public class MemberController {
 		return path;
 	}
 	
-	// 비밀번호 찾기
-	@PostMapping("/findPw")
-	public String findPw(@ModelAttribute Member inputMember, Model model) {
-		
-		int result = service.findPw(inputMember);
-		
-		String path = null;
-		
-		if(result > 0) {
-			path = "/member/myPage/inputPw";
-			model.addAttribute("message", "본인인증 성공");
-		
-		}else {
-			path = "/member/member-find-ID";
-			model.addAttribute("message", "회원정보가 일치하지 않습니다");
-		}
-		
-		return path;
-	}
 	
-	// 아이디 찾기에서 비밀번호 찾기 전환
-	@GetMapping("/myPage/inputPw")
-	public String idTofindPw() {
-		return "/member/myPage/inputPw";
-	}
-
 	// 비밀번호 찾기 페이지 전환
 	@GetMapping("/findPw")
 	public String findPw() {
@@ -372,4 +347,54 @@ public class MemberController {
 	}
 	
 	
+	
+	// 비밀번호 재설정 페이지 전환
+	@GetMapping("/inputPw2")
+	public String findPw2() {
+		return "/member/inputPw2";
+	}
+	
+	
+	
+	// 비밀번호 찾기
+	@PostMapping("/inputPw2")
+	public String findPw(@ModelAttribute Member inputMember, Model model) {
+		
+		String findMember = service.findPw(inputMember);
+		
+		String path = null;
+		
+		if(findMember != null) {
+			
+			model.addAttribute("message", "본인인증 성공");
+			model.addAttribute("findMember", findMember);
+			path = "/member/inputPw2";
+		
+		}else {
+			path = "/member/member-find-PW";
+			model.addAttribute("message", "회원정보가 일치하지 않습니다");
+		}
+		
+		return path;
+	}
+	
+
+	
+	// 아이디 찾기에서 비밀번호 찾기 전환
+	@GetMapping("/inputPw")
+	public String idTofindPw() {
+		
+		return "/member/inputPw";
+	}
+	
+	// 아이디에서 비밀번호 찾기
+	@PostMapping("/inputPw")
+	public String idTofindPw(@RequestParam("memberId") String memberId, Model model) {
+		
+		String searchId = service.searchId(memberId); 
+		
+		model.addAttribute("searchId", searchId);
+
+		return "/member/inputPw";
+	}
 }

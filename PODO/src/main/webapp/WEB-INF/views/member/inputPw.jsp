@@ -29,8 +29,8 @@
                 <div class="wrapper">
                     <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                     <div class="myPage-row">
-                        <c:forEach var="findMember" items="${findMemberList}">
-                            <label name="memberId">${findMember.memberId}</label>  
+                        <c:forEach var="searchId" items="${searchId}">
+                            <label name="memberId">PODO 아이디 :</label><span style="color: #5f0081; display: inline;">${searchId}</span> 
                         </c:forEach>
                     </div>
                     <div class="myPage-row">
@@ -55,9 +55,6 @@
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <script>
-        const contextPath = "${contextPath}";
-    </script>
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

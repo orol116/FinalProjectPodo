@@ -52,10 +52,10 @@
 
                             <!-- 상단 체크박스 -->
                             <div class="checkArea">
+                                <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">
                                 <%-- <button type="button" class="fav-check-btn"></button> --%>
 
                                 <!-- 선택삭제(전체 선택) -->
-                                <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">
                                 <button type="button" class="deleteAll">선택삭제</button>
                             </div>
 
@@ -92,16 +92,19 @@
                                                         <c:otherwise>
                                                             <c:forEach items="${favorBoard}" var="favor">
                                                                 <li class="fav-list">
+                                                                    
                                                                     <%-- 목록 별 체크박스 --%>
                                                                     <div class=checkbox>
                                                                         <input type="checkbox" class="select" name="select">
                                                                     </div> 
+
                                                                     <%-- 상품 이미지 --%>
                                                                     <div class="thumb">
-                                                                        <c:if test="${!empty boardImage.imageReName}">
-                                                                            <img class="list-thumbnail" src="${contextPath}${boardImage.imageReName}">
-                                                                        </c:if>     
+                                                                         <c:if test="${fn:length(boardImageList) != null}">
+                                                                            <image id="item-image" src="${contextPath}${boardImageList.imageReName}" alt="상품 이미지"></image>
+                                                                        </c:if>
                                                                     </div>
+                                                                   
                                                                     <%-- 상품 정보 --%>
                                                                     <div class="gdsInfo">
                                                                         <p>
