@@ -38,10 +38,12 @@
                     </section>
 
                     <div id="addr-input">
-                        <input type="text" id="sample5_address" placeholder="주소">
+                        <input type="text" id="sample5_address" name="sample5_address" placeholder="주소">
                         <div id="addrBtn-area">
                             <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" id="searchBtn"><br>
                         </div>
+                        <input type="hidden" name="dLon" id="dLon" value="">
+                        <input type="hidden" name="dLat" id="dLat" value=""> 
                     </div>
 
                     <div id="AddressBtn-area">

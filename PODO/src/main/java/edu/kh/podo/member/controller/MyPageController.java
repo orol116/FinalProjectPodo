@@ -153,10 +153,32 @@ public class MyPageController {
 	}
 
 
-	// 주소 변경
+	// 주소 변경 페이지 전환
 	@GetMapping("/myLocation")
 	public String myLocation() {
 		return "member/myPage/myLocation";
+	}
+	
+	// 주소 변경
+	@GetMapping("/resetAddr")
+	public String resetAddr(@ModelAttribute("loginMember") Member loginMember
+							,@RequestParam Map<String, Object> crdntMap
+							,Model model
+							,RedirectAttributes ra) {
+		
+		crdntMap.put("memberNo", loginMember.getMemberNo());
+		 
+		int aResult = service.resetAddr(crdntMap);
+		int cResult = service.resetCrdnt(crdntMap);
+		
+		if(aResult > 0 && cResult > 0) {
+			ra.addFlashAttribute("message", "주소가 변경되었습니다.");
+		
+		}else {
+			ra.addFlashAttribute("message", "주소변경 실패.");
+		}
+		
+		return "redirect:myLocation";
 	}
 
 }
