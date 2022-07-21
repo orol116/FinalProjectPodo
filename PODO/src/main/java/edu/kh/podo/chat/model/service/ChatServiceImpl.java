@@ -24,4 +24,23 @@ public class ChatServiceImpl implements ChatService {
 		return dao.selectChatRoomList(memberNo);
 	}
 
+	// 채팅방 목록 조회
+	@Override
+	public Map<String, Object> selectChatDetail(int memberNo, int chatNo) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("memberNo", memberNo);
+		map.put("chatNo", chatNo);
+		
+		// 상대방 채팅 정보 조회
+		List<ChatList> otherDetail = dao.selectOtherDetail(map);
+		
+		// 내 채팅 정보 조회 (대화 내용 / 시간만)
+//		List<ChatList> my
+		
+		
+		
+		return null;
+	}
+
 }

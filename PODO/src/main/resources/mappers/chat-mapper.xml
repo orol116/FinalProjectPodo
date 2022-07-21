@@ -53,6 +53,18 @@
 		AND MEMBER_NO != ${memberNo}
 	</select>
 	
+	<!-- 상대방 채팅 정보 조회 -->
+	<select id="selectOtherDetail" resultMap="chatList_rm">
+		SELECT A.MEMBER_NICK, A.MEMBER_PROFILE, B.MESSAGE_CONTENT, B.MESSAGE_TIME, B.MESSAGE_NO
+		FROM CHAT_ROOM_JOIN C
+		
+		JOIN MEMBER A ON(A.MEMBER_NO = C.MEMBER_NO)
+		JOIN MESSAGE B ON(B.CHAT_NO = C.CHAT_NO)
+		
+		WHERE B.CHAT_NO = ${chatNo}
+		AND A.MEMBER_NO != ${memberNo}
+	</select>
+	
 	
 
 
