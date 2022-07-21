@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:set var="memberNo" value="${map.memberNo}" />
+<c:set var="sellMember" value="${map.sellMember}" />
+<c:set var="inquireDetail" value="${map.inquireDetail}" />
+<c:set var="boardNo" value="${boardNo}" />
+<c:set var="boardImageList" value="${map.boardImageList}" />
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,33 +35,37 @@
 
         <div class="list2">
             <section class="list3">
-                <p>기타서비스</p>
-                <h2>기타</h2>
-                <p>2022.07.19 15:44:35</p>
+                <p>${inquireDetail[0].classification}</p>
+                <h2>${inquireDetail[0].classification}</h2>
+                <p>${inquireDetail[0].createDate}</p>
             </section>
+
             <section class="list4">
                 <div class="list5">
                   
-                    <div> 문의글 내용</div>
+                    <div> ${inquireDetail[0].boardContent}</div>
                     <section>
-                        <a href="#" >
-                            <img src="../../images/logo.png" id="photo1">
-                        </a>
-                        <a href="#" >
-                            <img src="../../images/logo.png" id="photo1">
-                        </a>
-                        <a href="#" >
-                            <img src="../../images/logo.png" id="photo1">
-                        </a>
-                        <a href="#">
-                            <img src="../../images/logo.png" id="photo1">
-                        </a>
-                        <a href="#">
-                            <img src="../../images/logo.png" id="photo1">
-                        </a>
+
+                        <c:forEach var="img" items="${boardImageList}">
+                            <a href="#" >
+                                <img src="${contextPath}${img.imageReName}" id="photo1">
+                            </a>
+                            <%-- <a href="#" >
+                                <img src="../../images/logo.png" id="photo1">
+                            </a>
+                            <a href="#" >
+                                <img src="../../images/logo.png" id="photo1">
+                            </a>
+                            <a href="#">
+                                <img src="../../images/logo.png" id="photo1">
+                            </a>
+                            <a href="#">
+                                <img src="../../images/logo.png" id="photo1">
+                            </a> --%>
+                        </c:forEach>
                     </section>
                 </div>
-                <img href="../../images/image.png">
+                <%-- <img href="../../images/image.png"> --%>
             </section>
         </div>
     
