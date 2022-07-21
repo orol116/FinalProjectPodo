@@ -23,7 +23,7 @@
     <div class="top-menu">
         <nav id="mainMenu">
             <h3>1:1문의</h3>
-            <a id="inquire" href="#">문의하기</a>
+            <a id="inquire" href="inquire?iq=y">문의하기</a>
         </nav>
     </div>
     <div class="list1">
