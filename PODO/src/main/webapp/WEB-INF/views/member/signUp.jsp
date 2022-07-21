@@ -67,16 +67,17 @@
 
                     <section>
                         <h4>주소</h4>
-                        <input type="text" id="memberAddress" placeholder="주소">
+                        <input type="text" id="memberAddress" placeholder="주소" name="memberAddress" readonly>
                         <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                     </section>
+                    <span class="signUp-message" id="addressMessage">* 검색 버튼을 눌러주세요.</span>
 
                     <section id="map-area" style="display:none;">
                         <div id="map" style="width:500px;height:400px;margin-top:10px;"></div>
                     </section>
                     
-                    <input type="text" name="dLon" id="dLon" value="">
-                    <input type="text" name="dLat" id="dLat" value="">
+                    <%-- <input type="hidden" name="dLon" id="dLon" value="">
+                    <input type="hidden" name="dLat" id="dLat" value=""> --%>
                             
                            
                                 
