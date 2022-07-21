@@ -95,7 +95,7 @@ public interface MemberService {
 
 
 
-	Map<String, Object> itemDetail(int boardNo);
+	Map<String, Object> inquireDetail(int boardNo);
 	
 
 

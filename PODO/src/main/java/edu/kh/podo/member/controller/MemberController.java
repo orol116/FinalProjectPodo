@@ -355,14 +355,15 @@ public class MemberController {
 	
 	// 1대1 문의 상세 페이지
 	@GetMapping("/inquireList/detail/{boardNo}")
-	public String itemDetail(@PathVariable("boardNo") int boardNo
+	public String inquireDetail(@PathVariable("boardNo") int boardNo
 						   , Model model) {
 		
-		Map<String, Object> map = service.itemDetail(boardNo);
+		Map<String, Object> map = service.inquireDetail(boardNo);
 		map.put("boardNo", boardNo);
 		
 		model.addAttribute("map", map);
-
+		model.addAttribute("boardNo", boardNo);
+		
 		return "member/InquireDetail";
 	}
 		

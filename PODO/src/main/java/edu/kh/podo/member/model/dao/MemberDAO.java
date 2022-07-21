@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -170,6 +171,15 @@ public class MemberDAO {
 	 */
 	public List<Member> sellMemberInfo(int memberNo) {
 		return sqlSession.selectList("memberMapper.sellMemberInfo", memberNo);
+	}
+
+
+	/** 1대1 문의 상세 정보 조회 DAO
+	 * @param boardNo
+	 * @return list
+	 */
+	public List<Admin> inquireDetail(int boardNo) {
+		return sqlSession.selectList("memberMapper.inquireDetail", boardNo);
 	}
 
 

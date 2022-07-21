@@ -69,7 +69,7 @@
                                                 <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
                                             </c:otherwise>
                                         </c:choose>
-                                    </div>   
+                                    </div>   침착맨 일침
                                     
                                     <div class="title1">
                                         <div class="title2">${item.boardTitle}</div>

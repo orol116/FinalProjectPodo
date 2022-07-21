@@ -193,5 +193,11 @@
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
 	
+	<!-- 1대1 문의에 해당하는 회원 번호 조회 DAO -->
+	<select id="inquireDetail" resultMap="admin_rm">
+		SELECT MEMBER_NO, BOARD_CONTENT, CREATE_DT, BOARD_CD, CLASSIFICATION
+		FROM ADMIN_BOARD
+		WHERE ADMIN_BOARD_NO = ${boardNo}
+	</select>
 	
 </mapper>
