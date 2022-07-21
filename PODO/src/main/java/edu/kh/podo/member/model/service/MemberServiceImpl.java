@@ -159,4 +159,22 @@ public class MemberServiceImpl implements MemberService {
 		return boardNo;
 	}
 
+
+
+	// 비밀번호 재설정(아이디)
+	@Override
+	public int resetPw(Member inputMember) {
+		
+		String encPw = bcrypt.encode(inputMember.getMemberPw());
+
+		inputMember.setMemberPw(encPw);
+
+		int result = dao.resetPw(inputMember);	
+		
+		return result;
+	}
+
+
+
+	
 }

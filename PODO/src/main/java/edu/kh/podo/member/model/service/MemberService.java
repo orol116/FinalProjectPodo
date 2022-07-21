@@ -81,6 +81,17 @@ public interface MemberService {
 
 
 
+	/** 비밀번호 재설정(아이디)
+	 * @param inputMember
+	 * @return result
+	 */
+	int resetPw(Member inputMember);
+	
+
+
+
+
+
 
 
 	

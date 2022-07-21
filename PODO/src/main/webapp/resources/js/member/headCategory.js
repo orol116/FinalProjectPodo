@@ -110,7 +110,7 @@ function selectList(mCategoryNo){
                     const imageArea = document.createElement("div");
                     imageArea.classList.add("image");
 
-                    const itemImage = document.createElement("image");
+                    const itemImage = document.createElement("img");
                     if(itemList[k].imageList[0] != null){
                         itemImage.setAttribute('src', contextPath+itemList[k].imageList[0].imageReName);
                     }else{

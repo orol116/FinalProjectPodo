@@ -114,6 +114,15 @@ public class MemberDAO {
 		
 		return result;	
 	}
+	
+	/** 비밀번호 재설정(아이디)
+	 * @param inputMember
+	 * @return
+	 */
+	public int resetPw(Member inputMember) {
+		
+		return sqlSession.update("memberMapper.resetPw",inputMember);
+	}
 
 
 

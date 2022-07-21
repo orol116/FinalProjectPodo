@@ -105,7 +105,7 @@ public class MemberController {
 
 		} else {
 
-			path = "/signUp";
+			path = "/member/signUp";
 			ra.addFlashAttribute("message", "회원가입 실패");
 		}
 
@@ -280,7 +280,7 @@ public class MemberController {
 
 		} else {
 
-			path = "/signUp";
+			path = "/member/signUp";
 			ra.addFlashAttribute("message", "회원가입 실패");
 		}
 
@@ -419,4 +419,73 @@ public class MemberController {
 
 		return "/member/inputPw";
 	}
+	
+	
+	// 비밀번호 재설정(아이디 찾기)
+	@PostMapping("/resetPw")
+	public String resetPw(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra) {
+		
+		int result = service.resetPw(inputMember);
+		
+		String path = null;
+		if(result > 0) {
+			ra.addFlashAttribute("message", "비밀번호가 변경되었습니다.");
+			path = "/member/login";
+		
+		} else {
+			ra.addFlashAttribute("message", "비밀번호가 변경실패");
+			path = "/member/findId";
+		}
+		
+		return "redirect:" + path;
+		
+	}
+	
+	// 비밀번호 재설정(아이디 찾기)
+	@PostMapping("/resetPw2")
+	public String resetPw2(@ModelAttribute Member inputMember, Model model, RedirectAttributes ra) {
+		
+		int result = service.resetPw(inputMember);
+		
+		String path = null;
+		
+		if(result > 0) {
+			ra.addFlashAttribute("message", "비밀번호가 변경되었습니다.");
+			path = "/member/login";
+		
+		} else {
+			ra.addFlashAttribute("message", "비밀번호가 변경실패");
+			path = "/member/findId";
+		}
+		
+		return "redirect:" + path;
+		
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
