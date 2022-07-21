@@ -47,11 +47,10 @@
 
     <div class="option">
         <select name="key" id="search-key">
-            <option value="all">대분류</option>
-            <option value="w">여성의류</option>
-            <option value="m">남성의류</option>
-            <option value="j">시계/쥬얼리</option>
-            <option value="d">디지털 가전</option>
+            <option value="all">판매상태</option>
+            <option value="s">판매 중</option>
+            <option value="r">예약 중</option>
+            <option value="e">판매완료</option>
         </select>
     
         <section class="basic">
