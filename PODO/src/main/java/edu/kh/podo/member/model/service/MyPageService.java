@@ -33,11 +33,5 @@ public interface MyPageService {
 	List<ItemBoard> selectFavorList(int memberNo);
 
 
-	
-	/** 비밀번호 재설정
-	 * @param inputMember
-	 * @return result
-	 */
-	int resetPw(Member inputMember);
 
 }

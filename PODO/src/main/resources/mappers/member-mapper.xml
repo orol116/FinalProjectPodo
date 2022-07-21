@@ -87,4 +87,11 @@
   		WHERE MEMBER_ID = #{memberId}
   	</select>
   	
+  	<update id="resetPw" parameterType="member">
+  		UPDATE MEMBER SET
+  		MEMBER_PW = #{memberPw}
+  		WHERE MEMBER_ID = #{memberId}
+  		
+  	</update>
+  	
 </mapper>
