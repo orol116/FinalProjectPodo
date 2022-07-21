@@ -292,8 +292,23 @@ public class MemberController {
 	
 	// 1:1문의 페이지
 	@GetMapping("/inquire")
-	public String inquire() {
-		return "member/inquire";
+	public String inquire(@ModelAttribute("loginMember") Member loginMember
+						  ,RedirectAttributes ra) {
+		
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		
+		int count = service.inquireCount(memberNo);
+		
+		if(count>0	) {
+			
+			return "redirect:/member/inquireList";
+		}else {
+			
+			return "member/inquire";
+		}
+		
 	}
 	
 	@PostMapping("/inquire")
@@ -326,6 +341,7 @@ public class MemberController {
 		return "redirect:"+path;
 	}
 	
+	// 본인이 쓴 문의글 리스트 조회
 	@GetMapping("/inquireList")
 	public String inquireWrite() {
 		

@@ -216,6 +216,11 @@ public class MemberServiceImpl implements MemberService {
 		return boardNo;
 	}
 
+	// 본인이 쓴 문의글 수 조회
+	@Override
+	public int inquireCount(int memberNo) {
+		return dao.inquireCount(memberNo);
+	}
 
 
 	// 비밀번호 재설정(아이디)
@@ -230,6 +235,8 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+
+	
 
 
 

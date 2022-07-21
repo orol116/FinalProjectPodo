@@ -145,4 +145,13 @@
 			) A
 	
 	</insert>
+	
+	<!-- 본인이 쓴 1대1 문의글 숫자 조회 -->
+	<select id="inquireCount" resultType="_int">
+		SELECT COUNT(*) FROM ADMIN_BOARD
+		WHERE BOARD_CD = 3
+		AND MEMBER_NO= #{memberNo}
+	</select>
+	
+	
 </mapper>
