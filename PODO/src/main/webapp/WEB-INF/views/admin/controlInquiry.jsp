@@ -79,7 +79,7 @@
                     <th>선택</th>
                     <th>번호</th>
                     <th>분류</th>
-                    <th>제목</th>
+                    <th>내용</th>
                     <th>작성자</th>
                     <th>등록일</th>
                 </tr>
@@ -98,8 +98,8 @@
                             <tr>
                                 <td><input type="checkbox" name="InquiryList" id="chkbox" value="${inquiry.boardNo}"></td>
                                 <td>${inquiry.boardNo}</td>
-                                <td>구매/판매</td>
-                                <td><a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardTitle}</a> </td>                           
+                                <td>${inquiry.classification}</td>
+                                <td><a href="../detail/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sURL}">${inquiry.boardContent}</a> </td>                           
                                 <td>${inquiry.memberNick}</td>
                                 <td>${inquiry.createDate}</td>
                             </tr>    

@@ -2,6 +2,7 @@ package edu.kh.podo.member.model.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 //import org.json.simple.JSONObject;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.dao.MemberDAO;
 import edu.kh.podo.member.model.vo.Member;
 import net.nurigo.java_sdk.api.Message;
@@ -140,6 +142,21 @@ public class MemberServiceImpl implements MemberService {
 	public String searchId(String memberId) {
 	
 		return dao.searchId(memberId);
+	}
+
+	@Override
+	public int inquireWrite(Map<String, Object> paramMap) {
+		
+		paramMap.put("boardContent",Util.XSSHandling((String)paramMap.get("boardContent")));
+		
+		paramMap.put("boardContent",Util.newLineHandling((String)paramMap.get("boardContent")));
+	
+//		System.out.println(		paramMap.get("boardContent"));
+//		System.out.println(paramMap.get("boardTitle"));
+
+		int boardNo = dao.inquireWrite(paramMap);
+		
+		return boardNo;
 	}
 
 }

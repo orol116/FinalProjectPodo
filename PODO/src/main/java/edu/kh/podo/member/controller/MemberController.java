@@ -1,6 +1,7 @@
 package edu.kh.podo.member.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -287,24 +288,45 @@ public class MemberController {
 	}
 
 	
-		// 1:1문의 페이지
-		@GetMapping("/inquire")
-		public String inquire() {
-			return "member/inquire";
-		}
-
-		// 상품관리 페이지
-		@GetMapping("/itemManage")
-		public String manage() {
+	// 1:1문의 페이지
+	@GetMapping("/inquire")
+	public String inquire() {
+		return "member/inquire";
+	}
 	
-			return "member/itemManage";
+	@PostMapping("/inquire")
+	public String inquireWrite(@RequestParam Map<String, Object> paramMap
+							 , @ModelAttribute("loginMember") Member loginMember) {
+		
+		paramMap.put("memberNo", loginMember.getMemberNo());
+		
+		int boardNo = service.inquireWrite(paramMap);
+		
+		String path = null;
+		String message = null;
+		
+		if(boardNo>0) { // 게시글 등록 성공
+			message = "1대1 문의가 등록되었습니다.";
+		}else {
+			message = "1대1 문의 등록 실패..";
 		}
+		
+		
+		return "member/inquireList";
+	}
 
-		// 아이디 찾기 페이지 전환
-		@GetMapping("/findId")
-		public String fingId() {
-			return "/member/member-find-ID";
-		}
+	// 상품관리 페이지
+	@GetMapping("/itemManage")
+	public String manage() {
+
+		return "member/itemManage";
+	}
+
+	// 아이디 찾기 페이지 전환
+	@GetMapping("/findId")
+	public String fingId() {
+		return "/member/member-find-ID";
+	}
 
 	// 핸드폰 본인인증(아이디 찾기)
 	@GetMapping("/phoneCheck")

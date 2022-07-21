@@ -1,6 +1,7 @@
 package edu.kh.podo.member.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -72,6 +73,10 @@ public interface MemberService {
 	 * @return searchId
 	 */
 	String searchId(String memberId);
+
+
+
+	int inquireWrite(Map<String, Object> paramMap);
 
 
 
