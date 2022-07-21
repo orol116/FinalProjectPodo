@@ -375,6 +375,9 @@ const addressMessage = document.getElementById("addressMessage");
 
 function memberAddr(){
 
+    document.getElementById("dLon").value = dLon;
+    document.getElementById("dLat").value = dLat;
+
 
     // 입력되지 않은 경우
     if(memberAddress.value.length == 0){
@@ -384,7 +387,7 @@ function memberAddr(){
         // 입력이 된경우
         checkObj.memberAddress = true;
         console.log("입력됨");
-        addressMessage.innerText = "주소가 입렫외었습니다.";
+        addressMessage.innerText = "주소가 입력되었습니다.";
         addressMessage.classList.add("confirm");
         addressMessage.classList.remove("error");
     }
