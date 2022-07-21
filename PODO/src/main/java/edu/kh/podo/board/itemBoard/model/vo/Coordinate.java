@@ -13,6 +13,6 @@ public class Coordinate {
 	
 	private int coordinateNo;
 	private int boardNo;
-	private String dLon;
-	private String dLat;
+	private double dLon;
+	private double dLat;
 }
