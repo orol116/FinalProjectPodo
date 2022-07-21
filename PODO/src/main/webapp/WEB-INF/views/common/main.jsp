@@ -26,14 +26,14 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-1.png"></div>
     </div>
 
-    <section>
+    <section id="items-section">
     
         <div id="itmes">
             <h2 style="margin:0;">이번주 상품 추천</h2>
         </div>
    
         
-               <c:choose>
+        <c:choose>
             <c:when test="${empty itemList}">
 
                 <div>
@@ -104,7 +104,7 @@
     <script src="${contextPath}/resources/js/main.js"></script>
 
     <script>
-        // const contextPath = "${contextPath}";
+         let contextPath = "${contextPath}";
     </script>
 </body>
 </html>

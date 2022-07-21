@@ -46,7 +46,7 @@ function categoryFunction(){
     let mCategoryNo = this.getAttribute("id");
     mCategoryNo = mCategoryNo.replace("s-","");
 
-    if( document.getElementsByClassName("frame")[0] == undefined ){
+    if( document.getElementsByClassName("frame")[0] == undefined){
 
         const form = document.createElement("form");
         form.setAttribute("action", contextPath+"/main");
@@ -80,65 +80,92 @@ function selectList(mCategoryNo){
         dataType : "JSON",
  
         success : function(itemList){ 
-
-            document.getElementById("main-container").innerHTML = "";
             
-            if (document.getElementsByClassName("box")[0] != "") {
-                document.getElementsByClassName("frame")[0].innerHTML = "";
-            }
- 
-            if (itemList != "") {
+            console.log(itemList);
+            if (itemList.length != 0) {
+
+                 document.getElementById("items-section").innerHTML = "";
+
+                console.log("있음");
+                console.log(mCategoryNo);
                 
- 
-                for (let item of itemList) {
-                    console.log(item);
-                    const box = document.createElement("div");
-                    box.classList.add("box");
- 
-                    const title = document.createElement("a");
-                    title.classList.add("title");
-                    title.href = contextPath + "/board/detail/" + item.boardNo;
- 
-                    const image = document.createElement("div");
-                    image.classList.add("image");
- 
-                    const img = document.createElement("img");
-                    img.src = contextPath + "/resources/images/items/image1.jpg";
-                    img.alt = "상품 이미지";
- 
+                let frame;
+                for (let k = 0; k < itemList.length; k++) {
+
+                    if(k % 5 == 0){
+                        frame = document.createElement("div");
+                        frame.classList.add("frame");
+                        document.getElementById("items-section").append(frame);
+                    }
+
+
+                    const itembox = document.createElement("div");
+                    itembox.classList.add("box");
+                    /* const boxNumber = 1;
+                    boxNumber++; */
+
+                    const mainTitle = document.createElement("a");
+                    mainTitle.classList.add("title");
+
+                    const imageArea = document.createElement("div");
+                    imageArea.classList.add("image");
+
+                    const itemImage = document.createElement("image");
+                    if(itemList[k].imageList[0] != null){
+                        itemImage.setAttribute('src', contextPath+itemList[k].imageList[0].imageReName);
+                    }else{
+                        itemImage.setAttribute('src','resources/images/items/image1.jpg')
+                    }
+                    
+
                     const title1 = document.createElement("div");
                     title1.classList.add("title1");
- 
+
                     const title2 = document.createElement("div");
                     title2.classList.add("title2");
-                    title2.innerText = item.boardTitle;
- 
+                    title2.innerText = itemList[k].boardTitle;
+
                     const name2 = document.createElement("div");
                     name2.classList.add("name2");
- 
+
                     const price = document.createElement("div");
                     price.classList.add("price");
-                    price.innerText = item.price + " 원";
-                    
+                    price.innerText = itemList[k].price;
+
                     const time = document.createElement("div");
                     time.classList.add("time");
-                    time.innerText = item.updateDate;
- 
-                    document.getElementsByClassName("frame")[0].append(box);
- 
-                    box.append(title);
-                    title.append(image, title1);
-                    image.append(img);
-                    title1.append(title2, name2);
+                    time.innerText = itemList[k].updateDate;
+
                     name2.append(price, time);
+
+                    title1.append(title2, name2);
+
+                    imageArea.append(itemImage);
+
+                    mainTitle.append(imageArea, title1);
+
+                    itembox.append(mainTitle);
+
+                    frame.append(itembox);
+
                 }
                 
             } else {
-                document.getElementsByClassName("frame")[0].innerText = "게시글이 존재하지 않습니다.";
+
+                document.getElementById("items-section").innerHTML = "";
+                frame = document.createElement("div");
+                frame.classList.add("frame");
+                frame.innerText = "게시글이 존재하지 않습니다아아아아아." +mCategoryNo ;
+                
+
+                document.getElementById("items-section").append(frame);
+                console.log(mCategoryNo);
+                
             }
- 
-            console.log(mCategoryNo);
+             /* document.getElementsByClassName("frame")[0].innerText = "게시글이 존재하지 않습니다.";  */
+            /* console.log(mCategoryNo); */
             
+           
         },
  
         error : function(){ 
