@@ -25,8 +25,6 @@ function selectItemsList() {
             reviewList.style.display = "none";
             itemList.style.display = "block";
 
-
-
             if (iList == "") {
                 const itembox = document.createElement("div");
                 itembox.classList.add("box");
