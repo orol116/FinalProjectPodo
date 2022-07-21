@@ -8,13 +8,13 @@ import edu.kh.podo.chat.model.vo.ChatRoom;
 
 public interface ChatService {
 
-	/** 채팅방 목록 조회
+	/** 채팅방 목록 조회 Service
 	 * @param memberNo
 	 * @return chatRoomList
 	 */
 	List<ChatList> selectChatRoomList(int memberNo);
 
-	/** 채팅방 상세조회 ajax
+	/** 채팅방 상세조회 ajax Service
 	 * @param memberNo
 	 * @param chatNo
 	 * @return chatDetailList
