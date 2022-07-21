@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.chat.model.vo.ChatList;
+import edu.kh.podo.chat.model.vo.ChatMessage;
 import edu.kh.podo.chat.model.vo.ChatRoom;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -63,8 +64,19 @@ public class ChatDAO {
 		return 0;
 	}
 
+	/** 채팅방 참여 DAO
+	 * @param map
+	 */
 	public void joinChat(Map<String, Object> map) {
 		sqlSession.insert("chatMapper.joinChat", map);
+	}
+
+	/** 채팅 메세지 삽입 DAO
+	 * @param chatMessage
+	 * @return result
+	 */
+	public int insertMessage(ChatMessage chatMessage) {
+		return sqlSession.insert("chatMapper.insertMessage", chatMessage);
 	}
 
 }
