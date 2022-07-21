@@ -67,29 +67,29 @@
 
                     <section>
                         <h4>주소</h4>
+                        <input type="text" id="memberAddress" placeholder="주소" name="memberAddress" readonly>
+                        <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                     </section>
-                    <span class="signUp-message" id="addressMessage">
+                    <span class="signUp-message" id="addressMessage">* 검색 버튼을 눌러주세요.</span>
 
-                        <div class="signUp-input-area">
-                            <input type="text" id="sample4_postcode" class="memberAddress" name="memberAddress"
-                                    placeholder="우편번호" maxlength="6">
+                    <section id="map-area" style="display:none;">
+                        <div id="map" style="width:500px;height:400px;margin-top:10px;"></div>
+                    </section>
+                    
+                    <%-- <input type="hidden" name="dLon" id="dLon" value="">
+                    <input type="hidden" name="dLat" id="dLat" value=""> --%>
                             
-                            <button type="button" onclick="sample4_execDaumPostcode()">검색</button>
-                        </div>
+                           
+                                
+                            
         
-                        <div class="signUp-input-area">
-                            <input type="text" id="sample4_roadAddress" class="memberAddress" name="memberAddress" placeholder="도로명주소">
-                        </div>
-        
-                        <div class="signUp-input-area">
-                            <input type="text" id="sample4_detailAddress" class="memberAddress" name="memberAddress" placeholder="상세주소">
-                        </div>
-                    </span>
+
+
                         
 
                     <section id="submitBtn-area">
                         <button id="submitBtn">회원가입하기</button>
-                    </section>  
+                    </section>
                     
 
                 </fieldset>
@@ -102,6 +102,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=06bb10cd60ad6e59265c29b83ff6ec2d&libraries=services"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     <script src="${contextPath}/resources/js/member/signUp.js"></script> 
 

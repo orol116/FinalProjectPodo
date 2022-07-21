@@ -8,8 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.google.gson.Gson;
 
 import edu.kh.podo.chat.model.service.ChatService;
 import edu.kh.podo.chat.model.vo.ChatList;
@@ -42,9 +46,22 @@ public class ChatController {
 						   , int chatNo
 						   , @ModelAttribute("loginMember") Member loginMember) {
 		
-		Map<String, Object> chatDetailList = service.selectChatDetail(loginMember.getMemberNo(), chatNo); 
+		return new Gson().toJson(service.selectChatDetail(loginMember.getMemberNo(), chatNo));
+	}
+	
+	// 1:1 채팅하기(채팅 생성)
+	@GetMapping("/chat/start/{boardNo}/{sellMemberNo}")
+	public String chatStart(@PathVariable("boardNo") int boardNo,
+							@PathVariable("sellMemberNo") int sellMemberNo
+						  , @ModelAttribute("loginMember") Member loginMember
+						  , RedirectAttributes ra) {
 		
-		return null;
+		int myMemberNo = loginMember.getMemberNo();
+		
+		int chatNo = service.startChat(sellMemberNo, myMemberNo, boardNo);
+		
+		ra.addFlashAttribute("createChatNo", chatNo);
+		return  "redirect:/chat/roomList"; 
 	}
 
 }

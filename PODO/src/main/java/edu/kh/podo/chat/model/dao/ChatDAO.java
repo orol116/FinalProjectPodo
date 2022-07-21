@@ -32,4 +32,39 @@ public class ChatDAO {
 	public List<ChatList> selectOtherDetail(Map<String, Object> map) {
 		return sqlSession.selectList("chatMapper.selectOtherDetail", map);
 	}
+
+	/** 내 채팅 정보 조회 (대화 내용 / 시간만) DAO
+	 * @param map
+	 * @return myDetail
+	 */
+	public List<ChatList> selectMyDetail(Map<String, Object> map) {
+		return sqlSession.selectList("chatMapper.selectMyDetail", map);
+	}
+	
+	/** 채팅방이 이미 존재하는지 조회 DAO
+	 * @param map
+	 * @return result
+	 */
+	public int selectChatRoom(Map<String, Object> map) {
+		return sqlSession.selectOne("chatMapper.selectChatRoom", map);
+	}	
+
+	/** 채팅방 만들기 DAO
+	 * @param map
+	 * @return result
+	 */
+	public int createChat(Map<String, Object> map) {
+		int result = sqlSession.insert("chatMapper.createChat", map);
+		
+		if (result > 0) {
+			return (int)map.get("chatNo");
+		}
+		
+		return 0;
+	}
+
+	public void joinChat(Map<String, Object> map) {
+		sqlSession.insert("chatMapper.joinChat", map);
+	}
+
 }

@@ -32,11 +32,11 @@
                 <h4>유형 선택</h4>
                 <select name="select" form="inquire">
                     <optgroup label="유형">
-                    <option value="1">운영정책</option>
-                    <option value="2">계정/인증</option>
-                    <option value="3">구매/판매</option>
-                    <option value="4">본인인증</option>
-                    <option value="5" selected>기타</option>
+                    <option value="운영정책">운영정책</option>
+                    <option value="계정/인증">계정/인증</option>
+                    <option value="구매/판매">구매/판매</option>
+                    <option value="본인인증">본인인증</option>
+                    <option value="기타" selected>기타</option>
                     </optgroup>
                 </select>
             </div>
@@ -47,7 +47,7 @@
 
         <div>
             <div  class="box" >
-                <textarea id="textarea" type="text" placeholder="문의내역을 입력해주세요."></textarea>    
+                <textarea id="textarea" type="text" name = "boardContent" placeholder="문의내역을 입력해주세요."></textarea>    
             </div>
 
             <section class="place">

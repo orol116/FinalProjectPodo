@@ -18,13 +18,13 @@ public class ChatServiceImpl implements ChatService {
 	@Autowired
 	private ChatDAO dao;
 
-	// 채팅방 목록 조회
+	// 채팅방 목록 조회 Service 구현
 	@Override
 	public List<ChatList> selectChatRoomList(int memberNo) {
 		return dao.selectChatRoomList(memberNo);
 	}
 
-	// 채팅방 목록 조회
+	// 채팅방 목록 조회 Service 구현
 	@Override
 	public Map<String, Object> selectChatDetail(int memberNo, int chatNo) {
 		
@@ -36,11 +36,36 @@ public class ChatServiceImpl implements ChatService {
 		List<ChatList> otherDetail = dao.selectOtherDetail(map);
 		
 		// 내 채팅 정보 조회 (대화 내용 / 시간만)
-//		List<ChatList> my
+		List<ChatList> myDetail = dao.selectMyDetail(map);
 		
+		// 반환 Map
+		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("otherDetail", otherDetail);
+		rtMap.put("myDetail", myDetail);
 		
+		return rtMap;
+	}
+
+	// 1:1 채팅하기(채팅 생성) Service 구현
+	@Override
+	public int startChat(int memberNo, int myMemberNo, int boardNo) {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("memberNo", memberNo);
+		map.put("myMemberNo", myMemberNo);
+		map.put("boardNo", boardNo);
 		
-		return null;
+		// 채팅방이 이미 존재하는지 조회
+		int chatNo  = dao.selectChatRoom(map);
+		
+		if (chatNo == 0) {
+			chatNo = dao.createChat(map);
+			
+			dao.joinChat(map);
+		}
+		
+			
+		return chatNo;
 	}
 
 }

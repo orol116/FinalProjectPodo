@@ -21,6 +21,40 @@
 	
 	</resultMap>
 
+
+	<resultMap type="admin" id="admin_rm">
+		<id property="boardNo" column="ADMIN_BOARD_NO"/>
+		
+		<result property="boardTitle" column="BOARD_TITLE"/>
+		<result property="boardContent" column="BOARD_CONTENT"/>
+		<result property="readCount" column="READ_COUNT"/>
+		<result property="createDate" column="CREATE_DT"/>
+		<result property="updateDate" column="UPDATE_DT"/>
+		<result property="boardCode" column="BOARD_CD"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+		<result property="classification" column="CLASSIFICATION"/>
+	</resultMap>
+	
+	
+	<resultMap type="boardImage" id="boardImage_rm">
+		<id property="imageNo" column="IMG_NO"/>
+		<result property="imageReName" column="IMG_RENAME"/>
+		<result property="imageOriginal" column="IMG_ORIGINAL"/>
+		<result property="imageLevel" column="IMG_LEVEL"/>
+		<result property="boardNo" column="BOARD_NO"/>
+	</resultMap>
+	
+	<resultMap type="boardImage" id="adminImage_rm">
+		<id property="imageNo" column="IMG_NO"/>
+		<result property="imageReName" column="IMG_RENAME"/>
+		<result property="imageOriginal" column="IMG_ORIGINAL"/>
+		<result property="imageLevel" column="IMG_LEVEL"/>
+		<result property="boardNo" column="ADMIN_BOARD_NO"/>
+	</resultMap>
+	
+
+
 	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NICK, MEMBER_TEL, 
@@ -87,6 +121,9 @@
   		WHERE MEMBER_ID = #{memberId}
   	</select>
   	
+  	
+
+
   	<update id="resetPw" parameterType="member">
   		UPDATE MEMBER SET
   		MEMBER_PW = #{memberPw}
@@ -94,4 +131,67 @@
   		
   	</update>
   	
+  	<!-- 1대1 문의글 내용 작성 -->
+  	<insert id="inquireWrite"  useGeneratedKeys="true"> 
+	
+		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_ADMIN_BOARD_NO.NEXTVAL FROM DUAL
+		
+		</selectKey>
+	
+		INSERT INTO ADMIN_BOARD VALUES(
+			#{boardNo}, #{boardContent}, #{boardContent},
+			DEFAULT, DEFAULT, DEFAULT, 3, #{memberNo}, #{select}
+		)
+	
+	</insert>
+	
+	<!-- 1대1 문의글 이미지 삽입 -->
+	<insert id="insertBoardImageList" parameterType="list" >
+		
+		INSERT INTO ADMIN_BOARD_IMG
+			SELECT SEQ_ADMIN_IMG_NO.NEXTVAL IMG_NO, A.* FROM(
+			
+				<foreach collection="list" item="img" separator="UNION ALL" >
+					SELECT 			#{img.imageReName} IMG_RENAME,
+									#{img.imageOriginal} IMG_ORIGINAL,
+									#{img.imageLevel} 			IMG_LEVEL,
+									#{img.boardNo}		ADMIN_BOARD_NO
+					FROM DUAL
+				</foreach>
+				
+			) A
+	
+	</insert>
+	
+	<!-- 본인이 쓴 1대1 문의글 숫자 조회 -->
+	<select id="inquireCount" resultType="_int">
+		SELECT COUNT(*) FROM ADMIN_BOARD
+		WHERE BOARD_CD = 3
+		AND MEMBER_NO= #{memberNo}
+	</select>
+	
+	<!-- 1대1 문의에 해당하는 회원 번호 조회 DAO -->
+	<select id="selectMemberNo" resultType="_int">
+		SELECT MEMBER_NO
+		FROM ADMIN_BOARD
+		WHERE ADMIN_BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 1대1 문의에 해당하는 이미지 리스트 조회 -->
+	<select id="selectBoardImageList" resultMap="adminImage_rm">
+		SELECT * FROM ADMIN_BOARD_IMG
+		WHERE ADMIN_BOARD_NO = #{boardNo}
+		ORDER BY IMG_LEVEL
+	</select>
+	
+	
+	<!-- 1대1 문의에 해당하는 회원정보 조회 DAO -->
+	<select id="sellMemberInfo" resultMap="member_rm">
+		SELECT MEMBER_NICK, MEMBER_GRAPE, MEMBER_PROFILE
+		FROM MEMBER
+		WHERE MEMBER_NO = ${memberNo}
+	</select>
+	
+	
 </mapper>

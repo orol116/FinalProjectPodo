@@ -1,6 +1,8 @@
 package edu.kh.podo.member.controller;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
@@ -287,24 +291,94 @@ public class MemberController {
 	}
 
 	
-		// 1:1문의 페이지
-		@GetMapping("/inquire")
-		public String inquire() {
+	// 1:1문의 페이지
+	@GetMapping("/inquire")
+	public String inquire(@ModelAttribute("loginMember") Member loginMember
+						  ,RedirectAttributes ra
+						  ,@RequestParam(value="iq", required=false, defaultValue = "n") String iq) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		if(iq.equals("y")) {
 			return "member/inquire";
+			
+		}else {
+			
+			int count = service.inquireCount(memberNo);
+			
+			if(count>0) {
+				return "redirect:/member/inquireList";
+				
+			}else {
+				return "member/inquire";
+			}
 		}
-
-		// 상품관리 페이지
-		@GetMapping("/itemManage")
-		public String manage() {
+	}
 	
-			return "member/itemManage";
-		}
+	@PostMapping("/inquire")
+	public String inquireWrite(@RequestParam Map<String, Object> paramMap
+							 , @ModelAttribute("loginMember") Member loginMember
+							 , @RequestParam(value="images", required=false) List<MultipartFile> imageList
+							 , HttpServletRequest req
+							 , RedirectAttributes ra) throws IOException  {
+		
+		paramMap.put("memberNo", loginMember.getMemberNo());
+		
+		String webPath = "/resources/images/item";
 
-		// 아이디 찾기 페이지 전환
-		@GetMapping("/findId")
-		public String fingId() {
-			return "/member/member-find-ID";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		int boardNo = service.inquireWrite(paramMap, imageList, webPath, folderPath);
+		
+		String path = null;
+		String message = null;
+		
+		if(boardNo>0) { // 게시글 등록 성공
+			path="/member/inquireList?memberNo="+loginMember.getMemberNo();
+			message = "문의가 등록되었습니다.";
+		}else {
+			path = req.getHeader("referer");
+			message = "문의 등록 실패...";
 		}
+		ra.addFlashAttribute("message",message);
+		
+		return "redirect:"+path;
+	}
+	
+	// 본인이 쓴 문의글 리스트 조회
+	@GetMapping("/inquireList")
+	public String inquireWrite() {
+		
+		return "member/inquireList";
+	}
+	
+	
+	// 1대1 문의 상세 페이지
+	@GetMapping("/inquireList/detail/{boardNo}")
+	public String itemDetail(@PathVariable("boardNo") int boardNo
+						   , Model model) {
+		
+		Map<String, Object> map = service.itemDetail(boardNo);
+		map.put("boardNo", boardNo);
+		
+		model.addAttribute("map", map);
+
+		return "member/InquireDetail";
+	}
+		
+
+	// 상품관리 페이지
+	@GetMapping("/itemManage")
+	public String manage() {
+
+		return "member/itemManage";
+	}
+
+	// 아이디 찾기 페이지 전환
+	@GetMapping("/findId")
+	public String fingId() {
+		return "/member/member-find-ID";
+	}
 
 	// 핸드폰 본인인증(아이디 찾기)
 	@GetMapping("/phoneCheck")

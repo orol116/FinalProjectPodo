@@ -1,8 +1,11 @@
 package edu.kh.podo.member.model.service;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.podo.member.model.dao.MemberDAO;
 import edu.kh.podo.member.model.vo.Member;
@@ -75,12 +78,24 @@ public interface MemberService {
 
 
 
+	int inquireWrite(Map<String, Object> paramMap, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
+
+
+
 
 	/** 비밀번호 재설정(아이디)
 	 * @param inputMember
 	 * @return result
 	 */
 	int resetPw(Member inputMember);
+
+
+
+	int inquireCount(int memberNo);
+
+
+
+	Map<String, Object> itemDetail(int boardNo);
 	
 
 
