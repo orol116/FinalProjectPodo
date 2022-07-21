@@ -199,7 +199,7 @@
                         <section class="place">
                             <button>내 위치</button>
                             <button>최근지역</button>
-                            <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" id="searchBtn"><br>
+                            <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" id="searchBtn">
                             <button onchange="none()" id="noneLocation">지역설정안함</button>
                         </section>
                         <section class="place2">
@@ -229,10 +229,10 @@
                 <li>
                     <section class="states">
                         
-                        <input type="radio" id="secondHand1" name="itemCondition" value='중고상품'>
+                        <input type="radio" id="secondHand1" name="itemCondition" value='중고상품' class="itemCondition">
                         <label for="secondHand1">중고상품</label>
                     
-                        <input type="radio" id="secondHand2" name="itemCondition" value='새상품'>
+                        <input type="radio" id="secondHand2" name="itemCondition" value='새상품' class="itemCondition">
                         <label for="secondHand2">새상품</label>
 
                     </section>
@@ -328,7 +328,7 @@
         <input type="hidden" name="lCateValue" id="lCateValue">
         <input type="hidden" name="mCateValue" id="mCateValue">
 
-        <input type="text" name="dLon" id="dLon" value="">
+        <input type="hidden" name="dLon" id="dLon" value="">
         <input type="hidden" name="dLat" id="dLat" value="">
 
       </form>
