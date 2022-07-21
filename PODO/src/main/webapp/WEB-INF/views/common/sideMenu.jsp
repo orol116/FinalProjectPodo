@@ -11,6 +11,7 @@
             <li class="myPage-subTitle"><a href="${contextPath}/member/myPage/changePw">비밀번호 변경</a></li>
             <li class="myPage-subTitle"><a href="${contextPath}/member/myPage/myFavorites">찜 상품 조회</a></li>
             <li class="myPage-subTitle"><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
+            <li class="myPage-subTitle"><a href="${contextPath}/member/myPage/myLocation">주소 변경</a></li>
 
         </ul>
     </section>

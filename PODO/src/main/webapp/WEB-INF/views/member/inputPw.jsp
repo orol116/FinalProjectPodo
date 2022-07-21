@@ -30,7 +30,8 @@
                     <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                     <div class="myPage-row">
                         <c:forEach var="searchId" items="${searchId}">
-                            <label name="memberId">PODO 아이디 :</label><span style="color: #5f0081; display: inline;">${searchId}</span> 
+                            <label name="podoId">PODO 아이디 :</label><span style="color: #5f0081; display: inline;">${searchId}</span> 
+                            <input type="hidden" name="memberId" value="${searchId}">
                         </c:forEach>
                     </div>
                     <div class="myPage-row">
