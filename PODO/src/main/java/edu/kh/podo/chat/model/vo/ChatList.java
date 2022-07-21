@@ -25,4 +25,8 @@ public class ChatList {
 	private Date messageTime;
 	private int messageNo;
 
+   
+	
+	
+	
 }
