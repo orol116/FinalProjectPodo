@@ -23,98 +23,87 @@
     <div class="top-menu">
         <nav id="mainMenu">
             <h3>1:1문의</h3>
-            <a id="inquire" href="#">문의하기</a>
+            <a id="inquire" href="inquire?iq=y">문의하기</a>
         </nav>
     </div>
     <div class="list1">
-        <ul>
-            <%-- <form id="list" method="post" onclick="inquireList()"> --%>
-                <li id="one">
-                    <div class="list2">
-                        <section class="list3">
-                            <h5>기타</h5>
+        <ul> 
+            <li id="one">
+                <div class="list2">
+                    <section class="list3">
+                        <section class="list4">
+                            <h4>기타</h4>
                             <a href="#">기타서비스</a>
                         </section>
-                        <button id="cancel" onclick="cancel()" class="btn-open-popup">문의취소</button>
-                         <div class="modal">
-                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
-                                <button id="close">닫기</button>
-                                <button id="confirm">확인</button>
+                        <button id="show">문의취소</button>
+                    </section>
+                    <p>접수완료</p>
+                    <div class="background">
+                        <div class="window">
+                          <div class="popup">
+                            <button id="close" type="button">x</button>
+                            <div id="report-text">해당문의를 취소하시겠습니까?</div>
+                            <div id="report-area">
+                                <button id="ok">확인</button>
+                                <button id="cancel">취소</button>  
                             </div>
                         </div>
                     </div>
-
-                    <p>접수완료</p>
-                </li>
-                <li id="one">
-                    <div class="list2">
-                        <section class="list3">
-                            <h5>기타</h5>
-                            <a href="#">기타서비스</a>
-                        </section>
-                        <button id="cancel" onclick="cancel()" class="btn-open-popup">문의취소</button>
-                         <div class="modal">
-                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
-                                <button id="close">닫기</button>
-                                <button id="confirm">확인</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>접수완료</p>
-                </li>
-                <li id="one">
-                    <div class="list2">
-                        <section class="list3">
-                            <h5>기타</h5>
-                            <a href="#">기타서비스</a>
-                        </section>
-                        <button id="cancel" onclick="cancel()" class="btn-open-popup">문의취소</button>
-                         <div class="modal">
-                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
-                                <button id="close">닫기</button>
-                                <button id="confirm">확인</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>접수완료</p>
-                </li>
-                <li id="one">
-                    <div class="list2">
-                        <section class="list3">
-                            <h5>기타</h5>
-                            <a href="#">기타서비스</a>
-                        </section>
-                        <button id="cancel" onclick="cancel()" class="btn-open-popup">문의취소</button>
-                         <div class="modal">
-                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
-                                <button id="close">닫기</button>
-                                <button id="confirm">확인</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>접수완료</p>
-                </li>
-                <li id="one">
-                    <div class="list2">
-                        <section class="list3">
-                            <h5>기타</h5>
-                            <a href="#">기타서비스</a>
-                        </section>
-                        <button id="cancel" onclick="cancel()" class="btn-open-popup">문의취소</button>
-                         <div class="modal">
-                            <div class="modal_body">작성한 문의를 삭제하시겠습니까?
-                                <button id="close">닫기</button>
-                                <button id="confirm">확인</button>
-                            </div>
-                        </div>
-                    </div>
-                    <p>접수완료</p>
-                </li>
-            </form>
+                </div>
+            </li>
         </ul>
+              
+          <ul> 
+            <li id="one">
+                <div class="list2">
+                    <section class="list3">
+                        <section class="list4">
+                            <h4>기타</h4>
+                            <a href="#">기타서비스</a>
+                        </section>
+                        <button id="show">문의취소</button>
+                    </section>
+                    <p>접수완료</p>
+                    <div class="background">
+                        <div class="window">
+                          <div class="popup">
+                            <button id="close" type="button">x</button>
+                            <div id="report-text">해당문의를 취소하시겠습니까?</div>
+                            <div id="report-area">
+                                <button id="ok">확인</button>
+                                <button id="cancel">취소</button>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+         <ul> 
+            <li id="one">
+                <div class="list2">
+                    <section class="list3">
+                        <section class="list4">
+                            <h4>기타</h4>
+                            <a href="#">기타서비스</a>
+                        </section>
+                        <button id="show">문의취소</button>
+                    </section>
+                    <p>접수완료</p>
+                    <div class="background">
+                        <div class="window">
+                          <div class="popup">
+                            <button id="close" type="button">x</button>
+                            <div id="report-text">해당문의를 취소하시겠습니까?</div>
+                            <div id="report-area">
+                                <button id="ok">확인</button>
+                                <button id="cancel">취소</button>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
     </div>
 
     <div class="inform">

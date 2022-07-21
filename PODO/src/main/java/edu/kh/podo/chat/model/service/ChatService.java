@@ -21,4 +21,12 @@ public interface ChatService {
 	 */
 	Map<String, Object> selectChatDetail(int memberNo, int chatNo);
 
+	/** 1:1 채팅하기(채팅 생성) Service
+	 * @param memberNo
+	 * @param myMemberNo
+	 * @param boardNo
+	 * @return result
+	 */
+	int startChat(int memberNo, int myMemberNo, int boardNo);
+
 }

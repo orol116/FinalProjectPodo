@@ -293,20 +293,25 @@ public class MemberController {
 	// 1:1문의 페이지
 	@GetMapping("/inquire")
 	public String inquire(@ModelAttribute("loginMember") Member loginMember
-						  ,RedirectAttributes ra) {
-		
+						  ,RedirectAttributes ra
+						  ,@RequestParam(value="iq", required=false, defaultValue = "n") String iq) {
 		
 		int memberNo = loginMember.getMemberNo();
 		
-		
-		int count = service.inquireCount(memberNo);
-		
-		if(count>0	) {
+		if(iq.equals("y")) {
+			return "member/inquire";
 			
-			return "redirect:/member/inquireList";
 		}else {
 			
-			return "member/inquire";
+			int count = service.inquireCount(memberNo);
+			
+			if(count>0) {
+				return "redirect:/member/inquireList";
+			}else {
+				return "member/inquire";
+			}
+			
+			
 		}
 		
 	}

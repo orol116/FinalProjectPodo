@@ -102,6 +102,7 @@
                                                                     <div class="thumb">
                                                                          <c:if test="${fn:length(boardImageList) != null}">
                                                                             <image id="item-image" src="${contextPath}${boardImageList.imageReName}" alt="상품 이미지"></image>
+                                                                            <a href="${contextPath}/board/detail/${boardImageList.imageReName}">
                                                                         </c:if>
                                                                     </div>
                                                                    
