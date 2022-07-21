@@ -76,8 +76,8 @@
                         <div id="map" style="width:500px;height:400px;margin-top:10px;"></div>
                     </section>
                     
-                    <%-- <input type="hidden" name="dLon" id="dLon" value="">
-                    <input type="hidden" name="dLat" id="dLat" value=""> --%>
+                     <input type="hidden" name="dLon" id="dLon" value="">
+                    <input type="hidden" name="dLat" id="dLat" value="">
                             
                            
                                 
