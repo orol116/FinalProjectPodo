@@ -121,6 +121,9 @@ function sample5_execDaumPostcode() {
 
     });
 
+    document.getElementById("dLon").value = dLon;
+    document.getElementById("dLat").value = dLat;
+
 
 
 
