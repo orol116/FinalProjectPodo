@@ -146,7 +146,7 @@
                                 <%-- 조회된 채팅방 목록이 있을 때 --%>
                                 
                                     
-                                    <c:forEach items="${list}" var="msg">
+                                    <c:forEach items="${chatDetail}" var="msg">
 
                                         <fmt:formatDate var="chatDate" value="${msg.messageTime }" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
