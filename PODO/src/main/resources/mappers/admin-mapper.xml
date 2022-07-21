@@ -453,7 +453,7 @@
 	<insert id="insertBoard"  useGeneratedKeys="true"> 
 	
 		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
-			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+			SELECT SEQ_ADMIN_BOARD_NO.NEXTVAL FROM DUAL
 		
 		</selectKey>
 	

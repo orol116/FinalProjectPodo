@@ -1,6 +1,7 @@
 package edu.kh.podo.member.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -101,6 +102,18 @@ public class MemberDAO {
 
 
 
+	public int inquireWrite(Map<String, Object> paramMap) {
+		
+		int result = sqlSession.insert("memberMapper.inquireWrite",paramMap); // 0 또는 1
+		
+		if(result>0) {
+			
+			result = (int) paramMap.get("boardNo"); // 게시글 삽입 성공시 <selectKey> 태그를 이용해 세팅된 boardNo값을 반환함
+										  // -> 게시글 번호 사용 가능해짐!
+		}
+		
+		return result;	
+	}
 	
 	/** 비밀번호 재설정(아이디)
 	 * @param inputMember

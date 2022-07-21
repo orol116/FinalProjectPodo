@@ -21,6 +21,22 @@
 	
 	</resultMap>
 
+
+	<resultMap type="admin" id="admin_rm">
+		<id property="boardNo" column="ADMIN_BOARD_NO"/>
+		
+		<result property="boardTitle" column="BOARD_TITLE"/>
+		<result property="boardContent" column="BOARD_CONTENT"/>
+		<result property="readCount" column="READ_COUNT"/>
+		<result property="createDate" column="CREATE_DT"/>
+		<result property="updateDate" column="UPDATE_DT"/>
+		<result property="boardCode" column="BOARD_CD"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+		<result property="classification" column="CLASSIFICATION"/>
+	</resultMap>
+
+
 	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NICK, MEMBER_TEL, 
@@ -87,6 +103,23 @@
   		WHERE MEMBER_ID = #{memberId}
   	</select>
   	
+  	
+  	
+  	<insert id="inquireWrite"  useGeneratedKeys="true"> 
+	
+		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_ADMIN_BOARD_NO.NEXTVAL FROM DUAL
+		
+		</selectKey>
+	
+		INSERT INTO ADMIN_BOARD VALUES(
+			#{boardNo}, #{boardContent}, #{boardContent},
+			DEFAULT, DEFAULT, DEFAULT, 3, #{memberNo}, #{select}
+		)
+	
+	</insert>
+
+
   	<update id="resetPw" parameterType="member">
   		UPDATE MEMBER SET
   		MEMBER_PW = #{memberPw}
