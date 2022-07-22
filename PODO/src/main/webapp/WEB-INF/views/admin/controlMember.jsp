@@ -66,7 +66,7 @@
 
 
 
-    <form class="search1" action="controlMember" id="search" name="list-form" onsubmit="return ckBox()">
+<form class="search1" action="5/delete" id="search" method="post" name="list-form" onsubmit="return ckBox()">
 <div>
     <table>
         <thead>
@@ -122,10 +122,13 @@
         </div>
         <div>
             <%-- <button id="stop">정지</button> --%>
-            <button type="submit" class="btn" id="deleteBtn">삭제</button>
+            <button type="submit" class="btn" id="deleteBtn">탈퇴</button>
         </div>
     </div>
+
+    <input type="hidden" name="deleteNo" id="deleteNo" value="">
 </form>
+
     <div class="pagination">
         <c:set var="url" value="5?cp="/>
 
