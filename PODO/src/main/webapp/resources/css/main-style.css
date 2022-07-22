@@ -94,6 +94,14 @@ body{
     align-items: end;
     margin: 5px 10px 0;
 }
+
+.name1{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+}
+
 .name2{
     display: flex;
     justify-content: space-between;
@@ -108,7 +116,9 @@ body{
     font-size: 13px;
 }
 
-
+.state{
+  font-size: 13px;
+}
 
 /* 사이드 메뉴 */
 

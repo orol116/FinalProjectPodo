@@ -29,6 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.member.model.vo.MemberArea;
 
 @RequestMapping("/member")
 @SessionAttributes({ "loginMember" })
@@ -264,24 +265,19 @@ public class MemberController {
 	// 회원가입
 	@PostMapping("/signUp")
 	public String SignUp(Member inputMember, 
-						@RequestParam("dLon") String dLon,
-						@RequestParam("dLat") String dLat,
+						MemberArea crdnt,
 						RedirectAttributes ra) {
 
-		int result = service.signUp(inputMember);
-		int mResult = service.signUp(inputMember);
-
-		Map<String, Object> crdntMap = new HashMap<String, Object>();
-		
-		/* int cResult = service.insertCrdnt(); */
+		int memberNo = service.signUp(inputMember, crdnt);		
 		
 		String path = null;
 
-		if (result > 0) {
-
+		if (memberNo > 0) {
+				
 			path = "/";
 			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
-
+			
+					
 		} else {
 
 			path = "/member/signUp";
