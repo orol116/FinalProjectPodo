@@ -28,33 +28,37 @@ function listClickFn(chatNo) {
 
 			document.getElementById("boardTitle").innerText = data.itemList[0].boardTitle;
 			const chatContent = data.chatContent;
-			console.log("dataC : " + data.chatContent);
-
-			const li = document.createElement("li"); /* 채팅 영역 */
-			li.classList.add("myChat"); // 스타일 적용
-
-			const span = document.createElement("span");
-			span.classList.add("chatDate")
-
-			const p = document.createElement("p");
-			p.classList.add("chat");
+			console.log(data.chatContent);
 			
 			for(let msg of chatContent){		
+
+				
+				const li = document.createElement("li"); /* 채팅 영역 */
+				
+				const span = document.createElement("span");
+				span.classList.add("chatDate")
+
+				const p = document.createElement("p");
+				p.classList.add("chat");
+				
 				// 내가 쓴 채팅일 경우
 				if ( msg.memberNo == memberNo ) {
+			
 					li.append(span, p);
+					li.classList.add("myChat"); // 스타일 적용
 					span.innerText = currentTime(); // 날짜
 					p.innerHTML = msg.messageContent;
 				} else {
 					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
 					p.innerHTML = msg.messageContent;				
 					span.innerText = currentTime();
-					li.append(span, p);
+					li.append(p, span);
 				}
 				
 				const display = document.getElementsByClassName("display-chatting")[0];
 				
 				display.append(li);
+
 			}
 			console.log("boardNo : " + data.boardNo);
 			chattingNo = chatNo;
