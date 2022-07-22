@@ -16,7 +16,14 @@ function listClickFn(chatNo) {
 
 		success : function(data) {
 
-			console.log(data);	
+			console.log(data);
+
+			// // 이미지 연결
+			// console.log(data.boardImageList[0].imageReName);
+
+			// var img = document.getElementById("boardimg");
+			// img.src = '"' +  contextPath + data.boardImageList[0].imageReName + '"';
+
 			const chatContent = data.chatContnet;
 			console.log(data.chatContent);
 

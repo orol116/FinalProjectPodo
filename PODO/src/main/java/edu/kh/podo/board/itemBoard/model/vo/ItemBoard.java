@@ -32,6 +32,8 @@ public class ItemBoard {
 	private String categoryName;
 	private int buyMemberNo;
 	private int bookmarkCount;
+	private String mCategoryName;
+	private String lCategoryName;
 	
 	private List<BoardImage> imageList;
 	

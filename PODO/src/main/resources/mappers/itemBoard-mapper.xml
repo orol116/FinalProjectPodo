@@ -45,9 +45,11 @@
 		<result property="sellArea" column="SELL_AREA" />
 		<result property="boardCode" column="BOARD_CD" />
 		<result property="memberNo" column="MEMBER_NO" />
-		<result property="categoryNo" column="M_CATEGORY_NO" />
+		<result property="categoryNo" column="CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
+		<result property="mCategoryName" column="M_CATEGORY_NM" />
+		<result property="lCategoryName" column="L_CATEGORY_NM" />
 		
 		
 	</resultMap>
@@ -69,7 +71,7 @@
 	<!-- 판매글 상세조회 -->
 	<select id="selectItem" resultMap="itemBoard_rm">
 		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION
-			, PRICE, M_CATEGORY_NM, L_CATEGORY_NM
+			, PRICE, M_CATEGORY_NM, L_CATEGORY_NM, CATEGORY_NO
 		FROM ITEM_BOARD
 		JOIN BOARD_IMG USING(BOARD_NO)
 		JOIN M_CATEGORY USING(M_CATEGORY_NO)
@@ -122,7 +124,7 @@
 	</insert>
 	
 	<select id="selectItemList" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION
 		FROM ITEM_BOARD
 		WHERE UPDATE_DT >= SYSDATE - 7
 		ORDER BY READ_COUNT
@@ -164,7 +166,7 @@
 
 	<!-- 상품명 검색 -->
 	<select id="searchBoard" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION
 
 		FROM ITEM_BOARD
 		WHERE SECESSION_FL = 'N'
@@ -178,7 +180,7 @@
 
 		</if>
 
-		ORDER BY BOARD_NO DESC
+		ORDER BY READ_COUNT
 
 	</select>
 	

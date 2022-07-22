@@ -53,7 +53,12 @@
 		<result property="boardNo" column="ADMIN_BOARD_NO"/>
 	</resultMap>
 	
-
+	<resultMap type="memberArea" id="memberArea_rm">
+		<id property="mcrdntNo" column="MCRDNT_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="coordinateX" column="COORDINATE_X"/>
+		<result property="coordinateY" column="COORDINATE_Y"/>
+	</resultMap>
 
 	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultMap="member_rm">
@@ -67,9 +72,23 @@
 	
 	
 	<!-- 회원가입 -->
-	<insert id="signUp" parameterType="member">
+	<insert id="signUp" parameterType="member" useGeneratedKeys="true">
+	
+		<selectKey keyProperty="memberNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_MEMBER_NO.NEXTVAL FROM DUAL
+		</selectKey>
+	
 		INSERT INTO MEMBER 
-		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberTel}, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberAddress}, DEFAULT, DEFAULT, #{memberName})
+		VALUES(#{memberNo}, #{memberId}, #{memberPw}, #{memberNickname}, #{memberTel}, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberAddress}, DEFAULT, DEFAULT, #{memberName})
+	</insert>
+	
+	
+	<!-- 위도, 경도 변경 -->
+	<insert id="insertCrdnt" parameterType="memberArea">
+		INSERT INTO MEMBERAREA_XY
+		VALUES(
+			SEQ_MCRDNT_NO.NEXTVAL, ${memberNo}, ${dLon}, ${dLat}
+		) 
 	</insert>
 	
 	
@@ -100,7 +119,7 @@
   		SELECT MEMBER_ID, CREATE_DT 
   		FROM MEMBER
   		WHERE MEMBER_NM = #{memberName}
-  		<!-- AND MEMBER_TEL = #{memberTel} -->
+  		AND MEMBER_TEL = #{memberTel} 
   		AND SECESSION_FL ='N'
   	</select>
   	
@@ -110,7 +129,7 @@
   		FROM MEMBER
   		WHERE MEMBER_ID = #{memberId}
   		AND MEMBER_NM  = #{memberName}
-  		<!-- AND MEMBER_TEL = #{memberTel} -->
+  		AND MEMBER_TEL = #{memberTel} 
   		AND SECESSION_FL ='N'
   	</select>
   	

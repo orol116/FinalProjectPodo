@@ -162,16 +162,25 @@ public class AdminDAO {
 	public int adminDelete(String deleteNo, int boardCode) {
 		
 		int resultD=0;
-		
+		int result=0;
 		
 		Map<String, Object> map = new HashMap<String, Object>(); 
 		
 		map.put("deleteNo",deleteNo);
 		map.put("boardCode",boardCode);
 		
-		int result  = sqlSession.delete("adminMapper.adminImgDelete",map); // 0 또는 1
+		if(boardCode == 5) {
+			
+			result  = sqlSession.update("adminMapper.memberSecession",map); 
+			
+		}else {
+			
+			result  = sqlSession.delete("adminMapper.adminImgDelete",map); // 0 또는 1
+			
+			resultD = sqlSession.delete("adminMapper.adminDelete",map); 
+		}
 		
-		resultD = sqlSession.delete("adminMapper.adminDelete",map); 
+		
 		
 		return resultD;
 	}

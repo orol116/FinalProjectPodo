@@ -476,7 +476,12 @@
 		WHERE ADMIN_BOARD_NO IN (${deleteNo})
 	</delete>
 	
-	
-	
+
+	<!--관리자 회원 탈퇴/재가입 -->
+	<update id="memberSecession">
+		UPDATE MEMBER SET
+		SECESSION_FL = 'Y'
+		WHERE MEMBER_NO IN (${deleteNo})
+	</update>
 
 </mapper>
