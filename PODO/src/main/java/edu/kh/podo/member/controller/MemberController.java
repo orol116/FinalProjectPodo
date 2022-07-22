@@ -1,6 +1,7 @@
 package edu.kh.podo.member.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -262,16 +263,18 @@ public class MemberController {
 
 	// 회원가입
 	@PostMapping("/signUp")
-	public String SignUp(Member inputMember, String memberAddress[], RedirectAttributes ra) {
-
-		inputMember.setMemberAddress(String.join(",,", memberAddress));
-
-		if (inputMember.getMemberAddress().equals(",,,,")) {
-			inputMember.setMemberAddress(null);
-		}
+	public String SignUp(Member inputMember, 
+						@RequestParam("dLon") String dLon,
+						@RequestParam("dLat") String dLat,
+						RedirectAttributes ra) {
 
 		int result = service.signUp(inputMember);
+		int mResult = service.signUp(inputMember);
 
+		Map<String, Object> crdntMap = new HashMap<String, Object>();
+		
+		/* int cResult = service.insertCrdnt(); */
+		
 		String path = null;
 
 		if (result > 0) {
@@ -353,7 +356,7 @@ public class MemberController {
 		
 		model.addAttribute("inquireList", inquireList);
 		
-		return "member/inquireList";
+		return "member/InquireList";
 	}
 	
 	

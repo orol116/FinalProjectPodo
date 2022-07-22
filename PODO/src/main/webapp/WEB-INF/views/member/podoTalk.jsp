@@ -125,19 +125,21 @@
                                     </div>
                                 </div>
                             </a>
+
+                            <button type="button" onclick="deleteChat()">나가기</button>
+
                             <%-- 신고하기 --%>
                             <div class="declaration">
                                 <div>
                                     <img src="${contextPath}/resources/images/report.png" alt="신고 이미지">
                                 </div>
                             </div>
-                                <a href="#"><div class="chat_close"></div></a>
                         </div>
 
 
 
                         <%-- 채팅창 --%>
-                        <div class="chatting-area" style="bottom: 49px;">
+                        <div class="chatting-area">
 
                             <%-- 채팅창 영역 --%>
                             <ul class="display-chatting">
@@ -151,7 +153,7 @@
                                         <c:if test="${msg.memberNo == loginMember.memberNo }">
                                             <li class="myChat">
                                                 <span class="chatDate">${messageTime}</span>
-                                                <p class="chat">${msg.messageContent }</p>
+                                                <p class="chat">${msg.messageContent}</p>
                                             </li>
                                         </c:if>
                                         
@@ -175,6 +177,8 @@
                                     <button type="send" id="send">전송</button>
                                 </div>
                             </div>
+
+
                             <%-- <div class="input-area">
                                 <textarea id="inputChatting" rows="3"></textarea>
                                 <button id="send">보내기</button>
