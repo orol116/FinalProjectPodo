@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.member.model.vo.MemberArea;
 
 @Repository
 public class MemberDAO {
@@ -40,7 +41,21 @@ public class MemberDAO {
 	 * @return result
 	 */
 	public int signUp(Member inputMember) {
-		return sqlSession.insert("memberMapper.signUp", inputMember);
+		
+		int result = sqlSession.insert("memberMapper.signUp", inputMember);
+		
+		if(result > 0) {
+			MemberArea crdnt = inputMember.getMemberArea();
+			crdnt.setMemberNo(inputMember.getMemberNo());
+			
+			int cResult = sqlSession.insert("memberMapper.insertCrdnt", crdnt);
+			
+			if(cResult>0) {
+				result = inputMember.getMemberNo();
+			}
+		}
+		
+		return result;
 	}
 
 
@@ -190,6 +205,7 @@ public class MemberDAO {
 	public List<Admin> inquireList(int memberNo) {
 		return sqlSession.selectList("memberMapper.inquireList", memberNo);
 	}
+
 
 
 

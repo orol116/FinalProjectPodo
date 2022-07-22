@@ -25,4 +25,6 @@ public class Member {
 	private String createDate;
 	private char admin;
 	private String shopInfo;
+	
+	private MemberArea memberArea;
 }
