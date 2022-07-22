@@ -20,29 +20,27 @@ function ckBox() {
         return false;
     }   
 
-const deleteBtn = document.getElementById("deleteBtn");
-let memBoard = document.querySelectorAll("[name='memList']:checked");
+    const deleteBtn = document.getElementById("deleteBtn");
+    let memBoard = document.querySelectorAll("[name='memList']:checked");
+    let deleteNo = [];
 
-let deleteNo = [];
-    
 
-// 작성글
-if(document.querySelectorAll("[name='memList']").length != 0 ){
+    // 작성글
+    if(document.querySelectorAll("[name='memList']").length != 0 ){
 
     // 체크박스 선택 안됐을때
-     if(document.querySelectorAll("[name='memList']:checked").length == 0){
-        alert("삭제할 글을 선택해주세요.");
-        return false;
-     }
+        if(document.querySelectorAll("[name='memList']:checked").length == 0){
+            alert("삭제할 글을 선택해주세요.");
+            return false;
+        }
 
-    for(let b of memList){
-        deleteNo.push( b.value );
+        for(let b of memBoard){
+            deleteNo.push( b.value );
+        }
     }
-}
     document.getElementById("deleteNo").value = deleteNo.join(","); // 1,2,3
-    
+
     return true;
-  
 }
 
 
