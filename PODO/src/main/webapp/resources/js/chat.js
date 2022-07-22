@@ -16,10 +16,13 @@ function listClickFn(chatNo) {
 		dataType : "JSON",
 
 		success : function(data) {
-			console.log(chatNo);
+			console.log(data);
 
-			console.log(data.myDetail);
-			console.log(data.otherDetail);
+			// 이미지 연결
+			console.log(data.boardImageList[0].imageReName);
+
+			var img = document.getElementById("boardimg");
+			img.src = '"' +  contextPath + data.boardImageList[0].imageReName + '"';
 
 			chattingNo = chatNo;
 		},
