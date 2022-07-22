@@ -119,9 +119,12 @@ public class AdminController {
 							  ,@PathVariable("boardCode") int boardCode
 							  , HttpServletRequest req
 							  , RedirectAttributes ra) {
-		
+
 		System.out.println(deleteNo);
-		int adminDelete = service.adminDelete(deleteNo);
+
+			
+		int adminDelete = service.adminDelete(deleteNo, boardCode);
+	
 		
 		String path = null;
 		String message = null;

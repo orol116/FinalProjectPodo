@@ -14,6 +14,6 @@ public interface AdminService {
 
 	Map<String, Object> searchBoardList(Map<String, Object> paramMap);
 
-	int adminDelete(String deleteValue);
+	int adminDelete(String deleteValue, int boardCode);
 
 }

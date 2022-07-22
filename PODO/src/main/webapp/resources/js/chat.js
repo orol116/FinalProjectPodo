@@ -3,8 +3,7 @@ var chattingNo = 0;
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
 
-
-	/* document.getElementById("chatArea").innerHTML = ""; */
+	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 
 	
 	console.log(chatNo);
@@ -18,11 +17,17 @@ function listClickFn(chatNo) {
 		success : function(data) {
 			console.log(data);
 
-			// 이미지 연결
-			console.log(data.boardImageList[0].imageReName);
+			// // 이미지 연결
+			// console.log(data.boardImageList[0].imageReName);
 
-			var img = document.getElementById("boardimg");
-			img.src = '"' +  contextPath + data.boardImageList[0].imageReName + '"';
+			// var img = document.getElementById("boardimg");
+			// img.src = '"' +  contextPath + data.boardImageList[0].imageReName + '"';
+
+			const chatContent = data.chatContnet;
+
+			for(let msg of chatContent){
+
+			}
 
 			chattingNo = chatNo;
 		},
@@ -125,7 +130,6 @@ chattingSock.onmessage = function(e){
 
 
 	const li = document.createElement("li");
-
 	const p = document.createElement("p");
 	p.classList.add("chat");
 	

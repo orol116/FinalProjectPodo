@@ -138,8 +138,8 @@ public class AdminServiceImpl implements AdminService{
 
 	//관리자 게시판 게시글 삭제
 	@Override
-	public int adminDelete(String deleteNo) {
-		return dao.adminDelete(deleteNo);
+	public int adminDelete(String deleteNo, int boardCode) {
+		return dao.adminDelete(deleteNo, boardCode);
 	}
 	
 }

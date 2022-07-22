@@ -1,4 +1,4 @@
-/* 본문 영역 */
+mychat/* 본문 영역 */
 .content{
     margin: 0;
     padding: 0;
@@ -377,7 +377,10 @@
 	}
 
 	.myChat > p{
-		background-color: yellow;
+		/* background-color: yellow; */
+        background-color: rgb(131, 4, 177);
+        color: white;
+        
 	}
 
 	.chatDate{

@@ -2,48 +2,36 @@ function noteList(){
     
     $.ajax({
         url : contextPath + "/InquireDetail",
-        data : {"memberNo" : memberNo}, //전달이 안되는거같은
+        data : {"boardContent" : boardContent }, // boardContent
         type : "GET",
         dataType : "JSON", 
-
-        success : function(nList){
+        success : function(boardContent){
             //nList : 반환 받은 알림 목록
-            // console.log(nList);
+            console.log(boardContent);
 
-            //화면에 있는 목록 삭제
-            const noteList = document.getElementById("noteList");
-            noteList.innerHTML = "";
-
-            if(nList != null){
+            if(boardContent != null){
 
                 //nList 에 저장된 요소를 하나씩
-                for(let note of nList){
+                for(let bc of boardContent){
                     
                     //발신자
-                    const sender = document.createElement("div");
+                    const reply = document.createElement("div");
                                         
-                    //알림 내용
-                    const noteContent = document.createElement("p");
-                    noteContent.innerHTML = note.noteContent; 
-                    //br 처럼 줄바꿈요소가 있기때문에 단순 문자열 X
-                    
+                    reply.appendChild(div,information);
+                    const p1 = document.createElement("p");
+                    // p1.innerText = reply.memberNickname;
+                    p1.innerHTML("&#127815;&nbsp;관리자");
 
-                    //noteList에 자식요소로 추가
-                    noteList.append(sender,noteContent);                    
+                    const p2 = document.createElement("p");
+                    p2.classList.add("reply-date");
+                    p2.innerHTML =  "(" + reply.createDate + ")";
+
+                    const noteContent = document.createElement("p");
+                    noteContent.innerHTML = note.noteContent;    
                     
                 }
-                
-            } else {
-                //알림없으면 
-                
-                //없는 내용을 만들어서 자식으로 추가
-                noteList.classList.add("noNote");
-                const p = document.createElement("p");
-                p.innerText = "알림이 없습니다";
-                
-                noteList.append(p);
-            }
-
+         
+            } 
 
         },
         error : function(req,status,error){
