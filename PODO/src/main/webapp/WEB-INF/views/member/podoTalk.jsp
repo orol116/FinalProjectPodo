@@ -204,7 +204,6 @@
                             <%-- 전송 버튼 --%>
                             <div class="chat-footer">
                                 <div class="chat-footer-area">
-                                    <%-- <div class="chat-input" contenteditable="true" placeholder="메세지를 입력해주세요."></div> --%>
                                     <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
                                     <button type="send" id="send">전송</button>
                                 </div>
