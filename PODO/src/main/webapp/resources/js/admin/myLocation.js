@@ -89,6 +89,62 @@ document.getElementById("reset-address").addEventListener("click", function(){
 });
 
 
+function show() {
+document.querySelector(".background").className = "background show";
+}
+
+function close() {
+document.querySelector(".background").className = "background";
+}
+
+document.querySelector("#choose-address").addEventListener("click", show);
+document.querySelector("#close").addEventListener("click", close);
+
+
+/* const addrLength = document.getElementById("addrLength"); */
+
+let addrLength = "";
+
+
+const showValue = (target) => {
+    console.log(target.value);
+
+    addrLength = target.value;
+    
+    // option의 text 값
+    console.log(addrLength);
+  }
+
+
+document.getElementById("selectBtn").addEventListener("click", function(){
+
+    console.log(addrLength);
+
+     if(addrLength != 0){
+
+         $.ajax({
+            url : "selectAddrLength",                     
+            data : { "memberNo" : memberNo, "addrLength" : addrLength},               
+
+            type : "GET",    
+            success : function(){
+                alert("거리가 변경되었습니다");
+            },
+            
+            error : function(req, status, error){
+                console.log(req.responseText);
+            }
+        }); 
+    }else{
+        alert("거리를 입력하세요.");
+    } 
+
+});
+
+
+
+
+
 
 
 
