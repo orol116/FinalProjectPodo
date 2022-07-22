@@ -13,6 +13,7 @@
 		<typeAlias type="edu.kh.podo.member.model.vo.Note" alias="note"/> 
 		<typeAlias type="edu.kh.podo.member.model.vo.Review" alias="review"/> 
 		<typeAlias type="edu.kh.podo.admin.model.vo.Admin" alias="admin"/> 
+		<typeAlias type="edu.kh.podo.admin.model.vo.AdminReply" alias="adminReply"/> 
 		
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.ItemBoard" alias="itemBoard"/> 
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.BoardImage" alias="boardImage"/> 

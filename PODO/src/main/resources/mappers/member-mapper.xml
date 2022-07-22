@@ -119,7 +119,7 @@
   		SELECT MEMBER_ID, CREATE_DT 
   		FROM MEMBER
   		WHERE MEMBER_NM = #{memberName}
-  		<!-- AND MEMBER_TEL = #{memberTel} -->
+  		AND MEMBER_TEL = #{memberTel} 
   		AND SECESSION_FL ='N'
   	</select>
   	
@@ -129,7 +129,7 @@
   		FROM MEMBER
   		WHERE MEMBER_ID = #{memberId}
   		AND MEMBER_NM  = #{memberName}
-  		<!-- AND MEMBER_TEL = #{memberTel} -->
+  		AND MEMBER_TEL = #{memberTel} 
   		AND SECESSION_FL ='N'
   	</select>
   	

@@ -10,10 +10,18 @@
 		<result property="readCount" column="READ_COUNT"/>
 		<result property="createDate" column="CREATE_DT"/>
 		<result property="updateDate" column="UPDATE_DT"/>
-		<result property="boardCode" column="BOARD_CD"/>
+		<result property="boardCode" column="BOARD_CD"/>	
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="memberNick" column="MEMBER_NICK"/>
 		<result property="classification" column="CLASSIFICATION"/>
+	</resultMap>
+	
+	<resultMap type="adminReply" id="adminReply_rm">
+		<id property="replyNo" column="REPLY_NO"/>
+		
+		<result property="boardNo" column="ADMIN_BOARD_NO"/>
+		<result property="boardContent" column="BOARD_CONTENT"/>
+		<result property="createDate" column="CREATE_DT"/>
 	</resultMap>
 	
 	
@@ -477,12 +485,15 @@
 	</delete>
 	
 
-	
-	<!--관리자 게시글 사진 삭제 -->
+	<!--관리자 회원 탈퇴/재가입 -->
 	<update id="memberSecession">
 		UPDATE MEMBER SET
 		SECESSION_FL = 'Y'
 		WHERE MEMBER_NO IN (${deleteNo})
 	</update>
+	
+	
+	
+	
 
 </mapper>

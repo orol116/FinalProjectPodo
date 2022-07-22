@@ -101,11 +101,11 @@ h2{
 textarea{
     margin: 50px 0 50px;
 
-    width: 90%;
+    width: 900px;
     height: 6.25em;
     border: 1px solid #ddd;
     resize: none;
-    font-size: 15px;
+    font-size: 14px;
     padding: 10px;
 }
 textarea:focus{
@@ -156,12 +156,14 @@ textarea:focus{
 }
 
 #reply2{
-    width: 80px;
-    height: 6.25em;
-    background-color:rgb(95, 0, 129) ;
+    width: 90px;
+    height: 85px;
+    background-color: rgb(95, 0, 129);
     color: white;
     border: none;
     font-size: 15px;
+    border-radius: 5px;
+    margin-left: 5px;
 }
 #reply2:hover{
     background-color:white ;

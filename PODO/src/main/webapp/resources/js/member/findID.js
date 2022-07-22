@@ -17,19 +17,19 @@ function CerValidate(){
         
     }
 
-    // //전화번호가 입력되지 않은 경우 false
-    // if(inputTel.value.trim().length == 0){
-    //     alert("전화번호를 입력해주세요.");
-    //     inputTel.value = "";
-    //     inputTel.focus();
-    //     return false; 
+    //전화번호가 입력되지 않은 경우 false
+    if(inputTel.value.trim().length == 0){
+        alert("전화번호를 입력해주세요.");
+        inputTel.value = "";
+        inputTel.focus();
+        return false; 
         
-    // }
+    }
 
-    // if(inputPhone2.value.trim().length == 0){
-    //     alert("인증번호를 입력해주세요.");
-    //     return false;
-    // }
+    if(inputPhone2.value.trim().length == 0){
+        alert("인증번호를 입력해주세요.");
+        return false;
+    }
 
     // $.ajax({
     //     url : "idDupCheck",   

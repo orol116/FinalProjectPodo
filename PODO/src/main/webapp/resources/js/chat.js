@@ -15,6 +15,7 @@ function listClickFn(chatNo) {
 		dataType : "JSON",
 
 		success : function(data) {
+
 			console.log(data);
 
 			// // 이미지 연결
@@ -24,14 +25,38 @@ function listClickFn(chatNo) {
 			img.src = contextPath + data.boardImageList[0].imageReName;
 
 			document.getElementById("boardTitle").innerText = data.itemList[0].boardTitle;
+			const chatContent = data.chatContnet;
+			console.log(data.chatContent);
 
-			// const chatContent = data.chatContnet;
+			const li = document.createElement("li"); /* 채팅 영역 */
+			li.classList.add("myChat"); // 스타일 적용
 
-			// for(let msg of chatContent){
+			const span = document.createElement("span");
+			span.classList.add("chatDate")
 
-			// }
-
+			const p = document.createElement("p");
+			p.classList.add("chat");
+			
+			for(let msg of chatContent){		
+				// 내가 쓴 채팅일 경우
+				if( msg.memberNo == loginMember.memberNo ){
+					li.append(span, p);
+					span.innerText = currentTime(); // 날짜
+					p.innerHTML = msg.messageContent;
+				}else{
+					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
+					p.innerHTML = msg.messageContent;				
+					span.innerText = currentTime();
+					li.append(span, p);
+				}
+				
+				const display = document.getElementsByClassName("display-chatting")[0];
+				
+				display.append(li);
+			}
+			
 			chattingNo = chatNo;
+			
 		},
 
 		error : function() {
@@ -64,11 +89,13 @@ function listClickFn(chatNo) {
 
 // 페이지 로딩 완료 시 채팅창을 제일 밑으로 내리기
 (function(){
+
 	const display = document.getElementsByClassName("display-chatting")[0];
 	
 	if(display != null){
 		display.scrollTop = display.scrollHeight;
 	}
+
 })();
 
 

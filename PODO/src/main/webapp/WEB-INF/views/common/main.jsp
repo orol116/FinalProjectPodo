@@ -123,8 +123,8 @@
     <script src="${contextPath}/resources/js/main.js"></script>
     <script src="${contextPath}/resources/js/mainSideModal.js"></script>
 
-    <script>
+    <%-- <script>
          let contextPath = "${contextPath}";
-    </script>
+    </script> --%>
 </body>
 </html>

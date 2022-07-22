@@ -47,6 +47,7 @@ for(let i=0 ; i<inputImage.length ; i++){
 
             // 미리보기 삭제
             preview[i].removeAttribute("src");
+            preview[i].setAttribute("src",contextPath+"/resources/images/image.png");
 
             // input의 값을 "" 만들기
             inputImage[i].value = "";
