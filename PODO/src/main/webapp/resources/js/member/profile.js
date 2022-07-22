@@ -50,12 +50,16 @@ function selectItemsList() {
                     if(k % 4 == 0){
                         itemContainer = document.createElement("div");
                         itemContainer.classList.add("itemContainer");
+                        itemContainer.style.display = "flex";
+
                         itemList.append(itemContainer);
                     }
 
 
                     const itembox = document.createElement("div");
                     itembox.classList.add("box");
+                    itembox.style.margin = "10px 15px 10px 15px";
+                    itembox.style.paddingLeft = "2px";
                     /* const boxNumber = 1;
                     boxNumber++; */
 
@@ -65,7 +69,7 @@ function selectItemsList() {
                     const imageArea = document.createElement("div");
                     imageArea.classList.add("image");
 
-                    const itemImage = document.createElement("image");
+                    const itemImage = document.createElement("img");
 
                     const title1 = document.createElement("div");
                     title1.classList.add("title1");
