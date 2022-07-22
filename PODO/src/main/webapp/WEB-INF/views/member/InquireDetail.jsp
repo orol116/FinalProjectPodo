@@ -71,13 +71,12 @@
                     <div class="feedback">
                         안녕하세요 회원님, 문의글 남겨주셔서 감사합니다
                     </div>
-
                 </div>
             </c:if>
-
+            
             <c:if test="memberNo==1">
                 <div id="reply1">
-                    <textarea placeholder="답변을 입력해 주세요." ></textarea>
+                    <textarea class="reply-content" placeholder="답변을 입력해 주세요."></textarea>
                     <button id="reply2">등록</button>
                 </div>
             </c:if>
