@@ -94,4 +94,12 @@ public class ChatDAO {
 		sqlSession.update("chatMapper.updateStatus", chatNo);
 	}
 
+	/** 채팅방 삭제(나가기)
+	 * @param chatNo
+	 * @return result
+	 */
+	public int deleteChat(int chatNo) {
+		return sqlSession.update("chatMapper.deleteChat", chatNo);
+	}
+
 }

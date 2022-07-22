@@ -2,6 +2,8 @@ var chattingNo = 0;
 
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
+
+	document.getElementById("chatArea").innerHtml = "";
 	
 	console.log(chatNo);
 
@@ -188,11 +190,18 @@ function deleteChat() {
 	$.ajax({
 		url : contextPath + "/chat/deleteChat",
 		data : { "chatNo" : chattingNo },
-		type : "POST",
-		dataType : "JSON",
+		type : "GET",
 
-		success : function() {
-			console.log(chattingNo);
+		success : function(result) {
+
+			if (result > 0) {
+				console.log(chattingNo);
+				console.log("채팅방 나가기 성공");
+				location.reload();
+			} else {
+				console.log("채팅방 나가기 실패");
+			}
+
 		},
 
 		error : function() {

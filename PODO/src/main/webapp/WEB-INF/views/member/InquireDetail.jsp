@@ -65,7 +65,7 @@
             <%-- 
             <div id="reply">
                 <div class="information">
-                    <p>&#127815;관리자</p>
+                    <p>&#127815;&nbsp;관리자</p>
                     <p>2022-07-22</p>
                 </div>
                 <div class="feedback">
