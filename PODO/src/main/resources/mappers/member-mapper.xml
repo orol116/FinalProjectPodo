@@ -37,6 +37,15 @@
 	</resultMap>
 	
 	
+	<resultMap type="adminReply" id="adminReply_rm">
+		<id property="replyNo" column="REPLY_NO"/>
+		
+		<result property="boardNo" column="ADMIN_BOARD_NO"/>
+		<result property="replyContent" column="REPLY_CONTENT"/>
+		<result property="createDate" column="CREATE_DT"/>
+	</resultMap>
+	
+	
 	<resultMap type="boardImage" id="boardImage_rm">
 		<id property="imageNo" column="IMG_NO"/>
 		<result property="imageReName" column="IMG_RENAME"/>
@@ -218,6 +227,17 @@
 		FROM ADMIN_BOARD
 		WHERE ADMIN_BOARD_NO = ${boardNo}
 	</select>
+	
+
+	
+	<!-- 1대1 문의에 작성된 관리자 답변 조회 DAO -->
+	<select id="selectAdminReply" resultMap="adminReply_rm">
+		SELECT REPLY_NO, REPLY_CONTENT, CREATE_DT, ADMIN_BOARD_NO
+		FROM ADMIN_REPLY
+		WHERE ADMIN_BOARD_NO = ${boardNo}
+		ORDER BY ADMIN_BOARD_NO DESC
+	</select>
+	
 	
 	<!-- 본인이 작성한 1대1 문의글 전체 조회 -->
 	<select id="inquireList" resultMap="admin_rm">
