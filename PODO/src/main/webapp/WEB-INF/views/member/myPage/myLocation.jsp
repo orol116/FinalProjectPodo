@@ -71,7 +71,7 @@
                                 <div id="Btn-area">
                                     <button id="selectBtn">제출</button>
                                 </div>
-                            </.div>
+                            </div>
                             <div>
                             </div>
                         </div>
