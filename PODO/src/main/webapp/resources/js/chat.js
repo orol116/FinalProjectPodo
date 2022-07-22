@@ -3,8 +3,7 @@ var chattingNo = 0;
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
 
-
-	/* document.getElementById("chatArea").innerHTML = ""; */
+	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 
 	
 	console.log(chatNo);
@@ -122,7 +121,6 @@ chattingSock.onmessage = function(e){
 
 
 	const li = document.createElement("li");
-
 	const p = document.createElement("p");
 	p.classList.add("chat");
 	
