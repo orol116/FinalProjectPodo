@@ -129,6 +129,7 @@
                             </a>
 
                             <button type="button" onclick="deleteChat()">나가기</button>
+                            <button type="button" onclick="tradeCondition()">판매완료하기</button>
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
