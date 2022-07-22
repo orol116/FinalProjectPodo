@@ -12,8 +12,8 @@ import lombok.ToString;
 public class AdminReply {
 
 	private int replyNo;
+	private int boardNo;
 	private String replyContent;
 	private String createDate;
-	private int boardNo;
 	
 }

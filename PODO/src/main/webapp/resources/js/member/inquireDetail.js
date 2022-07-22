@@ -4,17 +4,17 @@ const replyContent = document.getElementById("reply-content");
 
 reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭이 되었을 때
 
+    function noteList(){
+        
+        $.ajax({
+            url : contextPath + "/admin/reply",
+            data : {"boardContent" : boardContent }, // boardContent
+            type : "post",
+            dataType : "JSON", 
+            success : function(boardContent){
+                //nList : 반환 받은 알림 목록
+                console.log(boardContent);
 
-        function noteList(){
-            
-            $.ajax({
-                url : contextPath + "/InquireDetail",
-                data : {"boardContent" : boardContent }, // boardContent
-                type : "GET",
-                dataType : "JSON", 
-                success : function(boardContent){
-                    //nList : 반환 받은 알림 목록
-                    console.log(boardContent);
 
                     if(boardContent != null){
 
@@ -47,4 +47,6 @@ reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭�
                 }
             });
         }
-}
+ 
+        
+})
