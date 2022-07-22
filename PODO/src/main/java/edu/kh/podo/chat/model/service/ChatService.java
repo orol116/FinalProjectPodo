@@ -36,4 +36,10 @@ public interface ChatService {
 	 */
 	int insertMessage(ChatMessage chatMessage);
 
+	/** 채팅방 삭제(나가기)
+	 * @param chatNo
+	 * @return result
+	 */
+	int deleteChat(int chatNo);
+
 }
