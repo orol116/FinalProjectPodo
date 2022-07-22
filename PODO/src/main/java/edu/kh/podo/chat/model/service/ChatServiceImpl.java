@@ -26,7 +26,7 @@ public class ChatServiceImpl implements ChatService {
 		return dao.selectChatRoomList(memberNo);
 	}
 
-	// 채팅방 목록 조회 Service 구현
+	// 채팅방 상세 조회 Service 구현
 	@Override
 	public Map<String, Object> selectChatDetail(int memberNo, int chatNo) {
 		
@@ -66,6 +66,16 @@ public class ChatServiceImpl implements ChatService {
 			chatNo = dao.createChat(map);
 			
 			dao.joinChat(map);
+			
+		} else {
+			
+			// 채팅방이 있다면 삭제되어 있는 방인지 확인 후 
+			int check = dao.checkDel(chatNo);
+			
+			// 삭제되었다면 다시 생성 (상태 변경)
+			if (check > 0) {
+				dao.updateStatus(chatNo);
+			}
 		}
 		
 			
@@ -79,6 +89,12 @@ public class ChatServiceImpl implements ChatService {
 		chatMessage.setMessageContent(Util.newLineHandling(chatMessage.getMessageContent()));
 		
 		return dao.insertMessage(chatMessage);
+	}
+
+	// 채팅방 삭제(나가기)
+	@Override
+	public int deleteChat(int chatNo) {
+		return dao.deleteChat(chatNo);
 	}
 
 }

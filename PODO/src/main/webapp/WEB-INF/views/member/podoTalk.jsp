@@ -125,26 +125,28 @@
                                     </div>
                                 </div>
                             </a>
+
+                            <button type="button" onclick="deleteChat()">나가기</button>
+
                             <%-- 신고하기 --%>
                             <div class="declaration">
                                 <div>
                                     <img src="${contextPath}/resources/images/report.png" alt="신고 이미지">
                                 </div>
                             </div>
-                                <a href="#"><div class="chat_close"></div></a>
                         </div>
 
 
 
                         <%-- 채팅창 --%>
                         <div class="chatting-area">
-                                
+
                             <%-- 채팅창 영역 --%>
                             <ul class="display-chatting">
     
                                 <%-- 조회된 채팅방 목록이 있을 때 --%>
                                 
-                                    <c:forEach items="${chatDetail}" var="msg">
+                                    <c:forEach items="${map}" var="msg">
 
                                         <fmt:formatDate var="chatDate" value="${msg.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
@@ -165,6 +167,7 @@
 
                                     </c:forEach>
                             </ul>	
+                            </div>
                 
 
 

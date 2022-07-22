@@ -79,4 +79,27 @@ public class ChatDAO {
 		return sqlSession.insert("chatMapper.insertMessage", chatMessage);
 	}
 
+	/** 삭제되어 있는 방인지 확인 DAO
+	 * @param chatNo
+	 * @return check
+	 */
+	public int checkDel(int chatNo) {
+		return sqlSession.selectOne("chatMapper.checkDel", chatNo);
+	}
+
+	/** 채팅방이 삭제되었다면 다시 생성 DAO
+	 * @param chatNo
+	 */
+	public void updateStatus(int chatNo) {
+		sqlSession.update("chatMapper.updateStatus", chatNo);
+	}
+
+	/** 채팅방 삭제(나가기)
+	 * @param chatNo
+	 * @return result
+	 */
+	public int deleteChat(int chatNo) {
+		return sqlSession.update("chatMapper.deleteChat", chatNo);
+	}
+
 }

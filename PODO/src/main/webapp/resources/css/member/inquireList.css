@@ -10,17 +10,23 @@
 *{box-sizing: border-box;}
 
 
+html{
+    min-height: 100vh;
+
+}
 
 
 body{
     width: 1400px;
     margin: auto;
+    min-height: 100vh;
+    padding: 0;
 }
 
 .body{
     width: 1000px;
     margin: auto;
-    height: 1000px;
+  
 
 }
 
@@ -58,7 +64,7 @@ body{
 
 /* 목록 */
 .list1{
-    height: 700px;
+    /* height: 700px; */
 }
 ul{
     padding: 0 60px 0;
@@ -152,10 +158,10 @@ h2{
 
 /* 하단 유의사항 */
 .inform{
-    border-top: 1px solid lightgray;
+    padding: 80px;
     color: gray;
-    margin: 0 200px 0;
-    padding: 50px;
+    /* margin: 0 200px 0; */
+   
 }
 .inform>ul>li{
     padding: 3px;
