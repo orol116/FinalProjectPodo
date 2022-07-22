@@ -167,4 +167,5 @@ textarea:focus{
     background-color:white ;
     color:rgb(95, 0, 129) ;
     border: 1px solid gray;
+    font-weight: bold;
 }
