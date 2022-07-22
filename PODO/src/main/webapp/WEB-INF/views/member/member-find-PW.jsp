@@ -31,7 +31,7 @@
                         <h4>아이디</h4>
                         <input type="text" id="name-box" maxlength="20" name="memberId" placeholder="아이디를 입력해주세요.">
 
-                        <!-- <h4>전화번호</h4>
+                        <h4>전화번호</h4>
                         <input id="phone" type="text" name="memberTel" title="전화번호 입력" placeholder="전화번호를 입력해주세요."/>
                     
           
@@ -45,7 +45,7 @@
                                 <button id="phoneChk2" class="doubleChk">인증번호 확인</button>
                                 <input type="hidden" id="phoneDoubleChk"/>
                             </div>
-                            <span class="point successPhoneChk"></span> -->
+                            <span class="point successPhoneChk"></span> 
     
                         <button id="finalSubmitBtn">제출</button>
                     </section>
