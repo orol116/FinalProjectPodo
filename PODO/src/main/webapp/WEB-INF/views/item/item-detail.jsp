@@ -37,9 +37,9 @@
             <div id="item-page">
                 <!-- 이미지 위 카테고리 클릭시 링크로 이동 -->
                 <section id="category">
-                    <a href="#">홈</a> >
-                    <a href="#">대분류</a> >
-                    <a href="#">중분류</a>
+                    <div id="#">홈</div>
+                    <div id="lCategoryName">${itemList[0].LCategoryName}</div> 
+                    <div id="mCategoryName"> ${itemList[0].MCategoryName}<div>
                 </section>
 
 

@@ -41,12 +41,11 @@
         </section>
         
         <form action="main" method="get" id="boardSerch" onclick="return searchValidate()"> 
-        <section class="mid-header">
+            <section class="mid-header">
 
-            <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
-            <button class="button" method="submit"><i class="fa-solid fa-magnifying-glass"></i></button>       
-        </section>
-
+                <input id="search2" type="text" name="query" placeholder="상품명을 입력해주세요.">
+                <button class="button" method="submit"><i class="fa-solid fa-magnifying-glass"></i></button>       
+            </section>
         </form> 
 
         <section class="right-header">
