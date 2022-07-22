@@ -64,57 +64,7 @@
             </ul>
         </c:forEach>
               
-          <%-- <ul> 
-            <li id="one">
-                <div class="list2">
-                    <section class="list3">
-                        <section class="list4">
-                            <h4>기타</h4>
-                            <a href="#">기타서비스</a>
-                        </section>
-                        <button id="show">문의취소</button>
-                    </section>
-                    <p>접수완료</p>
-                    <div class="background">
-                        <div class="window">
-                          <div class="popup">
-                            <button id="close" type="button">x</button>
-                            <div id="report-text">해당문의를 취소하시겠습니까?</div>
-                            <div id="report-area">
-                                <button id="ok">확인</button>
-                                <button id="cancel">취소</button>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-         <ul> 
-            <li id="one">
-                <div class="list2">
-                    <section class="list3">
-                        <section class="list4">
-                            <h4>기타</h4>
-                            <a href="#">기타서비스</a>
-                        </section>
-                        <button id="show">문의취소</button>
-                    </section>
-                    <p>접수완료</p>
-                    <div class="background">
-                        <div class="window">
-                          <div class="popup">
-                            <button id="close" type="button">x</button>
-                            <div id="report-text">해당문의를 취소하시겠습니까?</div>
-                            <div id="report-area">
-                                <button id="ok">확인</button>
-                                <button id="cancel">취소</button>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-         --%>
+        
     </div>
 
     <div class="inform">
