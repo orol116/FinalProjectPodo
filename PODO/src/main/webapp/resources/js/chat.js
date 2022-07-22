@@ -24,35 +24,41 @@ function listClickFn(chatNo) {
 			// var img = document.getElementById("boardimg");
 			// img.src = '"' +  contextPath + data.boardImageList[0].imageReName + '"';
 
-			const chatContent = data.chatContnet;
+
+			// let 변수 중복 선언 불가 / const 선언과 동시에 초기화 동시 진행, 변수 중복 선언 불가
+
+
+			let chatContent = data.chatContent;
 			console.log(data.chatContent);
 
-			const li = document.createElement("li"); /* 채팅 영역 */
-			li.classList.add("myChat"); // 스타일 적용
-
-			const span = document.createElement("span");
-			span.classList.add("chatDate")
-
-			const p = document.createElement("p");
-			p.classList.add("chat");
 			
 			for(let msg of chatContent){		
+
+				
+				const li = document.createElement("li"); /* 채팅 영역 */
+				
+				const span = document.createElement("span");
+				span.classList.add("chatDate")
+
+				const p = document.createElement("p");
+				p.classList.add("chat");
+				
 				// 내가 쓴 채팅일 경우
-				if( msg.memberNo == loginMember.memberNo ){
+				if( msg.memberNo == memberNo ){
 					li.append(span, p);
+					li.classList.add("myChat"); // 스타일 적용
 					span.innerText = currentTime(); // 날짜
 					p.innerHTML = msg.messageContent;
 				}else{
 					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
 					p.innerHTML = msg.messageContent;				
 					span.innerText = currentTime();
-					li.append(span, p);
+					li.append(p, span);
 				}
 				
 				const display = document.getElementsByClassName("display-chatting")[0];
 				
 				display.append(li);
-
 				
 			}
 
