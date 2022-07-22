@@ -47,4 +47,6 @@ reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭�
                 }
             });
         }
-}
+ 
+        
+})
