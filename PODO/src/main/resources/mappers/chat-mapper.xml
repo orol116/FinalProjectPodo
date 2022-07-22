@@ -112,7 +112,7 @@
 		WHERE CHAT_NO = ${chatNo}
 	</update>
 	
-	<select id="selectBN">
+	<select id="selectBN" resultType="_int">
 		SELECT BOARD_NO FROM CHAT_ROOM
 		WHERE CHAT_NO = ${chatNo}
 	</select>

@@ -15,10 +15,12 @@ function listClickFn(chatNo) {
 		dataType : "JSON",
 
 		success : function(data) {
-			console.log(chatNo);
+			console.log(data);
+			const chatContent = data.chatContnet;
 
-			console.log(data.myDetail);
-			console.log(data.otherDetail);
+			for(let msg of chatContent){
+
+			}
 
 			chattingNo = chatNo;
 		},

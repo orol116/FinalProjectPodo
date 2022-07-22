@@ -146,7 +146,7 @@
     
                                 <%-- 조회된 채팅방 목록이 있을 때 --%>
                                 
-                                    <!-- <c:forEach items="${map}" var="msg">
+                                    <c:forEach items="${map.chatContent}" var="msg">
 
                                         <fmt:formatDate var="chatDate" value="${msg.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
@@ -165,9 +165,9 @@
                                             </li>
                                         </c:if>
 
-                                    </c:forEach> -->
+                                    </c:forEach>
 
-                                    <c:forEach items="${myDetail}" var="my">
+                                    <!-- <c:forEach items="${myDetail}" var="my">
 
                                         <fmt:formatDate var="chatDate" value="${my.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
@@ -192,7 +192,7 @@
                                             </li>
                                         </c:if>
 
-                                    </c:forEach>
+                                    </c:forEach> -->
 
                             </ul>	
                             </div>
