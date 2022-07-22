@@ -115,7 +115,7 @@
                                 <%-- 회원 프로필 이미지 --%>
                                 <div class="image-box">
                                     <div class="image-table">
-                                        <img src="${contextPath}${member.memberProfile}">
+                                        <img id="boardimg" src="">
                                     </div>
                                 </div>
                                 <%-- 회원 정보(닉네임) --%>

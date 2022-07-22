@@ -22,6 +22,7 @@ import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.dao.MemberDAO;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.member.model.vo.MemberArea;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
@@ -69,16 +70,19 @@ public class MemberServiceImpl implements MemberService {
 
 	// 회원가입 service 구현
 	@Override
-	public int signUp(Member inputMember) {
+	public int signUp(Member inputMember, MemberArea crdnt) {
 
 		String encPw = bcrypt.encode(inputMember.getMemberPw());
 
 		inputMember.setMemberPw(encPw);
+		
+		inputMember.setMemberArea(crdnt);
 
-		int result = dao.signUp(inputMember);
+		int memberNo = dao.signUp(inputMember);
 
-		return result;
+		return memberNo;
 	}
+
 
 	@Override
 	public int naverSignUp(Member inputMember) {

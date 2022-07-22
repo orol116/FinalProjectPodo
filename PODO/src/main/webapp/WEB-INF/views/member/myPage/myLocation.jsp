@@ -47,9 +47,36 @@
                     </div>
 
                     <div id="AddressBtn-area">
-                        <button id="reset-address">위치 재설정</button>
-                        <button id="choose-address">거래 지역 설정</button>
+                        <button id="reset-address" type="button">위치 재설정</button>
+                        <button id="choose-address" type="button">거래 지역 설정</button>
                     </div>
+
+
+                        <!-- <%-- 모달창 --%> -->
+                    <div class="background">
+                        <div class="window">
+                            <div class="popup">
+                            <button id="close" type="button">팝업닫기</button>
+                            <div id="modal-text">거래 지역 설정</div>
+                            <div id="modal-area">
+                                <select id="addrLength" onchange="showValue(this)">
+                                    <option value="0">거리 설정</option>
+                                    <option value="200">2km</option>
+                                    <option value="400">4km</option>
+                                    <option value="600">6km</option>
+                                    <option value="800">8km</option>
+                                    <option value="1000">10km</option>
+                                </select>
+                            </div>
+                                <div id="Btn-area">
+                                    <button id="selectBtn">제출</button>
+                                </div>
+                            </.div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
                 
             </div>
