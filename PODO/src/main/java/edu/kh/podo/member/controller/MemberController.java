@@ -353,7 +353,7 @@ public class MemberController {
 		
 		model.addAttribute("inquireList", inquireList);
 		
-		return "member/inquireList";
+		return "member/InquireList";
 	}
 	
 	

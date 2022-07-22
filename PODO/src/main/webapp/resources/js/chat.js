@@ -181,4 +181,23 @@ function addZero(temp){
 }
 
 
+function deleteChat() {
+	
+	console.log(chattingNo);
 
+	$.ajax({
+		url : contextPath + "/chat/deleteChat",
+		data : { "chatNo" : chattingNo },
+		type : "POST",
+		dataType : "JSON",
+
+		success : function() {
+			console.log(chattingNo);
+		},
+
+		error : function() {
+			alert("에러 발생");
+		}
+	});
+
+}
