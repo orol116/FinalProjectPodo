@@ -141,12 +141,14 @@
                         <%-- 채팅창 --%>
                         <div class="chatting-area" style="bottom: 49px;">
 
+                        <div id="chatArea">
+
                             <%-- 채팅창 영역 --%>
                             <ul class="display-chatting">
     
                                 <%-- 조회된 채팅방 목록이 있을 때 --%>
                                 
-                                    <c:forEach items="${chatDetail}" var="msg">
+                                    <c:forEach items="${map}" var="msg">
 
                                         <fmt:formatDate var="chatDate" value="${msg.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
@@ -167,6 +169,7 @@
 
                                     </c:forEach>
                             </ul>	
+                            </div>
                 
 
                             <%-- 전송 버튼 --%>
