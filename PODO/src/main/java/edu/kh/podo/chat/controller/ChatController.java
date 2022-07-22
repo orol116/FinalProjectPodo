@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -45,7 +46,6 @@ public class ChatController {
 	public String chatDetail(Model model
 						   , int chatNo
 						   , @ModelAttribute("loginMember") Member loginMember) {
-		
 		return new Gson().toJson(service.selectChatDetail(loginMember.getMemberNo(), chatNo));
 	}
 	
@@ -63,5 +63,11 @@ public class ChatController {
 		ra.addFlashAttribute("createChatNo", chatNo);
 		return  "redirect:/chat/roomList"; 
 	}
-
+	
+	// 채팅방 삭제(나가기)
+	@GetMapping("/chat/deleteChat")
+	@ResponseBody
+	public int deleteChat(int chatNo) {
+		return service.deleteChat(chatNo);
+	}
 }

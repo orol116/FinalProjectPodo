@@ -16,28 +16,28 @@
 </head>
 
 <body>
-        <jsp:include page="/WEB-INF/views/common/header.jsp" />
-        <%-- 사이드메뉴 --%>
-        <main>
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <%-- 사이드메뉴 --%>
+    <main>
 
-            <div id="main-sideMenu">
-            <div id="go-topBtn">위로</div>
-            <div id="recentShow-item">item</div>
-            <div id="show-footer">footer</div>
-        </div>
+        <div id="main-sideMenu">
+        <div id="go-topBtn">위로</div>
+        <div id="recentShow-item">item</div>
+        <div id="show-footer">footer</div>
+    </div>
 
-        <!-- <%-- 모달창 --%> -->
-        <div class="background">
-            <div class="window">
-                <div class="popup">
-                <button id="close" type="button">팝업닫기</button>
-                <div id="modal-text">최근 본 상품</div>
-                <div id="modal-area"></div>
-                </div>
-                <div>
-                </div>
+    <!-- <%-- 모달창 --%> -->
+    <div class="background">
+        <div class="window">
+            <div class="popup">
+            <button id="close" type="button">팝업닫기</button>
+            <div id="modal-text">최근 본 상품</div>
+            <div id="modal-area"></div>
+            </div>
+            <div>
             </div>
         </div>
+    </div>
 
 	<div class="slide-list">
         <div class="mySlides"><img src="${contextPath}/resources/images/banner1.png"></div>
