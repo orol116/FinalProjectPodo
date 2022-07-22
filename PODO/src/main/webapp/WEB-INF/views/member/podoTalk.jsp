@@ -125,13 +125,15 @@
                                     </div>
                                 </div>
                             </a>
+
+                            <button type="button" onclick="deleteChat()">나가기</button>
+
                             <%-- 신고하기 --%>
                             <div class="declaration">
                                 <div>
                                     <img src="${contextPath}/resources/images/report.png" alt="신고 이미지">
                                 </div>
                             </div>
-                                <a href="#"><div class="chat_close"></div></a>
                         </div>
 
 

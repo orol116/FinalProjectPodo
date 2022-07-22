@@ -92,6 +92,20 @@
 		FROM DUAL
 	</select>
 	
+	<!-- 삭제되어 있는 방인지 확인 -->
+	<select id="checkDel">
+		SELECT COUNT(*) FROM CHAT_ROOM
+		WHERE CHAT_NO = ${chatNo}
+		AND CHAT_STATUS = 'Y'
+	</select>
+	
+	<!-- 채팅방이 삭제되었다면 다시 생성 -->
+	<update id="updateStatus">
+		UPDATE CHAT_ROOM SET
+		CHAT_STATUS = 'N'
+		WHERE CHAT_NO = ${chatNo}
+	</update>
+	
 	<!-- 채팅방 만들기 -->
 	<insert id="createChat" useGeneratedKeys="true">
 		<selectKey keyProperty="chatNo" order="BEFORE" resultType="_int">

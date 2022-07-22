@@ -66,6 +66,16 @@ public class ChatServiceImpl implements ChatService {
 			chatNo = dao.createChat(map);
 			
 			dao.joinChat(map);
+			
+		} else {
+			
+			// 채팅방이 있다면 삭제되어 있는 방인지 확인 후 
+			int check = dao.checkDel(chatNo);
+			
+			// 삭제되었다면 다시 생성 (상태 변경)
+			if (check > 0) {
+				dao.updateStatus(chatNo);
+			}
 		}
 		
 			
