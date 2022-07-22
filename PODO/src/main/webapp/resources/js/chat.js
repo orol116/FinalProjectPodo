@@ -19,11 +19,12 @@ function listClickFn(chatNo) {
 			console.log(data);
 
 			// // 이미지 연결
-			// console.log(data.boardImageList[0].imageReName);
+			console.log(data.boardImageList[0].imageReName);
 
-			// var img = document.getElementById("boardimg");
-			// img.src = '"' +  contextPath + data.boardImageList[0].imageReName + '"';
+			var img = document.getElementById("boardimg");
+			img.src = contextPath + data.boardImageList[0].imageReName;
 
+			document.getElementById("boardTitle").innerText = data.itemList[0].boardTitle;
 			const chatContent = data.chatContnet;
 			console.log(data.chatContent);
 
@@ -52,10 +53,9 @@ function listClickFn(chatNo) {
 				const display = document.getElementsByClassName("display-chatting")[0];
 				
 				display.append(li);
-
-				
 			}
-
+			
+			chattingNo = chatNo;
 			
 		},
 
@@ -248,3 +248,47 @@ function deleteChat() {
 	});
 
 }
+
+// 신고 모달
+function show() {
+    document.getElementById("introChange").style.display = "none";
+    document.getElementById("reportBtn").style.display = "block";
+    document.querySelector(".background").className = "background show";
+    document.getElementById("report-text").innerText = "";
+    document.getElementById("report-text").innerText = "신고할 내용을 입력해주세요.";
+    document.getElementById("report").setAttribute("placeholder", "신고할 내용을 입력해주세요.");
+    searchKey.style.display = "block";
+
+  }
+
+  function close() {
+    document.querySelector(".background").className = "background";
+  }
+
+  document.querySelector("#item-report").addEventListener("click", show);
+  document.querySelector("#close").addEventListener("click", close);
+
+  const report = document.getElementById("report");
+
+  document.getElementById("reportBtn").addEventListener("click", function(){
+
+    $.ajax({
+        url : "report", 
+        data : { "memberNo" : memberNo, "report" : report.value},
+        
+        type : "GET", // 데이터 전달 방식 type
+
+        success : function(result){
+            
+            alert("신고되었습니다.")
+
+            
+        },
+        
+        error : function(req, status, error){
+            console.log(req.responseText);
+        }
+    });
+
+
+  });
