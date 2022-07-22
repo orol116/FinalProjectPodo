@@ -121,7 +121,7 @@ public class AdminController {
 							  , RedirectAttributes ra) {
 		
 		System.out.println(deleteNo);
-		int adminDelete = service.adminDelete(deleteNo);
+		int adminDelete = service.adminDelete(deleteNo, boardCode);
 		
 		String path = null;
 		String message = null;

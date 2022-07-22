@@ -76,7 +76,7 @@
 
 
 
-<form class="search1" action="controlReport" id="search"  name="list-form" onsubmit="return ckBox()">
+<form class="search1" method="post" action="6/delete" id="search"  name="list-form" onsubmit="return ckBox()">
 <div>
     <table>
         <thead>
@@ -121,9 +121,11 @@
             <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
         </div>
         <div>
-            <button type="submit" class="btn" id="deleteBtn" onclick='deleteReport()'>삭제</button>
+            <button type="submit" class="btn" id="deleteBtn" s>삭제</button>
         </div>
     </div>
+
+    <input type="hidden" name="deleteNo" id="deleteNo" value="">
 </form>
 
     <div class="pagination">

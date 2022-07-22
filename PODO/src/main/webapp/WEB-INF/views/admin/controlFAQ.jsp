@@ -67,7 +67,7 @@
     </div>
 </form>
 
-<form class="search1" action="controlFAQ" id="search"  name="list-form" onsubmit="return ckBox()">
+<form class="search1" action="7/delete" method="post" id="search"  name="list-form" onsubmit="return ckBox()">
     <div>
         <table>
             <thead>
@@ -111,10 +111,12 @@
                 <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
             </div>
             <div>
-                <button id="write" onclick="location.href='${contextPath}/admin/7/write'">글쓰기</button>
+                <button id="write" type="button" onclick="location.href='${contextPath}/admin/7/write'">글쓰기</button>
                 <button type="submit" class="btn" id="deleteBtn">삭제</button>
             </div>
         </div>
+
+         <input type="hidden" name="deleteNo" id="deleteNo" value="">
 </form>
 
       <div class="pagination">
