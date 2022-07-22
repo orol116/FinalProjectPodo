@@ -15,14 +15,41 @@ function listClickFn(chatNo) {
 		dataType : "JSON",
 
 		success : function(data) {
-			console.log(data);
+
+			console.log(data);	
 			const chatContent = data.chatContnet;
+			console.log(data.chatContent);
 
-			for(let msg of chatContent){
+			const li = document.createElement("li"); /* 채팅 영역 */
+			li.classList.add("myChat"); // 스타일 적용
 
+			const span = document.createElement("span");
+			span.classList.add("chatDate")
+
+			const p = document.createElement("p");
+			p.classList.add("chat");
+			
+			for(let msg of chatContent){		
+				// 내가 쓴 채팅일 경우
+				if( msg.memberNo == loginMember.memberNo ){
+					li.append(span, p);
+					span.innerText = currentTime(); // 날짜
+					p.innerHTML = msg.messageContent;
+				}else{
+					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
+					p.innerHTML = msg.messageContent;				
+					span.innerText = currentTime();
+					li.append(span, p);
+				}
+				
+				const display = document.getElementsByClassName("display-chatting")[0];
+				
+				display.append(li);
+
+				
 			}
 
-			chattingNo = chatNo;
+			
 		},
 
 		error : function() {
@@ -55,11 +82,13 @@ function listClickFn(chatNo) {
 
 // 페이지 로딩 완료 시 채팅창을 제일 밑으로 내리기
 (function(){
+
 	const display = document.getElementsByClassName("display-chatting")[0];
 	
 	if(display != null){
 		display.scrollTop = display.scrollHeight;
 	}
+
 })();
 
 
