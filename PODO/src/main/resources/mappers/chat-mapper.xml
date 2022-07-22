@@ -68,6 +68,15 @@
 		WHERE B.CHAT_NO = ${chatNo}
 	</select>
 	
+    <select id="selectChatRoom" resultType="_int">
+		SELECT NVL(
+			(SELECT CHAT_NO FROM CHAT_ROOM
+			 WHERE BOARD_NO = ${boardNo}
+			 AND MEMBER_NO = ${memberNo}
+			 AND BUY_MEMBER_NO = ${myMemberNo}), 0) CHAT_NO
+		FROM DUAL
+	</select>
+	
 	<!-- 삭제되어 있는 방인지 확인 -->
 	<select id="checkDel" resultType="_int">
 		SELECT COUNT(*) FROM CHAT_ROOM
