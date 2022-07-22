@@ -74,10 +74,10 @@
 
             </div>
              --%>
-
+            
             <c:if test="memberNo==1">
                 <div id="reply1">
-                    <textarea placeholder="답변을 입력해 주세요." ></textarea>
+                    <textarea class="reply-content" placeholder="답변을 입력해 주세요."></textarea>
                     <button id="reply2">등록</button>
                 </div>
             </c:if>
