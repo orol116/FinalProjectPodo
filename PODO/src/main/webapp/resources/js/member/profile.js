@@ -65,11 +65,17 @@ function selectItemsList() {
 
                     const mainTitle = document.createElement("a");
                     mainTitle.classList.add("title");
+                    mainTitle.setAttribute('href',contextPath + '/board/detail/'+iList[k].boardNo);
 
                     const imageArea = document.createElement("div");
                     imageArea.classList.add("image");
 
                     const itemImage = document.createElement("img");
+                    if(iList[k].imageList[0] != null){
+                        itemImage.setAttribute('src', contextPath+iList[k].imageList[0].imageReName);
+                    }else{
+                        itemImage.setAttribute('src','resources/images/items/image1.jpg');
+                    }
 
                     const title1 = document.createElement("div");
                     title1.classList.add("title1");
