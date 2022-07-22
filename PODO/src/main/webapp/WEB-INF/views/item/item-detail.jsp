@@ -49,7 +49,7 @@
                         <image id="item-image" src="${contextPath}${boardImageList[0].imageReName}"  alt="상품 이미지"></image>
                     </c:if>
 
-                        <c:if test="${fn:length(boardImageList) == null}">
+                    <c:if test="${fn:length(boardImageList) == null}">
                         <image id="item-image" src="${contextPath}/resources/images/logo.png"  alt="상품 이미지"></image>
                     </c:if>
                     
