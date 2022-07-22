@@ -58,6 +58,7 @@
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="coordinateX" column="COORDINATE_X"/>
 		<result property="coordinateY" column="COORDINATE_Y"/>
+		<result property="distance" column="DISTANCE"/>
 	</resultMap>
 
 	<!-- 로그인 -->

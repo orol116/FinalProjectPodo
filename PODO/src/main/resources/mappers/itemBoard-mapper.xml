@@ -282,6 +282,8 @@
 		FROM ITEM_BOARD
 	</select>
 	
+	<select id=""></select>
+	
 </mapper>
 
 
