@@ -226,3 +226,61 @@ color: white;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
+
+.chat-footer{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 12px 20px;
+}
+
+
+.chat-footer-area{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 40px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 24px;
+    width: 100%;
+}
+
+textarea #inputChatting{
+    word-break: break-all;
+    font-family: primary, secondary, -apple-system, BlinkMacSystemFont, AppleSDGothicNeo, "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    appearance: none;
+    outline: none;
+    border: none;
+    line-height: 1.2;
+    background: transparent;
+    width: 100%;
+    letter-spacing: -0.5px;
+    overflow-y: hidden;
+    padding: 13px 0px 13px 16px;
+    resize: none;
+    box-sizing: border-box;
+    height: 45px !important;
+}
+
