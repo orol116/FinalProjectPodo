@@ -69,7 +69,7 @@
     </div>
 </form>
 
-<form class="search1" action="controlInquiry" id="search"  name="list-form" onsubmit="return ckBox()">
+<form class="search1" action="3/delete" method="post" id="search"  name="list-form" onsubmit="return ckBox()">
 
     <div>
         <table>
@@ -116,9 +116,11 @@
             <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
             </div>
             <div>
-                <button type="submit" class="btn" id="deleteBtn" '>삭제</button>
+                <button  class="btn" id="deleteBtn" >삭제</button>
             </div>
         </div>
+
+        <input type="hidden" name="deleteNo" id="deleteNo" value="">
 </form>
 
         <div class="pagination">
@@ -160,7 +162,13 @@
 
     </div>
 
+     
+
     <script src="${contextPath}/resources/js/admin/controlInquiry.js"></script>
+
+    <script>
+         let contextPath = "${contextPath}";
+    </script>
 
 </body>
 </html>

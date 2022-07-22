@@ -153,6 +153,23 @@ public class AdminDAO {
 		return result;	
 	}
 
+	/** 관리자 게시판 게시글 삭제
+	 * @param deleteValue
+	 * @return
+	 */
+	public int adminDelete(String deleteNo) {
+		
+		int resultD=0;
+		
+		int result  = sqlSession.delete("adminMapper.adminImgDelete",deleteNo); // 0 또는 1
+		
+		if(result>0) {
+			resultD = sqlSession.delete("adminMapper.adminDelete",deleteNo); 
+		}
+		
+		return resultD;
+	}
+
 	
 
 
