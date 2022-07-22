@@ -7,6 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.kh.podo.board.itemBoard.model.dao.ItemBoardDAO;
+import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.chat.model.dao.ChatDAO;
 import edu.kh.podo.chat.model.vo.ChatList;
 import edu.kh.podo.chat.model.vo.ChatMessage;
@@ -19,6 +22,9 @@ public class ChatServiceImpl implements ChatService {
 	
 	@Autowired
 	private ChatDAO dao;
+	
+	@Autowired
+	private ItemBoardDAO boardDao;
 
 	// 채팅방 목록 조회 Service 구현
 	@Override
@@ -26,7 +32,7 @@ public class ChatServiceImpl implements ChatService {
 		return dao.selectChatRoomList(memberNo);
 	}
 
-	// 채팅방 목록 조회 Service 구현
+	// 채팅방 상세 조회 Service 구현
 	@Override
 	public Map<String, Object> selectChatDetail(int memberNo, int chatNo) {
 		
@@ -34,16 +40,25 @@ public class ChatServiceImpl implements ChatService {
 		map.put("memberNo", memberNo);
 		map.put("chatNo", chatNo);
 		
-		// 상대방 채팅 정보 조회
-		List<ChatList> otherDetail = dao.selectOtherDetail(map);
+		// 채팅방 내 판매글 정보를 위한 보드 넘버 얻어오기
+		int boardNo = dao.selectBN(chatNo);
 		
-		// 내 채팅 정보 조회 (대화 내용 / 시간만)
-		List<ChatList> myDetail = dao.selectMyDetail(map);
+		// 판매글 정보
+		List<ItemBoard> itemList = boardDao.selectItem(boardNo);
+		
+		// 판매글 이미지
+		List<BoardImage> boardImageList = boardDao.selectBoardImageList(boardNo);
 		
 		// 반환 Map
 		Map<String, Object> rtMap = new HashMap<String, Object>();
-		rtMap.put("otherDetail", otherDetail);
-		rtMap.put("myDetail", myDetail);
+		rtMap.put("boardImageList", boardImageList);
+		rtMap.put("itemList", itemList);
+		
+		
+		// 채팅 정보 조회 (대화 내용 / 시간만)
+		List<ChatList> chatContent = dao.selectOtherDetail(map);
+		
+		rtMap.put("chatContent", chatContent);
 		
 		return rtMap;
 	}
@@ -89,6 +104,12 @@ public class ChatServiceImpl implements ChatService {
 		chatMessage.setMessageContent(Util.newLineHandling(chatMessage.getMessageContent()));
 		
 		return dao.insertMessage(chatMessage);
+	}
+
+	// 채팅방 삭제(나가기)
+	@Override
+	public int deleteChat(int chatNo) {
+		return dao.deleteChat(chatNo);
 	}
 
 }

@@ -1,5 +1,6 @@
 package edu.kh.podo.admin.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -151,6 +152,28 @@ public class AdminDAO {
 		}
 		
 		return result;	
+	}
+
+	/** 관리자 게시판 게시글 삭제
+	 * @param boardCode 
+	 * @param deleteValue
+	 * @return
+	 */
+	public int adminDelete(String deleteNo, int boardCode) {
+		
+		int resultD=0;
+		
+		
+		Map<String, Object> map = new HashMap<String, Object>(); 
+		
+		map.put("deleteNo",deleteNo);
+		map.put("boardCode",boardCode);
+		
+		int result  = sqlSession.delete("adminMapper.adminImgDelete",map); // 0 또는 1
+		
+		resultD = sqlSession.delete("adminMapper.adminDelete",map); 
+		
+		return resultD;
 	}
 
 	

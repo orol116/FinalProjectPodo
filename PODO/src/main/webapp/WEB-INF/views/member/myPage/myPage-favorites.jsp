@@ -50,9 +50,9 @@
                     <div class="fav-header">
                         <div class="fav-header-left">
 
-                            <!-- 상단 체크박스 -->
+                            <!-- 상단 전체 선택 체크박스 -->
                             <div class="checkArea">
-                                <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">
+                                <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">전체선택<br>
                                 <%-- <button type="button" class="fav-check-btn"></button> --%>
 
                                 <!-- 선택삭제(전체 선택) -->
