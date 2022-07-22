@@ -27,16 +27,16 @@ function listClickFn(chatNo) {
 			img.src = contextPath + data.boardImageList[0].imageReName;
 
 			document.getElementById("boardTitle").innerText = data.itemList[0].boardTitle;
+
 			const chatContent = data.chatContent;
 			console.log(data.chatContent);
 			
-			for(let msg of chatContent){		
+			for(let msg of data.chatContent){		
 
-				
 				const li = document.createElement("li"); /* 채팅 영역 */
 				
 				const span = document.createElement("span");
-				span.classList.add("chatDate")
+				span.classList.add("chatDate");
 
 				const p = document.createElement("p");
 				p.classList.add("chat");
@@ -48,17 +48,19 @@ function listClickFn(chatNo) {
 					li.classList.add("myChat"); // 스타일 적용
 					span.innerText = currentTime(); // 날짜
 					p.innerHTML = msg.messageContent;
-				} else {
+					console.log("내    " + msg.memberNo);
+				}else{
 					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
 					p.innerHTML = msg.messageContent;				
 					span.innerText = currentTime();
 					li.append(p, span);
+					console.log("남    " + msg.memberNo);
 				}
 				
 				const display = document.getElementsByClassName("display-chatting")[0];
 				
 				display.append(li);
-
+				display.scrollTop = display.scrollHeight;
 			}
 			console.log("boardNo : " + data.boardNo);
 			chattingNo = chatNo;
@@ -186,9 +188,13 @@ chattingSock.onmessage = function(e){
 	if( chatMessage.memberNo ==  memberNo ){
 		li.append(span, p);
 		li.classList.add("myChat"); // 내가 쓴 글 스타일 적용
+		span.innerText = currentTime(); // 날짜
+		p.innerHTML = chatMessage.messageContent;
 
 	}else{
 		li.innerHTML = "<b>"  + chatMessage.memberNickname  +  "</b><br>";
+		p.innerHTML = chatMessage.messageContent;				
+		span.innerText = currentTime();
 		li.append(p, span);
 	}
 
