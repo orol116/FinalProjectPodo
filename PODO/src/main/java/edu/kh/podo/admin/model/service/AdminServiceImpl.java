@@ -134,5 +134,12 @@ public class AdminServiceImpl implements AdminService{
 		
 		return map;
 	}
+
+
+	//관리자 게시판 게시글 삭제
+	@Override
+	public int adminDelete(String deleteNo) {
+		return dao.adminDelete(deleteNo);
+	}
 	
 }

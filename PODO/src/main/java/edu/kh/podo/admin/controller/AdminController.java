@@ -113,6 +113,32 @@ public class AdminController {
 	}
 	
 	
+	// 관리자 게시판 삭제
+	@PostMapping("{boardCode}/delete")
+	public String adminDelete(@RequestParam String deleteNo
+							  ,@PathVariable("boardCode") int boardCode
+							  , HttpServletRequest req
+							  , RedirectAttributes ra) {
+		
+		System.out.println(deleteNo);
+		int adminDelete = service.adminDelete(deleteNo);
+		
+		String path = null;
+		String message = null;
+		
+		if(adminDelete>0) { // 게시글 등록 성공
+			path="/admin/"+boardCode;
+			message = "게시글이 삭제 되었습니다..";
+		}else {
+			path = req.getHeader("referer");
+			message = "게시글삭제 실패...";
+		}
+		ra.addFlashAttribute("message",message);
+		
+		return "redirect:"+path;
+	}
+	
+	
 
 	
 	
