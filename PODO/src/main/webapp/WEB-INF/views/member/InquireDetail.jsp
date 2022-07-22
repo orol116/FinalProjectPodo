@@ -61,19 +61,19 @@
         <div id="chat">
             <p>고객센터가 문제를 알아보고 있어요.<br>조금만 기다려주세요.</p>
                 
-            <%-- 관리자 답글 --%>
-            <%-- 
-            <div id="reply">
-                <div class="information">
-                    <p>&#127815;&nbsp;관리자</p>
-                    <p>2022-07-22</p>
-                </div>
-                <div class="feedback">
-                    안녕하세요 회원님, 문의글 남겨주셔서 감사합니다
-                </div>
+            <c:if test="${loginMember.memberNo==1}">
+               <%-- 관리자 답글 --%>
+                <div id="reply">
+                    <div class="information">
+                        <p>&#127815;&nbsp;관리자</p>
+                        <p>2022-07-22</p>
+                    </div>
+                    <div class="feedback">
+                        안녕하세요 회원님, 문의글 남겨주셔서 감사합니다
+                    </div>
 
-            </div>
-             --%>
+                </div>
+            </c:if>
 
             <c:if test="memberNo==1">
                 <div id="reply1">
