@@ -18,7 +18,7 @@ body{
 .body{
     width: 1000px;
     margin: auto;
-    height: 800px;
+    height: 100%;
 
 }
 
@@ -112,9 +112,37 @@ textarea:focus{
     outline: none;
 }
 
+/* 답장 란 */
+
+.information{
+    display: flex;
+    justify-content: left;
+    padding-left: 10px;
+}
+.information>p{
+    padding: 5px;
+}
+.information>p:nth-child(2){
+    color: gray;
+    margin-top: 20px;
+}
+
+#reply1{
+    padding: 10px;
+}
+
+
+.feedback{
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
 /* 하단 유의사항 */
 .inform{
-    border-top: 1px solid lightgray;
+    /* border-top: 1px solid lightgray; */
     color: gray;
     margin: 0 200px 0;
     padding: 50px;

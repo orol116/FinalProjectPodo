@@ -85,6 +85,7 @@ function sendMessage(){
 		// 메세지 입력 시 필요한 데이터를 js객체로 생성
 		const chatMessage = {
 			"chatNo" : chattingNo,
+			/* "boardNo" : boardNo, */
 			"memberNo" : memberNo,
 			"memberNickname" : memberNickname,
 			"messageContent" : inputChatting.value
@@ -124,11 +125,10 @@ chattingSock.onmessage = function(e){
 	const p = document.createElement("p");
 	p.classList.add("chat");
 	
-					// 줄바꿈
-	p.innerHTML = chatMessage.message.replace(/\\n/gm , "<br>" ) ; 
+	// 줄바꿈
+	/* p.innerHTML = chatMessage.message.replace(/\\n/gm , "<br>" ) ; */
+	
 	// 내용
-
-
 	const span = document.createElement("span");
 	span.classList.add("chatDate");
 	//span.innerText = chatMessage.createDate; // 날짜
