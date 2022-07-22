@@ -7,10 +7,12 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.chat.model.vo.ChatList;
 import edu.kh.podo.chat.model.vo.ChatMessage;
 import edu.kh.podo.chat.model.vo.ChatRoom;
 import edu.kh.podo.member.model.vo.Member;
+import oracle.net.aso.m;
 
 @Repository
 public class ChatDAO {
@@ -26,7 +28,7 @@ public class ChatDAO {
 		return sqlSession.selectList("chatMapper.selectChatRoomList", memberNo);
 	}
 
-	/** 상대방 채팅 정보 조회 DAO
+	/** 채팅 정보 조회 DAO
 	 * @param map
 	 * @return otherDetail
 	 */
@@ -34,13 +36,6 @@ public class ChatDAO {
 		return sqlSession.selectList("chatMapper.selectOtherDetail", map);
 	}
 
-	/** 내 채팅 정보 조회 (대화 내용 / 시간만) DAO
-	 * @param map
-	 * @return myDetail
-	 */
-	public List<ChatList> selectMyDetail(Map<String, Object> map) {
-		return sqlSession.selectList("chatMapper.selectMyDetail", map);
-	}
 	
 	/** 채팅방이 이미 존재하는지 조회 DAO
 	 * @param map
@@ -101,5 +96,21 @@ public class ChatDAO {
 	public int deleteChat(int chatNo) {
 		return sqlSession.update("chatMapper.deleteChat", chatNo);
 	}
+
+	/** 채팅방 내 판매글 정보를 위한 보드 넘버 얻어오기
+	 * @param chatNo
+	 * @return boardNo
+	 */
+	public int selectBN(int chatNo) {
+		return sqlSession.selectOne("chatMapper.selectBN", chatNo);
+	}
+
+	/** 채팅방 내 판매글 정보
+	 * @param map
+	 * @return chatBoard
+	 */
+//	public List<ItemBoard> selectChatBoard(Map<String, Object> map) {
+//		return sqlSession.selectOne("chatMapper.selectChatBoard", map);
+//	}
 
 }

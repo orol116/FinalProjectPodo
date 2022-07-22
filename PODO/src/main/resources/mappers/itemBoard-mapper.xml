@@ -84,23 +84,6 @@
 		WHERE BOARD_NO = ${boardNo}
 	</update>
 	
-	
-	
-	<!-- sql돌겠다 진짜  -->
-	<!-- <select id="selectOtherImage" resultMap="boardImage_rm">
-		SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL FROM ITEM_BOARD
-		JOIN BOARD_IMG USING(BOARD_NO)
-		WHERE BOARD_NO != ${boardNo}
-		AND BOARD_NO IN (
-			SELECT BOARD_NO
-			FROM ITEM_BOARD
-			WHERE MEMBER_NO = ${memberNo}
-		)
-		ORDER BY UPDATE_DT
-		<![CDATA[WHERE ROWNUM <= 5]]>
-	</select> -->
-	
-	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
 	
 		<selectKey keyProperty="boardNo" resultType="_int" order="BEFORE">

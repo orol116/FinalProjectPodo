@@ -141,8 +141,6 @@
                         <%-- 채팅창 --%>
                         <div class="chatting-area">
 
-                        <div id="chatArea">
-
                             <%-- 채팅창 영역 --%>
                             <ul class="display-chatting">
     
@@ -172,6 +170,7 @@
                             </div>
                 
 
+
                             <%-- 전송 버튼 --%>
                             <div class="chat-footer">
                                 <div class="chat-footer-area">
@@ -182,10 +181,12 @@
                             </div>
 
 
-                            <%-- <div class="input-area">
+                            <%-- 
+                            <div class="input-area">
                                 <textarea id="inputChatting" rows="3"></textarea>
                                 <button id="send">보내기</button>
-                            </div> --%>
+                            </div> 
+                            --%>
                         </div>
                     </c:otherwise>
                     
