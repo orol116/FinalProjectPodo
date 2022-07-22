@@ -464,6 +464,19 @@
 	
 	</insert>
 	
+	<!--관리자 게시글 사진 삭제 -->
+	<delete id="adminImgDelete">
+		DELETE FROM ADMIN_BOARD_IMG
+		WHERE ADMIN_BOARD_NO IN (  ${deleteNo} )
+	</delete>
+	
+	<!--관리자 게시글 사진 삭제 -->
+	<delete id="adminDelete">
+		DELETE FROM ADMIN_BOARD
+		WHERE ADMIN_BOARD_NO IN (  ${deleteNo} )
+	</delete>
+	
+	
 	
 
 </mapper>
