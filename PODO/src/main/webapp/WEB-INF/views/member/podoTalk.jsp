@@ -60,6 +60,7 @@
                                     <div class="chatDiv" id="${chatList.chatNo}" onclick="listClickFn(${chatList.chatNo})">
                                         <li class="chatList">
 
+                                            <!-- 이미지가 없을 때 -->
                                             <c:if test="${chatList.memberProfile == null}">
                                                 <%-- 회원 이미지 --%>
                                                 <div class="profile">
@@ -174,7 +175,7 @@
                             <%-- 채팅창 영역 --%>
                             <ul class="display-chatting">
     
-                                <%-- 조회된 채팅방 목록이 있을 때 --%>
+                                <%-- 조회된 채팅방 목록이 있을 때 ajax --%>
                                 
                                 <!-- <c:forEach items="${map.chatContent}" var="msg">
 

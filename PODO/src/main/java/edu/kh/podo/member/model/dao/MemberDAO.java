@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.admin.model.vo.Admin;
+import edu.kh.podo.admin.model.vo.AdminReply;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.member.model.vo.MemberArea;
@@ -118,7 +119,10 @@ public class MemberDAO {
 	}
 
 
-
+	/** 문의 작성
+	 * @param paramMap
+	 * @return
+	 */
 	public int inquireWrite(Map<String, Object> paramMap) {
 		
 		int result = sqlSession.insert("memberMapper.inquireWrite",paramMap); // 0 또는 1
@@ -204,6 +208,15 @@ public class MemberDAO {
 	 */
 	public List<Admin> inquireList(int memberNo) {
 		return sqlSession.selectList("memberMapper.inquireList", memberNo);
+	}
+
+
+	/** 1대1 문의 상세페이지 댓글조회
+	 * @param boardNo
+	 * @return
+	 */
+	public List<AdminReply> selectAdminReply(int boardNo) {
+		return sqlSession.selectList("memberMapper.selectAdminReply", boardNo);
 	}
 
 
