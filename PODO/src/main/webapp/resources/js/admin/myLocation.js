@@ -124,7 +124,7 @@ document.getElementById("selectBtn").addEventListener("click", function(){
 
          $.ajax({
             url : "selectAddrLength",                     
-            data : { "memberNo" : memberNo, "addrLength" : addrLength},               
+            data : {"addrLength" : addrLength},               
 
             type : "GET",    
             success : function(){
