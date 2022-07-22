@@ -45,9 +45,11 @@
 		<result property="sellArea" column="SELL_AREA" />
 		<result property="boardCode" column="BOARD_CD" />
 		<result property="memberNo" column="MEMBER_NO" />
-		<result property="categoryNo" column="M_CATEGORY_NO" />
+		<result property="categoryNo" column="CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
+		<result property="mCategoryName" column="M_CATEGORY_NM" />
+		<result property="lCategoryName" column="L_CATEGORY_NM" />
 		
 		
 	</resultMap>
@@ -69,10 +71,12 @@
 	<!-- 판매글 상세조회 -->
 	<select id="selectItem" resultMap="itemBoard_rm">
 		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION
-			, PRICE
+			, PRICE, M_CATEGORY_NM, L_CATEGORY_NM, CATEGORY_NO
 		FROM ITEM_BOARD
 		JOIN BOARD_IMG USING(BOARD_NO)
-		WHERE BOARD_NO = #{boardNo}
+		JOIN M_CATEGORY USING(M_CATEGORY_NO)
+		JOIN L_CATEGORY USING(CATEGORY_NO)
+		WHERE BOARD_NO = ${boardNo}
 	</select>
 	
 	<!-- 조회수 증가 -->
@@ -81,23 +85,6 @@
 		READ_COUNT = READ_COUNT + 1
 		WHERE BOARD_NO = ${boardNo}
 	</update>
-	
-	
-	
-	<!-- sql돌겠다 진짜  -->
-	<!-- <select id="selectOtherImage" resultMap="boardImage_rm">
-		SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL FROM ITEM_BOARD
-		JOIN BOARD_IMG USING(BOARD_NO)
-		WHERE BOARD_NO != ${boardNo}
-		AND BOARD_NO IN (
-			SELECT BOARD_NO
-			FROM ITEM_BOARD
-			WHERE MEMBER_NO = ${memberNo}
-		)
-		ORDER BY UPDATE_DT
-		<![CDATA[WHERE ROWNUM <= 5]]>
-	</select> -->
-	
 	
 	<insert id="insertBoard" parameterType="itemBoard" useGeneratedKeys="true"> 
 	

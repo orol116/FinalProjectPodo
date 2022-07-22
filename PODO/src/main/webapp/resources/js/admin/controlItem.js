@@ -39,16 +39,13 @@ if(document.querySelectorAll("[name='itemList']").length != 0 ){
         return false;
      }
 
-    for(let b of memList){
+    for(let b of itemBoard){
         deleteNo.push( b.value );
     }
 }
     document.getElementById("deleteNo").value = deleteNo.join(","); // 1,2,3
     
     return true;
-  
-
-
 }
 
 

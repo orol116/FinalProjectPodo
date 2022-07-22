@@ -2,6 +2,9 @@ var chattingNo = 0;
 
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
+
+	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
+
 	
 	console.log(chatNo);
 
@@ -12,10 +15,12 @@ function listClickFn(chatNo) {
 		dataType : "JSON",
 
 		success : function(data) {
-			console.log(chatNo);
+			console.log(data);
+			const chatContent = data.chatContnet;
 
-			console.log(data.myDetail);
-			console.log(data.otherDetail);
+			for(let msg of chatContent){
+
+			}
 
 			chattingNo = chatNo;
 		},
@@ -28,7 +33,8 @@ function listClickFn(chatNo) {
 }
 
 // 1:1 채팅 시 만들어진 방이 있다면 바로 참여하기
-(function(){
+// -> 가장 최근 사용한 방 바로 참여하기 ?
+/* (function(){
 
 	if(createChatNo != ""){
 		const chatDivList = document.getElementsByClassName("chatDiv");
@@ -41,22 +47,20 @@ function listClickFn(chatNo) {
 		}
 	}
 
-})();
+})(); */
 
 
 
 // -------------------------------------------------------------------------
 
 // 페이지 로딩 완료 시 채팅창을 제일 밑으로 내리기
-/* (function(){
-
+(function(){
 	const display = document.getElementsByClassName("display-chatting")[0];
 	
 	if(display != null){
 		display.scrollTop = display.scrollHeight;
 	}
-
-})(); */
+})();
 
 
 
@@ -83,6 +87,7 @@ function sendMessage(){
 		// 메세지 입력 시 필요한 데이터를 js객체로 생성
 		const chatMessage = {
 			"chatNo" : chattingNo,
+			/* "boardNo" : boardNo, */
 			"memberNo" : memberNo,
 			"memberNickname" : memberNickname,
 			"messageContent" : inputChatting.value
@@ -118,15 +123,13 @@ chattingSock.onmessage = function(e){
 
 
 	const li = document.createElement("li");
-
 	const p = document.createElement("p");
 	p.classList.add("chat");
 	
-					// 줄바꿈
-	p.innerHTML = chatMessage.message.replace(/\\n/gm , "<br>" ) ; 
+	// 줄바꿈
+	/* p.innerHTML = chatMessage.message.replace(/\\n/gm , "<br>" ) ; */
+	
 	// 내용
-
-
 	const span = document.createElement("span");
 	span.classList.add("chatDate");
 	//span.innerText = chatMessage.createDate; // 날짜
@@ -181,4 +184,31 @@ function addZero(temp){
 }
 
 
+function deleteChat() {
+	
+	console.log(chattingNo);
 
+	$.ajax({
+		url : contextPath + "/chat/deleteChat",
+		data : { "chatNo" : chattingNo },
+		type : "GET",
+
+		success : function(result) {
+
+			if (result > 0) {
+				console.log(chattingNo);
+				console.log("채팅방 나가기 성공");
+				location.reload();
+			} else {
+				console.log("채팅방 나가기 실패");
+			}
+
+
+		},
+
+		error : function() {
+			alert("에러 발생");
+		}
+	});
+
+}

@@ -77,12 +77,12 @@ function writeValidate(){
         textarea.focus();
         return false;
     }
-    if(images.value.length == 0){
-        alert("상품의 사진을 선택해주세요 :) ");
-        images.value = "";
-        images.focus();
-        return false;
-    }
+    // if(images.value.length == 0){
+    //     alert("상품의 사진을 선택해주세요 :) ");
+    //     images.value = "";
+    //     images.focus();
+    //     return false;
+    // }
     deleteList.value = Array.from(deleteSet);
 
     return true;

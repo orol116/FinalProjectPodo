@@ -106,6 +106,7 @@ function selectList(mCategoryNo){
 
                     const mainTitle = document.createElement("a");
                     mainTitle.classList.add("title");
+                    mainTitle.setAttribute('href',contextPath + '/board/detail/'+itemList[k].boardNo);
 
                     const imageArea = document.createElement("div");
                     imageArea.classList.add("image");

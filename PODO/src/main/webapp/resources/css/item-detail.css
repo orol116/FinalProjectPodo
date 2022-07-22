@@ -452,3 +452,15 @@ footer {
 .boardImg{
     padding: 5px;
 }
+
+
+
+#category{
+    display: flex;
+    flex-direction: row;
+}
+
+
+#category > div{
+    margin-right: 60px;
+}

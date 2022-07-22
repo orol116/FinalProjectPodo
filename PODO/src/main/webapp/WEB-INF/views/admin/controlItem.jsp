@@ -61,7 +61,7 @@
 </form>
 
 
-<form class="search1" action="controlItem" id="search"  name="list-form" onsubmit="return ckBox()">
+<form class="search1" action="#" id="search"  name="list-form" onsubmit="return ckBox()">
 
 <div>
     <table>
@@ -113,15 +113,15 @@
             <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
         </div>
         <div>
-           
-            <button type="submit" class="btn" id="deleteBtn" onclick='deleteItem()'>삭제</button>
+            <button type="submit" class="btn" id="deleteBtn" >삭제</button>
         </div>
     </div>
+    <input type="hidden" name="deleteNo" id="deleteNo" value="">
+</form>
 
     <div class="pagination">
        <c:set var="url" value="4?cp="/>
 
-</form>
             <ul class="pagination">
                 <!-- 첫 페이지로 이동 -->
                 <li><a href="${url}1${sURL}">&lt;&lt;</a></li>

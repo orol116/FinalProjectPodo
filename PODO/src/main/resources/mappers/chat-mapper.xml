@@ -54,10 +54,10 @@
 		WHERE B.CHAT_NO IN (SELECT CHAT_NO FROM CHAT_ROOM_JOIN WHERE MEMBER_NO = ${memberNo})
 		AND A.MEMBER_NO != ${memberNo}
 		AND CHAT_STATUS = 'N'
-		ORDER BY MESSAGE_TIME;
+		ORDER BY MESSAGE_TIME
 	</select>
 	
-	<!-- 상대방 채팅 정보 조회 -->
+	<!-- 채팅 정보 조회 -->
 	<select id="selectOtherDetail" resultMap="chatList_rm">
 		SELECT A.MEMBER_NICK, A.MEMBER_PROFILE, A.MEMBER_NO, B.MESSAGE_CONTENT, B.MESSAGE_TIME, B.MESSAGE_NO
 		FROM CHAT_ROOM_JOIN C
@@ -66,31 +66,21 @@
 		JOIN MESSAGE B ON(B.CHAT_NO = C.CHAT_NO)
 		
 		WHERE B.CHAT_NO = ${chatNo}
-		AND B.MEMBER_NO != ${memberNo}
-		AND A.MEMBER_NO != ${memberNo}
 	</select>
 	
-	<!-- 내 채팅 정보 조회 (대화 내용 / 시간만) -->
-	<select id="selectMyDetail" resultMap="chatList_rm">
-		SELECT MESSAGE_CONTENT, MESSAGE_TIME, MESSAGE_NO, MEMBER_NO
-		FROM CHAT_ROOM_JOIN B
-		
-		JOIN MESSAGE A USING(MEMBER_NO)
-		
-		WHERE A.CHAT_NO = ${chatNo}
-		AND B.CHAT_NO = ${chatNo}
-		AND MEMBER_NO = ${memberNo}
+	<!-- 삭제되어 있는 방인지 확인 -->
+	<select id="checkDel" resultType="_int">
+		SELECT COUNT(*) FROM CHAT_ROOM
+		WHERE CHAT_NO = ${chatNo}
+		AND CHAT_STATUS = 'Y'
 	</select>
 	
-	<!-- 채팅방이 이미 존재하는지 조회 -->
-	<select id="selectChatRoom" resultType="_int">
-		SELECT NVL(
-			(SELECT CHAT_NO FROM CHAT_ROOM
-			WHERE BOARD_NO = ${boardNo}
-			AND MEMBER_NO = ${memberNo}
-			AND BUY_MEMBER_NO = ${myMemberNo}) , 0 ) CHAT_NO
-		FROM DUAL
-	</select>
+	<!-- 채팅방이 삭제되었다면 다시 생성 -->
+	<update id="updateStatus">
+		UPDATE CHAT_ROOM SET
+		CHAT_STATUS = 'N'
+		WHERE CHAT_NO = ${chatNo}
+	</update>
 	
 	<!-- 채팅방 만들기 -->
 	<insert id="createChat" useGeneratedKeys="true">
@@ -115,7 +105,22 @@
 		INSERT INTO MESSAGE VALUES(SEQ_MESSAGE_NO.NEXTVAL, #{messageContent}, SYSDATE, ${chatNo}, ${memberNo})
 	</insert>
 	
+	<!-- 채팅방 삭제(나가기) -->
+	<update id="deleteChat">
+		UPDATE CHAT_ROOM SET
+		CHAT_STATUS = 'Y'
+		WHERE CHAT_NO = ${chatNo}
+	</update>
 	
+	<select id="selectBN" resultType="_int">
+		SELECT BOARD_NO FROM CHAT_ROOM
+		WHERE CHAT_NO = ${chatNo}
+	</select>
+	
+	<!-- 채팅방 내 판매글 정보 -->
+	<!-- <select id="selectChatBoard">
+		SELECT BOARD_TITLE, 
+	</select> -->
 
 
 </mapper>

@@ -47,7 +47,6 @@ selectAll.onclick = () => {
     }
 }
 
-
 // 전체 선택 삭제
 var deleteAll = document.querySelector(".deleteAll");
 
@@ -88,7 +87,7 @@ deleteAll.onclick = () => {
 }
  */
 // 찜 삭제
-function deleteBoard(boardNo){
+function deleteOne(boardNo){
     if(confirm("찜 목록에서 삭제 하시겠습니까?")){
         $.ajax({
             url : contextPath + "board/delete",
@@ -108,3 +107,5 @@ function deleteBoard(boardNo){
         });
     }
 }
+
+

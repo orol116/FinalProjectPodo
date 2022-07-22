@@ -15,34 +15,31 @@ function selectAll(selectAll){
 })();
 
 // 삭제 버튼 누를 때
-function ckBox() {
+function ckBox(){
     if(!confirm("정말로 삭제 하시겠습니까?")){
         return false;
     }   
 
-const deleteBtn = document.getElementById("deleteBtn");
-let rinquiryBoard = document.querySelectorAll("[name='InquiryList']:checked");
+    const deleteBtn = document.getElementById("deleteBtn");
+    let rInquiryList = document.querySelectorAll("[name='InquiryList']:checked");
+    let deleteNo = [];
+        
+    // 작성글
+    if(document.querySelectorAll("[name='InquiryList']").length != 0 ){
 
-let deleteNo = [];
-    
-
-// 작성글
-if(document.querySelectorAll("[name='InquiryList']").length != 0 ){
-
-    // 체크박스 선택 안됐을때
-     if(document.querySelectorAll("[name='InquiryList']:checked").length == 0){
-        alert("삭제할 글을 선택해주세요.");
-        return false;
-     }
-
-    for(let b of InquiryList){
-        deleteNo.push( b.value );
+        // 체크박스 선택 안됐을때
+        if(document.querySelectorAll("[name='InquiryList']:checked").length == 0){
+            alert("삭제할 글을 선택해주세요.");
+            return false;
+        }
+        
+        for(let b of rInquiryList){
+            deleteNo.push( b.value );
+        }
     }
-}
     document.getElementById("deleteNo").value = deleteNo.join(","); // 1,2,3
-    
+
     return true;
-  
 }
 
 
