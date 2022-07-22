@@ -58,6 +58,7 @@ public class ChatServiceImpl implements ChatService {
 		// 채팅 정보 조회 (대화 내용 / 시간만)
 		List<ChatList> chatContent = dao.selectOtherDetail(map);
 		
+		rtMap.put("chatNo", chatNo);
 		rtMap.put("chatContent", chatContent);
 		
 		return rtMap;

@@ -19,43 +19,48 @@ function listClickFn(chatNo) {
 			console.log(data);
 
 			// // 이미지 연결
-			// console.log(data.boardImageList[0].imageReName);
+			console.log(data.boardImageList[0].imageReName);
 
-			// var img = document.getElementById("boardimg");
-			// img.src = '"' +  contextPath + data.boardImageList[0].imageReName + '"';
+			var img = document.getElementById("boardimg");
+			img.src = contextPath + data.boardImageList[0].imageReName;
 
+			document.getElementById("boardTitle").innerText = data.itemList[0].boardTitle;
 			const chatContent = data.chatContnet;
+
 			console.log(data.chatContent);
 
-			const li = document.createElement("li"); /* 채팅 영역 */
-			li.classList.add("myChat"); // 스타일 적용
-
-			const span = document.createElement("span");
-			span.classList.add("chatDate")
-
-			const p = document.createElement("p");
-			p.classList.add("chat");
 			
 			for(let msg of chatContent){		
+
+				
+				const li = document.createElement("li"); /* 채팅 영역 */
+				
+				const span = document.createElement("span");
+				span.classList.add("chatDate")
+
+				const p = document.createElement("p");
+				p.classList.add("chat");
+				
 				// 내가 쓴 채팅일 경우
-				if( msg.memberNo == loginMember.memberNo ){
+				if( msg.memberNo == memberNo ){
 					li.append(span, p);
+					li.classList.add("myChat"); // 스타일 적용
 					span.innerText = currentTime(); // 날짜
 					p.innerHTML = msg.messageContent;
 				}else{
 					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
 					p.innerHTML = msg.messageContent;				
 					span.innerText = currentTime();
-					li.append(span, p);
+					li.append(p, span);
 				}
 				
 				const display = document.getElementsByClassName("display-chatting")[0];
 				
 				display.append(li);
 
-				
 			}
-
+			
+			chattingNo = chatNo;
 			
 		},
 
@@ -248,3 +253,47 @@ function deleteChat() {
 	});
 
 }
+
+// 신고 모달
+function show() {
+    document.getElementById("introChange").style.display = "none";
+    document.getElementById("reportBtn").style.display = "block";
+    document.querySelector(".background").className = "background show";
+    document.getElementById("report-text").innerText = "";
+    document.getElementById("report-text").innerText = "신고할 내용을 입력해주세요.";
+    document.getElementById("report").setAttribute("placeholder", "신고할 내용을 입력해주세요.");
+    searchKey.style.display = "block";
+
+  }
+
+  function close() {
+    document.querySelector(".background").className = "background";
+  }
+
+  document.querySelector("#item-report").addEventListener("click", show);
+  document.querySelector("#close").addEventListener("click", close);
+
+  const report = document.getElementById("report");
+
+  document.getElementById("reportBtn").addEventListener("click", function(){
+
+    $.ajax({
+        url : "report", 
+        data : { "memberNo" : memberNo, "report" : report.value},
+        
+        type : "GET", // 데이터 전달 방식 type
+
+        success : function(result){
+            
+            alert("신고되었습니다.")
+
+            
+        },
+        
+        error : function(req, status, error){
+            console.log(req.responseText);
+        }
+    });
+
+
+  });

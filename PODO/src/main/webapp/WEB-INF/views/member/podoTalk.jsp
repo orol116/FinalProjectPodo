@@ -115,7 +115,8 @@
                                 <%-- 회원 프로필 이미지 --%>
                                 <div class="image-box">
                                     <div class="image-table">
-                                        <img id="boardimg" src="">
+                                        <img id="boardimg" src="" style="width: 50px">
+                                        <span id="boardTitle">
                                     </div>
                                 </div>
                                 <%-- 회원 정보(닉네임) --%>
@@ -131,9 +132,38 @@
                             <%-- 신고하기 --%>
                             <div class="declaration">
                                 <div>
-                                    <img src="${contextPath}/resources/images/report.png" alt="신고 이미지">
+                                    <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
                                 </div>
                             </div>
+
+                            <!-- <%-- 모달창 --%> -->
+                            <div class="background">
+                                <div class="window">
+                                <div class="popup">
+                                    <button id="close" type="button">팝업닫기</button>
+                                    <div id="report-text">신고할 내용을 입력해주세요.</div>
+                                    <div id="report-area">
+                                        <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
+                                    </div>
+                                    <div id="selectBtn-area">
+                                        <select name="key" id="search-key">
+                                            <option value="기타">기타</option>
+                                            <option value="광고">광고</option>
+                                            <option value="상품 정보 부정확">상품 정보 부정확</option>
+                                            <option value="거래 금지 품목">거래 금지 품목</option>
+                                            <option value="허위 매물">허위 매물</option>
+                                            <option value="사기 의심">사기 의심</option> 
+                                        </select>
+                                        <button id="introChange">수정하기</button>
+                                        <button id="reportBtn">신고하기</button>
+                                    </div>
+
+                                </div>
+                                <div>
+                                </div>
+                                </div>
+                            </div>
+
                         </div>
 
 
