@@ -70,8 +70,8 @@ public class ChatDAO {
 	 * @param chatMessage
 	 * @return result
 	 */
-	public int insertMessage(ChatMessage chatMessage) {
-		return sqlSession.insert("chatMapper.insertMessage", chatMessage);
+	public int insertMessage(ChatMessage messageContent) {
+		return sqlSession.insert("chatMapper.insertMessage", messageContent);
 	}
 
 	/** 삭제되어 있는 방인지 확인 DAO

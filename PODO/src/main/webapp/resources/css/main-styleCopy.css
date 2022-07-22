@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'NanumSquareRound';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
@@ -6,19 +5,14 @@
     font-style: normal;
 }
 
-/* @font-face {
-    font-family: 'NanumSquareRound';
-    font-weight: 700; 
-    font-style: normal; 
-    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundEB.woff2) format('woff2');
-    font-display: swap;
-} */
-
 
 * {font-family: "NanumSquareRound";}
 body{
-    width: 1400px;
-    margin: auto;
+
+    margin: 0 auto;
+}
+main{
+    width: 1000px;
 }
 
 /* body- 메인 banner */
@@ -28,10 +22,15 @@ body{
     justify-content: center;
  
 }
-.mySlides-list>div>img{
+/* .mySlides>img{
+    width: 1200px;
     height: 600px;
-    width: 1400px;
-}
+} */
+
+/* .mySlides-list>div>img{
+    height: 600px;
+    width: 1200px;
+} */
 
 #angel{
     position: absolute;    
@@ -46,7 +45,7 @@ body{
 }
 #angel>a:last-child{
     position: absolute;
-    width: 1400px;
+    width: 1200px;
     top: 0px;
     color: rgba(95, 0, 129, 0.406);
     
@@ -60,6 +59,7 @@ body{
 
 /* 상품 목록 */
 .frame{
+    width: 1200px;
     display: flex;
     justify-content: flex-start;
     padding-bottom: 25px;
@@ -108,7 +108,9 @@ body{
     font-size: 13px;
 }
 
-
+#items-section{
+    width: 1200px;
+}
 /* 사이드 메뉴 */
 
 #main-sideMenu{

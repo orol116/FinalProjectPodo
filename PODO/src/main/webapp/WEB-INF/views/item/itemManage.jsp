@@ -72,7 +72,7 @@
                                     <option value="${item.tradeCondition}" selected>${item.tradeCondition}</option>
                                     <option value="판매 중" value2="${item.boardNo}">판매 중</option>
                                     <option value="예약 중" value2="${item.boardNo}">예약 중</option>
-                                    <option value="판매완료" value2="${item.boardNo}">판매완료</option>
+                                    <%-- <option value="판매완료" value2="${item.boardNo}">판매완료</option> --%>
                                     <option value="삭제" value2="${item.boardNo}">삭제</option>
                                 </select>
                             </td>

@@ -60,6 +60,7 @@
                                     <div class="chatDiv" id="${chatList.chatNo}" onclick="listClickFn(${chatList.chatNo})">
                                         <li class="chatList">
 
+                                            <!-- 이미지가 없을 때 -->
                                             <c:if test="${chatList.memberProfile == null}">
                                                 <%-- 회원 이미지 --%>
                                                 <div class="profile">
@@ -115,7 +116,8 @@
                                 <%-- 회원 프로필 이미지 --%>
                                 <div class="image-box">
                                     <div class="image-table">
-                                        <img src="${contextPath}${member.memberProfile}">
+                                        <img id="boardimg" src="" style="width: 50px">
+                                        <span id="boardTitle">
                                     </div>
                                 </div>
                                 <%-- 회원 정보(닉네임) --%>
@@ -127,13 +129,43 @@
                             </a>
 
                             <button type="button" onclick="deleteChat()">나가기</button>
+                            <button type="button" onclick="tradeCondition()">판매완료하기</button>
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
                                 <div>
-                                    <img src="${contextPath}/resources/images/report.png" alt="신고 이미지">
+                                    <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
                                 </div>
                             </div>
+
+                            <!-- <%-- 모달창 --%> -->
+                            <div class="background">
+                                <div class="window">
+                                <div class="popup">
+                                    <button id="close" type="button">팝업닫기</button>
+                                    <div id="report-text">신고할 내용을 입력해주세요.</div>
+                                    <div id="report-area">
+                                        <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
+                                    </div>
+                                    <div id="selectBtn-area">
+                                        <select name="key" id="search-key">
+                                            <option value="기타">기타</option>
+                                            <option value="광고">광고</option>
+                                            <option value="상품 정보 부정확">상품 정보 부정확</option>
+                                            <option value="거래 금지 품목">거래 금지 품목</option>
+                                            <option value="허위 매물">허위 매물</option>
+                                            <option value="사기 의심">사기 의심</option> 
+                                        </select>
+                                        <button id="introChange">수정하기</button>
+                                        <button id="reportBtn">신고하기</button>
+                                    </div>
+
+                                </div>
+                                <div>
+                                </div>
+                                </div>
+                            </div>
+
                         </div>
 
 
@@ -144,77 +176,39 @@
                             <%-- 채팅창 영역 --%>
                             <ul class="display-chatting">
     
-                                <%-- 조회된 채팅방 목록이 있을 때 --%>
+                                <%-- 조회된 채팅방 목록이 있을 때 ajax --%>
                                 
-                                    <c:forEach items="${map.chatContent}" var="msg">
+                                <!-- <c:forEach items="${map.chatContent}" var="msg">
 
-                                        <fmt:formatDate var="chatDate" value="${msg.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
+                                    <fmt:formatDate var="chatDate" value="${msg.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
 
-                                        <c:if test="${msg.memberNo == loginMember.memberNo }">
-                                            <li class="myChat">
-                                                <span class="chatDate">${messageTime}</span>
-                                                <p class="chat">${msg.messageContent}</p>
-                                            </li>
-                                        </c:if>
-                                        
-                                        <c:if test="${msg.memberNo != loginMember.memberNo }">
-                                            <li>
-                                                <b>${msg.memberNickname}</b><br>
-                                                <p class="chat">${msg.messageContent}</p>
-                                                <span class="chatDate">${messageTime}</span>
-                                            </li>
-                                        </c:if>
+                                    <c:if test="${msg.memberNo == loginMember.memberNo }">
+                                        <li class="myChat">
+                                            <span class="chatDate">${messageTime}</span>
+                                            <p class="chat">${msg.messageContent}</p>
+                                        </li>
+                                    </c:if>
+                                    
+                                    <c:if test="${msg.memberNo != loginMember.memberNo }">
+                                        <li>
+                                            <b>${msg.memberNickname}</b><br>
+                                            <p class="chat">${msg.messageContent}</p>
+                                            <span class="chatDate">${messageTime}</span>
+                                        </li>
+                                    </c:if>
 
-                                    </c:forEach>
-
-                                    <!-- <c:forEach items="${myDetail}" var="my">
-
-                                        <fmt:formatDate var="chatDate" value="${my.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
-
-                                        <c:if test="${my.memberNo == loginMember.memberNo}">
-                                            <li class="myChat">
-                                                <span class="chatDate">${messageIime}</span>
-                                                <p class="chat">${my.messageContent}</p>
-                                            </li>
-                                        </c:if>
-
-                                    </c:forEach>
-
-                                    <c:forEach items="${otherDetail}" var="other">
-
-                                        <fmt:formatDate var="chatDate" value="${other.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
-
-                                        <c:if test="${other.memberNo != loginMember.memberNo }">
-                                            <li>
-                                                <b>${other.memberNickname}</b><br>
-                                                <p class="chat">${other.messageContent}</p>
-                                                <span class="chatDate">${messageTime}</span>
-                                            </li>
-                                        </c:if>
-
-                                    </c:forEach> -->
-
+                                </c:forEach> -->
                             </ul>	
-                            </div>
-                
-
+                        
 
                             <%-- 전송 버튼 --%>
                             <div class="chat-footer">
                                 <div class="chat-footer-area">
-                                    <%-- <div class="chat-input" contenteditable="true" placeholder="메세지를 입력해주세요."></div> --%>
                                     <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
                                     <button type="send" id="send">전송</button>
                                 </div>
                             </div>
 
-
-                            <%-- 전송 샘플
-                            <div class="input-area">
-                                <textarea id="inputChatting" rows="3"></textarea>
-                                <button id="send">보내기</button>
-                            </div> 
-                            --%>
                         </div>
                     </c:otherwise>
                     

@@ -43,31 +43,50 @@
     <form action="${contextPath}/board/itemUpload" enctype="multipart/form-data" method="POST" class="itemUpload" onsubmit="return writeValidate()">
 
         <%-- imageList에 존재하는 이미지 레벨을 이용하여 변수 생성 --%>
-        <c:forEach items="${boardImageList}" var="boardImage" varStatus="status">
+        <c:choose>
+        
+            <c:when test="${!empty boardImageList}">
 
-            <c:choose>
-                <c:when test="${boardImage.imageLevel == 0}">
-                    <c:set var="img0"  value="${contextPath}${boardImage.imageReName}" />
-                </c:when>
-                <c:when test="${boardImage.imageLevel == 1}">
-                    <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
-                    <c:set var="img1"  value="${contextPath}${boardImage.imageReName}" />
-                </c:when>
-                <c:when test="${boardImage.imageLevel == 2}">
-                    <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
-                    <c:set var="img2"  value="${contextPath}${boardImage.imageReName}" />
-                </c:when>
-                <c:when test="${boardImage.imageLevel == 3}">
-                    <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
-                    <c:set var="img3"  value="${contextPath}${boardImage.imageReName}" />
-                </c:when>
-                <c:when test="${boardImage.imageLevel == 4}">
-                    <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
-                    <c:set var="img4"  value="${contextPath}${boardImage.imageReName}" />
-                </c:when>
-            </c:choose>
+                <c:forEach items="${boardImageList}" var="boardImage" varStatus="status">
+
+                    <c:choose>
+                        <c:when test="${boardImage.imageLevel == 0}">
+                            <c:set var="img0"  value="${contextPath}${boardImage.imageReName}" />
+                        </c:when>
+                        <c:when test="${boardImage.imageLevel == 1}">
+                            <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
+                            <c:set var="img1"  value="${contextPath}${boardImage.imageReName}" />
+                        </c:when>
+                        <c:when test="${boardImage.imageLevel == 2}">
+                            <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
+                            <c:set var="img2"  value="${contextPath}${boardImage.imageReName}" />
+                        </c:when>
+                        <c:when test="${boardImage.imageLevel == 3}">
+                            <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
+                            <c:set var="img3"  value="${contextPath}${boardImage.imageReName}" />
+                        </c:when>
+                        <c:when test="${boardImage.imageLevel == 4}">
+                            <%-- c:set 변수는 page scope가 기본값 (조건문이 끝나도 사용 가능)  --%>
+                            <c:set var="img4"  value="${contextPath}${boardImage.imageReName}" />
+                        </c:when>
+                    </c:choose>
+
+                </c:forEach>
+
+            </c:when>
             
-        </c:forEach>
+            <c:when test="${empty boardImageList}">
+                 <c:set var="img0"  value="${contextPath}/resources/images/image.png" />
+                 <c:set var="img1"  value="${contextPath}/resources/images/image.png" />
+                 <c:set var="img2"  value="${contextPath}/resources/images/image.png" />
+                 <c:set var="img3"  value="${contextPath}/resources/images/image.png" />
+                 <c:set var="img4"  value="${contextPath}/resources/images/image.png" />
+            </c:when>
+
+
+
+        </c:choose>
+
         <%-- <img class="preview" src="${contextPath}/resources/images/image.png"> --%>
    
         <ul class="basic2">
