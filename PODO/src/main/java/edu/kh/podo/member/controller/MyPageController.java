@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.service.MyPageService;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.member.model.vo.MemberArea;
 
 @Controller
 @RequestMapping("/member/myPage")
@@ -160,6 +162,7 @@ public class MyPageController {
 	}
 	
 	// 주소 변경
+	@ResponseBody
 	@GetMapping("/resetAddr")
 	public String resetAddr(@ModelAttribute("loginMember") Member loginMember
 							,@RequestParam Map<String, Object> crdntMap
@@ -180,5 +183,22 @@ public class MyPageController {
 		
 		return "redirect:myLocation";
 	}
+	
+	// 거리 등록 
+	@ResponseBody
+	@GetMapping("/insertDistance")
+	public String insertDist(@ModelAttribute("loginMember") Member loginMember
+							, MemberArea distance) {
+		
+		distance.setMemberNo(loginMember.getMemberNo());
+		
+		int result = service.insertDist(distance);
+		
+		return "redirect:myLocation";
+	}
+	
+	
+	
+	
 
 }

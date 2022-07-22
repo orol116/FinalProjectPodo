@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.Coordinate;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
-
+import edu.kh.podo.member.model.vo.Member;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 public interface ItemBoardService {
@@ -70,4 +70,11 @@ public interface ItemBoardService {
 	List<BoardImage> selectBoardImageList(int boardNo);
 
 	List<ItemBoard> selectItemFour(int boardNo);
+
+
+	/** 거리별 상품 조회
+	 * @param loginMember
+	 * @return distList
+	 */
+	List<ItemBoard> selectDistList(Member loginMember);
 }

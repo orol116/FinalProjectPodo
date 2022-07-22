@@ -294,4 +294,14 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		return dao.selectBoardImageList(boardNo);
 	}
 
+	
+	// 거리별 상품 조회
+	@Override
+	public List<ItemBoard> selectDistList(Member loginMember) {
+		
+		return dao.selectDistList(loginMember);
+	}
+	
+	
+
 }

@@ -91,7 +91,10 @@
                                     </div>   
                                     
                                     <div class="title1">
-                                        <div class="title2">${item.boardTitle}</div>
+                                        <div class="name1">
+                                            <div class="title2">${item.boardTitle}</div>
+                                            <div class="state">${item.tradeCondition}</div>
+                                        </div>
                                         <div class="name2">
                                             <div class="price">${item.price}원</div>
                                             <div class="time">${item.updateDate}</div>

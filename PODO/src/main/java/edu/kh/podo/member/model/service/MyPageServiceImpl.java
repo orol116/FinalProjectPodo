@@ -13,6 +13,7 @@ import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.dao.MyPageDAO;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.member.model.vo.MemberArea;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
@@ -89,6 +90,13 @@ public class MyPageServiceImpl implements MyPageService {
 	public int resetCrdnt(Map<String, Object> crdntMap) {
 		
 		return dao.resetCrdnt(crdntMap);
+	}
+
+	// 거리 등록
+	@Override
+	public int insertDist(MemberArea distance) {
+		
+		return dao.insertDist(distance);
 	}
 
 	

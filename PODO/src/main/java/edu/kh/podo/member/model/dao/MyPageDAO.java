@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.member.model.vo.MemberArea;
 
 @Repository
 public class MyPageDAO {
@@ -68,10 +69,20 @@ public class MyPageDAO {
 	
 	/** 위도 경도 변경
 	 * @param crdntMap
-	 * @return
+	 * @return result
 	 */
 	public int resetCrdnt(Map<String, Object> crdntMap) {
 		return sqlSession.update("myPageMapper.resetCrdnt", crdntMap);
+	}
+
+	
+	/** 거리 등록
+	 * @param distance
+	 * @return result
+	 */
+	public int insertDist(MemberArea distance) {
+		
+		return sqlSession.insert("myPageMapper.insertDist", distance);
 	}
 	
 
