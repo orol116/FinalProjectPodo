@@ -3,7 +3,9 @@ var chattingNo = 0;
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
 
-	document.getElementById("chatArea").innerHtml = "";
+
+	/* document.getElementById("chatArea").innerHTML = ""; */
+
 	
 	console.log(chatNo);
 
@@ -30,7 +32,8 @@ function listClickFn(chatNo) {
 }
 
 // 1:1 채팅 시 만들어진 방이 있다면 바로 참여하기
-(function(){
+// -> 가장 최근 사용한 방 바로 참여하기 ?
+/* (function(){
 
 	if(createChatNo != ""){
 		const chatDivList = document.getElementsByClassName("chatDiv");
@@ -43,22 +46,20 @@ function listClickFn(chatNo) {
 		}
 	}
 
-})();
+})(); */
 
 
 
 // -------------------------------------------------------------------------
 
 // 페이지 로딩 완료 시 채팅창을 제일 밑으로 내리기
-/* (function(){
-
+(function(){
 	const display = document.getElementsByClassName("display-chatting")[0];
 	
 	if(display != null){
 		display.scrollTop = display.scrollHeight;
 	}
-
-})(); */
+})();
 
 
 
@@ -201,6 +202,7 @@ function deleteChat() {
 			} else {
 				console.log("채팅방 나가기 실패");
 			}
+
 
 		},
 
