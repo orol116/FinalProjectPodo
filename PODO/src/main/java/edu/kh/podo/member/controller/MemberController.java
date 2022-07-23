@@ -369,6 +369,13 @@ public class MemberController {
 		
 		return "member/InquireDetail";
 	}
+	
+	// 1대1 문의 관리자 답변 작성
+	@PostMapping("reply")
+	public String adminReplyWrite() {
+		
+		return null;
+	}
 		
 
 	// 상품관리 페이지

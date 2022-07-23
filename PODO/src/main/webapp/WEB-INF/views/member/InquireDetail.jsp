@@ -60,29 +60,32 @@
     
     </div>
         <div id="chat">
-            <p>고객센터가 문제를 알아보고 있어요.<br>조금만 기다려주세요.</p>
+           
                 
-        <c:if test="${!empty rList}">
-            <%-- 관리자 답글 --%>
-            <div id="reply">
-                <div class="information">
-                    <p>&#127815;&nbsp;관리자</p>
-                    <p>${rList.createDate}</p>
-                </div>
-                <div class="feedback">
-                    ${rList.replyContent}
-                </div>
-            </div>
-        </c:if>
-            
-        <c:if test="${empty rList}">
-            <c:if test="${loginMember.memberNo==1}">
-                <div id="reply1">
-                    <textarea class="reply-content" placeholder="답변을 입력해 주세요."></textarea>
-                    <button id="reply2">등록</button>
+            <c:if test="${!empty rList}">
+                <%-- 관리자 답글 --%>
+                <div id="reply">
+                    <div class="information">
+                        <p>&#127815;&nbsp;관리자</p>
+                        <p>${rList.createDate}</p>
+                    </div>
+                    <div class="feedback">
+                        ${rList.replyContent}
+                    </div>
                 </div>
             </c:if>
-        </c:if>
+                
+            <c:if test="${empty rList}">
+
+                 <p>고객센터가 문제를 알아보고 있어요.<br>조금만 기다려주세요.</p>
+                 
+                <c:if test="${loginMember.memberNo==1}">
+                    <div id="reply1">
+                        <textarea class="reply-content" placeholder="답변을 입력해 주세요."></textarea>
+                        <button id="reply2">등록</button>
+                    </div>
+                </c:if>
+            </c:if>
         </div>
 
 
