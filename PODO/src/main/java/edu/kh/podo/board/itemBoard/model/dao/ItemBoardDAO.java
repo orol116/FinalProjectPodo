@@ -3,6 +3,7 @@ package edu.kh.podo.board.itemBoard.model.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -207,6 +208,16 @@ public class ItemBoardDAO {
 	 */
 	public int updateReadCount(int boardNo) {
 		return sqlSession.update("itemBoardMapper.updateReadCount", boardNo);
+	}
+
+
+	/** 거리별 상품 조회
+	 * @param loginMember
+	 * @return distList
+	 */
+	public List<ItemBoard> selectDistList(Member loginMember) {
+		
+		return sqlSession.selectList("itemBoardMapper.selectDistList", loginMember);
 	}
 
 

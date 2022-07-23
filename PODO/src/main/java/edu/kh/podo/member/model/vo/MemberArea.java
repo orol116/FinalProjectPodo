@@ -17,5 +17,6 @@ public class MemberArea {
 	private int memberNo;
 	private double dLon;
 	private double dLat;
+	private int distance;
 
 }

@@ -49,6 +49,13 @@ public class ChatController {
 		return new Gson().toJson(service.selectChatDetail(loginMember.getMemberNo(), chatNo));
 	}
 	
+	// 채팅방 내 후기 작성 ajax
+	@GetMapping("/chat/review")
+	@ResponseBody
+	public int writeReview(int memberNo, String report, int otherMemNo, int boardNo) {
+		return service.writeReview(memberNo, report, otherMemNo, boardNo);
+	}
+	
 	// 1:1 채팅하기(채팅 생성)
 	@GetMapping("/chat/start/{boardNo}/{sellMemberNo}")
 	public String chatStart(@PathVariable("boardNo") int boardNo,

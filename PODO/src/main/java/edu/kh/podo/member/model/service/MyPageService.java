@@ -5,6 +5,7 @@ import java.util.Map;
 
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.member.model.vo.MemberArea;
 
 public interface MyPageService {
 
@@ -45,6 +46,13 @@ public interface MyPageService {
 	 * @return
 	 */
 	int resetCrdnt(Map<String, Object> crdntMap);
+
+	
+	/** 거리 등록
+	 * @param distance
+	 * @return
+	 */
+	int insertDist(MemberArea distance);
 
 
 

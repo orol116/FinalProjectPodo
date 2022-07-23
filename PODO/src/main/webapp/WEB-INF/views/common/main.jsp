@@ -40,9 +40,9 @@
     </div>
 
 	<div class="slide-list">
-        <div class="mySlides"><img src="${contextPath}/resources/images/banner1.png"></div>
-        <div class="mySlides"><img src="${contextPath}/resources/images/banner2-2.png"></div>
-        <div class="mySlides"><img src="${contextPath}/resources/images/banner3-1.png"></div>
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner1-001.png"></div>
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner2-001.png"></div>
+        <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
     <section id="items-section">
@@ -91,7 +91,10 @@
                                     </div>   
                                     
                                     <div class="title1">
-                                        <div class="title2">${item.boardTitle}</div>
+                                        <div class="name1">
+                                            <div class="title2">${item.boardTitle}</div>
+                                            <div class="state">${item.tradeCondition}</div>
+                                        </div>
                                         <div class="name2">
                                             <div class="price">${item.price}원</div>
                                             <div class="time">${item.updateDate}</div>

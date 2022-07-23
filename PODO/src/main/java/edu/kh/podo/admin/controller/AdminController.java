@@ -143,18 +143,7 @@ public class AdminController {
 	}
 	
 	
-	@GetMapping("reply")
-	public String adminReply() {
-		
-		return null;
-	}
 	
-	
-	@PostMapping("reply")
-	public String adminReplyWrite() {
-		
-		return null;
-	}
 	
 	
 	

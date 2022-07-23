@@ -1,5 +1,6 @@
 var chattingNo = 0;
 var boardNo1 = 0;
+var otherMemNo = 0;
 
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
@@ -48,19 +49,21 @@ function listClickFn(chatNo) {
 					li.classList.add("myChat"); // 스타일 적용
 					span.innerText = currentTime(); // 날짜
 					p.innerHTML = msg.messageContent;
-					console.log("내    " + msg.memberNo);
 				}else{
 					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
 					p.innerHTML = msg.messageContent;				
 					span.innerText = currentTime();
 					li.append(p, span);
-					console.log("남    " + msg.memberNo);
 				}
 				
 				const display = document.getElementsByClassName("display-chatting")[0];
 				
 				display.append(li);
 				display.scrollTop = display.scrollHeight;
+
+				if (msg.memberNo != memberNo) {
+					otherMemNo = msg.memberNo;
+				}
 			}
 			console.log("boardNo : " + data.boardNo);
 			chattingNo = chatNo;
@@ -74,6 +77,7 @@ function listClickFn(chatNo) {
 	});
 
 }
+
 
 // 1:1 채팅 시 만들어진 방이 있다면 바로 참여하기
 // -> 가장 최근 사용한 방 바로 참여하기 ?
@@ -262,38 +266,52 @@ function deleteChat() {
 
 }
 
-// 신고 모달
+// 신고 && 후기 모달
+const searchKey = document.getElementById("search-key");
+
+
 function show() {
-    document.getElementById("introChange").style.display = "none";
+    document.getElementById("reviewBtn").style.display = "none";
     document.getElementById("reportBtn").style.display = "block";
     document.querySelector(".background").className = "background show";
     document.getElementById("report-text").innerText = "";
     document.getElementById("report-text").innerText = "신고할 내용을 입력해주세요.";
     document.getElementById("report").setAttribute("placeholder", "신고할 내용을 입력해주세요.");
+    searchKey.style.display = "block";
+
   }
 
   function close() {
     document.querySelector(".background").className = "background";
   }
 
+  function reviewShow(){
+    document.getElementById("reviewBtn").style.display = "block";
+    document.getElementById("reportBtn").style.display = "none";
+    document.querySelector(".background").className = "background show";
+    document.getElementById("report-text").innerText = "";
+    document.getElementById("report-text").innerText = "후기 작성";
+    document.getElementById("report").setAttribute("placeholder", "작성할 후기를 입력해주세요.");
+    searchKey.style.display = "none";
+    document.getElementById("reviewBtn").style.marginLeft = "350px";
+  }
+
+  document.querySelector("#reviewWrt").addEventListener("click", reviewShow);
   document.querySelector("#item-report").addEventListener("click", show);
   document.querySelector("#close").addEventListener("click", close);
 
   const report = document.getElementById("report");
 
+  // 신고 ajax
   document.getElementById("reportBtn").addEventListener("click", function(){
 
     $.ajax({
         url : "report", 
         data : { "memberNo" : memberNo, "report" : report.value},
-        
-        type : "GET", // 데이터 전달 방식 type
+        type : "GET", 
 
         success : function(result){
-            
-            alert("신고되었습니다.")
-
-            
+            alert("신고되었습니다.");
         },
         
         error : function(req, status, error){
@@ -304,6 +322,31 @@ function show() {
 
   });
 
+  // 후기 ajax
+  function writeReviewFn(){
+
+    $.ajax({
+        url : contextPath + "/chat/review", 
+        data : { "memberNo" : memberNo, 
+				 "report" : report.value,
+				 "otherMemNo" : otherMemNo,
+				 "boardNo" : boardNo1},
+				// reviewCondition 추가해줘야함(data).
+        type : "GET", 
+        success : function(result){
+            alert("후기가 등록되었습니다.");
+			location.reload();
+        },
+        
+        error : function(req, status, error){
+            console.log(req.responseText);
+        }
+    });
+
+
+  }
+
+
 
 
 // 판매완료 처리
@@ -311,18 +354,6 @@ function tradeCondition(){
 
     
     console.log(boardNo1);
-    
-    /* var indexNo = update[0].selectedIndex;
-
-    console.log(indexNo);
-
-    document.forms["tradeCondition"].submit();
-
-    // // select element에서 선택된 option의 value가 저장됩니다
-    // var selectedValue = update.options[update.selectedIndex].value;
-
-    // // select element에서 선택된 option의 text가 저장된다.
-    // var selectedText = update.options[update.selectedIndex].text; */
 
     $.ajax({
         url : contextPath + "/shop/main/tradeCondition",

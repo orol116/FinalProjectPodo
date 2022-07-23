@@ -42,4 +42,13 @@ public interface ChatService {
 	 */
 	int deleteChat(int chatNo);
 
+	/** 채팅방 내 후기 작성 Service
+	 * @param memberNo
+	 * @param report
+	 * @param otherMemNo
+	 * @param boardNo
+	 * @return result
+	 */
+	int writeReview(int memberNo, String report, int otherMemNo, int boardNo);
+
 }
