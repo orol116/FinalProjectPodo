@@ -19,11 +19,12 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
     <%-- 사이드메뉴 --%>
     <main>
-
         <div id="main-sideMenu">
-        <div id="go-topBtn">위로</div>
-        <div id="recentShow-item">item</div>
-        <div id="show-footer">footer</div>
+        <div id="main-sideMenu1">
+            <div id="go-topBtn">&#128070;<br>UP</div>
+            <div id="recentShow-item">&#128064;<br>RECENT<br>ITEM</div>
+            <div id="show-footer">DOWN<br>&#128071;</div>
+        </div>
     </div>
 
     <!-- <%-- 모달창 --%> -->

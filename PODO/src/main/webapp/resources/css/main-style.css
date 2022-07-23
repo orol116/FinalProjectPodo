@@ -33,29 +33,10 @@ body{
     width: 1200px;
 }
 
-#angel{
-    position: absolute;    
-    padding: 0;
-    font-size: 30px;
-}
-#angel>a:first-child{
-    position: absolute;
-    left:5px;
-    top: 0px;
-    color: rgba(95, 0, 129, 0.406);
-}
-#angel>a:last-child{
-    position: absolute;
-    width: 1400px;
-    top: 0px;
-    color: rgba(95, 0, 129, 0.406);
-    
-}
 
 /* 이번주 상품 추천 */
-
 #itmes{
-    padding: 30px  5px 30px;
+  padding: 30px  5px 30px;
 }
 
 /* 상품 목록 */
@@ -63,20 +44,18 @@ body{
     display: flex;
     justify-content: flex-start;
     padding-bottom: 25px;
-    /* margin: 0 20px 0; */
 }
 
 .box{
     flex-basis: 22%;
     width: 100%;
     height: 290px;
-    border: 1px solid lightgray;
+    border: 1px solid rgba(221, 221, 221, 0.646);
     margin-right: 15px;
 }
 .image{
   height: 220px;
   width: 210px;
-    /* border: 1px solid lightgray; */
 }
 .image>img{
     height: 220px;
@@ -86,7 +65,7 @@ body{
 .title{
     text-decoration: none;
     color: black;
-    font-size: 17px;
+    font-size: 15px;
 }
 .title1{
     display: block;
@@ -102,17 +81,17 @@ body{
 }
 
 .name2{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 10px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px 0 10px;
 }
 .price{
-    font-size: 19px;
-    font-weight: bold;
+  font-size: 16px;
+  font-weight: bold;
 }
 .time{
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .state{
@@ -120,26 +99,42 @@ body{
 }
 
 /* 사이드 메뉴 */
-
 #main-sideMenu{
-
-    position: fixed;
-    left: 1700px;
-    top: 400px;
-    width: 66px;
-    height: 188px;
-    border: 1px solid #aaa;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
+  position: fixed;
+  right: 200px;
+  top: 400px;
+  width: 66px;
+  height: 188px;
+  /* border: 1px solid #aaa; */
+  flex-direction: column;
+  border-radius: 3px;
 }
 
-#main-sideMenu > div{
-    width: 60px;
-    height: 60px;
-    border: 1px solid black;
+#main-sideMenu1{
+  display: inline-block;
+  text-align: center;
+}
+
+#go-topBtn{
+  height: 45px;
+}
+#recentShow-item{
+  height: 70px;
+}
+#show-footer{
+  height: 45px;
+}
+
+/* 사이드바 공통부분 */
+#main-sideMenu1>div{
+  border-radius: 5%;
+  margin: 20px;
+  width: 65px;
+  border: 1px solid #ddd;
+
+}
+#main-sideMenu1>div:hover{
+  cursor: pointer;
 }
 
 

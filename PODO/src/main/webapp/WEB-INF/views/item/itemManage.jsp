@@ -31,7 +31,7 @@
         </nav>
     </div>
     <main>
-    <div class="basic1">
+    <%-- <div class="basic1">
     
         <section class="basic">
             <form class="search1" action="#" method="post" id="search">
@@ -40,7 +40,7 @@
             </form>
         </section>
         
-    </div>   
+    </div>    --%>
     <div>
         <table>
             <thead>
@@ -66,6 +66,7 @@
                         <%-- <form id="tradeCondition" method="post"> --%>
                         <tr id=tradeCondition>
                             <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
+                            <%-- <td><img src="${contextPath}${item.img.imageReName}"></td> --%>
                             <td>
                                 <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>
                                 <select class="changeCondition" onchange="tradeCondition(this)">

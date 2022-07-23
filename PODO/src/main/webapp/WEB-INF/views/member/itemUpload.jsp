@@ -142,7 +142,7 @@
                 <div id="ex">
                     <br>* 상품이미지는 600x600에 최적화 되어있습니다.
                     <br>- 이미지는 상품 등록 시 정사각형으로 잘려서 등록됩니다. 
-                    <br>- 이미지를 클릭할 경우 원본이미지를 확인 할 수 있습니다.
+                    <%-- <br>- 이미지를 클릭할 경우 원본이미지를 확인 할 수 있습니다. --%>
                     <br>- 최대 지원사이즈인 640x640으로 준수해주세요.
                     <br>- 큰 이미지일 경우 이미지가 깨지는 경우가 발생할 수 있습니다.
                 </div>
@@ -217,7 +217,6 @@
                     <li>
                         <section class="place">
                             <button>내 위치</button>
-                            <button>최근지역</button>
                             <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" id="searchBtn">
                             <button onchange="none()" id="noneLocation">지역설정안함</button>
                         </section>
