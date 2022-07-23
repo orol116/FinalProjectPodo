@@ -60,6 +60,7 @@
                                     <div class="chatDiv" id="${chatList.chatNo}" onclick="listClickFn(${chatList.chatNo})">
                                         <li class="chatList">
 
+                                            <!-- 이미지가 없을 때 -->
                                             <c:if test="${chatList.memberProfile == null}">
                                                 <%-- 회원 이미지 --%>
                                                 <div class="profile">
@@ -128,6 +129,7 @@
                             </a>
 
                             <button type="button" onclick="deleteChat()">나가기</button>
+                            <button type="button" onclick="tradeCondition()">판매완료하기</button>
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
@@ -174,7 +176,7 @@
                             <%-- 채팅창 영역 --%>
                             <ul class="display-chatting">
     
-                                <%-- 조회된 채팅방 목록이 있을 때 --%>
+                                <%-- 조회된 채팅방 목록이 있을 때 ajax --%>
                                 
                                 <!-- <c:forEach items="${map.chatContent}" var="msg">
 
@@ -202,7 +204,6 @@
                             <%-- 전송 버튼 --%>
                             <div class="chat-footer">
                                 <div class="chat-footer-area">
-                                    <%-- <div class="chat-input" contenteditable="true" placeholder="메세지를 입력해주세요."></div> --%>
                                     <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
                                     <button type="send" id="send">전송</button>
                                 </div>

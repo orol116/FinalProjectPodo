@@ -1,4 +1,5 @@
 var chattingNo = 0;
+var boardNo1 = 0;
 
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
@@ -17,6 +18,7 @@ function listClickFn(chatNo) {
 		success : function(data) {
 
 			console.log(data);
+			
 
 			// // 이미지 연결
 			console.log(data.boardImageList[0].imageReName);
@@ -25,42 +27,44 @@ function listClickFn(chatNo) {
 			img.src = contextPath + data.boardImageList[0].imageReName;
 
 			document.getElementById("boardTitle").innerText = data.itemList[0].boardTitle;
-			const chatContent = data.chatContnet;
 
+			const chatContent = data.chatContent;
 			console.log(data.chatContent);
-
 			
-			for(let msg of chatContent){		
+			for(let msg of data.chatContent){		
 
-				
 				const li = document.createElement("li"); /* 채팅 영역 */
 				
 				const span = document.createElement("span");
-				span.classList.add("chatDate")
+				span.classList.add("chatDate");
 
 				const p = document.createElement("p");
 				p.classList.add("chat");
 				
 				// 내가 쓴 채팅일 경우
-				if( msg.memberNo == memberNo ){
+				if ( msg.memberNo == memberNo ) {
+			
 					li.append(span, p);
 					li.classList.add("myChat"); // 스타일 적용
 					span.innerText = currentTime(); // 날짜
 					p.innerHTML = msg.messageContent;
+					console.log("내    " + msg.memberNo);
 				}else{
 					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
 					p.innerHTML = msg.messageContent;				
 					span.innerText = currentTime();
 					li.append(p, span);
+					console.log("남    " + msg.memberNo);
 				}
 				
 				const display = document.getElementsByClassName("display-chatting")[0];
 				
 				display.append(li);
-
+				display.scrollTop = display.scrollHeight;
 			}
-			
+			console.log("boardNo : " + data.boardNo);
 			chattingNo = chatNo;
+			boardNo1 = data.boardNo;
 			
 		},
 
@@ -184,9 +188,13 @@ chattingSock.onmessage = function(e){
 	if( chatMessage.memberNo ==  memberNo ){
 		li.append(span, p);
 		li.classList.add("myChat"); // 내가 쓴 글 스타일 적용
+		span.innerText = currentTime(); // 날짜
+		p.innerHTML = chatMessage.messageContent;
 
 	}else{
 		li.innerHTML = "<b>"  + chatMessage.memberNickname  +  "</b><br>";
+		p.innerHTML = chatMessage.messageContent;				
+		span.innerText = currentTime();
 		li.append(p, span);
 	}
 
@@ -262,8 +270,6 @@ function show() {
     document.getElementById("report-text").innerText = "";
     document.getElementById("report-text").innerText = "신고할 내용을 입력해주세요.";
     document.getElementById("report").setAttribute("placeholder", "신고할 내용을 입력해주세요.");
-    searchKey.style.display = "block";
-
   }
 
   function close() {
@@ -297,3 +303,47 @@ function show() {
 
 
   });
+
+
+
+// 판매완료 처리
+function tradeCondition(){
+
+    
+    console.log(boardNo1);
+    
+    /* var indexNo = update[0].selectedIndex;
+
+    console.log(indexNo);
+
+    document.forms["tradeCondition"].submit();
+
+    // // select element에서 선택된 option의 value가 저장됩니다
+    // var selectedValue = update.options[update.selectedIndex].value;
+
+    // // select element에서 선택된 option의 text가 저장된다.
+    // var selectedText = update.options[update.selectedIndex].text; */
+
+    $.ajax({
+        url : contextPath + "/shop/main/tradeCondition",
+
+        data : {"boardNo" : boardNo1,
+                "condition" : '판매완료'},
+
+        type: "POST",
+
+        success : function(result) {
+            if (result > 0) {
+                alert("상품 상태가 변경되었습니다.");
+            } else {
+                alert("상태 변경에 실패하였습니다.");
+            }
+        },
+
+        error : function(){
+            alert("에러 발생");
+        }
+
+    });
+
+}
