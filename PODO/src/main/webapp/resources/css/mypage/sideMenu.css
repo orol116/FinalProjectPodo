@@ -1,5 +1,4 @@
 /* 마이페이지 좌측 사이드 메뉴 */
-
 .left-side{
     flex-basis: 350px;
     /* width: 20%; */
@@ -47,4 +46,9 @@
 }
 .list-group>li>a:hover{
     background-color: #eee;
+}
+
+.myPage-subTitle>a>img{
+    width: 30px;
+    height: 30px;
 }
