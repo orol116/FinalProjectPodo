@@ -96,7 +96,7 @@
                 <c:choose>
 						
                     <%-- 조회된 게시글 목록이 없을 때 --%>
-                    <c:when test="${empty chatRoomList }">
+                    <c:when test="${empty chatRoomList}">
                         <%-- <tr>
                             <td colspan="4">
                                 <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화방을 선택해주세요</b>
@@ -130,6 +130,7 @@
 
                             <button type="button" onclick="deleteChat()">나가기</button>
                             <button type="button" onclick="tradeCondition()">판매완료하기</button>
+                            <button type="button" id="reviewWrt">후기 작성하기</button>
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
@@ -156,8 +157,8 @@
                                             <option value="허위 매물">허위 매물</option>
                                             <option value="사기 의심">사기 의심</option> 
                                         </select>
-                                        <button id="introChange">수정하기</button>
                                         <button id="reportBtn">신고하기</button>
+                                        <button id="reviewBtn" onclick="writeReviewFn()">등록하기</button>
                                     </div>
 
                                 </div>
@@ -210,6 +211,8 @@
                             </div>
 
                         </div>
+
+                       
                     </c:otherwise>
                     
                 </c:choose>

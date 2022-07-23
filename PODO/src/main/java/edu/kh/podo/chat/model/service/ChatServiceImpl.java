@@ -114,4 +114,24 @@ public class ChatServiceImpl implements ChatService {
 		return dao.deleteChat(chatNo);
 	}
 
+	// 채팅방 내 Service 구현
+	@Override
+	public int writeReview(int memberNo, String report, int otherMemNo, int boardNo) {
+		
+		int sellMemNo = dao.selectWhoIsSeller(boardNo);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("memberNo", memberNo);
+		map.put("otherMemNo", otherMemNo);
+		map.put("sellMemNo", sellMemNo);
+		map.put("boardNo", boardNo);
+		
+		String temp = Util.XSSHandling(report);
+		String reportContent = Util.newLineHandling(temp);
+	
+		map.put("reportContent", reportContent);
+		
+		return dao.writeReview(map);
+	}
+
 }

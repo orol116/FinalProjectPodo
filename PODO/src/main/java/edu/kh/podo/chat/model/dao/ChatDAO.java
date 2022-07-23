@@ -89,7 +89,7 @@ public class ChatDAO {
 		sqlSession.update("chatMapper.updateStatus", chatNo);
 	}
 
-	/** 채팅방 삭제(나가기)
+	/** 채팅방 삭제(나가기) DAO
 	 * @param chatNo
 	 * @return result
 	 */
@@ -97,7 +97,7 @@ public class ChatDAO {
 		return sqlSession.update("chatMapper.deleteChat", chatNo);
 	}
 
-	/** 채팅방 내 판매글 정보를 위한 보드 넘버 얻어오기
+	/** 채팅방 내 판매글 정보를 위한 보드 넘버 얻어오기 DAO
 	 * @param chatNo
 	 * @return boardNo
 	 */
@@ -105,12 +105,20 @@ public class ChatDAO {
 		return sqlSession.selectOne("chatMapper.selectBN", chatNo);
 	}
 
-	/** 채팅방 내 판매글 정보
-	 * @param map
-	 * @return chatBoard
+	/** 판매자가 누군지 조회 DAO
+	 * @param boardNo
+	 * @return sellMemNo
 	 */
-//	public List<ItemBoard> selectChatBoard(Map<String, Object> map) {
-//		return sqlSession.selectOne("chatMapper.selectChatBoard", map);
-//	}
+	public int selectWhoIsSeller(int boardNo) {
+		return sqlSession.selectOne("chatMapper.selectWhoIsSeller", boardNo);
+	}
+
+	/** 후기 작성 DAO
+	 * @param map
+	 * @return result
+	 */
+	public int writeReview(Map<String, Object> map) {
+		return sqlSession.insert("chatMapper.writeReview", map);
+	}
 
 }
