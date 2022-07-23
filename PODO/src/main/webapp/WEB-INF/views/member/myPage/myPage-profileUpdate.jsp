@@ -82,6 +82,7 @@
                     <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
 
                     <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
+                    <button type="button"  onclick="execDaumPostcode()">검색</button>
                 </div>
 
                 <div class="myPage-row info-address">
@@ -96,7 +97,7 @@
                 <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
                 <input type="hidden" name="delete" id="delete" value="0">
 
-                <button>변경하기</button>
+                <button id="button btnPush" class="button btnPush btnPurple">변경하기</button>
             </form>
 
 
