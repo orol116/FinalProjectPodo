@@ -1,14 +1,14 @@
 *{box-sizing: border-box;}
 main{
     display: block;
-    width: 1400px;
+    width: 1190px;
 }
 body>div>a*{
     text-decoration: none;
 }
 /* 첫번째 메뉴 */
 .top-menu{
-    width: 1400px;
+    width: 1190px;
     border-bottom: 1px solid lightgray ;
     border-top: 1px solid lightgray;
 }
@@ -245,6 +245,21 @@ form>ul:nth-child(4){
     background-color:rgba(195, 194, 204, 0.288);
     cursor: pointer;
 }
+
+.place>input{
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+    background-color: white;
+    border: 1px solid rgba(195, 194, 204, 0.781);
+    font-size: 80%;
+}
+.place>input:hover{
+    background-color:rgba(195, 194, 204, 0.288);
+    cursor: pointer;
+}
+
+
 .placeResult{
     width: 700px;
     height: 40px;
@@ -338,13 +353,14 @@ textarea:focus{
 
 /* 등록버튼 */
 .submit{
-    width: 1400px;
+    width: 1200px;
     height: 60px;
     position: sticky;
     display: flex;
     justify-content: end;
     align-content: center;
-    padding: 5px 20px 10px;
+    padding: 15px 20px 20px;
+    margin: 5px;
     bottom: 0;
     right: 50px;
     z-index: 1;
