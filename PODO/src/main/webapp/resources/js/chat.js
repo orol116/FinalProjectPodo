@@ -95,6 +95,20 @@ function listClickFn(chatNo) {
 })(); 
 
 
+/* 프로필 헤더 모달 리스트 아이콘 */
+$(document).ready(function(){
+    $('#spreadBtn04').click(function(){
+        if($("#hiddenList03").is(":visible")){
+            /* $("#spreadBtn04").toggleClass("icon-emo-sunglasses icon-emo-grin"); */
+      	    $("#hiddenList03").slideUp();
+        }else{
+            /* $("#spreadBtn04").toggleClass("icon-emo-grin icon-emo-sunglasses"); */
+	   		$("#hiddenList03").slideDown();
+        }
+    });
+});
+
+
 // -------------------------------------------------------------------------
 
 // 페이지 로딩 완료 시 채팅창을 제일 밑으로 내리기
