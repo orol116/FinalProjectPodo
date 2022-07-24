@@ -34,6 +34,7 @@
 }
  */
 
+ /* 채팅창 본문 */
 .display-chatting{
 
     position: sticky;
@@ -43,7 +44,7 @@
     overflow: auto;
     list-style : none;
     padding : 10px 10px;
-
+    border-bottom: 1px solid #c7c7c7;
     
 }
 
@@ -208,20 +209,7 @@ color: white;
     position: relative;
 }
 
-.info{
-    color: rgb(30, 29, 41);
-    word-break: break-all;
-    cursor: pointer;
-    user-select: none;
-    letter-spacing: -0.5px;
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    font: inherit;
-    vertical-align: baseline;
-    width: 100%;
-}
+
 .memberNick{
     color: rgb(30, 29, 41);
     word-break: break-all;
@@ -253,7 +241,7 @@ color: white;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    margin: 12px 20px;
+    margin: 25px 10px;
 }
 
 
@@ -275,7 +263,7 @@ color: white;
     justify-content: center;
     height: 40px;
     background-color: rgb(250, 250, 250);
-    border-radius: 24px;
+    
     width: 100%;
 }
 

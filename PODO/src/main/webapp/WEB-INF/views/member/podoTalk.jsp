@@ -118,24 +118,19 @@
                                 <%-- 회원 프로필 이미지 --%>
                                 <div class="image-box">
                                     <div class="image-table">
-                                        <img id="boardimg" src="" style="width: 50px">
-                                        <span id="boardTitle">
+                                        <%-- <img id="boardimg" src="" style="width: 50px"> --%>
+                                        <img id="boardimg">
+                                        <%-- <span id="boardTitle"> --%>
                                     </div>
                                 </div>
                                 <%-- 회원 정보(닉네임) --%>
                                 <div class="info">
                                     <div>
+                                        <span id="boardTitle">
                                         <span>${member.memberNickname}</span>    
                                     </div>
                                 </div>
                             </a>
-
-                            <button type="button" onclick="deleteChat()">나가기</button>
-                            <button type="button" onclick="tradeCondition()">판매완료하기</button>
-                            <button type="button" id="reviewWrt">후기 작성하기</button>
-
-                            
-                            
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
@@ -143,6 +138,17 @@
                                     <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
                                 </div>
                             </div>
+
+                            <span class="icon-emo-sunglasses" id="spreadBtn04">
+                                <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
+                            </span>
+                            <ul id="hiddenList03" class="example01" style="display: none;">
+                                <button type="button" onclick="deleteChat()">나가기</button>
+                                <button type="button" onclick="tradeCondition()">판매완료하기</button>
+                                <button type="button" id="reviewWrt">후기 작성하기</button>
+                            </ul>
+
+                           
 
                             <!-- <%-- 모달창 --%> -->
                             <div class="background">
@@ -212,7 +218,7 @@
 
     <!--------------------------------------- sockjs를 이용한 WebSocket 구현을 위해 라이브러리 추가 ---------------------------------------------->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	
+
 	<!-- https://github.com/sockjs/sockjs-client -->
 	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     
