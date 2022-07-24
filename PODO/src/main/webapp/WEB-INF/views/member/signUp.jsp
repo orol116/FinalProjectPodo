@@ -68,7 +68,7 @@
                     <section>
                         <h4>주소</h4>
                         <input type="text" id="memberAddress" placeholder="주소" name="memberAddress" readonly>
-                        <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+                        <input type="button" id="address" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                     </section>
                     <span class="signUp-message" id="addressMessage">* 검색 버튼을 눌러주세요.</span>
 

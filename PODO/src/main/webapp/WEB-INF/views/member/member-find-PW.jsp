@@ -21,7 +21,7 @@
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
         <div id="contaioner">
-            <h3>비밀번호 찾기</h3>
+            <h2>비밀번호 찾기</h2>
             <form action="inputPw2" method="POST" name="ID-form" id="ID-form" onsubmit="return CerValidate()">
                 <fieldset id="ID-area">
 
