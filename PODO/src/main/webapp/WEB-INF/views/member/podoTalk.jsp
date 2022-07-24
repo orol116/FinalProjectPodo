@@ -55,6 +55,7 @@
                         <c:otherwise>
                             
                             <c:forEach var="chatList" items="${chatRoomList}">
+                            
                                 <div class="card-box">
                                     <%-- 클릭 시 우측 채팅창으로 이동 --%>
                                     <div class="chatDiv" id="${chatList.chatNo}" onclick="listClickFn(${chatList.chatNo})">
@@ -92,16 +93,17 @@
 
             <%-- 우측 채팅창 영역 --%>
             <section class="right-main">
+            <%-- right-main : 채팅영역
+                구성 크게 div 3개
+                chat-header : 프로필 영역 및 모달
+                chat-body : 채팅창
+                chat-footer : 채팅메시지 보내기 영역
+             --%>
 
                 <c:choose>
 						
                     <%-- 조회된 게시글 목록이 없을 때 --%>
                     <c:when test="${empty chatRoomList}">
-                        <%-- <tr>
-                            <td colspan="4">
-                                <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화방을 선택해주세요</b>
-                            </td>
-                        </tr> --%>
                         <div class="sc-not-found-room">
                             <img src="${contextPath}/resources/images/icon-not-found.png" alt="아이콘" width="120" height="120"><b>대화방을 선택해주세요</b>
                         </div>
@@ -131,6 +133,9 @@
                             <button type="button" onclick="deleteChat()">나가기</button>
                             <button type="button" onclick="tradeCondition()">판매완료하기</button>
                             <button type="button" id="reviewWrt">후기 작성하기</button>
+
+                            
+                            
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
@@ -172,45 +177,22 @@
 
 
                         <%-- 채팅창 --%>
-                        <div class="chatting-area">
+                        <div class="display-chatting">
+                        <%-- <div class="chat-body"> --%>
 
                             <%-- 채팅창 영역 --%>
-                            <ul class="display-chatting">
-    
-                                <%-- 조회된 채팅방 목록이 있을 때 ajax --%>
-                                
-                                <!-- <c:forEach items="${map.chatContent}" var="msg">
-
-                                    <fmt:formatDate var="chatDate" value="${msg.messageTime}" pattern="yyyy년 MM월 dd일 HH:mm:ss"/>
-
-                                    <c:if test="${msg.memberNo == loginMember.memberNo }">
-                                        <li class="myChat">
-                                            <span class="chatDate">${messageTime}</span>
-                                            <p class="chat">${msg.messageContent}</p>
-                                        </li>
-                                    </c:if>
-                                    
-                                    <c:if test="${msg.memberNo != loginMember.memberNo }">
-                                        <li>
-                                            <b>${msg.memberNickname}</b><br>
-                                            <p class="chat">${msg.messageContent}</p>
-                                            <span class="chatDate">${messageTime}</span>
-                                        </li>
-                                    </c:if>
-
-                                </c:forEach> -->
-                            </ul>	
+                            <%-- <ul class="display-chatting"></ul>	 --%>
                         
-
-                            <%-- 전송 버튼 --%>
-                            <div class="chat-footer">
-                                <div class="chat-footer-area">
-                                    <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
-                                    <button type="send" id="send">전송</button>
-                                </div>
-                            </div>
-
                         </div>
+
+                        <%-- 전송 버튼 --%>
+                        <div class="chat-footer">
+                            <div class="chat-footer-area">
+                                <textarea id="inputChatting" rows="3" placeholder="메세지를 입력해주세요."></textarea>
+                                <button type="send" id="send">전송</button>
+                            </div>
+                        </div>
+
 
                        
                     </c:otherwise>

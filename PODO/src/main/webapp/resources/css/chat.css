@@ -79,6 +79,7 @@ mychat/* 본문 영역 */
 
 /* 채팅창 태그 */
 .chat-header{
+    /* display: flex;
     margin: 0;
     border: 0;
     vertical-align: baseline;
@@ -87,7 +88,19 @@ mychat/* 본문 영역 */
     font-family: 돋움,Dotum,Arial;
     border-bottom: 1px solid #ebebeb;
     padding: 15px 20px;
-    height: 50px;
+    height: 50px; */
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 12px 20px;
 }
 
 /* 채팅창 헤더의 a태그 */
@@ -333,81 +346,65 @@ mychat/* 본문 영역 */
 
 
 
-/* 채팅창 관련 */
-.chatting-area{ 
-		margin:auto;
-		height: 600px;  
-		width : 800px;
-		margin-top: 50px;
-		margin-bottom: 50px;
-		}
-	.display-chatting{
-		width: 100%;
-		height: 450px;
-		border : 1px solid black;
-		overflow: auto;
-		list-style : none;
-		padding : 10px 10px;
-	}
 
-	.chat{
-		display: inline-block;
-		border-radius: 5px;
-		padding : 5px;
-		background-color: #eee;
-	}
+.chat{
+    display: inline-block;
+    border-radius: 5px;
+    padding : 5px;
+    background-color: #eee;
+}
 
 
-	.input-area{
-		width: 100%;
-		display: flex;
-	}
-
-	#inputChatting{
-		width : 80%;
-		resize : none;
-	}
-
-	#send{
-		width : 20%;
-	}
-
-	.myChat{
-		text-align: right;
-	}
-
-	.myChat > p{
-		/* background-color: yellow; */
-        background-color: rgb(131, 4, 177);
-        color: white;
-        
-	}
-
-	.chatDate{
-		font-size: 9px;
-	}
-
-	#exit-area{
-		text-align: right;
-		margin-bottom : 10px;
-	}
-
-
-	.exit{
-		text-align: center;
-	}
-
-	.exit > p{
-		background-color: rgba(0,0,0, 0.3);
-	}
-
-
-  .chat-exit{
+.input-area{
     width: 100%;
-    text-align: center;
-    background-color: black;
+    display: flex;
+}
+
+#inputChatting{
+    width : 80%;
+    resize : none;
+}
+
+#send{
+    width : 20%;
+}
+
+.myChat{
+    text-align: right;
+}
+
+.myChat > p{
+    /* background-color: yellow; */
+    background-color: rgb(131, 4, 177);
     color: white;
-  } 
+    
+}
+
+.chatDate{
+    font-size: 9px;
+}
+
+#exit-area{
+    text-align: right;
+    margin-bottom : 10px;
+}
+
+
+.exit{
+    text-align: center;
+}
+
+.exit > p{
+    background-color: rgba(0,0,0, 0.3);
+}
+
+
+.chat-exit{
+width: 100%;
+text-align: center;
+background-color: black;
+color: white;
+} 
   
   
 .chatList{
