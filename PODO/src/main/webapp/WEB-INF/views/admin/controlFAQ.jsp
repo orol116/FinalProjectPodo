@@ -61,7 +61,7 @@
         </select>
     
         <section class="basic">
-                <input id="search2" type="text" name="query" placeholder="1:1문의 글의 제목을 입력해주세요.">
+                <input id="search2" type="text" name="query" placeholder="FAQ의 제목을 입력해주세요.">
                 <button class="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </section>
     </div>
