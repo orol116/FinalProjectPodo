@@ -19,23 +19,7 @@
 
 
 /* 채팅창 관련 */
-.chatting-area{ 
-    margin:auto;
-    height: 500px;  
-    width : 500px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    }
-
-.display-chatting{
-    /* width: 100%;
-    height: 450px;
-    border : 1px solid black;
-    overflow: auto;
-    list-style : none;
-    padding : 10px 10px; */
-
-    /* ------------------ */
+/* .chat-body{ 
     margin: 0;
     padding: 0;
     border: 0;
@@ -47,6 +31,19 @@
     height: calc(77vh - 151px);
     border-bottom: 1px solid #ebebeb;
     bottom: 49px;
+}
+ */
+
+.display-chatting{
+
+    position: sticky;
+    width: 682px;
+    height: 550px;
+    
+    overflow: auto;
+    list-style : none;
+    padding : 10px 10px;
+
     
 }
 
@@ -67,7 +64,6 @@
     vertical-align: baseline;
     font-weight: 400;
     color: #333;
-    font-family: 돋움,Dotum,Arial;
     height: 40px;
     padding: 15px 15px 15px 21px;
 }
@@ -83,7 +79,6 @@
     border: 0;
     vertical-align: baseline;
     font-weight: 400;
-    font-family: 돋움,Dotum,Arial;
     position: relative;
     width: 570px;
     overflow: auto;
@@ -149,9 +144,34 @@ color: white;
     align-items: center;
     padding: 0px 20px;
     user-select: none;
-    background-color: rgb(229, 229, 229);
+    background-color: white;
     position: relative;
     left: 0px;
+}
+
+/* .active{
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    margin: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    cursor: pointer;
+    height: 80px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 20px;
+    user-select: none;
+    background-color: white;
+    position: relative;
+    left: 0px;
+    background-color: #E5E5E5;
+} */
+#active{
+    background-color: #E5E5E5;
 }
 
 .chatDiv .profile{
@@ -166,15 +186,9 @@ color: white;
     border: 0px;
     font: inherit;
     vertical-align: baseline;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    width: 50px;
+    position: relative;
+    min-width: 50px;
     height: 50px;
-    border-radius: 50%;
-    background-color: rgb(229, 229, 229);
 }
 
 .chatDiv .profile a{

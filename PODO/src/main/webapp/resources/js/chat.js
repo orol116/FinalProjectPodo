@@ -2,10 +2,13 @@ var chattingNo = 0;
 var boardNo1 = 0;
 var otherMemNo = 0;
 
+
+
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
+	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
 
 	
 	console.log(chatNo);
@@ -78,24 +81,18 @@ function listClickFn(chatNo) {
 
 }
 
+(function(){
 
-// 1:1 채팅 시 만들어진 방이 있다면 바로 참여하기
-// -> 가장 최근 사용한 방 바로 참여하기 ?
-/* (function(){
+	$(".chatDiv").click(function(){
+		
+		/* document.getElementsByClassName("card-box").style.color = "black"; */
+		$("#chatDiv").css({
+			"background-color": "#E5E5E5"
+		});
+		
+	});
 
-	if(createChatNo != ""){
-		const chatDivList = document.getElementsByClassName("chatDiv");
-
-		for(let chatDiv of chatDivList){
-			if(chatDiv.getAttribute("id") == createChatNo){
-				chatDiv.click();
-				break;
-			}
-		}
-	}
-
-})(); */
-
+})(); 
 
 
 // -------------------------------------------------------------------------
