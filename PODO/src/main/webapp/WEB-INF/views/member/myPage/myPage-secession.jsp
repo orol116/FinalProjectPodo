@@ -67,7 +67,7 @@
                         </div>
                         
                         <div class="myPage-row">
-                            <label>PASSWORD*</label>
+                            <label>비밀번호</label>
                             <input type="password" name="memberPw" id="memberPw" maxlength="30">   
                             
                         </div>
@@ -75,7 +75,7 @@
 
 
 
-                        <button id="info-update-btn">취소</button>
+                        <%-- <button id="info-update-btn">취소</button> --%>
                         <button id="info-update-btn">탈퇴</button>
 
                     </div> 
