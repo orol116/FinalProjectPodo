@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sidebar-test.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
@@ -26,82 +27,86 @@
     <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
-
-
     <!-- 프로필 이미지 변경 -->
-    <section class="myPage-main">
+    <section class=myPage-content>
 
-        <h1 class="myPage-title">프로필</h1>
-        <span class="myPage-explanation">프로필 이미지를 변경할 수 있습니다.</span>
-        
+        <!-- 사이드 메뉴 -->
+        <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
 
-        <form action="profile" method="POST" name="myPage-form" enctype="multipart/form-data" onsubmit="return profileValidate()">
+        <section class="myPage-inner">
+                
+            <section class="myPage-main">
+                
+
+                <form action="profile" method="POST" name="myPage-form" enctype="multipart/form-data" onsubmit="return profileValidate()">
+
+                    <h1 class="myPage-title">프로필</h1>
+                    <span class="myPage-explanation">프로필 이미지를 변경할 수 있습니다.</span>
+
+                    <div class="profile-image-area">
+
+                        <c:if test="${empty loginMember.memberProfile}">
+                            <img src="${contextPath}/resources/images/user.jpg" id="profile-image">
+                        </c:if>
+
+                        <c:if test="${!empty loginMember.memberProfile}">
+                            <img src="${contextPath}${loginMember.memberProfile}" id="profile-image">
+                        </c:if>
+
+                        <!-- 프로필 이미지 삭제 버튼 -->
+                        <span id="delete-image">x</span>
+
+                    </div>
 
 
-            <div class="profile-image-area">
+                    <div class="profile-btn-area">
+                        <label for="input-image">이미지 선택</label>
+                        <input type="file" name="uploadImage" id="input-image" accept="image/*">
+                        <!-- accept="image/*" : 이미지 파일 확장자만 선택 허용 -->
+                        <!-- accept="video/*" : 동영상 파일 확장자만 선택 허용 -->
+                        <!-- accept=".pdf" : pdf파일만 선택 허용 -->
+                    </div>
 
-                <c:if test="${empty loginMember.memberProfile}">
-                    <img src="${contextPath}/resources/images/user.jpg" id="profile-image">
-                </c:if>
-
-                <c:if test="${!empty loginMember.memberProfile}">
-                    <img src="${contextPath}${loginMember.memberProfile}" id="profile-image">
-                </c:if>
-
-                <!-- 프로필 이미지 삭제 버튼 -->
-                <span id="delete-image">x</span>
-
-            </div>
-
-
-            <div class="profile-btn-area">
-                <label for="input-image">이미지 선택</label>
-                <input type="file" name="uploadImage" id="input-image" accept="image/*">
-                <!-- accept="image/*" : 이미지 파일 확장자만 선택 허용 -->
-                <!-- accept="video/*" : 동영상 파일 확장자만 선택 허용 -->
-                <!-- accept=".pdf" : pdf파일만 선택 허용 -->
-            </div>
-
+                    
+                        
+                        <div class="myPage-row">
+                            <label>닉네임</label>
+                            <input type="text" name="updateNickname"  id="memberNickname" class="input_box" value="${loginMember.memberNickname}" maxlength="8">
+                        </div>
             
-                
-                <div class="myPage-row">
-                    <label>닉네임</label>
-                    <input type="text" name="updateNickname"  id="memberNickname" class="input_box" value="${loginMember.memberNickname}" maxlength="8">
-                </div>
-    
-                
-                <c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  />
+                        
+                        <c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  />
 
-                <div class="myPage-row info-title">
-                    <label>주소</label>
-                </div>
+                        <div class="myPage-row info-title">
+                            <label>주소</label>
+                        </div>
 
-                <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
+                        <div class="myPage-row info-address">
+                            <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
 
-                    <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
-                    <button type="button"  onclick="execDaumPostcode()">검색</button>
-                </div>
+                            <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
+                            <%-- <button type="button"  onclick="execDaumPostcode()">검색</button> --%>
+                        </div>
 
-                <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="address" value="${addr[1]}">
-                </div>
-                
-                <div class="myPage-row info-address">
-                    <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
-                </div>
+                        <div class="myPage-row info-address">
+                            <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+                        </div>
+                        
+                        <div class="myPage-row info-address">
+                            <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
+                        </div>
 
-                <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
-                <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
-                <input type="hidden" name="delete" id="delete" value="0">
+                        <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
+                        <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
+                        <input type="hidden" name="delete" id="delete" value="0">
 
-                <button id="button btnPush" class="button btnPush btnPurple">변경하기</button>
-            </form>
+                        <%-- <button id="button btnPush" class="button btnPush btnPurple">변경하기</button> --%>
+                        <button id="info-address-btn" class="button btnPush btnPurple">변경하기</button>
+                </form>
 
+            </section>
 
-    </section>
+        </section>
     
     </main>
 

@@ -4,6 +4,7 @@
 
 })();
 
+
 function showSellList(){
     $('.sellContents').show();
     $('.buyContents').hide();
