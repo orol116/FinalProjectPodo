@@ -17,7 +17,10 @@
 	<result property="memberTown" 		column="MEMBER_TOWN"/>
 	<result property="createDate" 		column="CREATE_DT"/>
 	<result property="admin"  			column="ADMIN" />
-	<result property="shopInfo"  			column="SHOP_INFO" />
+	<result property="shopInfo"  		column="SHOP_INFO" />
+	<result property="dLon" 			column="COORDINATE_X"/>
+	<result property="dLat" 			column="COORDINATE_Y"/>
+	<result property="distance" 		column="DISTANCE"/>
 	
 	</resultMap>
 
@@ -65,19 +68,21 @@
 	<resultMap type="memberArea" id="memberArea_rm">
 		<id property="mcrdntNo" column="MCRDNT_NO"/>
 		<result property="memberNo" column="MEMBER_NO"/>
-		<result property="coordinateX" column="COORDINATE_X"/>
-		<result property="coordinateY" column="COORDINATE_Y"/>
+		<result property="dLon" column="COORDINATE_X"/>
+		<result property="dLat" column="COORDINATE_Y"/>
 		<result property="distance" column="DISTANCE"/>
 	</resultMap>
 
 	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NICK, MEMBER_TEL, 
-			SECESSION_FL, MEMBER_PROFILE, MEMBER_GRAPE, MEMBER_ADDR, 
-			TO_CHAR( CREATE_DT, 'YYYY-MM-DD HH24:MI:SS' ) AS CREATE_DT, MEMBER_TOWN, MEMBER_PW, ADMIN
-		FROM MEMBER
-		WHERE MEMBER_ID = #{memberId}
-		AND SECESSION_FL = 'N'	
+		SELECT A.MEMBER_NO, A.MEMBER_ID, A.MEMBER_NICK, A.MEMBER_TEL, 
+			A.SECESSION_FL, A.MEMBER_PROFILE, A.MEMBER_GRAPE, A.MEMBER_ADDR, 
+			TO_CHAR( A.CREATE_DT, 'YYYY-MM-DD HH24:MI:SS' ) AS CREATE_DT, A.MEMBER_TOWN, A.MEMBER_PW, A.ADMIN,
+			B.COORDINATE_X, B.COORDINATE_Y, B.DISTANCE
+		FROM MEMBER A, MEMBERAREA_XY B
+		WHERE A.MEMBER_ID = #{memberId}
+		AND A.SECESSION_FL = 'N'
+		AND A.MEMBER_NO = B.MEMBER_NO
 	</select>
 	
 	

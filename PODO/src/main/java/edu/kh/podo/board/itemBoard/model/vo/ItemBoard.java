@@ -49,6 +49,6 @@ public class ItemBoard {
 		this.updateDate = Time.calculateTime(updateDate);
 	}	
 
-	
-	
+	private double dLon;
+	private double dLat;
 }

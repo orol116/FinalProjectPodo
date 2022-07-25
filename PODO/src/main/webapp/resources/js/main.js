@@ -132,3 +132,27 @@ function carousel() {
   io.observe(frame);
   
 })();
+
+
+(() => {
+  
+  const memNo = document.getElementsByName("memberNo")
+
+  if(memNo != null){
+
+    $.ajax({
+      url : contextPath + "/mainDistItem",  
+      data : { "memberNo" : memberNo , "distance" : distance},
+      type : "GET", 
+      success : function(result){
+        console.log(memNo);
+      },
+      error : function(){ 
+          console.log("에러 발생");
+      }
+    })
+  
+  }
+
+  
+})();
