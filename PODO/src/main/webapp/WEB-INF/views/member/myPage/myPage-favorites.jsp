@@ -24,122 +24,127 @@
     <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <!-- 사이드 메뉴 -->
-    <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
-    
-    <!-- 본문 영역 -->
-    <section class="myPage-inner">
+    <section class=myPage-content>
+
+        <!-- 사이드 메뉴 -->
+        <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
+
+
+        <!-- 오른쪽 마이페이지 상단  -->
+        <section class="myPage-inner">
+                
+            <section class="myPage-main">
             
-        <section class="myPage-main">
-            
-            <h1 class="myPage-title">찜 상품 조회</h1>
+                <h1 class="myPage-title">찜 상품 조회</h1>
 
-            <!-- 찜 상품 카운트 -->
-            <div class="fav-count"> <!-- 찜 카운트 영역 -->
-                <div>"찜"
-                    <span class="count">${fn:length(favorBoard)}</span>
-                </div>
-            </div>
-
-            <!-- 찜 목록 본문 -->
-            <div class="fav-contents">
-
-                <c:if test="${favorBoard != null}">
-
-                    <!-- 찜 상단 체크 박스 / 선택 삭제 -->
-                    <div class="fav-header">
-                        <div class="fav-header-left">
-
-                            <!-- 상단 전체 선택 체크박스 -->
-                            <div class="checkArea">
-                                <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">전체선택<br>
-                                <%-- <button type="button" class="fav-check-btn"></button> --%>
-
-                                <!-- 선택삭제(전체 선택) -->
-                                <button type="button" class="deleteAll">선택삭제</button>
-                            </div>
-
-                        </div>
-
-                        <!-- 찜 정렬 메뉴 -->
-                        <select>
-                            <option value="new-wish">최신순</option>
-                            <option value="high-wish">찜 많은 상품순</option>
-                        </select>
+                <!-- 찜 상품 카운트 -->
+                <div class="fav-count"> <!-- 찜 카운트 영역 -->
+                    <div>"찜"
+                        <span class="count">${fn:length(favorBoard)}</span>
                     </div>
+                </div>
 
-                    <!-- 출력부 -->
-                    <div class="">
+                <!-- 찜 목록 본문 -->
+                <div class="fav-contents">
 
-                        <!-- 개별 상품 -->
-                        <div class="">
-                            <!-- 상품 세부 -->
-                            <div class="product-detail" href="/products/?ref=?">
+                    <c:if test="${favorBoard != null}">
 
-                                <!-- 조회된 찜 상품 우측 상세 내용 영역 -->
-                                <div class="product-wholeContent">
-                                    <div class="product-info">
-                                    
-                                            <section id="content">
-                                                <ul>
-                                                    <c:choose>
-                                                        <c:when test="${empty favorBoard}">
-                                                            <!--  조회 결과가 비어있다면 -->
-                                                            <tr>
-                                                                <th colspan="5" class="favNothing">찜한 상품이 없습니다.</th>
-                                                            </tr>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <c:forEach items="${favorBoard}" var="favor">
-                                                                <li class="fav-list">
-                                                                    
-                                                                    <%-- 목록 별 체크박스 --%>
-                                                                    <div class=checkbox>
-                                                                        <input type="checkbox" class="select" name="select">
-                                                                    </div> 
+                        <!-- 찜 상단 체크 박스 / 선택 삭제 -->
+                        <div class="fav-header">
+                            <div class="fav-header-left">
 
-                                                                    <%-- 상품 이미지 --%>
-                                                                    <div class="thumb">
-                                                                         <c:if test="${fn:length(boardImageList) != null}">
-                                                                            <image id="item-image" src="${contextPath}${boardImageList.imageReName}" alt="상품 이미지"></image>
-                                                                            <a href="${contextPath}/board/detail/${boardImageList.imageReName}">
-                                                                        </c:if>
-                                                                    </div>
-                                                                   
-                                                                    <%-- 상품 정보 --%>
-                                                                    <div class="gdsInfo">
-                                                                        <p>
-                                                                            <span>제목</span>${favor.boardTitle}<br>
-                                                                            <span>가격</span>"${favor.price}"원<br>
-                                                                            <span>등록일</span>${favor.updateDate}<br>
-                                                                            <span>위치</span>
-                                                                                <!-- 위치 로고 이미지 -->
-                                                                                <img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">
-                                                                                ${favor.sellArea}
-                                                                        </p>
-                                                                        <%-- 삭제 버튼 --%>
-                                                                        <div class="delete">
-                                                                            <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne()">삭제</button>
-                                                                        </div>
-                                                                    </div>   
-                                                                </li>
-                                                            </c:forEach>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </ul>
-                                            </section>
+                                <!-- 상단 전체 선택 체크박스 -->
+                                <div class="checkArea">
+                                    <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">
+                                    <%-- <button type="button" class="fav-check-btn"></button> --%>
 
-                                    </div>
-                                    
-                                    
+                                    <!-- 선택삭제(전체 선택) -->
+                                    <button type="button" class="deleteAll">선택삭제</button>
                                 </div>
 
-                                
-                            </a>
+                            </div>
+
+                            <!-- 찜 정렬 메뉴 -->
+                            <select>
+                                <option value="new-wish">최신순</option>
+                                <option value="high-wish">찜 많은 상품순</option>
+                            </select>
                         </div>
-                    </div>
-                </c:if>
-            </div>
+
+                        <!-- 출력부 -->
+                        <div class="">
+
+                            <!-- 개별 상품 -->
+                            <div class="">
+                                <!-- 상품 세부 -->
+                                <div class="product-detail" href="/products/?ref=?">
+
+                                    <!-- 조회된 찜 상품 우측 상세 내용 영역 -->
+                                    <div class="product-wholeContent">
+                                        <div class="product-info">
+                                        
+                                                <section id="content">
+                                                    <ul>
+                                                        <c:choose>
+                                                            <c:when test="${empty favorBoard}">
+                                                                <!--  조회 결과가 비어있다면 -->
+                                                                <tr>
+                                                                    <th colspan="5" class="favNothing">찜한 상품이 없습니다.</th>
+                                                                </tr>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <c:forEach items="${favorBoard}" var="favor">
+                                                                    <li class="fav-list">
+                                                                        
+                                                                        <%-- 목록 별 체크박스 --%>
+                                                                        <div class=checkbox>
+                                                                            <input type="checkbox" class="select" name="select">
+                                                                        </div> 
+
+                                                                        <%-- 상품 이미지 --%>
+                                                                        <div class="thumb">
+                                                                            <c:if test="${fn:length(boardImageList) != null}">
+                                                                                <image id="item-image" src="${contextPath}${boardImageList.imageReName}" alt="상품 이미지"></image>
+                                                                                <a href="${contextPath}/board/detail/${boardImageList.imageReName}">
+                                                                            </c:if>
+                                                                        </div>
+                                                                    
+                                                                        <%-- 상품 정보 --%>
+                                                                        <div class="gdsInfo">
+                                                                            <p>
+                                                                                <span>제목</span>${favor.boardTitle}<br>
+                                                                                <span>가격</span>"${favor.price}"원<br>
+                                                                                <span>등록일</span>${favor.updateDate}<br>
+                                                                                <span>위치</span>
+                                                                                    <!-- 위치 로고 이미지 -->
+                                                                                    <img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">
+                                                                                    ${favor.sellArea}
+                                                                            </p>
+                                                                            <%-- 삭제 버튼 --%>
+                                                                            <div class="delete">
+                                                                                <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne()">삭제</button>
+                                                                            </div>
+                                                                        </div>   
+                                                                    </li>
+                                                                </c:forEach>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </ul>
+                                                </section>
+
+                                        </div>
+                                        
+                                        
+                                    </div>
+
+                                    
+                                </a>
+                            </div>
+                        </div>
+                    </c:if>
+                </div>
+                
+            </section>
 
         </section>
 

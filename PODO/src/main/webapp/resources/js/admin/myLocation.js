@@ -101,30 +101,30 @@ document.querySelector("#choose-address").addEventListener("click", show);
 document.querySelector("#close").addEventListener("click", close);
 
 
-/* const addrLength = document.getElementById("addrLength"); */
+/* const distance = document.getElementById("addrLength"); */
 
-let addrLength = "";
+let distance = "";
 
 
 const showValue = (target) => {
     console.log(target.value);
 
-    addrLength = target.value;
+    distance = target.value;
     
     // option의 text 값
-    console.log(addrLength);
+    console.log(distance);
   }
 
 
 document.getElementById("selectBtn").addEventListener("click", function(){
 
-    console.log(addrLength);
+    console.log(distance);
 
-     if(addrLength != 0){
+     if(distance != 0){
 
          $.ajax({
-            url : "selectAddrLength",                     
-            data : { "memberNo" : memberNo, "addrLength" : addrLength},               
+            url : "insertDistance",                     
+            data : {"distance" : distance},               
 
             type : "GET",    
             success : function(){

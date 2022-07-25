@@ -68,6 +68,15 @@
 		WHERE B.CHAT_NO = ${chatNo}
 	</select>
 	
+    <select id="selectChatRoom" resultType="_int">
+		SELECT NVL(
+			(SELECT CHAT_NO FROM CHAT_ROOM
+			 WHERE BOARD_NO = ${boardNo}
+			 AND MEMBER_NO = ${memberNo}
+			 AND BUY_MEMBER_NO = ${myMemberNo}), 0) CHAT_NO
+		FROM DUAL
+	</select>
+	
 	<!-- 삭제되어 있는 방인지 확인 -->
 	<select id="checkDel" resultType="_int">
 		SELECT COUNT(*) FROM CHAT_ROOM
@@ -112,15 +121,33 @@
 		WHERE CHAT_NO = ${chatNo}
 	</update>
 	
+	<!-- 채팅방 내 판매글 정보를 위한 보드 넘버 얻어오기 -->
 	<select id="selectBN" resultType="_int">
 		SELECT BOARD_NO FROM CHAT_ROOM
 		WHERE CHAT_NO = ${chatNo}
 	</select>
 	
-	<!-- 채팅방 내 판매글 정보 -->
-	<!-- <select id="selectChatBoard">
-		SELECT BOARD_TITLE, 
-	</select> -->
+	<!-- 판매자가 누군지 조회 DAO -->
+	<select id="selectWhoIsSeller" resultType="_int">
+		SELECT MEMBER_NO FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 후기 작성 -->
+	<insert id="writeReview">
+		<choose>
+			<when test="sellMemNo == memberNo">
+				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, '좋음', DEFAULT,
+					${memberNo}, ${boardNo}, DEFAULT, ${otherMemNo}
+				)
+			</when>
+			<otherwise>
+				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, '좋음', DEFAULT,
+					${otherMemNo}, ${boardNo}, DEFAULT, ${memberNo}
+				)
+			</otherwise>
+		</choose>
+	</insert>
 
 
 </mapper>

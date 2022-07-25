@@ -59,7 +59,7 @@
                             <button id="close" type="button">팝업닫기</button>
                             <div id="modal-text">거래 지역 설정</div>
                             <div id="modal-area">
-                                <select id="addrLength" onchange="showValue(this)">
+                                <select id="distance" name="distance" onchange="showValue(this)">
                                     <option value="0">거리 설정</option>
                                     <option value="200">2km</option>
                                     <option value="400">4km</option>
@@ -71,7 +71,7 @@
                                 <div id="Btn-area">
                                     <button id="selectBtn">제출</button>
                                 </div>
-                            </.div>
+                            </div>
                             <div>
                             </div>
                         </div>

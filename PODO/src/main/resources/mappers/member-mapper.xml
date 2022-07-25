@@ -37,6 +37,15 @@
 	</resultMap>
 	
 	
+	<resultMap type="adminReply" id="adminReply_rm">
+		<id property="replyNo" column="REPLY_NO"/>
+		
+		<result property="boardNo" column="ADMIN_BOARD_NO"/>
+		<result property="replyContent" column="REPLY_CONTENT"/>
+		<result property="createDate" column="CREATE_DT"/>
+	</resultMap>
+	
+	
 	<resultMap type="boardImage" id="boardImage_rm">
 		<id property="imageNo" column="IMG_NO"/>
 		<result property="imageReName" column="IMG_RENAME"/>
@@ -53,7 +62,13 @@
 		<result property="boardNo" column="ADMIN_BOARD_NO"/>
 	</resultMap>
 	
-
+	<resultMap type="memberArea" id="memberArea_rm">
+		<id property="mcrdntNo" column="MCRDNT_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="coordinateX" column="COORDINATE_X"/>
+		<result property="coordinateY" column="COORDINATE_Y"/>
+		<result property="distance" column="DISTANCE"/>
+	</resultMap>
 
 	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultMap="member_rm">
@@ -67,9 +82,23 @@
 	
 	
 	<!-- 회원가입 -->
-	<insert id="signUp" parameterType="member">
+	<insert id="signUp" parameterType="member" useGeneratedKeys="true">
+	
+		<selectKey keyProperty="memberNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_MEMBER_NO.NEXTVAL FROM DUAL
+		</selectKey>
+	
 		INSERT INTO MEMBER 
-		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberId}, #{memberPw}, #{memberNickname}, #{memberTel}, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberAddress}, DEFAULT, DEFAULT, #{memberName})
+		VALUES(#{memberNo}, #{memberId}, #{memberPw}, #{memberNickname}, #{memberTel}, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, #{memberAddress}, DEFAULT, DEFAULT, #{memberName})
+	</insert>
+	
+	
+	<!-- 위도, 경도 변경 -->
+	<insert id="insertCrdnt" parameterType="memberArea">
+		INSERT INTO MEMBERAREA_XY
+		VALUES(
+			SEQ_MCRDNT_NO.NEXTVAL, ${memberNo}, ${dLon}, ${dLat}
+		) 
 	</insert>
 	
 	
@@ -100,7 +129,7 @@
   		SELECT MEMBER_ID, CREATE_DT 
   		FROM MEMBER
   		WHERE MEMBER_NM = #{memberName}
-  		<!-- AND MEMBER_TEL = #{memberTel} -->
+  		AND MEMBER_TEL = #{memberTel} 
   		AND SECESSION_FL ='N'
   	</select>
   	
@@ -110,7 +139,7 @@
   		FROM MEMBER
   		WHERE MEMBER_ID = #{memberId}
   		AND MEMBER_NM  = #{memberName}
-  		<!-- AND MEMBER_TEL = #{memberTel} -->
+  		AND MEMBER_TEL = #{memberTel} 
   		AND SECESSION_FL ='N'
   	</select>
   	
@@ -199,6 +228,17 @@
 		FROM ADMIN_BOARD
 		WHERE ADMIN_BOARD_NO = ${boardNo}
 	</select>
+	
+
+	
+	<!-- 1대1 문의에 작성된 관리자 답변 조회 DAO -->
+	<select id="selectAdminReply" resultMap="adminReply_rm">
+		SELECT REPLY_NO, REPLY_CONTENT, CREATE_DT, ADMIN_BOARD_NO
+		FROM ADMIN_REPLY
+		WHERE ADMIN_BOARD_NO = ${boardNo}
+		ORDER BY ADMIN_BOARD_NO DESC
+	</select>
+	
 	
 	<!-- 본인이 작성한 1대1 문의글 전체 조회 -->
 	<select id="inquireList" resultMap="admin_rm">

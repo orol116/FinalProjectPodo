@@ -58,6 +58,8 @@ public class ChatServiceImpl implements ChatService {
 		// 채팅 정보 조회 (대화 내용 / 시간만)
 		List<ChatList> chatContent = dao.selectOtherDetail(map);
 		
+		rtMap.put("boardNo", boardNo);
+		rtMap.put("chatNo", chatNo);
 		rtMap.put("chatContent", chatContent);
 		
 		return rtMap;
@@ -110,6 +112,26 @@ public class ChatServiceImpl implements ChatService {
 	@Override
 	public int deleteChat(int chatNo) {
 		return dao.deleteChat(chatNo);
+	}
+
+	// 채팅방 내 Service 구현
+	@Override
+	public int writeReview(int memberNo, String report, int otherMemNo, int boardNo) {
+		
+		int sellMemNo = dao.selectWhoIsSeller(boardNo);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("memberNo", memberNo);
+		map.put("otherMemNo", otherMemNo);
+		map.put("sellMemNo", sellMemNo);
+		map.put("boardNo", boardNo);
+		
+		String temp = Util.XSSHandling(report);
+		String reportContent = Util.newLineHandling(temp);
+	
+		map.put("reportContent", reportContent);
+		
+		return dao.writeReview(map);
 	}
 
 }

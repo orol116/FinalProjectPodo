@@ -6,6 +6,7 @@
 <c:set var="inquireDetail" value="${map.inquireDetail}" />
 <c:set var="boardNo" value="${boardNo}" />
 <c:set var="boardImageList" value="${map.boardImageList}" />
+<c:set var="rList" value="${map.rList[0]}" />
 
 
 <!DOCTYPE html>
@@ -59,27 +60,31 @@
     
     </div>
         <div id="chat">
-            <p>고객센터가 문제를 알아보고 있어요.<br>조금만 기다려주세요.</p>
+           
                 
-            <%-- 관리자 답글 --%>
-            <%-- 
-            <div id="reply">
-                <div class="information">
-                    <p>&#127815;&nbsp;관리자</p>
-                    <p>2022-07-22</p>
+            <c:if test="${!empty rList}">
+                <%-- 관리자 답글 --%>
+                <div id="reply">
+                    <div class="information">
+                        <p>&#127815;&nbsp;관리자</p>
+                        <p>${rList.createDate}</p>
+                    </div>
+                    <div class="feedback">
+                        ${rList.replyContent}
+                    </div>
                 </div>
-                <div class="feedback">
-                    안녕하세요 회원님, 문의글 남겨주셔서 감사합니다
-                </div>
+            </c:if>
+                
+            <c:if test="${empty rList}">
 
-            </div>
-             --%>
-
-            <c:if test="memberNo==1">
-                <div id="reply1">
-                    <textarea placeholder="답변을 입력해 주세요." ></textarea>
-                    <button id="reply2">등록</button>
-                </div>
+                 <p>고객센터가 문제를 알아보고 있어요.<br>조금만 기다려주세요.</p>
+                 
+                <c:if test="${loginMember.memberNo==1}">
+                    <div id="reply1">
+                        <textarea class="reply-content" placeholder="답변을 입력해 주세요."></textarea>
+                        <button id="reply2">등록</button>
+                    </div>
+                </c:if>
             </c:if>
         </div>
 

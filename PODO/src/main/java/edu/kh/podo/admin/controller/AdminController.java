@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.google.gson.Gson;
 
 import edu.kh.podo.admin.model.service.AdminService;
+import edu.kh.podo.admin.model.vo.AdminReply;
 import edu.kh.podo.member.model.vo.Member;
 
 @Controller
@@ -141,8 +142,12 @@ public class AdminController {
 		return "redirect:"+path;
 	}
 	
+		// footer FAQ
+		@GetMapping("/faq")
+		public String faq() {
+			return "/admin/faq";
+		}
 	
-
 	
 	
 	

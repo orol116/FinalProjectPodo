@@ -59,8 +59,9 @@
 	<resultMap type="memberArea" id="memberArea_rm">
 		<id property="mcrdntNo" column="MCRDNT_NO"/>
 		<result property="memberNo" column="MEMBER_NO"/>
-		<result property="coordinateX" column="COORDINATE_X"/>
-		<result property="coordinateY" column="COORDINATE_Y"/>
+		<result property="dLon" column="COORDINATE_X"/>
+		<result property="dLat" column="COORDINATE_Y"/>
+		<result property="distance" column="distance"/>		
 	</resultMap>
 	
 	<select id="selectImageList" resultMap="boardImage_rm">
@@ -121,5 +122,12 @@
 		
 	</update>
 	
+	<!-- 거리 등록 -->
+	<insert id="insertDist" parameterType="memberArea">
+		UPDATE MEMBERAREA_XY SET
+		DISTANCE =  ${distance}
+		WHERE MEMBER_NO = ${memberNo}
+	</insert>
+		
 
 </mapper>

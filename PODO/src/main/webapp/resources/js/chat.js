@@ -1,9 +1,14 @@
 var chattingNo = 0;
+var boardNo1 = 0;
+var otherMemNo = 0;
+
+
 
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
+	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
 
 	
 	console.log(chatNo);
@@ -15,14 +20,58 @@ function listClickFn(chatNo) {
 		dataType : "JSON",
 
 		success : function(data) {
+
 			console.log(data);
-			const chatContent = data.chatContnet;
+			
 
-			for(let msg of chatContent){
+			// // 이미지 연결
+			console.log(data.boardImageList[0].imageReName);
 
+			var img = document.getElementById("boardimg");
+			img.src = contextPath + data.boardImageList[0].imageReName;
+
+			document.getElementById("boardTitle").innerText = data.itemList[0].boardTitle;
+
+			const chatContent = data.chatContent;
+			console.log(data.chatContent);
+			
+			for(let msg of data.chatContent){		
+
+				const li = document.createElement("li"); /* 채팅 영역 */
+				
+				const span = document.createElement("span");
+				span.classList.add("chatDate");
+
+				const p = document.createElement("p");
+				p.classList.add("chat");
+				
+				// 내가 쓴 채팅일 경우
+				if ( msg.memberNo == memberNo ) {
+			
+					li.append(span, p);
+					li.classList.add("myChat"); // 스타일 적용
+					span.innerText = currentTime(); // 날짜
+					p.innerHTML = msg.messageContent;
+				}else{
+					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
+					p.innerHTML = msg.messageContent;				
+					span.innerText = currentTime();
+					li.append(p, span);
+				}
+				
+				const display = document.getElementsByClassName("display-chatting")[0];
+				
+				display.append(li);
+				display.scrollTop = display.scrollHeight;
+
+				if (msg.memberNo != memberNo) {
+					otherMemNo = msg.memberNo;
+				}
 			}
-
+			console.log("boardNo : " + data.boardNo);
 			chattingNo = chatNo;
+			boardNo1 = data.boardNo;
+			
 		},
 
 		error : function() {
@@ -32,34 +81,45 @@ function listClickFn(chatNo) {
 
 }
 
-// 1:1 채팅 시 만들어진 방이 있다면 바로 참여하기
-// -> 가장 최근 사용한 방 바로 참여하기 ?
-/* (function(){
+(function(){
 
-	if(createChatNo != ""){
-		const chatDivList = document.getElementsByClassName("chatDiv");
+	$(".chatDiv").click(function(){
+		
+		/* document.getElementsByClassName("card-box").style.color = "black"; */
+		$("#chatDiv").css({
+			"background-color": "#E5E5E5"
+		});
+		
+	});
 
-		for(let chatDiv of chatDivList){
-			if(chatDiv.getAttribute("id") == createChatNo){
-				chatDiv.click();
-				break;
-			}
-		}
-	}
+})(); 
 
-})(); */
 
+/* 프로필 헤더 모달 리스트 아이콘 */
+$(document).ready(function(){
+    $('#spreadBtn04').click(function(){
+        if($("#hiddenList03").is(":visible")){
+            /* $("#spreadBtn04").toggleClass("icon-emo-sunglasses icon-emo-grin"); */
+      	    $("#hiddenList03").slideUp();
+        }else{
+            /* $("#spreadBtn04").toggleClass("icon-emo-grin icon-emo-sunglasses"); */
+	   		$("#hiddenList03").slideDown();
+        }
+    });
+});
 
 
 // -------------------------------------------------------------------------
 
 // 페이지 로딩 완료 시 채팅창을 제일 밑으로 내리기
 (function(){
+
 	const display = document.getElementsByClassName("display-chatting")[0];
 	
 	if(display != null){
 		display.scrollTop = display.scrollHeight;
 	}
+
 })();
 
 
@@ -143,9 +203,13 @@ chattingSock.onmessage = function(e){
 	if( chatMessage.memberNo ==  memberNo ){
 		li.append(span, p);
 		li.classList.add("myChat"); // 내가 쓴 글 스타일 적용
+		span.innerText = currentTime(); // 날짜
+		p.innerHTML = chatMessage.messageContent;
 
 	}else{
 		li.innerHTML = "<b>"  + chatMessage.memberNickname  +  "</b><br>";
+		p.innerHTML = chatMessage.messageContent;				
+		span.innerText = currentTime();
 		li.append(p, span);
 	}
 
@@ -210,5 +274,118 @@ function deleteChat() {
 			alert("에러 발생");
 		}
 	});
+
+}
+
+// 신고 && 후기 모달
+const searchKey = document.getElementById("search-key");
+
+
+function show() {
+    document.getElementById("reviewBtn").style.display = "none";
+    document.getElementById("reportBtn").style.display = "block";
+    document.querySelector(".background").className = "background show";
+    document.getElementById("report-text").innerText = "";
+    document.getElementById("report-text").innerText = "신고할 내용을 입력해주세요.";
+    document.getElementById("report").setAttribute("placeholder", "신고할 내용을 입력해주세요.");
+    searchKey.style.display = "block";
+
+  }
+
+  function close() {
+    document.querySelector(".background").className = "background";
+  }
+
+  function reviewShow(){
+    document.getElementById("reviewBtn").style.display = "block";
+    document.getElementById("reportBtn").style.display = "none";
+    document.querySelector(".background").className = "background show";
+    document.getElementById("report-text").innerText = "";
+    document.getElementById("report-text").innerText = "후기 작성";
+    document.getElementById("report").setAttribute("placeholder", "작성할 후기를 입력해주세요.");
+    searchKey.style.display = "none";
+    document.getElementById("reviewBtn").style.marginLeft = "350px";
+  }
+
+  document.querySelector("#reviewWrt").addEventListener("click", reviewShow);
+  document.querySelector("#item-report").addEventListener("click", show);
+  document.querySelector("#close").addEventListener("click", close);
+
+  const report = document.getElementById("report");
+
+  // 신고 ajax
+  document.getElementById("reportBtn").addEventListener("click", function(){
+
+    $.ajax({
+        url : "report", 
+        data : { "memberNo" : memberNo, "report" : report.value},
+        type : "GET", 
+
+        success : function(result){
+            alert("신고되었습니다.");
+        },
+        
+        error : function(req, status, error){
+            console.log(req.responseText);
+        }
+    });
+
+
+  });
+
+  // 후기 ajax
+  function writeReviewFn(){
+
+    $.ajax({
+        url : contextPath + "/chat/review", 
+        data : { "memberNo" : memberNo, 
+				 "report" : report.value,
+				 "otherMemNo" : otherMemNo,
+				 "boardNo" : boardNo1},
+				// reviewCondition 추가해줘야함(data).
+        type : "GET", 
+        success : function(result){
+            alert("후기가 등록되었습니다.");
+			location.reload();
+        },
+        
+        error : function(req, status, error){
+            console.log(req.responseText);
+        }
+    });
+
+
+  }
+
+
+
+
+// 판매완료 처리
+function tradeCondition(){
+
+    
+    console.log(boardNo1);
+
+    $.ajax({
+        url : contextPath + "/shop/main/tradeCondition",
+
+        data : {"boardNo" : boardNo1,
+                "condition" : '판매완료'},
+
+        type: "POST",
+
+        success : function(result) {
+            if (result > 0) {
+                alert("상품 상태가 변경되었습니다.");
+            } else {
+                alert("상태 변경에 실패하였습니다.");
+            }
+        },
+
+        error : function(){
+            alert("에러 발생");
+        }
+
+    });
 
 }
