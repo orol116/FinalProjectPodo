@@ -418,3 +418,8 @@ color: white;
 .chatList{
     display: flex;
 }
+
+.chatDiv.on{
+    display: flex;
+    background-color: red;
+}
