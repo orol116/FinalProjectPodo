@@ -143,7 +143,7 @@
 	
 	<!-- 메인화면에 아이템 5개만 가져오는 ajax -->
 	<select id="selectitemFor" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION
 		FROM ITEM_BOARD
 		WHERE UPDATE_DT >= SYSDATE - 7
 		AND BOARD_NO &gt; #{boardNo}
