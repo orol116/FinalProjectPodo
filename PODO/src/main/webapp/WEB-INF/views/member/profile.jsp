@@ -68,6 +68,8 @@
                         </c:if>
                         
                         <div id="user-cutoff">
+
+                            <c:if test="${loginMember.memberNo == member[0]}">
                             <div id="user-intro-change">소개 수정</div>
                             <div id="item-report">신고/차단하기</div>
                         </div>
