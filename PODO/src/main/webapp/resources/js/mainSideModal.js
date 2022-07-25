@@ -43,27 +43,123 @@ function show() {
   backToTop.addEventListener('click',moveBackToTop);
 
 
+
+  itemCategory.addEventListener("click", selectItemsList);
+
+
+function selectItemsList() {
+
+    $.ajax({
+        url: contextPath + "/shop/selectItemsList/" + memberNo,
+        data: { "memberNo": memberNo },
+        type: "GET",
+        dataType: "JSON",
+        success: function (iList) {
+            console.log(iList);
+
+            itemList.innerHTML = "";
+
+            reviewList.style.display = "none";
+            itemList.style.display = "block";
+
+            if (iList == "") {
+                const itembox = document.createElement("div");
+                itembox.classList.add("box");
+
+                itembox.innerText = "등록된 상품이 없습니다.";
+
+                reviewList.style.display = "none";
+                itemList.style.display = "block";
+                itembox.style.border = "none";
+
+                itemList.style.fontSize = "20px";
+
+
+                itemList.append(itembox);
+
+
+            } else {
+
+                let itemContainer;
+
+                for (let k = 0; k < 5; k++) {
+
+                    if(k % 4 == 0){
+                        itemContainer = document.createElement("div");
+                        itemContainer.classList.add("itemContainer");
+                        itemContainer.style.display = "flex";
+
+                        itemList.append(itemContainer);
+                    }
+
+
+                    const itembox = document.createElement("div");
+                    itembox.classList.add("box");
+                    itembox.style.margin = "10px 15px 10px 15px";
+                    itembox.style.paddingLeft = "2px";
+                    /* const boxNumber = 1;
+                    boxNumber++; */
+
+                    const mainTitle = document.createElement("a");
+                    mainTitle.classList.add("title");
+                    mainTitle.setAttribute('href',contextPath + '/board/detail/'+iList[k].boardNo);
+
+                    const imageArea = document.createElement("div");
+                    imageArea.classList.add("image");
+
+                    const itemImage = document.createElement("img");
+                    if(iList[k].imageList[0] != null){
+                        itemImage.setAttribute('src', contextPath+iList[k].imageList[0].imageReName);
+                    }else{
+                        itemImage.setAttribute('src','resources/images/items/image1.jpg');
+                    }
+
+                    const title1 = document.createElement("div");
+                    title1.classList.add("title1");
+
+                    const title2 = document.createElement("div");
+                    title2.classList.add("title2");
+                    title2.innerText = iList[k].boardTitle;
+
+                    const name2 = document.createElement("div");
+                    name2.classList.add("name2");
+
+                    const price = document.createElement("div");
+                    price.classList.add("price");
+                    price.innerText = iList[k].price;
+
+                    const time = document.createElement("div");
+                    time.classList.add("time");
+                    time.innerText = iList[k].updateDate;
+
+                    name2.append(price, time);
+
+                    title1.append(title2, name2);
+
+                    imageArea.append(itemImage);
+
+                    mainTitle.append(imageArea, title1);
+
+                    itembox.append(mainTitle);
+
+                    itemContainer.append(itembox);
+
+                }
+
+            }
+
+        },
+        error: function (req, status, error) {
+            console.log("에러 발생");
+            console.log(req.responseText);
+        }
+
+
+    });
+
+}
+
+
   
 
 
-/*    document.getElementById("reportBtn").addEventListener("click", function(){
-
-    $.ajax({
-        url : "report",      
-        data : { "report" : report.value, "selectOption" :searchKey.value},
-        
-        type : "GET", // 데이터 전달 방식 type
-
-        success : function(result){
-            
-            alert("신고되었습니다.")
-
-        },
-        
-        error : function(req, status, error){
-            console.log(req.responseText);
-        }
-    });
-
-
-  }); */
