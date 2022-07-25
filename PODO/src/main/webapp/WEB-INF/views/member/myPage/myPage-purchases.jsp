@@ -8,17 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>거래내역 조회 페이지</title>
-<!-- 
-    <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css"> -->
-    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
+    
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
     <%-- 파비콘 --%>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
-    
+
+    <style>
+    </style>
 </head>
 
 <body onload="init();">
@@ -40,7 +42,7 @@
                 </header>
 
                 <main class="purchases-body">
-                    
+
                     <nav class="navigator">
 
                         <ul class="category">

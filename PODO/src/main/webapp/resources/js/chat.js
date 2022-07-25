@@ -11,6 +11,16 @@ function listClickFn(chatNo) {
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
 
+	/* var bg = document.getElementsByClassName("chatList");
+	for(var i=0; i<bg.length; i++){
+		bg[i].style.backgroundColor="rgb(144, 5, 195)";
+	} */
+
+	$("chatDiv").removeClass();
+	$(this).addClass("on");
+
+	/* document.getElementsByClassName("chatDiv");	
+	$(this).style.backgroundColor="rgb(144, 5, 195)"; */
 	
 	console.log(chatNo);
 
@@ -21,6 +31,8 @@ function listClickFn(chatNo) {
 		dataType : "JSON",
 
 		success : function(data) {
+
+			
 
 			console.log(data);
 			
@@ -95,18 +107,16 @@ function listClickFn(chatNo) {
 
 }
 
-(function(){
+/* (function(){
 
-	$(".chatDiv").click(function(){
-		
-		/* document.getElementsByClassName("card-box").style.color = "black"; */
-		$("#chatDiv").css({
-			"background-color": "#E5E5E5"
-		});
+	$(".card-box").click(function(){
+
+		var bg = document.getElementsByClassName("card-box");
+		bg.style.backgroundColor='red';
 		
 	});
 
-})(); 
+})();  */
 
 
 /* 프로필 헤더 모달 리스트 아이콘 */
