@@ -37,14 +37,16 @@ subCategoryName.forEach((target) => target.addEventListener("click", categoryFun
 };
  */
 
-
-
-
+ 
 
 function categoryFunction(){   
 
     let mCategoryNo = this.getAttribute("id");
     mCategoryNo = mCategoryNo.replace("s-","");
+    
+    let name = this.innerText;
+
+    console.log(name);
 
     if( document.getElementsByClassName("frame")[0] == undefined){
 
@@ -65,14 +67,14 @@ function categoryFunction(){
         form.submit();
 
     }else{
-        selectList(mCategoryNo)
+        selectList(mCategoryNo);
     }
 };
    
 
 
 
-function selectList(mCategoryNo){
+function selectList(mCategoryNo, name){
     $.ajax({
         url : contextPath + "/selectCategory",  
         data : { "mCategoryNo" : mCategoryNo }, 
@@ -80,15 +82,12 @@ function selectList(mCategoryNo){
         dataType : "JSON",
  
         success : function(itemList){ 
-            
-            console.log(itemList);
             if (itemList.length != 0) {
+                const nameArea = document.getElementById("name-area");
+                nameArea.innerText = name;
+                document.getElementById("categoryName-space").append(nameArea);
 
                  document.getElementById("items-section").innerHTML = "";
-
-                console.log("있음");
-                console.log(mCategoryNo);
-                
                 let frame;
                 for (let k = 0; k < itemList.length; k++) {
 
@@ -97,7 +96,6 @@ function selectList(mCategoryNo){
                         frame.classList.add("frame");
                         document.getElementById("items-section").append(frame);
                     }
-
 
                     const itembox = document.createElement("div");
                     itembox.classList.add("box");
@@ -160,7 +158,6 @@ function selectList(mCategoryNo){
                 
 
                 document.getElementById("items-section").append(frame);
-                console.log(mCategoryNo);
                 
             }
              /* document.getElementsByClassName("frame")[0].innerText = "게시글이 존재하지 않습니다.";  */
