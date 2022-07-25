@@ -68,22 +68,22 @@ public class MyShopController {
 		return "item/itemManage";
 	}
 	
-	// 내 상점 조회
-	@GetMapping("/myShop/{memberNo}")
-	public String myShop(@PathVariable("memberNo") int memberNo
-					   , Model model) {
-		
-		List<Member> member = service.selectMemberInfo(memberNo);
-		model.addAttribute("member", member);
-		
-		int boardCount = service.selectBoardCount(memberNo);
-		model.addAttribute("boardCount", boardCount);
-		
-		int reviewCount = service.selectReviewCount(memberNo);
-		model.addAttribute("reviewCount", reviewCount);
-		
-		return "member/profile";
-	}
+//	// 내 상점 조회
+//	@GetMapping("/myShop/{memberNo}")
+//	public String myShop(@PathVariable("memberNo") int memberNo
+//					   , Model model) {
+//		
+//		List<Member> member = service.selectMemberInfo(memberNo);
+//		model.addAttribute("member", member);
+//		
+//		int boardCount = service.selectBoardCount(memberNo);
+//		model.addAttribute("boardCount", boardCount);
+//		
+//		int reviewCount = service.selectReviewCount(memberNo);
+//		model.addAttribute("reviewCount", reviewCount);
+//		
+//		return "member/profile";
+//	}
 	
 	// 판매자 상점 조회
 	@GetMapping("/memberShop/{memberNo}")

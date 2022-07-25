@@ -140,8 +140,7 @@
     </main>
 
     <script>
-        const memberNo = ${memberNo}
-
+        const member2 = ${memberNo}
         const loginMemberNo = "${loginMember.memberNo}"
         const boardNo = "${boardNo}"
 

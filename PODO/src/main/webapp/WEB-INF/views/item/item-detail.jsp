@@ -209,19 +209,6 @@
                                 </div>
                             <img id="profile-image" src="${contextPath}${sellMember[0].memberProfile}"  alt="회원 프로필 이미지">
                         </div>
-
-                        <div id="review-text">후기</div>
-                        <div id="profile-review">
-                            <div class="review">
-                                친절합니다
-                            </div>
-
-                            <div class="review">
-                                불친절합니다
-                            </div>
-
-                        </div>
-
                     </div>
                     </a>
                     
