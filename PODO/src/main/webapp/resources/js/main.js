@@ -64,16 +64,19 @@ function carousel() {
           div = document.createElement('div')
           div.classList.add('box')
           div.setAttribute('id', res.boardNo)
-          div.style.width = "220px";
+          div.style.boxSizing = "border-box";
+
+           div.style.width = "225.02px";
           div.style.flexBasis = "0";
-          div.style.marginLeft = "4.5px";
+          // div.style.marginLeft = "2px";
+          
           
           frame.appendChild(div);
 
           a = document.createElement('a');
           a.setAttribute('href',contextPath+'/board/detail/'+res.boardNo)
           a.classList.add('title');
-          a.style.width ="223.02px";
+           a.style.width ="223.02px";
           div.append(a);
 
           divImg = document.createElement('div');
@@ -94,26 +97,42 @@ function carousel() {
 
           divTitle1 = document.createElement('div');
           divTitle1.classList.add('title1')
-          a.append(divTitle1)
 
-          divTitle2 = document.createElement('div');
-          divTitle2.classList.add('title2');
-          divTitle2.innerText = res.boardTitle;
-          divTitle1.append(divTitle2);
 
-          divName = document.createElement('div');
-          divName.classList.add('name2');
-          divTitle1.append(divName);
+          const name1 = document.createElement('div');
+          name1.classList.add("name1");
+          
+
+          const title2 = document.createElement("div");
+          title2.classList.add("title2");
+          title2.innerText = res.boardTitle;
+
+          const state = document.createElement("div");
+          state.classList.add("state");
+          state.innerText = res.tradeCondition;
+
+          name1.append(title2, state);
+          divTitle1.append(name1);
+
+          const name2 = document.createElement("div");
+          name2.classList.add("name2");
+
 
           divPrice = document.createElement('div');
           divPrice.classList.add('price');
           divPrice.innerText=res.price+'원';
-          divName.append(divPrice);
+          name2.append(divPrice);
           
           divTime = document.createElement('div');
           divTime.classList.add('time');
           divTime.innerText=res.updateDate;
-          divName.append(divTime);
+          name2.append(divTime);
+
+          divTitle1.append(name1,name2);
+
+          a.append(divTitle1);
+
+
 
         }
   
