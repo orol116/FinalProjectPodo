@@ -10,7 +10,7 @@ function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
-
+	
 	/* var bg = document.getElementsByClassName("chatList");
 	for(var i=0; i<bg.length; i++){
 		bg[i].style.backgroundColor="rgb(144, 5, 195)";
