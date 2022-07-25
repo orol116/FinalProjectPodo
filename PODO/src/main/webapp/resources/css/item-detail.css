@@ -81,10 +81,10 @@ footer {
 
 }
 
-/* head 이미지 크기 */
+/* item 이미지 크기 */
 #item-image {
-    width: 40%;
-    height: auto;
+    width: 380px;
+    height: 380px;
 
 }
 

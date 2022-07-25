@@ -20,12 +20,28 @@
     <div id="top">
         <c:choose>
             <c:when test="${empty sessionScope.loginMember}">
-                    <a href="${contextPath}/member/login">로그인
-                    <a href="${contextPath}/member/signUp">회원가입
+                    <a href="${contextPath}/member/login">로그인</a>
+                    <a href="${contextPath}/member/signUp">회원가입</a>
             </c:when>
             <c:otherwise>
-                    <a href="${contextPath}/member/logout">로그아웃
-                    <a href="${contextPath}/member/myPage/changePw">마이페이지
+                <a href="${contextPath}/member/logout">로그아웃</a>
+
+                <%-- <a class=alert1><i class="fa-solid fa-bell">알림</i></a> --%>
+
+                <a href="${contextPath}/member/myPage/changePw">마이페이지</a>
+
+                <div class="alert2">
+                    
+                    <p>
+                    <i class="fa-solid fa-bell">알림</i><br><br>
+                    최근 알림이 없습니다.<br>
+                    최근 알림이 없습니다.<br>
+                    최근 알림이 없습니다.<br>
+                    최근 알림이 없습니다.<br>
+                    최근 알림이 없습니다.</p>
+
+                </div>
+                    
             </c:otherwise>
         </c:choose>    
        
