@@ -20,9 +20,9 @@
                 (남대문로 1가 대일빌딩)
             </div>
             <div class="fifth">
-                <a href="#">회사소개&nbsp|</a>
-                <a href="#">이용약관&nbsp|</a>
-                <a href="#">운영정책</a>
+                <p>회사소개&nbsp|이용약관&nbsp|운영정책</p>
+                
+                
             </div>
         </div>
 
