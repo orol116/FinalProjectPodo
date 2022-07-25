@@ -8,10 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>거래내역 조회 페이지</title>
-
+<!-- 
     <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
-    <%-- <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css"> --%>
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css"> -->
     <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
 
@@ -34,13 +33,14 @@
 
     <div id="root">
         <div class="page-body">
-            <div class="">
+            <div class="page-body-div">
 
                 <header class="pageHeader">
                     <h1>거래내역</h1>
                 </header>
 
                 <main class="purchases-body">
+                    
                     <nav class="navigator">
 
                         <ul class="category">

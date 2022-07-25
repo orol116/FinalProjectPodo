@@ -167,9 +167,9 @@ form[name="myPage-form"]{
 
 #info-update-btn {
     height: 50px;
-    width: 300px;
+    width: 700px;
     /* padding: 10px; */
-    margin: 50px 0;
+    margin: 70px 0;
     border: 1px solid rgb(155, 89, 182);
     font-size: 20px;
     font-weight: bold;
