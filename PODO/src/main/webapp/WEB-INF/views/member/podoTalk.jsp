@@ -59,6 +59,7 @@
                                 <div class="card-box">
                                     <%-- 클릭 시 우측 채팅창으로 이동 --%>
                                     <div class="chatDiv" id="${chatList.chatNo}" onclick="listClickFn(${chatList.chatNo})">
+                                    
                                         <li class="chatList">
 
                                             <!-- 이미지가 없을 때 -->
@@ -145,7 +146,14 @@
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()">나가기</button>
                                 <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
+                                
                                 <button type="button" id="reviewWrt">후기 작성하기</button>
+                                <button onclick="location.href='${contextPath}/member/reviewWrite'">후기 작성</button>
+                            
+                                <!-- <button type="submit" class="review-click">후기 작성</button> -->
+                                <!-- <form class="review-modal" id="reviewWrite" method="POST" action="${contextPath}/member/reviewWrite">
+                                </form> -->
+    
                             </ul>
 
                            

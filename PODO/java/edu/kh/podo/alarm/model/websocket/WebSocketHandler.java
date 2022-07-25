@@ -64,6 +64,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		if (result>0) {
 			
 			String boardWriter = alarmMessage.getMemberId();
+			String boardLink = alarmMessage.getBoardLink();
 			
 			String admin = "test01";
 			
@@ -75,7 +76,8 @@ public class WebSocketHandler extends TextWebSocketHandler{
 			
 			if ( adminSession != null) {
 				logger.info("onmessage되나?");
-				TextMessage tmpMsg = new TextMessage(boardWriter + "님이 문의를 달았습니다!");
+				TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
+						+ "<strong>문의를 작성하였습니다.</strong></a>");
 				adminSession.sendMessage(tmpMsg);
 			}
 		}

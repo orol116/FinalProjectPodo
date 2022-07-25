@@ -312,7 +312,7 @@ function deleteChat() {
 // 신고 && 후기 모달
 const searchKey = document.getElementById("search-key");
 
-
+// 신고
 function show() {
     document.getElementById("reviewBtn").style.display = "none";
     document.getElementById("reportBtn").style.display = "block";
@@ -328,23 +328,33 @@ function show() {
     document.querySelector(".background").className = "background";
   }
 
-  function reviewShow(){
+
+  //후기
+function reviewShow(){
 	
 	if (reviewCount == 0) {
 
 		document.getElementById("reviewBtn").style.display = "block";
 		document.getElementById("reportBtn").style.display = "none";
 		document.querySelector(".background").className = "background show";
+
 		document.getElementById("report-text").innerText = "";
 		document.getElementById("report-text").innerText = "후기 작성";
+		document.getElementById("report-text").style.fontWeight = "bold";
+		
+		document.getElementById("report-area").style.padding = "15px";
+		
 		document.getElementById("report").setAttribute("placeholder", "작성할 후기를 입력해주세요.");
+		document.getElementById("report").style.width = "570px";
+		document.getElementById("report").style.minHeight = "250px";
+		document.getElementById("report").style.maxHeight = "250px";
 		searchKey.style.display = "none";
-		document.getElementById("reviewBtn").style.marginLeft = "350px";
+		document.getElementById("reviewBtn").style.marginLeft = "400px";
 	} else {
 		alert("이미 후기 작성이 완료된 판매글입니다.");
 	}
-
-  }
+	
+}
 
   document.querySelector("#reviewWrt").addEventListener("click", reviewShow);
   document.querySelector("#item-report").addEventListener("click", show);
@@ -428,3 +438,17 @@ function tradeCondition(){
     });
 
 }
+
+
+/* --------------------------------------------- */
+// 후기 작성 모달
+/* $(".review-click").click(function(){
+
+	$.ajax({
+		url : contextPath + "/chat/reviewWrite",
+		type : "get",
+		data : {
+
+		}
+	})
+}); */

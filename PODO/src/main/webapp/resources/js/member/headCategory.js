@@ -84,7 +84,7 @@ function selectList(mCategoryNo, mCategoryName){
 
     const nameSpace =  document.getElementById("categoryName-space");
     const mainNameSpace = document.getElementById("mainName-space");
-
+    
     
 
     if(nameSpace != ""){ // main화면에서 ajax로 가져올때 nameSpace 2개 생기는거 방지
@@ -97,6 +97,8 @@ function selectList(mCategoryNo, mCategoryName){
     nameSpace.append(nameArea);
   
     }
+
+    
   
     $.ajax({
         url : contextPath + "/selectCategory",  
@@ -107,6 +109,7 @@ function selectList(mCategoryNo, mCategoryName){
         success : function(itemList){ 
 
             if (itemList.length != 0) {
+                           
 
                  document.getElementById("items-section").innerHTML = "";
                 let frame;
@@ -168,10 +171,11 @@ function selectList(mCategoryNo, mCategoryName){
 
                     frame.append(itembox);
 
+
+
                 }
                 
             } else {
-                
 
                 document.getElementById("items-section").innerHTML = "";
                 frame = document.createElement("div");
@@ -184,11 +188,11 @@ function selectList(mCategoryNo, mCategoryName){
             }
              /* document.getElementsByClassName("frame")[0].innerText = "게시글이 존재하지 않습니다.";  */
             /* console.log(mCategoryNo); */
+            /* if(mainNameSpace != ""){
+                nameSpace.innerHTML = "";
+            } */
+         
             
-
-            if(mainNameSpace.value != ""){
-                nameSpace.innerText = "";
-            }
            
         },
  
