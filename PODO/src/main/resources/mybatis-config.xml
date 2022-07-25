@@ -13,6 +13,7 @@
 		<typeAlias type="edu.kh.podo.member.model.vo.Note" alias="note"/> 
 		<typeAlias type="edu.kh.podo.member.model.vo.Review" alias="review"/> 
 		<typeAlias type="edu.kh.podo.admin.model.vo.Admin" alias="admin"/> 
+		
 		<typeAlias type="edu.kh.podo.admin.model.vo.AdminReply" alias="adminReply"/> 
 		
 		<typeAlias type="edu.kh.podo.board.itemBoard.model.vo.ItemBoard" alias="itemBoard"/> 
@@ -30,6 +31,9 @@
 	
 		
 		<typeAlias type="edu.kh.podo.member.model.vo.MemberArea" alias="memberArea"/>
+		
+		
+		<typeAlias type="edu.kh.podo.alarm.model.vo.Alarm" alias="alarm"/> 
 	</typeAliases>
 	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -42,6 +46,7 @@
 		<mapper resource="/mappers/admin-mapper.xml" />
 		<mapper resource="/mappers/category-mapper.xml" />
 		<mapper resource="/mappers/chat-mapper.xml" />
+		<mapper resource="/mappers/alarm-mapper.xml" />
 	</mappers>
 	
 </configuration>

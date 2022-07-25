@@ -94,15 +94,14 @@
                 <div class="div1">
                     <button type="submit" id="submit">등록</button>
                 </div>
-            </form>
         </div>
     </form>
 </div>
-    <script src="${contextPath}/resources/js/member/inquire.js"></script>
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 </body>
 
+    <script src="${contextPath}/resources/js/member/inquire.js"></script>
 </html>
