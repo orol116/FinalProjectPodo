@@ -41,9 +41,10 @@
                     최근 알림이 없습니다.<br>
                     최근 알림이 없습니다.<br>
                     최근 알림이 없습니다.<br>
-                    최근 알림이 없습니다.</p>
+                    최근 알림이 없습니다.   
+                    </p>
 
-                </div>
+                </div> 
                     
             </c:otherwise>
         </c:choose>    
@@ -79,7 +80,7 @@
                 </c:when>
                 <c:otherwise>
                     <button class="button" onclick = "location.href = '${contextPath}/member/itemUpload'"><i class="fa-solid fa-won-sign" ></i>판매하기</button>
-                    <button class="button" onclick = "location.href = '${contextPath}/shop/myShop/${loginMember.memberNo}'"><i class="fa-solid fa-house-user"></i>내 상점</button>
+                    <button class="button" onclick = "location.href = '${contextPath}/shop/memberShop/${loginMember.memberNo}'"><i class="fa-solid fa-house-user"></i>내 상점</button>
                     <button class="button" onclick = "location.href = '${contextPath}/chat/roomList'"><i class="fa-solid fa-message"></i>포도톡</button>
                 </c:otherwise>
             </c:choose> 
