@@ -82,7 +82,7 @@
                                                                 </tr>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <c:forEach items="${favorBoard}" id="favBoard" var="favor">
+                                                                <c:forEach items="${favorBoard}" var="favor">
                                                                     <li class="fav-list">
                                                                         
                                                                         <%-- 상품 이미지 --%>

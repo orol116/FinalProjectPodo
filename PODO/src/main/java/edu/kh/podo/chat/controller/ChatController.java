@@ -49,6 +49,15 @@ public class ChatController {
 		return new Gson().toJson(service.selectChatDetail(loginMember.getMemberNo(), chatNo));
 	}
 	
+	// 후기 모달
+	@GetMapping("/member/reviewWrite")
+	public String reviewWrite(@ModelAttribute("loginMember") Member loginMember) {
+		
+		return "member/review-write";
+		
+		
+	}
+	
 	// 채팅방 내 후기 작성 ajax
 	@GetMapping("/chat/review")
 	@ResponseBody
