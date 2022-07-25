@@ -127,10 +127,23 @@
 		WHERE CHAT_NO = ${chatNo}
 	</select>
 	
-	<!-- 판매자가 누군지 조회 DAO -->
+	<!-- 판매자가 누군지 조회 -->
 	<select id="selectWhoIsSeller" resultType="_int">
 		SELECT MEMBER_NO FROM ITEM_BOARD
 		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 판매중인지 완료되었는지 조회 -->
+	<select id="selectCondition" resultType="string">
+		SELECT TRADE_CONDITION FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 후기를 작성했는지 검사 -->
+	<select id="selectFinReview" resultType="_int">
+		SELECT COUNT(*) FROM REVIEW
+		WHERE BOARD_NO = ${boardNo}
+		AND WRITE_MEMBER_NO = ${memberNo}
 	</select>
 	
 	<!-- 후기 작성 -->
