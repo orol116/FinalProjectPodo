@@ -42,7 +42,10 @@ public class WebSocketHandler extends TextWebSocketHandler{
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {//클라이언트와 서버가 연결
 		sessions.add(session);
 		
+		// 해당 세션의 멤버 아이디 값을 가져온다.
 		String senderId = currentUserId(session);
+		
+		// 아이디와 세션 값을 가지고 맵에 넣는다. 
 		userSessionsMap.put(senderId,session);
 	}
 	
@@ -71,7 +74,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				
 				String admin = "test01";
 				
-//			WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
+//				WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
 				WebSocketSession adminSession = userSessionsMap.get(admin);
 				
 				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
@@ -83,7 +86,12 @@ public class WebSocketHandler extends TextWebSocketHandler{
 					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
 							+ "<strong>문의를 작성하였습니다.</strong></a>");
 					adminSession.sendMessage(tmpMsg);
+				}else if(alarmMessage.getBoardName().equals("inquire")){
+					
 				}
+				
+				
+				
 			}
 		}
 			
