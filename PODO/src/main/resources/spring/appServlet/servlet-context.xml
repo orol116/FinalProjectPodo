@@ -60,9 +60,24 @@
 	<websocket:handlers>
 
 		<!-- 웹소켓 요청(주소)을 처리할 bean 지정 -->
-		<websocket:mapping handler="chatHandler" path="/chat" />
-		
 		<websocket:mapping handler="myHandler" path="/alarm" />
+
+		<websocket:handshake-interceptors>
+			<!-- interceptor : http 통신에서 req, resp 가로채는 역할 handshake-interceptors 
+				- 요청 관련 데이터 중 HttpSession을 가로채서 WebSocketSession에 넣어주는 역할 -->
+			<beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
+
+		</websocket:handshake-interceptors>
+
+		<!-- SockJS 라이브러리를 이용해서 만들어진 웹소켓 객체임을 인식 -->
+		<websocket:sockjs />
+
+	</websocket:handlers>
+	
+	<websocket:handlers>
+
+		<!-- 웹소켓 요청(주소)을 처리할 bean 지정 -->
+		<websocket:mapping handler="chatHandler" path="/chat" />
 
 		<websocket:handshake-interceptors>
 			<!-- interceptor : http 통신에서 req, resp 가로채는 역할 handshake-interceptors 

@@ -18,9 +18,10 @@ itemCategory.addEventListener("click", selectItemsList);
 
 function selectItemsList() {
 
+    console.log(member2);
+
     $.ajax({
-        url: contextPath + "/shop/selectItemsList/" + memberNo,
-        data: { "memberNo": memberNo },
+        url: contextPath + "/shop/selectItemsList/" + member2,
         type: "GET",
         dataType: "JSON",
         success: function (iList) {
@@ -137,8 +138,8 @@ reviewCategory.addEventListener("click", reviewsList);
 function reviewsList() {
 
     $.ajax({
-        url: contextPath + "/shop/selectReviewsList/" + memberNo,
-        data: { "memberNo": memberNo },
+        url: contextPath + "/shop/selectReviewsList/" + member2,
+        data: { "memberNo": member2 },
         type: "GET",
         dataType: "JSON",
         success: function (rList) {
