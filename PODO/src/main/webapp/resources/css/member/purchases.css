@@ -1,11 +1,45 @@
 body * {
     box-sizing: border-box;
     font-weight: normal;
-    color: rgb(30, 29, 41);
+    /* color: rgb(30, 29, 41); */
     outline: 0px;
     font-size: 16px;
 }
 
+
+body{
+    width: 1180px;
+    margin: auto;
+}
+/* 첫번째 메뉴 */
+.top-menu{
+    width: 100%;
+    border-bottom: 1px solid lightgray ;
+    border-top: 1px solid lightgray;
+}
+
+#mainMenu{    
+    display: flex;
+    height: 50px;
+    font-size: 15px;
+    align-items: center;
+}
+#mainMenu>a{
+    text-decoration: none;
+    padding: 8px;
+    color: black;
+     font-weight:8px ;
+}
+#mainMenu>:nth-child(3){
+    font-weight: 600;
+    color: rgb(95, 0, 129);
+}
+#mainMenu>a:hover{
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(95, 0, 129);
+}
+/* -------------------------------------- */
 div{
     margin: 0px;
     padding: 0px;
@@ -14,10 +48,24 @@ div{
     vertical-align: baseline;
 }
 
+
+
 /* 전체 영역, root 하위 */
 .page-body{
     display: block;
     overflow: hidden;
+}
+
+.page-body-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* min-width: 320px;
+    max-width: 640px; */
+    height: 100vh;
+    margin: 0px auto;
+    box-sizing: border-box;
+    
 }
 
 /* 거래내역 + 상단 구매,판매 + 하단 본문 div */
@@ -25,8 +73,7 @@ div{
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    min-width: 320px;
-    max-width: 640px;
+
     height: 100vh;
     margin: 0px auto;
     box-sizing: border-box;
@@ -34,10 +81,12 @@ div{
 
 /* 거래내역 */
 .pageHeader{
-    position: relative;
+    /* display: block; */
+    width: 100%;
+    display: contents;
     flex-shrink: 0;
-    flex-basis: 3.125rem;
-    line-height: 3.125rem;
+    flex-basis: 5rem;
+    line-height: 5rem;
     font-weight: bold;
     text-align: center;
     color: rgb(30, 29, 41);
@@ -47,17 +96,20 @@ div{
 
 /* 거래내역 h1 헤더 */
 .pageHeader h1 {
+    width: 100%;
     font-size: 1.125rem;
     font-weight: bold;
 }
 
 /* 거래내역 하위 부분 */
 .purchases-body{
+    width: 100%;
     position: relative;
     padding-bottom: 50px;
     box-sizing: border-box;
     line-height: 1.5;
     overflow: scroll;
+    width: auto;
 }
 
 header{
@@ -91,7 +143,7 @@ li {
 }
 
 .category li{
-    width: calc(33.3333%);
+    width: calc(50%);
     height: 2.875rem;
     border-bottom: 1px solid rgb(234, 233, 241);
 }
@@ -112,7 +164,7 @@ li {
 }
 
 .category li:first-child.selected ~ .line {
-    transform: translateX(0px) scaleX(0.333);
+    transform: translateX(0px) scaleX(0.5);
 }
 
 .category li.line {
@@ -458,3 +510,225 @@ button {
     color: rgb(30, 29, 41);
     text-align: center;
 }
+
+
+
+/* --------- header 스타일 --------------- */
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 700; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundEB.woff2) format('woff2');
+    font-display: swap;
+} */
+
+
+* {font-family: "NanumSquareRound";}
+
+/* header */
+*{box-sizing: border-box;}
+/* body{
+  
+    
+} */
+
+#top{
+    top: 0;
+    width: 1200px;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 5;
+    flex-basis: 100%;
+    padding-right: 20px;
+}
+#top>a:hover{
+    text-decoration-line: underline;
+}
+#top>*{
+    text-decoration: none;
+    color: gray;
+    font-size: 14px;
+    padding: 10px  10px  0 0;
+}
+
+/* 상단 메뉴 + 검색 바 */
+#header{
+    position: fixed;
+    top: 0 ;
+    width: 1200px;
+    height:  100px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 0 50px 0 50px ; */
+    /* margin-top: 15px; */
+    z-index: 2;
+}
+section>#menu{
+    display: flex;
+    justify-content: left;
+}
+section>.right-header{
+    display: flex;
+    justify-content: right;
+}
+.button{
+    padding-left:10px ;
+    font-size: 16px;
+    border: 0;
+    background-color: white;
+    color: #5f0081;
+}
+.button:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+section>button>.fa-solid{
+    padding-right: 5px;
+}
+
+
+#header>section{
+    flex-basis: 33.3%;
+}
+
+#home-logo{
+    height: 90px;
+    width: 230px;
+    /* margin-right: 20px; */
+}
+.fa-bars{
+    color: #5f0081;
+    text-decoration: none;
+    font-size: 30px;
+}
+#menu{
+    display: flex;
+    align-items: center;
+}
+
+#search2{
+    border: none;
+    flex-basis: 100%;
+    font-size: 18px;
+}
+#search2:focus{
+    outline: none;
+}
+.mid-header{
+    width: 450px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid rgb(95, 0, 129);
+    border-radius: 3px;
+    padding-left: 12px ;
+}
+
+.right-header{
+   display: flex;
+   justify-content: right;
+   align-items: flex-end;
+   margin: 5px 5px 5px;
+   
+}
+.right-header{
+    border: 0;
+    outline: 0;
+    background-color: white;
+    color: rgb(95, 0, 129);
+    font-size:25px;
+    margin-right: 20px;
+}
+
+
+
+/* 카테고리  */
+/* 카테고리  */
+/* 카테고리  */
+
+#category-area{
+    position: fixed;
+    top: 95px;
+    width: 500px;
+    height: 700px;
+    display: none; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #fff;
+    /* display: flex;
+    flex-direction: row; */
+
+
+
+}
+
+#category-area > ul{
+
+    width: 50%;
+
+}
+
+#category-area > ul:first-child{
+
+    border-right: 1px solid #ccc;
+
+}
+
+
+
+#item-category{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1px;
+}
+
+
+#item-category > li{
+    list-style: none;
+    padding: 10px 0 10px 30px;
+    margin-bottom: 1px;
+    
+}
+
+#item-category > li:first-child{
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    border-right: 0px !important; 
+}
+
+
+#item-category > li:hover{
+    background-color: rgb(95, 0, 129);
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+/* 카테고리 중분류 */
+#div-category{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+#div-category > li{
+    list-style: none;
+    margin: 10px 0 10px 0;
+
+}
+

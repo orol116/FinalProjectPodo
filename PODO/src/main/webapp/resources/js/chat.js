@@ -1,15 +1,37 @@
 var chattingNo = 0;
 var boardNo1 = 0;
 var otherMemNo = 0;
-
+var reviewCount = 0;
 
 
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
-	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
+	
+	/* 채팅 목록 클릭 시 배경색 변경 card-box > chatdiv */
+	/* function handleClick(event) {
+	console.log(event.target);
+	console.log(event.target.classList);
 
+		if (event.target.classList[1] === "clicked") {
+			event.target.classList.remove("clicked");
+		} else {
+			for (var i = 0; i < chatdiv.length; i++) {
+				chatdiv[i].classList.remove("clicked");
+		}
+			cardbox.classList.add("clicked");
+			event.target.classList.add("clicked");
+
+		}
+	}
+
+	function init() {
+		for (var i = 0; i < chatdiv.length; i++) {
+			chatdiv[i].addEventListener("click", handleClick);
+		}
+	}
+	init(); */
 	
 	console.log(chatNo);
 
@@ -23,7 +45,6 @@ function listClickFn(chatNo) {
 
 			console.log(data);
 			
-
 			// // 이미지 연결
 			console.log(data.boardImageList[0].imageReName);
 
@@ -71,6 +92,19 @@ function listClickFn(chatNo) {
 			console.log("boardNo : " + data.boardNo);
 			chattingNo = chatNo;
 			boardNo1 = data.boardNo;
+			reviewCount = data.reviewCount;
+
+			console.log("review : " + reviewCount);
+
+
+			if (data.sellMemNo == memberNo) {
+				document.getElementById("finishTrade").style.display = '';
+				document.getElementById("reviewWrt").style.display = 'none';
+			} else {
+				document.getElementById("finishTrade").style.display = 'none';
+				if (data.condition == "판매완료") document.getElementById("reviewWrt").style.display = '';
+				else document.getElementById("reviewWrt").style.display = 'none';
+			}
 			
 		},
 
@@ -81,18 +115,16 @@ function listClickFn(chatNo) {
 
 }
 
-(function(){
+/* (function(){
 
-	$(".chatDiv").click(function(){
-		
-		/* document.getElementsByClassName("card-box").style.color = "black"; */
-		$("#chatDiv").css({
-			"background-color": "#E5E5E5"
-		});
+	$(".chatdiv").click(function(){
+
+		var bg = document.getElementsByClassName("chatdiv");
+		bg.style.backgroundColor='red';
 		
 	});
 
-})(); 
+})();  */
 
 
 /* 프로필 헤더 모달 리스트 아이콘 */
@@ -280,7 +312,7 @@ function deleteChat() {
 // 신고 && 후기 모달
 const searchKey = document.getElementById("search-key");
 
-
+// 신고
 function show() {
     document.getElementById("reviewBtn").style.display = "none";
     document.getElementById("reportBtn").style.display = "block";
@@ -296,16 +328,33 @@ function show() {
     document.querySelector(".background").className = "background";
   }
 
-  function reviewShow(){
-    document.getElementById("reviewBtn").style.display = "block";
-    document.getElementById("reportBtn").style.display = "none";
-    document.querySelector(".background").className = "background show";
-    document.getElementById("report-text").innerText = "";
-    document.getElementById("report-text").innerText = "후기 작성";
-    document.getElementById("report").setAttribute("placeholder", "작성할 후기를 입력해주세요.");
-    searchKey.style.display = "none";
-    document.getElementById("reviewBtn").style.marginLeft = "350px";
-  }
+
+  //후기
+function reviewShow(){
+	
+	if (reviewCount == 0) {
+
+		document.getElementById("reviewBtn").style.display = "block";
+		document.getElementById("reportBtn").style.display = "none";
+		document.querySelector(".background").className = "background show";
+
+		document.getElementById("report-text").innerText = "";
+		document.getElementById("report-text").innerText = "후기 작성";
+		document.getElementById("report-text").style.fontWeight = "bold";
+		
+		document.getElementById("report-area").style.padding = "15px";
+		
+		document.getElementById("report").setAttribute("placeholder", "작성할 후기를 입력해주세요.");
+		document.getElementById("report").style.width = "570px";
+		document.getElementById("report").style.minHeight = "250px";
+		document.getElementById("report").style.maxHeight = "250px";
+		searchKey.style.display = "none";
+		document.getElementById("reviewBtn").style.marginLeft = "400px";
+	} else {
+		alert("이미 후기 작성이 완료된 판매글입니다.");
+	}
+	
+}
 
   document.querySelector("#reviewWrt").addEventListener("click", reviewShow);
   document.querySelector("#item-report").addEventListener("click", show);
@@ -389,3 +438,17 @@ function tradeCondition(){
     });
 
 }
+
+
+/* --------------------------------------------- */
+// 후기 작성 모달
+/* $(".review-click").click(function(){
+
+	$.ajax({
+		url : contextPath + "/chat/reviewWrite",
+		type : "get",
+		data : {
+
+		}
+	})
+}); */

@@ -45,7 +45,7 @@
                         <!-- 현재비밀번호 / 새 비밀번호 / 새 비밀번호 확인 -->
                         <div class="myPage-row">
                             <label>현재 비밀번호</label>
-                            <input type="password" name="pw" id="pw" class="input_box" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성" maxlength="15">
+                            <input type="password" name="pw" id="pw" class="input_box" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성해주세요." maxlength="15">
                         </div>
                         <div class="myPage-row">
                             <label>새 비밀번호</label>

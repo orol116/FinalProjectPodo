@@ -46,79 +46,17 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
-    <div id="categoryName-space">
-    </div>
+        
+        <div id="categoryName-space"></div><%-- main에서 ajax 받는 부분 --%> 
+        
+        <div id="mainName-space" >${param.mCategoryName}</div>
 
+<%--         <div id="items-button-area">
+            <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
+
+        </div> --%>
     <section id="items-section">
-        <c:choose>
-            <c:when test="${empty distList}">
 
-                <div>
-                    <div class="frame">
-                        
-                        
-                        게시글이 존재하지 않습니다.
-                    </div>
-                </div>
-            
-            </c:when>
-    
-            <c:otherwise>
-
-                <div id="items-button-area">
-                    <button id="sales-items">판매중인 상품만 보기</button>
-                    <button id="complete-items">판매 완료된 보기</button>
-                </div>
-
-                <div id="itmes">
-                    <h2 style="margin:0;">이번주 상품 추천</h2>
-                </div>
-
-                <c:forEach var="item" items="${distList}" begin="0" end="19" step="1" varStatus="vs">
-                    <input type="hidden" name="distance" value="${item.distance}">
-                    <input type="hidden" name="memberNo" value="${item.memberNo}">
-                    <c:if test="${ vs.index % 5 eq 0}">
-                        <div class="frame" >
-                    </c:if>
-
-                            <div class="box" id="${item.boardNo}">
-                                <a href="${contextPath}/board/detail/${item.boardNo}"  class="title">
-                                    <div class="image">
-                                        <c:choose>
-
-                                            <c:when test="${!empty item.img.imageReName}">
-
-                                                <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
-
-                                            </c:when>
-
-                                            <c:otherwise>
-
-                                                <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </div>   
-                                    
-                                    <div class="title1">
-                                        <div class="name1">
-                                            <div class="title2">${item.boardTitle}</div>
-                                            <div class="state">${item.tradeCondition}</div>
-                                        </div>
-                                        <div class="name2">
-                                            <div class="price">${item.price}원</div>
-                                            <div class="time">${item.updateDate}</div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                          
-                    <c:if test="${ vs.index % 5 eq 4}">
-                        </div>
-                    </c:if>
-                    
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
         <c:choose>
             <c:when test="${empty itemList}">
 
@@ -131,13 +69,8 @@
                 </div>
             
             </c:when>
-    
+   
             <c:otherwise>
-
-                <div id="items-button-area">
-                    <button id="sales-items">판매중인 상품만 보기</button>
-                    <button id="complete-items">판매 완료된 보기</button>
-                </div>
 
                 <div id="itmes">
                     <h2 style="margin:0;">이번주 상품 추천</h2>
@@ -193,6 +126,7 @@
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -1,0 +1,36 @@
+body{
+    text-align: center;
+}
+
+.myPage-title{
+    /* display: block; */
+    width: 100%;
+    display: contents;
+    flex-shrink: 0;
+    flex-basis: 5rem;
+    line-height: 5rem;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(30, 29, 41);
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+}
+
+
+.review-table-title{
+    padding: 15px 15px;
+}
+
+.logo-image > img{
+    width: 300px;
+    height: 200px;
+}
+
+.review-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px auto;
+    box-sizing: border-box;
+}

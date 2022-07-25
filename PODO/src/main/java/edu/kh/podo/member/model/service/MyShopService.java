@@ -64,4 +64,11 @@ public interface MyShopService {
 	 */
 	int updateDate(int boardNo);
 
+	/** 구매/판매 내역 조회 ajax Service
+	 * @param memberNo
+	 * @param type
+	 * @return itemList
+	 */
+	List<ItemBoard> selectList(int memberNo, int type);
+
 }

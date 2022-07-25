@@ -8,47 +8,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>거래내역 조회 페이지</title>
-
-    <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
-    <%-- <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css"> --%>
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
+    
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> -->
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css"> -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
     <%-- 파비콘 --%>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
-    
+
+    <style>
+    </style>
 </head>
 
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+
 <body onload="init();">
+    <!-- header -->
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
     
     <div class="top-menu">
         <nav id="mainMenu">
             <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/shop/main">상품관리</a>
+             <a href="${contextPath}/shop/main">상품관리</a> 
             <a href="${contextPath}/shop/myMall">구매/판매 내역</a>
         </nav>
     </div>
+<main>
 
     <div id="root">
         <div class="page-body">
-            <div class="">
+            <div class="page-body-div">
 
                 <header class="pageHeader">
                     <h1>거래내역</h1>
                 </header>
 
                 <main class="purchases-body">
+
                     <nav class="navigator">
 
                         <ul class="category">
                             <li class="selected">
-                                <button type="button" data-index="0" onclick="showSellList()">판매</button>
+                                <button type="button" data-index="0" onclick="selectTradeCondition(1)">판매</button>
                             </li>
                             <li class="">
-                                <button type="button" data-index="1" onclick="showBuyList()">구매</button>
+                                <button type="button" data-index="1" onclick="selectTradeCondition(5)">구매</button>
                             </li>
                             <!-- 밑줄 선 -->
                             <li class="line" role="presentation"></li>
@@ -57,10 +65,10 @@
                         <div class="purchases-box">
                             <nav class="purchases-category">
                                 <div>
-                                    <button type="button" class="whole-status">전체 상태</button>
-                                    <button type="button" class="reserved">예약중</button>
-                                    <button type="button" class="forSale">판매중</button>
-                                    <button type="button" class="soldOut">판매완료</button>
+                                    <button type="button" class="whole-status" onclick="selectTradeCondition(1)">전체 상태</button>
+                                    <button type="button" class="reserved" onclick="selectTradeCondition(2)">예약 중</button>
+                                    <button type="button" class="forSale" onclick="selectTradeCondition(3)">판매 중</button>
+                                    <button type="button" class="soldOut" onclick="selectTradeCondition(4)">판매완료</button>
                                 </div>
                             </nav>
 
@@ -112,10 +120,6 @@
                                                             </aside>
                                                             
                                                             </div>
-                                                            <%-- 후기 작성 --%>
-                                                            <div class="buttonContainer">
-                                                                <button class="review-button">후기 작성</button>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -164,10 +168,6 @@
                                                             </aside>
                                                             
                                                             </div>
-                                                            <%-- 후기 작성 --%>
-                                                            <div class="buttonContainer">
-                                                                <button class="review-button">후기 작성</button>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -185,12 +185,12 @@
             </div>
         </div>
     </div>
-
+<main>
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
-        const contextPath = "${contextPath}";
+        const memberNo = "${loginMember.memberNo}";
     </script>
 
     <!-- jQuery 라이브러리 추가 -->
@@ -198,5 +198,6 @@
 
     <!-- js -->
     <script src="${contextPath}/resources/js/purchases.js"></script>
+    
 </body>
 </html>

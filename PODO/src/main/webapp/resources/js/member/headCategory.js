@@ -37,16 +37,14 @@ subCategoryName.forEach((target) => target.addEventListener("click", categoryFun
 };
  */
 
- 
+  var mCategoryName; 
 
 function categoryFunction(){   
 
     let mCategoryNo = this.getAttribute("id");
     mCategoryNo = mCategoryNo.replace("s-","");
     
-    let name = this.innerText;
-
-    console.log(name);
+     mCategoryName = this.getAttribute("name");
 
     if( document.getElementsByClassName("frame")[0] == undefined){
 
@@ -60,21 +58,48 @@ function categoryFunction(){
         input.setAttribute("name", "mCategoryNo");
         input.setAttribute("value", mCategoryNo);
 
+        const inputName = document.createElement("input");
+        inputName.setAttribute("type", "hidden");
+        inputName.setAttribute("name", "mCategoryName");
+        inputName.setAttribute("value", mCategoryName);
+
         const footer = document.getElementsByTagName("footer")[0];
+
         
-        form.append(input);
+        form.append(input,inputName);
+        
         footer.append(form);
         form.submit();
+        
 
     }else{
-        selectList(mCategoryNo);
+        selectList(mCategoryNo, mCategoryName);
     }
 };
    
 
 
 
-function selectList(mCategoryNo, name){
+function selectList(mCategoryNo, mCategoryName){
+
+    const nameSpace =  document.getElementById("categoryName-space");
+    const mainNameSpace = document.getElementById("mainName-space");
+    
+    
+
+    if(nameSpace != ""){ // main화면에서 ajax로 가져올때 nameSpace 2개 생기는거 방지
+    
+    nameSpace.innerHTML = "";
+
+    const nameArea = document.createElement("div");
+    nameArea.id = "name-area";
+    nameArea.innerText = mCategoryName;
+    nameSpace.append(nameArea);
+  
+    }
+
+    
+  
     $.ajax({
         url : contextPath + "/selectCategory",  
         data : { "mCategoryNo" : mCategoryNo }, 
@@ -82,10 +107,9 @@ function selectList(mCategoryNo, name){
         dataType : "JSON",
  
         success : function(itemList){ 
+
             if (itemList.length != 0) {
-                const nameArea = document.getElementById("name-area");
-                nameArea.innerText = name;
-                document.getElementById("categoryName-space").append(nameArea);
+                           
 
                  document.getElementById("items-section").innerHTML = "";
                 let frame;
@@ -147,6 +171,8 @@ function selectList(mCategoryNo, name){
 
                     frame.append(itembox);
 
+
+
                 }
                 
             } else {
@@ -154,7 +180,7 @@ function selectList(mCategoryNo, name){
                 document.getElementById("items-section").innerHTML = "";
                 frame = document.createElement("div");
                 frame.classList.add("frame");
-                frame.innerText = "게시글이 존재하지 않습니다아아아아아." +mCategoryNo ;
+                frame.innerText = "게시글이 존재하지 않습니다." +mCategoryNo ;
                 
 
                 document.getElementById("items-section").append(frame);
@@ -162,6 +188,10 @@ function selectList(mCategoryNo, name){
             }
              /* document.getElementsByClassName("frame")[0].innerText = "게시글이 존재하지 않습니다.";  */
             /* console.log(mCategoryNo); */
+            /* if(mainNameSpace != ""){
+                nameSpace.innerHTML = "";
+            } */
+         
             
            
         },
@@ -172,15 +202,6 @@ function selectList(mCategoryNo, name){
     });  
 }
 
-
-
-/* 
-
-
-for (var i = 0; i < categoryName.length; i++) {
-    categoryName[i].addEventListener('click', categoryFuncion);
-}
- */
 
 
 

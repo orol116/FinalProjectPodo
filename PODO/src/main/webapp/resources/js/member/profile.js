@@ -4,7 +4,13 @@ const reviewCategory = document.getElementById("review-category");
 const reviewList = document.getElementById("reviews-area");
 const itemList = document.getElementById("seller-items");
 
-
+if (loginMemberNo == memberNo) {
+    document.getElementById("user-intro-change").style.display = '';
+    document.getElementById("item-report").style.display = 'none';
+} else {
+    document.getElementById("user-intro-change").style.display = 'none';
+    document.getElementById("item-report").style.display = '';
+}
 
 selectItemsList();
 itemCategory.addEventListener("click", selectItemsList);
@@ -12,9 +18,10 @@ itemCategory.addEventListener("click", selectItemsList);
 
 function selectItemsList() {
 
+    console.log(member2);
+
     $.ajax({
-        url: contextPath + "/shop/selectItemsList/" + memberNo,
-        data: { "memberNo": memberNo },
+        url: contextPath + "/shop/selectItemsList/" + member2,
         type: "GET",
         dataType: "JSON",
         success: function (iList) {
@@ -131,11 +138,13 @@ reviewCategory.addEventListener("click", reviewsList);
 function reviewsList() {
 
     $.ajax({
-        url: contextPath + "/shop/selectReviewsList/" + memberNo,
-        data: { "memberNo": memberNo },
+        url: contextPath + "/shop/selectReviewsList/" + member2,
+        data: { "memberNo": member2 },
         type: "GET",
         dataType: "JSON",
         success: function (rList) {
+
+
             console.log(rList);
 
             reviewList.innerHTML = "";
@@ -165,9 +174,12 @@ function reviewsList() {
 
                     const writerImage = document.createElement("img");
                     writerImage.id = "reviews-image";
+                    if (review.memberProfile == null) writerImage.src = imageSrc;
+                    else writerImage.src = review.memberProfile;
 
                     const writerName = document.createElement("div");
                     writerName.id = "reviews-user-nick";
+                    writerName.innerText = review.memberNickname;
 
                     const DTArea = document.createElement("div");
                     DTArea.id = "create-date-area";
@@ -204,7 +216,7 @@ function reviewsList() {
                     btnArea.append(hideBtn);
                     footReview.append(itemReview, btnArea);
 
-                    reviewBox.append(reviewRow, shortReview, textReview, footReview);
+                    reviewBox.append(reviewRow, shortReview, footReview);
 
 
                     reviewList.append(reviewBox);
