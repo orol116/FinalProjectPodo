@@ -50,6 +50,8 @@
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
 		<result property="mCategoryName" column="M_CATEGORY_NM" />
 		<result property="lCategoryName" column="L_CATEGORY_NM" />
+		<result property="dLon" 			column="COORDINATE_X"/>
+		<result property="dLat" 			column="COORDINATE_Y"/>
 		
 		
 	</resultMap>
@@ -282,7 +284,23 @@
 		FROM ITEM_BOARD
 	</select>
 	
-	<select id=""></select>
+	<select id="selectDistList" resultMap="itemBoard_rm">
+	SELECT * FROM(        
+      SELECT  B.BOARD_NO, B.BOARD_TITLE, B.PRICE, B.UPDATE_DT, B.MEMBER_NO, B.TRADE_CONDITION,       
+                ACOS(SIN(RADIANS(src.COORDINATE_X)) * SIN(RADIANS(dest.COORDINATE_X))
+                + COS(RADIANS(src.COORDINATE_X)) * COS(RADIANS(dest.COORDINATE_X))
+                * COS(RADIANS(src.COORDINATE_Y) - RADIANS(dest.COORDINATE_Y)) )
+                * 6371 AS DISTANCE
+             FROM ITEM_BOARD B ,MEMBER M ,SELLAREA_XY dest ,MEMBERAREA_XY src
+             WHERE M.MEMBER_NO = ${memberNo}
+    
+             AND M.MEMBER_NO = src.MEMBER_NO
+             AND B.BOARD_NO = dest.BOARD_NO
+        ORDER BY DISTANCE
+	)
+	WHERE DISTANCE &lt; 100
+
+	</select>
 	
 </mapper>
 
