@@ -1,8 +1,7 @@
-(function(){
-
-	
-
-})();
+function init(){
+    $('.sellContents').show();
+    $('.buyContents').hide();
+}
 
 function showSellList(){
     $('.sellContents').show();

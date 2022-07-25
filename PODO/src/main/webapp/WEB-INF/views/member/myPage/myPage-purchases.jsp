@@ -22,7 +22,7 @@
     
 </head>
 
-<body>
+<body onload="init();">
     
     <div class="top-menu">
         <nav id="mainMenu">

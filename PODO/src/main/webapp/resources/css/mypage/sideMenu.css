@@ -1,18 +1,36 @@
-/* 마이페이지 좌측 사이드 메뉴 */
-.left-side{
-    flex-basis: 350px;
-    /* width: 20%; */
+/* 마이페이지 */
+.myPage-content{
+    
+    width: 100%;
+    /* height: 100%; */
+    margin:  50px auto;
+    display: flex;
+    
+}
+.myPage-inner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
+.wrapper{
+    width: 100%;
+    padding: 10px 30px;
+}
+
+
+/* 왼쪽 사이드 메뉴 */
+.left-side{
+    flex-basis: 330px;
     display: inline-block;
-    margin: 0 20px;
 }
 
 .list-group{
-    width: 100%;
-    height: 90%;
+    width: 70%;
+    height: auto;
     margin: 0;
     border: 1px solid rgb(39,39,91);
-   padding: 20px;
+    padding: 20px;
     
 } 
 
@@ -21,20 +39,33 @@
     width: 100%;
     font-size: 25px;
     font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid rgb(235, 235, 235);
 }
 
-.myPage-title{
-    border-bottom: 1px solid rgb(39,39,91);
+.list-group > h3{
+    font-size: 25px;
+    border-bottom: 1px solid black;
+    
+}
+
+/* 마이 페이지 공통 부분 */
+.myPage-main{
+    display: table-cell;
+    width: 100%;
+    padding: 0 50px;
+
+}
+
+
+form[name="myPage-form"]{
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 30px 0;
 }
-.myPage-subTitle{
-    margin: 15px;
-}
-
-
 
 .list-group a{
     text-decoration: none;
@@ -45,7 +76,12 @@
 
 }
 .list-group>li>a:hover{
-    background-color: #eee;
+    background-color: rgb(155, 89, 182);
+    font-size: 17px;
+    font-weight: bold;
+    
+    color: white;
+    cursor: pointer;
 }
 
 .myPage-subTitle>a>img{

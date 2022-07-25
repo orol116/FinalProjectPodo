@@ -142,7 +142,11 @@ public class AdminController {
 		return "redirect:"+path;
 	}
 	
-	
+		// footer FAQ
+		@GetMapping("/faq")
+		public String faq() {
+			return "/admin/faq";
+		}
 	
 	
 	

@@ -22,6 +22,9 @@
     width:100%;
     margin:0 0 10px 0;
     font-size: 30px;
+    padding-bottom: 20px;
+    
+    border-bottom: 1px solid rgb(52, 52, 52);
 }
 
 .myPage-subtitle{
@@ -268,7 +271,7 @@ form[name="myPage-form"]{
  section#content div.goodsName { padding:10px 0; text-align:center; }
  section#content div.goodsName a { color:#000; }
  */
- section#content ul li { margin:10px 0; }
+ section#content ul li { margin:30px 0; }
  section#content ul li img { width:200px; height:200px; }
  section#content ul li p img { width:25px; height:25px; }
  section#content ul li::after { content:""; display:block; clear:both; }
@@ -304,4 +307,17 @@ form[name="myPage-form"]{
 
 .fav-list{
     border-bottom: 1px solid rgb(226, 226, 242);
+}
+
+
+/* .fav-count > div{
+    border-bottom: 1px solid rgb(92, 92, 92);
+} */
+
+
+
+.fav-count > div > span{
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(155, 89, 182);
 }

@@ -33,7 +33,11 @@ mychat/* 본문 영역 */
     width: 270px;
     height: 77vh;
     /* border: 1px solid #ebebeb; */
-    border: 1px solid #000;/* 가시성을 위한 test용 */
+    border: 1px solid #c7c7c7;
+    
+    /* 가시성을 위한 test용 */
+    /* border: 1px solid #000; */
+
     background-color: #ddd;
     margin: 20px 20px 0 0;
     float: left;
@@ -70,7 +74,11 @@ mychat/* 본문 영역 */
     width: 686px;
     height: 77vh;
     /* border: 1px solid #ebebeb; */
-    border: 1px solid #000;/* 가시성을 위한 test용 */
+    border: 1px solid #c7c7c7;
+    
+    /* 가시성을 위한 test용 */
+    /* border: 1px solid #000; */
+
     background-color: #fff;
     float: right;
     margin: 20px 0 165px;
@@ -79,64 +87,77 @@ mychat/* 본문 영역 */
 
 /* 채팅창 태그 */
 .chat-header{
-    margin: 0;
-    border: 0;
-    vertical-align: baseline;
-    font-weight: 400;
-    color: #333;
-    font-family: 돋움,Dotum,Arial;
-    border-bottom: 1px solid #ebebeb;
+    display: block;
     padding: 15px 20px;
-    height: 50px;
+    height: 80px;
+    border-bottom: 1px solid #c7c7c7;
+    
+    /* 
+    letter-spacing: -1px;
+    color: rgb(30, 29, 41);
+    word-break: break-all;
+    box-sizing: border-box;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 12px 20px;
+    border-bottom: 1px solid #ebebeb; */
 }
 
 /* 채팅창 헤더의 a태그 */
 .chat-header a{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    font-weight: 400;
-    color: #333;
-    font-family: 돋움,Dotum,Arial;
     text-decoration: none;
 }
 
+/* 헤더 프로필 이미지 박스 영역 */
+.image-box{
+    float: left;
+    cursor: pointer;
+}
+
+#boardimg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* 헤더 프로필 정보 영역 */
+.info{
+    float: left;
+    display: table;
+    cursor: pointer;
+}
+
+
 /* 신고 영역 */
 .declaration{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    font-weight: 400;
-    color: #333;
-    font-family: 돋움,Dotum,Arial;
     float: right;
     display: table;
 }
 
 .declaration div{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-weight: 400;
-    color: #333;
-    font-family: 돋움,Dotum,Arial;
     height: 50px;
     display: table-cell;
     vertical-align: middle;
 }
 
 .declaration img{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    font-weight: 400;
-    color: #333;
-    font-family: 돋움,Dotum,Arial;
     width: 18px;
     cursor: pointer;
+}
+
+/* 모달 리스트 */
+#spreadBtn04{
+    float: right;
+}
+
+.icon-emo-sunglasses > img{
+    width: 18px;
+    cursor: pointer;    
 }
 
 /* 채팅 전송 영역 */
@@ -189,7 +210,7 @@ mychat/* 본문 영역 */
     cursor: pointer;
     outline: 0;
     color: #fff;
-    background-color: #0484f6;
+    background-color: rgb(144, 5, 195);
     border-radius: 3px;
     font-size: 15px;
     font-weight: 700;
@@ -333,81 +354,65 @@ mychat/* 본문 영역 */
 
 
 
-/* 채팅창 관련 */
-.chatting-area{ 
-		margin:auto;
-		height: 600px;  
-		width : 800px;
-		margin-top: 50px;
-		margin-bottom: 50px;
-		}
-	.display-chatting{
-		width: 100%;
-		height: 450px;
-		border : 1px solid black;
-		overflow: auto;
-		list-style : none;
-		padding : 10px 10px;
-	}
 
-	.chat{
-		display: inline-block;
-		border-radius: 5px;
-		padding : 5px;
-		background-color: #eee;
-	}
+.chat{
+    display: inline-block;
+    border-radius: 5px;
+    padding : 5px;
+    background-color: #eee;
+}
 
 
-	.input-area{
-		width: 100%;
-		display: flex;
-	}
-
-	#inputChatting{
-		width : 80%;
-		resize : none;
-	}
-
-	#send{
-		width : 20%;
-	}
-
-	.myChat{
-		text-align: right;
-	}
-
-	.myChat > p{
-		/* background-color: yellow; */
-        background-color: rgb(131, 4, 177);
-        color: white;
-        
-	}
-
-	.chatDate{
-		font-size: 9px;
-	}
-
-	#exit-area{
-		text-align: right;
-		margin-bottom : 10px;
-	}
-
-
-	.exit{
-		text-align: center;
-	}
-
-	.exit > p{
-		background-color: rgba(0,0,0, 0.3);
-	}
-
-
-  .chat-exit{
+.input-area{
     width: 100%;
-    text-align: center;
-    background-color: black;
+    display: flex;
+}
+
+#inputChatting{
+    width : 80%;
+    resize : none;
+}
+
+#send{
+    width : 20%;
+}
+
+.myChat{
+    text-align: right;
+}
+
+.myChat > p{
+    /* background-color: yellow; */
+    background-color: rgb(131, 4, 177);
     color: white;
-  } 
+    
+}
+
+.chatDate{
+    font-size: 9px;
+}
+
+#exit-area{
+    text-align: right;
+    margin-bottom : 10px;
+}
+
+
+.exit{
+    text-align: center;
+}
+
+.exit > p{
+    background-color: rgba(0,0,0, 0.3);
+}
+
+
+.chat-exit{
+width: 100%;
+text-align: center;
+background-color: black;
+color: white;
+} 
   
   
 .chatList{
