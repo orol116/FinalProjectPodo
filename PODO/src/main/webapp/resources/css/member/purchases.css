@@ -30,7 +30,7 @@ body{
     color: black;
      font-weight:8px ;
 }
-#mainMenu>:nth-child(2){
+#mainMenu>:nth-child(3){
     font-weight: 600;
     color: rgb(95, 0, 129);
 }
