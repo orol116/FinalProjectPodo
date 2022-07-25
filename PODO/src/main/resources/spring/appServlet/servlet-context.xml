@@ -54,11 +54,15 @@
 	<task:annotation-driven/>
 	
 	<beans:bean id="chatHandler" class="edu.kh.podo.chat.model.websocket.ChatWebSocketHandler" />
+	
+	<beans:bean id="myHandler" class="edu.kh.podo.alarm.model.websocket.WebSocketHandler" />
 
 	<websocket:handlers>
 
 		<!-- 웹소켓 요청(주소)을 처리할 bean 지정 -->
 		<websocket:mapping handler="chatHandler" path="/chat" />
+		
+		<websocket:mapping handler="myHandler" path="/alarm" />
 
 		<websocket:handshake-interceptors>
 			<!-- interceptor : http 통신에서 req, resp 가로채는 역할 handshake-interceptors 
