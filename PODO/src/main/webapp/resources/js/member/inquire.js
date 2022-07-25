@@ -87,3 +87,29 @@ function writeValidate(){
 
     return true;
 }
+
+
+
+// 알람 보내기
+document.getElementById("submit").addEventListener("click", sendAlarm);
+
+function sendAlarm(){
+
+	const inputText = document.getElementById('textarea');
+    console.log(inputText);
+
+    // 입력이 된 경우
+    // 메세지 입력 시 필요한 데이터를 js객체로 생성
+    const alramMessage ={
+        "memberNo" :memberNo ,
+        "memberId": memberId,
+        "alarmContent":inputText.value
+    };
+
+    console.log(alramMessage);
+
+    // console.log(JSON.stringify(chatMessage));
+
+    socket.send(JSON.stringify(alramMessage));
+
+};

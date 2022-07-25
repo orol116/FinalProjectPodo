@@ -5,6 +5,10 @@
 <c:set var="MCategory" value="${MCategoryList}" />
 
 <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<!-- jQuery 라이브러리 추가 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 <script>
     const contextPath = "${contextPath}";
     const mcNo = "${param.mCategoryNo}";
@@ -14,8 +18,7 @@
 <header>
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
-
-
+   
     
     <div id="top">
         <c:choose>
@@ -39,6 +42,8 @@
                 <img src="${contextPath}/resources/images/logo.png" id="home-logo">
             </a>
         </section>
+
+        <div id="socketAlert" ></div>
         
         <form action="main" method="get" id="boardSerch" onclick="return searchValidate()"> 
             <section class="mid-header">
@@ -94,7 +99,10 @@
         </ul>
     </div>
     
-	 <script>
+
+    </div>
+</header>
+	<script>
        // 검색창 유효성 검사
        function searchValidate(){
 
@@ -109,9 +117,49 @@
 
             return true;
        }
+   
+        const memberNo = "${loginMember.memberNo}";
+		const memberId = "${loginMember.memberId}";
+		const memberNickname = "${loginMember.memberNickname}";
+        
 
+
+        //소켓
+        $(document).ready(function(){
+            if(${loginMember != null}){
+                connectWs();
+            }
+        })
+
+
+        function connectWs(){
+            console.log("tttttt")
+            let ws = new SockJS(contextPath+"/alarm");
+            socket = ws;
+
+            ws.onopen = function() {
+                console.log('open');
+            };
+
+            ws.onmessage = function(event) {
+                console.log("onmessage"+event.data);
+                // const alarmMessage = JSON.parse(event.data); // JSON에서 JS 객체로 변환한다!!
+
+                let $socketAlert = $('div#socketAlert');
+		        $socketAlert.html(event.data)
+                socketAlert.setAttribute('display', 'block');
+                
+                setTimeout(function(){
+                      $socketAlert.html("")
+                }, 5000);
+            };
+
+            ws.onclose = function() {
+                console.log('close');
+            };
+        };
+        //소켓끝
+
+    
     </script> 
-
-    </div>
-</header>
    
