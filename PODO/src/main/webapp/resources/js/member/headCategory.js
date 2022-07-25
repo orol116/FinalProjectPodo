@@ -37,16 +37,14 @@ subCategoryName.forEach((target) => target.addEventListener("click", categoryFun
 };
  */
 
- 
+  var mCategoryName; 
 
 function categoryFunction(){   
 
     let mCategoryNo = this.getAttribute("id");
     mCategoryNo = mCategoryNo.replace("s-","");
     
-    let name = this.innerText;
-
-    console.log(name);
+     mCategoryName = this.getAttribute("name");
 
     if( document.getElementsByClassName("frame")[0] == undefined){
 
@@ -60,21 +58,28 @@ function categoryFunction(){
         input.setAttribute("name", "mCategoryNo");
         input.setAttribute("value", mCategoryNo);
 
+        const inputName = document.createElement("input");
+        inputName.setAttribute("type", "hidden");
+        inputName.setAttribute("name", "mCategoryName");
+        inputName.setAttribute("value", mCategoryName);
+
         const footer = document.getElementsByTagName("footer")[0];
         
-        form.append(input);
+        form.append(input,inputName);
+        
         footer.append(form);
         form.submit();
 
     }else{
-        selectList(mCategoryNo);
+        selectList(mCategoryNo, mCategoryName);
     }
 };
    
 
 
 
-function selectList(mCategoryNo, name){
+function selectList(mCategoryNo, mCategoryName){
+
     $.ajax({
         url : contextPath + "/selectCategory",  
         data : { "mCategoryNo" : mCategoryNo }, 
@@ -83,9 +88,6 @@ function selectList(mCategoryNo, name){
  
         success : function(itemList){ 
             if (itemList.length != 0) {
-                const nameArea = document.getElementById("name-area");
-                nameArea.innerText = name;
-                document.getElementById("categoryName-space").append(nameArea);
 
                  document.getElementById("items-section").innerHTML = "";
                 let frame;
@@ -151,10 +153,15 @@ function selectList(mCategoryNo, name){
                 
             } else {
 
+                const nameArea = document.createElement("div");
+                nameArea.id = "name-area";
+                nameArea.innerText = mCategoryName;
+                document.getElementById("categoryName-space").append(nameArea);
+
                 document.getElementById("items-section").innerHTML = "";
                 frame = document.createElement("div");
                 frame.classList.add("frame");
-                frame.innerText = "게시글이 존재하지 않습니다아아아아아." +mCategoryNo ;
+                frame.innerText = "게시글이 존재하지 않습니다." +mCategoryNo ;
                 
 
                 document.getElementById("items-section").append(frame);
@@ -172,15 +179,6 @@ function selectList(mCategoryNo, name){
     });  
 }
 
-
-
-/* 
-
-
-for (var i = 0; i < categoryName.length; i++) {
-    categoryName[i].addEventListener('click', categoryFuncion);
-}
- */
 
 
 

@@ -46,9 +46,8 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
-    <div id="categoryName-space">
-    </div>
-
+    <div id="categoryName-space"></div>
+    ${param.mCategoryName}
     <section id="items-section">
             
         <c:choose>

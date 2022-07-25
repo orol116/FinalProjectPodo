@@ -64,11 +64,16 @@ function carousel() {
           div = document.createElement('div')
           div.classList.add('box')
           div.setAttribute('id', res.boardNo)
+          div.style.width = "220px";
+          div.style.flexBasis = "0";
+          div.style.marginLeft = "4.5px";
+          
           frame.appendChild(div);
 
           a = document.createElement('a');
           a.setAttribute('href',contextPath+'/board/detail/'+res.boardNo)
-          a.classList.add('title')
+          a.classList.add('title');
+          a.style.width ="223.02px";
           div.append(a);
 
           divImg = document.createElement('div');
