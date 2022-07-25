@@ -63,26 +63,30 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		
 		if (result>0) {
 			
-			String boardWriter = alarmMessage.getMemberId();
-			String boardLink = alarmMessage.getBoardLink();
-			
-			String admin = "test01";
-			
+			if(alarmMessage.getBoardName().equals("inquire")) {
+				
+				
+				String boardWriter = alarmMessage.getMemberId();
+				String boardLink = alarmMessage.getBoardLink();
+				
+				String admin = "test01";
+				
 //			WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
-			WebSocketSession adminSession = userSessionsMap.get(admin);
-			
-			logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
-			logger.info("adminSession = "+adminSession);
-			
-			if ( adminSession != null) {
-				logger.info("onmessage되나?");
-				TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
-						+ "<strong>문의를 작성하였습니다.</strong></a>");
-				adminSession.sendMessage(tmpMsg);
+				WebSocketSession adminSession = userSessionsMap.get(admin);
+				
+				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
+				logger.info("adminSession = "+adminSession);
+				
+				// 실시간 접속 시 
+				if ( adminSession != null) {
+					logger.info("onmessage되나?");
+					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
+							+ "<strong>문의를 작성하였습니다.</strong></a>");
+					adminSession.sendMessage(tmpMsg);
+				}
 			}
 		}
 			
-		
 	}
 	
 	@Override
@@ -91,6 +95,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		sessions.remove(session);
 	}
 	
+	// 세션에서 유저 아이디를 가져오는 메소드
 	private String currentUserId(WebSocketSession session) {
 		Map<String, Object> httpSession = session.getAttributes();
 		Member loginUser = (Member)httpSession.get("loginMember");

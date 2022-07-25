@@ -18,7 +18,7 @@
 	</selectKey>
   
   	INSERT INTO ALARM VALUES(
-  		#{alarmNo}, #{alarmContent}, sysdate, #{memberNo}, null
+  		#{alarmNo}, #{alarmContent}, SYSDATE, #{memberNo}, null, #{boardName}
   	)
   </insert>
   

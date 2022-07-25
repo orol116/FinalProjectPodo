@@ -18,6 +18,7 @@ public class Alarm {
 	private String boardLink;
 	private Date alarmTime;
 
+	private String boardName;
 	private int boardNo;
 	private String memberId;
 	private int memberNo;

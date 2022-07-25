@@ -130,15 +130,13 @@
 
                 return false;
             }
-
             return true;
        }
-   
+
         const memberNo = "${loginMember.memberNo}";
 		const memberId = "${loginMember.memberId}";
 		const memberNickname = "${loginMember.memberNickname}";
         
-
 
         //소켓
         $(document).ready(function(){
