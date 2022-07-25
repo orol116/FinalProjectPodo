@@ -24,6 +24,8 @@ document.getElementById("do-bookmark").addEventListener("click", function(){
 });
 
 
+
+
 // 전체 선택
 function selectAll(selectAll)  {
   const selects = document.getElementsByName('select');
@@ -71,12 +73,10 @@ deleteAll.onclick = () => {
 
             console.log(favBoard);
 
-            if( loginMemberNo == board.memberNo ){
-                const deleteBtn = document.createElement("button");
-                deleteBtn.innerText="삭제";
+            console.log(data.boardImageList[0].imageReName);
 
-                deleteBtn.setAttribute("onclick", "deleteBoard("+board.boardNo+")");
-            }
+			var img = document.getElementById("boardimg");
+			img.src = contextPath + data.boardImageList[0].imageReName;
 
         },
         error : function(req, status, error){
@@ -84,8 +84,8 @@ deleteAll.onclick = () => {
         }
     });
     
-}
- */
+} */
+
 // 찜 삭제
 function deleteOne(boardNo){
     if(confirm("찜 목록에서 삭제 하시겠습니까?")){
