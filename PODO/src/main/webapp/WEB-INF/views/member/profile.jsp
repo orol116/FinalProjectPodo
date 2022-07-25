@@ -43,13 +43,13 @@
                         </div>
                         <div>
                             <%-- <button id="chatting">1대1 채팅하기</button> --%>
-                            <form class="openChat" id="openChat" method="POST" action="${contextPath}/member/podoTalk">
+                            <!-- <form class="openChat" id="openChat" method="POST" action="${contextPath}/member/podoTalk">
                                 <c:if test="${!empty loginMember }">
                                     <div class="btn-area">
                                         <button id="chatting">1대1 채팅하기</button>
                                     </div>
                                 </c:if>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
 
