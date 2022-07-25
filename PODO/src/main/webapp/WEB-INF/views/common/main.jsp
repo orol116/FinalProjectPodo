@@ -47,9 +47,9 @@
     </div>
 
     
-    <div id="categoryName-space"></div>
+    <div id="categoryName-space"></div><%-- main에서 ajax 받는 부분 --%> 
     
-    <div id="mainName-space">${param.mCategoryName}</div>
+    <div id="mainName-space">${param.mCategoryName}</div> 
 
     <section id="items-section">
             
