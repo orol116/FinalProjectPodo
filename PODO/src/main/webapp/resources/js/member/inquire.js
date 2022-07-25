@@ -104,6 +104,7 @@ function sendAlarm(){
         "memberNo" :memberNo ,
         "memberId": memberId,
         "alarmContent":inputText.value,
+        "boardName":"inquire"
         // "boardLink":boardLink
     };
 
