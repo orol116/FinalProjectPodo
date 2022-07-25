@@ -42,6 +42,7 @@ public class ChatServiceImpl implements ChatService {
 		
 		// 채팅방 내 판매글 정보를 위한 보드 넘버 얻어오기
 		int boardNo = dao.selectBN(chatNo);
+		map.put("boardNo", boardNo);
 		
 		// 판매글 정보
 		List<ItemBoard> itemList = boardDao.selectItem(boardNo);
@@ -57,10 +58,19 @@ public class ChatServiceImpl implements ChatService {
 		
 		// 채팅 정보 조회 (대화 내용 / 시간만)
 		List<ChatList> chatContent = dao.selectOtherDetail(map);
-		
 		rtMap.put("boardNo", boardNo);
 		rtMap.put("chatNo", chatNo);
 		rtMap.put("chatContent", chatContent);
+		
+		// 후기 작성 유효성 검사를 위한 js 파라미터 구하기
+		int sellMemNo = dao.selectWhoIsSeller(boardNo);
+		String condition = dao.selectBoardCondition(boardNo);
+		int finReview = dao.selectFinReview(map);
+		rtMap.put("sellMemNo", sellMemNo);
+		rtMap.put("condition", condition);
+		rtMap.put("reviewCount", finReview);
+		
+		
 		
 		return rtMap;
 	}
@@ -108,13 +118,13 @@ public class ChatServiceImpl implements ChatService {
 		return dao.insertMessage(chatMessage);
 	}
 
-	// 채팅방 삭제(나가기)
+	// 채팅방 삭제(나가기) Service 구현
 	@Override
 	public int deleteChat(int chatNo) {
 		return dao.deleteChat(chatNo);
 	}
 
-	// 채팅방 내 Service 구현
+	// 채팅방 내 후기 작성 Service 구현
 	@Override
 	public int writeReview(int memberNo, String report, int otherMemNo, int boardNo) {
 		

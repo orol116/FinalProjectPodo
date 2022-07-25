@@ -144,7 +144,7 @@
                             </span>
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()">나가기</button>
-                                <button type="button" onclick="tradeCondition()">판매완료하기</button>
+                                <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
                                 <button type="button" id="reviewWrt">후기 작성하기</button>
                             </ul>
 

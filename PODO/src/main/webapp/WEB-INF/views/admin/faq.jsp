@@ -28,10 +28,10 @@
 
                     <div id="FAQ-main">
                         <div id="select-area">
-                            <button class="selectBtn" onclick="location.href='/SemiProjectAchieve/FAQ/firstFAQ'">운영정책</button>
-                            <button class="selectBtn" onclick="location.href='/SemiProjectAchieve/FAQ/secondFAQ'">계정/인증</button>
-                            <button class="selectBtn" onclick="location.href='/SemiProjectAchieve/FAQ/thirdFAQ'">구매/판매</button>
-                            <button class="selectBtn" onclick="location.href='/SemiProjectAchieve/FAQ/thirdFAQ'">본인인증</button>
+                            <button class="selectBtn" onclick="location.href='${contextPath}/podo/admin/faq=1'">운영정책</button>
+                            <button class="selectBtn" onclick="location.href='${contextPath}/podo/admin/faq=2'">계정/인증</button>
+                            <button class="selectBtn" onclick="location.href='${contextPath}/podo/admin/faq=3'">구매/판매</button>
+                            <button class="selectBtn" onclick="location.href='${contextPath}/podo/admin/faq=4'">본인인증</button>
                         </div>
 
                         <%-- <c:forEach var="faq" items="${FAQList}"> --%>

@@ -121,4 +121,20 @@ public class ChatDAO {
 		return sqlSession.insert("chatMapper.writeReview", map);
 	}
 
+	/** 판매중인지 완료되었는지 조회 DAO
+	 * @param boardNo
+	 * @return condition
+	 */
+	public String selectBoardCondition(int boardNo) {
+		return sqlSession.selectOne("chatMapper.selectCondition", boardNo);
+	}
+
+	/** 후기를 작성했는지 검사
+	 * @param map
+	 * @return finReview
+	 */
+	public int selectFinReview(Map<String, Object> map) {
+		return sqlSession.selectOne("chatMapper.selectFinReview", map);
+	}
+
 }
