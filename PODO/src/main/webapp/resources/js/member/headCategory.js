@@ -64,11 +64,13 @@ function categoryFunction(){
         inputName.setAttribute("value", mCategoryName);
 
         const footer = document.getElementsByTagName("footer")[0];
+
         
         form.append(input,inputName);
         
         footer.append(form);
         form.submit();
+        
 
     }else{
         selectList(mCategoryNo, mCategoryName);
@@ -80,6 +82,23 @@ function categoryFunction(){
 
 function selectList(mCategoryNo, mCategoryName){
 
+    const nameSpace =  document.getElementById("categoryName-space");
+    
+
+    if(nameSpace != ""){ // main화면에서 ajax로 가져올때 nameSpace 2개 생기는거 방지
+    
+    nameSpace.innerHTML = "";
+
+    const nameArea = document.createElement("div");
+    nameArea.id = "name-area";
+    nameArea.innerText = mCategoryName;
+    nameSpace.append(nameArea);
+  
+    }
+
+
+
+       
     $.ajax({
         url : contextPath + "/selectCategory",  
         data : { "mCategoryNo" : mCategoryNo }, 
@@ -87,6 +106,7 @@ function selectList(mCategoryNo, mCategoryName){
         dataType : "JSON",
  
         success : function(itemList){ 
+
             if (itemList.length != 0) {
 
                  document.getElementById("items-section").innerHTML = "";
@@ -152,12 +172,7 @@ function selectList(mCategoryNo, mCategoryName){
                 }
                 
             } else {
-
-                const nameArea = document.createElement("div");
-                nameArea.id = "name-area";
-                nameArea.innerText = mCategoryName;
-                document.getElementById("categoryName-space").append(nameArea);
-
+                
                 document.getElementById("items-section").innerHTML = "";
                 frame = document.createElement("div");
                 frame.classList.add("frame");

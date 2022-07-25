@@ -46,8 +46,11 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
+    
     <div id="categoryName-space"></div>
-    ${param.mCategoryName}
+    
+    <div id="mainName-space">${param.mCategoryName}</div>
+
     <section id="items-section">
             
         <c:choose>
@@ -64,11 +67,6 @@
             </c:when>
     
             <c:otherwise>
-
-                <div id="items-button-area">
-                    <button id="sales-items">판매중인 상품만 보기</button>
-                    <button id="complete-items">판매 완료된 보기</button>
-                </div>
 
                 <div id="itmes">
                     <h2 style="margin:0;">이번주 상품 추천</h2>
