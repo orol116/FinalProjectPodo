@@ -46,18 +46,145 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
-    <div>
-        <div id="categoryName-space" class="nameSpace"></div><%-- main에서 ajax 받는 부분 --%> 
         
-        <div id="mainName-space" class="nameSpace">${param.mCategoryName}</div>
+        <div id="categoryName-space"></div><%-- main에서 ajax 받는 부분 --%> 
         
+        <div id="mainName-space" >${param.mCategoryName}</div>
 
-        <div id="items-button-area">
+<%--         <div id="items-button-area">
             <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
-            <button id="complete-items" type="button" class="showBtn">판매 완료된 보기</button>
-        </div>
-    </div>
+
+        </div> --%>
     <section id="items-section">
+
+        <c:choose>
+            <c:when test="${empty itemList}">
+
+                <div>
+                    <div class="frame">
+                        
+                        <!-- 게시글 목록 조회 결과가 비어있다면 -->
+                        게시글이 존재하지 않습니다.
+                    </div>
+                </div>
+            
+            </c:when>
+   
+            <c:otherwise>
+
+                <div id="itmes">
+                    <h2 style="margin:0;">이번주 상품 추천</h2>
+                </div>
+
+                <c:forEach var="item" items="${itemList}" begin="0" end="9" step="1" varStatus="vs">
+               
+                    <c:if test="${ vs.index % 5 eq 0}">
+                        <div class="frame" >
+                    </c:if>
+
+                            <div class="box" id="${item.boardNo}">
+                                <a href="${contextPath}/board/detail/${item.boardNo}"  class="title">
+                                    <div class="image">
+                                        <c:choose>
+
+                                            <c:when test="${!empty item.img.imageReName}">
+
+                                                <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
+
+                                            </c:when>
+
+                                            <c:otherwise>
+
+                                                <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>   
+                                    
+                                    <div class="title1">
+                                        <div class="name1">
+                                            <div class="title2">${item.boardTitle}</div>
+                                            <div class="state">${item.tradeCondition}</div>
+                                        </div>
+                                        <div class="name2">
+                                            <div class="price">${item.price}원</div>
+                                            <div class="time">${item.updateDate}</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                          
+                    <c:if test="${ vs.index % 5 eq 4}">
+                        </div>
+                    </c:if>
+                    
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
+
+
+                <c:choose>
+            <c:when test="${empty itemList}">
+
+                <div>
+                    <div class="frame">
+                        
+                        <!-- 게시글 목록 조회 결과가 비어있다면 -->
+                        게시글이 존재하지 않습니다.
+                    </div>
+                </div>
+            
+            </c:when>
+   
+            <c:otherwise>
+
+                <div id="itmes">
+                    <h2 style="margin:0;">이번주 상품 추천</h2>
+                </div>
+
+                <c:forEach var="item" items="${itemList}" begin="0" end="9" step="1" varStatus="vs">
+               
+                    <c:if test="${ vs.index % 5 eq 0}">
+                        <div class="frame" >
+                    </c:if>
+
+                            <div class="box" id="${item.boardNo}">
+                                <a href="${contextPath}/board/detail/${item.boardNo}"  class="title">
+                                    <div class="image">
+                                        <c:choose>
+
+                                            <c:when test="${!empty item.img.imageReName}">
+
+                                                <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
+
+                                            </c:when>
+
+                                            <c:otherwise>
+
+                                                <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>   
+                                    
+                                    <div class="title1">
+                                        <div class="name1">
+                                            <div class="title2">${item.boardTitle}</div>
+                                            <div class="state">${item.tradeCondition}</div>
+                                        </div>
+                                        <div class="name2">
+                                            <div class="price">${item.price}원</div>
+                                            <div class="time">${item.updateDate}</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                          
+                    <c:if test="${ vs.index % 5 eq 4}">
+                        </div>
+                    </c:if>
+                    
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
             
         <c:choose>
             <c:when test="${empty itemList}">
@@ -71,7 +198,7 @@
                 </div>
             
             </c:when>
-    
+   
             <c:otherwise>
 
                 <div id="itmes">

@@ -44,7 +44,7 @@ function show() {
 
 
 
-  itemCategory.addEventListener("click", selectItemsList);
+/*   itemCategory.addEventListener("click", selectItemsList);
 
 
 function selectItemsList() {
@@ -97,8 +97,7 @@ function selectItemsList() {
                     itembox.classList.add("box");
                     itembox.style.margin = "10px 15px 10px 15px";
                     itembox.style.paddingLeft = "2px";
-                    /* const boxNumber = 1;
-                    boxNumber++; */
+                 
 
                     const mainTitle = document.createElement("a");
                     mainTitle.classList.add("title");
@@ -158,7 +157,7 @@ function selectItemsList() {
     });
 
 }
-
+ */
 
   
 
