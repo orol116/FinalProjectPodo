@@ -1,7 +1,6 @@
 var chattingNo = 0;
 var boardNo1 = 0;
 var otherMemNo = 0;
-
 var reviewCount = 0;
 
 
@@ -10,14 +9,15 @@ function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
-	
-	/* var bg = document.getElementsByClassName("chatList");
+
+	var bg = document.getElementsByClassName("chatDiv");
+
 	for(var i=0; i<bg.length; i++){
 		bg[i].style.backgroundColor="rgb(144, 5, 195)";
-	} */
+	}
 
-	$("chatDiv").removeClass();
-	$(this).addClass("on");
+	/* $("chatDiv").removeClass();
+	$(this).addClass("on"); */
 
 	/* document.getElementsByClassName("chatDiv");	
 	$(this).style.backgroundColor="rgb(144, 5, 195)"; */
@@ -32,11 +32,8 @@ function listClickFn(chatNo) {
 
 		success : function(data) {
 
-			
-
 			console.log(data);
 			
-
 			// // 이미지 연결
 			console.log(data.boardImageList[0].imageReName);
 

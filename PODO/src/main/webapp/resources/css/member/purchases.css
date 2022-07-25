@@ -1,7 +1,7 @@
 body * {
     box-sizing: border-box;
     font-weight: normal;
-    color: rgb(30, 29, 41);
+    /* color: rgb(30, 29, 41); */
     outline: 0px;
     font-size: 16px;
 }
@@ -46,8 +46,8 @@ div{
 
 /* 거래내역 */
 .pageHeader{
-    display: block;
-    
+    /* display: block; */
+    display: contents;
     flex-shrink: 0;
     flex-basis: 5rem;
     line-height: 5rem;
@@ -60,6 +60,7 @@ div{
 
 /* 거래내역 h1 헤더 */
 .pageHeader h1 {
+    
     font-size: 1.125rem;
     font-weight: bold;
 }
