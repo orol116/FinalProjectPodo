@@ -133,7 +133,7 @@ form[name="myPage-form"]{
 
 
 /* 검색 버튼  */
-#info-address-btn{
+#btnPush{
     /* width: 30%;
     height: 70%;
     font-size: 14px;
@@ -155,7 +155,7 @@ form[name="myPage-form"]{
 
 }
 
-#info-address-btn:hover{
+#btnPush:hover{
     background-color: white;
     color:rgb(155, 89, 182);
     border: 1px solid rgb(39,39,91);
@@ -258,3 +258,27 @@ form[name="myPage-form"]{
 .btnPurple.btnPush:hover {
     box-shadow: 0px 0px 0px 0px #6D184B;
 }    */
+
+
+.btnPush{
+    height: 50px;
+    width: 700px;
+    /* padding: 10px; */
+    margin: 50px 0;
+    border: 1px solid rgb(155, 89, 182);
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(155, 89, 182);
+    color: white;
+    cursor: pointer;
+}
+
+.btnPush:hover{
+    background-color: white;
+    color:rgb(155, 89, 182);
+    border: 1px solid rgb(39,39,91);
+    background: #fff;
+    transition: color 0.5s ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+}

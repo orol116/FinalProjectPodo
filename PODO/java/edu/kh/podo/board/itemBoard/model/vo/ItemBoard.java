@@ -34,6 +34,7 @@ public class ItemBoard {
 	private int bookmarkCount;
 	private String mCategoryName;
 	private String lCategoryName;
+	private String imageReName;
 	
 	private List<BoardImage> imageList;
 	

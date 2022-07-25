@@ -109,7 +109,7 @@
 	<insert id="insertBoardImageList" parameterType="list" >
 		
 		INSERT INTO BOARD_IMG
-			SELECT SEQ_IMG_NO.NEXTVAL IMG_NO, A.* FROM(
+			SELECT SEQ_IMG_NO.NEXTVAL IdLatO, A.* FROM(
 			
 				<foreach collection="list" item="img" separator="UNION ALL" >
 					SELECT 			#{img.imageReName} IMG_RENAME,

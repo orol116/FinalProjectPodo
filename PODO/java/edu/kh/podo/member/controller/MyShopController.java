@@ -61,9 +61,7 @@ public class MyShopController {
 		int boardCount = service.selectBoardCount(memberNo);
 		paramMap.put("boardCount", boardCount);
 		
-		Map<String, Object> map = null;
-		
-		map = service.selectManageItem(paramMap);
+		Map<String, Object> map = service.selectManageItem(paramMap);
 		
 		model.addAttribute("map", map);
 		
@@ -100,8 +98,6 @@ public class MyShopController {
 		
 		int reviewCount = service.selectReviewCount(memberNo);
 		model.addAttribute("reviewCount", reviewCount);
-		
-		
 		
 		return "member/profile";
 	}
@@ -158,5 +154,12 @@ public class MyShopController {
 	@ResponseBody
 	public int itemManage(int boardNo) {
 		return service.updateDate(boardNo);
+	}
+	
+	// 구매/판매 내역 조회 ajax
+	@GetMapping("/myMall/selectList")
+	@ResponseBody
+	public String selectList(int memberNo, int type) {	
+		return new Gson().toJson(service.selectList(memberNo, type));
 	}
 }

@@ -8,19 +8,30 @@ var reviewCount = 0;
 function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
-	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
+	
+	/* 채팅 목록 클릭 시 배경색 변경 card-box > chatdiv */
+	/* function handleClick(event) {
+	console.log(event.target);
+	console.log(event.target.classList);
 
-	var bg = document.getElementsByClassName("chatDiv");
+		if (event.target.classList[1] === "clicked") {
+			event.target.classList.remove("clicked");
+		} else {
+			for (var i = 0; i < chatdiv.length; i++) {
+				chatdiv[i].classList.remove("clicked");
+		}
+			cardbox.classList.add("clicked");
+			event.target.classList.add("clicked");
 
-	for(var i=0; i<bg.length; i++){
-		bg[i].style.backgroundColor="rgb(144, 5, 195)";
+		}
 	}
 
-	/* $("chatDiv").removeClass();
-	$(this).addClass("on"); */
-
-	/* document.getElementsByClassName("chatDiv");	
-	$(this).style.backgroundColor="rgb(144, 5, 195)"; */
+	function init() {
+		for (var i = 0; i < chatdiv.length; i++) {
+			chatdiv[i].addEventListener("click", handleClick);
+		}
+	}
+	init(); */
 	
 	console.log(chatNo);
 
@@ -106,9 +117,9 @@ function listClickFn(chatNo) {
 
 /* (function(){
 
-	$(".card-box").click(function(){
+	$(".chatdiv").click(function(){
 
-		var bg = document.getElementsByClassName("card-box");
+		var bg = document.getElementsByClassName("chatdiv");
 		bg.style.backgroundColor='red';
 		
 	});

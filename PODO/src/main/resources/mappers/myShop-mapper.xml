@@ -24,6 +24,7 @@
 		<result property="categoryNo" column="M_CATEGORY_NO" />
 		<result property="buyMemberNo" column="BUY_MEMBER_NO" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
+		<result property="imageReName" column="IMG_RENAME" />
 		
 		<collection property="imageList" column="BOARD_NO" javaType="java.util.ArrayList" ofType="boardImage" select="selectImageList"/> 
 
@@ -112,13 +113,14 @@
 	</select>
 	
 	<select id="selectManageItem" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, TRADE_CONDITION, READ_COUNT, PRICE,
-		UPDATE_DT
-		    
-		FROM ITEM_BOARD
-		WHERE SECESSION_FL = 'N'
+		SELECT A.BOARD_NO, BOARD_TITLE, TRADE_CONDITION, READ_COUNT, PRICE, UPDATE_DT,
+			IMG_RENAME
+		FROM ITEM_BOARD A
+		JOIN BOARD_IMG ON(A.BOARD_NO = BOARD_IMG.BOARD_NO)
+		WHERE IMG_LEVEL = 
+		   (SELECT MIN(IMG_LEVEL) FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
 		AND MEMBER_NO = ${memberNo}
-		ORDER BY BOARD_NO DESC
+		ORDER BY UPDATE_DT DESC
 	</select>
   
 	<select id="selectReviewCount" resultType="_int">
@@ -143,4 +145,37 @@
 		UPDATE_DT = SYSDATE
 		WHERE BOARD_NO = ${boardNo}
 	</update>
+	
+	<!-- 구매/판매 내역 조회 ajax -->
+	<select id="selectList" resultMap="itemBoard_rm">
+		SELECT A.BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT,
+			IMG_RENAME
+		FROM ITEM_BOARD A
+		JOIN BOARD_IMG ON(A.BOARD_NO = BOARD_IMG.BOARD_NO)
+		WHERE IMG_LEVEL = 
+		   (SELECT MIN(IMG_LEVEL) FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
+		   
+		<choose>
+			<when test="type == 1">
+				AND MEMBER_NO = ${memberNo}
+			</when>
+			<when test="type == 2">
+				AND MEMBER_NO = ${memberNo}
+				AND TRADE_CONDITION = '예약 중'
+			</when>
+			<when test="type == 3">
+				AND MEMBER_NO = ${memberNo}
+				AND TRADE_CONDITION = '판매 중'
+			</when>
+			<when test="type == 4">
+				AND MEMBER_NO = ${memberNo}
+				AND TRADE_CONDITION = '판매완료'
+			</when>
+			<when test="type == 5">
+				AND BUY_MEMBER_NO = ${memberNo}
+			</when>
+		
+		</choose>
+		ORDER BY UPDATE_DT DESC
+	</select>
 </mapper>
