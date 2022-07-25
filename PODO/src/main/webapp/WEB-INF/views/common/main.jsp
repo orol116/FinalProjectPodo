@@ -45,13 +45,11 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-1.png"></div>
     </div>
 
+    <div id="categoryName-space">
+    </div>
+
     <section id="items-section">
-    
-        <div id="itmes">
-            <h2 style="margin:0;">이번주 상품 추천</h2>
-        </div>
-   
-        
+            
         <c:choose>
             <c:when test="${empty itemList}">
 
@@ -66,6 +64,16 @@
             </c:when>
     
             <c:otherwise>
+
+                <div id="items-button-area">
+                    <button id="sales-items">판매중인 상품만 보기</button>
+                    <button id="complete-items">판매 완료된 보기</button>
+                </div>
+
+                <div id="itmes">
+                    <h2 style="margin:0;">이번주 상품 추천</h2>
+                </div>
+
                 <c:forEach var="item" items="${itemList}" begin="0" end="19" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">

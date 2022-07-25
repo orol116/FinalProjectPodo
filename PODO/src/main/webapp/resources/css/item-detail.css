@@ -458,9 +458,14 @@ footer {
 #category{
     display: flex;
     flex-direction: row;
+    height: 40px;
+    
 }
 
 
 #category > div{
     margin-right: 60px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
 }
