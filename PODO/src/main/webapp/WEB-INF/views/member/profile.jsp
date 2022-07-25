@@ -43,13 +43,13 @@
                         </div>
                         <div>
                             <%-- <button id="chatting">1대1 채팅하기</button> --%>
-                            <form class="openChat" id="openChat" method="POST" action="${contextPath}/member/podoTalk">
+                            <!-- <form class="openChat" id="openChat" method="POST" action="${contextPath}/member/podoTalk">
                                 <c:if test="${!empty loginMember }">
                                     <div class="btn-area">
                                         <button id="chatting">1대1 채팅하기</button>
                                     </div>
                                 </c:if>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
 
@@ -68,8 +68,10 @@
                         </c:if>
                         
                         <div id="user-cutoff">
-                            <div id="user-intro-change">소개 수정</div>
-                            <div id="item-report">신고/차단하기</div>
+
+                                <div id="user-intro-change">소개 수정</div>
+                                <div id="item-report">신고/차단하기</div>
+                            
                         </div>
 
                         <!-- <%-- 모달창 --%> -->
@@ -137,13 +139,14 @@
 
     </main>
 
-        <script>
+    <script>
         const memberNo = ${memberNo}
 
         const loginMemberNo = "${loginMember.memberNo}"
         const boardNo = "${boardNo}"
 
-        </script>
+        var imageSrc = "${contextPath}/resources/images/user.jpg";
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/member/profile.js"></script>

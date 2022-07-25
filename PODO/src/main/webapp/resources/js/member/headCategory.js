@@ -37,14 +37,14 @@ subCategoryName.forEach((target) => target.addEventListener("click", categoryFun
 };
  */
 
-
-
-
+  var mCategoryName; 
 
 function categoryFunction(){   
 
     let mCategoryNo = this.getAttribute("id");
     mCategoryNo = mCategoryNo.replace("s-","");
+    
+     mCategoryName = this.getAttribute("name");
 
     if( document.getElementsByClassName("frame")[0] == undefined){
 
@@ -58,21 +58,46 @@ function categoryFunction(){
         input.setAttribute("name", "mCategoryNo");
         input.setAttribute("value", mCategoryNo);
 
+        const inputName = document.createElement("input");
+        inputName.setAttribute("type", "hidden");
+        inputName.setAttribute("name", "mCategoryName");
+        inputName.setAttribute("value", mCategoryName);
+
         const footer = document.getElementsByTagName("footer")[0];
+
         
-        form.append(input);
+        form.append(input,inputName);
+        
         footer.append(form);
         form.submit();
+        
 
     }else{
-        selectList(mCategoryNo)
+        selectList(mCategoryNo, mCategoryName);
     }
 };
    
 
 
 
-function selectList(mCategoryNo){
+function selectList(mCategoryNo, mCategoryName){
+
+    const nameSpace =  document.getElementById("categoryName-space");
+    const mainNameSpace = document.getElementById("mainName-space");
+
+    
+
+    if(nameSpace != ""){ // main화면에서 ajax로 가져올때 nameSpace 2개 생기는거 방지
+    
+    nameSpace.innerHTML = "";
+
+    const nameArea = document.createElement("div");
+    nameArea.id = "name-area";
+    nameArea.innerText = mCategoryName;
+    nameSpace.append(nameArea);
+  
+    }
+  
     $.ajax({
         url : contextPath + "/selectCategory",  
         data : { "mCategoryNo" : mCategoryNo }, 
@@ -80,15 +105,10 @@ function selectList(mCategoryNo){
         dataType : "JSON",
  
         success : function(itemList){ 
-            
-            console.log(itemList);
+
             if (itemList.length != 0) {
 
                  document.getElementById("items-section").innerHTML = "";
-
-                console.log("있음");
-                console.log(mCategoryNo);
-                
                 let frame;
                 for (let k = 0; k < itemList.length; k++) {
 
@@ -97,7 +117,6 @@ function selectList(mCategoryNo){
                         frame.classList.add("frame");
                         document.getElementById("items-section").append(frame);
                     }
-
 
                     const itembox = document.createElement("div");
                     itembox.classList.add("box");
@@ -152,20 +171,24 @@ function selectList(mCategoryNo){
                 }
                 
             } else {
+                
 
                 document.getElementById("items-section").innerHTML = "";
                 frame = document.createElement("div");
                 frame.classList.add("frame");
-                frame.innerText = "게시글이 존재하지 않습니다아아아아아." +mCategoryNo ;
+                frame.innerText = "게시글이 존재하지 않습니다." +mCategoryNo ;
                 
 
                 document.getElementById("items-section").append(frame);
-                console.log(mCategoryNo);
                 
             }
              /* document.getElementsByClassName("frame")[0].innerText = "게시글이 존재하지 않습니다.";  */
             /* console.log(mCategoryNo); */
             
+
+            if(mainNameSpace.value != ""){
+                nameSpace.innerText = "";
+            }
            
         },
  
@@ -175,15 +198,6 @@ function selectList(mCategoryNo){
     });  
 }
 
-
-
-/* 
-
-
-for (var i = 0; i < categoryName.length; i++) {
-    categoryName[i].addEventListener('click', categoryFuncion);
-}
- */
 
 
 

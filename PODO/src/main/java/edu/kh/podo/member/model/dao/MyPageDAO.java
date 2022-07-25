@@ -84,6 +84,14 @@ public class MyPageDAO {
 		
 		return sqlSession.insert("myPageMapper.insertDist", distance);
 	}
+
+	/** 찜한 상품 삭제 DAO
+	 * @param map
+	 * @return result
+	 */
+	public int favDel(Map<String, Object> map) {
+		return sqlSession.delete("myPageMapper.favDel", map);
+	}
 	
 
 	

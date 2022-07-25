@@ -125,6 +125,10 @@ mychat/* 본문 영역 */
     border-radius: 50%;
 }
 
+#boardTitle{
+    padding: 0 15px 0 15px;
+}
+
 /* 헤더 프로필 정보 영역 */
 .info{
     float: left;
@@ -414,7 +418,25 @@ background-color: black;
 color: white;
 } 
   
-  
-.chatList{
+.clicked{
     display: flex;
+    background-color: red;
+}
+
+.chatList{
+    /* color: white; */
+    display: flex;
+    float: left;
+    width: auto; height: 50px;
+    /* background-color: rgb(193, 142, 216); */
+    border-radius : 20px;
+    box-shadow : 3px 3px 3px black;
+    transition-duration: 0.3s;
+}
+
+.chatList:active{
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: none;
+    background-color: rgb(193, 142, 216);
 }

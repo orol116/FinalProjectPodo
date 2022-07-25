@@ -114,7 +114,7 @@
                         <%-- 연결된 채팅 회원 정보 헤더 --%>
                         <div class="chat-header">
                             
-                            <a href="" target="_blank" rel="noopener noreferrer">
+                            <a href="${contextPath}${boardImageList[i].imageReName}" target="_blank" rel="noopener noreferrer">
                                 <%-- 회원 프로필 이미지 --%>
                                 <div class="image-box">
                                     <div class="image-table">
@@ -144,7 +144,7 @@
                             </span>
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()">나가기</button>
-                                <button type="button" onclick="tradeCondition()">판매완료하기</button>
+                                <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
                                 <button type="button" id="reviewWrt">후기 작성하기</button>
                             </ul>
 
@@ -232,6 +232,8 @@
 		let chattingSock = new SockJS(contextPath+"/chat");
 	</script>
  
+    <script>const contextPath = "${contextPath}";</script>
+    
     <%-- js --%>
     <script src="${contextPath}/resources/js/chat.js"></script>
     

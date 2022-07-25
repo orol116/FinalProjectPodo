@@ -46,13 +46,19 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
-    <section id="items-section">
-    
-        <div id="itmes">
-            <h2 style="margin:0;">이번주 상품 추천</h2>
-        </div>
-   
+    <div>
+        <div id="categoryName-space" class="nameSpace"></div><%-- main에서 ajax 받는 부분 --%> 
         
+        <div id="mainName-space" class="nameSpace">${param.mCategoryName}</div>
+        
+
+        <div id="items-button-area">
+            <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
+            <button id="complete-items" type="button" class="showBtn">판매 완료된 보기</button>
+        </div>
+    </div>
+    <section id="items-section">
+            
         <c:choose>
             <c:when test="${empty itemList}">
 
@@ -67,6 +73,11 @@
             </c:when>
     
             <c:otherwise>
+
+                <div id="itmes">
+                    <h2 style="margin:0;">이번주 상품 추천</h2>
+                </div>
+
                 <c:forEach var="item" items="${itemList}" begin="0" end="19" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
@@ -118,6 +129,7 @@
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

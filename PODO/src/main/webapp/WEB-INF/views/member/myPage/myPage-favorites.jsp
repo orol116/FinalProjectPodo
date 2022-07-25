@@ -49,27 +49,16 @@
 
                     <c:if test="${favorBoard != null}">
 
-                        <!-- 찜 상단 체크 박스 / 선택 삭제 -->
+                        <%-- <!-- 찜 상단 체크 박스 / 선택 삭제 -->
                         <div class="fav-header">
-                            <div class="fav-header-left">
-
-                                <!-- 상단 전체 선택 체크박스 -->
-                                <div class="checkArea">
-                                    <input type="checkbox" name="select" class="selectAll" value="selectAll" onclick="selectAll(this)">
-                                    <%-- <button type="button" class="fav-check-btn"></button> --%>
-
-                                    <!-- 선택삭제(전체 선택) -->
-                                    <button type="button" class="deleteAll">선택삭제</button>
-                                </div>
-
-                            </div>
-
                             <!-- 찜 정렬 메뉴 -->
                             <select>
-                                <option value="new-wish">최신순</option>
-                                <option value="high-wish">찜 많은 상품순</option>
+                                <option value="newWish" id="newWish">최신순</option>
+                                <option value="sortAbc" id="sortAbc">가나다순</option>
+                                <option value="sortPrice" id="sortAbc">가격순</option>                                        
+                                <!-- <option value="highWish">찜 많은 상품순</option> -->
                             </select>
-                        </div>
+                        </div> --%>
 
                         <!-- 출력부 -->
                         <div class="">
@@ -93,19 +82,14 @@
                                                                 </tr>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <c:forEach items="${favorBoard}" var="favor">
+                                                                <c:forEach items="${favorBoard}" id="favBoard" var="favor">
                                                                     <li class="fav-list">
                                                                         
-                                                                        <%-- 목록 별 체크박스 --%>
-                                                                        <div class=checkbox>
-                                                                            <input type="checkbox" class="select" name="select">
-                                                                        </div> 
-
                                                                         <%-- 상품 이미지 --%>
                                                                         <div class="thumb">
                                                                             <c:if test="${fn:length(boardImageList) != null}">
-                                                                                <image id="item-image" src="${contextPath}${boardImageList.imageReName}" alt="상품 이미지"></image>
-                                                                                <a href="${contextPath}/board/detail/${boardImageList.imageReName}">
+                                                                                <img id="item-image" src="${contextPath}${favor.imageReName}" alt="상품 이미지">
+                                                                    
                                                                             </c:if>
                                                                         </div>
                                                                     
@@ -122,7 +106,7 @@
                                                                             </p>
                                                                             <%-- 삭제 버튼 --%>
                                                                             <div class="delete">
-                                                                                <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne()">삭제</button>
+                                                                                <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne(${favor.boardNo})">삭제</button>
                                                                             </div>
                                                                         </div>   
                                                                     </li>
@@ -154,9 +138,8 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
-        const contextPath = "${contextPath}";
-        const loginMemberNo = "${loginMember.memberNo}";
-        const boardCode = "${boardCode}";
+        var loginMemberNo = "${loginMember.memberNo}"
+        var boardCode = "${boardCode}"
     </script>
 
     <!-- jQuery 라이브러리 추가 -->

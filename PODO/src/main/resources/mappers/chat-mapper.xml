@@ -59,13 +59,13 @@
 	
 	<!-- 채팅 정보 조회 -->
 	<select id="selectOtherDetail" resultMap="chatList_rm">
-		SELECT A.MEMBER_NICK, A.MEMBER_PROFILE, A.MEMBER_NO, B.MESSAGE_CONTENT, B.MESSAGE_TIME, B.MESSAGE_NO
-		FROM CHAT_ROOM_JOIN C
+		SELECT MEMBER_NICK, MEMBER_PROFILE, MEMBER_NO, MESSAGE_CONTENT, MESSAGE_TIME, MESSAGE_NO
+		FROM MESSAGE 
 		
-		JOIN MEMBER A ON(A.MEMBER_NO = C.MEMBER_NO)
-		JOIN MESSAGE B ON(B.CHAT_NO = C.CHAT_NO)
+		JOIN MEMBER  USING(MEMBER_NO)
 		
-		WHERE B.CHAT_NO = ${chatNo}
+		WHERE CHAT_NO = ${chatNo}
+		ORDER BY MESSAGE_NO 
 	</select>
 	
     <select id="selectChatRoom" resultType="_int">
@@ -127,10 +127,23 @@
 		WHERE CHAT_NO = ${chatNo}
 	</select>
 	
-	<!-- 판매자가 누군지 조회 DAO -->
+	<!-- 판매자가 누군지 조회 -->
 	<select id="selectWhoIsSeller" resultType="_int">
 		SELECT MEMBER_NO FROM ITEM_BOARD
 		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 판매중인지 완료되었는지 조회 -->
+	<select id="selectCondition" resultType="string">
+		SELECT TRADE_CONDITION FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 후기를 작성했는지 검사 -->
+	<select id="selectFinReview" resultType="_int">
+		SELECT COUNT(*) FROM REVIEW
+		WHERE BOARD_NO = ${boardNo}
+		AND WRITE_MEMBER_NO = ${memberNo}
 	</select>
 	
 	<!-- 후기 작성 -->

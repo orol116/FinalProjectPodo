@@ -8,39 +8,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>거래내역 조회 페이지</title>
-
-    <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css">
-    <%-- <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css"> --%>
-    <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
+    
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> -->
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css"> -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
     <%-- 파비콘 --%>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
-    
+
+    <style>
+    </style>
 </head>
 
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+
 <body onload="init();">
+    <!-- header -->
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
     
     <div class="top-menu">
         <nav id="mainMenu">
             <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/shop/main">상품관리</a>
+             <a href="${contextPath}/shop/main">상품관리</a> 
             <a href="${contextPath}/shop/myMall">구매/판매 내역</a>
         </nav>
     </div>
+<main>
 
     <div id="root">
         <div class="page-body">
-            <div class="">
+            <div class="page-body-div">
 
                 <header class="pageHeader">
                     <h1>거래내역</h1>
                 </header>
 
                 <main class="purchases-body">
+
                     <nav class="navigator">
 
                         <ul class="category">
@@ -185,7 +193,7 @@
             </div>
         </div>
     </div>
-
+<main>
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
@@ -198,5 +206,6 @@
 
     <!-- js -->
     <script src="${contextPath}/resources/js/purchases.js"></script>
+    
 </body>
 </html>
