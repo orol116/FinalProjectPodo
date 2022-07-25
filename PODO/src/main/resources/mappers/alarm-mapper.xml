@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="alarmMapper">
+  
+  <resultMap type="alarm" id="alarm_rm">
+		<id property="alarmNo" column="ALARM_NO"/>
+		
+		<result property="alarmContent" column="ALARM_CONTENT"/>
+		<result property="alarmTime" column="ALARM_CONTENT"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+	</resultMap>
+  
+  
+  <insert id="insertMessage" parameterType="alarm" useGeneratedKeys="true">
+  
+  	<selectKey keyProperty="alarmNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_ALARM_NO.NEXTVAL FROM DUAL
+	</selectKey>
+  
+  	INSERT INTO ALARM VALUES(
+  		#{alarmNo}, #{alarmContent}, sysdate, #{memberNo}
+  	)
+  </insert>
+  
+  
+</mapper>

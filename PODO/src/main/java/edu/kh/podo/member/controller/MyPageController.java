@@ -153,6 +153,13 @@ public class MyPageController {
 		
 		return "member/myPage/myPage-favorites";
 	}
+	
+	// 찜한 상품 삭제
+	@GetMapping("/favDel")
+	@ResponseBody
+	public int favDel(int boardNo, int memberNo) {
+		return service.favDel(boardNo, memberNo);
+	}
 
 
 	// 주소 변경 페이지 전환

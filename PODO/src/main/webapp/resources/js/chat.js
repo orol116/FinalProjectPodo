@@ -10,10 +10,7 @@ function listClickFn(chatNo) {
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 	
 	/* 채팅 목록 클릭 시 배경색 변경 card-box > chatdiv */
-	var cardbox = document.getElementsByClassName("card-box");
-	var chatdiv = document.getElementsByClassName("chatDiv");
-
-	function handleClick(event) {
+	/* function handleClick(event) {
 	console.log(event.target);
 	console.log(event.target.classList);
 
@@ -34,7 +31,7 @@ function listClickFn(chatNo) {
 			chatdiv[i].addEventListener("click", handleClick);
 		}
 	}
-	init();
+	init(); */
 	
 	console.log(chatNo);
 

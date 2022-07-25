@@ -428,7 +428,7 @@ color: white;
     display: flex;
     float: left;
     width: auto; height: 50px;
-    background-color: rgb(193, 142, 216);
+    /* background-color: rgb(193, 142, 216); */
     border-radius : 20px;
     box-shadow : 3px 3px 3px black;
     transition-duration: 0.3s;
@@ -438,4 +438,5 @@ color: white;
     margin-left: 5px;
     margin-top: 5px;
     box-shadow: none;
+    background-color: rgb(193, 142, 216);
 }

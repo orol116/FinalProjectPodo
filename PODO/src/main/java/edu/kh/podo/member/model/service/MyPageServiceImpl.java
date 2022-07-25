@@ -1,6 +1,7 @@
 package edu.kh.podo.member.model.service;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -97,6 +98,16 @@ public class MyPageServiceImpl implements MyPageService {
 	public int insertDist(MemberArea distance) {
 		
 		return dao.insertDist(distance);
+	}
+
+	// 찜한 상품 삭제 Service 구현
+	@Override
+	public int favDel(int boardNo, int memberNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("memberNo", memberNo);
+		
+		return dao.favDel(map);
 	}
 
 	
