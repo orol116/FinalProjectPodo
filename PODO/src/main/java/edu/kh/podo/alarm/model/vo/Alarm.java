@@ -15,6 +15,7 @@ public class Alarm {
 
 	private int alarmNo;
 	private String alarmContent;
+	private String boardLink;
 	private Date alarmTime;
 
 	private int boardNo;

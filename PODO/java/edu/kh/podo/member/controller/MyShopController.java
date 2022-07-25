@@ -155,4 +155,11 @@ public class MyShopController {
 	public int itemManage(int boardNo) {
 		return service.updateDate(boardNo);
 	}
+	
+	// 구매/판매 내역 조회 ajax
+	@GetMapping("/myMall/selectList")
+	@ResponseBody
+	public String selectList(int memberNo, int type) {	
+		return new Gson().toJson(service.selectList(memberNo, type));
+	}
 }
