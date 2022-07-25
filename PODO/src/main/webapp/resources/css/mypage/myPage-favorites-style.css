@@ -1,7 +1,7 @@
 .myPage-inner{
     /* flex-basis: 70%; */
     width: 100%;
-    display: flex;
+    display: block;
     justify-content: center;
 
 }
@@ -276,7 +276,7 @@ form[name="myPage-form"]{
  section#content ul li p img { width:25px; height:25px; }
  section#content ul li::after { content:""; display:block; clear:both; }
  section#content div.thumb { float:left; width:250px; }
- section#content div.gdsInfo { float:right; width:calc(100% - 270px); }
+ section#content div.gdsInfo { float:right; width:calc(100% - 200px); }
  section#content div.gdsInfo { font-size:20px; line-height:2; }
  section#content div.gdsInfo span { display:inline-block; width:100px; font-weight:bold; margin-right:10px; }
  section#content div.gdsInfo .delete { text-align:right; }
