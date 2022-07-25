@@ -27,4 +27,7 @@ public class Member {
 	private String shopInfo;
 	
 	private MemberArea memberArea;
+	private double dLon;
+	private double dLat;
+	private int distance;
 }

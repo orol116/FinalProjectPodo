@@ -681,6 +681,40 @@ FROM MESSAGE
 
 JOIN MEMBER  USING(MEMBER_NO)
 
+
+WHERE B.CHAT_NO = 13;
+
+-- RADIANS 함수 생성( 위경도 거리 계산)
+ CREATE OR REPLACE FUNCTION RADIANS(nDegrees IN NUMBER) RETURN NUMBER DETERMINISTIC IS
+        
+        BEGIN
+        
+        -- radians = degrees / (180 / pi)
+        
+        -- RETURN nDegrees / (180 / ACOS(-1)); -- but 180/pi is a constant, so...
+        
+        RETURN nDegrees / 57.29577951308232087679815481410517033235;
+        
+        END RADIANS;
+
+
+
+-- 거리(Km)이내 상품 조회 ( 절대로 건드시면 안됩니다.) 
+SELECT * FROM(        
+      SELECT  B.BOARD_NO, B.BOARD_TITLE, B.PRICE, B.UPDATE_DT, B.MEMBER_NO, B.TRADE_CONDITION,       
+                ACOS(SIN(RADIANS(src.COORDINATE_X)) * SIN(RADIANS(dest.COORDINATE_X))
+                + COS(RADIANS(src.COORDINATE_X)) * COS(RADIANS(dest.COORDINATE_X))
+                * COS(RADIANS(src.COORDINATE_Y) - RADIANS(dest.COORDINATE_Y)) )
+                * 6371 AS DISTANCE
+             FROM ITEM_BOARD B ,MEMBER M ,SELLAREA_XY dest ,MEMBERAREA_XY src
+             WHERE M.MEMBER_NO = '67'
+    
+             AND M.MEMBER_NO = src.MEMBER_NO
+             AND B.BOARD_NO = dest.BOARD_NO
+        ORDER BY DISTANCE
+)
+WHERE DISTANCE <=  10; /* km */
+
 WHERE CHAT_NO = 9999; 
 
 SELECT B.REVIEW_NO, B.REVIEW_CONTENT, B.REVIEW_CONDITION, B.BOARD_NO, B.CREATE_DT, A.MEMBER_NICK, B.WRITE_MEMBER_NO, C.BOARD_TITLE
@@ -736,3 +770,4 @@ WHERE IMG_LEVEL =
 	(SELECT MIN(IMG_LEVEL) FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
 AND A.MEMBER_NO = 4
 ORDER BY UPDATE_DT DESC;
+
