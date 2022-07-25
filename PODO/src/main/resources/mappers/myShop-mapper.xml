@@ -50,8 +50,13 @@
 		<result property="reviewCondition" column="REVIEW_CONDITION" />
 		<result property="secessionFlag" column="SECESSION_FL" />
 		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICK" />
 		<result property="boardNo" column="BOARD_NO" />
 		<result property="createDate" column="CREATE_DT" />
+		
+		<result property="memberProfile" column="MEMBER_PROFILE" />
+		<result property="writeMemberNo" column="WRITE_MEMBER_NO" />
+		<result property="boardTitle" column="BOARD_TITLE" />
 	</resultMap>
   
 	<resultMap type="member" id="member_rm">
@@ -83,15 +88,20 @@
 
 	<!-- 회원 후기 조회 -->
 	<select id="selectMemberReview" resultMap="review_rm">
-		SELECT REVIEW_NO, REVIEW_CONTENT, MEMBER_NICK, BOARD_TITLE
-		FROM REVIEW
-		JOIN MEMBER USING(MEMBER_NO)
-		JOIN ITEM_BOARD USING(MEMBER_NO)
-		WHERE MEMBER_NO = ${memberNo}
+		SELECT B.REVIEW_NO, B.REVIEW_CONTENT, B.REVIEW_CONDITION, B.BOARD_NO, B.CREATE_DT, A.MEMBER_PROFILE, A.MEMBER_NICK, B.WRITE_MEMBER_NO, C.BOARD_TITLE
+		FROM REVIEW B 
+		JOIN MEMBER A ON(A.MEMBER_NO = B.WRITE_MEMBER_NO)
+		JOIN ITEM_BOARD C ON(B.MEMBER_NO = C.MEMBER_NO)
+		WHERE B.MEMBER_NO = ${memberNo}
+		AND C.BOARD_NO IN(
+			SELECT BOARD_NO 
+			FROM REVIEW 
+			WHERE MEMBER_NO = ${memberNo}
+			)
 	</select>
 
 	<select id="selectMemberInfo" resultMap="member_rm">
-		SELECT MEMBER_NICK, MEMBER_GRAPE, MEMBER_ADDR, SHOP_INFO, MEMBER_PROFILE
+		SELECT MEMBER_NO, MEMBER_NICK, MEMBER_GRAPE, MEMBER_ADDR, SHOP_INFO, MEMBER_PROFILE
 		FROM MEMBER
 		WHERE MEMBER_NO = ${memberNo}
 	</select>

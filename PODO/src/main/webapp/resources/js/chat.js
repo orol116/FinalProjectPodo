@@ -1,7 +1,6 @@
 var chattingNo = 0;
 var boardNo1 = 0;
 var otherMemNo = 0;
-
 var reviewCount = 0;
 
 
@@ -12,6 +11,7 @@ function listClickFn(chatNo) {
 	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
 
 	var bg = document.getElementsByClassName("chatDiv");
+
 	for(var i=0; i<bg.length; i++){
 		bg[i].style.backgroundColor="rgb(144, 5, 195)";
 	}

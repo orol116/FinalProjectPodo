@@ -19,5 +19,8 @@ public class Review {
 	private int boardNo;
 	private String memberNickname;
 	private String createDate;
+	private String memberProfile;
+	private int writeMemberNo;
+	private String boardTitle;
 	
 }
