@@ -21,15 +21,18 @@
     
 </head>
 
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+
 <body onload="init();">
     
     <div class="top-menu">
         <nav id="mainMenu">
             <a href="${contextPath}/member/itemUpload">상품등록</a>
-            <a href="${contextPath}/shop/main">상품관리</a>
+             <a href="${contextPath}/shop/main">상품관리</a> 
             <a href="${contextPath}/shop/myMall">구매/판매 내역</a>
         </nav>
     </div>
+<main>
 
     <div id="root">
         <div class="page-body">
@@ -185,7 +188,7 @@
             </div>
         </div>
     </div>
-
+<main>
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
@@ -198,5 +201,6 @@
 
     <!-- js -->
     <script src="${contextPath}/resources/js/purchases.js"></script>
+    
 </body>
 </html>

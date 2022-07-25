@@ -6,6 +6,40 @@ body * {
     font-size: 16px;
 }
 
+
+body{
+    width: 1180px;
+    margin: auto;
+}
+/* 첫번째 메뉴 */
+.top-menu{
+    width: 100%;
+    border-bottom: 1px solid lightgray ;
+    border-top: 1px solid lightgray;
+}
+
+#mainMenu{    
+    display: flex;
+    height: 50px;
+    font-size: 15px;
+    align-items: center;
+}
+#mainMenu>a{
+    text-decoration: none;
+    padding: 8px;
+    color: black;
+     font-weight:8px ;
+}
+#mainMenu>:nth-child(2){
+    font-weight: 600;
+    color: rgb(95, 0, 129);
+}
+#mainMenu>a:hover{
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(95, 0, 129);
+}
+/* -------------------------------------- */
 div{
     margin: 0px;
     padding: 0px;
