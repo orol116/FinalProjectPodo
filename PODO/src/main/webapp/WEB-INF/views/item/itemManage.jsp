@@ -64,7 +64,7 @@
 
                         <%-- <form id="tradeCondition" method="post"> --%>
                         <tr id=tradeCondition>
-                            <td><a><img src="${contextPath}/resources/images/items/image1.jpg"></a></td>
+                            <td><a><img src="${contextPath}${item.imageReName}"></a></td>
                             <%-- <td><img src="${contextPath}${item.img.imageReName}"></td> --%>
                             <td>
                                 <%-- <c:if test="${item.tradeCondition == 옵션}"> --%>

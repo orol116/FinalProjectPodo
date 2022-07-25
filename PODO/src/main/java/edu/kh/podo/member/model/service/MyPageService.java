@@ -54,6 +54,13 @@ public interface MyPageService {
 	 */
 	int insertDist(MemberArea distance);
 
+	/** 찜한 상품 삭제 Service
+	 * @param boardNo
+	 * @param memberNo
+	 * @return result
+	 */
+	int favDel(int boardNo, int memberNo);
+
 
 
 }
