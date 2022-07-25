@@ -53,8 +53,10 @@
                         <div class="fav-header">
                             <!-- 찜 정렬 메뉴 -->
                             <select>
-                                <option value="new-wish">최신순</option>
-                                <option value="high-wish">찜 많은 상품순</option>
+                                <option value="newWish" id="newWish">최신순</option>
+                                <option value="sortAbc" id="sortAbc">가나다순</option>
+                                <option value="sortPrice" id="sortAbc">가격순</option>                                        
+                                <!-- <option value="highWish">찜 많은 상품순</option> -->
                             </select>
                         </div> --%>
 
@@ -80,14 +82,14 @@
                                                                 </tr>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <c:forEach items="${favorBoard}" var="favor">
+                                                                <c:forEach items="${favorBoard}" id="favBoard" var="favor">
                                                                     <li class="fav-list">
                                                                         
                                                                         <%-- 상품 이미지 --%>
                                                                         <div class="thumb">
                                                                             <c:if test="${fn:length(boardImageList) != null}">
                                                                                 <img id="item-image" src="${contextPath}${favor.imageReName}" alt="상품 이미지">
-                                                                                <!-- <img id="boardimg"> -->
+                                                                    
                                                                             </c:if>
                                                                         </div>
                                                                     
