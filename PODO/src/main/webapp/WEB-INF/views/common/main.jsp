@@ -46,11 +46,17 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
-    
-    <div id="categoryName-space"></div><%-- main에서 ajax 받는 부분 --%> 
-    
-    <div id="mainName-space">${param.mCategoryName}</div> 
+    <div>
+        <div id="categoryName-space" class="nameSpace"></div><%-- main에서 ajax 받는 부분 --%> 
+        
+        <div id="mainName-space" class="nameSpace">${param.mCategoryName}</div>
+        
 
+        <div id="items-button-area">
+            <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
+            <button id="complete-items" type="button" class="showBtn">판매 완료된 보기</button>
+        </div>
+    </div>
     <section id="items-section">
             
         <c:choose>
