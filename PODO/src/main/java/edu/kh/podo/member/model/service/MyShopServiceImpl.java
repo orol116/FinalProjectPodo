@@ -84,6 +84,17 @@ public class MyShopServiceImpl implements MyShopService {
 	public int updateDate(int boardNo) {
 		return dao.updateDate(boardNo);
 	}
+
+	// 구매/판매 내역 조회 ajax Service 구현
+	@Override
+	public List<ItemBoard> selectList(int memberNo, int type) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("memberNo", memberNo);
+		map.put("type", type);
+		
+		return dao.selectList(map);
+	}
 	
 	
 

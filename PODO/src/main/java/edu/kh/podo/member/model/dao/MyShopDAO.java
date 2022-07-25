@@ -95,4 +95,12 @@ public class MyShopDAO {
 		return sqlSession.update("myShopMapper.updateDate", boardNo);
 	}
 
+	/** 구매/판매 내역 조회 ajax DAO
+	 * @param map
+	 * @return itemList
+	 */
+	public List<ItemBoard> selectList(Map<String, Object> map) {
+		return sqlSession.selectList("myShopMapper.selectList", map);
+	}
+
 }
