@@ -10,7 +10,6 @@ function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 	/* document.getElementsByClassName("chat-body")[0].innerHTML = ""; */
-
 	
 	console.log(chatNo);
 
