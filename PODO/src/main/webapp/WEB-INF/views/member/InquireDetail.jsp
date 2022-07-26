@@ -81,7 +81,7 @@
                  
                 <c:if test="${loginMember.memberNo==1}">
                     <div id="reply1">
-                        <textarea class="reply-content" placeholder="답변을 입력해 주세요."></textarea>
+                        <textarea class="reply-content" id="reply-content" placeholder="답변을 입력해주세요." name="boardContent"></textarea>
                         <button id="reply2">등록</button>
                     </div>
                 </c:if>
@@ -106,7 +106,13 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-
-    <script src="${contextPath}/js/member/inquireList.js"></script>
 </body>
 </html>
+<script src="${contextPath}/resources/js/member/inquireDetail.js"></script>
+
+
+<script>
+
+    const boardNo = "${boardNo}";
+    
+</script>

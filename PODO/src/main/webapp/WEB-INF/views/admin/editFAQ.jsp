@@ -47,9 +47,9 @@
             <h4>분류</h4>
             <select name="classification">
                 <option>운영정책</option>
-                <option>계정/인증</option>
+                <option>회원/인증</option>
                 <option>구매/판매</option>
-                <option>본인인증</option>
+                <option>이용방법</option>
             </select>
         </div>
     </div>

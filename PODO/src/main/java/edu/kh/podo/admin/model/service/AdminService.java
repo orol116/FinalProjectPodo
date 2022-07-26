@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.kh.podo.admin.model.vo.Admin;
+import edu.kh.podo.admin.model.vo.AdminReply;
 
 
 public interface AdminService {
@@ -18,5 +19,9 @@ public interface AdminService {
 	int adminDelete(String deleteValue, int boardCode);
 
 	List<Admin> faqList(String classification);
+
+	int adminReplyWrite(String boardContent, int boardNo);
+
+	List<AdminReply> selectAdminReply(int boardNo);
 
 }

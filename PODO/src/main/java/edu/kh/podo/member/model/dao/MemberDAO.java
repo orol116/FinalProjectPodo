@@ -211,7 +211,7 @@ public class MemberDAO {
 	}
 
 
-	/** 1대1 문의 상세페이지 댓글조회
+	/** 1대1 문의 상세페이지 답변 조회
 	 * @param boardNo
 	 * @return
 	 */
