@@ -55,9 +55,9 @@
     <div class="option">
         <select name="key" id="search-key">
             <option value="1">운영정책</option>
-            <option value="2">계정/인증</option>
+            <option value="2">회원/인증</option>
             <option value="3">구매/판매</option>
-            <option value="4">본인인증</option>
+            <option value="4">이용방법</option>
         </select>
     
         <section class="basic">
