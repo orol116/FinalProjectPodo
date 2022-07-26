@@ -185,6 +185,14 @@ public class AdminDAO {
 		return resultD;
 	}
 
+	/** 사용자가 조회할 FAQ 게시글 불러오기 
+	 * @param boardCode
+	 * @return
+	 */
+	public List<Admin> faqList(String classification) {
+		return sqlSession.selectList("adminMapper.faqList",classification);
+	}
+
 	
 
 

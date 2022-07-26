@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.google.gson.Gson;
 
 import edu.kh.podo.admin.model.service.AdminService;
+import edu.kh.podo.admin.model.vo.Admin;
 import edu.kh.podo.admin.model.vo.AdminReply;
 import edu.kh.podo.member.model.vo.Member;
 
@@ -142,12 +143,30 @@ public class AdminController {
 		return "redirect:"+path;
 	}
 	
-		// footer FAQ
-		@GetMapping("/faq")
-		public String faq() {
-			return "/admin/faq";
+	// footer FAQ
+	@GetMapping("/faq/{boardCode}")
+	public String faq(@PathVariable("boardCode") int boardCode,
+						Model model) {
+		
+		String classification = null;
+		if(boardCode == 1) {
+			classification="운영정책";
+		}else if(boardCode == 2) {
+			classification="계정/인증";
+		}else if(boardCode == 3) {
+			classification="구매/판매";
+		}else {
+			classification="본인인증";
 		}
+		
+		List<Admin> faqList = service.faqList(classification);
+		
+		model.addAttribute("faqList", faqList);
+		
+		return "/admin/faq";
+	}
 	
+
 	
 	
 	

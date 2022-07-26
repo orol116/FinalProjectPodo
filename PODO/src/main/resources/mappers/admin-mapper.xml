@@ -493,6 +493,15 @@
 	</update>
 	
 	
+	<!-- 분류별 faq 게시글 불러오기 -->
+	<select id="faqList" resultMap="admin_rm">
+		SELECT ADMIN_BOARD_NO, BOARD_TITLE, BOARD_CONTENT, CLASSIFICATION, CREATE_DT       
+		FROM ADMIN_BOARD
+		WHERE BOARD_CD = 7
+		AND CLASSIFICATION = #{classification}
+		ORDER BY ADMIN_BOARD_NO DESC 
+	</select>
+	
 	
 	
 
