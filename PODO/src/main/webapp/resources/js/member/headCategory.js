@@ -83,7 +83,7 @@ function categoryFunction(){
 function selectList(mCategoryNo, mCategoryName){
 
     const nameSpace =  document.getElementById("categoryName-space");
-    const mainNameSpace = document.getElementById("mainName-space");
+    
     
     
 
@@ -186,13 +186,7 @@ function selectList(mCategoryNo, mCategoryName){
                 document.getElementById("items-section").append(frame);
                 
             }
-             /* document.getElementsByClassName("frame")[0].innerText = "게시글이 존재하지 않습니다.";  */
-            /* console.log(mCategoryNo); */
-            /* if(mainNameSpace != ""){
-                nameSpace.innerHTML = "";
-            } */
-         
-            
+             /* document.getElementsByClassName("frame")[0].innerText = "게시글이 존재하지 않습니다.";  */                
            
         },
  

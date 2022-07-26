@@ -30,11 +30,11 @@
                     </section>
             
                     <section>
-                        <div id="closeTown">양천구, 마포구의 게시물이 추천됩니다.</div>
+                        <div id="closeTown">설정을 변경하면 추천되는 상품이 변경됩니다.</div>
                     </section>
             
                     <section>
-                        <div id="currentSetting">거래하고 싶은 지역은 XXkm까지로 제한됩니다.</div>
+                        <div id="currentSetting">거래하고 싶은 지역은 10km이내 입니다.</div>
                     </section>
 
                     <div id="addr-input">
