@@ -236,7 +236,7 @@
 	
 
 	
-	<!-- 1대1 문의에 작성된 관리자 답변 조회 DAO -->
+	<!-- 1대1 문의에 작성된 관리자 답변 조회 -->
 	<select id="selectAdminReply" resultMap="adminReply_rm">
 		SELECT REPLY_NO, REPLY_CONTENT, CREATE_DT, ADMIN_BOARD_NO
 		FROM ADMIN_REPLY
@@ -245,11 +245,24 @@
 	</select>
 	
 	
+	<!-- 1대1 문의에 관리자 답변 하기 -->
+	<insert id="adminReplyWrite" useGeneratedKeys="true">
+		<selectKey keyProperty="replyNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_ADMIN_REPLY_NO.NEXTVAL FROM DUAL
+		</selectKey>
+	
+		INSERT INTO ADMIN_REPLY VALUES(
+			#{replyNo}, #{boardContent}, DEFAULT, #{boardNo}
+		)
+	</insert>
+	
+	
 	<!-- 본인이 작성한 1대1 문의글 전체 조회 -->
 	<select id="inquireList" resultMap="admin_rm">
 		SELECT MEMBER_NO, BOARD_CONTENT, CREATE_DT, BOARD_CD, CLASSIFICATION, ADMIN_BOARD_NO
 		FROM ADMIN_BOARD
 		WHERE MEMBER_NO = ${memberNo}
+		AND BOARD_CD = 3
 		ORDER BY ADMIN_BOARD_NO DESC
 	</select>
 	
