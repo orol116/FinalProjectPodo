@@ -46,7 +46,6 @@ public class MyPageController {
 						   , @RequestParam Map<String, Object> paramMap
 						   , @RequestParam("uploadImage") MultipartFile uploadImage
 						   , HttpServletRequest req
-						   , String[] updateAddress
 						   , RedirectAttributes ra) throws Exception {
 		
 		String webPath = "/resources/images/memberProfile/";
@@ -56,12 +55,8 @@ public class MyPageController {
 		paramMap.put("folderPath", folderPath);
 		paramMap.put("uploadImage", uploadImage);
 		
-		String memberAddress = String.join(",,", updateAddress);
-		
-		if (memberAddress.equals(",,,,")) memberAddress = null;
 		
 		paramMap.put("memberNo", loginMember.getMemberNo());
-		paramMap.put("memberAddress", memberAddress);
 		
 		int result = service.updateInfo(paramMap);
 		
@@ -71,7 +66,6 @@ public class MyPageController {
 			message = "회원 정보가 수정되었습니다.";
 			
 			loginMember.setMemberNickname((String)paramMap.get("updateNickname"));
-			loginMember.setMemberAddress((String)paramMap.get("memberAddress"));
 			loginMember.setMemberProfile((String)paramMap.get("profileImage"));
 			
 		} else {
