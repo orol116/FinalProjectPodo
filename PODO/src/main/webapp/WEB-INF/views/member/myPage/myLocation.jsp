@@ -61,11 +61,11 @@
                             <div id="modal-area">
                                 <select id="distance" name="distance" onchange="showValue(this)">
                                     <option value="0">거리 설정</option>
-                                    <option value="200">2km</option>
-                                    <option value="400">4km</option>
-                                    <option value="600">6km</option>
-                                    <option value="800">8km</option>
-                                    <option value="1000">10km</option>
+                                    <option value="2">2km</option>
+                                    <option value="4">4km</option>
+                                    <option value="6">6km</option>
+                                    <option value="8">8km</option>
+                                    <option value="10">10km</option>
                                 </select>
                             </div>
                                 <div id="Btn-area">
