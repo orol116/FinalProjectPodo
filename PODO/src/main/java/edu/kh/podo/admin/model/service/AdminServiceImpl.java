@@ -141,5 +141,12 @@ public class AdminServiceImpl implements AdminService{
 	public int adminDelete(String deleteNo, int boardCode) {
 		return dao.adminDelete(deleteNo, boardCode);
 	}
+
+
+	// FAQ 게시글 불러오기 
+	@Override
+	public List<Admin> faqList(String classification) {
+		return dao.faqList(classification);
+	}
 	
 }

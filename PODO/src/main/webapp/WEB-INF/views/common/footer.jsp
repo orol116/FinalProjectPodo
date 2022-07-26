@@ -43,7 +43,7 @@
                             <a href="${contextPath}/member/inquire">1:1 문의사항&nbsp|</a>
                         </c:otherwise>
                     </c:choose> 
-                    <a href="${contextPath}/admin/faq">자주 묻는 질문</a>
+                    <a href="${contextPath}/admin/faq/1">자주 묻는 질문</a>
                 </div>
         </div>
     </div>
