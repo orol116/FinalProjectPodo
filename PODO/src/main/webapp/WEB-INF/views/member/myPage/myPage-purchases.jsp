@@ -81,12 +81,58 @@
                             --%>
                                         
                                 <%-- 판매 내역 --%>
-                                <div class="sellContents">
+                                <div class="sellContents" id="sellContents">
+                                    <!-- <c:choose>
+                                        <c:when test="${empty sellList}">
+                                            <div>
+                                                <div class="purchases-info">판매 내역이 없습니다.</div>
+                                            </div>
+                                        </c:when>
+
+                                        <%-- -------------------------------------------------------------------------------------------------- --%>
+                                        <%-- 판매내역 출력부 --%>
+
+                                        <%-- 출력 부 테스트 --%>
+                                        <c:otherwise>
+                                            <c:forEach var="buy" items="${sellList}">
+
+                                                <%-- 판매내역 카드 --%>
+                                                <div class="history">
+                                                    <div>
+                                                        <div class="productSummaryCard">
+                                                            <%-- 상품 썸네일 영역 --%>
+                                                            <div class="productSummaryCard-thumbNail">
+                                                                <img src="#" alt="상품 이미지">
+                                                                <span class="productSummaryCard-status">
+                                                                    <img src="${contextPath}/resources/images/ic-circle-tick@3x.png" alt="">거래완료
+                                                                </span>
+                                                            </div>
+                                                            <%-- 물품 정보 --%>
+                                                            <aside class="productSummaryCard-container">
+                                                                <span class="productSummaryCard boardTitle">${board.boardTitle}</span>
+                                                                <span class="productSummaryCard price"><strong>${board.price}</strong>원</span>
+                                                                <span class="productSummaryCard memberNick">${member.memberNick}</span>
+                                                                <%-- 거래 완료일시, 컬럼 추가 필요?? --%>
+                                                                <span class="productSummaryCard-updateDate">
+                                                                    <time datetime="">board.updateDate</time>
+                                                                </span>
+                                                            </aside>
+                                                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                
+                                            </c:forEach>
+                                        </c:otherwise>
+                                        
                                     
+                                        
+                                    </c:choose> -->
                                 </div>
 
 
-                                
+
 
                                 <%-- 구매 내역 --%>
                                 <div class="buyContents">
