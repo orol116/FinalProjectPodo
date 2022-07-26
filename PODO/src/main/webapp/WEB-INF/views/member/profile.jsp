@@ -56,8 +56,8 @@
 
                     <div id="user-profile-right">
                         <div id="user-name-right">${member[0].memberNickname}</div>
+                        <div id="user-town">${addr[0]}</div>
                         <div id="user-town">${addr[1]}</div>
-                        <div id="user-town">${addr[2]}</div>
 
                         <c:if test="${member[0].shopInfo != null}">
                             <div id="user-intro">${member[0].shopInfo}</div>
