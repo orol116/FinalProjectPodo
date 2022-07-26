@@ -37,12 +37,10 @@
                     
                     <p>
                     <i class="fa-solid fa-bell">알림</i><br><br>
-                    최근 알림이 없습니다.<br>
-                    최근 알림이 없습니다.<br>
-                    최근 알림이 없습니다.<br>
-                    최근 알림이 없습니다.<br>
-                    최근 알림이 없습니다.   
-                    </p>
+                    회원님의 상품에 후기가 있습니다.<br>
+                    회원님의 상품이 찜되었습니다.<br>
+                    회원님의 상품에 포도톡이 왔습니다.<br></p>
+                    
 
                 </div> 
                     
@@ -134,9 +132,9 @@
             return true;
        }
 
-        const memberNo = "${loginMember.memberNo}";
-		const memberId = "${loginMember.memberId}";
-		const memberNickname = "${loginMember.memberNickname}";
+        const AmemberNo = "${loginMember.memberNo}";
+		const AmemberId = "${loginMember.memberId}";
+		const AmemberNickname = "${loginMember.memberNickname}";
         
 
         //소켓

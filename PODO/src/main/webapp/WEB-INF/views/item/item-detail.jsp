@@ -194,7 +194,7 @@
                     <a href="${contextPath}/shop/myShop/${loginMember.memberNo}">
                     </c:if>
 
-                    <div id="body-profile-area">
+                    
                         <div id="profile-box">
                                 
                                 <div id="profile-detail">
@@ -209,7 +209,7 @@
                                 </div>
                             <img id="profile-image" src="${contextPath}${sellMember[0].memberProfile}"  alt="회원 프로필 이미지">
                         </div>
-                    </div>
+                   
                     </a>
                     
                 </section>

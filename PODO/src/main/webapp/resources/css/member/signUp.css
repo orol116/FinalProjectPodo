@@ -117,5 +117,21 @@ main >#contaioner {
    padding-left: 10px;
 }
 
+.dupBtn{
+   margin-left: 8px;
+   width: 70px;
+   height: 35px;
+   background-color: #fff;
+
+}
+
+#address{
+   margin-left: 8px;
+   width: 65px;
+   height: 35px;
+   background-color: #fff;
+
+}
+
 
  
