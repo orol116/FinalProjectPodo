@@ -76,7 +76,7 @@ public class ItemBoardController {
 		System.out.println(crdnt);
 //		item.setCategoryNo(Integer.parseInt(mCateValue.substring(1)));
 		
-		String webPath = "/resources/images/item";
+		String webPath = "/resources/images/items";
 
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 		int boardNo = service.insertBoard(item, imageList, webPath, folderPath, crdnt);
