@@ -143,6 +143,7 @@
                             <span class="icon-emo-sunglasses" id="spreadBtn04">
                                 <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
                             </span>
+                            
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()">나가기</button>
                                 <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
