@@ -1,4 +1,3 @@
-// 유효성 검사 여부를 기록할 객체 생성
 const checkObj = { 
     "memberId"     : false,
     "memberPw"        : false,

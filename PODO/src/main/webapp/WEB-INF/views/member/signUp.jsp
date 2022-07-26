@@ -29,7 +29,7 @@
                         <h4>아이디</h4>
                         <input type="text" id="memberId" maxlength="20" name="memberId" placeholder="아이디를 입력해주세요.">
 
-                        <button id="idDupCheck" type="button">중복검사</button>
+                        <button id="idDupCheck" type="button" class="dupBtn">중복검사</button>
                     </section>
                     <span class="signUp-message" id="idMessage">* 4~15글자의 숫자,영어를 입력하세요.</span>
 
@@ -54,7 +54,7 @@
                     <section>
                         <h4>닉네임</h4>
                         <input type="text" id="memberNickname" maxlength="20" name="memberNickname" placeholder="닉네임을 입력해주세요.">
-                        <button id="nicknameDupCheck" type="button">중복검사</button>
+                        <button id="nicknameDupCheck" type="button" class="dupBtn">중복검사</button>
                     </section>
                     <span class="signUp-message" id="nicknameMessage">* 2~8글자를 입력하세요.</span>
 
@@ -68,7 +68,8 @@
                     <section>
                         <h4>주소</h4>
                         <input type="text" id="memberAddress" placeholder="주소" name="memberAddress" readonly>
-                        <input type="button" id="address" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+                        <input type="button" id="address" onclick="sample5_execDaumPostcode()" value="주소 검색" style="width:70px; height:35px;
+                         "><br>
                     </section>
                     <span class="signUp-message" id="addressMessage">* 검색 버튼을 눌러주세요.</span>
 
@@ -76,7 +77,7 @@
                         <div id="map" style="width:500px;height:400px;margin-top:10px;"></div>
                     </section>
                     
-                     <input type="hidden" name="dLon" id="dLon" value="">
+                    <input type="hidden" name="dLon" id="dLon" value="">
                     <input type="hidden" name="dLat" id="dLat" value="">
                             
                            
