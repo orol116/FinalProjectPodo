@@ -1,17 +1,22 @@
+/* 페이지 로드 시 판매 영역 보여주기 */
 function init(){
     $('.sellContents').show();
     $('.buyContents').hide();
 }
 
+/* 판매 */
 function showSellList(){
     $('.sellContents').show();
     $('.buyContents').hide();
 }
 
+/* 구매 */
 function showBuyList(){
     $('.buyContents').show();
     $('.sellContents').hide();
 }
+
+var reviewCount = 0;
 
 // 구매/판매 내역
 function selectTradeCondition(type){
@@ -25,6 +30,80 @@ function selectTradeCondition(type){
 
         success : function(itemList){
             console.log(itemList);
+
+            /* 거래 내역 화면 구성 */
+            let purchasesContents = document.createElement("div");
+            purchasesContents.classList.add("purchases-contents");
+
+            let content = document.createElement("div");
+            content.classList.add("sellContents");
+            purchasesContents.append(content);
+            
+            
+            if(itemList.length == 0){
+                let div = document.createElement("div");
+                content.append(div);
+
+                let purchasesinfo = document.createElement("div");
+                purchasesinfo.classList.add("purchases-info");
+                purchasesinfo.innerText = "판매 내역이 없습니다.";
+                /* document.getElementsByClassName("sellContents").append(purchasesinfo); */
+                div.append(purchasesinfo);
+            }else{
+
+            /* if(itemList.length != 0){ */
+                for(let i=0; i<itemList.length; i++){
+                    
+                    /* li 태그 */
+                    let iList = document.createElement("li");
+                    iList.classList.add("fav-list");
+
+                    /* 상품 이미지 div */
+                    let thumb = document.createElement("div");
+                    thumb.classList.add("thumb"); 
+                    iList.append(thumb);
+
+                        if(itemList.length != null){
+                            let itemImage = document.createElement("img");
+                            itemImage.classList.add("item-image");
+                            itemImage.src = contextPath + itemList[0].imageReName;
+                            thumb.append(itemImage);
+                        }
+
+                    /* 상품 정보 div */
+                    // div : gdsInfo
+                    let purchasesInfo = document.createElement("div");
+                    purchasesInfo.classList.add("purchasesInfo");
+
+                    /* 상품 정보 p 태그 */
+                    let p = document.createElement("p");
+                    purchasesInfo.append(p);
+
+                    /* 상품 정보 span 태그(제목, 가격, 등록일, 조회수) */
+                    /* 제목 */
+                    let span = document.createElement("span");
+                    p.append(span);
+
+                    span.innerText = "제목";
+                    span.after(itemList.boardTitle);
+
+                    /* 가격 */
+                    span.innerText = "가격";
+                    span.after(itemList.price);
+
+                    /* 등록일 */
+                    span.innerText = "등록일";
+                    span.after(itemList.updateDate);
+
+                    /* 조회수 */
+                    span.innerText = "조회수";
+                    span.after(itemList.readCount);
+
+                }
+
+
+            }
+
         },
         
         error : function(req, status, error){
@@ -33,3 +112,5 @@ function selectTradeCondition(type){
     });
 
 };
+
+
