@@ -31,6 +31,9 @@ function selectTradeCondition(type){
         success : function(itemList){
             console.log(itemList);
 
+            sellContents = document.getElementById("sellContents");
+            
+
             /* 거래 내역 화면 구성 */
             let purchasesContents = document.createElement("div");
             purchasesContents.classList.add("purchases-contents");
@@ -38,7 +41,7 @@ function selectTradeCondition(type){
             let content = document.createElement("div");
             content.classList.add("sellContents");
             purchasesContents.append(content);
-            
+            sellContents.append(purchasesContents);
             
             if(itemList.length == 0){
                 let div = document.createElement("div");
@@ -63,10 +66,10 @@ function selectTradeCondition(type){
                     thumb.classList.add("thumb"); 
                     iList.append(thumb);
 
-                        if(itemList.length != null){
+                        if(itemList.length != 0){
                             let itemImage = document.createElement("img");
                             itemImage.classList.add("item-image");
-                            itemImage.src = contextPath + itemList[0].imageReName;
+                            itemImage.setAttribute("src", 'resources/images/items/image1.jpg');
                             thumb.append(itemImage);
                         }
 
@@ -74,31 +77,38 @@ function selectTradeCondition(type){
                     // div : gdsInfo
                     let purchasesInfo = document.createElement("div");
                     purchasesInfo.classList.add("purchasesInfo");
+                    iList.append(purchasesInfo);
 
                     /* 상품 정보 p 태그 */
-                    let p = document.createElement("p");
-                    purchasesInfo.append(p);
+                    let itemInfo = document.createElement("div");
+                    purchasesInfo.append(itemInfo);
 
                     /* 상품 정보 span 태그(제목, 가격, 등록일, 조회수) */
                     /* 제목 */
-                    let span = document.createElement("span");
-                    p.append(span);
+                    const spanName = document.createElement("span");
+                    spanName.classList.add("spanName");
+                    spanName.innerText = "제목 :" + itemList.boardTitle;
+                    
 
-                    span.innerText = "제목";
-                    span.after(itemList.boardTitle);
-
+                    const spanPrice = document.createElement("span");
+                    spanPrice.classList.add("spanPrice");
+                    spanPrice.innerText = "가격 : " + itemList[i].price;
                     /* 가격 */
-                    span.innerText = "가격";
-                    span.after(itemList.price);
+
 
                     /* 등록일 */
-                    span.innerText = "등록일";
-                    span.after(itemList.updateDate);
+                    const spanDate = document.createElement("span");
+                    spanDate.classList.add("spanDate");
+                    spanDate.innerText = "등록일 : " + itemList[i].updateDate;
 
                     /* 조회수 */
-                    span.innerText = "조회수";
-                    span.after(itemList.readCount);
+                    const spanCount = document.createElement("span");
+                    spanCount.classList.add("spanCount");
+                    spanCount.innerText = "조회수 : " + itemList.readCount;
+                    
+                    itemInfo.append(spanName,spanPrice,spanDate,spanCount);
 
+                    content.append(iList);
                 }
 
 

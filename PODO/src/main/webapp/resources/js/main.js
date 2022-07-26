@@ -158,7 +158,7 @@ function carousel() {
 })();
 
 
-(() => {
+/* (() => {
   
   const memNo = document.getElementsByName("memberNo")
 
@@ -179,4 +179,4 @@ function carousel() {
   }
 
   
-})();
+})(); */

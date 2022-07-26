@@ -238,4 +238,7 @@ function reviewsList() {
 }
 
 
+// 신고하기 ajax
+
+
 

@@ -81,7 +81,7 @@
                             --%>
                                         
                                 <%-- 판매 내역 --%>
-                                <div class="sellContents">
+                                <div class="sellContents" id="sellContents">
                                     <c:choose>
                                         <c:when test="${empty sellList}">
                                             <!--  판매 내역 조회 결과가 비어있다면 -->
