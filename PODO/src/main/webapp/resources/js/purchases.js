@@ -32,13 +32,12 @@ function selectTradeCondition(type){
             console.log(itemList);
 
             /* 거래 내역 화면 구성 */
-            let purchasesContents = document.createElement("div");
-            purchasesContents.classList.add("purchases-contents");
+            /* let purchasesContents = document.createElement("div");
+            purchasesContents.classList.add("purchases-contents"); */
 
+            /* 출력 할 div 영역 */
             let content = document.createElement("div");
             content.classList.add("sellContents");
-            purchasesContents.append(content);
-            
             
             if(itemList.length == 0){
                 let div = document.createElement("div");
@@ -52,23 +51,23 @@ function selectTradeCondition(type){
             }else{
 
             /* if(itemList.length != 0){ */
-                for(let i=0; i<itemList.length; i++){
+                for(let i of itemList){
                     
                     /* li 태그 */
-                    let iList = document.createElement("li");
-                    iList.classList.add("fav-list");
+                    let li = document.createElement("li");
+                    li.classList.add("fav-list");
 
                     /* 상품 이미지 div */
                     let thumb = document.createElement("div");
                     thumb.classList.add("thumb"); 
-                    iList.append(thumb);
+                    li.append(thumb);
 
-                        if(itemList.length != null){
-                            let itemImage = document.createElement("img");
-                            itemImage.classList.add("item-image");
-                            itemImage.src = contextPath + itemList[0].imageReName;
-                            thumb.append(itemImage);
-                        }
+                    if(i.length != null){
+                        let itemImage = document.createElement("img");
+                        itemImage.classList.add("item-image");
+                        itemImage.src = contextPath + i.imageReName;
+                        thumb.append(itemImage);
+                    }
 
                     /* 상품 정보 div */
                     // div : gdsInfo
@@ -77,33 +76,36 @@ function selectTradeCondition(type){
 
                     /* 상품 정보 p 태그 */
                     let p = document.createElement("p");
-                    purchasesInfo.append(p);
-
+                    
                     /* 상품 정보 span 태그(제목, 가격, 등록일, 조회수) */
                     /* 제목 */
-                    let span = document.createElement("span");
-                    p.append(span);
+                    let span1 = document.createElement("span");
+                    let span2 = document.createElement("span");
+                    let span3 = document.createElement("span");
+                    let span4 = document.createElement("span");
 
-                    span.innerText = "제목";
-                    span.after(itemList.boardTitle);
+                    
+                    span1.innerHTML = "제목" + i.boardTitle;
+                    span2.innerHTML = "가격" + i.price;
+                    span3.innerHTML = "등록일" + i.updateDate;
+                    span4.innerHTML = "조회수" + i.readCount;
 
-                    /* 가격 */
-                    span.innerText = "가격";
-                    span.after(itemList.price);
+                    p.append(span1);
+                    p.append(span2);
+                    p.append(span3);
+                    p.append(span4);
 
-                    /* 등록일 */
-                    span.innerText = "등록일";
-                    span.after(itemList.updateDate);
-
-                    /* 조회수 */
-                    span.innerText = "조회수";
-                    span.after(itemList.readCount);
-
+                    purchasesInfo.append(p);
+                    li.append(purchasesInfo);
+                    content.append(li);
                 }
-
-
+                
+                let purchasesContents = document.createElement("div");
+                purchasesContents.classList.add("purchases-contents");
+             
+                purchasesContents.append(content);
             }
-
+            
         },
         
         error : function(req, status, error){
