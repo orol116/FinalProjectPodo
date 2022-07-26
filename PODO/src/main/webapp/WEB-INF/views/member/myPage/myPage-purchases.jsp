@@ -82,9 +82,8 @@
                                         
                                 <%-- 판매 내역 --%>
                                 <div class="sellContents" id="sellContents">
-                                    <c:choose>
+                                    <!-- <c:choose>
                                         <c:when test="${empty sellList}">
-                                            <!--  판매 내역 조회 결과가 비어있다면 -->
                                             <div>
                                                 <div class="purchases-info">판매 내역이 없습니다.</div>
                                             </div>
@@ -126,11 +125,14 @@
                 
                                             </c:forEach>
                                         </c:otherwise>
-                                        <%-- -------------------------------------------------------------------------------------------------- --%>
+                                        
                                     
                                         
-                                    </c:choose>
+                                    </c:choose> -->
                                 </div>
+
+
+
 
                                 <%-- 구매 내역 --%>
                                 <div class="buyContents">

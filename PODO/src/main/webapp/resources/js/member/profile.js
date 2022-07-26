@@ -204,17 +204,8 @@ function reviewsList() {
                     const itemReview = document.createElement("div");
                     itemReview.id = "reviews-user-item";
                     itemReview.innerText = review.boardTitle;
-
-                    const btnArea = document.createElement("div");
-                    btnArea.id = "hideBtn-area";
-
-                    const hideBtn = document.createElement("button");
-                    hideBtn.id = "hideBtn";
-                    hideBtn.innerText = "후기 숨기기";
-
-
-                    btnArea.append(hideBtn);
-                    footReview.append(itemReview, btnArea);
+                    
+                    footReview.append(itemReview);
 
                     reviewBox.append(reviewRow, shortReview, footReview);
 

@@ -312,6 +312,7 @@ public class MemberController {
 		}
 	}
 	
+	// 1대1 문의글 작성
 	@PostMapping("/inquire")
 	public String inquireWrite(@RequestParam Map<String, Object> paramMap
 							 , @ModelAttribute("loginMember") Member loginMember
@@ -370,13 +371,7 @@ public class MemberController {
 		return "member/InquireDetail";
 	}
 	
-	// 1대1 문의 관리자 답변 작성
-	@PostMapping("reply")
-	public String adminReplyWrite() {
-		
-		return null;
-	}
-		
+
 
 	// 상품관리 페이지
 	@GetMapping("/itemManage")

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import edu.kh.podo.admin.model.dao.AdminDAO;
 import edu.kh.podo.admin.model.vo.Admin;
+import edu.kh.podo.admin.model.vo.AdminReply;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.common.Util;
@@ -140,6 +141,26 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public int adminDelete(String deleteNo, int boardCode) {
 		return dao.adminDelete(deleteNo, boardCode);
+	}
+
+
+	// FAQ 게시글 불러오기 
+	@Override
+	public List<Admin> faqList(String classification) {
+		return dao.faqList(classification);
+	}
+
+
+	// 1대1 문의 답변 작성
+	@Override
+	public int adminReplyWrite(String boardContent, int boardNo) {
+		return dao.adminReplyWrite(boardContent, boardNo);
+	}
+
+	// 1대1 문의 답변 조회
+	@Override
+	public List<AdminReply> selectAdminReply(int boardNo) {
+		return dao.selectAdminReply(boardNo);
 	}
 	
 }

@@ -1,4 +1,3 @@
-/* 페이지 로드 시 판매 영역 보여주기 */
 function init(){
     $('.sellContents').show();
     $('.buyContents').hide();
@@ -16,14 +15,17 @@ function showBuyList(){
     $('.sellContents').hide();
 }
 
-var reviewCount = 0;
+var boardNo = 0;
 
 // 구매/판매 내역
 function selectTradeCondition(type){
 
+    console.log("버튼 타입(1:판매, 2:예약중, 3:판매중, 4:판매완료, 5:구매) : " + type);
+
     $.ajax({
         url : contextPath + "/shop/myMall/selectList", 
         data : { "memberNo" : memberNo, 
+                 /* "boardNo" : boardNo, */
                  "type" : type},
         
         type : "GET", // 데이터 전달 방식 type
@@ -31,8 +33,10 @@ function selectTradeCondition(type){
         success : function(itemList){
             console.log(itemList);
 
-            sellContents = document.getElementById("sellContents");
-            
+            console.log(itemList.boardNo);
+            console.log(itemList.imageReName);
+
+            let sellContents = document.getElementById("sellContents");
 
             /* 거래 내역 화면 구성 */
             let purchasesContents = document.createElement("div");
@@ -54,25 +58,29 @@ function selectTradeCondition(type){
                 div.append(purchasesinfo);
             }else{
 
-            /* if(itemList.length != 0){ */
                 for(let i=0; i<itemList.length; i++){
+                /* for(let i of itemList){ */
                     
                     /* li 태그 */
                     let iList = document.createElement("li");
                     iList.classList.add("fav-list");
 
+                    
                     /* 상품 이미지 div */
                     let thumb = document.createElement("div");
                     thumb.classList.add("thumb"); 
                     iList.append(thumb);
 
-                        if(itemList.length != 0){
-                            let itemImage = document.createElement("img");
-                            itemImage.classList.add("item-image");
-                            itemImage.setAttribute("src", 'resources/images/items/image1.jpg');
-                            thumb.append(itemImage);
-                        }
+                    /* if(i.memberNo == memberNo){
 
+                    } */
+
+                    
+                    let itemImage = document.createElement("img");
+                    itemImage.classList.add("item-image");
+                    itemImage.src = contextPath + itemList.imageReName;
+                    thumb.append(itemImage);
+                    
                     /* 상품 정보 div */
                     // div : gdsInfo
                     let purchasesInfo = document.createElement("div");
@@ -87,30 +95,31 @@ function selectTradeCondition(type){
                     /* 제목 */
                     const spanName = document.createElement("span");
                     spanName.classList.add("spanName");
-                    spanName.innerText = "제목 :" + itemList.boardTitle;
+                    spanName.innerHTML = "제목 :" + i.boardTitle;
                     
 
                     const spanPrice = document.createElement("span");
                     spanPrice.classList.add("spanPrice");
-                    spanPrice.innerText = "가격 : " + itemList[i].price;
+                    spanPrice.innerHTML = "가격 : " + i.price;
                     /* 가격 */
 
 
                     /* 등록일 */
                     const spanDate = document.createElement("span");
                     spanDate.classList.add("spanDate");
-                    spanDate.innerText = "등록일 : " + itemList[i].updateDate;
+                    spanDate.innerHTML = "등록일 : " + i.updateDate;
 
                     /* 조회수 */
                     const spanCount = document.createElement("span");
                     spanCount.classList.add("spanCount");
-                    spanCount.innerText = "조회수 : " + itemList.readCount;
+                    spanCount.innerHTML = "조회수 : " + i.readCount;
                     
-                    itemInfo.append(spanName,spanPrice,spanDate,spanCount);
-
+                    
+                    
+                    itemInfo.append(spanName,spanPrice,spanDate,spanCount );
                     content.append(iList);
                 }
-
+                
 
             }
 
@@ -122,5 +131,3 @@ function selectTradeCondition(type){
     });
 
 };
-
-
