@@ -7,68 +7,89 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="./TweenMax.js"></script>
 <script>
-var qnaNum = -1;
-$(document).ready(function(){
-    $('.qa_li .question').click(function(){
-        q = $(".qa_li .question").index(this);
-        if(q!=qnaNum){
-            $('.qa_li .answer').stop(true, true).slideUp(400);
-            $('.qa_li').removeClass('open');
-            TweenMax.to($('.qa_li .question').eq(qnaNum).find('.iconDiv'), 0.4, {rotation:0});
-            qnaNum = q;
-            $('.qa_li').eq(qnaNum).addClass('open');
-            $('.qa_li .answer').eq(qnaNum).stop(true, true).slideDown(400);
-            //TweenMax.to($('.qa_li .question').eq(qnaNum).find('.iconDiv'), 0.4, {rotation:180});
-            TweenMax.to($('.qa_li .question').eq(qnaNum).find('.iconDiv'), 0.4, {rotation:0});
-        }else{
-            $('.qa_li .answer').eq(qnaNum).stop(true, true).slideUp(400);
-            $('.qa_li').eq(qnaNum).removeClass('open');
-            TweenMax.to($('.qa_li').eq(qnaNum).find('.question p'), 0.4, {rotation:0});
-            qnaNum = -1;
+jQuery(function($){
+    // Frequently Asked Question
+    var article = $('.faq>.faqBody>.article');
+    article.addClass('hide');
+    article.find('.a').hide();
+    article.eq(0).removeClass('hide');
+    article.eq(0).find('.a').show();
+    $('.faq>.faqBody>.article>.q>a').click(function(){
+        var myArticle = $(this).parents('.article:first');
+        if(myArticle.hasClass('hide')){
+            article.addClass('hide').removeClass('show');
+            article.find('.a').slideUp(100);
+            myArticle.removeClass('hide').addClass('show');
+            myArticle.find('.a').slideDown(100);
+        } else {
+            myArticle.removeClass('show').addClass('hide');
+            myArticle.find('.a').slideUp(100);
+        }
+        return false;
+    });
+    $('.faq>.faqHeader>.showAll').click(function(){
+        var hidden = $('.faq>.faqBody>.article.hide').length;
+        if(hidden > 0){
+            article.removeClass('hide').addClass('show');
+            article.find('.a').slideDown(100);
+        } else {
+            article.removeClass('show').addClass('hide');
+            article.find('.a').slideUp(100);
         }
     });
-});    
+});
 </script>
+
 <style>
-@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
-ul, li, p { list-style:none; padding:0; margin:0; }
-.listWrap { font-family:'Noto Sans KR', sans-serif; margin-bottom:20px; }
-.listWrap .qa_li { position:relative; display:block; padding:0; border-bottom:1px solid #ededed; cursor:pointer; }
-.listWrap .qa_li:first-child { border-top:1px solid #a6a6a6; }
-.listWrap .qa_li .ca_name { margin-bottom:14px; font-weight:400; color:#999; font-size:18px; }
-.listWrap .qa_li .tit { color:#222; font-size:24px; transition:color 0.3s ease-out; }
-.listWrap .qa_li:hover .tit { color:#0a7ac8; }
-.qa_li .question { position:relative; display:block; padding:25px 100px 25px 120px; background:url('https://happyjung.diskn.com/data/lecture/icon_jquery_faq2_icon_q.png') 40px center no-repeat; }
-.qa_li .question .iconDiv { position:absolute; right:40px; top:50%; -webkit-transform:translateY(-50%); -moz-transform:translateY(-50%); -o-transform:translateY(-50%); -ms-transform:translateY(-50%); transform:translateY(-50%); }
-.qa_li .answer { position:relative; display:none; padding:40px 120px; font-size:16px; color:#222; line-height:28px; background:#f6f6f6 url('https://happyjung.diskn.com/data/lecture/icon_jquery_faq2_icon_a.png') 40px 40px no-repeat; border-top:1px solid #e4e4e4; }
-.modA { position:absolute; right:30px; bottom:30px; color:#e82b2b; }
+/* FAQ */
+.faq{border-bottom:0px solid #ddd;margin:1em 0;}
+.faq .faqHeader{position:relative;zoom:1}
+.faq .faqHeader .showAll{position:absolute;bottom:0;right:0;border:0;padding:0;overflow:visible;background:none;cursor:pointer}
+.faq .faqBody{margin:0;padding:0}
+.faq .faqBody .article{list-style:none}
+.faq .q{margin:0}
+.faq .q a{display:block;text-align:left; 
+    background:url("faq1_icon_q.png") no-repeat 0 0;
+    padding:0 0 0 35px;
+    font-size:18px;
+    color:#5e5e5e;
+    font-weight:bold;
+    line-height: 27px;
+    cursor:pointer;
+    margin: 10px 0; !important}
+.faq .q a:hover, .faq .q a:active, .faq .q a:focus{}
+.faq .a{background:#f8f8f8 url("faq1_icon_a.png") no-repeat 40px 10px;padding: 10px 75px 10px 75px;
+    font-size: 16px;
+    color: #444444;
+    line-height: 22px;
+    border-top: 1px solid #bdbdbd;
+    margin:5px 0 0 0;}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+
 </style>
 </head>
 
 <body>
-<ul class="listWrap">
-    <li class="qa_li">
-        <div class="question">
-            <p class="tit">질문1</p>
-            <p class="iconDiv"><img src="https://happyjung.diskn.com/data/lecture/icon_jquery_faq2_icon_arrow.png"></p>
+    <div class="faq">
+        <div class="faqHeader">
+            <!--button type="button" class="showAll">답변 모두 여닫기</button-->
         </div>
-        <div class="answer">답변1</div>
-    </li>
-    <li class="qa_li">
-        <div class="question">
-            <p class="tit">질문2</p>
-            <p class="iconDiv"><img src="https://happyjung.diskn.com/data/lecture/icon_jquery_faq2_icon_arrow.png"></p>
-        </div>
-        <div class="answer">답변2</div>
-    </li>
-    <li class="qa_li">
-        <div class="question">
-            <p class="tit">질문3</p>
-            <p class="iconDiv"><img src="https://happyjung.diskn.com/data/lecture/icon_jquery_faq2_icon_arrow.png"></p>
-        </div>
-        <div class="answer">답변3</div>
-    </li>
-</ul>
-
+        <ul class="faqBody">
+            <li class="article" id="a1">
+                <p class="q"><a href="#a1">질문1</a></p>
+                <p class="a">답변1</p>
+            </li>
+            <li class="article" id="a2">
+                <p class="q"><a href="#a2">질문2</a></p>
+                <p class="a">답변2</p>
+            </li>
+            <li class="article" id="a3">
+                <p class="q"><a href="#a3">질문3</a></p>
+                <p class="a">답변3</p>
+            </li>
+        </ul>
+    </div>
+    
 </body>
 </html>

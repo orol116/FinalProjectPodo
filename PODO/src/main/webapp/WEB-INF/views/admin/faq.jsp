@@ -34,20 +34,17 @@
                             <button class="selectBtn" onclick="location.href='${contextPath}/admin/faq/4'">본인인증</button>
                         </div>
 
-                        <%-- <c:forEach var="faq" items="${FAQList}"> --%>
 
                         <ul class="FAQ">
 
                             <c:forEach var="faq" items="${faqList}">
-
                                 <li>
                                     <input type="checkbox" id="FAQ-2" value="${faq.boardNo}">
                                     <label for="FAQ-2">${faq.boardTitle}</label>
-                                    <div>
+                                     <div>
                                         <p>${faq.boardContent}</p>
                                     </div>
-                                </li>
-
+                               <li>
                             </c:forEach>
                             <%-- <li>
                                 <input type="checkbox" id="FAQ-2" value="${faq.boardNo}">
