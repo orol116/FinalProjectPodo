@@ -86,9 +86,10 @@ public class WebSocketHandler extends TextWebSocketHandler{
 					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
 							+ "<strong>문의를 작성하였습니다.</strong></a>");
 					adminSession.sendMessage(tmpMsg);
-				}else if(alarmMessage.getBoardName().equals("inquire")){
 					
-				}
+			}else if(alarmMessage.getBoardName().equals("inquire")){
+				
+			}
 				
 				
 				
