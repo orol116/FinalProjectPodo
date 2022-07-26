@@ -1,3 +1,6 @@
+/* 헤더 스타일 */
+
+
 /* 마이 페이지 공통 부분 -> sideMenu.css */
 /* .myPage-inner{
 
@@ -260,25 +263,27 @@ form[name="myPage-form"]{
 }    */
 
 
-.btnPush{
-    height: 50px;
-    width: 700px;
+.btnPush {
+    height: 50px !important;
+    width: 700px!important;
     /* padding: 10px; */
-    margin: 50px 0;
-    border: 1px solid rgb(155, 89, 182);
-    font-size: 20px;
-    font-weight: bold;
-    background-color: rgb(155, 89, 182);
-    color: white;
-    cursor: pointer;
+    margin: 50px 0 !important;
+    border: 1px solid rgb(155, 89, 182) !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    background-color: rgb(155, 89, 182) !important; 
+    color: white !important;
+    cursor: pointer !important;
+    
 }
 
 .btnPush:hover{
-    background-color: white;
-    color:rgb(155, 89, 182);
-    border: 1px solid rgb(39,39,91);
-    background: #fff;
-    transition: color 0.5s ease-in-out;
-    overflow: hidden;
-    z-index: 1;
+    background-color: white !important;
+    color:rgb(155, 89, 182) !important;
+    border: 1px solid rgb(39,39,91) !important;
+    background: #fff !important;
+    transition: color 0.5s ease-in-out !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+    
 }
