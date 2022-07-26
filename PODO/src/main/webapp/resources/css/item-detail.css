@@ -313,7 +313,7 @@ footer {
 }
 
 #body-profile-area {
-    width: 350px;
+    width: 400px;
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -322,9 +322,10 @@ footer {
 }
 
 #profile-box {
+    margin-top: 40px;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid #ccc;
 }
 
 

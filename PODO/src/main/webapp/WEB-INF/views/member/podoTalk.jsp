@@ -146,9 +146,7 @@
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()">나가기</button>
                                 <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
-                                
-                                <button type="button" id="reviewWrt">후기 작성하기</button>
-                                <button onclick="location.href='${contextPath}/member/reviewWrite'">후기 작성</button>
+                                <button type="button" id="reviewWrt" onclick="location.href='${contextPath}/member/reviewWrite'">후기 작성</button>
                             
                                 <!-- <button type="submit" class="review-click">후기 작성</button> -->
                                 <!-- <form class="review-modal" id="reviewWrite" method="POST" action="${contextPath}/member/reviewWrite">
@@ -231,17 +229,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     
     <script>
-		const memberNo = "${loginMember.memberNo}";
-		const memberNickname = "${loginMember.memberNickname}";
 		const chatNo = "${chatNo}";
         const createChatNo = "${createChatNo}";
 		// 로그인이 되어 있을 경우에만
 		// /chat 이라는 요청 주소로 통신할 수 있는  WebSocket 객체 생성
-		let chattingSock = new SockJS(contextPath+"/chat");
+		var chattingSock = new SockJS(contextPath+"/chat");
 	</script>
- 
-    <script>const contextPath = "${contextPath}";</script>
-    
     <%-- js --%>
     <script src="${contextPath}/resources/js/chat.js"></script>
     

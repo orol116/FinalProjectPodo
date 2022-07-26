@@ -4,7 +4,7 @@ const reviewCategory = document.getElementById("review-category");
 const reviewList = document.getElementById("reviews-area");
 const itemList = document.getElementById("seller-items");
 
-if (loginMemberNo == memberNo) {
+if (loginMemberNo == member2) {
     document.getElementById("user-intro-change").style.display = '';
     document.getElementById("item-report").style.display = 'none';
 } else {
