@@ -132,9 +132,9 @@
             return true;
        }
 
-        const memberNo = "${loginMember.memberNo}";
-		const memberId = "${loginMember.memberId}";
-		const memberNickname = "${loginMember.memberNickname}";
+        const AmemberNo = "${loginMember.memberNo}";
+		const AmemberId = "${loginMember.memberId}";
+		const AmemberNickname = "${loginMember.memberNickname}";
         
 
         //소켓
