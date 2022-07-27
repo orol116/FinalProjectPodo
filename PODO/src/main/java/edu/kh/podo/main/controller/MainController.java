@@ -38,24 +38,44 @@ public class MainController {
 
 	private Logger logger = LoggerFactory.getLogger(MainController.class);
 
+	// 검색 조회 
+//	@RequestMapping("/main")
+//	public String mainForward(String query, RedirectAttributes ra,
+//			Model model) {
+//
+//			if (query == null) {
+//
+//				List<ItemBoard> itemList = service.selectItemList();
+//				model.addAttribute("itemList", itemList);
+//
+//			} else {
+//
+//				List<ItemBoard> searchList = service.searchBoard(query);
+//				model.addAttribute("itemList", searchList);
+//			}
+//
+//		return "common/main";
+//	}
+
 	@RequestMapping("/main")
-	public String mainForward(String query, RedirectAttributes ra,
-			Model model) {
+	public String mainForward(Model model) {
 
-			if (query == null) {
+			List<ItemBoard> readCountList = service.selectReadCountList();
+			model.addAttribute("readCountList", readCountList);
+			
+			List<ItemBoard> podoList = service.selectPodoList();
+			model.addAttribute("podoList", podoList);
 
-				List<ItemBoard> itemList = service.selectItemList();
-				model.addAttribute("itemList", itemList);
-
-			} else {
-
-				List<ItemBoard> searchList = service.searchBoard(query);
-				model.addAttribute("itemList", searchList);
-			}
+			List<ItemBoard> freeShopList = service.selectFreeShopList();
+			model.addAttribute("freeShopList", freeShopList);
+			
+			List<ItemBoard> unOpenList = service.selectUnOpenList();
+			model.addAttribute("unOpenList", unOpenList);
+			
 
 		return "common/main";
 	}
-
+	
 	@ResponseBody
 	@RequestMapping("/mainItem")
 	public String mainItem(String query, RedirectAttributes ra, Model model, int boardNo) {
