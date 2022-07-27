@@ -144,6 +144,8 @@ section>button>.fa-solid{
     margin-right: 20px;
 }
 
+
+
 /* 알림 창 hover */
 /* http://www.fullwork.co.kr/bbs/board.php?bo_table=fw_tip&wr_id=11&sst=wr_good&sod=asc&sop=and&page=1  */
 
@@ -309,6 +311,7 @@ section>button>.fa-solid{
 }
 
 #div-category > li{
+    display: none;
     list-style: none;
     margin: 10px 0 10px 0;
 

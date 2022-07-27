@@ -46,20 +46,18 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
-    <div>
-        <div id="categoryName-space" class="nameSpace"></div><%-- main에서 ajax 받는 부분 --%> 
         
-        <div id="mainName-space" class="nameSpace">${param.mCategoryName}</div>
+        <div id="categoryName-space"></div><%-- main에서 ajax 받는 부분 --%> 
         
+        <div id="mainName-space" >${param.mCategoryName}</div>
 
-        <div id="items-button-area">
+<%--         <div id="items-button-area">
             <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
-            <button id="complete-items" type="button" class="showBtn">판매 완료된 보기</button>
-        </div>
-    </div>
+
+        </div> --%>
     <section id="items-section">
-            
-        <c:choose>
+
+                <c:choose>
             <c:when test="${empty itemList}">
 
                 <div>
@@ -71,11 +69,11 @@
                 </div>
             
             </c:when>
-    
+   
             <c:otherwise>
 
                 <div id="itmes">
-                    <h2 style="margin:0;">이번주 상품 추천</h2>
+                    <h2 style="margin:0;">내 주변 상품</h2>
                 </div>
 
                 <c:forEach var="item" items="${itemList}" begin="0" end="19" step="1" varStatus="vs">
@@ -121,8 +119,7 @@
                     
                 </c:forEach>
             </c:otherwise>
-        </c:choose>
-                    
+        </c:choose>                     
 
     </section>
     </main>
