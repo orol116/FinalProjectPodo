@@ -73,8 +73,8 @@ public interface ItemBoardService {
 
 
 	/** 거리별 상품 조회
-	 * @param loginMember
+	 * @param distMap
 	 * @return distList
 	 */
-	List<ItemBoard> selectDistList(Member loginMember);
+	List<ItemBoard> selectDistList(Map<String, Object> distMap);
 }

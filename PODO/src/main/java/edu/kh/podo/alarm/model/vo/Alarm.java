@@ -26,5 +26,8 @@ public class Alarm {
 	
 	private String recieveMemberId;
 	private int recieveMemberNo;
+	
+	private int chatNo;
+	
 
 }

@@ -71,6 +71,8 @@ public class WebSocketHandler extends TextWebSocketHandler{
 //			String admin = null;
 		WebSocketSession recieverSession   =null;
 			
+		
+			// 문의가 올 때 알림
 			if(alarmMessage.getBoardName().equals("inquire")) {
 				
 				
@@ -95,6 +97,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 					recieverSession.sendMessage(tmpMsg);
 				}
 
+			// 구매자가 찜을 했을 시 판매자에게 알림
 			}else if(alarmMessage.getBoardName().equals("favorites")){
 
 				boardWriter = alarmMessage.getMemberId();
@@ -118,14 +121,90 @@ public class WebSocketHandler extends TextWebSocketHandler{
 					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 회원님의 게시글을 찜 하였습니다.");
 					recieverSession.sendMessage(tmpMsg);
 				}
+			
+			// 채팅 올 때 알림
+			}else if(alarmMessage.getBoardName().equals("chat")) {
 				
-			}else if(alarmMessage.getBoardName().equals("favorites")) {
+				boardWriter = alarmMessage.getMemberId();
 				
+				int chatNo = alarmMessage.getChatNo();
+				int writerNo = alarmMessage.getMemberNo();
+				
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("chatNo", chatNo);
+				map.put("writerNo", writerNo);
+				
+				String selectRecieverId = service.selectRecieverId(map);
+				
+				
+				recieverId = selectRecieverId;
+				
+				
+				recieverSession = userSessionsMap.get(recieverId);
+				
+				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
+				logger.info("recieverSession = "+recieverSession);
+				
+				result = service.insertMessage(alarmMessage);
+				
+				// 실시간 접속 시 
+				if ( recieverSession != null) {
+					logger.info("onmessage되나?");
+					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 회원님에게 댓글을 달았습니다.");
+					recieverSession.sendMessage(tmpMsg);
+				}
+			
+			// 끌올 시 알림
+			}else if(alarmMessage.getBoardName().equals("update")) {
+				
+				boardWriter = alarmMessage.getMemberId();
+				
+				int boardNo = alarmMessage.getBoardNo();
+				
+				List<String> buyerMemberId = service.selectBuyerId(boardNo);
+				
+				for(String buyer : buyerMemberId) {
+					
+					recieverSession = userSessionsMap.get(buyer);
+					
+					logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
+					logger.info("recieverSession = "+recieverSession);
+					
+					result = service.insertMessage(alarmMessage);
+					
+					// 실시간 접속 시 
+					if ( recieverSession != null) {
+						logger.info("onmessage되나?");
+						TextMessage tmpMsg = new TextMessage(boardWriter + "님이 판매글을 끌어올렸습니다.");
+						recieverSession.sendMessage(tmpMsg);
+					}
+				}
+				
+			// 관리자 답변 작성시 알림
+			}else if(alarmMessage.getBoardName().equals("inquireReply")){
+
+				boardWriter = alarmMessage.getMemberId();
+				
+				int recieverMemberNo = alarmMessage.getRecieveMemberNo();
+				String recieverMemberId = service.selectMemberId(recieverMemberNo);
+				
+				recieverId = recieverMemberId;
+				alarmMessage.setRecieveMemberId(recieverId);
+				
+				recieverSession = userSessionsMap.get(recieverId);
+				
+				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
+				logger.info("recieverSession = "+recieverSession);
+				
+				result = service.insertMessage(alarmMessage);
+				
+				// 실시간 접속 시 
+				if ( recieverSession != null) {
+					logger.info("onmessage되나?");
+					TextMessage tmpMsg = new TextMessage("관리자가 회원님의 1대1 문의에 답변 하였습니다.");
+					recieverSession.sendMessage(tmpMsg);
+				}
 			}
-				
-				
-				
-		
 	}
 	
 	@Override

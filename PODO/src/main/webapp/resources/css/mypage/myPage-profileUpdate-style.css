@@ -23,7 +23,8 @@
 
 } 
 .myPage-title{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     width:100%;
     margin:0 0 10px 0;
     font-size: 30px;
@@ -32,6 +33,7 @@
 .myPage-subtitle{
     display: inline-block;
     width:100%;
+    margin-left: 60px;
 }
 
 .profile-image-area{
@@ -86,7 +88,8 @@
 }
 
 .myPage-explanation{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     width:100%;
     margin-bottom: 30px;
     font-size: 14px;
@@ -98,6 +101,7 @@
     margin-bottom: 30px;
     font-size: 14px;
     letter-spacing: -1px;
+    margin-left: 10px;
 
 }
 /* #btnPush{
@@ -114,14 +118,24 @@
     letter-spacing: -1px;
 
 }
+
+/* 닉네임 부분 */
+.box1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 100px;
+}
+
+
 .myPage-row{
-    width: 400px;
+    width: 700px;
     height: 50px;
     margin-top: 50px;
     display: flex;
     align-items: center;
     border-bottom: 2px solid #ddd ;
-
+    padding: 10px;
 }
 .myPage-row>*{
     font-size: 18px;
@@ -157,6 +171,7 @@ form[name="myPage-form"]{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 800px;
 }
 
 /* 내정보 */
@@ -228,15 +243,10 @@ form[name="myPage-form"]{
 
 /* 회원 탈퇴 약관 */
 #secession-terms{
-    
-    width : 600px;
-    height: 200px;
+    width: 740px;
+    height: 180px;
     margin-top: 0%;
-    border : 1px solid gray;
-    font-size : px;
-
-   
-    overflow : scroll; /* 초과한 방향의 스크롤을 자동 생성 */
+    border: 1px solid #ddd; 
  }
 
  #secession-subexplanation{
@@ -299,8 +309,8 @@ form[name="myPage-form"]{
 
 
 .btnPush {
-    height: 50px !important;
-    width: 400px!important;
+    height: 60px !important;
+    width: 700px!important;
     /* padding: 10px; */
     margin: 50px 0 !important;
     border: 1px solid rgb(95, 0, 129) !important;
@@ -309,6 +319,7 @@ form[name="myPage-form"]{
     background-color: rgb(95, 0, 129) !important; 
     color: white !important;
     cursor: pointer !important;
+    border-radius: 3px;
     
 }
 

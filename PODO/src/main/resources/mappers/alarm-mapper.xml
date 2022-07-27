@@ -10,7 +10,7 @@
 		<result property="memberNo" column="MEMBER_NO"/>
 	</resultMap>
   
-  
+  <!-- Alaram 삽입 dao -->
   <insert id="insertMessage" parameterType="alarm" useGeneratedKeys="true">
   
   	<selectKey keyProperty="alarmNo" resultType="_int" order="BEFORE">
@@ -22,11 +22,31 @@
   	)
   </insert>
   
-  
+  <!-- receiver 의 memberNo를 사용해서 receiver의 memberId 를 조회 -->
   <select id="selectMemberId" resultType="string">
 	   SELECT MEMBER_ID
 	   FROM MEMBER
 	   WHERE MEMBER_NO = #{recieverMemberNo}
   </select>
+  
+  <!-- 본인 제외 해당 채팅방에 있는 회원 조회 -->
+  <select id="selectRecieverId" resultType="string">
+	   SELECT MEMBER_ID
+	   FROM MEMBER
+	   JOIN CHAT_ROOM_JOIN USING(MEMBER_NO)
+	   WHERE CHAT_NO = #{chatNo} 
+	   AND MEMBER_NO != #{writerNo}
+  </select>
+  
+  
+  <!-- 해당 판매글을 찜한 사용자에게 끌올 시 알림 -->
+  <select id="selectBuyerId" resultType="string">
+	   SELECT MEMBER_ID
+	   FROM MEMBER
+	   JOIN BOOKMARK USING(MEMBER_NO)
+	   WHERE BOARD_NO = #{boardNo}
+  </select>
+  
+  
   
 </mapper>
