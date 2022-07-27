@@ -53,4 +53,5 @@ public class ItemBoard {
 
 	private double dLon;
 	private double dLat;
+	private double distance;
 }

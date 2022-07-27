@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,47 +66,38 @@ public class MainController {
 	}
 
 	
+	@ResponseBody
+	@RequestMapping("/mainDistItem")
+	public String mainDistItem(HttpSession session ) {
+		
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		
+		if(loginMember != null) {
+			int memberNo = loginMember.getMemberNo();
+			int distance = loginMember.getDistance();
+			
+			Map<String, Object> distMap = new HashMap<String, Object>();
+			
+			distMap.put("memberNo", memberNo);
+			distMap.put("distance", distance);
+			
+			List<ItemBoard> distList = service.selectDistList(distMap);
+			
+			return new Gson().toJson(distList);
+			
+		}
+		return "{}";
+	}
+}
+	
 //	@ResponseBody
 //	@RequestMapping("/mainDistItem")
-//	public String mainDistItem(@ModelAttribute("loginMember")Member loginMember,  String query, RedirectAttributes ra, Model model, int boardNo) {
+//	public String mainDistItem(@ModelAttribute("loginMember")Member loginMember, String query, RedirectAttributes ra, Model model, int boardNo) {
 //		
-//		int memberNo = loginMember.getMemberNo();
-//		int distance = loginMember.getDistance();
+//		List<ItemBoard> distList = service.selectDistList(loginMember);
 //		
-//		Map<String, Object> distMap = new HashMap<String, Object>();
-//		
-//		distMap.put("memberNo", memberNo);
-//		distMap.put("distance", distance);
-//		
-//		List<ItemBoard> distList = service.selectDistList(distMap);
-//		List<ItemBoard> itemList = service.selectItemList();
-//		
-//		if (distList != null) {
 //			model.addAttribute("distList", distList);
-//			model.addAttribute("itemList", itemList);
-//			
-//		} else {
-//			model.addAttribute("itemList", itemList);
-//		}
 //
 //		return "common/main";
 //	}
-	
-	@ResponseBody
-	@RequestMapping("/mainDistItem")
-	public String mainDistItem(@ModelAttribute("loginMember")Member loginMember, String query, RedirectAttributes ra, Model model, int boardNo) {
-		
-		List<ItemBoard> distList = service.selectDistList(loginMember);
-		List<ItemBoard> itemList = service.selectItemList();
-		
-		if (distList != null) {
-			model.addAttribute("distList", distList);
-			model.addAttribute("itemList", itemList);
-			
-		} else {
-			model.addAttribute("itemList", itemList);
-		}
-
-		return "common/main";
-	}
-}
+//}
