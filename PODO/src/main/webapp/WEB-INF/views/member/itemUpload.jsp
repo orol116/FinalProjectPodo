@@ -216,13 +216,13 @@
                 <ul class="second">
                     <li>
                         <section class="place">
-                            <button>내 위치</button>
+                            <button type="button">내 위치</button>
                             <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" id="searchBtn">
-                            <button onchange="none()" id="noneLocation">지역설정안함</button>
+                            <button type="button" onchange="none()" id="noneLocation">지역설정안함</button>
                         </section>
                         <section class="place2">
-                            <input type="text" id="sample5_address" placeholder="주소"
-                            class="placeResult" name="placeResult">
+                            <input type="text" id="sample5_address" placeholder="주소" class="placeResult" name="placeResult">
+                            
                         <%-- readonly : input 박스 value 값을 form 전송이 가능하지만 --%>
                             <%-- <input placeholder="선호 거래 지역을 검색해주세요." class="placeResult" name="placeResult" value="${item.sellArea}"> --%>
                             <section id="map-area" style="display:none;">
@@ -299,7 +299,7 @@
             <ul class="second">
                 <li>
                     <section class="price">
-                        <input id="search2" type="number" placeholder="숫자만 입력해주세요."  minlength="2" name="price" value="${item.price}">원&nbsp;
+                        <input id="search2" type="number" placeholder="숫자만 입력해주세요." minlength="2" name="price" value="${item.price}">원&nbsp;
                     </section>
                 </li>
             </ul> 
@@ -319,9 +319,9 @@
             <ul class="second">
                 <li>
                     <div class="info">
-                        <textarea id="info2"  placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)" name="boardContent">${item.boardContent}</textarea>
+                        <textarea id="info2" placeholder="여려장의 상품사진과 구입연도, 브랜드, 사용감, 하자 유무등 구매자에게 필요한 정보를 꼭 포함해 주세요. 문의를 줄이고 더 쉽게 판매할 수 있어요. (10자 이상)" name="boardContent">${item.boardContent}</textarea>
                         <div id="inform">
-                        <small>0/1000</small>
+                        <%-- <small>0/1000</small> --%>
                         </div>
                     </div>
                 </li>
