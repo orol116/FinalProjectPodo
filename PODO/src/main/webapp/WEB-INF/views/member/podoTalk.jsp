@@ -17,11 +17,12 @@
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
-    <%-- 파비콘 --%>
+    <%-- 파비콘 --%>    
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 </head>
-<body>
+<body style="width:auto;">
+
     <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
     
@@ -147,43 +148,15 @@
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()">나가기</button>
                                 <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
-                                <button type="button" id="reviewWrt" onclick="location.href='${contextPath}/member/reviewWrite'">후기 작성</button>
-                            
-                                <!-- <button type="submit" class="review-click">후기 작성</button> -->
-                                <!-- <form class="review-modal" id="reviewWrite" method="POST" action="${contextPath}/member/reviewWrite">
-                                </form> -->
-    
+                                
+                                
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="--bs-btn-bg: rgb(131, 4, 177)">후기 작성</button>
+
                             </ul>
-
-                           
-
-                            <!-- <%-- 모달창 --%> -->
-                            <div class="background">
-                                <div class="window">
-                                <div class="popup">
-                                    <button id="close" type="button">팝업닫기</button>
-                                    <div id="report-text">신고할 내용을 입력해주세요.</div>
-                                    <div id="report-area">
-                                        <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
-                                    </div>
-                                    <div id="selectBtn-area">
-                                        <select name="key" id="search-key">
-                                            <option value="기타">기타</option>
-                                            <option value="광고">광고</option>
-                                            <option value="상품 정보 부정확">상품 정보 부정확</option>
-                                            <option value="거래 금지 품목">거래 금지 품목</option>
-                                            <option value="허위 매물">허위 매물</option>
-                                            <option value="사기 의심">사기 의심</option> 
-                                        </select>
-                                        <button id="reportBtn">신고하기</button>
-                                        <button id="reviewBtn" onclick="writeReviewFn()">등록하기</button>
-                                    </div>
-
-                                </div>
-                                <div>
-                                </div>
-                                </div>
-                            </div>
+                            
+                            
 
                         </div>
 
@@ -206,6 +179,63 @@
                             </div>
                         </div>
 
+                        
+                        <!-- bootstrap review Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">후기 작성</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h1 class="review-title">후기 남기기</h1>
+
+                                    <div class="logo-image">
+                                        <img src="${contextPath}/resources/images/logo.png" alt="포도 로고" style="width:300px; height:250px;">
+                                    </div>
+                            
+                                    <h4 class="myPage-subtitle">거래는 어떠셨어요?</h4>
+                            
+                                    <form action="review" method="POST" name="review-write-form" onsubmit="return reviewValidate()">
+                            
+                                        <div class="review-table">
+                                            <div class="review-table-title">만족도</div>
+                                            <div class="review-table-thumbs">
+                                                
+                                                <button type="button" class="btn btn-warning " id="like-btn" style="--bs-btn-bg: #0055FF;" onclick="updateLike()">
+                                                    <img src="${contextPath}/resources/images/icon-thumb-up.png">
+                                                </button>
+                                                <button type="button" class="btn btn-danger" id="dislike-btn" onclick="updateDislike()">
+                                                    <img src="${contextPath}/resources/images/icon-thumb-down.png">
+                                                </button>
+                                                        
+                            
+                                            </div>
+                                        </div>
+                            
+                                        <div class="my-review">
+                                            <div class="my-review-title">상세 후기</div>
+                            
+                                            <div class="my-review-content">
+                            
+                                                <%-- 후기 내용 --%>
+                                                <div class="my-review-content-text-wrap">
+                                                    <textarea class="my-review-text-area" name="reviewContent" cols="50" rows="10" placeholder="고객님의 솔직한 리뷰를 남겨주세요. (상품과 관련있는 후기 내용만 작성해주세요.)">${rewiew.reviewContent}</textarea>
+                                                </div>
+                            
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
+                                <button type="button" class="btn btn-primary" style="--bs-btn-bg: rgb(131, 4, 177)" onclick="writeReviewFn()">등록하기</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
 
                        
                     </c:otherwise>
@@ -218,7 +248,9 @@
         
     </section>
 
-
+    <!-- bootstrap modal CDN via jsDelivr -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

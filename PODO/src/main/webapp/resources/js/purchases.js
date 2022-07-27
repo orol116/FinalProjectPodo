@@ -161,7 +161,6 @@ function selectTradeCondition(type){
     
     var sellList = document.getElementById("sellList");
     var buyList = document.getElementById("sellList");
-
     var sellSelect = sellList.parentNode;
     var buySelect = buyList.parentNode;
 
@@ -171,12 +170,8 @@ function selectTradeCondition(type){
         $("#selling").hide();
         $("#selled").hide();
 
-        sellSelect.classList.remove();
-        buySelect.classList.add("selected");
-
-
-        $(".category:nth-of-type(1)").classList.remove();
-        $(".category:nth-of-type(2)").classList.add("selected");
+        $('ul li .category:nth-child(1)').classList.remove();
+        $('ul li .category:nth-child(2)').classList.add("selected");
 
     }else{
         $("#reserving").show();

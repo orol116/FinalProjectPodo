@@ -322,20 +322,24 @@ function show() {
     document.getElementById("report").setAttribute("placeholder", "신고할 내용을 입력해주세요.");
     searchKey.style.display = "block";
 
-  }
+}
 
-  function close() {
-    document.querySelector(".background").className = "background";
-  }
+function close() {
+	document.querySelector(".background").className = "background";
+}
 
+/* ------------------------------------------------------------------------------------- */
 
-  //후기
+// 후기
+/* 
 function reviewShow(){
 	
 	if (reviewCount == 0) {
 
 		document.getElementById("reviewBtn").style.display = "block";
 		document.getElementById("reportBtn").style.display = "none";
+
+		// 모달창 div 영역
 		document.querySelector(".background").className = "background show";
 
 		document.getElementById("report-text").innerText = "";
@@ -356,55 +360,74 @@ function reviewShow(){
 	
 }
 
-  document.querySelector("#reviewWrt").addEventListener("click", reviewShow);
-  document.querySelector("#item-report").addEventListener("click", show);
-  document.querySelector("#close").addEventListener("click", close);
+document.querySelector("#reviewWrt").addEventListener("click", reviewShow);
+document.querySelector("#item-report").addEventListener("click", show);
+document.querySelector("#close").addEventListener("click", close); 
+*/
 
-  const report = document.getElementById("report");
+function reviewShow(){
+	// 작성된 후기 없을 경우 작성 가능
+	if(reviewCount == 0){
+		document.getElementById("reviewBtn").style.display = "block";
+		
+		// 모달창 div 영역
+		document.querySelector(".background").className = "background show";
+		
+	}else{
+		alert("이미 후기 작성이 완료된 판매글입니다.");
+	}
+}
+document.querySelector("#reviewWrt").addEventListener("click", reviewShow);
+document.querySelector("#item-report").addEventListener("click", show);
+document.querySelector("#close").addEventListener("click", close); 
 
-  // 신고 ajax
-  document.getElementById("reportBtn").addEventListener("click", function(){
+/* ----------------------------------------------------------------------------------- */
 
-    $.ajax({
-        url : "report", 
-        data : { "memberNo" : memberNo, "report" : report.value},
-        type : "GET", 
+const report = document.getElementById("report");
 
-        success : function(result){
-            alert("신고되었습니다.");
-        },
-        
-        error : function(req, status, error){
-            console.log(req.responseText);
-        }
-    });
+// 신고 ajax
+document.getElementById("reportBtn").addEventListener("click", function(){
 
+$.ajax({
+	url : "report", 
+	data : { "memberNo" : memberNo, "report" : report.value},
+	type : "GET", 
 
-  });
-
-  // 후기 ajax
-  function writeReviewFn(){
-
-    $.ajax({
-        url : contextPath + "/chat/review", 
-        data : { "memberNo" : memberNo, 
-				 "report" : report.value,
-				 "otherMemNo" : otherMemNo,
-				 "boardNo" : boardNo1},
-				// reviewCondition 추가해줘야함(data).
-        type : "GET", 
-        success : function(result){
-            alert("후기가 등록되었습니다.");
-			location.reload();
-        },
-        
-        error : function(req, status, error){
-            console.log(req.responseText);
-        }
-    });
+	success : function(result){
+		alert("신고되었습니다.");
+	},
+	
+	error : function(req, status, error){
+		console.log(req.responseText);
+	}
+});
 
 
-  }
+});
+
+// 후기 ajax
+function writeReviewFn(){
+
+$.ajax({
+	url : contextPath + "/chat/review", 
+	data : { "memberNo" : memberNo, 
+				"report" : report.value,
+				"otherMemNo" : otherMemNo,
+				"boardNo" : boardNo1,
+				"reviewCondition" : reviewCondition},
+	type : "GET", 
+	success : function(result){
+		alert("후기가 등록되었습니다.");
+		location.reload();
+	},
+	
+	error : function(req, status, error){
+		console.log(req.responseText);
+	}
+});
+
+
+}
 
 
 
@@ -439,3 +462,15 @@ function tradeCondition(){
 
 }
 
+// bootstrap js modal
+
+
+
+var myModal = new bootstrap.Modal(document.getElementById('myModal'), options)
+/* 
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+	myInput.focus()
+}) */
