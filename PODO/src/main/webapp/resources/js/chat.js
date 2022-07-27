@@ -67,7 +67,7 @@ function listClickFn(chatNo) {
 				p.classList.add("chat");
 				
 				// 내가 쓴 채팅일 경우
-				if ( msg.memberNo == AmemberNo ) {
+				if ( msg.memberNo == memberNo ) {
 			
 					li.append(span, p);
 					li.classList.add("myChat"); // 스타일 적용
@@ -85,7 +85,7 @@ function listClickFn(chatNo) {
 				display.append(li);
 				display.scrollTop = display.scrollHeight;
 
-				if (msg.memberNo != AmemberNo) {
+				if (msg.memberNo != memberNo) {
 					otherMemNo = msg.memberNo;
 				}
 			}
@@ -97,7 +97,7 @@ function listClickFn(chatNo) {
 			console.log("review : " + reviewCount);
 
 
-			if (data.sellMemNo == AmemberNo) {
+			if (data.sellMemNo == memberNo) {
 				document.getElementById("finishTrade").style.display = '';
 				document.getElementById("reviewWrt").style.display = 'none';
 			} else {
@@ -180,7 +180,7 @@ function sendMessage(){
 		const chatMessage = {
 			"chatNo" : chattingNo,
 			/* "boardNo" : boardNo, */
-			"memberNo" : AmemberNo,
+			"memberNo" : memberNo,
 			"memberNickname" : memberNickname,
 			"messageContent" : inputChatting.value
 		};
@@ -232,7 +232,7 @@ chattingSock.onmessage = function(e){
 	// 남이 쓴 채팅 : p -> span
 
 	// 내가 쓴 채팅일 경우
-	if( chatMessage.memberNo ==  AmemberNo ){
+	if( chatMessage.memberNo ==  memberNo ){
 		li.append(span, p);
 		li.classList.add("myChat"); // 내가 쓴 글 스타일 적용
 		span.innerText = currentTime(); // 날짜
@@ -367,7 +367,7 @@ function reviewShow(){
 
     $.ajax({
         url : "report", 
-        data : { "memberNo" : AmemberNo, "report" : report.value},
+        data : { "memberNo" : memberNo, "report" : report.value},
         type : "GET", 
 
         success : function(result){
@@ -387,7 +387,7 @@ function reviewShow(){
 
     $.ajax({
         url : contextPath + "/chat/review", 
-        data : { "memberNo" : AmemberNo, 
+        data : { "memberNo" : memberNo, 
 				 "report" : report.value,
 				 "otherMemNo" : otherMemNo,
 				 "boardNo" : boardNo1},

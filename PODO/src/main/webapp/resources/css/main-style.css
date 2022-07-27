@@ -79,6 +79,7 @@ body{
   max-width: 150px;
 }
 
+
 .name1{
   display: flex;
   justify-content: space-between;
@@ -102,6 +103,7 @@ body{
 
 .state{
   font-size: 13px;
+  width: 40px;
 }
 
 /* 사이드 메뉴 */
