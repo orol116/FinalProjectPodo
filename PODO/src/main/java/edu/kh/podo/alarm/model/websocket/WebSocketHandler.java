@@ -62,15 +62,14 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		System.out.println(alarmMessage);
 		
 		// 채팅 메세지 db 삽입
-		int result = service.insertMessage(alarmMessage);	
+		int result = 0;
 		
-		if (result>0) {
 			
-			String boardWriter = null;
-			String boardLink = null;
-			String reciever = null;
+		String boardWriter = null;
+		String boardLink = null;
+		String recieverId = null;
 //			String admin = null;
-			WebSocketSession recieverSession   =null;
+		WebSocketSession recieverSession   =null;
 			
 			if(alarmMessage.getBoardName().equals("inquire")) {
 				
@@ -78,13 +77,15 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				boardWriter = alarmMessage.getMemberId();
 				boardLink = alarmMessage.getBoardLink();
 				
-				reciever = alarmMessage.getRecieveMemberId();
+				recieverId = alarmMessage.getRecieveMemberId();
 				
 //				WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
-				recieverSession = userSessionsMap.get(reciever);
+				recieverSession = userSessionsMap.get(recieverId);
 				
 				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
 				logger.info("recieverSession = "+recieverSession);
+				
+				result = service.insertMessage(alarmMessage);	
 				
 				// 실시간 접속 시 
 				if ( recieverSession != null) {
@@ -92,10 +93,31 @@ public class WebSocketHandler extends TextWebSocketHandler{
 					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
 							+ "<strong>문의를 작성하였습니다.</strong></a>");
 					recieverSession.sendMessage(tmpMsg);
+				}
 
 			}else if(alarmMessage.getBoardName().equals("favorites")){
-			
+
+				boardWriter = alarmMessage.getMemberId();
+				alarmMessage.setAlarmContent("찜 등록");
 				
+				int recieverMemberNo = alarmMessage.getRecieveMemberNo();
+				String recieverMemberId = service.selectMemberId(recieverMemberNo);
+				recieverId = recieverMemberId;
+				alarmMessage.setRecieveMemberId(recieverId);
+				
+				recieverSession = userSessionsMap.get(recieverId);
+				
+				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
+				logger.info("recieverSession = "+recieverSession);
+				
+				result = service.insertMessage(alarmMessage);
+				
+				// 실시간 접속 시 
+				if ( recieverSession != null) {
+					logger.info("onmessage되나?");
+					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 회원님의 게시글을 찜 하였습니다.");
+					recieverSession.sendMessage(tmpMsg);
+				}
 				
 			}else if(alarmMessage.getBoardName().equals("favorites")) {
 				
@@ -103,9 +125,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				
 				
 				
-			}
 		
-		}
 	}
 	
 	@Override

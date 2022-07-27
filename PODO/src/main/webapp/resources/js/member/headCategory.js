@@ -29,6 +29,10 @@ $(".category-name").on("mouseenter", function(){
 });
 
 
+
+
+
+
 var subCategoryName = document.querySelectorAll(".sub-category-name");
 subCategoryName.forEach((target) => target.addEventListener("click", categoryFunction));
 /* const names = categoryName.target.getAttribute('id'); */
@@ -76,6 +80,13 @@ function categoryFunction(){
         selectList(mCategoryNo, mCategoryName);
     }
 };
+
+/* if(document.getElementById("mCategoryName-space") != null){
+
+    
+    categoryFunction;
+
+} */
    
 
 
