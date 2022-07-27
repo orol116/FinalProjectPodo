@@ -15,11 +15,6 @@ import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 
 public interface ItemBoardService {
 	
-	
-	/** 메인화면 상품 리스트 조회 Service
-	 * @return itemList
-	 */
-	List<ItemBoard> selectItemList();
 
 	
 	/** 상품명 검색 Service
@@ -77,4 +72,26 @@ public interface ItemBoardService {
 	 * @return distList
 	 */
 	List<ItemBoard> selectDistList(Map<String, Object> distMap);
+
+	/** 조회수 상품 조회
+	 * @return itemList
+	 */
+	List<ItemBoard> selectReadCountList();
+
+	/** 포도순 상품 조회
+	 * @return podoList
+	 */
+	List<ItemBoard> selectPodoList();
+
+
+	/** 무료배송 상품 조회
+	 * @return freeShopList
+	 */
+	List<ItemBoard> selectFreeShopList();
+
+
+	/** 미개봉 삼품 조회
+	 * @return unOpenList
+	 */
+	List<ItemBoard> selectUnOpenList();
 }

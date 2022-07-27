@@ -25,11 +25,11 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	@Autowired
 	private ItemBoardDAO dao;
 
-	// 메인화면 상품 조회 Service
+	// 조회수 상품 조회 Service
 	@Override
-	public List<ItemBoard> selectItemList() {
+	public List<ItemBoard> selectReadCountList() {
 		
-		List<ItemBoard> sellList = dao.selectitemList();
+		List<ItemBoard> sellList = dao.selectReadCountList();
 		
 		// 판매자 다른 상품의 이미지 레벨 0번 이미지 조회
 		List<BoardImage> sellListImg = dao.selectItemsImg();
@@ -302,9 +302,28 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	// 거리별 상품 조회
 	@Override
 	public List<ItemBoard> selectDistList(Map<String, Object> distMap) {
-		
 		return dao.selectDistList(distMap);
 	}
+
+	
+	// 포도순 상품 조회
+	@Override
+	public List<ItemBoard> selectPodoList() {
+		return dao.selectPodoList();
+	}
+
+	// 무로배송 상품 조회
+	@Override
+	public List<ItemBoard> selectFreeShopList() {
+		return dao.selectFreeShopList();
+	}
+
+	// 미개봉 상품 조회
+	@Override
+	public List<ItemBoard> selectUnOpenList() {
+		return dao.selectUnOpenList();
+	}
+	
 	
 	
 

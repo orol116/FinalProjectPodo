@@ -56,6 +56,7 @@
 		<result property="dLon" 			column="COORDINATE_X"/>
 		<result property="dLat" 			column="COORDINATE_Y"/>
 		<result property="distance" 			column="DISTANCE"/>
+		<result property="memberGrape" 			column="MEMBER_GRAPE"/>
 		
 		
 	</resultMap>
@@ -124,7 +125,7 @@
 	
 	</insert>
 	
-	<select id="selectItemList" resultMap="itemBoard_rm">
+	<select id="selectReadCountList" resultMap="itemBoard_rm">
 		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION
 		FROM ITEM_BOARD
 		WHERE UPDATE_DT >= SYSDATE - 7
@@ -339,6 +340,27 @@
 		ORDER BY A.UPDATE_DT DESC
 	</select>
 	
+	<!-- 포도순 상품 조회 -->
+	<select id="selectPodoList" resultMap="itemBoard_rm">
+		SELECT A.BOARD_NO, A.BOARD_TITLE, A.PRICE, A.UPDATE_DT, A.MEMBER_NO, A.TRADE_CONDITION, B.MEMBER_GRAPE
+		FROM ITEM_BOARD A, MEMBER B
+		WHERE A.MEMBER_NO = B.MEMBER_NO
+		ORDER BY B.MEMBER_GRAPE
+	</select>
+	
+	<!-- 무로배송 상품 조회 -->
+	<select id="selectFreeShopList" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION, DELIVERY
+		FROM ITEM_BOARD
+		WHERE DELIVERY = '무료배송'
+	</select>
+	
+	<!-- 미개봉 상품 조회 -->
+	<select id="selectUnOpenList" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION, ITEM_CONDITION
+		FROM ITEM_BOARD
+		WHERE ITEM_CONDITION = '새상품'
+	</select>
 	
 </mapper>
 
