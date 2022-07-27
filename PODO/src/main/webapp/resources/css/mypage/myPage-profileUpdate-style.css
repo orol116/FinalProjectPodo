@@ -33,6 +33,7 @@
 .myPage-subtitle{
     display: inline-block;
     width:100%;
+    margin-left: 60px;
 }
 
 .profile-image-area{
@@ -100,6 +101,7 @@
     margin-bottom: 30px;
     font-size: 14px;
     letter-spacing: -1px;
+    margin-left: 10px;
 
 }
 /* #btnPush{
@@ -241,15 +243,10 @@ form[name="myPage-form"]{
 
 /* 회원 탈퇴 약관 */
 #secession-terms{
-    
-    width : 600px;
-    height: 200px;
+    width: 740px;
+    height: 180px;
     margin-top: 0%;
-    border : 1px solid gray;
-    font-size : px;
-
-   
-    overflow : scroll; /* 초과한 방향의 스크롤을 자동 생성 */
+    border: 1px solid #ddd; 
  }
 
  #secession-subexplanation{

@@ -39,7 +39,8 @@
 
                 <!-- 찜 상품 카운트 -->
                 <div class="fav-count"> <!-- 찜 카운트 영역 -->
-                    <div>"찜"
+                    <div class="fav">
+                        <p>Total&nbsp;&nbsp;</p>
                         <span class="count">${fn:length(favorBoard)}</span>
                     </div>
                 </div>
@@ -98,12 +99,10 @@
                                                                         <div class="gdsInfo">
                                                                             <p>
                                                                                 <span>제목</span>${favor.boardTitle}<br>
-                                                                                <span>가격</span>"${favor.price}"원<br>
+                                                                                <span>가격</span>${favor.price}&nbsp;원<br>
                                                                                 <span>등록일</span>${favor.updateDate}<br>
-                                                                                <span>위치</span>
-                                                                                    <!-- 위치 로고 이미지 -->
-                                                                                    <img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">
-                                                                                    ${favor.sellArea}
+                                                                                    <!-- 위치 로고 이미지 -->     
+                                                                                <span>위치</span><img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">&nbsp;${favor.sellArea}
                                                                             </p>
                                                                             <%-- 삭제 버튼 --%>
                                                                             <div class="delete">

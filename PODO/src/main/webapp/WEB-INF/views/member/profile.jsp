@@ -38,7 +38,6 @@
                         <div id="user-name-left">${member[0].memberNickname}</div>
                         <div id="user-info">
                             <div id="user-podo">포도 : ${member[0].memberGrape}개</div>
-                            <div id="user-items-count">상품 : ${boardCount}개</div>
                             
                         </div>
                         <div>
@@ -66,6 +65,13 @@
                         <c:if test="${member[0].shopInfo == null}">
                             <div id="user-intro">상점 소개가 없습니다.</div>
                         </c:if>
+
+                        <div id="user-space">
+                            <div id="user-items-count">상품 : ${boardCount}개</div>
+                            <div id="user-start-day">상점 개시일 : </div>
+                            <div id="user-items-count">판매 이력 : </div>
+                        
+                        </div>
                         
                         <div id="user-cutoff">
 

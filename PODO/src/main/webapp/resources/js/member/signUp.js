@@ -65,17 +65,8 @@ memberIddd.addEventListener("input", function(){
     // 입력된 경우
     const regExp = /^[a-zA-Z0-9]{4,15}$/;
 
-    const idResult = 0;
-
     if( regExp.test(memberIddd.value) ){ // 유효한 경우
-
-        
-       
-        idMessage.innerText = "사용 가능한 아이디 입니다.";
-        idMessage.classList.add("confirm");
-        idMessage.classList.remove("error");
-        
-         document.getElementById("idDupCheck").addEventListener("click",function(){
+         
             $.ajax({
                 url : "idDupCheck",  
                 
@@ -91,27 +82,18 @@ memberIddd.addEventListener("input", function(){
                         idMessage.classList.add("error");
                         idMessage.classList.remove("confirm");
                         checkObj.memberIddd = false; // 유효 X 기록
-
-                        
-    
                     } else { 
                         idMessage.innerText = "사용 가능한 아이디 입니다.";
                         idMessage.classList.add("confirm");
                         idMessage.classList.remove("error");
-                        checkObj.memberIddd = true; 
-
-                        
+                        checkObj.memberIddd = true;    
                     }   
-
                 },
                 
                 error : function(req, status, error){
                     console.log(req.responseText);
                 }
             });
-
-        });
-
     }else{
         idMessage.innerText = "아이디 형식이 유효하지 않습니다.";
         idMessage.classList.add("error");
@@ -164,20 +146,7 @@ memberNicknickname.addEventListener("input", function(){
 
     if( regExp.test(memberNicknickname.value) ){ // 유효한 경우
 
-        checkObj.memberNicknickname = true; // 유효 O 기록
-
-        nicknameMessage.innerText = "사용 가능한 닉네임 입니다.";
-
-        nicknameMessage.classList.add("confirm");
-        nicknameMessage.classList.remove("error");
-        
-
-    document.getElementById("nicknameDupCheck").addEventListener("click", function(){
-
-
-        checkObj.memberNicknickname = true; // 유효 O 기록
-
-        nicknameResult = 2;
+  
             $.ajax({
             url : "nicknameDupCheck",  // 필수 작성 속성
             data : { "memberNickname" : memberNicknickname.value }, // 서버로 전달할 값(파라미터)
@@ -191,7 +160,7 @@ memberNicknickname.addEventListener("input", function(){
                     nicknameMessage.classList.remove("error");
                     checkObj.memberNicknickname = true; // 유효 O 기록
 
-                    nicknameResult = 2;
+                    
 
                 } else { // 닉네임 중복 O
                     nicknameMessage.innerText = "이미 사용중인 닉네임 입니다.";
@@ -199,17 +168,14 @@ memberNicknickname.addEventListener("input", function(){
                     nicknameMessage.classList.remove("confirm");
                     checkObj.memberNicknickname = false; // 유효 O 기록
 
-                    nicknameResult = 1;
+                   
                 }
             },
 
             error : function(){ // 비동기 통신 중 에러가 발생한 경우
                 console.log("에러 발생");
             }
-        }); 
-
-
-    });      
+        });      
 
     }else{
         nicknameMessage.innerText = "닉네임 형식이 유효하지 않습니다.";

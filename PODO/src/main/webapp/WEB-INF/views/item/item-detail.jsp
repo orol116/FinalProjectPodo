@@ -77,7 +77,7 @@
                         </div>
 
                         <div id="info-button-area">
-                            <c:if test="${memberNo != loginMember.memberNo}"> 
+                            <c:if test="${memberNo != loginMember.memberNo}">
                             
                                 <button type="button" id="do-bookmark">찜하기</button> 
                                 <%-- <p class="add-fav">
@@ -207,7 +207,7 @@
                     <a href="${contextPath}/shop/myShop/${loginMember.memberNo}">
                     </c:if>
 
-                    <div id="body-profile-area">
+                    
                         <div id="profile-box">
                                 
                                 <div id="profile-detail">
@@ -217,12 +217,15 @@
                                     <div id="profile-podo">
                                         포도알 : ${sellMember[0].memberGrape}
                                     </div>
-                        
+
+                                    <div id="profile-location">
+                                        지역 : 
+                                    </div>
 
                                 </div>
                             <img id="profile-image" src="${contextPath}${sellMember[0].memberProfile}"  alt="회원 프로필 이미지">
                         </div>
-                    </div>
+                
                     </a>
                     
                 </section>
