@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'NanumSquareRound';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
@@ -6,25 +5,11 @@
     font-style: normal;
 }
 
-/* @font-face {
-    font-family: 'NanumSquareRound';
-    font-weight: 700; 
-    font-style: normal; 
-    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundEB.woff2) format('woff2');
-    font-display: swap;
-} */
-
-
-* {font-family: "NanumSquareRound";}
-
-/* header */
+*{font-family: "NanumSquareRound";}
 *{box-sizing: border-box;}
-/* body{
-  
-    
-} */
+
 header{
-      margin: 0 auto;
+    margin: 0 auto;
     height: 100px;
     width: 1200px;
     /*margin-top: 15px; */
@@ -144,12 +129,15 @@ section>button>.fa-solid{
     margin-right: 20px;
 }
 
+<<<<<<< HEAD
+=======
 
 
 /* 알림 창 hover */
 /* http://www.fullwork.co.kr/bbs/board.php?bo_table=fw_tip&wr_id=11&sst=wr_good&sod=asc&sop=and&page=1  */
 
 
+>>>>>>> origin/main
 .alert2{
     /* position: absolute; */
     top: 0;
@@ -230,29 +218,6 @@ section>button>.fa-solid{
 	left:0;
 
 }
-/* @-webkit-keyframes fadeIn {
-
-    0% { 
-        opacity:0; 
-        transform: scale(0.6);
-    }
-
-	100% {
-		opacity:100%;
-		transform: scale(1);
-	}
-
-}
-
- 
-
-@keyframes fadeIn {
-
-	0% { opacity:0; }
-	100% { opacity:100%; }
-
-}​ 
- */
 
 
 
@@ -271,7 +236,6 @@ section>button>.fa-solid{
     background-color: #fff;
     /* display: flex;
     flex-direction: row; */
-
 
 
 }
