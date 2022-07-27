@@ -57,7 +57,7 @@
         </div> --%>
     <section id="items-section">
 
-        <c:choose>
+                <c:choose>
             <c:when test="${empty itemList}">
 
                 <div>
