@@ -215,9 +215,9 @@ public class ItemBoardDAO {
 	 * @param loginMember
 	 * @return distList
 	 */
-	public List<ItemBoard> selectDistList(Member loginMember) {
+	public List<ItemBoard> selectDistList(Map<String, Object> distMap) {
 		
-		return sqlSession.selectList("itemBoardMapper.selectDistList", loginMember);
+		return sqlSession.selectList("itemBoardMapper.selectDistList", distMap);
 	}
 
 

@@ -35,7 +35,7 @@ body{
 
 
 /* 이번주 상품 추천 */
-#itmes{
+.itmes{
   padding: 30px  5px 30px;
 }
 

@@ -52,6 +52,7 @@
 		<result property="lCategoryName" column="L_CATEGORY_NM" />
 		<result property="dLon" 			column="COORDINATE_X"/>
 		<result property="dLat" 			column="COORDINATE_Y"/>
+		<result property="distance" 			column="DISTANCE"/>
 		
 		
 	</resultMap>
@@ -64,11 +65,6 @@
 		<result property="boardNo" column="BOARD_NO"/>
 	</resultMap>
 	
-	<select id="selectBoardImageList" resultMap="boardImage_rm">
-		SELECT * FROM BOARD_IMG
-		WHERE BOARD_NO = #{boardNo}
-		ORDER BY IMG_LEVEL
-	</select>
 	
 	<!-- 판매글 상세조회 -->
 	<select id="selectItem" resultMap="itemBoard_rm">
@@ -282,6 +278,12 @@
 	<select id="selectDate" resultMap="itemBoard_rm">
 		SELECT UPDATE_DT
 		FROM ITEM_BOARD
+	</select>
+	
+	<select id="selectBoardImageList" resultMap="boardImage_rm">
+		SELECT * FROM BOARD_IMG
+		WHERE BOARD_NO = #{boardNo}
+		ORDER BY IMG_LEVEL
 	</select>
 	
 	<select id="selectDistList" resultMap="itemBoard_rm">
