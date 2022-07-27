@@ -20,6 +20,8 @@ var boardNo = 0;
 // 구매/판매 내역
 function selectTradeCondition(type){
 
+    console.log("버튼 타입(1:판매, 2:예약중, 3:판매중, 4:판매완료, 5:구매) : " + type);
+
     $.ajax({
         url : contextPath + "/shop/myMall/selectList", 
         data : { "memberNo" : memberNo, 
@@ -30,6 +32,9 @@ function selectTradeCondition(type){
 
         success : function(itemList){
             console.log(itemList);
+
+            console.log(itemList.boardNo);
+            console.log(itemList.imageReName);
 
             let sellContents = document.getElementById("sellContents");
 
