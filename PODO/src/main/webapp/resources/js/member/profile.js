@@ -166,6 +166,8 @@ function reviewsList() {
             } else {
                 for (let review of rList) {
 
+                    console.log(rList);
+
                     const reviewBox = document.createElement("section");
                     reviewBox.id = "user-reviews";
 
@@ -186,6 +188,7 @@ function reviewsList() {
 
                     const createDate = document.createElement("div");
                     createDate.id = "reviews-create-date";
+                    
 
                     DTArea.append(createDate);
 
