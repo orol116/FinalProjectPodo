@@ -109,7 +109,7 @@ public class ItemBoardController {
 							  @RequestParam(value="images", required=false) List<MultipartFile> imageList
 							  ) throws IOException {
 		
-		String webPath = "/resources/images/items/";
+		String webPath = "/resources/images/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 		
 		int result = service.updateBoard(item, imageList, webPath, folderPath, deleteList);
