@@ -66,7 +66,7 @@ function carousel() {
           div.setAttribute('id', res.boardNo)
           div.style.boxSizing = "border-box";
 
-           div.style.width = "225.02px";
+          div.style.width = "225.02px";
           div.style.flexBasis = "0";
           // div.style.marginLeft = "2px";
           
@@ -76,7 +76,7 @@ function carousel() {
           a = document.createElement('a');
           a.setAttribute('href',contextPath+'/board/detail/'+res.boardNo)
           a.classList.add('title');
-           a.style.width ="223.02px";
+          a.style.width ="223.02px";
           div.append(a);
 
           divImg = document.createElement('div');
@@ -106,6 +106,7 @@ function carousel() {
           const title2 = document.createElement("div");
           title2.classList.add("title2");
           title2.innerText = res.boardTitle;
+           title2.style.maxWidth =" 150px";
 
           const state = document.createElement("div");
           state.classList.add("state");

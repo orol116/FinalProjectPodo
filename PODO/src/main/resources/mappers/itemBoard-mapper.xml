@@ -37,6 +37,9 @@
 		<result property="updateDate" column="UPDATE_DT" />
 		<result property="itemCondition" column="ITEM_CONDITION" />
 		<result property="tradeCondition" column="TRADE_CONDITION" />
+		
+		<result property="imageReName" column="IMG_RENAME" />
+		<result property="MCategoryNo" column="M_CATEGORY_NO" />
 
 		<result property="delivery" column="DELIVERY" />
 
@@ -72,7 +75,7 @@
 	
 	<!-- 판매글 상세조회 -->
 	<select id="selectItem" resultMap="itemBoard_rm">
-		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION
+		SELECT BOARD_TITLE, BOARD_CONTENT, READ_COUNT, BOOKMARK_COUNT, UPDATE_DT, SELL_AREA, ITEM_CONDITION, TRADE_CONDITION, SELL_AREA
 			, PRICE, M_CATEGORY_NM, L_CATEGORY_NM, CATEGORY_NO, MEMBER_NO
 		FROM ITEM_BOARD
 		JOIN BOARD_IMG USING(BOARD_NO)
@@ -301,6 +304,30 @@
 	WHERE DISTANCE &lt; 100
 
 	</select>
+	
+	<!-- 중분류 번호 조회 -->
+	<select id="selectMCNo" resultType="_int">
+		SELECT M_CATEGORY_NO FROM ITEM_BOARD
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
+	<!-- 중분류에 해당하는 다른 추천 상품 조회 -->
+	<select id="selectOtherItems11" resultMap="itemBoard_rm">
+		SELECT BOARD_TITLE, PRICE, UPDATE_DT, A.BOARD_NO, IMG_RENAME
+		
+		FROM ITEM_BOARD A
+		
+		JOIN BOARD_IMG ON(A.BOARD_NO = BOARD_IMG.BOARD_NO)
+		
+		WHERE IMG_LEVEL = 
+		   (SELECT MIN(IMG_LEVEL) FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
+		   
+		AND M_CATEGORY_NO = ${mCNo}
+		AND ROWNUM &lt;= 5
+		
+		ORDER BY A.UPDATE_DT DESC
+	</select>
+	
 	
 </mapper>
 

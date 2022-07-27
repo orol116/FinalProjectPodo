@@ -71,7 +71,7 @@
 .myPage-subexplanation2{
     display: inline-block;
     width:100%;
-    color: rgb(155, 89, 182);
+    color: rgb(95, 0, 129);
     font-weight: bold;
     font-size: 17px;
     margin-top: 20px;
@@ -149,10 +149,10 @@ form[name="myPage-form"]{
     width: 700px;
     /* padding: 10px; */
     margin: 50px 0;
-    border: 1px solid rgb(155, 89, 182);
+    border: 1px solid rgb(95, 0, 129);
     font-size: 20px;
     font-weight: bold;
-    background-color: rgb(155, 89, 182);
+    background-color: rgb(95, 0, 129);
     color: white;
     cursor: pointer;
 
@@ -160,7 +160,7 @@ form[name="myPage-form"]{
 
 #btnPush:hover{
     background-color: white;
-    color:rgb(155, 89, 182);
+    color:rgb(95, 0, 129);
     border: 1px solid rgb(39,39,91);
     background: #fff;
     transition: color 0.5s ease-in-out;
@@ -173,17 +173,17 @@ form[name="myPage-form"]{
     width: 700px;
     /* padding: 10px; */
     margin: 70px 0;
-    border: 1px solid rgb(155, 89, 182);
+    border: 1px solid rgb(95, 0, 129);
     font-size: 20px;
     font-weight: bold;
-    background-color: rgb(155, 89, 182);
+    background-color: rgb(95, 0, 129);
     color: white;
     cursor: pointer;
 }
 #info-update-btn:hover{
     background-color: white;
-    color:rgb(155, 89, 182);
-    border: 1px solid rgb(155, 89, 182);
+    color:rgb(95, 0, 129);
+    border: 1px solid rgb(95, 0, 129);
     background: #fff;
     transition: color 0.5s ease-in-out;
     overflow: hidden;
@@ -268,10 +268,10 @@ form[name="myPage-form"]{
     width: 700px!important;
     /* padding: 10px; */
     margin: 50px 0 !important;
-    border: 1px solid rgb(155, 89, 182) !important;
+    border: 1px solid rgb(95, 0, 129) !important;
     font-size: 20px !important;
     font-weight: bold !important;
-    background-color: rgb(155, 89, 182) !important; 
+    background-color: rgb(95, 0, 129) !important; 
     color: white !important;
     cursor: pointer !important;
     
@@ -279,7 +279,7 @@ form[name="myPage-form"]{
 
 .btnPush:hover{
     background-color: white !important;
-    color:rgb(155, 89, 182) !important;
+    color:rgb(95, 0, 129) !important;
     border: 1px solid rgb(39,39,91) !important;
     background: #fff !important;
     transition: color 0.5s ease-in-out !important;

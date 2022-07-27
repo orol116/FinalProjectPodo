@@ -93,6 +93,7 @@
                 </div>
                 <div class="div1">
                     <button type="submit" id="submit">등록</button>
+                    <%-- <button type="button" id="submit1">등록</button> --%>
                 </div>
         </div>
     </form>
