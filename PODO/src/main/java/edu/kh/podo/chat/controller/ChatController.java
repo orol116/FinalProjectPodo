@@ -86,4 +86,11 @@ public class ChatController {
 	public int deleteChat(int chatNo) {
 		return service.deleteChat(chatNo);
 	}
+	
+	// 리뷰 작성 모달
+	@GetMapping("/loginModal")
+    public String loginModal() {
+        return "member/loginModal";
+    }
+
 }

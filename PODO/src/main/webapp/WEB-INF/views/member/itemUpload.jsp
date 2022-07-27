@@ -218,7 +218,6 @@
                         <section class="place">
                             <button type="button">내 위치</button>
                             <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" id="searchBtn">
-                            <button type="button" onchange="none()" id="noneLocation">지역설정안함</button>
                         </section>
                         <section class="place2">
                             <input type="text" id="sample5_address" placeholder="주소" class="placeResult" name="placeResult">

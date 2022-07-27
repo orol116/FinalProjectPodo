@@ -154,6 +154,7 @@ li {
 
 .category li.selected button {
     font-weight: bold;
+    background-color: #ccc;
     color: rgb(30, 29, 41);
 }
 
@@ -164,6 +165,10 @@ li {
 }
 
 .category li:first-child.selected ~ .line {
+    transform: translateX(0px) scaleX(0.5);
+}
+
+.category li:last-child.selected ~ .line {
     transform: translateX(0px) scaleX(0.5);
 }
 
