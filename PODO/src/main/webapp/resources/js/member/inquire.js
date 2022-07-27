@@ -91,7 +91,7 @@ function writeValidate(){
 
 
 // 알람 보내기
-document.getElementById("submit1").addEventListener("click", sendAlarm);
+document.getElementById("submit").addEventListener("click", sendAlarm);
 
 function sendAlarm(){
 
@@ -101,8 +101,9 @@ function sendAlarm(){
     // 입력이 된 경우
     // 메세지 입력 시 필요한 데이터를 js객체로 생성
     const alramMessage ={
-        "memberNo" :AmemberNo ,
-        "memberId": AmemberId,
+        "memberNo" :memberNo ,
+        "memberId": memberId,
+        "recieveMemberId":"test01",
         "alarmContent":inputText.value,
         "boardName":"inquire"
         // "boardLink":boardLink

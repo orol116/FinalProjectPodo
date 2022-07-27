@@ -68,8 +68,9 @@ public class WebSocketHandler extends TextWebSocketHandler{
 			
 			String boardWriter = null;
 			String boardLink = null;
-			String admin = null;
-			WebSocketSession adminSession   =null;
+			String reciever = null;
+//			String admin = null;
+			WebSocketSession recieverSession   =null;
 			
 			if(alarmMessage.getBoardName().equals("inquire")) {
 				
@@ -77,41 +78,25 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				boardWriter = alarmMessage.getMemberId();
 				boardLink = alarmMessage.getBoardLink();
 				
-				admin = "test01";
+				reciever = alarmMessage.getRecieveMemberId();
 				
 //				WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
-				adminSession = userSessionsMap.get(admin);
+				recieverSession = userSessionsMap.get(reciever);
 				
 				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
-				logger.info("adminSession = "+adminSession);
+				logger.info("recieverSession = "+recieverSession);
 				
 				// 실시간 접속 시 
-				if ( adminSession != null) {
+				if ( recieverSession != null) {
 					logger.info("onmessage되나?");
 					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
 							+ "<strong>문의를 작성하였습니다.</strong></a>");
-					adminSession.sendMessage(tmpMsg);
+					recieverSession.sendMessage(tmpMsg);
 
 			}else if(alarmMessage.getBoardName().equals("favorites")){
 			
-				boardWriter = alarmMessage.getMemberId();
-				boardLink = alarmMessage.getBoardLink();
 				
-				admin = "test01";
 				
-	//				WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
-				adminSession = userSessionsMap.get(admin);
-				
-				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
-				logger.info("adminSession = "+adminSession);
-				
-				// 실시간 접속 시 
-				if ( adminSession != null) {
-					logger.info("onmessage되나?");
-					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
-							+ "<strong>문의를 작성하였습니다.</strong></a>");
-					adminSession.sendMessage(tmpMsg);
-				s
 			}else if(alarmMessage.getBoardName().equals("favorites")) {
 				
 			}
@@ -119,8 +104,8 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				
 				
 			}
+		
 		}
-			
 	}
 	
 	@Override
