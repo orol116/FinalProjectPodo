@@ -62,14 +62,14 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		System.out.println(alarmMessage);
 		
 		// 채팅 메세지 db 삽입
-		int result = service.insertMessage(alarmMessage);	
+		int result = 0;
 		
-		if (result>0) {
 			
-			String boardWriter = null;
-			String boardLink = null;
-			String admin = null;
-			WebSocketSession adminSession   =null;
+		String boardWriter = null;
+		String boardLink = null;
+		String recieverId = null;
+//			String admin = null;
+		WebSocketSession recieverSession   =null;
 			
 			if(alarmMessage.getBoardName().equals("inquire")) {
 				
@@ -77,40 +77,47 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				boardWriter = alarmMessage.getMemberId();
 				boardLink = alarmMessage.getBoardLink();
 				
-				admin = "test01";
+				recieverId = alarmMessage.getRecieveMemberId();
 				
 //				WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
-				adminSession = userSessionsMap.get(admin);
+				recieverSession = userSessionsMap.get(recieverId);
 				
 				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
-				logger.info("adminSession = "+adminSession);
+				logger.info("recieverSession = "+recieverSession);
+				
+				result = service.insertMessage(alarmMessage);	
 				
 				// 실시간 접속 시 
-				if ( adminSession != null) {
+				if ( recieverSession != null) {
 					logger.info("onmessage되나?");
 					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
 							+ "<strong>문의를 작성하였습니다.</strong></a>");
-					adminSession.sendMessage(tmpMsg);
+					recieverSession.sendMessage(tmpMsg);
+				}
 
 			}else if(alarmMessage.getBoardName().equals("favorites")){
-			
+
 				boardWriter = alarmMessage.getMemberId();
-				boardLink = alarmMessage.getBoardLink();
+				alarmMessage.setAlarmContent("찜 등록");
 				
-				admin = "test01";
+				int recieverMemberNo = alarmMessage.getRecieveMemberNo();
+				String recieverMemberId = service.selectMemberId(recieverMemberNo);
+				recieverId = recieverMemberId;
+				alarmMessage.setRecieveMemberId(recieverId);
 				
-	//				WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
-				adminSession = userSessionsMap.get(admin);
+				recieverSession = userSessionsMap.get(recieverId);
 				
 				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
-				logger.info("adminSession = "+adminSession);
+				logger.info("recieverSession = "+recieverSession);
+				
+				result = service.insertMessage(alarmMessage);
 				
 				// 실시간 접속 시 
-				if ( adminSession != null) {
+				if ( recieverSession != null) {
 					logger.info("onmessage되나?");
-					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
-							+ "<strong>문의를 작성하였습니다.</strong></a>");
-					adminSession.sendMessage(tmpMsg);
+					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 회원님의 게시글을 찜 하였습니다.");
+					recieverSession.sendMessage(tmpMsg);
+				}
 				
 			}else if(alarmMessage.getBoardName().equals("favorites")) {
 				
@@ -118,9 +125,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				
 				
 				
-			}
-		}
-			
+		
 	}
 	
 	@Override

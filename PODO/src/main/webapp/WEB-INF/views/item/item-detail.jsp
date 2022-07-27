@@ -8,6 +8,7 @@
 <c:set var="sellMember" value="${map.sellMember}" />
 <c:set var="boardNo" value="${boardNo}" />
 <c:set var="boardImageList" value="${map.boardImageList}" />
+<c:set var="otherItems" value="${map.otherItems}" />
 
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@
                 <section id="category">
                     <div id="#">홈</div>
                     <div id="lCategoryName">${itemList[0].LCategoryName}</div> 
-                    <div id="mCategoryName"> ${itemList[0].MCategoryName}<div>
+                    <div id="mCategoryName-space"> ${itemList[0].MCategoryName}<div>
                 </section>
 
 
@@ -66,14 +67,12 @@
                         <div id="item-level">
                             <div id="level-left">
                                 <div>상품상태 : </div>
-                                <div>배송비 : </div>
                                 <div>거래지역 : </div>
                             </div>
 
                             <div id="level-right">
-                                <div id="condition">미개븅</div>
-                                <div id="delivery">미개븅</div>
-                                <div id="address">미개븅</div>
+                                <div id="condition">${itemList[0].tradeCondition}</div>
+                                <div id="address">${itemList[0].sellArea}</div>
                             </div>
                         </div>
 
@@ -233,26 +232,21 @@
 
                 <div id="item-detail-foot">
 
-                    <c:if test="${!empty sellList}">
-
-                        <div id="under-head">
-                            <h3>판매자 다른 상품 보기</h3>
-                            <a href="#"> - 전체보기</a>
-                        </div>
+                    <c:if test="${!empty otherItems}">
 
                         <section id="seller-items">
 
-                            <c:forEach var="sellList" items="${sellList}">
+                            <c:forEach var="items" items="${otherItems}">
                                 <div class="box">
-                                    <a href="${contextPath}/board/detail/${sellList.boardNo}" class="title">
+                                    <a href="${contextPath}/board/detail/${items.boardNo}" class="title">
                                         <div class="image">
-                                            <img src="${contextPath}${sellList.img.imageReName}"  class="img-other" alt="상품 이미지1">
+                                            <img src="${contextPath}${items.imageReName}"  class="img-other" alt="상품 이미지1">
                                         </div>   
                                         <div class="title1">
-                                            <div class="title2">${sellList.boardTitle}</div>
+                                            <div class="title2">${items.boardTitle}</div>
                                             <div class="name2">
-                                                <div class="price">${sellList.price}</div>
-                                                <div class="time">${sellList.updateDate}</div>
+                                                <div class="price">${items.price}</div>
+                                                <div class="time">${items.updateDate}</div>
                                             </div>
                                         </div>
                                     </a>
@@ -282,13 +276,13 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
-    <script src="${contextPath}/resources/js/fav/favorites.js"></script>
+    <script src="${contextPath}/resources/js/fav/arites.js"></script>
     <%-- 찜 버튼 JS --%>
     <script>
         const loginMemberNo = "${loginMember.memberNo}";
         const boardNo = "${boardNo}";
 
-        /* const memberNo = "${memberNo}"; */
+        const receiveMemberNo = "${memberNo}"; 
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

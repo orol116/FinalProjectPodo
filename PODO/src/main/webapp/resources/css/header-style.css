@@ -144,6 +144,8 @@ section>button>.fa-solid{
     margin-right: 20px;
 }
 
+
+
 /* 알림 창 hover */
 /* http://www.fullwork.co.kr/bbs/board.php?bo_table=fw_tip&wr_id=11&sst=wr_good&sod=asc&sop=and&page=1  */
 
@@ -192,6 +194,22 @@ section>button>.fa-solid{
 	font-size: 13px;
 	line-height: 1.4;
 }
+.alert2 div{
+    display: none;
+	text-align: left;
+	background-color: rgba(14, 236, 114, 0.815);
+	padding: 20px;
+	width: 250px;
+    height: 200px;
+	position: absolute;
+	border-radius: 3px;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	right: 27px;
+	color: black;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
 .alert2 p:before{
 	position: absolute;
 	content: '';
@@ -309,6 +327,7 @@ section>button>.fa-solid{
 }
 
 #div-category > li{
+    display: none;
     list-style: none;
     margin: 10px 0 10px 0;
 

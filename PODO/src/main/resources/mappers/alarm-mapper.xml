@@ -18,9 +18,15 @@
 	</selectKey>
   
   	INSERT INTO ALARM VALUES(
-  		#{alarmNo}, #{alarmContent}, SYSDATE, #{memberNo}, null, #{boardName}
+  		#{alarmNo}, #{alarmContent}, SYSDATE, #{memberNo}, null, #{boardName}, #{recieveMemberId}
   	)
   </insert>
   
+  
+  <select id="selectMemberId" resultType="string">
+	   SELECT MEMBER_ID
+	   FROM MEMBER
+	   WHERE MEMBER_NO = #{recieverMemberNo}
+  </select>
   
 </mapper>

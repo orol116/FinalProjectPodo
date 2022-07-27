@@ -85,12 +85,14 @@
                                                                 <c:forEach items="${favorBoard}" var="favor">
                                                                     <li class="fav-list">
                                                                         
+                                                                        <a href="${contextPath}/board/detail/${favor.boardNo}">
                                                                         <%-- 상품 이미지 --%>
                                                                         <div class="thumb">
                                                                             <c:if test="${fn:length(boardImageList) != null}">
                                                                                 <img id="item-image" src="${contextPath}${favor.imageReName}" alt="상품 이미지">
                                                                             </c:if>
                                                                         </div>
+                                                                        </a>
                                                                     
                                                                         <%-- 상품 정보 --%>
                                                                         <div class="gdsInfo">
