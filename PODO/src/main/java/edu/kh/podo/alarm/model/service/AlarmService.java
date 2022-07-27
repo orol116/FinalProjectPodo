@@ -1,5 +1,6 @@
 package edu.kh.podo.alarm.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -14,5 +15,7 @@ public interface AlarmService {
 	String selectMemberId(int recieverMemberNo);
 
 	String selectRecieverId(Map<String, Object> map);
+
+	List<String> selectBuyerId(int boardNo);
 
 }
