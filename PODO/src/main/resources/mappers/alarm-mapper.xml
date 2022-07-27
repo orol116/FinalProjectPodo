@@ -23,4 +23,10 @@
   </insert>
   
   
+  <select id="selectMemberId" resultType="string">
+	   SELECT MEMBER_ID
+	   FROM MEMBER
+	   WHERE MEMBER_NO = #{recieverMemberNo}
+  </select>
+  
 </mapper>

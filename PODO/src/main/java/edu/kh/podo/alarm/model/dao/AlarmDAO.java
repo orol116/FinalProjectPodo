@@ -21,6 +21,14 @@ public class AlarmDAO {
 		return sqlSession.insert("alarmMapper.insertMessage",alarmMessage);
 	}
 
+	/** receiver 의 memberNo를 사용해서 receiver의 memberId 를 조회
+	 * @param recieverMemberNo
+	 * @return
+	 */
+	public String selectMemberId(int recieverMemberNo) {
+		return sqlSession.selectOne("alarmMapper.selectMemberId",recieverMemberNo);
+	}
+
 	
 	
 	
