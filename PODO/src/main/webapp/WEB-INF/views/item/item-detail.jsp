@@ -8,6 +8,7 @@
 <c:set var="sellMember" value="${map.sellMember}" />
 <c:set var="boardNo" value="${boardNo}" />
 <c:set var="boardImageList" value="${map.boardImageList}" />
+<c:set var="otherItems" value="${map.otherItems}" />
 
 
 <!DOCTYPE html>
@@ -62,11 +63,23 @@
                             <div id="create-DT">  ${itemList[0].updateDate} </div>
                             <div id="item-report">신고하기</div>
                         </div>
+                        <%-- 추가된 내용 --%>
+                        <div id="item-level">
+                            <div id="level-left">
+                                <div>상품상태 : </div>
+                                <div>거래지역 : </div>
+                            </div>
+
+                            <div id="level-right">
+                                <div id="condition">${itemList[0].tradeCondition}</div>
+                                <div id="address">${itemList[0].sellArea}</div>
+                            </div>
+                        </div>
 
                         <div id="info-button-area">
                             <c:if test="${memberNo != loginMember.memberNo}"> 
                             
-                                <button id="do-bookmark">찜하기</button> 
+                                <button type="button" id="do-bookmark">찜하기</button> 
                                 <%-- <p class="add-fav">
                                     <button type="button" class="add-fav-btn">찜하기</button>
                                 </p> --%>
@@ -194,7 +207,7 @@
                     <a href="${contextPath}/shop/myShop/${loginMember.memberNo}">
                     </c:if>
 
-                    
+                    <div id="body-profile-area">
                         <div id="profile-box">
                                 
                                 <div id="profile-detail">
@@ -209,88 +222,45 @@
                                 </div>
                             <img id="profile-image" src="${contextPath}${sellMember[0].memberProfile}"  alt="회원 프로필 이미지">
                         </div>
-                   
+                    </div>
                     </a>
                     
                 </section>
 
                 <h3 id="foot-name">다른 추천 상품</h3>
+
+
                 <div id="item-detail-foot">
 
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
+                    <c:if test="${!empty otherItems}">
+
+                        <section id="seller-items">
+
+                            <c:forEach var="items" items="${otherItems}">
+                                <div class="box">
+                                    <a href="${contextPath}/board/detail/${items.boardNo}" class="title">
+                                        <div class="image">
+                                            <img src="${contextPath}${items.imageReName}"  class="img-other" alt="상품 이미지1">
+                                        </div>   
+                                        <div class="title1">
+                                            <div class="title2">${items.boardTitle}</div>
+                                            <div class="name2">
+                                                <div class="price">${items.price}</div>
+                                                <div class="time">${items.updateDate}</div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-    
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-    
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-    
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-    
-                    <div class="box">
-                        <a href="#" class="title">
-                            <div class="image">
-                                <img src="${contextPath}/resources/images/logo.png"  alt="상품 이미지1">
-                            </div>   
-                            <div class="title1">
-                                <div class="title2">상품</div>
-                                <div class="name2">
-                                    <div class="price">5000원</div>
-                                    <div class="time">1분전</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </c:forEach>
+                        </section>
+
+                    </c:if>
+
+                 
+
+                        
+
+
     
                 </div>
 
@@ -312,10 +282,12 @@
         const loginMemberNo = "${loginMember.memberNo}";
         const boardNo = "${boardNo}";
 
-        const memberNo1= "${memberNo}";
+        /* const memberNo = "${memberNo}"; */
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="${contextPath}/resources/js/fav/favorites.js"></script>
     <script src="${contextPath}/resources/js/modal.js"></script>
-    
     
 </body>
 </html>

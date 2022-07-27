@@ -221,6 +221,24 @@ public class ItemBoardDAO {
 	}
 
 
+	/** 중분류 번호 조회
+	 * @param boardNo
+	 * @return mCNo
+	 */
+	public int selectMCNo(int boardNo) {
+		return sqlSession.selectOne("itemBoardMapper.selectMCNo", boardNo);
+	}
+
+
+	/** 중분류에 해당하는 다른 추천 상품 조회
+	 * @param mCNo
+	 * @return otherItems
+	 */
+	public List<ItemBoard> selectOtherItems(int mCNo) {
+		return sqlSession.selectList("itemBoardMapper.selectOtherItems11", mCNo);
+	}
+
+
 
 	
 

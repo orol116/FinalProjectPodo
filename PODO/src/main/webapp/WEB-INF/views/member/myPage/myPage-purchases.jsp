@@ -135,10 +135,9 @@
 
 
                                 <%-- 구매 내역 --%>
-                                <div class="buyContents">
-                                    <c:choose>
+                                <div class="buyContents" id="buyContents">
+                                    <!-- <c:choose>
                                         <c:when test="${empty buyList}">
-                                            <!--  구매 내역 조회 결과가 비어있다면 -->
                                             <div>
                                                 <div class="purchases-info">구매 내역이 없습니다.</div>
                                             </div>
@@ -176,7 +175,7 @@
                 
                                             </c:forEach>
                                         </c:otherwise>
-                                    </c:choose>
+                                    </c:choose> -->
                                     
                                 </div>
                             </div>

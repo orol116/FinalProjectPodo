@@ -66,6 +66,7 @@ body{
     text-decoration: none;
     color: black;
     font-size: 15px;
+    
 }
 .title1{
     display: block;
@@ -73,6 +74,11 @@ body{
     margin: 5px 10px 0;
     width: 203.02px;
 }
+
+.title2{
+  max-width: 150px;
+}
+
 
 .name1{
   display: flex;
@@ -97,6 +103,7 @@ body{
 
 .state{
   font-size: 13px;
+  width: 40px;
 }
 
 /* 사이드 메뉴 */

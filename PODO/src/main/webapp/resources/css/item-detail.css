@@ -84,11 +84,39 @@ footer {
 
 /* item 이미지 크기 */
 #item-image {
-    width: 380px;
-    height: 380px;
+    width: 420px;
+    height: 420px;
 
 }
 
+/* item-level 상품 상태, 배송비 */
+#item-level{
+    display: flex;
+    padding-left: 20px;
+    margin-top: 23px;
+    height: 120px;
+}
+
+#item-level >div:first-child{
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 120px;
+}
+
+#item-level >div:last-child{
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 2px;
+    width: 250px;
+}
+
+#item-level >div:last-child > div{
+    padding-top: 2px;
+}
 
 
 /* head 이미지 오른쪽 상품 정보 크기 */
@@ -116,6 +144,7 @@ footer {
     font-size: 40px;
     padding: 0px 0 5px 20px;
     font-weight: bold;
+    margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -123,7 +152,7 @@ footer {
 #item-layer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     height: 12%;
     font-size: 22px;
     padding-top: 15px;
@@ -138,8 +167,8 @@ footer {
 }
 
 #item-layer>* {
-    margin-right: 10%;
-    width: 20%;
+    
+    width: 25%;
 }
 
 #item-layer a {
@@ -196,7 +225,7 @@ footer {
 
 #info-button-area {
     height: 15%;
-    margin-top: 20px;
+    margin-top: 48px;
 }
 
 #info-button-area>button:first-child {
