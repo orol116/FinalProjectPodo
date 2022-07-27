@@ -34,6 +34,10 @@
 		
 		
 		<typeAlias type="edu.kh.podo.alarm.model.vo.Alarm" alias="alarm"/> 
+		
+		
+		<typeAlias type="edu.kh.podo.report.model.vo.Report" alias="report"/> 
+		<typeAlias type="edu.kh.podo.report.model.vo.ReportType" alias="reportType"/> 
 	</typeAliases>
 	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -47,6 +51,7 @@
 		<mapper resource="/mappers/category-mapper.xml" />
 		<mapper resource="/mappers/chat-mapper.xml" />
 		<mapper resource="/mappers/alarm-mapper.xml" />
+		<mapper resource="/mappers/report-mapper.xml" />
 	</mappers>
 	
 </configuration>

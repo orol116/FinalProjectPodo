@@ -116,12 +116,12 @@
                         <%-- 연결된 채팅 회원 정보 헤더 --%>
                         <div class="chat-header">
                             
-                            <a href="${contextPath}/board/detail/${itemList[i].boardNo}" target="_blank" rel="noopener noreferrer">
+                            <a href="#" target="_blank" rel="noopener noreferrer" id="aTag">
                                 <%-- 회원 프로필 이미지 --%>
                                 <div class="image-box">
                                     <div class="image-table">
                                         <%-- <img id="boardimg" src="" style="width: 50px"> --%>
-                                        <img id="boardimg" src="${contextPath}${boardImageList[i].imageReName}">
+                                        <img id="boardimg" src="${contextPath}${boardImageList.imageReName}">
                                         <%-- <span id="boardTitle"> --%>
                                     </div>
                                 </div>
@@ -155,8 +155,34 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="--bs-btn-bg: rgb(131, 4, 177)">후기 작성</button>
 
                             </ul>
-                            
-                            
+
+                            <!-- <%-- 모달창 --%> -->
+                            <div class="background">
+                                <div class="window">
+                                <div class="popup">
+                                    <button id="close" type="button">팝업닫기</button>
+                                    <div id="report-text">신고할 내용을 입력해주세요.</div>
+                                    <div id="report-area">
+                                        <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
+                                    </div>
+                                    <div id="selectBtn-area">
+                                        <select name="key" id="search-key">
+                                            <option value="1">기타</option>
+                                            <option value="2">광고</option>
+                                            <option value="3">상품 정보 부정확</option>
+                                            <option value="4">거래 금지 품목</option>
+                                            <option value="5">허위 매물</option>
+                                            <option value="6">사기 의심</option> 
+                                        </select>
+                                        <button id="reportBtn">신고하기</button>
+                                        <button id="reviewBtn" onclick="writeReviewFn()">등록하기</button>
+                                    </div>
+
+                                </div>
+                                <div>
+                                </div>
+                                </div>
+                            </div>
 
                         </div>
 

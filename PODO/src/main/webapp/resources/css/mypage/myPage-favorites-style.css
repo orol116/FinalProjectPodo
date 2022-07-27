@@ -1,6 +1,6 @@
 .myPage-inner{
     /* flex-basis: 70%; */
-    width: 100%;
+    /* width: 100%;  이원석이 수정함*/ 
     display: block;
     justify-content: center;
 
@@ -10,10 +10,13 @@
     width : 100%;
     padding: 0 150px;
 }
+ul{
+    list-style:none;
+}
 
 .myPage-main{
     display: table-cell;
-    width: 75%;
+    width: 900px;
     padding: 0 50px;
 
 }
@@ -51,7 +54,7 @@
 .myPage-subexplanation2{
     display: inline-block;
     width:100%;
-    color: rgb(155, 89, 182);
+    color: #5f0081;
     font-weight: bold;
     font-size: 17px;
     margin-top: 20px;
@@ -129,16 +132,16 @@ form[name="myPage-form"]{
     width: 500px;
     /* padding: 10px; */
     margin: 50px 0;
-    border: 1px solid rgb(155, 89, 182);
+    border: 1px solid #5f0081;
     font-size: 20px;
     font-weight: bold;
-    background-color: rgb(155, 89, 182);
+    background-color: #5f0081;
     color: white;
     cursor: pointer;
 }
 #info-update-btn:hover{
     background-color: white;
-    color:rgb(155, 89, 182);
+    color:#5f0081;
     border: 1px solid rgb(39,39,91);
     background: #fff;
     transition: color 0.5s ease-in-out;
@@ -274,7 +277,7 @@ form[name="myPage-form"]{
  */
  section#content ul li { margin:30px 0; }
  section#content ul li img { width:200px; height:200px; }
- section#content ul li p img { width:25px; height:25px; }
+ section#content ul li p img { width: 20px; height: 20px;}
  section#content ul li::after { content:""; display:block; clear:both; }
  section#content div.thumb { float:left; width:250px; }
  section#content div.gdsInfo { float:right; width:calc(100% - 300px); }
@@ -320,5 +323,23 @@ form[name="myPage-form"]{
 .fav-count > div > span{
     font-weight: bold;
     font-size: 25px;
-    color: rgb(155, 89, 182);
+    color: #5f0081;
+}
+.fav{
+    display: flex;
+    align-items: center;
+}
+.fav>p{
+   font-weight: bold;
+   color: black;
+}
+#deleteBtn {
+    background-color: #5f0081 !important;
+    color: white !important;
+    /* font-weight: bold  */
+    font-size: 18px !important;
+    border-radius: 3px !important;
+}
+#deleteBtn:hover{
+    cursor: pointer !important;
 }

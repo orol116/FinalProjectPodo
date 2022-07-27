@@ -47,8 +47,7 @@
                     <h1>거래내역</h1>
                 </header>
 
-                <main class="purchases-body">
-
+               <div>
                     <nav class="navigator">
 
                         <ul class="category">
@@ -81,7 +80,7 @@
 
                         </div>
                     </nav>
-                </main>
+                </div>
             </div>
         </div>
     </div>

@@ -55,6 +55,8 @@ function listClickFn(chatNo) {
 
 			const chatContent = data.chatContent;
 			console.log(data.chatContent);
+
+			document.getElementById("aTag").setAttribute('href', contextPath + "/board/detail/" + data.boardNo);
 			
 			for(let msg of data.chatContent){		
 
@@ -378,6 +380,7 @@ document.querySelector("#item-report").addEventListener("click", show);
 document.querySelector("#close").addEventListener("click", close); 
 */
 
+
 function reviewShow(){
 	// 작성된 후기 없을 경우 작성 가능
 	if(reviewCount == 0){
@@ -399,7 +402,7 @@ document.querySelector("#close").addEventListener("click", close);
 const report = document.getElementById("report");
 
 // 신고 ajax
-document.getElementById("reportBtn").addEventListener("click", function(){
+/* document.getElementById("reportBtn").addEventListener("click", function(){
 
 $.ajax({
 	url : "report", 
@@ -413,31 +416,52 @@ $.ajax({
 	error : function(req, status, error){
 		console.log(req.responseText);
 	}
-});
+}); */
 
+// var report = document.getElementById("report");
+
+document.getElementById("reportBtn").addEventListener("click", function(){
+
+	console.log(searchKey.value);
+
+	$.ajax({
+		url : contextPath + "/report",      
+		data : { "report" : report.value, "select" : searchKey.value, "memberNo" : memberNo},
+		
+		type : "GET", // 데이터 전달 방식 type
+
+		success : function(result){
+			alert("신고되었습니다.");
+			location.reload();
+		},
+		
+		error : function(req, status, error){
+			console.log(req.responseText);
+		}
+	});
 
 });
 
 // 후기 ajax
 function writeReviewFn(){
 
-$.ajax({
-	url : contextPath + "/chat/review", 
-	data : { "memberNo" : memberNo, 
-				"report" : report.value,
-				"otherMemNo" : otherMemNo,
-				"boardNo" : boardNo1,
-				"reviewCondition" : reviewCondition},
-	type : "GET", 
-	success : function(result){
-		alert("후기가 등록되었습니다.");
-		location.reload();
-	},
-	
-	error : function(req, status, error){
-		console.log(req.responseText);
-	}
-});
+	$.ajax({
+		url : contextPath + "/chat/review", 
+		data : { "memberNo" : memberNo, 
+					"report" : report.value,
+					"otherMemNo" : otherMemNo,
+					"boardNo" : boardNo1,
+					"reviewCondition" : reviewCondition},
+		type : "GET", 
+		success : function(result){
+			alert("후기가 등록되었습니다.");
+			location.reload();
+		},
+		
+		error : function(req, status, error){
+			console.log(req.responseText);
+		}
+	});
 
 
 }
@@ -480,10 +504,10 @@ function tradeCondition(){
 
 
 var myModal = new bootstrap.Modal(document.getElementById('myModal'), options)
-/* 
+
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
 
 myModal.addEventListener('shown.bs.modal', function () {
 	myInput.focus()
-}) */
+})
