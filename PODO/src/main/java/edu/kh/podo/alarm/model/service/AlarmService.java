@@ -9,4 +9,6 @@ public interface AlarmService {
 
 	int insertMessage(Alarm alarmMessage);
 
+	String selectMemberId(int recieverMemberNo);
+
 }

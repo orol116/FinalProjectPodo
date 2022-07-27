@@ -1,9 +1,9 @@
 body * {
-    box-sizing: border-box;
+    /* box-sizing: border-box;
     font-weight: normal;
-    /* color: rgb(30, 29, 41); */
+    color: rgb(30, 29, 41);
     outline: 0px;
-    font-size: 16px;
+    font-size: 16px; */
 }
 
 
@@ -205,7 +205,7 @@ button {
 /* 버튼 */
 
 /* 전체상태 버튼 */
-.whole-status{
+#whole{
     padding: 0px 0.5rem;
     height: 1.5rem;
     border-radius: 12px;
@@ -737,12 +737,12 @@ section>button>.fa-solid{
 /* -------------------스크립트 스타일 추가------------------ */
 
 /* 거래 내역(판매/구매) div */
-.purchases-contents{
+/* .purchases-contents{
 
-}
+} */
 
 /* 판매 영역 div */
-.sellContents{
+/* .sellContents{
 
 }
 
@@ -750,17 +750,19 @@ section>button>.fa-solid{
 
 }
 
-/* li 태그 */
-.fav-list{
+ */
 
-}
 
 /* 상품 이미지 div */
 .thumb{
-    float:left; width:250px;
+    float: left;
+    width: 200px;
+    height: 200px;
+    display: contents;
 }
 .thumb img{
-    width:100px; height:100px;
+    width: 200px;
+    height: 200px;
 }
 
 /* 이미지 태그 */
@@ -776,40 +778,43 @@ section>button>.fa-solid{
     line-height:2; 
 }
 
+.purchasesInfo p{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.694);
+}
+
 .purchasesInfo span{
-    display:inline-block;
+    /* display:inline-block;
     width:100px;
     font-weight:bold;
-    margin-right:10px;
+    margin-right:10px; */
+    display: inline-block;
+    font-size: 15px;
+    width: 150px;
+    height: 150px;
+    font-weight: bold;
+    margin-right: 30px;
 }
 
-section#content ul li { margin:30px 0; }
-section#content ul li img { width:200px; height:200px; }
-section#content ul li p img { width:25px; height:25px; }
-section#content ul li::after { content:""; display:block; clear:both; }
-section#content div.thumb { float:left; width:250px; }
-section#content div.purchasesInfo { float:right; width:calc(100% - 300px); }
-section#content div.purchasesInfo { font-size:20px; line-height:2; }
-section#content div.purchasesInfo span { display:inline-block; width:100px; font-weight:bold; margin-right:10px; }
-
-/* span 태그 */
-/* 제목 */
-/* .spanName{
-
+#section-content{
+    border-bottom: 1px solid #000;
 }
- */
-/* 가격 */
-/* .spanPrice{
 
-} */
-
-/* 등록일 */
-/* .spanDate{
-
+section#section-content ul li { margin:30px 0; }
+/* li 태그 */
+.fav-list{
+    margin: 17px 0;
+    /* padding: 15px; */
+    border-bottom: 1px solid rgb(226, 226, 242);
 }
- */
-/* 조회수 */
-/* .spanCount{
 
-} */
+section#section-content ul li img { width:200px; height:200px; }
+
+section#section-content ul li p img { width:25px; height:25px; }
+section#section-content ul li::after { content:""; display:block; clear:both; }
+section#section-content div.thumb { float:left; width:250px; }
+section#section-content div.purchasesInfo { float:right; width:calc(100% - 300px); }
+section#section-content div.purchasesInfo { font-size:20px; line-height:2; }
+section#section-content div.purchasesInfo span { display:inline-block; width:100px; font-weight:bold; margin-right:10px; }
+
 

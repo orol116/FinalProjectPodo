@@ -441,16 +441,3 @@ function tradeCondition(){
 
 }
 
-
-/* --------------------------------------------- */
-// 후기 작성 모달
-/* $(".review-click").click(function(){
-
-	$.ajax({
-		url : contextPath + "/chat/reviewWrite",
-		type : "get",
-		data : {
-
-		}
-	})
-}); */

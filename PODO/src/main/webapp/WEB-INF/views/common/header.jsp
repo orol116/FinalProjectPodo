@@ -33,17 +33,23 @@
 
                 <a href="${contextPath}/member/myPage/changePw">마이페이지</a>
 
-                <div class="alert2">
+                <div class="alert2" >
                     
+                    <%-- <p id="socketAlert">
+
+                    </p> --%>
+                    <div id="socketAlert" ></div>
                     <p>
-                    <i class="fa-solid fa-bell">알림</i><br><br>
-                    회원님의 상품에 후기가 있습니다.<br>
-                    회원님의 상품이 찜되었습니다.<br>
-                    회원님의 상품에 포도톡이 왔습니다.<br>
+                        <i class="fa-solid fa-bell">알림</i><br><br>
+                        회원님의 상품에 후기가 있습니다.<br>
+                        회원님의 상품이 찜되었습니다.<br>
+                        회원님의 상품에 포도톡이 왔습니다.<br>
                     </p>
                     
 
                 </div> 
+
+                
                     
             </c:otherwise>
         </c:choose>    
@@ -59,7 +65,7 @@
             </a>
         </section>
 
-        <div id="socketAlert" ></div>
+        
         
         <form action="main" method="get" id="boardSerch" onclick="return searchValidate()"> 
             <section class="mid-header">
@@ -156,15 +162,19 @@
 
             ws.onmessage = function(event) {
                 console.log("onmessage"+event.data);
-                // const alarmMessage = JSON.parse(event.data); // JSON에서 JS 객체로 변환한다!!
 
-                let $socketAlert = $('div#socketAlert');
-		        $socketAlert.html(event.data)
-                socketAlert.setAttribute('display', 'block');
+                // let $socketAlert = $('div#socketAlert');
+		        // $socketAlert.html(event.data)
+                // socketAlert.setAttribute('display', 'block');
                 
+                const socketAlert = document.getElementById('socketAlert');
+                socketAlert.setAttribute('style', 'display:block');
+                socketAlert.innerHTML = event.data;
+
                 setTimeout(function(){
-                      $socketAlert.html("")
-                }, 5000);
+                      socketAlert.innerHTML="";
+                      socketAlert.setAttribute('style', 'display:none');
+                }, 10000);
             };
 
             ws.onclose = function() {
