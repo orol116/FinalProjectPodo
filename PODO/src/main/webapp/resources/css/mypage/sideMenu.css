@@ -1,8 +1,8 @@
 /* 마이페이지 */
 .myPage-content{
-    
-    width: 100%;
-    height: 600px;
+    flex-basis: 20%;
+    /* width: 100%; */
+    /* height: 600px; */
     margin: 50px auto;
     display: flex;
 
