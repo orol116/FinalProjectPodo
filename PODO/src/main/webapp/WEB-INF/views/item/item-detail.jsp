@@ -79,7 +79,7 @@
                         <div id="info-button-area">
                             <c:if test="${memberNo != loginMember.memberNo}"> 
                             
-                                <button id="do-bookmark">찜하기</button> 
+                                <button type="button" id="do-bookmark">찜하기</button> 
                                 <%-- <p class="add-fav">
                                     <button type="button" class="add-fav-btn">찜하기</button>
                                 </p> --%>
@@ -274,6 +274,9 @@
 
 
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
+    <script src="${contextPath}/resources/js/fav/favorites.js"></script>
     <%-- 찜 버튼 JS --%>
     <script>
         const loginMemberNo = "${loginMember.memberNo}";
@@ -281,11 +284,10 @@
 
         /* const memberNo = "${memberNo}"; */
     </script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
     <script src="${contextPath}/resources/js/modal.js"></script>
-    
     
 </body>
 </html>

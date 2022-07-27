@@ -89,7 +89,6 @@
                                                                         <div class="thumb">
                                                                             <c:if test="${fn:length(boardImageList) != null}">
                                                                                 <img id="item-image" src="${contextPath}${favor.imageReName}" alt="상품 이미지">
-                                                                    
                                                                             </c:if>
                                                                         </div>
                                                                     
