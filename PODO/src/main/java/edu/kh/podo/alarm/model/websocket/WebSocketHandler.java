@@ -66,16 +66,21 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		
 		if (result>0) {
 			
+			String boardWriter = null;
+			String boardLink = null;
+			String admin = null;
+			WebSocketSession adminSession   =null;
+			
 			if(alarmMessage.getBoardName().equals("inquire")) {
 				
 				
-				String boardWriter = alarmMessage.getMemberId();
-				String boardLink = alarmMessage.getBoardLink();
+				boardWriter = alarmMessage.getMemberId();
+				boardLink = alarmMessage.getBoardLink();
 				
-				String admin = "test01";
+				admin = "test01";
 				
 //				WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
-				WebSocketSession adminSession = userSessionsMap.get(admin);
+				adminSession = userSessionsMap.get(admin);
 				
 				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
 				logger.info("adminSession = "+adminSession);
@@ -86,8 +91,28 @@ public class WebSocketHandler extends TextWebSocketHandler{
 					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
 							+ "<strong>문의를 작성하였습니다.</strong></a>");
 					adminSession.sendMessage(tmpMsg);
-					
-			}else if(alarmMessage.getBoardName().equals("inquire")){
+
+			}else if(alarmMessage.getBoardName().equals("favorites")){
+			
+				boardWriter = alarmMessage.getMemberId();
+				boardLink = alarmMessage.getBoardLink();
+				
+				admin = "test01";
+				
+	//				WebSocketSession boardWriterSession = userSessionsMap.get(boardWriter);
+				adminSession = userSessionsMap.get(admin);
+				
+				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
+				logger.info("adminSession = "+adminSession);
+				
+				// 실시간 접속 시 
+				if ( adminSession != null) {
+					logger.info("onmessage되나?");
+					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 <a href='podo/admin/3' style=\"color: black\">"
+							+ "<strong>문의를 작성하였습니다.</strong></a>");
+					adminSession.sendMessage(tmpMsg);
+				s
+			}else if(alarmMessage.getBoardName().equals("favorites")) {
 				
 			}
 				
