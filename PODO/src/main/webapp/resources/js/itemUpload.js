@@ -223,10 +223,15 @@ for(let select of selectList){
     });
 }
 
-// // 거래지역 선택 부분?!
+// // // 거래지역 선택 부분?!
 // function none(){
-//     document.getElementsByClassName('placeResult').innerText = '지역설정안함';
-// }
+// document.getElementsByClassName('placeResult').innerText = '지역설정안함';
+// } 
+
+function none(event) {
+    const btnElement = document.getElementById('sample5_address');
+    btnElement.innerText = '지역설정안함';
+}
 
 
 // 게시글 작성 유효성 검사
@@ -253,10 +258,7 @@ function writeValidate(){
         return false;
     }
 
-    function none() {
-        const btnElement = document.getElementsByName('placeResult');
-        btnElement.innerText = '지역설정안함';
-    }
+   
 
     if(placeResult.value.length == 0){
         alert("선호 거래지역을 선택해주세요 :) ");

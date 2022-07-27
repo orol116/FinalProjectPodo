@@ -1,5 +1,8 @@
 package edu.kh.podo.alarm.model.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,21 @@ public class AlarmServiceImpl implements AlarmService{
 	@Override
 	public int insertMessage(Alarm alarmMessage) {
 		return dao.insertMessage(alarmMessage);
+	}
+
+	@Override
+	public String selectMemberId(int recieverMemberNo) {
+		return dao.selectMemberId(recieverMemberNo);
+	}
+
+	@Override
+	public String selectRecieverId(Map<String, Object>map) {
+		return dao.selectRecieverId(map);
+	}
+
+	@Override
+	public List<String> selectBuyerId(int boardNo) {
+		return dao.selectBuyerId(boardNo);
 	}
 
 	

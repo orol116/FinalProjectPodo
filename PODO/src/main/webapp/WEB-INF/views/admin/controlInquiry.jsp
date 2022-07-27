@@ -116,7 +116,7 @@
             <label for="checkbox"><input type="checkbox" id="checkbox" value='selectall' onclick='selectAll(this)'>전체선택</label>
             </div>
             <div>
-                <button  class="btn" id="deleteBtn" >삭제</button>
+                <button class="btn" id="deleteBtn">삭제</button>
             </div>
         </div>
 

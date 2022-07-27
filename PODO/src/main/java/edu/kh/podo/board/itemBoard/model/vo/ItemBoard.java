@@ -29,6 +29,7 @@ public class ItemBoard {
 	private int boardCode;
 	private int memberNo;
 	private int categoryNo;
+	private int MCategoryNo;
 	private String categoryName;
 	private int buyMemberNo;
 	private int bookmarkCount;

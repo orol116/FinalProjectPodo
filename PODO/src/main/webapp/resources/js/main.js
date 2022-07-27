@@ -66,6 +66,7 @@ function carousel() {
 //           div.setAttribute('id', res.boardNo)
 //           div.style.boxSizing = "border-box";
 
+
 //            div.style.width = "225.02px";
 //           div.style.flexBasis = "0";
 //           // div.style.marginLeft = "2px";
@@ -78,6 +79,7 @@ function carousel() {
 //           a.classList.add('title');
 //            a.style.width ="223.02px";
 //           div.append(a);
+
 
 //           divImg = document.createElement('div');
 //           divImg.classList.add('image');
@@ -103,9 +105,11 @@ function carousel() {
 //           name1.classList.add("name1");
           
 
+
 //           const title2 = document.createElement("div");
 //           title2.classList.add("title2");
 //           title2.innerText = res.boardTitle;
+
 
 //           const state = document.createElement("div");
 //           state.classList.add("state");
@@ -212,6 +216,7 @@ function carousel() {
              const title2 = document.createElement("div");
              title2.classList.add("title2");
              title2.innerText = distList[k].boardTitle;
+             title2.style.maxWidth =" 150px";
 
              const state = document.createElement("div");
              state.classList.add("state");

@@ -66,19 +66,25 @@ body{
     text-decoration: none;
     color: black;
     font-size: 15px;
+    
 }
 .title1{
     display: block;
     align-items: end;
     margin: 5px 10px 0;
+    padding: 5px 0 10px 0;
     width: 203.02px;
+}
+
+.title2{
+  max-width: 150px;
 }
 
 
 .name1{
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   padding: 0;
 }
 
@@ -98,7 +104,7 @@ body{
 
 .state{
   font-size: 13px;
-  width: 40px;
+  /* width: 55px; */
 }
 
 /* 사이드 메뉴 */

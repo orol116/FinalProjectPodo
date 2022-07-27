@@ -103,6 +103,7 @@ function sendAlarm(){
     const alramMessage ={
         "memberNo" :memberNo ,
         "memberId": memberId,
+        "recieveMemberId":"test01",
         "alarmContent":inputText.value,
         "boardName":"inquire"
         // "boardLink":boardLink

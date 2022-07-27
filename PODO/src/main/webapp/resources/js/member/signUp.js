@@ -1,9 +1,9 @@
 const checkObj = { 
-    "memberId"     : false,
+    "memberIddd"     : false,
     "memberPw"        : false,
     "memberPwConfirm" : false,
     "memberName"      : false,
-    "memberNickname"  : false,
+    "memberNicknickname"  : false,
     "memberTel"       : false,
     "memberAddress"   : false
     //"sendEmail"       : false   // 인증번호 발송 체크
@@ -32,55 +32,46 @@ memberTel.addEventListener("input", function(){
     // 전화번호 정규식
     const regExp = /^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
 
-    if(regExp.test(memberTel.value)){ // 유효한 경우
+    if(regExp.test(memberTel.value)){ 
         telMessage.innerText = "유효한 전화번호 형식입니다.";
         telMessage.classList.add("confirm");
         telMessage.classList.remove("error");
 
-        checkObj.memberTel = true; // 유효한 상태임을 기록
+        checkObj.memberTel = true; 
         
     } else{ // 유효하지 않은 경우
         telMessage.innerText = "전화번호 형식이 올바르지 않습니다.";
         telMessage.classList.add("error");
         telMessage.classList.remove("confirm");
 
-        checkObj.memberTel = false; // 유효하지 않은 상태임을 기록
+        checkObj.memberTel = false; 
     }
 });
 // 아dl디
-const memberId = document.getElementById("memberId");
+const memberIddd = document.getElementById("memberId");
 const idMessage = document.getElementById("idMessage");
 
-memberId.addEventListener("input", function(){
+memberIddd.addEventListener("input", function(){
 
     // 입력이 되지 않은 경우
-    if( memberId.value.length == 0 ){
+    if( memberIddd.value.length == 0 ){
         idMessage.innerText = "아이디를 입력해주세요.";
         idMessage.classList.remove("confirm", "error");
 
-        checkObj.memberId = false; // 유효 X 기록
+        checkObj.memberIddd = false; // 유효 X 기록
         return;
     }
 
     // 입력된 경우
     const regExp = /^[a-zA-Z0-9]{4,15}$/;
 
-    const idResult = 0;
-
-    if( regExp.test(memberId.value) ){ // 유효한 경우
-
-        
-        checkObj.memberId = true;
-        idMessage.innerText = "사용 가능한 아이디 입니다.";
-        idMessage.classList.add("confirm");
-        idMessage.classList.remove("error");
-        
-         document.getElementById("idDupCheck").addEventListener("click",function(){
+    if( regExp.test(memberIddd.value) ){ // 유효한 경우
+         
             $.ajax({
-                url : "idDupCheck",   
+                url : "idDupCheck",  
                 
     
-                data : { "memberId" : memberId.value },
+                data : { "memberId" : memberIddd.value },
                 
                 type : "GET", // 데이터 전달 방식 type
     
@@ -90,28 +81,19 @@ memberId.addEventListener("input", function(){
                         idMessage.innerText = "이미 사용중인 아이디 입니다.";
                         idMessage.classList.add("error");
                         idMessage.classList.remove("confirm");
-                        checkObj.memberId = false; // 유효 X 기록
-
-                        
-    
+                        checkObj.memberIddd = false; // 유효 X 기록
                     } else { 
                         idMessage.innerText = "사용 가능한 아이디 입니다.";
                         idMessage.classList.add("confirm");
                         idMessage.classList.remove("error");
-                        checkObj.memberId = true; 
-
-                        
+                        checkObj.memberIddd = true;    
                     }   
-
                 },
                 
                 error : function(req, status, error){
                     console.log(req.responseText);
                 }
             });
-
-        });
-
     }else{
         idMessage.innerText = "아이디 형식이 유효하지 않습니다.";
         idMessage.classList.add("error");
@@ -119,7 +101,7 @@ memberId.addEventListener("input", function(){
 
         /* idResult = 0; */
 
-        checkObj.memberId = false; // 유효 X 기록
+        checkObj.memberIddd = false; // 유효 X 기록
     }
 
 });
@@ -146,41 +128,28 @@ memberName.addEventListener("input", function(){
 
 
 // 닉네임 유효성 검사
-const memberNickname = document.getElementById("memberNickname");
+const memberNicknickname = document.getElementById("memberNickname");
 const nicknameMessage = document.getElementById("nicknameMessage");
 
-memberNickname.addEventListener("input", function(){
+memberNicknickname.addEventListener("input", function(){
 
     // 입력되지 않은 경우
-    if(memberNickname.value.length == 0){
+    if(memberNicknickname.value.length == 0){
         nicknameMessage.innerText = "영어/숫자/한글 2~8글자 사이로 작성해주세요.";
         nicknameMessage.classList.remove("confirm", "error");
 
-        checkObj.memberNickname = false; // 유효 X 기록
+        checkObj.memberNicknickname = false; // 유효 X 기록
         return;
     }
 
     const regExp = /^[a-zA-Z0-9가-힣]{2,8}$/;
 
-    if( regExp.test(memberNickname.value) ){ // 유효한 경우
+    if( regExp.test(memberNicknickname.value) ){ // 유효한 경우
 
-        checkObj.memberNickname = true; // 유효 O 기록
-
-        nicknameMessage.innerText = "사용 가능한 닉네임 입니다.";
-
-        nicknameMessage.classList.add("confirm");
-        nicknameMessage.classList.remove("error");
-        
-
-    document.getElementById("nicknameDupCheck").addEventListener("click", function(){
-
-
-        checkObj.memberNickname = true; // 유효 O 기록
-
-        nicknameResult = 2;
+  
             $.ajax({
             url : "nicknameDupCheck",  // 필수 작성 속성
-            data : { "memberNickname" : memberNickname.value }, // 서버로 전달할 값(파라미터)
+            data : { "memberNickname" : memberNicknickname.value }, // 서버로 전달할 값(파라미터)
             type : "GET", // 데이터 전달 방식(기본값 GET)
 
             success : function(res){ 
@@ -189,34 +158,31 @@ memberNickname.addEventListener("input", function(){
                     nicknameMessage.innerText = "사용 가능한 닉네임 입니다.";
                     nicknameMessage.classList.add("confirm");
                     nicknameMessage.classList.remove("error");
-                    checkObj.memberNickname = true; // 유효 O 기록
+                    checkObj.memberNicknickname = true; // 유효 O 기록
 
-                    nicknameResult = 2;
+                    
 
                 } else { // 닉네임 중복 O
                     nicknameMessage.innerText = "이미 사용중인 닉네임 입니다.";
                     nicknameMessage.classList.add("error");
                     nicknameMessage.classList.remove("confirm");
-                    checkObj.memberNickname = false; // 유효 O 기록
+                    checkObj.memberNicknickname = false; // 유효 O 기록
 
-                    nicknameResult = 1;
+                   
                 }
             },
 
             error : function(){ // 비동기 통신 중 에러가 발생한 경우
                 console.log("에러 발생");
             }
-        }); 
-
-
-    });      
+        });      
 
     }else{
         nicknameMessage.innerText = "닉네임 형식이 유효하지 않습니다.";
         nicknameMessage.classList.add("error");
         nicknameMessage.classList.remove("confirm");
 
-        checkObj.memberNickname = false; // 유효 X 기록
+        checkObj.memberNicknickname = false; // 유효 X 기록
     }
 
 });
@@ -413,11 +379,11 @@ function signUpValidate(){
         if( !checkObj[key] ){ 
 
             switch(key){
-            case "memberId":     str="아이디가"; break;
+            case "memberIddd":     str="아이디가"; break;
             case "memberPw":        str="비밀번호가"; break;    
             case "memberPwConfirm": str="비밀번호 확인이"; break;
             case "memberName":  str="이름이"; break;
-            case "memberNickname":  str="닉네임이"; break;
+            case "memberNicknickname":  str="닉네임이"; break;
             case "memberTel":       str="전화번호가"; break;
             case "memberAddress" : str="주소가"; break;
             }

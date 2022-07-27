@@ -38,7 +38,6 @@
                 
             <section class="myPage-main">
                 
-
                 <form action="profile" method="POST" name="myPage-form" enctype="multipart/form-data" onsubmit="return profileValidate()">
 
                     <h1 class="myPage-title">프로필</h1>
@@ -47,64 +46,41 @@
                     <div class="profile-image-area">
 
                         <c:if test="${empty loginMember.memberProfile}">
-                            <img src="${contextPath}/resources/images/user.jpg" id="profile-image">
+                            <div class="Img">
+                                <label for="input-image">
+                                    <img src="${contextPath}/resources/images/image.png" class="preview" id="profile-image">
+                                </label>
+                            </div>
+                                <!-- 프로필 이미지 삭제 버튼 -->
+                                <span id="delete-image">&times;</span>
                         </c:if>
 
                         <c:if test="${!empty loginMember.memberProfile}">
-                            <img src="${contextPath}${loginMember.memberProfile}" id="profile-image">
+                            <div class="Img">
+                                <label for="input-image"> 
+                                    <img src="${contextPath}${loginMember.memberProfile}" class="preview" id="profile-image">
+                                </label>
+                                <input type="file" name="uploadImage" id="input-image" accept="image/*">
+                                <!-- 프로필 이미지 삭제 버튼 -->
+                                <span id="delete-image">&times;</span>
+                            </div
                         </c:if>
 
-                        <!-- 프로필 이미지 삭제 버튼 -->
-                        <span id="delete-image">x</span>
-
                     </div>
 
-
-                    <div class="profile-btn-area"><br>
-                        <label for="input-image">이미지 선택</label><br>
-                        <input type="file" name="uploadImage" id="input-image" accept="image/*">
-                        <!-- accept="image/*" : 이미지 파일 확장자만 선택 허용 -->
-                        <!-- accept="video/*" : 동영상 파일 확장자만 선택 허용 -->
-                        <!-- accept=".pdf" : pdf파일만 선택 허용 -->
                         <input type="hidden" name="delete" id="delete" value="0">
+              
+            </section>
+                <div class="box1">
+                    <div class="myPage-row">
+                        <label>닉네임</label>
+                        <input type="text" name="updateNickname"  id="memberNickname" class="input_box" value="${loginMember.memberNickname}" maxlength="8" placeholder="영어, 숫자, 한글을 조합하여 2~10글자 이내로 작성해주세요.">
                     </div>
-
-                    
-                        
-                        <div class="myPage-row">
-                            <label>닉네임</label>
-                            <input type="text" name="updateNickname"  id="memberNickname" class="input_box" value="${loginMember.memberNickname}" maxlength="8" placeholder="영어, 숫자, 한글을 조합하여 2~10글자 이내로 작성해주세요.">
-                        </div>
-            
-                        
-                        <!-- <c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  /> -->
-
-                        <!-- <div class="myPage-row info-title">
-                            <label>주소</label>
-                        </div>
-
-                        <div class="myPage-row info-address">
-                            <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"  maxlength="6">
-
-                            <button type="button" id="info-address-btn" onclick="execDaumPostcode()">검색</button>
-                            <%-- <button type="button"  onclick="execDaumPostcode()">검색</button> --%>
-                        </div>
-
-                        <div class="myPage-row info-address">
-                            <input type="text" name="updateAddress" id="address" value="${addr[1]}">
-                        </div>
-                        
-                        <div class="myPage-row info-address">
-                            <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
-                        </div>
-                        -->
-                        
+        
                         <!-- <button id="info-address-btn" class="button btnPush btnPurple">변경하기</button> -->
                         <button id="button btnPush" class="button btnPush">변경하기</button>
-                        
+                </div>   
                 </form>
-
-            </section>
 
         </section>
     

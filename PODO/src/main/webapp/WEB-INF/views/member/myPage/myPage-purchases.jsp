@@ -53,10 +53,10 @@
 
                         <ul class="category">
                             <li class="selected">
-                                <button type="button" data-index="0" onclick="selectTradeCondition(1)">판매</button>
+                                <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
                             </li>
                             <li class="">
-                                <button type="button" data-index="1" onclick="selectTradeCondition(5)">구매</button>
+                                <button type="button" id="buyList" onclick="selectTradeCondition(5)">구매</button>
                             </li>
                             <!-- 밑줄 선 -->
                             <li class="line" role="presentation"></li>
@@ -65,120 +65,18 @@
                         <div class="purchases-box">
                             <nav class="purchases-category">
                                 <div>
-                                    <button type="button" class="whole-status" onclick="selectTradeCondition(1)">전체 상태</button>
-                                    <button type="button" class="reserved" onclick="selectTradeCondition(2)">예약 중</button>
-                                    <button type="button" class="forSale" onclick="selectTradeCondition(3)">판매 중</button>
-                                    <button type="button" class="soldOut" onclick="selectTradeCondition(4)">판매완료</button>
+                                    <button type="button" class="status" id="whole" onclick="selectTradeCondition(1)">전체 상태</button>
+                                    <button type="button" class="status" id="reserving" onclick="selectTradeCondition(2)">예약 중</button>
+                                    <button type="button" class="status" id="selling" onclick="selectTradeCondition(3)">판매 중</button>
+                                    <button type="button" class="status" id="selled" onclick="selectTradeCondition(4)">판매완료</button>
                                 </div>
                             </nav>
 
                             <div class="purchases-contents">
-                            <%-- 
-                                판매 / 구매 내역 처음 페이지 로드 시 전부 가져옴
-                                즉시실행함수로 판매 내역 부터 보이게 설정
-                                판매 내역 조회 버튼 클릭 시 구매 내역 div 부분 스크립트로 hide 처리
-                                반대로 구매 내역 조회 버튼 클릭 시 판매 내역 div 부분 스크립트로 hide 처리
-                            --%>
-                                        
-                                <%-- 판매 내역 --%>
-                                <div class="sellContents" id="sellContents">
-                                    <!-- <c:choose>
-                                        <c:when test="${empty sellList}">
-                                            <div>
-                                                <div class="purchases-info">판매 내역이 없습니다.</div>
-                                            </div>
-                                        </c:when>
+                            
+                                <%-- 거래 내역 출력부 --%>
+                                <div class="sellContents" id="sellContents"></div>
 
-                                        <%-- -------------------------------------------------------------------------------------------------- --%>
-                                        <%-- 판매내역 출력부 --%>
-
-                                        <%-- 출력 부 테스트 --%>
-                                        <c:otherwise>
-                                            <c:forEach var="buy" items="${sellList}">
-
-                                                <%-- 판매내역 카드 --%>
-                                                <div class="history">
-                                                    <div>
-                                                        <div class="productSummaryCard">
-                                                            <%-- 상품 썸네일 영역 --%>
-                                                            <div class="productSummaryCard-thumbNail">
-                                                                <img src="#" alt="상품 이미지">
-                                                                <span class="productSummaryCard-status">
-                                                                    <img src="${contextPath}/resources/images/ic-circle-tick@3x.png" alt="">거래완료
-                                                                </span>
-                                                            </div>
-                                                            <%-- 물품 정보 --%>
-                                                            <aside class="productSummaryCard-container">
-                                                                <span class="productSummaryCard boardTitle">${board.boardTitle}</span>
-                                                                <span class="productSummaryCard price"><strong>${board.price}</strong>원</span>
-                                                                <span class="productSummaryCard memberNick">${member.memberNick}</span>
-                                                                <%-- 거래 완료일시, 컬럼 추가 필요?? --%>
-                                                                <span class="productSummaryCard-updateDate">
-                                                                    <time datetime="">board.updateDate</time>
-                                                                </span>
-                                                            </aside>
-                                                            
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                
-                                            </c:forEach>
-                                        </c:otherwise>
-                                        
-                                    
-                                        
-                                    </c:choose> -->
-                                </div>
-
-
-
-
-                                <%-- 구매 내역 --%>
-                                <div class="buyContents">
-                                    <c:choose>
-                                        <c:when test="${empty buyList}">
-                                            <!--  구매 내역 조회 결과가 비어있다면 -->
-                                            <div>
-                                                <div class="purchases-info">구매 내역이 없습니다.</div>
-                                            </div>
-                                        </c:when>
-                                    
-                                         <c:otherwise>
-                                            <c:forEach var="buy" items="${buyList}">
-
-                                                <%-- 구매내역 카드 --%>
-                                                <div class="history">
-                                                    <div>
-                                                        <div class="productSummaryCard">
-                                                            <%-- 상품 썸네일 영역 --%>
-                                                            <div class="productSummaryCard-thumbNail">
-                                                                <img src="#" alt="상품 이미지">
-                                                                <span class="productSummaryCard-status">
-                                                                    <img src="${contextPath}/resources/images/ic-circle-tick@3x.png" alt="">거래완료
-                                                                </span>
-                                                            </div>
-                                                            <%-- 물품 정보 --%>
-                                                            <aside class="productSummaryCard-container">
-                                                                <span class="productSummaryCard boardTitle">${board.boardTitle}</span>
-                                                                <span class="productSummaryCard price"><strong>${board.price}</strong>원</span>
-                                                                <span class="productSummaryCard memberNick">${member.memberNick}</span>
-                                                                <%-- 거래 완료일시, 컬럼 추가 필요?? --%>
-                                                                <span class="productSummaryCard-updateDate">
-                                                                    <time datetime="">board.updateDate</time>
-                                                                </span>
-                                                            </aside>
-                                                            
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                
-                                            </c:forEach>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    
-                                </div>
                             </div>
 
                         </div>
