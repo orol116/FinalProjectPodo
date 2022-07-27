@@ -6,7 +6,7 @@
 <c:set var="memberNo" value="${map.memberNo}" />
 <c:set var="sellList" value="${map.sellList}" />
 <c:set var="sellMember" value="${map.sellMember}" />
-<c:set var="boardNo" value="${boardNo}" />
+<c:set var="boardNo" value="${map.boardNo}" />
 <c:set var="boardImageList" value="${map.boardImageList}" />
 
 
