@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="reportMapper">
+
+	<resultMap type="report" id="report_rm">
+		<id property="reportNo" column="REPORT_NO"/>
+		
+		<result property="reportContent" column="REPORT_CONTENT"/>
+		<result property="reportCode" column="REPORT_CD"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="reportDate" column="REPORT_DT"/>
+	</resultMap>
+	
+	<resultMap type="reportType" id="reportType_rm">
+		<id property="reportCode" column="REPORT_CD"/>
+		
+		<result property="reportName" column="REPORT_NM"/>
+	</resultMap>
+	
+	<insert id="insertReport">
+		INSERT INTO REPORT VALUES(SEQ_REPORT_NO.NEXTVAL, #{report}, ${select}, ${memberNo}, DEFAULT)
+	</insert>
+
+
+</mapper>
