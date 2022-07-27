@@ -40,7 +40,7 @@
                 <section id="category">
                     <div id="#">홈</div>
                     <div id="lCategoryName">${itemList[0].LCategoryName}</div> 
-                    <div id="mCategoryName"> ${itemList[0].MCategoryName}<div>
+                    <div id="mCategoryName-space"> ${itemList[0].MCategoryName}<div>
                 </section>
 
 
