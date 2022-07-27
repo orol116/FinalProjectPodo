@@ -125,7 +125,7 @@ function selectTradeCondition(type){
                     
                     const spanPrice = document.createElement("span");
                     spanPrice.classList.add("spanPrice");
-                    spanPrice.innerHTML = "가격 : " + itemList[i].price;
+                    spanPrice.innerHTML = "가격 : " + itemList[i].price + " 원";
                     /* 가격 */
                     
                     
