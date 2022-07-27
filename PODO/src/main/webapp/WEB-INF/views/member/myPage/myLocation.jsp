@@ -52,7 +52,7 @@
                     </div>
 
 
-                        <!-- <%-- 모달창 --%> -->
+                    <!-- <%-- 모달창 --%> -->
                     <div class="background">
                         <div class="window">
                             <div class="popup">
