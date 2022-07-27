@@ -20,7 +20,7 @@ function show() {
 
     $.ajax({
         url : "report",      
-        data : { "report" : report.value, "selectOption" :searchKey.value},
+        data : { "report" : report.value, "select" :searchKey.value},
         
         type : "GET", // 데이터 전달 방식 type
 
@@ -37,3 +37,6 @@ function show() {
 
 
   });
+
+
+  

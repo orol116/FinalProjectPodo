@@ -184,8 +184,12 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		}
 		map.put("sellList", sellList);
 		
-//		// 판매자 다른 상품 이미지 조회
-//		List<BoardImage> otherImage = dao.selectOtherImage(daoMap);
+		// 중분류 번호 조회
+		int mCNo = dao.selectMCNo(boardNo);
+		
+		// 중분류에 해당하는 다른 추천 상품 조회
+		List<ItemBoard> otherItems = dao.selectOtherItems(mCNo);
+		map.put("otherItems", otherItems);
 
 		// 회원 정보 조회
 		List<Member> sellMember = dao.sellMemberInfo(memberNo);
