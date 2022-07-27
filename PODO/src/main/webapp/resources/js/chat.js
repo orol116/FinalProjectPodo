@@ -55,6 +55,8 @@ function listClickFn(chatNo) {
 
 			const chatContent = data.chatContent;
 			console.log(data.chatContent);
+
+			document.getElementById("aTag").setAttribute('href', contextPath + "/board/detail/" + data.boardNo);
 			
 			for(let msg of data.chatContent){		
 
