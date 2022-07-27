@@ -102,7 +102,7 @@
 	<insert id="insertCrdnt" parameterType="memberArea">
 		INSERT INTO MEMBERAREA_XY
 		VALUES(
-			SEQ_MCRDNT_NO.NEXTVAL, ${memberNo}, ${dLon}, ${dLat}
+			SEQ_MCRDNT_NO.NEXTVAL, ${memberNo}, ${dLon}, ${dLat}, DEFAULT
 		) 
 	</insert>
 	
