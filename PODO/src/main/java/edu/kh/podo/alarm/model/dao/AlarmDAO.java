@@ -1,5 +1,7 @@
 package edu.kh.podo.alarm.model.dao;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,6 +29,15 @@ public class AlarmDAO {
 	 */
 	public String selectMemberId(int recieverMemberNo) {
 		return sqlSession.selectOne("alarmMapper.selectMemberId",recieverMemberNo);
+	}
+
+	/**
+	 * 채팅방에 맞는 회원 조회
+	 * @param map
+	 * @return
+	 */
+	public String selectRecieverId(Map<String, Object> map) {
+		return sqlSession.selectOne("alarmMapper.selectRecieverId",map);
 	}
 
 	
