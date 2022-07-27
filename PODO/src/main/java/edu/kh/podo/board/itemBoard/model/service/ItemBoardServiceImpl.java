@@ -301,9 +301,9 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	
 	// 거리별 상품 조회
 	@Override
-	public List<ItemBoard> selectDistList(Member loginMember) {
+	public List<ItemBoard> selectDistList(Map<String, Object> distMap) {
 		
-		return dao.selectDistList(loginMember);
+		return dao.selectDistList(distMap);
 	}
 	
 	

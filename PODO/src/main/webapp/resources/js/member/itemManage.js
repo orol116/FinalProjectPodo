@@ -73,7 +73,21 @@ function updateDt(select){
                 alert("예약중/판매완료 상품은 UP하기를 이용할 수 없습니다.");
             }else{
                 alert("해당 상품이 UP되었습니다.");
+
+                const alramMessage ={
+                    "memberNo" :memberNo ,
+                    "memberId": memberId,
+                    "boardNo":boardNo,
+                    "boardName":"update",
+                    "alarmContent":"끌올",
+                    // "recieveMemberId": otherMemNo,
+                    // "boardLink":boardLink
+                };
+        
+                console.log(alramMessage);
+                socket.send(JSON.stringify(alramMessage));
             }
+
             
         },
         error : function(){

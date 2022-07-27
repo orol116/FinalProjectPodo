@@ -170,6 +170,15 @@ footer {
     font-size: 18px;
 }
 
+#user-space{
+    display: flex;
+    width: 600px;
+}
+
+#user-space > div{
+    padding-right: 150px;
+}
+
 
 
 

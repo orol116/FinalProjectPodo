@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'NanumSquareRound';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
@@ -6,25 +5,11 @@
     font-style: normal;
 }
 
-/* @font-face {
-    font-family: 'NanumSquareRound';
-    font-weight: 700; 
-    font-style: normal; 
-    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquareRoundEB.woff2) format('woff2');
-    font-display: swap;
-} */
-
-
-* {font-family: "NanumSquareRound";}
-
-/* header */
+*{font-family: "NanumSquareRound";}
 *{box-sizing: border-box;}
-/* body{
-  
-    
-} */
+
 header{
-      margin: 0 auto;
+    margin: 0 auto;
     height: 100px;
     width: 1200px;
     /*margin-top: 15px; */
@@ -200,7 +185,7 @@ section>button>.fa-solid{
 	background-color: rgba(14, 236, 114, 0.815);
 	padding: 20px;
 	width: 250px;
-    height: 200px;
+    height: 80px;
 	position: absolute;
 	border-radius: 3px;
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -230,29 +215,6 @@ section>button>.fa-solid{
 	left:0;
 
 }
-/* @-webkit-keyframes fadeIn {
-
-    0% { 
-        opacity:0; 
-        transform: scale(0.6);
-    }
-
-	100% {
-		opacity:100%;
-		transform: scale(1);
-	}
-
-}
-
- 
-
-@keyframes fadeIn {
-
-	0% { opacity:0; }
-	100% { opacity:100%; }
-
-}​ 
- */
 
 
 
@@ -271,7 +233,6 @@ section>button>.fa-solid{
     background-color: #fff;
     /* display: flex;
     flex-direction: row; */
-
 
 
 }
