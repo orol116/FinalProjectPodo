@@ -133,7 +133,7 @@
             return true;
        }
 
-        const AmemberNo = "${loginMember.memberNo}";
+        const memberNo = "${loginMember.memberNo}";
 		const AmemberId = "${loginMember.memberId}";
 		const AmemberNickname = "${loginMember.memberNickname}";
         
