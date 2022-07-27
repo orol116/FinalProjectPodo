@@ -306,13 +306,13 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
-    <script src="${contextPath}/resources/js/fav/favorites.js"></script>
+    <script src="${contextPath}/resources/js/fav/arites.js"></script>
     <%-- 찜 버튼 JS --%>
     <script>
         const loginMemberNo = "${loginMember.memberNo}";
         const boardNo = "${boardNo}";
 
-        const memberNo = "${memberNo}";
+        const memberNo1= "${memberNo}";
     </script>
     <script src="${contextPath}/resources/js/modal.js"></script>
     
