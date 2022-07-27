@@ -20,8 +20,11 @@ public class Alarm {
 
 	private String boardName;
 	private int boardNo;
+	
 	private String memberId;
 	private int memberNo;
-	private int targetMemberNo;
+	
+	private String recieveMemberId;
+	private int recieveMemberNo;
 
 }

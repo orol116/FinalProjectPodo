@@ -115,12 +115,12 @@
                         <%-- 연결된 채팅 회원 정보 헤더 --%>
                         <div class="chat-header">
                             
-                            <a href="${contextPath}${boardImageList[i].imageReName}" target="_blank" rel="noopener noreferrer">
+                            <a href="${contextPath}/board/detail/${itemList[i].boardNo}" target="_blank" rel="noopener noreferrer">
                                 <%-- 회원 프로필 이미지 --%>
                                 <div class="image-box">
                                     <div class="image-table">
                                         <%-- <img id="boardimg" src="" style="width: 50px"> --%>
-                                        <img id="boardimg">
+                                        <img id="boardimg" src="${contextPath}${boardImageList[i].imageReName}">
                                         <%-- <span id="boardTitle"> --%>
                                     </div>
                                 </div>
