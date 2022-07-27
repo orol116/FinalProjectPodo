@@ -2,6 +2,9 @@
 
 const reply2 = document.getElementById("reply2");
 
+if(reply2 != null){
+
+
 reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭이 되었을 때
     
     const replyContent = document.getElementById("reply-content").value;
@@ -47,6 +50,19 @@ reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭�
             
             feedback.append(noteContent);
 
+            const alramMessage ={
+                "memberNo" :memberNo ,
+                "memberId": memberId,
+                "boardName":"inquireReply",
+                "alarmContent":replyContent,
+                "boardNo":boardNo,
+                "recieveMemberNo": recieveMemberNo,
+                // "boardLink":boardLink
+            };
+
+            console.log(alramMessage);
+            socket.send(JSON.stringify(alramMessage));
+
         },
         error : function(req,status,error){
             console.log("에러 발생");
@@ -56,3 +72,5 @@ reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭�
 
         
 })
+
+}
