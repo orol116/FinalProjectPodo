@@ -17,6 +17,11 @@ public class AlarmServiceImpl implements AlarmService{
 		return dao.insertMessage(alarmMessage);
 	}
 
+	@Override
+	public String selectMemberId(int recieverMemberNo) {
+		return dao.selectMemberId(recieverMemberNo);
+	}
+
 	
 	
 }
