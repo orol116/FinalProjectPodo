@@ -119,8 +119,36 @@ public class WebSocketHandler extends TextWebSocketHandler{
 					recieverSession.sendMessage(tmpMsg);
 				}
 				
-			}else if(alarmMessage.getBoardName().equals("favorites")) {
+			}else if(alarmMessage.getBoardName().equals("chat")) {
 				
+				boardWriter = alarmMessage.getMemberId();
+				
+				int chatNo = alarmMessage.getChatNo();
+				int writerNo = alarmMessage.getMemberNo();
+				
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("chatNo", chatNo);
+				map.put("writerNo", writerNo);
+				
+				String selectRecieverId = service.selectRecieverId(map);
+				
+				
+				recieverId = selectRecieverId;
+				
+				
+				recieverSession = userSessionsMap.get(recieverId);
+				
+				logger.info("boardWriterSession = "+userSessionsMap.get(boardWriter));
+				logger.info("recieverSession = "+recieverSession);
+				
+				result = service.insertMessage(alarmMessage);
+				
+				// 실시간 접속 시 
+				if ( recieverSession != null) {
+					logger.info("onmessage되나?");
+					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 회원님이 회원님에게 댓글을 달았습니다.");
+					recieverSession.sendMessage(tmpMsg);
+				}
 			}
 				
 				

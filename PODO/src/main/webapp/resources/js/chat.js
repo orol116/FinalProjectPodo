@@ -184,7 +184,18 @@ function sendMessage(){
 			"memberNickname" : memberNickname,
 			"messageContent" : inputChatting.value
 		};
+		
+		const alramMessage ={
+			"memberNo" :memberNo ,
+			"memberId": memberId,
+			"boardName":"chat",
+			"chatNo" : chattingNo,
+			"alarmContent":inputChatting.value,
+			// "recieveMemberId": otherMemNo,
+			// "boardLink":boardLink
+		};
 
+		console.log(alramMessage);
 
 		// JSON.parse(문자열) : JSON -> JS Object
 		// JSON.stringify(객체) :  JS Object -> JSON
@@ -194,6 +205,8 @@ function sendMessage(){
 		// chattingSock(웹소켓 객체)을 이용하여 메세지 보내기
 		// chattingSock.send(값) : 웹소켓 핸들러로 값을 보냄
 		chattingSock.send( JSON.stringify(chatMessage) );
+
+		socket.send(JSON.stringify(alramMessage));
 
 		console.log("메세지 보내기 성공");
 

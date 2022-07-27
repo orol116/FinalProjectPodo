@@ -29,4 +29,12 @@
 	   WHERE MEMBER_NO = #{recieverMemberNo}
   </select>
   
+  <select id="selectRecieverId" resultType="string">
+	   SELECT MEMBER_ID
+	   FROM MEMBER
+	   JOIN CHAT_ROOM_JOIN USING(MEMBER_NO)
+	   WHERE CHAT_NO = #{chatNo} 
+	   AND MEMBER_NO != #{writerNo}
+  </select>
+  
 </mapper>

@@ -1,5 +1,7 @@
 package edu.kh.podo.alarm.model.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,11 @@ public class AlarmServiceImpl implements AlarmService{
 	@Override
 	public String selectMemberId(int recieverMemberNo) {
 		return dao.selectMemberId(recieverMemberNo);
+	}
+
+	@Override
+	public String selectRecieverId(Map<String, Object>map) {
+		return dao.selectRecieverId(map);
 	}
 
 	
