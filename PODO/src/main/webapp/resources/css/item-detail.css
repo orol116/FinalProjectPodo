@@ -93,12 +93,12 @@ footer {
 #item-level{
     display: flex;
     padding-left: 20px;
-    margin-top: 23px;
-    height: 120px;
+    margin-top: 35px;
+    height: 70px;
 }
 
 #item-level >div:first-child{
-    font-size: 22px;
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -106,16 +106,12 @@ footer {
 }
 
 #item-level >div:last-child{
-    font-size: 22px;
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 2px;
-    width: 250px;
-}
-
-#item-level >div:last-child > div{
-    padding-top: 2px;
+    
+    width: 300px;
 }
 
 
@@ -131,7 +127,7 @@ footer {
 
 #item-title {
     height: 50px;
-    font-size: 28px;
+    font-size: 23px;
     padding-top: 15px;
     padding: 0 0 5px 20px;
     font-weight: bold;
@@ -141,7 +137,7 @@ footer {
 
 #item-price {
     height: 60px;
-    font-size: 40px;
+    font-size: 30px;
     padding: 0px 0 5px 20px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -154,7 +150,7 @@ footer {
     flex-direction: row;
     justify-content: flex-start;
     height: 12%;
-    font-size: 22px;
+    font-size: 18px;
     padding-top: 15px;
     padding-left: 20px;
     align-items: center;
@@ -225,29 +221,31 @@ footer {
 
 #info-button-area {
     height: 15%;
-    margin-top: 48px;
+    margin-top: 65px;
 }
 
 #info-button-area>button:first-child {
     margin-left: 20px;
     margin-right: 20px;
-    width: 250px;
-    height: 70px;
+    width: 200px;
+    height: 60px;
     margin-right: 6px;
     background-color: #5f0081;
     color: white;
-
+    border: none;
     font-size: 20px;
+    border-radius: 3px;
 }
 
 #info-button-area #do-chat {
     margin-left: 30px;
-    width: 345px;
-    height: 70px;
+    width: 280px;
+    height: 60px;
     font-size: 20px;
-
+    border: none;
     background-color: #5f0081;
     color: white;
+    border-radius: 3px;
 }
 /* #info-button-area>button:nth-child(2) {
 
@@ -349,29 +347,41 @@ footer {
     height: 350px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
 
+
+}
+
+#profile-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+   
 }
 
 #profile-box {
     margin-top: 40px;
+    width: 380px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
+    background-color: #eee;
 }
 
 
 
-#profile-box div {
-    height: 30%;
-    width: 60%;
-    padding: 20px 0 20px 10px;
+#profile-detail > div {
+    height: 50px;
+    width: 210px;
+    padding: 10px 0 0px 20px;
 
 }
 
 #profile-image {
     width: 150px;
     height: 150px;
+    margin-top: 24px;
 }
 
 /* 프로필 리뷰 */

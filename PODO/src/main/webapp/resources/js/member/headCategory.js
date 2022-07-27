@@ -117,7 +117,7 @@ function selectList(mCategoryNo, mCategoryName){
         type : "GET", 
         dataType : "JSON",
  
-        success : function(itemList){ 
+        success : function(itemList){
 
             if (itemList.length != 0) {
                            
