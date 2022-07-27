@@ -61,10 +61,10 @@
                         </div> --%>
 
                         <!-- 출력부 -->
-                        <div class="">
+                        <!-- <div class=""> -->
 
                             <!-- 개별 상품 -->
-                            <div class="">
+                            <!-- <div class=""> -->
                                 <!-- 상품 세부 -->
                                 <div class="product-detail" href="/products/?ref=?">
 
@@ -115,13 +115,13 @@
                                                     </ul>
                                                 </section>
 
-                                        </div>
+                                        <!-- </div>
                                         
                                         
-                                    </div>
+                                    </div> -->
 
-                                    
-                                </a>
+                                </div>
+                                
                             </div>
                         </div>
                     </c:if>
