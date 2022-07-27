@@ -83,7 +83,7 @@
             <c:choose>
                     <c:when test ="${empty itemList}">
                         <tr>
-                            <th colspan="5">게시글이 존재하지 않습니다.</th>
+                            <th colspan="5">아이템이 존재하지 않습니다.</th>
                         </tr>
                     </c:when>
 
