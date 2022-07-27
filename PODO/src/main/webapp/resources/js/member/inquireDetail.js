@@ -1,52 +1,58 @@
 // 댓글 등록
+
 const reply2 = document.getElementById("reply2");
-const replyContent = document.getElementById("reply-content");
 
 reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭이 되었을 때
+    
+    const replyContent = document.getElementById("reply-content").value;
+    console.log(replyContent);
 
-    function noteList(){
-        
-        $.ajax({
-            url : contextPath + "/admin/reply",
-            data : {"boardContent" : boardContent }, // boardContent
-            type : "post",
-            dataType : "JSON", 
-            success : function(boardContent){
-                //nList : 반환 받은 알림 목록
-                console.log(boardContent);
+    $.ajax({
+        url : contextPath + "/admin/reply",
+        data : {"boardContent" : replyContent,
+                "boardNo": boardNo }, // boardContent
+        type : "post",
+        dataType : "JSON", 
+        success : function(result){
+            //nList : 반환 받은 알림 목록
 
+            rList =  result[0];
+            
+            //발신자
+            const chat = document.getElementById('chat');
+            chat.innerHTML='';
+            
+            const reply = document.createElement("div");
+            reply.setAttribute("id","reply");
+            chat.append(reply);
 
-                    if(boardContent != null){
+            const information = document.createElement('div');
+            information.classList.add("information");
 
-                        //nList 에 저장된 요소를 하나씩
-                        for(let bc of boardContent){
-                            
-                            //발신자
-                            const reply = document.createElement("div");
-                                                
-                            reply.appendChild(div,information);
-                            const p1 = document.createElement("p");
-                            // p1.innerText = reply.memberNickname;
-                            p1.innerHTML("&#127815;&nbsp;관리자");
+            const feedback = document.createElement('div');
+            feedback.classList.add("feedback");
+            
+            reply.append(information, feedback);
+                                
+            const p1 = document.createElement("p");
+            p1.innerHTML="&#127815;&nbsp;관리자";
 
-                            const p2 = document.createElement("p");
-                            p2.classList.add("reply-date");
-                            p2.innerHTML =  "(" + reply.createDate + ")";
+            const p2 = document.createElement("p");
+            p2.classList.add("reply-date");
+            p2.innerHTML =  "(" + rList.createDate + ")";
+            information.append(p1,p2);
 
-                            const noteContent = document.createElement("p");
-                            noteContent.innerHTML = note.noteContent;    
-                            
-                        }
-                
-                    } 
+            const noteContent = document.createElement("p");
+            noteContent.innerHTML = rList.replyContent;    
+            
+            feedback.append(noteContent);
 
-                },
-                error : function(req,status,error){
-                    console.log("에러 발생");
-                    console.log(req.responseText);
-                }
-            });
+        },
+        error : function(req,status,error){
+            console.log("에러 발생");
+            console.log(req.responseText);
         }
- 
+    });
+
         
 })

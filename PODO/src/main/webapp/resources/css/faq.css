@@ -1,0 +1,158 @@
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {font-family: "NanumSquareRound";}
+
+
+body{
+    margin: 0;
+}
+
+.content{
+    width: auto;
+    min-height: 900px;
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    margin: 10px 0 100px 150px;
+    width: 1000px;
+    height: auto;
+    display: flex;
+}
+
+/* 상단 목록 */
+
+.selectBtn:nth-child(n){
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: 15px;
+    font-weight:100;
+    }
+ /* .selectBtn:nth-child(n+2){
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+} */
+.selectBtn:hover{
+    background-color: rgb(95, 0, 129);
+    color: white;   
+    border-radius: 3px;
+}
+
+
+#FAQ-container{
+    display: inline-block;
+    /* border: 2px solid black; */
+    width: 80%;
+    
+    }
+    
+    #FAQ-main{
+        padding: 20px;
+    }
+    
+    #FAQ-middle{
+        border: 1px solid #ccc;
+        margin-top: 30px;
+    }
+    
+    
+    
+    #select-area{
+        border: 1px solid #ddd;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    #FAQ-header{
+        height: 50px;
+        font-size: 17px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        padding-left: 23px;
+        border-bottom: 1px solid #ccc;
+        background-color: #ddd;
+    
+    }
+    
+    /* ----------------------------------- */
+    
+    .FAQ{
+        list-style: none;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+    }
+    
+    .FAQ > li{
+        padding: 20px 0;
+        box-sizing: border-box;
+    
+    }
+    
+    .FAQ > li:nth-child(n+2){
+        border-top: 1px solid #ccc;
+    }
+    
+    .FAQ input{
+        display: none;
+    }
+    
+    .FAQ label{
+        /* font-weight: bold; */
+        color: black;
+        cursor: pointer;
+    }
+    
+    .FAQ label::before{
+        display: block;
+        content: "";
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-left: 8px solid rgb(95, 0, 129); 
+        margin: 2px 0 0 8px;
+        float: left;
+    }
+    
+    .FAQ input:checked + label::before {
+        border: 8px solid transparent;
+        border-top: 8px solid rgb(95, 0, 129);
+        border-bottom: 0;
+        margin: 8px 4px 0;
+        
+    }
+    
+    .FAQ div{
+        display: none;
+        color: #666;
+        font-size: 0.9375em;
+        overflow: hidden;
+        padding: 10px 10px 10px;
+        box-sizing: border-box;
+        
+    }
+    
+    .FAQ input:checked + label + div{
+        display: block;
+    }
+    
+    .selectBtn{
+        width: 120px;
+        height: 45px;
+        margin: 30px;
+        font-size: 18px;
+      
+        cursor: pointer;
+    }

@@ -19,6 +19,8 @@
     
     <%-- 파비콘 --%>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+    <style>
+    </style>
 </head>
 <body>
     <main>
@@ -95,12 +97,11 @@
                         <div class="myPage-row info-address">
                             <input type="text" name="updateAddress" id="detailAddress" value="${addr[2]}">
                         </div>
-
-                        <!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
-                        <!-- 0 : 안눌러짐   /   1: 눌러짐 -->
+                        -->
+                        
                         <!-- <button id="info-address-btn" class="button btnPush btnPurple">변경하기</button> -->
-
                         <button id="button btnPush" class="button btnPush">변경하기</button>
+                        
                 </form>
 
             </section>

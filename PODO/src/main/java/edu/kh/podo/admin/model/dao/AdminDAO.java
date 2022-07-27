@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.podo.admin.model.vo.Admin;
+import edu.kh.podo.admin.model.vo.AdminReply;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.member.model.vo.Member;
@@ -183,6 +184,38 @@ public class AdminDAO {
 		
 		
 		return resultD;
+	}
+
+	/** 사용자가 조회할 FAQ 게시글 불러오기 
+	 * @param boardCode
+	 * @return
+	 */
+	public List<Admin> faqList(String classification) {
+		return sqlSession.selectList("adminMapper.faqList",classification);
+	}
+
+	
+ 	/** 관리자가 문의글 답변하는 DAO
+	 * @param boardContent
+	 * @param boardNo
+	 * @return
+	 */
+	public int adminReplyWrite(String boardContent, int boardNo) {
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("boardContent",boardContent);
+		map.put("boardNo",boardNo);
+		
+		return sqlSession.insert("memberMapper.adminReplyWrite", map);
+	}
+
+	
+	/** 1대1 문의 상세페이지 답변 조회
+	 * @param boardNo
+	 * @return
+	 */
+	public List<AdminReply> selectAdminReply(int boardNo) {
+		return sqlSession.selectList("memberMapper.selectAdminReply", boardNo);
 	}
 
 	
