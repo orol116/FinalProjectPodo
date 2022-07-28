@@ -29,7 +29,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <!-- 프로필 이미지 변경 -->
-    <section class=myPage-content>
+    <section class="myPage-content">
 
         <!-- 사이드 메뉴 -->
         <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
@@ -101,5 +101,6 @@
 
     <!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 </body>
 </html>
