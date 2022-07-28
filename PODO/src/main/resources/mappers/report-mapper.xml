@@ -9,6 +9,7 @@
 		<result property="reportCode" column="REPORT_CD"/>
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="reportDate" column="REPORT_DT"/>
+		<result property="reportCodeName" column="REPORT_NM"/>
 	</resultMap>
 	
 	<resultMap type="reportType" id="reportType_rm">
