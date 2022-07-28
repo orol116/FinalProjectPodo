@@ -67,7 +67,7 @@
                                             <c:if test="${chatList.memberProfile == null}">
                                                 <%-- 회원 이미지 --%>
                                                 <div class="profile">
-                                                    <img src="${contextPath}/resources/images/icon-not-found.png" width="30" height="30">
+                                                    <img src="${contextPath}/resources/images/user.jpg" width="30" height="30">
                                                 </div>
                                             </c:if>
                                             <c:if test="${chatList.memberProfile != null}">
@@ -148,12 +148,9 @@
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()">나가기</button>
                                 <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
-                                
-                                
-
+                
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="--bs-btn-bg: rgb(131, 4, 177)">후기 작성</button>
-
+                                <button type="button" id="reviewWrt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="--bs-btn-bg: rgb(131, 4, 177)">후기 작성</button>
                             </ul>
 
                             <!-- <%-- 모달창 --%> -->
@@ -175,7 +172,7 @@
                                             <option value="6">사기 의심</option> 
                                         </select>
                                         <button id="reportBtn">신고하기</button>
-                                        <button id="reviewBtn" onclick="writeReviewFn()">등록하기</button>
+                                        <button id="reviewBtn">등록하기</button>
                                     </div>
 
                                 </div>
@@ -222,17 +219,14 @@
                                     </div>
                             
                                     <h4 class="myPage-subtitle">거래는 어떠셨어요?</h4>
-                            
-                                    <form action="review" method="POST" name="review-write-form" onsubmit="return reviewValidate()">
-                            
                                         <div class="review-table">
                                             <div class="review-table-title">만족도</div>
                                             <div class="review-table-thumbs">
                                                 
-                                                <button type="button" class="btn btn-warning " id="like-btn" style="--bs-btn-bg: #0055FF;" onclick="updateLike()">
+                                                <button type="button" class="btn btn-warning " id="like-btn" style="--bs-btn-bg: #0055FF;" onclick="condition1('좋아요')">
                                                     <img src="${contextPath}/resources/images/icon-thumb-up.png">
                                                 </button>
-                                                <button type="button" class="btn btn-danger" id="dislike-btn" onclick="updateDislike()">
+                                                <button type="button" class="btn btn-danger" id="dislike-btn" onclick="condition2('아쉬워요')">
                                                     <img src="${contextPath}/resources/images/icon-thumb-down.png">
                                                 </button>
                                                         
@@ -247,13 +241,12 @@
                             
                                                 <%-- 후기 내용 --%>
                                                 <div class="my-review-content-text-wrap">
-                                                    <textarea class="my-review-text-area" name="reviewContent" cols="50" rows="10" placeholder="고객님의 솔직한 리뷰를 남겨주세요. (상품과 관련있는 후기 내용만 작성해주세요.)">${rewiew.reviewContent}</textarea>
+                                                    <textarea class="my-review-text-area" id="reviewCon" name="reviewContent" cols="50" rows="10" placeholder="고객님의 솔직한 리뷰를 남겨주세요. (상품과 관련있는 후기 내용만 작성해주세요.)"></textarea>
                                                 </div>
                             
                                             </div>
 
                                         </div>
-                                    </form>
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>

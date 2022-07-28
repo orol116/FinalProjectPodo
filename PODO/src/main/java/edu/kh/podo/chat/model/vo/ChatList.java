@@ -2,6 +2,7 @@ package edu.kh.podo.chat.model.vo;
 
 import java.sql.Date;
 
+import edu.kh.podo.board.itemBoard.model.vo.Time;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,11 +23,16 @@ public class ChatList {
 	private String memberProfile;
 	
 	private String messageContent;
-	private Date messageTime;
+	private String messageTime;
 	private int messageNo;
-
-   
 	
+	public String getUpdateDate() {
+		return messageTime;
+	}
+	
+	public void setUpdateDate(Date messageTime) {
+		this.messageTime = Time.calculateTime(messageTime);
+	}	
 	
 	
 }
