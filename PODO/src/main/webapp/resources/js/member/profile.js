@@ -66,15 +66,14 @@ function selectItemsList() {
 
                     const itembox = document.createElement("div");
                     itembox.classList.add("box");
-                    itembox.style.paddingLeft = "2px";
-                    itembox.style.flexBasis = "0";
+                    
                     /* const boxNumber = 1;
                     boxNumber++; */
 
                     const mainTitle = document.createElement("a");
                     mainTitle.classList.add("title");
                     mainTitle.setAttribute('href',contextPath + '/board/detail/'+iList[k].boardNo);
-
+                    mainTitle.style.width = "232.02px";
                     const imageArea = document.createElement("div");
                     imageArea.classList.add("image");
 
@@ -87,6 +86,7 @@ function selectItemsList() {
 
                     const title1 = document.createElement("div");
                     title1.classList.add("title1");
+                    title1.style.width = "203px";
                     title1.style.marginRight = "0";
 
                     const title2 = document.createElement("div");
