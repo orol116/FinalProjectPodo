@@ -16,7 +16,12 @@ public class Report {
 	private int reportNo;
 	private String reportContent;
 	private int reportCode;
+	private String reportCodeName;
+	
 	private int memberNo;
-	private Date reportDate;
+	private String reportDate;
+	private String memberNick;	
+	
+	
 
 }

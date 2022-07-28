@@ -183,7 +183,11 @@ h3{
 
   #AddressBtn-area > button{
     height: 40px;
-    background-color: #fff;
+    color: white;
+    background-color: rgb(95, 0, 129);
+    margin-bottom: 2px;
+    border: none;
+    border-radius: 3px;
   }
 
   #AddressBtn-area > button:first-child{
@@ -191,10 +195,37 @@ h3{
     margin-left: 3px;
   }
 
+  /* 버튼 설정 */
   #searchBtn{
     height: 40px;
-    background-color: #fff;
+    color: white;
+    background-color: rgb(95, 0, 129);
     margin-bottom: 2px;
+    border: none;
+    border-radius: 3px;
+  }
+  #searchBtn:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: rgb(95, 0, 129);
+    border-radius: 3px;
+    border: 1.5px solid gray;
+    font-weight: 800;
   }
 
-
+#reset-address:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: rgb(95, 0, 129);
+    border-radius: 3px;
+    border: 1.5px solid gray;
+    font-weight: 800;
+}
+#choose-address:hover{
+  cursor: pointer;
+  background-color: #fff;
+  color: rgb(95, 0, 129);
+  border-radius: 3px;
+  border: 1.5px solid gray;
+  font-weight: 800;
+}
