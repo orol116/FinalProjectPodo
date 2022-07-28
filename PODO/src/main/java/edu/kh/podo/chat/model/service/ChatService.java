@@ -51,4 +51,6 @@ public interface ChatService {
 	 */
 	int writeReview(int memberNo, String report, int otherMemNo, int boardNo, String reviewCondition);
 
+	int selectGrape(int memberNo);
+
 }
