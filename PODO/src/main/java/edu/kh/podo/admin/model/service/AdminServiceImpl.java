@@ -14,6 +14,7 @@ import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.common.Util;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.report.model.vo.Report;
 
 @Service
 public class AdminServiceImpl implements AdminService{
@@ -67,7 +68,7 @@ public class AdminServiceImpl implements AdminService{
 			map.put("memberList", memberList);
 		}else if(boardCode == 6){
 			
-			List<Admin> reportList = dao.selectInquiryList(pagination, boardCode);
+			List<Report> reportList = dao.selectReportList(pagination, boardCode);
 			map.put("reportList", reportList);
 		}else {
 			

@@ -35,6 +35,12 @@ public class AlarmServiceImpl implements AlarmService{
 		return dao.selectBuyerId(boardNo);
 	}
 
+	// 알림 리스트 조회
+	@Override
+	public List<Alarm> alarmListSelect(String memberId) {
+		return dao.alarmListSelect(memberId);
+	}
+
 	
 	
 }

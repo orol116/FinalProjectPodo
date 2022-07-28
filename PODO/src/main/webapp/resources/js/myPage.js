@@ -9,6 +9,15 @@ const checkObj={
     "newPwConfirm":false,
 };
 
+// ------------------------------------------------------------
+    // 스위트알럿 경고 알람 적용 테스트
+    
+  
+  
+  
+// -------------------------------------------------------------
+    
+
 
 // 비밀번호 변경 수정
 function changePwValidate(){
@@ -30,8 +39,7 @@ function changePwValidate(){
         pw.value="";
         return false;// form태그가 제출되지 않게 한다.
     }
-    
-    
+
     
     // 새비밀번호 미작성
     if(newPw.value.trim().length == 0){
@@ -49,8 +57,6 @@ function changePwValidate(){
         return false;
     }
     
-
-
     // 새비밀번호 확인 미작성시 
     if(newPwConfirm.value.trim().length==0){
         alert("새비밀번호 확인을 입력해주세요");
@@ -60,7 +66,6 @@ function changePwValidate(){
         return false;
     }
     
-
     // 새비밀번호 != 새비밀번호확인 
     if(newPw.value != newPwConfirm.value){
         alert("새비밀번호가 일치하지 않습니다.");
@@ -78,15 +83,13 @@ function secessionValidate(){
     const memberPw = document.getElementById("memberPw");
     const agree = document.getElementById("agree");
 
-    
-
-  
     // 비밀번호 미작성 
     if(memberPw.value.trim().length==0){
         alert(" 비밀번호를 입력해주세요.");
         memberPw.focus();
         return false;  
     }
+
     
     // 약관 동의 체크 여부
     // -체크박스요소.checked : 체크시 true  , 해제시 false 반환 

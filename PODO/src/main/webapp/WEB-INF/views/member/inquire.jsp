@@ -105,4 +105,5 @@
 </body>
 
     <script src="${contextPath}/resources/js/member/inquire.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 </html>

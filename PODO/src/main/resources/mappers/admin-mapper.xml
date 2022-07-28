@@ -13,7 +13,7 @@
 		<result property="boardCode" column="BOARD_CD"/>	
 		<result property="memberNo" column="MEMBER_NO"/>
 		<result property="memberNick" column="MEMBER_NICK"/>
-		<result property="classification" column="CLASSIFICATION"/>
+		<result property="classification" column="CLASSIFICSATION"/>
 	</resultMap>
 	
 	<resultMap type="adminReply" id="adminReply_rm">
@@ -23,6 +23,26 @@
 		<result property="replyContent" column="REPLY_CONTENT"/>
 		<result property="createDate" column="CREATE_DT"/>
 	</resultMap>
+	
+	
+	<resultMap type="report" id="report_rm">
+		<id property="reportNo" column="REPORT_NO"/>
+		
+		<result property="reportContent" column="REPORT_CONTENT"/>
+		<result property="reportCode" column="REPORT_CD"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+		<result property="reportDate" column="REPORT_DT"/>
+		<result property="reportCodeName" column="REPORT_NM"/>
+		
+	</resultMap>
+	
+	<resultMap type="reportType" id="reportType_rm">
+		<id property="reportCode" column="REPORT_CD"/>
+		
+		<result property="reportName" column="REPORT_NM"/>
+	</resultMap>
+	
 	
 	
 	<resultMap type="member" id="member_rm">
@@ -103,9 +123,9 @@
 		SELECT COUNT(*) FROM MEMBER
 	</select>
 	
+	<!-- 신고 게시판 숫자 계산 -->
 	<select id="reportListCount" resultType="_int">
-		SELECT COUNT(*) FROM ADMIN_BOARD
-		WHERE BOARD_CD = 6
+		SELECT COUNT(*) FROM REPORT
 	</select>
 	
 	<select id="FAQListCount" resultType="_int">
@@ -114,7 +134,7 @@
 	</select>
 	
 	
-	<!-- 1:1문의 목록 조회, 신고관리 -->
+	<!-- 1:1문의 목록 조회-->
 	<select id="selectInquiryList" resultMap="admin_rm">
 		SELECT ADMIN_BOARD_NO, BOARD_TITLE, BOARD_CONTENT, READ_COUNT, MEMBER_NICK, CLASSIFICATION,
           A.CREATE_DT 
@@ -122,6 +142,20 @@
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_CD = #{boardCode}
 		ORDER BY ADMIN_BOARD_NO DESC 
+	</select>
+	
+	<!-- 신고 목록 조회 -->
+	<select id="selectReportList" resultMap="report_rm">
+		SELECT REPORT_NO, REPORT_CONTENT, MEMBER_NICK, REPORT_NM,
+		
+          CASE WHEN SYSDATE - REPORT_DT &lt; 1
+                 THEN TO_CHAR(REPORT_DT, 'HH:MI')
+                 ELSE TO_CHAR(REPORT_DT, 'YYYY-MM-DD')
+             END REPORT_DT
+		FROM REPORT
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN REPORT_TYPE USING(REPORT_CD)
+		ORDER BY REPORT_NO DESC 
 	</select>
 	
 	<!-- 아이템 목록 조회 -->
@@ -467,6 +501,13 @@
 	<delete id="adminDelete">
 		DELETE FROM ADMIN_BOARD
 		WHERE ADMIN_BOARD_NO IN (${deleteNo})
+	</delete>
+	
+	
+	<!-- 관리자 신고 게시글 사진 삭제 -->
+	<delete id="reportDelete">
+		DELETE FROM REPORT
+		WHERE REPORT_NO IN (${deleteNo})
 	</delete>
 	
 

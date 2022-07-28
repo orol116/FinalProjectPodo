@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>podo</title>
     
-    <link rel="stylesheet" href="resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
@@ -55,10 +55,13 @@
             <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
 
         </div> --%>
-    <section id="items-readCount-section">
+    <section id="items-section">
 
-                <c:choose>
-            <c:when test="${empty itemList}">
+        <div class="itmes">
+            <h2 style="margin:0;">조회수가 높은 상품을 추천드려요</h2>
+        </div>
+        <c:choose>
+            <c:when test="${empty readCountList}">
 
                 <div>
                     <div class="frame">
@@ -72,11 +75,7 @@
    
             <c:otherwise>
 
-                <div id="itmes">
-                    <h2 style="margin:0;">조회수가 높은 상품을 추천드려요.</h2>
-                </div>
-
-                <c:forEach var="item" items="${itemList}" begin="0" end="19" step="1" varStatus="vs">
+                <c:forEach var="item" items="${readCountList}" begin="0" end="19" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
@@ -133,7 +132,7 @@
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
     <!-- main.js 연결 -->
-    <%-- <script src="${contextPath}/resources/js/main.js"></script> --%>
+    <script src="${contextPath}/resources/js/detailList.js"></script>
     <script src="${contextPath}/resources/js/mainSideModal.js"></script>
 
     <%-- <script>

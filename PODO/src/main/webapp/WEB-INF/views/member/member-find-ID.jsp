@@ -105,6 +105,7 @@
         </script>        
 
         <script src="${contextPath}/resources/js/member/findID.js"></script> 
+        <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
 
     </main>
