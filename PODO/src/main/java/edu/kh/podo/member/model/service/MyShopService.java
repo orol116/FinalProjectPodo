@@ -71,4 +71,6 @@ public interface MyShopService {
 	 */
 	List<ItemBoard> selectList(int memberNo, int type);
 
+	int selectFinItem(int memberNo);
+
 }

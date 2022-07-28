@@ -115,6 +115,31 @@ function sample5_execDaumPostcode() {
 }
 
 
+document.getElementById('myPlace').addEventListener('click',()=>{
+
+    $.ajax({
+        url : contextPath + "/myPlace",  
+        data : { "memberNo" : memberNo }, 
+        type : "GET", 
+        dataType : "JSON",
+        success : function(myPlace){ 
+
+            console.log(myPlace.myPlaceXY.dLon);
+            console.log(myPlace.myPlaceXY.dLat);
+            console.log(myPlace.myAddr);
+
+            document.getElementById("dLon").value = myPlace.myPlaceXY.dLon;
+            document.getElementById("dLat").value = myPlace.myPlaceXY.dLat;
+            document.getElementById("sample5_address").value = myPlace.myAddr;
+
+        },
+        error: function(){
+            console.log('내위치 불러오는 중에 문제 발생')
+        }
+
+    })
+})
+
 
     $(".itemCondition").on("click", function(){
         $("#dLon").val(dLon); 
@@ -309,7 +334,3 @@ function writeValidate(){
 
     return true;
 }
-
-
-
- 

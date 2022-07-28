@@ -68,8 +68,8 @@
 
                         <div id="user-space">
                             <div id="user-items-count">상품 : ${boardCount}개</div>
-                            <div id="user-start-day">상점 개시일 : </div>
-                            <div id="user-items-count">판매 이력 : </div>
+                            <div id="user-start-day">상점 개시일 : ${member[0].createDate}</div>
+                            <div id="user-items-count">판매 이력 : ${finItem}</div>
                         
                         </div>
                         

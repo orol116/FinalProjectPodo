@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
 import edu.kh.podo.board.itemBoard.model.vo.Coordinate;
@@ -164,6 +166,17 @@ public class ItemBoardController {
 		} catch (Exception e) {}
 		
 		return result;
+	}
+	
+	@ResponseBody
+	@GetMapping("/myPlace")
+	public String myPlaceSelect(int memberNo) {
+		
+		Map<String, Object> map = service.myPlaceSelect(memberNo);
+
+		System.out.println(map);
+		
+		return new Gson().toJson(map);
 	}
 
 }

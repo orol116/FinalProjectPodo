@@ -150,12 +150,12 @@
 	<insert id="writeReview">
 		<choose>
 			<when test="sellMemNo == memberNo">
-				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, '좋음', DEFAULT,
+				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, #{reviewCondition}, DEFAULT,
 					${memberNo}, ${boardNo}, DEFAULT, ${otherMemNo}
 				)
 			</when>
 			<otherwise>
-				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, '좋음', DEFAULT,
+				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, #{reviewCondition}, DEFAULT,
 					${otherMemNo}, ${boardNo}, DEFAULT, ${memberNo}
 				)
 			</otherwise>
