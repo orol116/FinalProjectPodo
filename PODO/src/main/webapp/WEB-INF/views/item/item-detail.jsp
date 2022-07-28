@@ -100,14 +100,14 @@
                                 </div>
                                 <div id="selectBtn-area">
                                     <select name="key" id="search-key">
-                                        <option value="기타">기타</option>
-                                        <option value="광고">광고</option>
-                                        <option value="상품 정보 부정확">상품 정보 부정확</option>
-                                        <option value="거래 금지 품목">거래 금지 품목</option>
-                                        <option value="허위 매물">허위 매물</option>
-                                        <option value="사기 의심">사기 의심</option> 
+                                        <option value="1">기타</option>
+                                        <option value="2">광고</option>
+                                        <option value="3">상품 정보 부정확</option>
+                                        <option value="4">거래 금지 품목</option>
+                                        <option value="5">허위 매물</option>
+                                        <option value="6">사기 의심</option> 
                                     </select>
-                                    <button id="reportBtn">제출</button>
+                                    <button type="button" id="reportBtn">제출</button>
                                 </div>
                                 <div>
                                 </div>
@@ -199,13 +199,8 @@
 
                     </div>
 
-                    <c:if test="${memberNo != loginMember.memberNo}">
-                    <a href="${contextPath}/shop/memberShop/${memberNo}">
-                    </c:if>
 
-                    <c:if test="${memberNo == loginMember.memberNo}">
-                    <a href="${contextPath}/shop/myShop/${loginMember.memberNo}">
-                    </c:if>
+                    <a href="${contextPath}/shop/memberShop/${memberNo}">
 
                     
                         <div id="profile-box">

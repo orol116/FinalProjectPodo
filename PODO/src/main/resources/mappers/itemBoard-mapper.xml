@@ -55,6 +55,7 @@
 		<result property="lCategoryName" column="L_CATEGORY_NM" />
 		<result property="dLon" 			column="COORDINATE_X"/>
 		<result property="dLat" 			column="COORDINATE_Y"/>
+		<result property="distance" 			column="DISTANCE"/>
 		
 		
 	</resultMap>
@@ -67,11 +68,6 @@
 		<result property="boardNo" column="BOARD_NO"/>
 	</resultMap>
 	
-	<select id="selectBoardImageList" resultMap="boardImage_rm">
-		SELECT * FROM BOARD_IMG
-		WHERE BOARD_NO = #{boardNo}
-		ORDER BY IMG_LEVEL
-	</select>
 	
 	<!-- 판매글 상세조회 -->
 	<select id="selectItem" resultMap="itemBoard_rm">
@@ -138,11 +134,13 @@
 	 <!-- 메인화면 섬네일 -->
 	<select id="selectItemsImg" resultMap="boardImage_rm">
 		SELECT * FROM (
-			SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, BOARD_NO, MEMBER_NO
-			FROM BOARD_IMG
-			JOIN ITEM_BOARD USING(BOARD_NO)
-			WHERE IMG_LEVEL = 0
-			ORDER BY UPDATE_DT DESC)
+			    SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, C.BOARD_NO, MEMBER_NO
+			    FROM BOARD_IMG C
+			    JOIN ITEM_BOARD A ON(C.BOARD_NO=A.BOARD_NO)
+			    WHERE IMG_LEVEL =
+			     (SELECT MIN(B.IMG_LEVEL) 
+			      FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
+			    ORDER BY UPDATE_DT DESC)
 	</select>
 	
 	
@@ -159,13 +157,14 @@
 	 <!-- 메인화면 5개만 가져오는 ajax 썸네일 -->
 	<select id="selectItemsFor" resultMap="boardImage_rm">
 		SELECT * FROM (
-			SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, BOARD_NO, MEMBER_NO
-			FROM BOARD_IMG
-			JOIN ITEM_BOARD USING(BOARD_NO)
-			WHERE IMG_LEVEL = 0
-			ORDER BY BOARD_NO ASC)
-			WHERE BOARD_NO &gt; #{boardNo}
-			AND ROWNUM &lt; 6 
+        SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, B.BOARD_NO, MEMBER_NO
+        FROM BOARD_IMG B
+        JOIN ITEM_BOARD A ON(B.BOARD_NO=A.BOARD_NO)
+       WHERE IMG_LEVEL =   (SELECT MIN(B.IMG_LEVEL) 
+               FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
+        ORDER BY BOARD_NO ASC)
+        WHERE BOARD_NO &gt; #{boardNo}
+        AND ROWNUM &lt; 6 
 	</select>
 
 
@@ -216,14 +215,15 @@
 	<!-- 판매자 다른 상품 이미지 보기 -->
 	<select id="selectOtherItemsImg" resultMap="boardImage_rm">
 		SELECT * FROM (
-			SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, BOARD_NO, MEMBER_NO
-			FROM BOARD_IMG
-			JOIN ITEM_BOARD USING(BOARD_NO)
-			WHERE MEMBER_NO = ${memberNo}
-			AND BOARD_NO != ${boardNo}
-			AND IMG_LEVEL = 0
+			SELECT IMG_NO, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL, A.BOARD_NO, MEMBER_NO
+			FROM BOARD_IMG B
+			JOIN ITEM_BOARD A ON(B.BOARD_NO=A.BOARD_NO)
+			WHERE A.MEMBER_NO = ${memberNo}
+			AND A.BOARD_NO != ${boardNo}
+			AND IMG_LEVEL = (SELECT MIN(B.IMG_LEVEL) 
+               FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
 			ORDER BY UPDATE_DT DESC)
-		<![CDATA[WHERE ROWNUM <= 5]]>
+		   <![CDATA[WHERE ROWNUM <= 5]]>
 	</select>
 	
 	
@@ -240,7 +240,12 @@
 	</insert>
 	
 	<insert id="addCountAdd">
-		UPDATE ITEM_BOARD SET BOOKMARK_COUNT = BOOKMARK_COUNT + 1
+		UPDATE ITEM_BOARD SET 
+		BOOKMARK_COUNT = (
+			SELECT COUNT(*)
+			FROM BOOKMARK
+			WHERE BOARD_NO=${boardNo}
+		)
 		WHERE BOARD_NO = ${boardNo}
 	</insert>
 	
@@ -285,6 +290,12 @@
 	<select id="selectDate" resultMap="itemBoard_rm">
 		SELECT UPDATE_DT
 		FROM ITEM_BOARD
+	</select>
+	
+	<select id="selectBoardImageList" resultMap="boardImage_rm">
+		SELECT * FROM BOARD_IMG
+		WHERE BOARD_NO = #{boardNo}
+		ORDER BY IMG_LEVEL
 	</select>
 	
 	<select id="selectDistList" resultMap="itemBoard_rm">
