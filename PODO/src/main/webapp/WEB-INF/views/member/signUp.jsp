@@ -21,7 +21,7 @@
 
 
         <div id="contaioner">
-            <h3>회원가입</h3>
+            <div id="signUp-name-area"><h3 id="signUp-name">회원가입</h3></div>
             <form action="signUp" method="POST" name="ID-form" id="signUp-form" onsubmit="return signUpValidate()">
                 <fieldset id="signUp-area">
 
@@ -29,22 +29,25 @@
                         <h4>아이디</h4>
                         <input type="text" id="memberId" maxlength="20" name="memberId" placeholder="아이디를 입력해주세요.">
 
-                        <button id="idDupCheck" type="button" class="dupBtn">중복검사</button>
+                        <%-- <button id="idDupCheck" type="button" class="dupBtn">중복검사</button> --%>
+                        <span class="signUp-message" id="idMessage">* 4~15글자의 숫자,영어를 입력하세요.</span>
                     </section>
-                    <span class="signUp-message" id="idMessage">* 4~15글자의 숫자,영어를 입력하세요.</span>
+                    
 
 
                     <section>
                         <h4>비밀번호</h4>
                         <input type="password" id="memberPw" name="memberPw" placeholder="비밀번호를 입력해주세요.">
+                        <span class="signUp-message" id="pwMessage">* 4~15글자 (영어,숫자,특수기호 조합)</span>
                     </section>
-                    <span class="signUp-message" id="pwMessage">* 4~15글자 (영어,숫자,특수기호 조합)</span>
+                    
 
                     <section>
                         <h4>비밀번호 확인</h4>
                         <input type="password" id="memberPwConfirm" name="memberPwConfirm" placeholder="비밀번호를 다시 입력해주세요.">
+                        <span class="signUp-message" id="pwConfirmMessage">* 비밀번호는 동일해야 합니다.</span>
                     </section>
-                    <span class="signUp-message" id="pwConfirmMessage">* 비밀번호는 동일해야 합니다.</span>
+                    
 
                     <section>
                         <h4>이름</h4>
@@ -54,24 +57,29 @@
                     <section>
                         <h4>닉네임</h4>
                         <input type="text" id="memberNickname" maxlength="20" name="memberNickname" placeholder="닉네임을 입력해주세요.">
-                        <button id="nicknameDupCheck" type="button" class="dupBtn">중복검사</button>
+                        <span class="signUp-message" id="nicknameMessage">* 2~8글자를 입력하세요.</span>
+                        <%-- <button id="nicknameDupCheck" type="button" class="dupBtn">중복검사</button> --%>
                     </section>
-                    <span class="signUp-message" id="nicknameMessage">* 2~8글자를 입력하세요.</span>
+                    
 
                     <section>
                         <h4>전화번호</h4>
                         <input type="text" id="memberTel" maxlength="20" name="memberTel" placeholder="전화번호를 입력해주세요.">
-                        
+                        <span class="signUp-message" id="telMessage">* 본인의 전화번호를 입력해주세요.</span>
                     </section>
-                    <span class="signUp-message" id="telMessage">* 본인의 전화번호를 입력해주세요.</span>
+                    
 
                     <section>
                         <h4>주소</h4>
                         <input type="text" id="memberAddress" placeholder="주소" name="memberAddress" readonly>
-                        <input type="button" id="address" onclick="sample5_execDaumPostcode()" value="주소 검색" style="width:70px; height:35px;
-                         "><br>
+                        <div id="address-input-area">
+                            <input type="button" id="address" onclick="sample5_execDaumPostcode()" value="주소 검색" style="width:175px; height:35px;"><br>
+                            <span class="signUp-message" id="addressMessage">* 검색 버튼을 눌러주세요.</span>
+                        </div>
+                        
+                        
                     </section>
-                    <span class="signUp-message" id="addressMessage">* 검색 버튼을 눌러주세요.</span>
+                    
 
                     <section id="map-area" style="display:none;">
                         <div id="map" style="width:500px;height:400px;margin-top:10px;"></div>

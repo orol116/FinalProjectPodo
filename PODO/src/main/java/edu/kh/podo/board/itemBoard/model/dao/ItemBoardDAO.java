@@ -56,8 +56,8 @@ public class ItemBoardDAO {
 	/** 메인화면 상품 조회 DAO
 	 * @return itemList
 	 */
-	public List<ItemBoard> selectitemList() {
-		return sqlSession.selectList("itemBoardMapper.selectItemList");
+	public List<ItemBoard> selectReadCountList() {
+		return sqlSession.selectList("itemBoardMapper.selectReadCountList");
 	}
 	
 	/** 메인화면 상품 썸네일 조회 DAO
@@ -245,6 +245,30 @@ public class ItemBoardDAO {
 	public ItemBoard myPlaceSelect(int memberNo) {
 		return sqlSession.selectOne("itemBoardMapper.myPlaceSelect", memberNo);
 	}
+
+	/** 포도순 상품 조회
+	 * @return podoList
+	 */
+	public List<ItemBoard> selectPodoList() {
+		return sqlSession.selectList("itemBoardMapper.selectPodoList");
+	}
+
+
+	/** 무로 배송 조회
+	 * @return freeShopList
+	 */ 
+	public List<ItemBoard> selectFreeShopList() {
+		return sqlSession.selectList("itemBoardMapper.selectFreeShopList");
+	}
+
+
+	/** 미개봉 배송 조회
+	 * @return unOpenList
+	 */
+	public List<ItemBoard> selectUnOpenList() {
+		return sqlSession.selectList("itemBoardMapper.selectUnOpenList");
+	}
+
 
 
 	/** 판매글 작성 시 내위치 클릭하면 내위치 주소명 반환

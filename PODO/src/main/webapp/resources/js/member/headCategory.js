@@ -94,9 +94,7 @@ function categoryFunction(){
 function selectList(mCategoryNo, mCategoryName){
 
     const nameSpace =  document.getElementById("categoryName-space");
-    const mainNameSpace = document.getElementById("mainName-space");
-    
-    
+    const nameSpace2 =  document.getElementById("categoryName-space2");
 
     if(nameSpace != ""){ // main화면에서 ajax로 가져올때 nameSpace 2개 생기는거 방지
     
@@ -107,10 +105,16 @@ function selectList(mCategoryNo, mCategoryName){
     nameArea.innerText = mCategoryName;
     nameSpace.append(nameArea);
   
-    }
+    }else{
 
-    
-  
+    nameSpace.innerHTML = "";
+
+    const nameArea = document.createElement("div");
+    nameArea.id = "name-area";
+    nameArea.innerText = mCategoryName;
+    nameSpace.append(nameArea);
+    } 
+
     $.ajax({
         url : contextPath + "/selectCategory",  
         data : { "mCategoryNo" : mCategoryNo }, 

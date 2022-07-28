@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
+import edu.kh.podo.chat.model.service.ChatService;
 import edu.kh.podo.member.model.service.MemberService;
 import edu.kh.podo.member.model.service.MyShopService;
 import edu.kh.podo.member.model.vo.Member;
@@ -42,6 +43,9 @@ public class MyShopController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private ChatService chatService;
 	
 	private Logger logger;
 
@@ -64,6 +68,10 @@ public class MyShopController {
 		Map<String, Object> map = service.selectManageItem(paramMap);
 		
 		model.addAttribute("map", map);
+		
+		int memGrape = chatService.selectGrape(memberNo);
+		model.addAttribute("memGrape", memGrape);
+		
 		
 		return "item/itemManage";
 	}
@@ -98,6 +106,9 @@ public class MyShopController {
 		
 		int reviewCount = service.selectReviewCount(memberNo);
 		model.addAttribute("reviewCount", reviewCount);
+		
+		int finItem = service.selectFinItem(memberNo);
+		model.addAttribute("finItem", finItem);
 		
 		return "member/profile";
 	}

@@ -36,16 +36,18 @@
 
  /* 채팅창 본문 */
 .display-chatting{
-
     position: sticky;
-    width: 682px;
+    width: auto;
     height: 550px;
-    
     overflow: auto;
     list-style : none;
     padding : 10px 10px;
     border-bottom: 1px solid #c7c7c7;
-    
+}
+
+.display-chatting li{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .chat{
@@ -72,27 +74,37 @@
 #inputChatting{
     /* width : 80%;
     resize : none; */
+<<<<<<< HEAD
+    
+    height: auto;
+=======
+   
+    width: 630px;
     -webkit-user-modify: read-write;
+>>>>>>> origin/main
     overflow-wrap: break-word;
-    -webkit-line-break: after-white-space;
     margin: 0;
     padding: 0;
     border: 0;
     vertical-align: baseline;
     font-weight: 400;
     position: relative;
-    width: 570px;
+<<<<<<< HEAD
+=======
+    /* width: 570px; */
+>>>>>>> origin/main
     overflow: auto;
-    height: 40px;
-    outline: 0;
-    line-height: 21px;
+    height: 50px;  
+     outline: 0;
+  /*   line-height: 21px; */
     color: #000;
     font-size: 15px;
     float: left;
 }
 
 #send{
-    width : 20%;
+    width : 10%;
+    /* width : 20%; */
 }
 
 .myChat{
@@ -130,7 +142,7 @@ color: white;
 }
 
 .chatDiv{
-    letter-spacing: -1px;
+    /* letter-spacing: -1px;
     color: rgb(30, 29, 41);
     word-break: break-all;
     box-sizing: border-box;
@@ -148,7 +160,19 @@ color: white;
     background-color: white;
     position: relative;
     left: 0px;
-    padding: 30px 10px 30px 10px;
+    padding: 30px 10px 30px 10px; */
+    /* phr */
+    letter-spacing: -1px;
+    color: gray;
+    word-break: break-all;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: flex-start;
+    user-select: none;
+    position: relative;
+
 }
 
 /* .active{
@@ -215,14 +239,13 @@ color: white;
 }
 
 .profile > img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }
 
 
 .memberNick{
-    color: rgb(30, 29, 41);
+    /* color: rgb(30, 29, 41);
     word-break: break-all;
     cursor: pointer;
     user-select: none;
@@ -237,7 +260,14 @@ color: white;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical; */
+    /* phr */
+    font-size: 15px;
+    color: black;
+    font-weight: 550;
+}
+.sentDate{
+    font-size: 13px;
 }
 
 .chat-footer{
@@ -252,11 +282,14 @@ color: white;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    margin: 25px 10px;
+    /* margin: 25px 10px; */
+    margin: 5px 10px;
+    height: 60px;
 }
 
 
 .chat-footer-area{
+    height: 50px;
     letter-spacing: -1px;
     color: rgb(30, 29, 41);
     word-break: break-all;
@@ -269,16 +302,17 @@ color: white;
     position: relative;
     display: flex;
     -webkit-box-align: center;
-    align-items: center;
+    align-items: flex-start;
     -webkit-box-pack: center;
     justify-content: center;
-    height: 40px;
+    /* height: 40px; */
     background-color: rgb(250, 250, 250);
     
-    width: 100%;
+    /* width: 100%; */
 }
 
 textarea #inputChatting{
+    height: auto;
     word-break: break-all;
     font-family: primary, secondary, -apple-system, BlinkMacSystemFont, AppleSDGothicNeo, "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;

@@ -46,19 +46,27 @@
     </div>
 
         
-        <div id="categoryName-space"></div><%-- main에서 ajax 받는 부분 --%> 
+        <div id="categoryName-space">${param.mCategoryName}</div><%-- main에서 ajax 받는 부분 --%>
+
         
-        <div id="mainName-space" >${param.mCategoryName}</div>
+        <div id="categoryName-space2">${param.mCategoryName}</div><%-- main에서 ajax 받는 부분 --%>
+        
+        
 
 <%--         <div id="items-button-area">
             <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
 
         </div> --%>
+    
+    
 
     <section id="items-readCount-section">
 
+        <div class="itmes">
+            <a href="${contextPath}/common/main/mainReadCount"><h2 style="margin:0;">조회수가 높은 상품을 추천드려요 ></h2></a>
+        </div>
         <c:choose>
-            <c:when test="${empty itemList}">
+            <c:when test="${empty readCountList}">
 
                 <div>
                     <div class="frame">
@@ -72,12 +80,7 @@
    
             <c:otherwise>
 
-                <div class="itmes">
-                    <h2 style="margin:0;">조회수가 높은 상품을 추천드려요.</h2>
-                    <a href="${contextPath}/common/mainReadCount"> > 전체보기</a>
-                </div>
-
-                <c:forEach var="item" items="${itemList}" begin="0" end="9" step="1" varStatus="vs">
+                <c:forEach var="item" items="${readCountList}" begin="0" end="9" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
@@ -125,8 +128,11 @@
 
     <section id="items-podo-section">
 
+        <div class="itmes">
+            <a href="${contextPath}/common/main/mainPodo"> <h2 style="margin:0;">포도를 많이 가진 회원의 상품을 추천드려요 ></h2></a>
+        </div>
         <c:choose>
-            <c:when test="${empty itemList}">
+            <c:when test="${empty podoList}">
 
                 <div>
                     <div class="frame">
@@ -140,78 +146,7 @@
    
             <c:otherwise>
 
-                <div class="itmes">
-                    <h2 style="margin:0;">포도를 많이 가진 회원의 상품을 추천드려요.</h2>
-                    <a href="${contextPath}/common/mainPodo"> > 전체보기</a>
-                </div>
-
-                <c:forEach var="item" items="${itemList}" begin="0" end="9" step="1" varStatus="vs">
-               
-                    <c:if test="${ vs.index % 5 eq 0}">
-                        <div class="frame" >
-                    </c:if>
-
-                            <div class="box" id="${item.boardNo}">
-                                <a href="${contextPath}/board/detail/${item.boardNo}"  class="title">
-                                    <div class="image">
-                                        <c:choose>
-
-                                            <c:when test="${!empty item.img.imageReName}">
-
-                                                <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
-
-                                            </c:when>
-
-                                            <c:otherwise>
-
-                                                <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </div>   
-                                    
-                                    <div class="title1">
-                                        <div class="name1">
-                                            <div class="title2">${item.boardTitle}</div>
-                                            <div class="state">${item.tradeCondition}</div>
-                                        </div>
-                                        <div class="name2">
-                                            <div class="price">${item.price}원</div>
-                                            <div class="time">${item.updateDate}</div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                          
-                    <c:if test="${ vs.index % 5 eq 4}">
-                        </div>
-                    </c:if>
-                    
-                </c:forEach>
-            </c:otherwise>
-        </c:choose>
-    </section>
-
-            <c:choose>
-            <c:when test="${empty itemList}">
-
-                <div>
-                    <div class="frame">
-                        
-                        <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                        게시글이 존재하지 않습니다.
-                    </div>
-                </div>
-            
-            </c:when>
-   
-            <c:otherwise>
-
-                <div class="itmes">
-                    <h2 style="margin:0;">포도를 많이 가진 회원의 상품을 추천드려요.</h2>
-                    <a href="${contextPath}/common/mainPodo"> > 전체보기</a>
-                </div>
-
-                <c:forEach var="item" items="${itemList}" begin="0" end="9" step="1" varStatus="vs">
+                <c:forEach var="item" items="${podoList}" begin="0" end="9" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
@@ -258,9 +193,12 @@
     </section>
 
     <section id="items-freeShop-section">
-
+        
+        <div class="itmes">
+            <a href="${contextPath}/common/main/mainFreeShop"> <h2 style="margin:0;">무료배송 상품을 추천드려요 ></h2></a>
+        </div>
         <c:choose>
-            <c:when test="${empty itemList}">
+            <c:when test="${empty freeShopList}">
 
                 <div>
                     <div class="frame">
@@ -274,12 +212,8 @@
    
             <c:otherwise>
 
-                <div class="itmes">
-                    <h2 style="margin:0;">무료배송 상품을 추천드려요.</h2>
-                    <a href="${contextPath}/common/mainPodo"> > 전체보기</a>
-                </div>
 
-                <c:forEach var="item" items="${itemList}" begin="0" end="9" step="1" varStatus="vs">
+                <c:forEach var="item" items="${freeShopList}" begin="0" end="9" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
@@ -327,8 +261,13 @@
 
     <section id="items-unOpen-section">
 
+        <div class="itmes">
+            
+            <a href="${contextPath}/common/main/mainUnOpen"> <h2 style="margin:0;">미개봉 상품을 추천드려요 ></h2></a>
+        </div>
+
         <c:choose>
-            <c:when test="${empty itemList}">
+            <c:when test="${empty unOpenList}">
 
                 <div>
                     <div class="frame">
@@ -342,12 +281,7 @@
    
             <c:otherwise>
 
-                <div class="itmes">
-                    <h2 style="margin:0;">미개봉 상품을 추천드려요.</h2>
-                    <a href="${contextPath}/common/mainPodo"> > 전체보기</a>
-                </div>
-
-                <c:forEach var="item" items="${itemList}" begin="0" end="9" step="1" varStatus="vs">
+                <c:forEach var="item" items="${unOpenList}" begin="0" end="9" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
@@ -395,8 +329,7 @@
 
     <!-- 내 주변 상품 -->
     <div class="itmes">
-        <h2 style="margin:0;">주변 지역 상품을 추천드려요. </h2>
-        <a href="${contextPath}/common/mainLocation"> > 전체보기</a>
+        <a href="${contextPath}/common/main/mainLocation"> <h2 style="margin:0;">주변 지역 상품을 추천드려요 ></h2></a>
     </div>
     <section id="items-location-section">
 

@@ -49,6 +49,8 @@ public interface ChatService {
 	 * @param boardNo
 	 * @return result
 	 */
-	int writeReview(int memberNo, String report, int otherMemNo, int boardNo);
+	int writeReview(int memberNo, String report, int otherMemNo, int boardNo, String reviewCondition);
+
+	int selectGrape(int memberNo);
 
 }

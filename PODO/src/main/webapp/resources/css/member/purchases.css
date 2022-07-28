@@ -100,6 +100,7 @@ div{
     font-size: 1.125rem;
     font-weight: bold;
     border-bottom: 1px solid lightgray;
+    padding-bottom: 15px;
 }
 
 /* 거래내역 하위 부분 */
@@ -233,6 +234,7 @@ button {
     align-items: center;
     
     border-bottom: 1px solid lightgray;
+    padding-bottom: 15px;
 }
 
 /* 버튼 */
@@ -299,7 +301,7 @@ button {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
-    font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    
     font-weight: normal;
     color: rgb(30, 29, 41);
     outline: 0px;
@@ -315,7 +317,7 @@ button {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
-    font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    
     font-weight: normal;
     color: rgb(30, 29, 41);
     outline: 0px;
@@ -332,7 +334,7 @@ button {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
-    font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    
     font-weight: normal;
     color: rgb(30, 29, 41);
     outline: 0px;
@@ -353,7 +355,7 @@ button {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
-    font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    
     font-weight: normal;
     color: rgb(30, 29, 41);
     outline: 0px;
@@ -801,10 +803,18 @@ section>button>.fa-solid{
 
 /* 상품 이미지 div */
 .thumb{
-    float: left;
+    /* float: left;
     width: 200px;
     height: 200px;
-    display: contents;
+    display: contents; */
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 1px solid rgb(234, 233, 241);
+    border-radius: 2px;
+    width: 200px;
+    height: 200px;
 }
 .thumb img{
     width: 200px;
@@ -822,6 +832,7 @@ section>button>.fa-solid{
     width:calc(100% - 300px);
     font-size:20px; 
     line-height:2; 
+    transform: translate(0px, -200px);
 }
 
 .purchasesInfo p{
@@ -864,3 +875,52 @@ section#section-content div.purchasesInfo { font-size:20px; line-height:2; }
 section#section-content div.purchasesInfo span { display:inline-block; width:100px; font-weight:bold; margin-right:10px; }
 
 
+/* 오버레이 */
+.overlay{
+    position: absolute;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: bold;
+    /* background: rgba(30, 29, 41, 0.56); */
+    
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    white-space: pre;
+    text-align: center;
+    /* opacity: 0.9; */
+    max-width: 50px;
+    max-height: 50px;
+    
+    transform: translate( 0%, -40% );
+}
+
+/* overlay span 태그 */
+.overlayCard{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    background: rgba(30, 29, 41, 0.56);
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    white-space: pre;
+    text-align: center;
+    /* opacity: 0.9; */
+    width: 200px;
+    height: 200px;
+}
+
+.overlayCard p{
+    color: white;
+    transform: translate(0px, 20px);
+}
+
+/* overlay span 하위 img 태그 */

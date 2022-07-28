@@ -45,6 +45,7 @@ function selectTradeCondition(type){
         css 이미 있음
     } */
 
+    
     $.ajax({
         url : contextPath + "/shop/myMall/selectList", 
         data : { "memberNo" : memberNo, 
@@ -90,7 +91,9 @@ function selectTradeCondition(type){
                 purchasesinfo.innerText = "판매 내역이 없습니다.";
                 div.append(purchasesinfo);
             }else{
-
+                
+                
+                 
                 for(let i=0; i<itemList.length; i++){
 
                     /* li 태그 */
@@ -108,6 +111,30 @@ function selectTradeCondition(type){
                     itemImage.classList.add("item-image");
                     itemImage.src = contextPath + itemList[i].imageReName;
                     thumb.append(itemImage);
+
+                    /* overlay */
+                    let overlayCard = document.createElement("span");
+                    overlayCard.classList.add("overlayCard");
+
+                    let overlayImg = document.createElement("img");
+                    overlayImg.innerText = "판매완료";
+
+                    let overlayTitle = document.createElement("p");
+                    overlayTitle.classList.add("overlayTitle");
+                    overlayTitle.innerText = "판매완료";
+                    
+                    thumb.append(overlayCard);
+                    overlayCard.append(overlayTitle);
+
+                    if(type==1 || type==4){
+                        $(function() {
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                        });
+                    }
+                    /* $(function() {
+                        $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                    }); */
+
                     
                     /* 상품 정보 div */
                     // div : gdsInfo
@@ -147,14 +174,17 @@ function selectTradeCondition(type){
           
                     sellContents.append(purchasesContents);
                 }
-      
+                
             }
+            
             
         },
         
         error : function(req, status, error){
             console.log(req.responseText);
         }
+
+        
     });
     
     var sellList = document.getElementById("sellList");
@@ -188,6 +218,8 @@ function selectTradeCondition(type){
         $("#selling").show();
         $("#selled").show();
     }
+
+    
 
         
     /* 판매, 구매 버튼 클릭시 색상 변경 */
