@@ -503,6 +503,13 @@
 		WHERE ADMIN_BOARD_NO IN (${deleteNo})
 	</delete>
 	
+	
+	<!-- 관리자 신고 게시글 사진 삭제 -->
+	<delete id="reportDelete">
+		DELETE FROM REPORT
+		WHERE REPORT_NO IN (${deleteNo})
+	</delete>
+	
 
 	<!--관리자 회원 탈퇴/재가입 -->
 	<update id="memberSecession">
