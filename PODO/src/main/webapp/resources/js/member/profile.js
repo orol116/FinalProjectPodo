@@ -4,6 +4,7 @@ const reviewCategory = document.getElementById("review-category");
 const reviewList = document.getElementById("reviews-area");
 reviewList.style.display = "flex";
 reviewList.style.justifyContent = "center";
+reviewList.style.flexDirection = "column";
 const itemList = document.getElementById("seller-items");
 
 if (loginMemberNo == member2) {
@@ -139,6 +140,8 @@ reviewCategory.addEventListener("click", reviewsList);
 /* 후기 ajax */
 function reviewsList() {
 
+    console.log("memberNo" + member2);
+
     $.ajax({
         url: contextPath + "/shop/selectReviewsList/" + member2,
         data: { "memberNo": member2 },
@@ -171,50 +174,55 @@ function reviewsList() {
                     console.log(rList);
 
                     const reviewBox = document.createElement("section");
-                    reviewBox.id = "user-reviews";
+                    reviewBox.classList.add("user-reviews");
                     /* reviewBox.style.display = "flex";
                     reviewBox.style.display = "center"; */
 
 
                     const reviewRow = document.createElement("div");
-                    reviewRow.id = "reviews-top";
+                    reviewRow.classList.add("reviews-top");
 
                     const writerImage = document.createElement("img");
-                    writerImage.id = "reviews-image";
+                    writerImage.classList.add("reviews-image");
                     if (review.memberProfile == null) writerImage.src = imageSrc;
                     else writerImage.src = review.memberProfile;
 
                     const imageBox = document.createElement("div");
-                    imageBox.id = "image-area";
+                    imageBox.classList.add("image-area");
                     imageBox.append(writerImage);
 
                     const writerName = document.createElement("div");
-                    writerName.id = "reviews-user-nick";
+                    writerName.classList.add("reviews-user-nick");
                     writerName.innerText = review.memberNickname;
 
-                    const DTArea = document.createElement("div");
-                    DTArea.id = "create-date-area";
-
-                    const createDate = document.createElement("div");
-                    createDate.id = "reviews-create-date";
                     
 
-                    DTArea.append(createDate);
+                    const createDate = document.createElement("div");
+                    createDate.classList.add("reviews-create-date");
+                    createDate.innerText = review.createDate;
+                    createDate.style.marginLeft = "90px";
+                    
 
-                    reviewRow.append(writerName, DTArea);
+                    
+
+                    reviewRow.append(writerName, createDate);
 
                     const shortReview = document.createElement("div");
                     shortReview.id = "reviews-shorts";
                     shortReview.innerText = review.reviewContent;
 
+                    const goodBad = document.createElement("div");
+                    goodBad.classList.add("good-or-bad");
+                    goodBad.innerText = review.reviewCondition;
+
                     // const textReview = document.createElement("div");
                     // textReview.id = "reviews-user-text";
 
                     const footReview = document.createElement("div");
-                    footReview.id = "reviews-footer";
+                    footReview.classList.add("reviews-footer");
 
                     const itemReview = document.createElement("a");
-                    itemReview.id = "reviews-user-item";
+                    itemReview.classList.add("reviews-user-item");
                     itemReview.innerText = review.boardTitle + "     >";
                     itemReview.setAttribute("href", contextPath + "/board/detail/" + review.boardNo);
 
@@ -223,11 +231,11 @@ function reviewsList() {
                     footReview.append(itemReview);
 
                     const reviewCoount = document.createElement("div");
-                    reviewCoount.id = "reviewCoount";
+                    reviewCoount.classList.add("reviewCoount");
                     
                     
 
-                    reviewCoount.append(reviewRow, shortReview, footReview)
+                    reviewCoount.append(reviewRow, goodBad,shortReview, footReview)
                     reviewBox.append(imageBox,reviewCoount);
 
 
