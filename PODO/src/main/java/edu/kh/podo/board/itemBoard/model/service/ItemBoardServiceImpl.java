@@ -305,7 +305,6 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		return dao.selectDistList(distMap);
 	}
 
-	
 	// 포도순 상품 조회
 	@Override
 	public List<ItemBoard> selectPodoList() {
@@ -324,6 +323,21 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		return dao.selectUnOpenList();
 	}
 	
+	//  판매글 작성 시 내위치 클릭하면 내위치 위도 경도 반환
+	@Override
+	public Map<String, Object> myPlaceSelect(int memberNo) {
+		
+		ItemBoard myPlaceXY = dao.myPlaceSelect(memberNo);
+		
+		String myAddr = dao.myAddrSelect(memberNo);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("myPlaceXY", myPlaceXY);
+		map.put("myAddr", myAddr);
+		
+		return map;
+	}
 	
 	
 
