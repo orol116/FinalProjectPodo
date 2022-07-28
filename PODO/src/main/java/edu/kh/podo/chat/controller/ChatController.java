@@ -63,14 +63,8 @@ public class ChatController {
 	@ResponseBody
 	public int writeReview(int memberNo, String reviewContent, int otherMemNo, int boardNo, String reviewCondition) {
 		
-		int result = service.writeReview(memberNo, reviewContent, otherMemNo, boardNo, reviewCondition);
+		return service.writeReview(memberNo, reviewContent, otherMemNo, boardNo, reviewCondition);
 		
-//		if (result > 0) {
-//			service.podoPlus
-//		}
-		
-		
-		return 0;
 	}
 	
 	// 1:1 채팅하기(채팅 생성)

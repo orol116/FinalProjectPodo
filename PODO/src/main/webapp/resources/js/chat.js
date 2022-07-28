@@ -77,6 +77,7 @@ function listClickFn(chatNo) {
 
 				if (msg.memberNo != memberNo) {
 					otherMemNo = msg.memberNo;
+					console.log("otherMem : " + otherMemNo);
 				}
 			}
 			console.log("boardNo : " + data.boardNo);

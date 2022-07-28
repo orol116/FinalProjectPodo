@@ -321,3 +321,9 @@ textarea #inputChatting{
     height: 45px !important;
 }
 
+/* 아이콘 */
+.fa-cat-space{
+    width: 15px;
+    height: 15px;
+    color: rgb(95, 0, 129);
+}

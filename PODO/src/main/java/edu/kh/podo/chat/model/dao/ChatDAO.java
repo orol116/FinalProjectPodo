@@ -137,4 +137,12 @@ public class ChatDAO {
 		return sqlSession.selectOne("chatMapper.selectFinReview", map);
 	}
 
+	public int countPodo(Map<String, Object> map) {
+		return sqlSession.update("chatMapper.countPodo", map);
+	}
+
+	public int selectGrape(int memberNo) {
+		return sqlSession.selectOne("chatMapper.selectGrape", memberNo);
+	}
+
 }

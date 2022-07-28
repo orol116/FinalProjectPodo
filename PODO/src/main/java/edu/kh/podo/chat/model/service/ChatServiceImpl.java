@@ -141,9 +141,23 @@ public class ChatServiceImpl implements ChatService {
 		String reportContent = Util.newLineHandling(temp);
 	
 		map.put("reportContent", reportContent);
-		return dao.writeReview(map);
-	
-		 
+		
+		int memberGrape = dao.selectGrape(otherMemNo);
+		map.put("memberGrape", memberGrape);
+		
+		int insert = dao.writeReview(map);
+		int result = 0;
+		
+		if (insert > 0) {
+			result = dao.countPodo(map);
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int selectGrape(int memberNo) {
+		return dao.selectGrape(memberNo);
 	}
 
 }

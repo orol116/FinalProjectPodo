@@ -107,4 +107,13 @@ public class MyShopDAO {
 		return sqlSession.selectOne("myShopMapper.selectFinItem", memberNo);
 	}
 
+	public int selectMemberNo(int boardNo) {
+		return sqlSession.selectOne("myShopMapper.selectMemberNo", boardNo);
+	}
+
+	
+	public void updateGrape(int no) {
+		sqlSession.update("myShopMapper.updateGrape", no);
+	}
+
 }

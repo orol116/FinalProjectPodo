@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/chat.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/chat-style.css">
 
-    <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 
     <%-- 파비콘 --%>    
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
@@ -38,6 +38,7 @@
             <section class="left-main">
                 <%-- 좌측 리스트 박스 영역 --%>
                 <ul>
+                    <div><i class="fa-solid fa-cat-space"></i><p>포도톡</p></div>
                     <c:choose>
 						
                         <%-- 조회된 게시글 목록이 없을 때 --%>
@@ -60,7 +61,7 @@
                                 <div class="card-box">
                                     <%-- 클릭 시 우측 채팅창으로 이동 --%>
                                     <div class="chatDiv" id="${chatList.chatNo}" onclick="listClickFn(${chatList.chatNo})">
-                                    
+                                        
                                         <li class="chatList">
 
                                             <!-- 이미지가 없을 때 -->

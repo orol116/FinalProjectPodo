@@ -82,7 +82,15 @@ public class MyShopServiceImpl implements MyShopService {
 	// 끌올 기능 ajax
 	@Override
 	public int updateDate(int boardNo) {
-		return dao.updateDate(boardNo);
+		
+		int result = dao.updateDate(boardNo);
+		
+		if (result > 0) {
+			int no = dao.selectMemberNo(boardNo);
+			dao.updateGrape(no);
+		}
+		
+		return result;
 	}
 
 	// 구매/판매 내역 조회 ajax Service 구현
