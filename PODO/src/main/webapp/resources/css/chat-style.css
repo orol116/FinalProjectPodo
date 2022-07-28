@@ -321,3 +321,14 @@ textarea #inputChatting{
     height: 45px !important;
 }
 
+/* podo talk */
+#podo{
+    text-decoration: none;
+    padding: 10px 40px 0;
+    color: rgb(95, 0, 129);
+    font-size: 20px;
+    font-weight: 900;
+}
+#spreadBtn04{
+    display: flex;
+}
