@@ -172,11 +172,16 @@ footer {
 
 #user-space{
     display: flex;
-    width: 600px;
+    
 }
 
 #user-space > div{
+    width: 400px;
     padding-right: 110px;
+}
+
+#user-space > div:nth-child(2){
+    width: 500px;
 }
 
 #reviews-user-item{
@@ -194,64 +199,9 @@ footer {
 
 
 
-/* 상품 목록 */
-#seller-items,
-#item-detail-foot {
-    padding-top: 30px;
-    display: flex;
-    padding-bottom: 40px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-}
-
-.itemContainer{
-    display: flex;
-    
-    border: none;
-}
-
-.box {
-    flex-basis: 18%;
-    width: 220px;
-    /* height: 320px; */
-    border: 1px solid lightgray;
-}
-
-.image {
-
-    height: 214px;
-    border: 1px solid gray;
-}
 
 /* 제목 */
 
-
-.title {
-    text-decoration: none;
-    color: black;
-    width: 250px;
-
-}
-
-
-.name2 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.title1>div {
-    margin: 0;
-}
-
-.title1 {
-    display: inline-block;
-    align-content: end;
-    margin: 5px 10px 0;
-}
-
-.time {
-    margin-left: 90px;
-}
 
 
 
