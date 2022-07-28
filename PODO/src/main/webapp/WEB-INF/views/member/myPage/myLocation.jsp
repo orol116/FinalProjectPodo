@@ -9,13 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/myLocation.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
     <title>myLocation</title>
 </head>
 <body>
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
+        ${memLocal[0]}
+
         <div id="container">
+
+            <!-- 사이드 메뉴 -->
+            <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
 
             <div id="right-area">
                 <section id="map-area">
@@ -26,7 +32,7 @@
                     
                     <section>
                         <h3>현재위치</h3>
-                        <div id="currentAddr">서울시 강서구 화곡동</div>
+                        <div id="currentAddr">${memLocal[0].memberAddress}</div>
                     </section>
             
                     <section>
@@ -34,7 +40,7 @@
                     </section>
             
                     <section>
-                        <div id="currentSetting">거래하고 싶은 지역은 10km이내 입니다.</div>
+                        <div id="currentSetting">거래하고 싶은 지역은 ${memLocal[0].distance}km이내 입니다.</div>
                     </section>
 
                     <div id="addr-input">
@@ -86,6 +92,11 @@
 
     </main>
 
+
+<script>
+    var x = "${memLocal[0].DLon}"
+    var y = "${memLocal[0].DLat}"
+</script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=06bb10cd60ad6e59265c29b83ff6ec2d&libraries=services"></script>

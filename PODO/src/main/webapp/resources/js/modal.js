@@ -6,7 +6,13 @@ function show() {
     document.querySelector(".background").className = "background";
   }
 
-  document.querySelector("#item-report").addEventListener("click", show);
+
+  const itemReport = document.querySelector("#item-report");
+
+  if(itemReport != null){
+    itemReport.addEventListener("click", show);
+  }
+ 
   document.querySelector("#close").addEventListener("click", close);
 
 
@@ -36,5 +42,9 @@ function show() {
 
   });
 
+
+if(tradeCondition.value = "판매완료"){
+  document.getElementById("item-image").classList.add("overlay");
+}
 
   

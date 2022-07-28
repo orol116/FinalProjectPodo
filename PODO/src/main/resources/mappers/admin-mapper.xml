@@ -31,7 +31,10 @@
 		<result property="reportContent" column="REPORT_CONTENT"/>
 		<result property="reportCode" column="REPORT_CD"/>
 		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
 		<result property="reportDate" column="REPORT_DT"/>
+		<result property="reportCodeName" column="REPORT_NM"/>
+		
 	</resultMap>
 	
 	<resultMap type="reportType" id="reportType_rm">
@@ -143,7 +146,7 @@
 	
 	<!-- 신고 목록 조회 -->
 	<select id="selectReportList" resultMap="report_rm">
-		SELECT REPORT_NO,  REPORT_NM, REPORT_CONTENT, MEMBER_NICK, REPORT_DT,
+		SELECT REPORT_NO, REPORT_CONTENT, MEMBER_NICK, REPORT_NM,
 		
           CASE WHEN SYSDATE - REPORT_DT &lt; 1
                  THEN TO_CHAR(REPORT_DT, 'HH:MI')
@@ -498,6 +501,13 @@
 	<delete id="adminDelete">
 		DELETE FROM ADMIN_BOARD
 		WHERE ADMIN_BOARD_NO IN (${deleteNo})
+	</delete>
+	
+	
+	<!-- 관리자 신고 게시글 사진 삭제 -->
+	<delete id="reportDelete">
+		DELETE FROM REPORT
+		WHERE REPORT_NO IN (${deleteNo})
 	</delete>
 	
 

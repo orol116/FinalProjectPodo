@@ -37,7 +37,6 @@
                 <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()" >
                     
                     <h1 class="myPage-title">비밀번호 변경</h1>
-                    
             
                     <div class="wrapper">
         
@@ -48,16 +47,14 @@
                         </div>
                         <div class="myPage-row">
                             <label>새 비밀번호</label>
-                            <input type="password" name="newPw" id="newPw" class="input_box" maxlength="15" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성해주세요.">
+                            <input type="password" name="newPw" id="newPw" class="input_box" maxlength="15" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성">
                         </div>
                         <div class="myPage-row">
                             <label>새 비밀번호 확인</label>
                             <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="15">
                         </div>
 
-
                         <!-- 소셜연동? -->
-
                         <%-- <button type="button" id="info-update-btn" onclick="location.href='${contextPath}/views/member/mypage/secession'">탈퇴하기</button> --%>
                         <button id="info-update-btn">변경하기</button>
 
@@ -83,6 +80,7 @@
 
 	<!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
     
 </body>

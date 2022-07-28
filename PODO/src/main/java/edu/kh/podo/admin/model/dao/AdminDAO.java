@@ -186,7 +186,10 @@ public class AdminDAO {
 			
 			result  = sqlSession.update("adminMapper.memberSecession",map); 
 			
-		}else {
+		}else if(boardCode == 6){
+			
+			resultD = sqlSession.update("adminMapper.reportDelete",map); 
+		}else{
 			
 			result  = sqlSession.delete("adminMapper.adminImgDelete",map); // 0 또는 1
 			

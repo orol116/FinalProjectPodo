@@ -103,12 +103,12 @@
                     <c:otherwise>
                         <c:forEach var="report" items="${reportList}">
                             <tr>
-                                <td><input type="checkbox" name="reportList" id="chkbox" value="${report.boardNo}"></td>
-                                <td>${report.boardNo}</td>
-                                <td>${report.classification}</td>
-                                <td>${report.boardContent}</td>
+                                <td><input type="checkbox" name="reportList" id="chkbox" value="${report.reportNo}"></td>
+                                <td>${report.reportNo}</td>
+                                <td>${report.reportCodeName}</td>
+                                <td>${report.reportContent}</td>
                                 <td>${report.memberNick}</td>
-                                <td>${report.createDate}</td>
+                                <td>${report.reportDate}</td>
                             </tr>    
                         </c:forEach>      
                     </c:otherwise>

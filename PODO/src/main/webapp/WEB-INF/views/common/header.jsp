@@ -40,7 +40,7 @@
                     </p> --%>
                     <div id="socketAlert" ></div>
                     <p id="socketAlet2">
-                        <i class="fa-solid fa-bell">알림</i><br><br>
+                        <i class="fa-solid fa-bell">알림</i><br>
                     </p>
                     
 

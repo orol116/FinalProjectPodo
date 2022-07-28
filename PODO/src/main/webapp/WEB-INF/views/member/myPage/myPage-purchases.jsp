@@ -68,7 +68,7 @@
                         </ul>
 
                         <div class="purchases-box">
-                            <nav class="purchases-category">
+                            <nav class="purchases-category" id="purchases-category">
                                 <div class="menu-wrap">
                                     <button type="button" class="status" id="whole"     onclick="selectTradeCondition(1)">전체 상태</button>
                                     <button type="button" class="status" id="reserving" onclick="selectTradeCondition(2)">예약 중</button>
@@ -103,6 +103,7 @@
 
     <!-- js -->
     <script src="${contextPath}/resources/js/purchases.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
 </body>
 </html>

@@ -158,7 +158,13 @@ public class MyPageController {
 
 	// 주소 변경 페이지 전환
 	@GetMapping("/myLocation")
-	public String myLocation() {
+	public String myLocation(@ModelAttribute("loginMember") Member loginMember,
+							 Model model) {
+		
+		List<Member> memLocal = service.selectLocal(loginMember.getMemberNo());
+		System.out.println(memLocal);
+		model.addAttribute("memLocal", memLocal);
+		
 		return "member/myPage/myLocation";
 	}
 	

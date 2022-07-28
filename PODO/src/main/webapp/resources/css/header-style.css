@@ -10,7 +10,7 @@
 
 header{
     margin: 0 auto;
-    height: 100px;
+    height: 150px;
     width: 1200px;
     /*margin-top: 15px; */
 }
@@ -40,7 +40,7 @@ header{
     position: fixed;
     top: 0 ;
     width: 1200px;
-    height:  100px;
+    height:  150px;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -167,7 +167,7 @@ section>button>.fa-solid{
 .alert2 p{
 	display: none;
 	text-align: left;
-	background-color: rgba(221, 221, 221, 0.548);
+	background-color: rgb(255, 255, 255);
 	padding: 20px;
 	width: 250px;
     height: 200px;
@@ -182,7 +182,7 @@ section>button>.fa-solid{
 .alert2 div{
     display: none;
 	text-align: left;
-	background-color: rgba(14, 236, 114, 0.815);
+	background-color: rgb(92, 228, 110);
 	padding: 20px;
 	width: 250px;
     height: 80px;
@@ -216,7 +216,15 @@ section>button>.fa-solid{
 
 }
 
+/* 알림창 */
+#socketAlert{
+    top: 50px;
 
+	content:'';
+	position: absolute;
+	top:-40px;
+	left:0;
+}
 
 /* 카테고리  */
 /* 카테고리  */
