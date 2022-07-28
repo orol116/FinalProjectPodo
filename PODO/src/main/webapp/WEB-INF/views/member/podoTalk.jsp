@@ -135,21 +135,23 @@
                                 </div>
                             </a>
 
+                            <ul id="hiddenList03" class="example01" style="display: none;">
+                                <button type="button" onclick="deleteChat()" >나가기</button>
+                                <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
+                
+                                <!-- Button trigger modal -->
+                                <button type="button" id="reviewWrt" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >후기 작성</button>
+                            </ul>
                             
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
 
-                                
-
                               
-                                <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
-
-
-                                
                                 <span class="icon-emo-sunglasses" id="spreadBtn04">
                                     <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
                                 </span>
+                                <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
                                 
                                 <ul id="hiddenList03" class="example01" style="display: none;">
                                     <button type="button" onclick="deleteChat()">나가기</button>
