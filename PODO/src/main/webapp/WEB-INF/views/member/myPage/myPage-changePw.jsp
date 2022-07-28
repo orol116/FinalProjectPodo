@@ -37,7 +37,6 @@
                 <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()" >
                     
                     <h1 class="myPage-title">비밀번호 변경</h1>
-                    
             
                     <div class="wrapper">
         
@@ -55,9 +54,7 @@
                             <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="15">
                         </div>
 
-
                         <!-- 소셜연동? -->
-
                         <%-- <button type="button" id="info-update-btn" onclick="location.href='${contextPath}/views/member/mypage/secession'">탈퇴하기</button> --%>
                         <button id="info-update-btn">변경하기</button>
 
