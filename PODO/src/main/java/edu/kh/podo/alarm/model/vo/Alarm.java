@@ -28,6 +28,5 @@ public class Alarm {
 	private int recieveMemberNo;
 	
 	private int chatNo;
-	
 
 }

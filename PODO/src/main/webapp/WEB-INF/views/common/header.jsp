@@ -31,7 +31,7 @@
 
                 <%-- <a class=alert1><i class="fa-solid fa-bell">알림</i></a> --%>
 
-                <a href="${contextPath}/member/myPage/changePw">마이페이지</a>
+                <a href="${contextPath}/member/myPage/profileUpdate">마이페이지</a>
 
                 <div class="alert2" >
                     

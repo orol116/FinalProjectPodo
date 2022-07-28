@@ -62,39 +62,45 @@ function updateDt(select){
 
     console.log(boardNo);
 
-    $.ajax({
-        url : "itemManage",
-        data : {"boardNo":boardNo},
-        type: "POST",
+    if (memGrape > 0) {
 
-        success : function(result){
+        $.ajax({
+            url : "itemManage",
+            data : {"boardNo":boardNo},
+            type: "POST",
 
-            if(update[2]||update[4]){
-                alert("예약중/판매완료 상품은 UP하기를 이용할 수 없습니다.");
-            }else{
-                alert("해당 상품이 UP되었습니다.");
+            success : function(result){
 
-                const alramMessage ={
-                    "memberNo" :memberNo ,
-                    "memberId": memberId,
-                    "boardNo":boardNo,
-                    "boardName":"update",
-                    "alarmContent":"끌올",
-                    // "recieveMemberId": otherMemNo,
-                    // "boardLink":boardLink
-                };
-        
-                console.log(alramMessage);
-                socket.send(JSON.stringify(alramMessage));
+                if(update[2]||update[4]){
+                    alert("예약중/판매완료 상품은 UP하기를 이용할 수 없습니다.");
+                }else{
+                    alert("해당 상품이 UP되었습니다.");
+
+                    const alramMessage ={
+                        "memberNo" :memberNo ,
+                        "memberId": memberId,
+                        "boardNo":boardNo,
+                        "boardName":"update",
+                        "alarmContent":"끌올",
+                        // "recieveMemberId": otherMemNo,
+                        // "boardLink":boardLink
+                    };
+            
+                    console.log(alramMessage);
+                    socket.send(JSON.stringify(alramMessage));
+                }
+
+                
+            },
+            error : function(){
+                alert("UP 실패, 관리자에게 문의하세요.");
             }
 
-            
-        },
-        error : function(){
-            alert("UP 실패, 관리자에게 문의하세요.");
-        }
-
-    });
+        });
+    } else {
+        alert("이용 가능한 포도알이 없습니다!");
+        return false;
+    }
 
 };
 

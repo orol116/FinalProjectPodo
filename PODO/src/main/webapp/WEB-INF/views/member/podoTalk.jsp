@@ -134,13 +134,6 @@
                                 </div>
                             </a>
                             
-                            
-                            
-                            
-                            <span class="icon-emo-sunglasses" id="spreadBtn04">
-                                <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
-                            </span>
-                            
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <!-- 헤더 버튼 -->
                                 <div class="headerBtnArea" id="headerBtnArea">
@@ -149,7 +142,7 @@
                                     <button type="button" id="reviewWrt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
                                             style="
                                             --bs-btn-bg: rgb(131, 4, 177)
-                                            
+
                                             ">후기 작성</button>
                                 </div>
 

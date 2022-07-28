@@ -288,10 +288,11 @@ footer {
     display: none;
     padding-top: 20px;
     border-top: 1px solid #ccc;
+    
 }
 
 
-#user-reviews{
+.user-reviews{
     width: 800px;
     height: 180px;
     margin: 20px 100px 20px 100px;
@@ -299,19 +300,19 @@ footer {
     display: flex;
 }
 
-#reviews-top{
+.reviews-top{
     display: flex;
     flex-direction: row; 
     width: 1000px;
 }
 
-#reviews-image{
+.reviews-image{
     width: 80px;
     height: 80px;
     margin-left: 20px;
 }
 
-#reviewCoount{
+.reviewCoount{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -322,10 +323,10 @@ footer {
     align-items: center;
 }
  */
-#reviews-top > div{
+.reviews-top > div{
     align-items: center;
     margin-right: 30px;
-    width: 500px;
+    width: 700px;
 }
 
 #review-area{
@@ -334,19 +335,19 @@ footer {
     justify-content: space-between;
 }
 
-#reviews-top > div:nth-child(3){
+.reviews-top > div:nth-child(3){
     display: flex;
     align-items: center;
 
 }
 
-#reviews-top > div:nth-child(2){
+.reviews-top > div:nth-child(2){
     display: flex;
     align-items: center;
     padding-left: 20px;
 }
 
-#reviews-footer{
+.reviews-footer{
     height: 42px;
     width: 300px;
     display: flex;
@@ -358,35 +359,35 @@ footer {
 
 
 
-#reviews-create-date{
+.reviews-create-date{
     width: 100%;
     text-align: right;
 }
 
-#user-reviews >div:nth-child(n+2){
+.user-reviews >div:nth-child(n+2){
     margin: 20px 0 0 40px;
 }
 
-#user-reviews > div:nth-child(4){
+.user-reviews > div:nth-child(4){
     display: flex;
     flex-direction: row;
 }
 
-#user-reviews > div:nth-child(4) > div:first-child{
+.user-reviews > div:nth-child(4) > div:first-child{
     width: 300px;
     padding: 8px;
     border:1px solid #ccc;
 
 }
 
-#user-reviews > div:nth-child(4) > div:nth-child(2){
+.user-reviews > div:nth-child(4) > div:nth-child(2){
     width: 530px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-#image-area{
+.image-area{
     width: 80px;
     display: flex;
     align-items: center;
