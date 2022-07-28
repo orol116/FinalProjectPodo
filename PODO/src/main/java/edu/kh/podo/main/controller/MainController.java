@@ -58,20 +58,22 @@ public class MainController {
 //	}
 
 	@RequestMapping("/main")
-	public String mainForward(Model model) {
+	public String mainForward( Model model) {
 
+		String path = null;
+		
+			
 			List<ItemBoard> readCountList = service.selectReadCountList();
 			model.addAttribute("readCountList", readCountList);
 			
 			List<ItemBoard> podoList = service.selectPodoList();
 			model.addAttribute("podoList", podoList);
-
+			
 			List<ItemBoard> freeShopList = service.selectFreeShopList();
 			model.addAttribute("freeShopList", freeShopList);
 			
 			List<ItemBoard> unOpenList = service.selectUnOpenList();
 			model.addAttribute("unOpenList", unOpenList);
-			
 
 		return "common/main";
 	}

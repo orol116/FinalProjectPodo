@@ -57,5 +57,7 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
+
 </body>
 </html>

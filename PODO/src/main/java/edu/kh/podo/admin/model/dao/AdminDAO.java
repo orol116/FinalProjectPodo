@@ -14,6 +14,7 @@ import edu.kh.podo.admin.model.vo.AdminReply;
 import edu.kh.podo.board.itemBoard.model.vo.ItemBoard;
 import edu.kh.podo.board.itemBoard.model.vo.Pagination;
 import edu.kh.podo.member.model.vo.Member;
+import edu.kh.podo.report.model.vo.Report;
 
 @Repository
 public class AdminDAO {
@@ -35,6 +36,8 @@ public class AdminDAO {
 	public int memberListCount() {
 		return sqlSession.selectOne("adminMapper.memberListCount");
 	}
+	
+	// 신고 게시판 숫자 계산
 	public int reportListCount() {
 		return sqlSession.selectOne("adminMapper.reportListCount");
 	}
@@ -65,12 +68,10 @@ public class AdminDAO {
 			
 			return sqlSession.selectOne("adminMapper.searchAdminListCount",paramMap);
 		}
-		
-	
 	}
 
 	
-	// ADMIN 목록조회
+	// ADMIN 문의 목록조회
 	public List<Admin> selectInquiryList(Pagination pagination, int boardCode) {
 		
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
@@ -78,6 +79,17 @@ public class AdminDAO {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
 		return sqlSession.selectList("adminMapper.selectInquiryList", boardCode, rowBounds);
+	}
+	
+	
+	// ADMIN 신고 목록조회
+	public List<Report> selectReportList(Pagination pagination, int boardCode) {
+		
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.selectReportList", boardCode, rowBounds);
 	}
 
 
@@ -174,7 +186,10 @@ public class AdminDAO {
 			
 			result  = sqlSession.update("adminMapper.memberSecession",map); 
 			
-		}else {
+		}else if(boardCode == 6){
+			
+			resultD = sqlSession.update("adminMapper.reportDelete",map); 
+		}else{
 			
 			result  = sqlSession.delete("adminMapper.adminImgDelete",map); // 0 또는 1
 			

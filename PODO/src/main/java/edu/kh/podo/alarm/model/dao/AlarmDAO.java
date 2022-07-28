@@ -49,6 +49,17 @@ public class AlarmDAO {
 		return sqlSession.selectList("alarmMapper.selectBuyerId",boardNo);
 	}
 
+	/** 알림 리스트 조회 
+	 * @param memberId
+	 * @return
+	 */
+	public List<Alarm> alarmListSelect(String memberId) {
+		  List<Alarm> aList = sqlSession.selectList("alarmMapper.alarmListSelect",memberId);
+		  System.out.println(aList);
+		  return aList;
+	}
+
+	
 	
 	
 	

@@ -21,10 +21,9 @@
 <body>
     <main>
 
-    <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <section class=myPage-content>
+    <section class="myPage-content">
 
         <!-- 사이드 메뉴 -->
         <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
@@ -48,7 +47,7 @@
                         </div>
                         <div class="myPage-row">
                             <label>새 비밀번호</label>
-                            <input type="password" name="newPw" id="newPw" class="input_box" maxlength="15" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성해주세요.">
+                            <input type="password" name="newPw" id="newPw" class="input_box" maxlength="15" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성">
                         </div>
                         <div class="myPage-row">
                             <label>새 비밀번호 확인</label>
@@ -81,6 +80,7 @@
 
 	<!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
     
 </body>

@@ -6,8 +6,11 @@
 		<id property="alarmNo" column="ALARM_NO"/>
 		
 		<result property="alarmContent" column="ALARM_CONTENT"/>
-		<result property="alarmTime" column="ALARM_CONTENT"/>
+		<result property="alarmTime" column="ALARM_TIME"/>
 		<result property="memberNo" column="MEMBER_NO"/>
+		
+		<result property="recieveMemberId" column="RMEMBER_ID"/>
+		<result property="boardName" column="BOARD_NM"/>
 	</resultMap>
   
   <!-- Alaram 삽입 dao -->
@@ -45,6 +48,19 @@
 	   FROM MEMBER
 	   JOIN BOOKMARK USING(MEMBER_NO)
 	   WHERE BOARD_NO = #{boardNo}
+  </select>
+  
+   <!-- 알림 리스트 조회 -->
+  <select id="alarmListSelect" resultMap="alarm_rm">
+	   SELECT ALARM_CONTENT, RMEMBER_ID, BOARD_NM,
+	    CASE WHEN SYSDATE - ALARM_TIME &lt; 1
+                 THEN TO_CHAR(ALARM_TIME, 'HH:MI')
+                 ELSE TO_CHAR(ALARM_TIME, 'YYYY-MM-DD')
+             END ALARM_TIME
+	   FROM ALARM
+	   WHERE RMEMBER_ID = #{memberId}
+	   AND ROWNUM &lt; 8
+       ORDER BY ALARM_TIME DESC
   </select>
   
   
