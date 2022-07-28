@@ -63,7 +63,7 @@
     <section id="items-readCount-section">
 
         <div class="itmes">
-            <a href="${contextPath}/common/main/mainReadCount"><h2 style="margin:0;">조회수가 높은 상품을 추천드려요 ></h2></a>
+            <a href="${contextPath}/main/mainReadCount"><h2 style="margin:0;">조회수가 높은 상품을 추천드려요 ></h2></a>
         </div>
         <c:choose>
             <c:when test="${empty readCountList}">
@@ -129,7 +129,7 @@
     <section id="items-podo-section">
 
         <div class="itmes">
-            <a href="${contextPath}/common/main/mainPodo"> <h2 style="margin:0;">포도를 많이 가진 회원의 상품을 추천드려요 ></h2></a>
+            <a href="${contextPath}/main/mainPodo"> <h2 style="margin:0;">포도를 많이 가진 회원의 상품을 추천드려요 ></h2></a>
         </div>
         <c:choose>
             <c:when test="${empty podoList}">
@@ -195,7 +195,7 @@
     <section id="items-freeShop-section">
         
         <div class="itmes">
-            <a href="${contextPath}/common/main/mainFreeShop"> <h2 style="margin:0;">무료배송 상품을 추천드려요 ></h2></a>
+            <a href="${contextPath}/main/mainFreeShop"> <h2 style="margin:0;">무료배송 상품을 추천드려요 ></h2></a>
         </div>
         <c:choose>
             <c:when test="${empty freeShopList}">
@@ -227,7 +227,6 @@
                                             <c:when test="${!empty item.img.imageReName}">
 
                                                 <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
-
                                             </c:when>
 
                                             <c:otherwise>
@@ -263,7 +262,7 @@
 
         <div class="itmes">
             
-            <a href="${contextPath}/common/main/mainUnOpen"> <h2 style="margin:0;">미개봉 상품을 추천드려요 ></h2></a>
+            <a href="${contextPath}/main/mainUnOpen"> <h2 style="margin:0;">미개봉 상품을 추천드려요 ></h2></a>
         </div>
 
         <c:choose>
@@ -329,7 +328,7 @@
 
     <!-- 내 주변 상품 -->
     <div class="itmes">
-        <a href="${contextPath}/common/main/mainLocation"> <h2 style="margin:0;">주변 지역 상품을 추천드려요 ></h2></a>
+        <a href="${contextPath}/main/mainLocation"> <h2 style="margin:0;">주변 지역 상품을 추천드려요 ></h2></a>
     </div>
     <section id="items-location-section">
 
