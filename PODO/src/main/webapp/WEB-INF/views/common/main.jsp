@@ -46,14 +46,19 @@
     </div>
 
         
-        <div id="categoryName-space"></div><%-- main에서 ajax 받는 부분 --%> 
+        <div id="categoryName-space">${param.mCategoryName}</div><%-- main에서 ajax 받는 부분 --%>
+
         
-        <div id="mainName-space" >${param.mCategoryName}</div>
+        <div id="categoryName-space2">${param.mCategoryName}</div><%-- main에서 ajax 받는 부분 --%>
+        
+        
 
 <%--         <div id="items-button-area">
             <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
 
         </div> --%>
+    
+    
 
     <section id="items-readCount-section">
 
