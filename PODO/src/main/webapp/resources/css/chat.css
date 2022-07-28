@@ -148,7 +148,8 @@ mychat/* 본문 영역 */
 /* 신고 영역 */
 .declaration{
     float: right;
-    display: table;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .declaration div{
