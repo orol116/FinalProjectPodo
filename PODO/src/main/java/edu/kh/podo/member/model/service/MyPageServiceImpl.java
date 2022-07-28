@@ -110,6 +110,12 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.favDel(map);
 	}
 
+	// 현재 위치 조회 Service 구현
+	@Override
+	public List<Member> selectLocal(int memberNo) {
+		return dao.selectLocal(memberNo);
+	}
+
 	
 	
 

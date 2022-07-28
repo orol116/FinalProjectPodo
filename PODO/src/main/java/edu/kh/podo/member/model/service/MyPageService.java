@@ -61,6 +61,12 @@ public interface MyPageService {
 	 */
 	int favDel(int boardNo, int memberNo);
 
+	/** 현재 위치 조회 Service
+	 * @param memberNo
+	 * @return memLocal
+	 */
+	List<Member> selectLocal(int memberNo);
+
 
 
 }
