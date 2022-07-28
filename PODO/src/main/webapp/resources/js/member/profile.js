@@ -66,14 +66,16 @@ function selectItemsList() {
 
                     const itembox = document.createElement("div");
                     itembox.classList.add("box");
-                    
+
                     /* const boxNumber = 1;
                     boxNumber++; */
+                    frame.append(itembox);
+
 
                     const mainTitle = document.createElement("a");
                     mainTitle.classList.add("title");
                     mainTitle.setAttribute('href',contextPath + '/board/detail/'+iList[k].boardNo);
-                    mainTitle.style.width = "232.02px";
+                    
                     const imageArea = document.createElement("div");
                     imageArea.classList.add("image");
 
@@ -86,12 +88,13 @@ function selectItemsList() {
 
                     const title1 = document.createElement("div");
                     title1.classList.add("title1");
-                    title1.style.width = "203px";
+                    
                     title1.style.marginRight = "0";
 
                     const title2 = document.createElement("div");
                     title2.classList.add("title2");
                     title2.innerText = iList[k].boardTitle;
+                    
 
                     const name2 = document.createElement("div");
                     name2.classList.add("name2");
@@ -114,7 +117,7 @@ function selectItemsList() {
 
                     itembox.append(mainTitle);
 
-                    frame.append(itembox);
+                    
 
                 }
 
