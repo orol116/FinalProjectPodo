@@ -21,10 +21,9 @@
 <body>
     <main>
 
-    <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <section class=myPage-content>
+    <section class="myPage-content">
 
         <!-- 사이드 메뉴 -->
         <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />

@@ -7,26 +7,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.kh.podo.alarm.model.vo.Alarm;
 import edu.kh.podo.board.category.model.service.CategoryService;
 import edu.kh.podo.board.category.model.vo.LargeCategory;
 import edu.kh.podo.board.category.model.vo.MiddleCategory;
 
+@SessionAttributes({ "loginMember" })
 public class CategoryInterceptor implements HandlerInterceptor {
 	
 	@Autowired
 	private CategoryService service;
 
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler
+								)
 			throws Exception {
 		
 		ServletContext application = request.getServletContext();
 		
 		List<LargeCategory> LCategoryList = service.selectLCategory();
 		List<MiddleCategory> MCategoryList = service.selectMCategory();
+		
 		
 		application.setAttribute("LCategoryList", LCategoryList);
 		application.setAttribute("MCategoryList", MCategoryList);
