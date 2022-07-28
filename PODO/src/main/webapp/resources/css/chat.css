@@ -162,8 +162,13 @@
 }
 
 .declaration img{
-    display: block;
+    /* display: block;
     margin-bottom: 13px;
+    width: 19px;
+    height: 19px;
+    cursor: pointer; */
+    display: inline-block;
+    margin: 10px;
     width: 19px;
     height: 19px;
     cursor: pointer;
@@ -412,7 +417,7 @@
 
 .myChat > p{
     /* background-color: yellow; */
-    background-color: rgb(131, 4, 177);
+    background-color: rgb(95, 0, 129);
     color: white;
     
 }
