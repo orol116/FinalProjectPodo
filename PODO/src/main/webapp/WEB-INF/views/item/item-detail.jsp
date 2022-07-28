@@ -55,13 +55,19 @@
                     </c:if>
                     
                     <div id="item-info">
+                        <div id="item-condition-area">
+                            <div id="item-con">${itemList[0].itemCondition}</div>
+                            <div id="item-delivery">${itemList[0].delivery}</div>
+                        </div>
                         <div id="item-title">${itemList[0].boardTitle}</div>
                         <div id="item-price">${itemList[0].price}원</div>
                         <div id="item-layer">
                             <div id="bookmark"> 찜 : ${itemList[0].bookmarkCount} </div>
                             <div id="read-count"> 조회수 : ${itemList[0].readCount} </div>
                             <div id="create-DT">  ${itemList[0].updateDate} </div>
+                        <c:if test="${memberNo != loginMember.memberNo}">
                             <div id="item-report">신고하기</div>
+                        </c:if>
                         </div>
                         <%-- 추가된 내용 --%>
                         <div id="item-level">
@@ -82,7 +88,7 @@
                                 <!-- 토스트 메시지 스크립트 favorites.js -->
                                 <!-- <div id="toast"> 
                                 </div> -->
-                                    <button type="button" id="do-bookmark">찜하기</button> 
+                                <button type="button" id="do-bookmark">찜하기</button> 
                                 <button type="button" id="do-chat" onclick="location.href='${contextPath}/chat/start/${boardNo}/${memberNo}'">1:1 채팅하기</button>
 
                         
@@ -115,7 +121,7 @@
                         </div>
 
                         
-                        <div id="item-condition">
+<%--                         <div id="item-condition">
                             
                             <span id="condition-detail">${itemList[0].itemCondition}</span>
                         </div>
@@ -128,7 +134,7 @@
                         <div id="item-sell-area">
                             
                             <span id="sell-area-detail">${itemList[0].sellArea}</span>
-                        </div>
+                        </div> --%>
 
                         
                         
@@ -214,7 +220,7 @@
                                     </div>
 
                                     <div id="profile-location">
-                                        지역 : 
+                                        ${sellMember[0].memberAddress} 
                                     </div>
 
                                 </div>
@@ -279,6 +285,7 @@
     <script>
         const loginMemberNo = "${loginMember.memberNo}";
         const boardNo = "${boardNo}";
+        const tradeCondition = "${itemList[0].tradeCondition}"
 
         const receiveMemberNo = "${memberNo}"; 
     </script>

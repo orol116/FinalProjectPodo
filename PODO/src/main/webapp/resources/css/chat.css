@@ -1,5 +1,4 @@
-/* 본문 영역 */
-
+mychat/* 본문 영역 */
 .content{
     margin: 0;
     padding: 0;
@@ -9,65 +8,54 @@
     color: #333;
     font-family: 돋움,Dotum,Arial;
     width: 100%;
-    padding-bottom: 150px;
 }
 
 /* 채팅 전체 영역(리스트+채팅창) */
 .main-area{
-    width: 1200px;
     padding: 0;
     border: 0;
     vertical-align: baseline;
     font-weight: 400;
     color: #333;
-    
+    font-family: 돋움,Dotum,Arial;
+    width: 980px;
     margin: 0 auto;
     overflow: hidden;
 }
 
 /* 좌측 리스트 영역 */
 .left-main{
-    width: 300px;
-    height: 720px;
     padding: 0;
     vertical-align: baseline;
     font-weight: 400;
     color: #333;
-<<<<<<< HEAD
-    
-
-    float: left;
-    
-=======
     font-family: 돋움,Dotum,Arial;
     width: 270px;
     height: 730px;
     /* border: 1px solid #ebebeb; */
->>>>>>> origin/main
     border: 1px solid #c7c7c7;
     
+    /* 가시성을 위한 test용 */
+    /* border: 1px solid #000; */
+
     background-color: white;
-    margin: 20px 0 0 0;
-    
+    margin: 20px 20px 0 0;
+    float: left;
     position: relative;
 }
 
 /* 채팅 리스트 박스 영역 */
-.left-main ul{    
-    overflow-x: hidden;
-
+.left-main ul{
     margin: 0;
-    padding: 0;
+    padding: 3px;
     border: 0;
     vertical-align: baseline;
     font-weight: 400;
     color: #333;
     font-family: 돋움,Dotum,Arial;
-    height: 77vh;
-
+    height: 730px;
     overflow-y: auto;
     overflow-x: hidden;
-    border-bottom: 1px solid #c7c7c7;
 }
 
 
@@ -77,18 +65,26 @@
 
 /* 우측 채팅창 본문 전체 */
 .right-main{
+    /* phr */
+    width: 680px;
+    height: 730px;
 
-    width: 880px;
     padding: 0;
     vertical-align: baseline;
     font-weight: 400;
     color: #333;
     font-family: 돋움,Dotum,Arial;
-
+    /* width: 686px;
+    height: 77vh; */
+    /* border: 1px solid #ebebeb; */
     border: 1px solid #c7c7c7;
-    float: right;
+    
+    /* 가시성을 위한 test용 */
+    /* border: 1px solid #000; */
+
     background-color: #fff;
-    margin: 20px 0 0 0;
+    float: right;
+    margin: 20px 0 165px;
 }
 
 
@@ -412,7 +408,7 @@
 
 .myChat > p{
     /* background-color: yellow; */
-    background-color: rgb(131, 4, 177);
+    background-color: rgb(95, 0, 129);
     color: white;
     
 }
@@ -443,21 +439,15 @@ background-color: black;
 color: white;
 } 
   
+.clicked{
+    display: flex;
+    background-color: red;
+}
 
 .chatList{
 /*      color: white; 
     display: flex;
     float: left;
-<<<<<<< HEAD
-    width: 300px;
-    height: 50px;
-    /* background-color: rgb(193, 142, 216); */
-    border-radius: 20px;
-    box-shadow: 3px 3px 3px black;
-    transition-duration: 0.3s;
-    padding: 3px;
-}
-=======
     width: auto; height: 50px;
      background-color: rgb(193, 142, 216); 
     border-radius : 20px;
@@ -470,7 +460,6 @@ color: white;
     width: 600px;
     border-bottom: 1px solid lightgray;
 } 
->>>>>>> origin/main
 
 .chatList:active{
     margin-left: 5px;
@@ -478,28 +467,3 @@ color: white;
     box-shadow: none;
     background-color: rgb(193, 142, 216);
 }
-
-/* 버튼 영역 */
-/* .headerBtnArea{
-    display: flex;
-    text-align: center;
-    width: auto;
-    height: 40px;
-    
-} */
-/* #headerBtnArea button{
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #0d6efd;
-    --bs-btn-border-color: #0d6efd;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #0b5ed7;
-    --bs-btn-hover-border-color: #0a58ca;
-    --bs-btn-focus-shadow-rgb: 49,132,253;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #0a58ca;
-    --bs-btn-active-border-color: #0a53be;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #0d6efd;
-    --bs-btn-disabled-border-color: #0d6efd;
-} */
