@@ -97,20 +97,30 @@ function selectTradeCondition(type){
 
                     /* ------오버레이------- */
 
-                    if(type==1 || type==4){
+                    if(type==1){
+                        $(".overlayCard").hide();
+                        $(".overlayTitle").hide();
+                    }
+
+                    if(type==4){
                         $(function() {
                             $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
                         });
                     }
                     
-                    if(type==2 || type==3 || type==5){
+                    if(type==2){
                         /* const overlayTitle = document.getElementsByClassName('overlayTitle'); */
                         /* document.querySelector('.overlayTitle').id = 'overlayTitle'; */
-                        $(function(){
+                        /* $(function(){
                             $(".overlayCard").hide();
                             $(".overlayTitle").hide();
                             
-                        });
+                        }); */
+                        overlayTitle.innerText = "예약 중";
+                    }
+
+                    if(type==3){
+                        overlayTitle.innerText = "판매 중";
                     }
 
                     /* --------------------- */
