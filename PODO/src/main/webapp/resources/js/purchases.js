@@ -105,8 +105,9 @@ function selectTradeCondition(type){
                     
                     if(type==2 || type==3 || type==5){
                         $(function(){
-                            $(".overlayCard").hide();
-                            $(".overlayTitle").hide();
+                            /* $(".overlayCard").hide();
+                            $(".overlayTitle").hide(); */
+                            $(".overlayTitle").innerText="예약중"
                         });
                     }
 
