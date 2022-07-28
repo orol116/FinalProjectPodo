@@ -85,16 +85,20 @@
                                                             <c:otherwise>
                                                                 <c:forEach items="${favorBoard}" var="favor">
                                                                     <li class="fav-list">
+                                                                        <%-- 삭제 버튼 --%>
+                                                                        <div class="delete">
+                                                                            <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne(${favor.boardNo})">삭제</button>
+                                                                        </div>
                                                                         
                                                                         <a href="${contextPath}/board/detail/${favor.boardNo}">
-                                                                        <%-- 상품 이미지 --%>
-                                                                        <div class="thumb">
-                                                                            <c:if test="${fn:length(boardImageList) != null}">
-                                                                                <img id="item-image" src="${contextPath}${favor.imageReName}" alt="상품 이미지">
-                                                                            </c:if>
-                                                                        </div>
+                                                                            <%-- 상품 이미지 --%>
+                                                                            <div class="thumb">
+                                                                                <c:if test="${fn:length(boardImageList) != null}">
+                                                                                    <img id="item-image" src="${contextPath}${favor.imageReName}" alt="상품 이미지">
+                                                                                </c:if>
+                                                                            </div>
                                                                         </a>
-                                                                    
+                                                                        
                                                                         <%-- 상품 정보 --%>
                                                                         <div class="gdsInfo">
                                                                             <p>
@@ -104,10 +108,6 @@
                                                                                     <!-- 위치 로고 이미지 -->     
                                                                                 <span>위치</span><img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">&nbsp;${favor.sellArea}
                                                                             </p>
-                                                                            <%-- 삭제 버튼 --%>
-                                                                            <div class="delete">
-                                                                                <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne(${favor.boardNo})">삭제</button>
-                                                                            </div>
                                                                         </div>   
                                                                     </li>
                                                                 </c:forEach>

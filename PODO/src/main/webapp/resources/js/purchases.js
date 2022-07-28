@@ -2,7 +2,12 @@ function init(){
     /* $('.sellContents').show();
     $('.buyContents').hide(); */
     selectTradeCondition(1);
+    
+    let sellListBtn = document.getElementById("sellList");
+    sellListBtn.classList.add("selected"); 
 
+    let statusBtn = document.getElementById("whole");
+    statusBtn.classList.add("selected");
 }
 
 /* $("#buyList").click(function(){
