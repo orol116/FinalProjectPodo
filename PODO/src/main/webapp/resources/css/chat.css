@@ -159,13 +159,8 @@ mychat/* 본문 영역 */
 }
 
 .declaration img{
-    /* display: block;
+    display: block;
     margin-bottom: 13px;
-    width: 19px;
-    height: 19px;
-    cursor: pointer; */
-    display: inline-block;
-    margin: 10px;
     width: 19px;
     height: 19px;
     cursor: pointer;

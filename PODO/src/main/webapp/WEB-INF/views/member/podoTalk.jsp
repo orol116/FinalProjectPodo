@@ -135,6 +135,7 @@
                                 </div>
                             </a>
 
+
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()" >나가기</button>
                                 <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
@@ -194,7 +195,6 @@
                             </div>
 
                         </div>
-
 
 
                         <%-- 채팅창 --%>
