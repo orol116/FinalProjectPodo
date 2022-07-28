@@ -80,6 +80,7 @@
       
 </div>
     <script src="${contextPath}/resources/js/member/inquireList.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 

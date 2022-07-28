@@ -103,6 +103,7 @@
 
     <!-- js -->
     <script src="${contextPath}/resources/js/purchases.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
 </body>
 </html>

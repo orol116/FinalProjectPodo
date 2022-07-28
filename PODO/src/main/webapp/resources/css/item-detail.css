@@ -93,7 +93,7 @@ footer {
 #item-level{
     display: flex;
     padding-left: 20px;
-    margin-top: 35px;
+    margin-top: 20px;
     height: 70px;
 }
 
@@ -151,7 +151,7 @@ footer {
     justify-content: flex-start;
     height: 12%;
     font-size: 18px;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     padding-left: 20px;
     align-items: center;
 
@@ -180,14 +180,6 @@ footer {
     align-items: center;
 }
 
-#item-delivery {
-    height: 10%;
-    font-size: 15px;
-    padding: 15px 20px 5px 20px;
-
-    display: flex;
-    align-items: center;
-}
 
 #item-sell-area {
     height: 10%;
@@ -221,7 +213,7 @@ footer {
 
 #info-button-area {
     height: 15%;
-    margin-top: 65px;
+    margin-top: 47px;
 }
 
 #info-button-area>button:first-child {
@@ -392,6 +384,27 @@ footer {
     margin-top: 24px;
 }
 
+
+#item-condition-area{
+    display: flex;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+#item-condition-area > div{
+
+    width: 75px;
+    height: 30px;
+    background-color: #5f0081;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-right: 10px;
+    font-size: 13px;
+    
+}
+
 /* 프로필 리뷰 */
 #profile-review {
     margin-top: 10px;
@@ -545,3 +558,6 @@ footer {
     visibility: visible;
     transform: translate(-50%, 0)
 }
+
+
+
