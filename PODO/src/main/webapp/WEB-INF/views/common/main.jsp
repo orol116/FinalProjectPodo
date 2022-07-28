@@ -18,7 +18,7 @@
 <body>
    <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <%-- 사이드메뉴 --%>
-    <main>
+    <main style="margin-top: 20px;">
         <div id="main-sideMenu">
         <div id="main-sideMenu1">
             <div id="go-topBtn">&#128070;<br>UP</div>

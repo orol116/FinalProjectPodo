@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/chat.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/chat-style.css">
 
-    <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/35f111b89d.js" crossorigin="anonymous"></script>
 
     <%-- 파비콘 --%>    
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
@@ -38,6 +38,7 @@
             <section class="left-main">
                 <%-- 좌측 리스트 박스 영역 --%>
                 <ul>
+                    <div><i class="fa-solid fa-cat-space"></i><p>포도톡</p></div>
                     <c:choose>
 						
                         <%-- 조회된 게시글 목록이 없을 때 --%>
@@ -60,7 +61,7 @@
                                 <div class="card-box">
                                     <%-- 클릭 시 우측 채팅창으로 이동 --%>
                                     <div class="chatDiv" id="${chatList.chatNo}" onclick="listClickFn(${chatList.chatNo})">
-                                    
+                                        
                                         <li class="chatList">
 
                                             <!-- 이미지가 없을 때 -->
@@ -133,31 +134,26 @@
                                     </div>
                                 </div>
                             </a>
+
+                            <%-- 신고하기 --%>
+                            <div class="declaration">
+                              
+                                <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
+                                <span class="icon-emo-sunglasses" id="spreadBtn04">
+                                    <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
+                                </span>
+                                
+                            </div>
+
+                            
                             
                             <ul id="hiddenList03" class="example01" style="display: none;">
-                                <!-- 헤더 버튼 -->
-                                <div class="headerBtnArea" id="headerBtnArea">
-                                    <button type="button" id="headerBtn" class="deleteChat" onclick="deleteChat()">나가기</button>
-                                    <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
-                                    <button type="button" id="reviewWrt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
-                                            style="
-                                            --bs-btn-bg: rgb(131, 4, 177)
-
-                                            ">후기 작성</button>
-                                </div>
-
-                                <!-- <%-- 신고하기 --%> -->
-                                <div class="declaration">
-                                    
-                                    <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
-                                    
-                                </div>
-                            </ul>
-                            <!-- <ul class="headerBtnArea" id="headerBtnArea">
-                                <button type="button" id="headerBtn" class="deleteChat" onclick="deleteChat()">나가기</button>
+                                <button type="button" onclick="deleteChat()">나가기</button>
                                 <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
+                
+                                <!-- Button trigger modal -->
                                 <button type="button" id="reviewWrt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="--bs-btn-bg: rgb(131, 4, 177)">후기 작성</button>
-                            </ul> -->
+                            </ul>
 
                             <!-- <%-- 모달창 --%> -->
                             <div class="background">
@@ -297,6 +293,7 @@
 	</script>
     <%-- js --%>
     <script src="${contextPath}/resources/js/chat.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
 </body>
 </html>
