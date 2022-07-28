@@ -157,7 +157,7 @@ public class AdminController {
 		}else if(boardCode == 3) {
 			classification="구매/판매";
 		}else {
-			classification="본인인증";
+			classification="이용방법";
 		}
 		
 		List<Admin> faqList = service.faqList(classification);
