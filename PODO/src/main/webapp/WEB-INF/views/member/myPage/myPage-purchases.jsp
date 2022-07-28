@@ -50,20 +50,26 @@
                <div>
                     <nav class="navigator">
 
-                        <ul class="category">
-                            <li class="selected">
+                        <ul class="category" style="padding:0;">
+                            <%-- <li class="selected">
                                 <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
                             </li>
                             <li class="">
                                 <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
-                            </li>
+                            </li> --%>
+
+                            <%-- <li class="pcategory"> --%>
+                                <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
+                                <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
+                            <%-- </li> --%>
+
                             <!-- 밑줄 선 -->
                             <!-- <li class="line" role="presentation"></li> -->
                         </ul>
 
                         <div class="purchases-box">
                             <nav class="purchases-category">
-                                <div>
+                                <div class="menu-wrap">
                                     <button type="button" class="status" id="whole"     onclick="selectTradeCondition(1)">전체 상태</button>
                                     <button type="button" class="status" id="reserving" onclick="selectTradeCondition(2)">예약 중</button>
                                     <button type="button" class="status" id="selling"   onclick="selectTradeCondition(3)">판매 중</button>

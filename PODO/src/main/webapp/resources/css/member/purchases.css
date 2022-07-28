@@ -99,6 +99,7 @@ div{
     width: 100%;
     font-size: 1.125rem;
     font-weight: bold;
+    border-bottom: 1px solid lightgray;
 }
 
 /* 거래내역 하위 부분 */
@@ -140,6 +141,7 @@ li {
     position: relative;
     display: flex;
     background-color: rgb(255, 255, 255);
+    border: 1px solid lightgray;
 }
 
 .category li{
@@ -152,17 +154,40 @@ li {
     text-align: center;
 }
 
-.category li.selected button {
+/* 판매 구매 버튼 */
+
+/* .category li.selected button {
     font-weight: bold;
-    background-color: #ccc;
-    color: rgb(30, 29, 41);
+    background-color: rgb(95, 0, 129);
+    color: white;
 }
 
 .category li button{
     width: 100%;
     line-height: 2.875rem;
     font-size: 1.125rem;
+} */
+
+.category{
+    width: 100%;
+    line-height: 2.875rem;
+    font-size: 1.125rem;
 }
+
+.category button{
+    width: 100%;
+    line-height: 2.875rem;
+    font-size: 1.125rem;
+}
+
+.category button.selected{
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(95, 0, 129);
+}
+
+
+/* -------------- */
 
 .category li:first-child.selected ~ .line {
     transform: translateX(0px) scaleX(0.5);
@@ -205,12 +230,17 @@ button {
     height: 4rem;
     -webkit-box-align: center;
     align-items: center;
+    
+    border-bottom: 1px solid lightgray;
 }
 
 /* 버튼 */
+.purchases-category button + button {
+    margin-left: 20px;
+}
 
 /* 전체상태 버튼 */
-#whole{
+/* .clicked{
     padding: 0px 0.5rem;
     height: 1.5rem;
     border-radius: 12px;
@@ -218,22 +248,32 @@ button {
     font-size: 13px;
     background: rgb(95, 0, 129);
     color: rgb(255, 255, 255);
-}
-
-.purchases-category button + button {
-    margin-left: 10px;
-}
+} */
 
 /* 예약중,판매중,판매완료 버튼 */
-.status{
+.menu-wrap button{
     padding: 0px 0.5rem;
     height: 1.5rem;
     border-radius: 12px;
-    background-color: rgb(244, 244, 250);
+    text-align: center;
+    font-size: 13px;
+    background-color: rgb(219, 219, 219);
+    color: rgb(155, 153, 169);
+}
+
+.menu-wrap button.selected{
+    background-color: rgb(95, 0, 129);
+    color: rgb(255, 255, 255);
+}
+/* .status{
+    padding: 0px 0.5rem;
+    height: 1.5rem;
+    border-radius: 12px;
+    background-color: rgb(219, 219, 219);
     text-align: center;
     font-size: 13px;
     color: rgb(155, 153, 169);
-}
+} */
 
 /* 구매 내역 영역 */
 .purchases-contents{
