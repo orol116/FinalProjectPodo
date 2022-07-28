@@ -18,4 +18,6 @@ public interface AlarmService {
 
 	List<String> selectBuyerId(int boardNo);
 
+	List<Alarm> alarmListSelect(String memberId);
+
 }
