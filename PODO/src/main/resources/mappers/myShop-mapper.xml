@@ -137,6 +137,11 @@
 		AND TRADE_CONDITION = '판매완료'
 	</select>
 	
+	<select id="selectMemberNo" resultType="_int">
+		SELECT MEMBER_NO FROM ITEM_BOARD 
+		WHERE BOARD_NO = ${boardNo}
+	</select>
+	
 	<update id="introChange">
 		UPDATE MEMBER SET 
 		SHOP_INFO = #{report}
@@ -153,6 +158,12 @@
 		UPDATE ITEM_BOARD SET 
 		UPDATE_DT = SYSDATE
 		WHERE BOARD_NO = ${boardNo}
+	</update>
+	
+	<update id="updateGrape">
+		UPDATE MEMBER SET 
+		MEMBER_GRAPE = MEMBER_GRAPE - 1
+		WHERE MEMBER_NO = ${no}
 	</update>
 	
 	<!-- 구매/판매 내역 조회 ajax -->

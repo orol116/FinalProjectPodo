@@ -832,6 +832,7 @@ section>button>.fa-solid{
     width:calc(100% - 300px);
     font-size:20px; 
     line-height:2; 
+    transform: translate(0px, -200px);
 }
 
 .purchasesInfo p{

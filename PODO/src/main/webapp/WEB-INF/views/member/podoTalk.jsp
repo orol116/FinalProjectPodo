@@ -134,6 +134,7 @@
                                     </div>
                                 </div>
                             </a>
+<<<<<<< HEAD
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
@@ -162,6 +163,34 @@
                             
                             
                            
+=======
+                            
+                            <ul id="hiddenList03" class="example01" style="display: none;">
+                                <!-- 헤더 버튼 -->
+                                <div class="headerBtnArea" id="headerBtnArea">
+                                    <button type="button" id="headerBtn" class="deleteChat" onclick="deleteChat()">나가기</button>
+                                    <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
+                                    <button type="button" id="reviewWrt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
+                                            style="
+                                            --bs-btn-bg: rgb(131, 4, 177)
+
+                                            ">후기 작성</button>
+                                </div>
+
+                                <!-- <%-- 신고하기 --%> -->
+                                <div class="declaration">
+                                    
+                                    <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
+                                    
+                                </div>
+                            </ul>
+                            <!-- <ul class="headerBtnArea" id="headerBtnArea">
+                                <button type="button" id="headerBtn" class="deleteChat" onclick="deleteChat()">나가기</button>
+                                <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
+                                <button type="button" id="reviewWrt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="--bs-btn-bg: rgb(131, 4, 177)">후기 작성</button>
+                            </ul> -->
+
+>>>>>>> origin/LSH
                             <!-- <%-- 모달창 --%> -->
                             <div class="background">
                                 <div class="window">

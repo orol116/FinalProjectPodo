@@ -132,7 +132,7 @@ public class AdminController {
 		String path = null;
 		String message = null;
 		
-		if(adminDelete>0) { // 게시글 등록 성공
+		if(adminDelete>0) { // 게시글 삭제 성공
 			path="/admin/"+boardCode;
 			message = "게시글이 삭제 되었습니다..";
 		}else {
