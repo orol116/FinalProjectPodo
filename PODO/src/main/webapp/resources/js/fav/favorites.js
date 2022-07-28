@@ -67,28 +67,19 @@ function deleteOne(boardNo){
 }
 
 
-// 리스트 데이터 바인딩
-/* var favBoard = document.getElementById("favBoard"); */
+//토스트 메시지
+let removeToast;
 
-// 가나다순
-/* $("#sortAbc").click(function(){
-    let sortAbc = favBoard.slice();
-    sortAbc.sort(function(item1, item2){
-        if(item1.title < item2.title) return -1;
-        else if(item1.title == item2.title) return 0;
-        else return 1;
-    });
-})
+function toast(string) {
+    const toast = document.getElementById("toast");
 
-
-// 가격순
-$("#sortPrice").click(function(){
-    let sortPrice = favBoard.slice();
-    sortPrice.sort(function(item1, itme2){
-        if(item1.price < item2.price) return -1;
-        else if(item1.price == item2.price) return 0;
-        else return 1;
-    });
-}) */
-
-// 찜 많은 순
+    toast.classList.contains("reveal") ?
+        (clearTimeout(removeToast), removeToast = setTimeout(function () {
+            document.getElementById("toast").classList.remove("reveal")
+        }, 1000)) :
+        removeToast = setTimeout(function () {
+            document.getElementById("toast").classList.remove("reveal")
+        }, 1000)
+    toast.classList.add("reveal"),
+        toast.innerText = string
+}

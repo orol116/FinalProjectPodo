@@ -216,7 +216,7 @@
                 <ul class="second">
                     <li>
                         <section class="place">
-                            <button type="button" class="btn btn-lg btn-primary" id="getMyPositionBtn" onclick="getCurrentPosBtn()">내 위치</button>
+                            <button type="button" id="myPlace">내 위치</button>
                             <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" id="searchBtn">
                         </section>
                         <section class="place2">
@@ -347,6 +347,8 @@
 
         <input type="hidden" name="dLon" id="dLon" value="">
         <input type="hidden" name="dLat" id="dLat" value="">
+        <%-- <input type="text" name="dLon" id="dLon" value="">
+        <input type="text" name="dLat" id="dLat" value=""> --%>
 
       </form>
     </main>

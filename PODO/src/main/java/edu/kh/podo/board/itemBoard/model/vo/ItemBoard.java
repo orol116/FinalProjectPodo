@@ -36,6 +36,8 @@ public class ItemBoard {
 	private String mCategoryName;
 	private String lCategoryName;
 	private String imageReName;
+	private int memberGrape;
+	
 	
 	private List<BoardImage> imageList;
 	

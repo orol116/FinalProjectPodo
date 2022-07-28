@@ -79,10 +79,10 @@
                         <div id="info-button-area">
                             <c:if test="${memberNo != loginMember.memberNo}">
                             
-                                <button type="button" id="do-bookmark">찜하기</button> 
-                                <%-- <p class="add-fav">
-                                    <button type="button" class="add-fav-btn">찜하기</button>
-                                </p> --%>
+                                <!-- 토스트 메시지 스크립트 favorites.js -->
+                                <!-- <div id="toast"> 
+                                </div> -->
+                                    <button type="button" id="do-bookmark">찜하기</button> 
                                 <button type="button" id="do-chat" onclick="location.href='${contextPath}/chat/start/${boardNo}/${memberNo}'">1:1 채팅하기</button>
 
                         

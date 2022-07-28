@@ -52,7 +52,7 @@
 
                 <div class="review-register">
                     <button class="cancel-button" type="button">취소하기</button>
-                    <button class="submit-button" type="button">등록하기</button>
+                    <button class="submit-button" type="button" onclick="writeReviewFn()">등록하기</button>
                 </div>
             </div>
         </form>

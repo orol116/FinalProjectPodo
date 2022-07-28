@@ -61,8 +61,16 @@ public class ChatController {
 	// 채팅방 내 후기 작성 ajax
 	@GetMapping("/chat/review")
 	@ResponseBody
-	public int writeReview(int memberNo, String report, int otherMemNo, int boardNo) {
-		return service.writeReview(memberNo, report, otherMemNo, boardNo);
+	public int writeReview(int memberNo, String reviewContent, int otherMemNo, int boardNo, String reviewCondition) {
+		
+		int result = service.writeReview(memberNo, reviewContent, otherMemNo, boardNo, reviewCondition);
+		
+//		if (result > 0) {
+//			service.podoPlus
+//		}
+		
+		
+		return 0;
 	}
 	
 	// 1:1 채팅하기(채팅 생성)

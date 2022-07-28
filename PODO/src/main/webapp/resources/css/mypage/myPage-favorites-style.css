@@ -275,7 +275,7 @@ form[name="myPage-form"]{
  section#content div.goodsName { padding:10px 0; text-align:center; }
  section#content div.goodsName a { color:#000; }
  */
- section#content ul li { margin:30px 0; }
+ section#content ul li { margin:30px 0; padding: 0 0 15px 0; }
  section#content ul li img { width:200px; height:200px; }
  section#content ul li p img { width: 20px; height: 20px;}
  section#content ul li::after { content:""; display:block; clear:both; }
@@ -339,6 +339,7 @@ form[name="myPage-form"]{
     /* font-weight: bold  */
     font-size: 18px !important;
     border-radius: 3px !important;
+    float: right;
 }
 #deleteBtn:hover{
     cursor: pointer !important;
