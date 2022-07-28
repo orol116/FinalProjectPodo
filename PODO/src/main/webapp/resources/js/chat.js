@@ -3,6 +3,18 @@ var boardNo1 = 0;
 var otherMemNo = 0;
 var reviewCount = 0;
 
+(function(){
+	if(createChatNo != ""){
+		const arr = document.getElementsByClassName("chatDiv");
+
+		for(let temp of arr){
+			if( temp.getAttribute("id")  == createChatNo){
+				temp.click();
+				return;
+			}
+		}
+	}
+})();
 
 // 채팅 목록 클릭 시 채팅방 상세조회 (채팅방 입장 개념)
 function listClickFn(chatNo) {

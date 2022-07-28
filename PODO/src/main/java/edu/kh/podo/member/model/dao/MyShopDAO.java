@@ -103,4 +103,8 @@ public class MyShopDAO {
 		return sqlSession.selectList("myShopMapper.selectList", map);
 	}
 
+	public int selectFinItem(int memberNo) {
+		return sqlSession.selectOne("myShopMapper.selectFinItem", memberNo);
+	}
+
 }

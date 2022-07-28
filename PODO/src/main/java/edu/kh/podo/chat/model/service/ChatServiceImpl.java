@@ -141,8 +141,9 @@ public class ChatServiceImpl implements ChatService {
 		String reportContent = Util.newLineHandling(temp);
 	
 		map.put("reportContent", reportContent);
-		
 		return dao.writeReview(map);
+	
+		 
 	}
 
 }

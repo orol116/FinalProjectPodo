@@ -62,7 +62,15 @@ public class ChatController {
 	@GetMapping("/chat/review")
 	@ResponseBody
 	public int writeReview(int memberNo, String reviewContent, int otherMemNo, int boardNo, String reviewCondition) {
-		return service.writeReview(memberNo, reviewContent, otherMemNo, boardNo, reviewCondition);
+		
+		int result = service.writeReview(memberNo, reviewContent, otherMemNo, boardNo, reviewCondition);
+		
+//		if (result > 0) {
+//			service.podoPlus
+//		}
+		
+		
+		return 0;
 	}
 	
 	// 1:1 채팅하기(채팅 생성)

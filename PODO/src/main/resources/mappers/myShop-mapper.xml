@@ -89,10 +89,13 @@
 
 	<!-- 회원 후기 조회 -->
 	<select id="selectMemberReview" resultMap="review_rm">
-		SELECT B.REVIEW_NO, B.REVIEW_CONTENT, B.REVIEW_CONDITION, B.BOARD_NO, B.CREATE_DT, A.MEMBER_PROFILE, A.MEMBER_NICK, B.WRITE_MEMBER_NO, C.BOARD_TITLE
+		SELECT B.REVIEW_NO, B.REVIEW_CONTENT, B.REVIEW_CONDITION, 
+			B.BOARD_NO, B.CREATE_DT, A.MEMBER_PROFILE, A.MEMBER_NICK, B.WRITE_MEMBER_NO, C.BOARD_TITLE
 		FROM REVIEW B 
+		
 		JOIN MEMBER A ON(A.MEMBER_NO = B.WRITE_MEMBER_NO)
-		JOIN ITEM_BOARD C ON(B.MEMBER_NO = C.MEMBER_NO)
+		JOIN ITEM_BOARD C ON(B.BOARD_NO = C.BOARD_NO)
+		
 		WHERE B.MEMBER_NO = ${memberNo}
 		AND C.BOARD_NO IN(
 			SELECT BOARD_NO 
@@ -102,7 +105,7 @@
 	</select>
 
 	<select id="selectMemberInfo" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_NICK, MEMBER_GRAPE, MEMBER_ADDR, SHOP_INFO, MEMBER_PROFILE
+		SELECT MEMBER_NO, MEMBER_NICK, MEMBER_GRAPE, MEMBER_ADDR, SHOP_INFO, MEMBER_PROFILE, CREATE_DT
 		FROM MEMBER
 		WHERE MEMBER_NO = ${memberNo}
 	</select>
@@ -126,6 +129,12 @@
 	<select id="selectReviewCount" resultType="_int">
 		SELECT COUNT(*) FROM REVIEW 
 		WHERE MEMBER_NO = ${memberNo}
+	</select>
+	
+	<select id="selectFinItem" resultType="_int">
+		SELECT COUNT(*) FROM ITEM_BOARD 
+		WHERE MEMBER_NO = ${memberNo}
+		AND TRADE_CONDITION = '판매완료'
 	</select>
 	
 	<update id="introChange">
