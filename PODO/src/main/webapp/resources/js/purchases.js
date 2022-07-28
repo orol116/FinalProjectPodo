@@ -104,10 +104,12 @@ function selectTradeCondition(type){
                     }
                     
                     if(type==2 || type==3 || type==5){
+                        /* const overlayTitle = document.getElementsByClassName('overlayTitle'); */
+                        /* document.querySelector('.overlayTitle').id = 'overlayTitle'; */
                         $(function(){
-                            /* $(".overlayCard").hide();
-                            $(".overlayTitle").hide(); */
-                            $(".overlayTitle").innerText="예약중"
+                            $(".overlayCard").hide();
+                            $(".overlayTitle").hide();
+                            
                         });
                     }
 
