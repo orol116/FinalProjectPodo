@@ -266,7 +266,6 @@ footer {
 #seller-items,
 #item-detail-foot {
     display: flex;
-    justify-content: space-between;
     padding-bottom: 25px;
 }
 
