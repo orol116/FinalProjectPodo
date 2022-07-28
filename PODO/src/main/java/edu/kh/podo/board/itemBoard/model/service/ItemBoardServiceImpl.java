@@ -24,27 +24,6 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 	@Autowired
 	private ItemBoardDAO dao;
-
-	// 조회수 상품 조회 Service
-	@Override
-	public List<ItemBoard> selectReadCountList() {
-		
-		List<ItemBoard> sellList = dao.selectReadCountList();
-		
-		// 판매자 다른 상품의 이미지 레벨 0번 이미지 조회
-		List<BoardImage> sellListImg = dao.selectItemsImg();
-		
-		for(ItemBoard sell : sellList) {
-
-			for(BoardImage img : sellListImg) {
-				if(img.getBoardNo()== sell.getBoardNo()) {
-					sell.setImg(img);
-				}
-			}
-			
-		}
-		return sellList;
-	}
 	
 	// 메인화면 상품 4개만 조회 Service (ajax)
 	@Override
@@ -135,14 +114,6 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 	}
 
-	// 상품명 검색 구현
-	@Override
-	public List<ItemBoard> searchBoard(String query) {
-
-		List<ItemBoard> searchList = dao.searchBoard(query);
-
-		return searchList;
-	}
 
 	// 판매글 상세조회 Service 구현
 	@Override
@@ -298,33 +269,126 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 		return dao.selectBoardImageList(boardNo);
 	}
 
+	// 조회수 상품 조회 Service
+	@Override
+	public List<ItemBoard> selectReadCountList() {
+		
+		List<ItemBoard> readCountList = dao.selectReadCountList();
+		
+		// 판매자 다른 상품의 이미지 레벨 0번 이미지 조회
+		List<BoardImage> sellListImg = dao.selectItemsImg();
+		
+		for(ItemBoard sell : readCountList) {
+
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		return readCountList;
+	}
 	
 	// 거리별 상품 조회
 	@Override
 	public List<ItemBoard> selectDistList(Map<String, Object> distMap) {
-		return dao.selectDistList(distMap);
+		
+		List<ItemBoard> distList = dao.selectDistList(distMap);
+		List<BoardImage> sellListImg = dao.selectItemsImg();
+		
+		for(ItemBoard sell : distList) {
+
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		
+		return distList;
 	}
 
 	
 	// 포도순 상품 조회
 	@Override
 	public List<ItemBoard> selectPodoList() {
-		return dao.selectPodoList();
+		List<ItemBoard> podoList = dao.selectPodoList();
+		List<BoardImage> sellListImg = dao.selectItemsImg();
+		
+		for(ItemBoard sell : podoList) {
+
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		
+		return podoList;
 	}
 
 	// 무로배송 상품 조회
 	@Override
 	public List<ItemBoard> selectFreeShopList() {
-		return dao.selectFreeShopList();
+		List<ItemBoard> freeShopList = dao.selectFreeShopList();
+		
+		List<BoardImage> sellListImg = dao.selectItemsImg();
+		
+		for(ItemBoard sell : freeShopList) {
+
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		
+		return freeShopList;
 	}
 
 	// 미개봉 상품 조회
 	@Override
 	public List<ItemBoard> selectUnOpenList() {
-		return dao.selectUnOpenList();
+		List<ItemBoard> unOpenList = dao.selectUnOpenList();
+		List<BoardImage> sellListImg = dao.selectItemsImg();
+		
+		for(ItemBoard sell : unOpenList) {
+
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		
+		return unOpenList;
 	}
 	
-	
+	// 상품명 검색 구현
+	@Override
+	public List<ItemBoard> searchBoard(String query) {
+
+		List<ItemBoard> searchList = dao.searchBoard(query);
+
+		List<BoardImage> sellListImg = dao.selectItemsImg();
+		
+		for(ItemBoard sell : searchList) {
+
+			for(BoardImage img : sellListImg) {
+				if(img.getBoardNo()== sell.getBoardNo()) {
+					sell.setImg(img);
+				}
+			}
+			
+		}
+		
+		return searchList;
+	}
 	
 
 }

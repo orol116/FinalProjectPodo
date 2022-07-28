@@ -22,15 +22,6 @@ public class ItemBoardDAO {
 	private SqlSessionTemplate sqlSession;
 
 	private Logger logger = LoggerFactory.getLogger(ItemBoardDAO.class);
-
-	
-	public List<ItemBoard> searchBoard(String query) {
-
-		List<ItemBoard> searchList = sqlSession.selectList("itemBoardMapper.searchBoard", query);
-
-		return searchList;
-
-	}
 	 
 
 	public int insertBoard(ItemBoard item) {
@@ -260,6 +251,11 @@ public class ItemBoardDAO {
 	 */
 	public List<ItemBoard> selectUnOpenList() {
 		return sqlSession.selectList("itemBoardMapper.selectUnOpenList");
+	}
+	
+	public List<ItemBoard> searchBoard(String query) {
+		return sqlSession.selectList("itemBoardMapper.searchBoard", query);
+
 	}
 
 

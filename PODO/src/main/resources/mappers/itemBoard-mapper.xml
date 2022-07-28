@@ -125,12 +125,6 @@
 	
 	</insert>
 	
-	<select id="selectReadCountList" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION
-		FROM ITEM_BOARD
-		WHERE UPDATE_DT >= SYSDATE - 7
-		ORDER BY READ_COUNT
-	</select>
 	
 	 <!-- 메인화면 섬네일 -->
 	<select id="selectItemsImg" resultMap="boardImage_rm">
@@ -164,28 +158,6 @@
 			WHERE BOARD_NO &gt; #{boardNo}
 			AND ROWNUM &lt; 6 
 	</select>
-
-
-	<!-- 상품명 검색 -->
-	<select id="searchBoard" resultMap="itemBoard_rm">
-		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION
-
-		FROM ITEM_BOARD
-		WHERE SECESSION_FL = 'N'
-
-		<if test='query != null and query != ""'>
-		
-			AND
-			( BOARD_TITLE LIKE '%${query}%'
-			OR
-			BOARD_CONTENT LIKE '%${query}%')
-
-		</if>
-
-		ORDER BY READ_COUNT
-
-	</select>
-	
 	
 	
 	<!-- 판매글에 해당하는 회원번호 조회 -->
@@ -194,9 +166,6 @@
 		FROM ITEM_BOARD
 		WHERE BOARD_NO = ${boardNo}
 	</select>
-	
-	
-	
 	
 	
 	<!-- 판매자 다른 상품 보기 -->
@@ -293,7 +262,7 @@
 	<select id="selectDistList" resultMap="itemBoard_rm">
 	SELECT * FROM(        
       SELECT  B.BOARD_NO, B.BOARD_TITLE, B.PRICE, B.UPDATE_DT, B.MEMBER_NO, B.TRADE_CONDITION,       
-                ACOS(SIN(RADIANS(src.COORDINATE_X)) * SIN(RADIANS(dest.COORDINATE_X))
+                  ACOS(SIN(RADIANS(src.COORDINATE_X)) * SIN(RADIANS(dest.COORDINATE_X))
                 + COS(RADIANS(src.COORDINATE_X)) * COS(RADIANS(dest.COORDINATE_X))
                 * COS(RADIANS(src.COORDINATE_Y) - RADIANS(dest.COORDINATE_Y)) )
                 * 6371 AS DISTANCE
@@ -331,6 +300,14 @@
 		ORDER BY A.UPDATE_DT DESC
 	</select>
 	
+	<!-- 조회수 상품 조회 -->
+	<select id="selectReadCountList" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION, READ_COUNT
+		FROM ITEM_BOARD
+		WHERE UPDATE_DT >= SYSDATE - 7
+		ORDER BY READ_COUNT
+	</select>
+	
 	<!-- 포도순 상품 조회 -->
 	<select id="selectPodoList" resultMap="itemBoard_rm">
 		SELECT A.BOARD_NO, A.BOARD_TITLE, A.PRICE, A.UPDATE_DT, A.MEMBER_NO, A.TRADE_CONDITION, B.MEMBER_GRAPE
@@ -351,6 +328,24 @@
 		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION, ITEM_CONDITION
 		FROM ITEM_BOARD
 		WHERE ITEM_CONDITION = '새상품'
+	</select>
+	
+		<!-- 상품명 검색 -->
+	<select id="searchBoard" resultMap="itemBoard_rm">
+		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION
+
+		FROM ITEM_BOARD
+		WHERE SECESSION_FL = 'N'
+
+		<if test='query != null and query != ""'>
+		
+			AND
+			( BOARD_TITLE LIKE '%${query}%'
+			OR
+			BOARD_CONTENT LIKE '%${query}%')
+
+		</if>
+
 	</select>
 	
 </mapper>

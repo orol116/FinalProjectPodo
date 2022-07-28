@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +15,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.google.gson.Gson;
 
 import edu.kh.podo.board.itemBoard.model.service.ItemBoardService;
 import edu.kh.podo.board.itemBoard.model.vo.BoardImage;
@@ -164,6 +168,88 @@ public class ItemBoardController {
 		} catch (Exception e) {}
 		
 		return result;
+	}
+	
+	
+	// 조회수 전체 조회
+	@GetMapping("/main/mainReadCount")
+	public String readCountList(Model model) {
+		
+		List<ItemBoard> readCountList = service.selectReadCountList();
+		model.addAttribute("readCountList", readCountList);
+		
+		return "/common/main/mainReadCount";
+		
+	}
+	
+	// 포도슨 전체 조회
+	@GetMapping("/main/mainPodo")
+	public String podoList(Model model) {
+		
+		List<ItemBoard> podoList = service.selectPodoList();
+		model.addAttribute("podoList", podoList);
+		
+		return "/common/main/mainPodo";
+		
+	}
+	
+	// 무료배송 전체 조회
+	@GetMapping("/main/mainFreeShop")
+	public String freeShopList(Model model) {
+		
+		List<ItemBoard> freeShopList = service.selectFreeShopList();
+		model.addAttribute("freeShopList", freeShopList);
+		
+		return "/common/main/mainFreeShop";
+		
+	}
+	
+	// 미개봉 전체 조회
+	@GetMapping("/main/mainUnOpen")
+	public String unOpenList(Model model) {
+		
+		List<ItemBoard> unOpenList = service.selectUnOpenList();
+		model.addAttribute("unOpenList", unOpenList);
+		
+		return "/common/main/mainUnOpen";
+		
+	}
+	
+	@GetMapping("/main/mainLocation")
+	public String mainDistItem(HttpSession session, Model model, RedirectAttributes ra ) {
+		
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		
+		String path = null;
+		
+		if(loginMember != null) {
+			int memberNo = loginMember.getMemberNo();
+			int distance = loginMember.getDistance();
+			
+			Map<String, Object> distMap = new HashMap<String, Object>();
+			
+			distMap.put("memberNo", memberNo);
+			distMap.put("distance", distance);
+			
+			List<ItemBoard> distList = service.selectDistList(distMap);
+
+			model.addAttribute("distList", distList);
+			path = "/common/main/mainLocation";
+			
+		} else {
+			ra.addFlashAttribute("message", "로그인이 필요합니다.");
+			path = "redirect:/member/login";
+		}
+		return path;
+	}
+	
+	@GetMapping("/main/mainSearch")
+	public String mainSearchList(String query, Model model) {
+		
+		List<ItemBoard> searchList = service.searchBoard(query);
+		model.addAttribute("searchList", searchList);
+		
+		return "/common/main/mainSearch";
 	}
 
 }
