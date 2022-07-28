@@ -95,6 +95,11 @@ public class MyShopServiceImpl implements MyShopService {
 		
 		return dao.selectList(map);
 	}
+
+	@Override
+	public int selectFinItem(int memberNo) {
+		return dao.selectFinItem(memberNo);
+	}
 	
 	
 

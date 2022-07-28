@@ -99,6 +99,9 @@ public class MyShopController {
 		int reviewCount = service.selectReviewCount(memberNo);
 		model.addAttribute("reviewCount", reviewCount);
 		
+		int finItem = service.selectFinItem(memberNo);
+		model.addAttribute("finItem", finItem);
+		
 		return "member/profile";
 	}
 	

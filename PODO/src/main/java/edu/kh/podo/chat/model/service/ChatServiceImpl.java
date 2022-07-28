@@ -126,7 +126,7 @@ public class ChatServiceImpl implements ChatService {
 
 	// 채팅방 내 후기 작성 Service 구현
 	@Override
-	public int writeReview(int memberNo, String report, int otherMemNo, int boardNo) {
+	public int writeReview(int memberNo, String report, int otherMemNo, int boardNo, String reviewCondition) {
 		
 		int sellMemNo = dao.selectWhoIsSeller(boardNo);
 		
@@ -135,13 +135,15 @@ public class ChatServiceImpl implements ChatService {
 		map.put("otherMemNo", otherMemNo);
 		map.put("sellMemNo", sellMemNo);
 		map.put("boardNo", boardNo);
+		map.put("reviewCondition", reviewCondition);
 		
 		String temp = Util.XSSHandling(report);
 		String reportContent = Util.newLineHandling(temp);
 	
 		map.put("reportContent", reportContent);
-		
 		return dao.writeReview(map);
+	
+		 
 	}
 
 }
