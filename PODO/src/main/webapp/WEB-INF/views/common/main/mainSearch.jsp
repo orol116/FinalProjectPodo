@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>podoSearch</title>
+    <title>podo</title>
     
-    <link rel="stylesheet" href="resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
@@ -46,39 +46,36 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
 
-    <div>
-        <div id="categoryName-space" class="nameSpace"></div><%-- main에서 ajax 받는 부분 --%> 
         
-        <div id="mainName-space" class="nameSpace">${param.mCategoryName}</div>
+        <div id="categoryName-space"></div><%-- main에서 ajax 받는 부분 --%> 
         
+        <div id="mainName-space" >${param.mCategoryName}</div>
 
-        <div id="items-button-area">
+<%--         <div id="items-button-area">
             <button id="sales-items" type="button" class="showBtn">판매중인 상품만 보기</button>
-            <button id="complete-items" type="button" class="showBtn">판매 완료된 보기</button>
-        </div>
-    </div>
+
+        </div> --%>
     <section id="items-section">
-            
+
+        <div class="itmes">
+            <h2 style="margin:0;">검색 내역</h2>
+        </div>
         <c:choose>
-            <c:when test="${empty itemList}">
+            <c:when test="${empty searchList}">
 
                 <div>
                     <div class="frame">
                         
                         <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                        검색 결과가 존재하지 않습니다.
+                        게시글이 존재하지 않습니다.
                     </div>
                 </div>
             
             </c:when>
-    
+   
             <c:otherwise>
 
-                <div id="itmes">
-                    <h2 style="margin:0;">검색 결과 보기</h2>
-                </div>
-
-                <c:forEach var="item" items="${itemList}" begin="0" end="19" step="1" varStatus="vs">
+                <c:forEach var="item" items="${searchList}" begin="0" end="19" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
@@ -121,8 +118,7 @@
                     
                 </c:forEach>
             </c:otherwise>
-        </c:choose>
-                    
+        </c:choose>                     
 
     </section>
     </main>
@@ -136,7 +132,7 @@
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
     <!-- main.js 연결 -->
-    <script src="${contextPath}/resources/js/main.js"></script>
+    <!-- <script src="${contextPath}/resources/js/detailList.js"></script> -->
     <script src="${contextPath}/resources/js/mainSideModal.js"></script>
 
     <%-- <script>
