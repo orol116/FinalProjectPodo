@@ -10,9 +10,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/member-profile.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/member-profile.css">
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>find-ID</title>
 </head>
@@ -69,7 +69,7 @@
                         <div id="user-space">
                             <div id="user-items-count">상품 : ${boardCount}개</div>
                             <div id="user-start-day">상점 개시일 : ${member[0].createDate}</div>
-                            <div id="user-items-count">판매 이력 : ${finItem}</div>
+                            <div id="user-items-count">판매 이력 : ${finItem} 건</div>
                         
                         </div>
                         

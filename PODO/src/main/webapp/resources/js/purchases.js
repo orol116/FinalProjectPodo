@@ -10,41 +10,12 @@ function init(){
     statusBtn.classList.add("selected");
 }
 
-/* $("#buyList").click(function(){
-    $("#reserving").hide();
-    $("#selling").hide();
-    $("#selled").hide();
-});
- */
-
-/* 판매 */
-/* function showSellList(){
-    $('.sellContents').show();
-    $('.buyContents').hide();
-} */
-
-/* 구매 */
-/* function showBuyList(){
-    $('.buyContents').show();
-    $('.sellContents').hide();
-} */
-
-
 // 구매/판매 내역
 function selectTradeCondition(type){
 
     document.getElementsByClassName("sellContents")[0].innerHTML = "";
 
     console.log("버튼 타입(1:판매, 2:예약중, 3:판매중, 4:판매완료, 5:구매) : " + type);
-
-    // 정렬 카테고리 버튼 클릭 효과
-    /* if(type == 클릭){
-        클릭 효과 css 적용 = 배경색보라
-        나머지 배경색 x
-
-        css 이미 있음
-    } */
-
     
     $.ajax({
         url : contextPath + "/shop/myMall/selectList", 
@@ -91,9 +62,7 @@ function selectTradeCondition(type){
                 purchasesinfo.innerText = "판매 내역이 없습니다.";
                 div.append(purchasesinfo);
             }else{
-                
-                
-                 
+  
                 for(let i=0; i<itemList.length; i++){
 
                     /* li 태그 */
@@ -126,11 +95,25 @@ function selectTradeCondition(type){
                     thumb.append(overlayCard);
                     overlayCard.append(overlayTitle);
 
+                    /* ------오버레이------- */
+
                     if(type==1 || type==4){
                         $(function() {
                             $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
                         });
                     }
+                    
+                    if(type==2 || type==3 || type==5){
+                        $(function(){
+                            /* $(".overlayCard").hide();
+                            $(".overlayTitle").hide(); */
+                            $(".overlayTitle").innerText="예약중"
+                        });
+                    }
+
+                    /* --------------------- */
+
+                    
                     /* $(function() {
                         $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
                     }); */
@@ -175,6 +158,8 @@ function selectTradeCondition(type){
                     sellContents.append(purchasesContents);
                 }
                 
+
+                
             }
             
             
@@ -187,11 +172,6 @@ function selectTradeCondition(type){
         
     });
     
-    var sellList = document.getElementById("sellList");
-    var buyList = document.getElementById("sellList");
-    var sellSelect = sellList.parentNode;
-    var buySelect = buyList.parentNode;
-
     const category = document.querySelector('.category');
 
     function select(liEl, button2El){
@@ -207,16 +187,13 @@ function selectTradeCondition(type){
         
     })
 
-    /* 구매 버튼 클릭 시 */
-    if(type==5){
-        $("#reserving").hide();
-        $("#selling").hide();
-        $("#selled").hide();
+    /* 구매 버튼 클릭 시 nav 영역 none, block 처리 */
+    const pCategory = document.getElementById('purchases-category');
 
+    if(type==5){
+        pCategory.style.display = 'none';
     }else{
-        $("#reserving").show();
-        $("#selling").show();
-        $("#selled").show();
+        pCategory.style.display = 'block';
     }
 
     

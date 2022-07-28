@@ -1,5 +1,5 @@
 // 찜 등록 버튼 기능
-const bookmark = document.getElementById("do-bookmark");
+    const bookmark = document.getElementById("do-bookmark");
 /* const bookmark = document.getElementsByClassName("do-bookmark"); */
 
 if(bookmark != null){
@@ -68,26 +68,3 @@ function deleteOne(boardNo){
     }
 }
 
-<<<<<<< HEAD
-=======
-
-//토스트 메시지
-let removeToast;
-
-function toast(string) {
-    const toast = document.getElementById("toast");
-
-    toast.classList.contains("reveal") ?
-        (clearTimeout(removeToast), removeToast = setTimeout(function () {
-            document.getElementById("toast").classList.remove("reveal")
-        }, 1000)) :
-        removeToast = setTimeout(function () {
-            document.getElementById("toast").classList.remove("reveal")
-        }, 1000)
-    toast.classList.add("reveal"),
-        toast.innerText = string
-}
-
-
-
->>>>>>> origin/main
