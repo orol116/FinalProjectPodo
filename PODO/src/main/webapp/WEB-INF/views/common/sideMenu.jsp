@@ -4,9 +4,6 @@
     <section class="left-side">
 
         <ul class="list-group">
-    
-            <h3>마이페이지</h3>
-            
             <li class="myPage-subTitle">
                 <a href="${contextPath}/member/myPage/profileUpdate">프로필 변경
                 </a>

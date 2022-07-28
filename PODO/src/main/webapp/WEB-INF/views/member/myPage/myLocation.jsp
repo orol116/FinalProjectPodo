@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/myLocation.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
     <title>myLocation</title>
 </head>
 <body>
@@ -16,6 +17,9 @@
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
         <div id="container">
+
+            <!-- 사이드 메뉴 -->
+            <jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
 
             <div id="right-area">
                 <section id="map-area">

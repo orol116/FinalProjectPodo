@@ -85,10 +85,7 @@
                                                             <c:otherwise>
                                                                 <c:forEach items="${favorBoard}" var="favor">
                                                                     <li class="fav-list">
-                                                                        <%-- 삭제 버튼 --%>
-                                                                        <div class="delete">
-                                                                            <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne(${favor.boardNo})">삭제</button>
-                                                                        </div>
+                                                                        
                                                                         
                                                                         <a href="${contextPath}/board/detail/${favor.boardNo}">
                                                                             <%-- 상품 이미지 --%>
@@ -101,7 +98,7 @@
                                                                         
                                                                         <%-- 상품 정보 --%>
                                                                         <div class="gdsInfo">
-                                                                            <p>
+                                                                            <p style="margin: 20px 70px 0px 30px;">
                                                                                 <span>제목</span>${favor.boardTitle}<br>
                                                                                 <span>가격</span>${favor.price}&nbsp;원<br>
                                                                                 <span>등록일</span>${favor.updateDate}<br>
@@ -109,6 +106,11 @@
                                                                                 <span>위치</span><img src="${contextPath}/resources/images/location-logo.png" width="5" height="5" alt="위치 아이콘">&nbsp;${favor.sellArea}
                                                                             </p>
                                                                         </div>   
+
+                                                                        <%-- 삭제 버튼 --%>
+                                                                        <div class="delete">
+                                                                            <button type="button" id="deleteBtn" class="delete-btn" onclick="deleteOne(${favor.boardNo})">삭제</button>
+                                                                        </div>
                                                                     </li>
                                                                 </c:forEach>
                                                             </c:otherwise>
