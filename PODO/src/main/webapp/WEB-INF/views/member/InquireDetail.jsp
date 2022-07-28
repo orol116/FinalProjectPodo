@@ -109,6 +109,7 @@
 </body>
 </html>
 <script src="${contextPath}/resources/js/member/inquireDetail.js"></script>
+<script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
 
 <script>

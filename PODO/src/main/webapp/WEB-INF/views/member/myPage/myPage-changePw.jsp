@@ -84,6 +84,7 @@
 
 	<!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>
+    <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
     
 </body>

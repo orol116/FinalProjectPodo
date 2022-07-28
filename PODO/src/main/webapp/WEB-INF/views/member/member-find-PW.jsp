@@ -103,6 +103,7 @@
         </script>        
 
         <script src="${contextPath}/resources/js/member/findPW.js"></script>
+        <script src="${contextPath}/resources/js/member/headCategory.js"></script>
 
     </main>
 
