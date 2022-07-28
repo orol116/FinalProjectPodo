@@ -145,6 +145,8 @@
     <script>
         const updateDate = "${item.updateDate}"
         const tradeContition = "${item.tradeContition}"
+
+        const memGrape = "${memGrape}"
     </script>
 
       <!-- footer include -->
