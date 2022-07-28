@@ -92,6 +92,14 @@ public class MyPageDAO {
 	public int favDel(Map<String, Object> map) {
 		return sqlSession.delete("myPageMapper.favDel", map);
 	}
+
+	/** 현재 위치 조회 DAO
+	 * @param memberNo
+	 * @return memLocal
+	 */
+	public List<Member> selectLocal(int memberNo) {
+		return sqlSession.selectList("myPageMapper.selectLocal", memberNo);
+	}
 	
 
 	
