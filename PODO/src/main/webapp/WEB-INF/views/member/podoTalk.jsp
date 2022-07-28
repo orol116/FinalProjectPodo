@@ -136,14 +136,15 @@
 
                             <%-- 신고하기 --%>
                             <div class="declaration">
-                                <div>
-                                    <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
-                                </div>
+                              
+                                <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
+                                <span class="icon-emo-sunglasses" id="spreadBtn04">
+                                    <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
+                                </span>
+                                
                             </div>
 
-                            <span class="icon-emo-sunglasses" id="spreadBtn04">
-                                <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
-                            </span>
+                            
                             
                             <ul id="hiddenList03" class="example01" style="display: none;">
                                 <button type="button" onclick="deleteChat()">나가기</button>

@@ -31,7 +31,7 @@ mychat/* 본문 영역 */
     color: #333;
     font-family: 돋움,Dotum,Arial;
     width: 270px;
-    height: 77vh;
+    height: 730px;
     /* border: 1px solid #ebebeb; */
     border: 1px solid #c7c7c7;
     
@@ -47,13 +47,13 @@ mychat/* 본문 영역 */
 /* 채팅 리스트 박스 영역 */
 .left-main ul{
     margin: 0;
-    padding: 0;
+    padding: 3px;
     border: 0;
     vertical-align: baseline;
     font-weight: 400;
     color: #333;
     font-family: 돋움,Dotum,Arial;
-    height: 77vh;
+    height: 730px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -65,14 +65,17 @@ mychat/* 본문 영역 */
 
 /* 우측 채팅창 본문 전체 */
 .right-main{
+    /* phr */
+    width: 680px;
+    height: 730px;
 
     padding: 0;
     vertical-align: baseline;
     font-weight: 400;
     color: #333;
     font-family: 돋움,Dotum,Arial;
-    width: 686px;
-    height: 77vh;
+    /* width: 686px;
+    height: 77vh; */
     /* border: 1px solid #ebebeb; */
     border: 1px solid #c7c7c7;
     
@@ -87,11 +90,16 @@ mychat/* 본문 영역 */
 
 /* 채팅창 태그 */
 .chat-header{
+    /*  PHR
     display: block;
     padding: 15px 20px;
     height: 80px;
+    border-bottom: 1px solid #c7c7c7; */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    height: 80px;
     border-bottom: 1px solid #c7c7c7;
-    
     /* 
     letter-spacing: -1px;
     color: rgb(30, 29, 41);
@@ -150,7 +158,10 @@ mychat/* 본문 영역 */
 }
 
 .declaration img{
-    width: 18px;
+    display: block;
+    margin-bottom: 13px;
+    width: 19px;
+    height: 19px;
     cursor: pointer;
 }
 
@@ -209,7 +220,17 @@ mychat/* 본문 영역 */
 }
 
 .chat-footer button{
+    width: 70px;
+    height: 45px;
     border: none;
+    background-color: #5f0081;
+    text-align: center;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+    /* border: none;
     background: none;
     cursor: pointer;
     outline: 0;
@@ -220,7 +241,7 @@ mychat/* 본문 영역 */
     font-weight: 700;
     padding: 10px 0;
     text-align: center;
-    width: 80px;
+    width: 80px; */
 }
 
 /* -------------------- */
@@ -377,9 +398,9 @@ mychat/* 본문 영역 */
     resize : none;
 }
 
-#send{
+/* #send{
     width : 20%;
-}
+} */
 
 .myChat{
     text-align: right;
@@ -424,15 +445,21 @@ color: white;
 }
 
 .chatList{
-    /* color: white; */
+/*      color: white; 
     display: flex;
     float: left;
     width: auto; height: 50px;
-    /* background-color: rgb(193, 142, 216); */
+     background-color: rgb(193, 142, 216); 
     border-radius : 20px;
     box-shadow : 3px 3px 3px black;
-    transition-duration: 0.3s;
-}
+    transition-duration: 0.3s; */
+    /* phr */
+    display: flex;
+    width: auto;
+    height: 45px;
+    width: 600px;
+    border-bottom: 1px solid lightgray;
+} 
 
 .chatList:active{
     margin-left: 5px;
