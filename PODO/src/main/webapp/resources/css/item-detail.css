@@ -180,6 +180,9 @@ footer {
     align-items: center;
 }
 
+#item-delivery {
+
+}
 
 #item-sell-area {
     height: 10%;
@@ -319,9 +322,6 @@ footer {
     margin: 5px 10px 0;
 }
 
-.time {
-    margin-left: 90px;
-}
 
 
 
@@ -558,6 +558,5 @@ footer {
     visibility: visible;
     transform: translate(-50%, 0)
 }
-
 
 
