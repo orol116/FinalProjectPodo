@@ -36,16 +36,18 @@
 
  /* 채팅창 본문 */
 .display-chatting{
-
     position: sticky;
-    width: 682px;
+    width: auto;
     height: 550px;
-    
     overflow: auto;
     list-style : none;
     padding : 10px 10px;
     border-bottom: 1px solid #c7c7c7;
-    
+}
+
+.display-chatting li{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .chat{
@@ -72,16 +74,15 @@
 #inputChatting{
     /* width : 80%;
     resize : none; */
-    -webkit-user-modify: read-write;
+    
+    height: auto;
     overflow-wrap: break-word;
-    -webkit-line-break: after-white-space;
     margin: 0;
     padding: 0;
     border: 0;
     vertical-align: baseline;
     font-weight: 400;
     position: relative;
-    width: 570px;
     overflow: auto;
     height: 40px;
     outline: 0;
@@ -279,6 +280,7 @@ color: white;
 }
 
 textarea #inputChatting{
+    height: auto;
     word-break: break-all;
     font-family: primary, secondary, -apple-system, BlinkMacSystemFont, AppleSDGothicNeo, "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;

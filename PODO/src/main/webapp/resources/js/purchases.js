@@ -91,8 +91,9 @@ function selectTradeCondition(type){
                 purchasesinfo.innerText = "판매 내역이 없습니다.";
                 div.append(purchasesinfo);
             }else{
-
                 
+                
+                 
                 for(let i=0; i<itemList.length; i++){
 
                     /* li 태그 */
@@ -125,21 +126,15 @@ function selectTradeCondition(type){
                     thumb.append(overlayCard);
                     overlayCard.append(overlayTitle);
 
+                    if(type==1 || type==4){
+                        $(function() {
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                        });
+                    }
                     /* $(function() {
                         $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
                     }); */
-                    
-                    if(type==1){
-                        $(function() {
-                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                        });
-                    }
-                    if(type==4){
-                        $(function() {
-                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                        });
-                    }
-                    
+
                     
                     /* 상품 정보 div */
                     // div : gdsInfo
