@@ -77,4 +77,7 @@ public interface ItemBoardService {
 	 * @return distList
 	 */
 	List<ItemBoard> selectDistList(Map<String, Object> distMap);
+
+
+	Map<String, Object> myPlaceSelect(int memberNo);
 }

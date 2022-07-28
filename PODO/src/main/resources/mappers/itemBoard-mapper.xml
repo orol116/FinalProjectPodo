@@ -340,6 +340,21 @@
 	</select>
 	
 	
+	<!-- 내 위도 경도 반환 -->
+	<select id="myPlaceSelect" resultMap="itemBoard_rm">
+		SELECT COORDINATE_X, COORDINATE_Y
+		FROM MEMBERAREA_XY
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<!-- 내 주소 반환 반환 -->
+	<select id="myAddrSelect" resultType="String">
+		SELECT MEMBER_ADDR
+		FROM MEMBER
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	
 </mapper>
 
 

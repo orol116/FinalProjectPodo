@@ -238,8 +238,22 @@ public class ItemBoardDAO {
 		return sqlSession.selectList("itemBoardMapper.selectOtherItems11", mCNo);
 	}
 
+	/** 판매글 작성 시 내위치 클릭하면 내위치 위도 경도 반환
+	 * @param memberNo
+	 * @return
+	 */
+	public ItemBoard myPlaceSelect(int memberNo) {
+		return sqlSession.selectOne("itemBoardMapper.myPlaceSelect", memberNo);
+	}
 
 
+	/** 판매글 작성 시 내위치 클릭하면 내위치 주소명 반환
+	 * @param memberNo
+	 * @return
+	 */
+	public String myAddrSelect(int memberNo) {
+		return sqlSession.selectOne("itemBoardMapper.myAddrSelect", memberNo);
+	}
 	
 
 //	/** 판매자 다른 상품 이미지 조회 DAO
