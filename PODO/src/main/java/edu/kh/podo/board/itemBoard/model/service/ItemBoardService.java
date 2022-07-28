@@ -72,7 +72,7 @@ public interface ItemBoardService {
 	 * @return distList
 	 */
 	List<ItemBoard> selectDistList(Map<String, Object> distMap);
-
+	
 	/** 조회수 상품 조회
 	 * @return itemList
 	 */
@@ -94,4 +94,6 @@ public interface ItemBoardService {
 	 * @return unOpenList
 	 */
 	List<ItemBoard> selectUnOpenList();
+
+	Map<String, Object> myPlaceSelect(int memberNo);
 }

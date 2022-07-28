@@ -16,7 +16,7 @@ public class Alarm {
 	private int alarmNo;
 	private String alarmContent;
 	private String boardLink;
-	private Date alarmTime;
+	private String alarmTime;
 
 	private String boardName;
 	private int boardNo;
@@ -28,6 +28,5 @@ public class Alarm {
 	private int recieveMemberNo;
 	
 	private int chatNo;
-	
 
 }

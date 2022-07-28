@@ -20,13 +20,15 @@ public class CategoryInterceptor implements HandlerInterceptor {
 	private CategoryService service;
 
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler
+								)
 			throws Exception {
 		
 		ServletContext application = request.getServletContext();
 		
 		List<LargeCategory> LCategoryList = service.selectLCategory();
 		List<MiddleCategory> MCategoryList = service.selectMCategory();
+		
 		
 		application.setAttribute("LCategoryList", LCategoryList);
 		application.setAttribute("MCategoryList", MCategoryList);

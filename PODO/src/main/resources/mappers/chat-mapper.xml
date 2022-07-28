@@ -41,6 +41,44 @@
 
 	</resultMap>
 	
+	<resultMap type="review" id="review_rm">
+		<id property="reviewNo" column="REVIEW_NO" />
+		
+		<result property="reviewContent" column="REVIEW_CONTENT" />
+		<result property="reviewCondition" column="REVIEW_CONDITION" />
+		<result property="secessionFlag" column="SECESSION_FL" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICK" />
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="createDate" column="CREATE_DT" />
+		
+		<result property="memberProfile" column="MEMBER_PROFILE" />
+		<result property="writeMemberNo" column="WRITE_MEMBER_NO" />
+		<result property="boardTitle" column="BOARD_TITLE" />
+	</resultMap>
+	
+	<resultMap type="member" id="member_rm">
+	
+		<id property="memberNo" 			column="MEMBER_NO"/>
+		<result property="memberId" 		column="MEMBER_ID"/>
+		<result property="memberPw" 		column="MEMBER_PW"/>
+		<result property="memberNickname" 	column="MEMBER_NICK"/>
+		<result property="memberName"		column="MEMBER_NM"/>
+		<result property="memberTel" 		column="MEMBER_TEL"/>
+		<result property="secessionFlag" 	column="SECESSION_FL"/>
+		<result property="memberProfile" 	column="MEMBER_PROFILE"/>
+		<result property="memberGrape" 		column="MEMBER_GRAPE"/>
+		<result property="memberAddress" 	column="MEMBER_ADDR"/>
+		<result property="memberTown" 		column="MEMBER_TOWN"/>
+		<result property="createDate" 		column="CREATE_DT"/>
+		<result property="admin"  			column="ADMIN" />
+		<result property="shopInfo"  		column="SHOP_INFO" />
+		<result property="dLon" 			column="COORDINATE_X"/>
+		<result property="dLat" 			column="COORDINATE_Y"/>
+		<result property="distance" 		column="DISTANCE"/>
+	
+	</resultMap>
+	
 	<!-- 이 위로 resultMap 작성부 -->
 	
 	<!-- 내가 참여중인 채팅방 번호 조회 -->
@@ -146,21 +184,47 @@
 		AND WRITE_MEMBER_NO = ${memberNo}
 	</select>
 	
+	<select id="selectGrape" resultType="_int">
+		SELECT MEMBER_GRAPE FROM MEMBER
+		WHERE MEMBER_NO = ${memberNo}
+	</select>
+	
 	<!-- 후기 작성 -->
 	<insert id="writeReview">
 		<choose>
 			<when test="sellMemNo == memberNo">
-				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, '좋음', DEFAULT,
+				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, #{reviewCondition}, DEFAULT,
 					${memberNo}, ${boardNo}, DEFAULT, ${otherMemNo}
 				)
 			</when>
 			<otherwise>
-				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, '좋음', DEFAULT,
+				INSERT INTO REVIEW VALUES(SEQ_REVIEW_NO.NEXTVAL, #{reportContent}, #{reviewCondition}, DEFAULT,
 					${otherMemNo}, ${boardNo}, DEFAULT, ${memberNo}
 				)
 			</otherwise>
 		</choose>
 	</insert>
+	
+	<update id="countPodo">
+		UPDATE MEMBER SET 
+		
+		<choose>
+			<when  test="reviewCondition == '좋아요'">
+				MEMBER_GRAPE = MEMBER_GRAPE + 5	
+			</when>
+			<otherwise>
+				<if test="memberGrape &lt; 3">
+					MEMBER_GRAPE = 0
+				</if>
+				<if test="memberGrape &gt;= 3">
+					MEMBER_GRAPE = MEMBER_GRAPE - 3
+				</if>
+			</otherwise>
+		</choose>
+		
+		WHERE MEMBER_NO = ${sellMemNo}
+		
+	</update>
 
 
 </mapper>

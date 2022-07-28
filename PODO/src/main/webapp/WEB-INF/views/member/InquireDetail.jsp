@@ -112,6 +112,7 @@
 
 
 <script>
+
     const recieveMemberNo ="${recieveMemberNo}"
     const boardNo = "${boardNo}";
     

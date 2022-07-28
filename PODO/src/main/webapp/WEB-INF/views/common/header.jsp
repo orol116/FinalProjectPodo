@@ -31,7 +31,7 @@
 
                 <%-- <a class=alert1><i class="fa-solid fa-bell">알림</i></a> --%>
 
-                <a href="${contextPath}/member/myPage/changePw">마이페이지</a>
+                <a href="${contextPath}/member/myPage/profileUpdate">마이페이지</a>
 
                 <div class="alert2" >
                     
@@ -39,16 +39,12 @@
 
                     </p> --%>
                     <div id="socketAlert" ></div>
-                    <p>
+                    <p id="socketAlet2">
                         <i class="fa-solid fa-bell">알림</i><br><br>
-                        회원님의 상품에 후기가 있습니다.<br>
-                        회원님의 상품이 찜되었습니다.<br>
-                        회원님의 상품에 포도톡이 왔습니다.<br>
                     </p>
                     
 
                 </div> 
-
                 
                     
             </c:otherwise>
@@ -140,8 +136,9 @@
        }
 
         const memberNo = "${loginMember.memberNo}";
-		const memberId = "${loginMember.memberId}";
-		const memberNickname = "${loginMember.memberNickname}";
+        const memberId = "${loginMember.memberId}";
+        const memberNickname = "${loginMember.memberNickname}";
+        console.log(memberId);
 
         //소켓
         $(document).ready(function(){
@@ -171,6 +168,9 @@
                 socketAlert.setAttribute('style', 'display:block');
                 socketAlert.innerHTML = event.data;
 
+
+                alarmList
+
                 setTimeout(function(){
                       socketAlert.innerHTML="";
                       socketAlert.setAttribute('style', 'display:none');
@@ -183,6 +183,52 @@
         };
         //소켓끝
 
-    
-    </script> 
-   
+
+    function alarmList(){
+        $.ajax({
+            url : contextPath + "/AlarmList",  
+            data : { "memberId" : memberId }, 
+            type : "GET", 
+            dataType : "JSON",
+            success : function(aList){ 
+
+                const socketAlet2= document.getElementById('socketAlet2');
+
+                const br = document.createElement('br');
+                
+                for(let alarm of aList){
+                    
+                    socketAlet2.append(br);
+
+                    if(alarm.boardName =='favorites'){
+                        socketAlet2.innerHTML+= '회원님의 상품이 찜 되었습니다.';
+
+                    }else if(alarm.boardName =='inquire'){
+                        socketAlet2.innerHTML+= '회원님이 문의를 작성하였습니다.';
+
+                    }else if(alarm.boardName =='chat'){
+                        socketAlet2.innerHTML+= '회원님에게 포도톡이 왔습니다.';
+
+                    }else if(alarm.boardName =='update'){
+                        socketAlet2.innerHTML+= '회원님이 찜 한 상품이 끌올 되었습니다.';
+
+                    }else if(alarm.boardName =='inquireReply'){
+                        socketAlet2.innerHTML+= '관리자가 회원님의 문의에 답변하였습니다.';
+
+                    }
+                }
+
+                console.log(aList)
+            },
+            error: function(){
+                console.log('알림 리스트를 불러오는데 오류 발생')
+            }
+
+        })
+    }
+
+    if(memberNo != ''){
+        
+        (alarmList)();
+    }
+</script> 

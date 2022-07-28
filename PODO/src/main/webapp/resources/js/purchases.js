@@ -2,15 +2,20 @@ function init(){
     /* $('.sellContents').show();
     $('.buyContents').hide(); */
     selectTradeCondition(1);
+    
+    let sellListBtn = document.getElementById("sellList");
+    sellListBtn.classList.add("selected"); 
+
+    let statusBtn = document.getElementById("whole");
+    statusBtn.classList.add("selected");
 }
 
-$("#buyList").click(function(){
-    $("#.reserving").hide();
-    $("#.selling").hide();
-    $("#.selled").hide();
+/* $("#buyList").click(function(){
+    $("#reserving").hide();
+    $("#selling").hide();
+    $("#selled").hide();
 });
-
-
+ */
 
 /* 판매 */
 /* function showSellList(){
@@ -40,6 +45,7 @@ function selectTradeCondition(type){
         css 이미 있음
     } */
 
+    
     $.ajax({
         url : contextPath + "/shop/myMall/selectList", 
         data : { "memberNo" : memberNo, 
@@ -85,7 +91,9 @@ function selectTradeCondition(type){
                 purchasesinfo.innerText = "판매 내역이 없습니다.";
                 div.append(purchasesinfo);
             }else{
-
+                
+                
+                 
                 for(let i=0; i<itemList.length; i++){
 
                     /* li 태그 */
@@ -103,6 +111,30 @@ function selectTradeCondition(type){
                     itemImage.classList.add("item-image");
                     itemImage.src = contextPath + itemList[i].imageReName;
                     thumb.append(itemImage);
+
+                    /* overlay */
+                    let overlayCard = document.createElement("span");
+                    overlayCard.classList.add("overlayCard");
+
+                    let overlayImg = document.createElement("img");
+                    overlayImg.innerText = "판매완료";
+
+                    let overlayTitle = document.createElement("p");
+                    overlayTitle.classList.add("overlayTitle");
+                    overlayTitle.innerText = "판매완료";
+                    
+                    thumb.append(overlayCard);
+                    overlayCard.append(overlayTitle);
+
+                    if(type==1 || type==4){
+                        $(function() {
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                        });
+                    }
+                    /* $(function() {
+                        $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                    }); */
+
                     
                     /* 상품 정보 div */
                     // div : gdsInfo
@@ -137,26 +169,22 @@ function selectTradeCondition(type){
                     /* 조회수 */
                     const spanCount = document.createElement("span");
                     spanCount.classList.add("spanCount");
-                    spanCount.innerHTML = "조회수 : " + itemList[i].readCount;
-                    
-                    
-                    
+                    spanCount.innerHTML = "조회수 : " + itemList[i].readCount;          
                     p.append(spanName,spanPrice,spanDate,spanCount );
-                    
-                    
-                    
+          
                     sellContents.append(purchasesContents);
                 }
                 
-                
-                
             }
+            
             
         },
         
         error : function(req, status, error){
             console.log(req.responseText);
         }
+
+        
     });
     
     var sellList = document.getElementById("sellList");
@@ -164,20 +192,71 @@ function selectTradeCondition(type){
     var sellSelect = sellList.parentNode;
     var buySelect = buyList.parentNode;
 
+    const category = document.querySelector('.category');
+
+    function select(liEl, button2El){
+        Array.from(liEl.children).forEach(
+            v => v.classList.remove('selected')
+        )
+        if(button2El) button2El.classList.add('selected');
+    }
+
+    category.addEventListener('click', e => {
+        const selected = e.target;
+        select(category, selected);
+        
+    })
+
     /* 구매 버튼 클릭 시 */
     if(type==5){
         $("#reserving").hide();
         $("#selling").hide();
         $("#selled").hide();
 
-        $('ul li .category:nth-child(1)').classList.remove();
-        $('ul li .category:nth-child(2)').classList.add("selected");
-
     }else{
         $("#reserving").show();
         $("#selling").show();
         $("#selled").show();
     }
+
+    
+
+        
+    /* 판매, 구매 버튼 클릭시 색상 변경 */
+    /* const category = document.querySelector('.category');
+
+    function select(ulEl, liEl){
+        Array.from(ulEl.children).forEach(
+            v => v.classList.remove('selected')
+        )
+        if(liEl) liEl.classList.add('selected');
+    }
+
+    category.addEventListener('click', e => {
+        const selected = e.target;
+        select(category, selected);
+        
+    }) */
+
+    
+
+    /* -------------------------------------------------------- */
+
+    /* 정렬 카테고리 버튼 클릭시 색상 변경 */
+    // 클릭 : .clicked, 그외 : .cstatus
+    const menuWrap = document.querySelector('.menu-wrap');
+    
+    function select(divEl, buttonEl){
+        Array.from(divEl.children).forEach(
+            v => v.classList.remove('selected')
+        )
+        if(buttonEl) buttonEl.classList.add('selected');
+    }
+   
+    menuWrap.addEventListener('click', e => {
+        const selected = e.target;
+        select(menuWrap, selected);
+    })
 
 };
 
