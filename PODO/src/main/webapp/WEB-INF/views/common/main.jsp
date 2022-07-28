@@ -30,9 +30,13 @@
     <div class="background">
         <div class="window">
             <div class="popup">
-            <button id="close" type="button">팝업닫기</button>
-            <div id="modal-text">최근 본 상품</div>
-            <div id="modal-area"></div>
+                <button id="close" type="button">팝업닫기</button>
+                <div id="modal-text">최근 본 상품</div>
+                <div id="modal-area">
+                    <div class="recentImages"> 
+                        <img src=""  alt="상품 이미지">
+                    </div>
+                </div>
             </div>
             <div>
             </div>

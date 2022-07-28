@@ -132,7 +132,7 @@
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
     <!-- main.js 연결 -->
-    <script src="${contextPath}/resources/js/detailList.js"></script>
+    <script src="${contextPath}/resources/js/UdetailList.js"></script>
     <script src="${contextPath}/resources/js/mainSideModal.js"></script>
 
     <%-- <script>

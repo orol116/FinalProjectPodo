@@ -36,18 +36,16 @@
 
  /* 채팅창 본문 */
 .display-chatting{
+
     position: sticky;
-    width: auto;
-    height: 550px;
+    width: 682px;
+    height: 570px;
+    
     overflow: auto;
     list-style : none;
     padding : 10px 10px;
     border-bottom: 1px solid #c7c7c7;
-}
-
-.display-chatting li{
-    padding-left: 10px;
-    padding-right: 10px;
+    
 }
 
 .chat{
@@ -74,25 +72,18 @@
 #inputChatting{
     /* width : 80%;
     resize : none; */
-<<<<<<< HEAD
-    
-    height: auto;
-=======
    
     width: 630px;
     -webkit-user-modify: read-write;
->>>>>>> origin/main
     overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
     margin: 0;
     padding: 0;
     border: 0;
     vertical-align: baseline;
     font-weight: 400;
     position: relative;
-<<<<<<< HEAD
-=======
     /* width: 570px; */
->>>>>>> origin/main
     overflow: auto;
     height: 50px;  
      outline: 0;
@@ -312,7 +303,6 @@ color: white;
 }
 
 textarea #inputChatting{
-    height: auto;
     word-break: break-all;
     font-family: primary, secondary, -apple-system, BlinkMacSystemFont, AppleSDGothicNeo, "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
@@ -331,3 +321,9 @@ textarea #inputChatting{
     height: 45px !important;
 }
 
+/* 아이콘 */
+.fa-cat-space{
+    width: 15px;
+    height: 15px;
+    color: rgb(95, 0, 129);
+}
