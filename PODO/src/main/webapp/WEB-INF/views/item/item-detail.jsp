@@ -143,7 +143,7 @@
 
                 <div id="under-head">
                     <h3>판매자 다른 상품 보기</h3>
-                    <a href="#"> - 전체보기</a>
+                    <a href="${contextPath}/shop/memberShop/${memberNo}"> - 전체보기</a>
                 </div>
 
                 <section id="seller-items">

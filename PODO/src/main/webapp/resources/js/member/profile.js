@@ -2,6 +2,8 @@ const itemCategory = document.getElementById("item-list");
 const reviewCategory = document.getElementById("review-category");
 
 const reviewList = document.getElementById("reviews-area");
+reviewList.style.display = "flex";
+reviewList.style.justifyContent = "center";
 const itemList = document.getElementById("seller-items");
 
 if (loginMemberNo == member2) {
@@ -170,6 +172,9 @@ function reviewsList() {
 
                     const reviewBox = document.createElement("section");
                     reviewBox.id = "user-reviews";
+                    /* reviewBox.style.display = "flex";
+                    reviewBox.style.display = "center"; */
+
 
                     const reviewRow = document.createElement("div");
                     reviewRow.id = "reviews-top";
@@ -178,6 +183,10 @@ function reviewsList() {
                     writerImage.id = "reviews-image";
                     if (review.memberProfile == null) writerImage.src = imageSrc;
                     else writerImage.src = review.memberProfile;
+
+                    const imageBox = document.createElement("div");
+                    imageBox.id = "image-area";
+                    imageBox.append(writerImage);
 
                     const writerName = document.createElement("div");
                     writerName.id = "reviews-user-nick";
@@ -192,7 +201,7 @@ function reviewsList() {
 
                     DTArea.append(createDate);
 
-                    reviewRow.append(writerImage, writerName, DTArea);
+                    reviewRow.append(writerName, DTArea);
 
                     const shortReview = document.createElement("div");
                     shortReview.id = "reviews-shorts";
@@ -204,13 +213,22 @@ function reviewsList() {
                     const footReview = document.createElement("div");
                     footReview.id = "reviews-footer";
 
-                    const itemReview = document.createElement("div");
+                    const itemReview = document.createElement("a");
                     itemReview.id = "reviews-user-item";
-                    itemReview.innerText = review.boardTitle;
+                    itemReview.innerText = review.boardTitle + "     >";
+                    itemReview.setAttribute("href", contextPath + "/board/detail/" + review.boardNo);
+
+                    console.log(review.boardNo);
                     
                     footReview.append(itemReview);
 
-                    reviewBox.append(reviewRow, shortReview, footReview);
+                    const reviewCoount = document.createElement("div");
+                    reviewCoount.id = "reviewCoount";
+                    
+                    
+
+                    reviewCoount.append(reviewRow, shortReview, footReview)
+                    reviewBox.append(imageBox,reviewCoount);
 
 
                     reviewList.append(reviewBox);
