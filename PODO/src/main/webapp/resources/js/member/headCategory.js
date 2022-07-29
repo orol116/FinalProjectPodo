@@ -192,8 +192,9 @@ function selectList2(mCategoryNo, mCategoryName){
                 categorySection.innerHTML = "";
                 frame = document.createElement("div");
                 frame.classList.add("frame");
-                frame.innerText = "게시글이 존재하지 않습니다." +mCategoryNo ;
-                cHeader.innerText = mCategoryName + "   카테고리 >";
+
+                frame.innerText = "게시글이 존재하지 않습니다.";
+                cHeader.innerText = "   카테고리 > " + mCategoryName;
 
                 document.getElementById("items-section").append(frame);
                 

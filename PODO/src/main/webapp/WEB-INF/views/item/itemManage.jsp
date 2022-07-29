@@ -81,7 +81,15 @@
                             <td class="choice">
                                 <button class="choice1" onclick="updateDt(this)" value="${item.boardNo}">UP</button>
                                 <a href="${contextPath}/member/updateBoard/${item.boardNo}" class="choice2">수정</a>
-                                <button class="choice1" onclick="deleteItem(this)" value="${item.boardNo}">삭제</button>
+                                <button class="choice1" onclick="deleteItem(this)" value="${item.boardNo}" 
+                                    style="
+                                            margin-top: 10px;
+                                            background-color: white;
+                                            padding: 4px;
+                                            border: 1px solid #ddd;
+                                            font-size: 14px;
+                                            color: black;
+                                    ">삭제</button>
                             </td>
                         </tr>  
                         <%-- </form>  --%> 
@@ -113,7 +121,7 @@
         <ul class="pagination">
 
             <!-- 이전 목록 마지막 번호로 이동 -->
-            <li><a href="${url}${pagination.prevPage}$">&laquo;</a></li>
+            <li><a href="${contextPath}/shop/main${url}${pagination.prevPage}">&laquo;</a></li>
 
             <!-- 범위가 정해진 일반 for문 사용 -->
             <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
