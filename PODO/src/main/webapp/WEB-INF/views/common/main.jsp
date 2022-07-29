@@ -480,15 +480,6 @@
             </c:choose>
         </section>
 
-        <!-- 내 주변 상품 -->
-        <div class="itmes">
-                    
-            <a href="${contextPath}/main/mainLocation" style="color: #000;"> <h2 style="margin:0;">내 주변 상품을 추천드려요 ></h2></a>
-        </div>
-        <section id="items-location-section">
-            
-        </section>
-
         <!-- 카테고리 상품 -->
 
         <section id="items-section" style="display:none;">
