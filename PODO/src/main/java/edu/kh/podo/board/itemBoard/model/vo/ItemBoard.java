@@ -20,7 +20,7 @@ public class ItemBoard {
 	private int readCount;
 	private String createDate;
 	private String updateDate;
-	private String itemCondition;
+	private String itemCondition;	
 	private String tradeCondition;
 	private String delivery;
 	private String price;
