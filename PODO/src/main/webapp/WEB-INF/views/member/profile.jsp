@@ -12,9 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/member-profile.css">
-    
+        <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>find-ID</title>
+    <title>내 상점</title>
 </head>
 
 
@@ -84,7 +85,7 @@
                         <div class="background">
                             <div class="window">
                               <div class="popup">
-                                <button id="close" type="button">팝업닫기</button>
+                                <button id="close" type="button">X</button>
                                 <div id="report-text">신고할 내용을 입력해주세요.</div>
                                 <div id="report-area">
                                     <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   

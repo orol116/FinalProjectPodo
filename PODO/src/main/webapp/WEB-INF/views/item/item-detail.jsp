@@ -22,7 +22,10 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/item-detail.css">
-    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+   
+       <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
+
 
     <title>상품 상세페이지</title>
 </head>
@@ -106,7 +109,7 @@
                         <div class="background">
                             <div class="window">
                               <div class="popup">
-                                <button id="close" type="button">팝업닫기</button>
+                                <button id="close" type="button">X</button>
                                 <div id="report-text">신고할 내용을 입력해주세요.</div>
                                 <div id="report-area">
                                     <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   

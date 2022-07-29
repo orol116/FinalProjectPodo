@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/signUp.css">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
     <title>signUp</title>
 </head>
