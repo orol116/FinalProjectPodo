@@ -90,9 +90,13 @@
                                     <div class="title1">
                                         <div class="name1">
                                             <div class="title2">${item.boardTitle}</div>
+                                            <c:set var="name" value="${item.delivery}"/>
+                                            <c:if test ="${name eq '무료배송'}">
+                                                <div class="delivery">${item.delivery}</div>
+                                            </c:if>
                                             <c:set var="name" value="${item.tradeCondition}"/>
                                             <c:if test ="${name eq '판매완료'}">
-                                                <div class="state">${item.tradeCondition}</div>
+                                                <div class="tradeCondition">${item.tradeCondition}</div>
                                             </c:if>
                                         </div>
                                         <div class="name2">
