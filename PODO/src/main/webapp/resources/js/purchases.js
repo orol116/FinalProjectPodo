@@ -97,17 +97,25 @@ function selectTradeCondition(type){
 
                     /* ------오버레이------- */
 
+                    /* 판매-전체상태 */
                     if(type==1){
-                        $(".overlayCard").hide();
+                        /* $(".overlayCard").hide();
                         $(".overlayTitle").hide();
+                        */
+                       if(type==2){
+                            overlayTitle.innerText = "예약 중";
+                       }
+                       if(type==3){
+                            overlayTitle.innerText = "판매 중";
+                       }
+                       if(type=4){
+                            $(function() {
+                                $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                            });
+                       }    
                     }
 
-                    if(type==4){
-                        $(function() {
-                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                        });
-                    }
-                    
+                    /* 예약중 */
                     if(type==2){
                         /* const overlayTitle = document.getElementsByClassName('overlayTitle'); */
                         /* document.querySelector('.overlayTitle').id = 'overlayTitle'; */
@@ -118,11 +126,23 @@ function selectTradeCondition(type){
                         }); */
                         overlayTitle.innerText = "예약 중";
                     }
-
+                    
+                    /* 판매중 */
                     if(type==3){
                         overlayTitle.innerText = "판매 중";
                     }
-
+                    
+                    /* 판매완료 */
+                    if(type==4){
+                        $(function() {
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                        });
+                    }
+                    
+                    /* 구매 */
+                    if(type==5){
+                        overlayTitle.innerText = "구매완료";
+                    }
                     /* --------------------- */
 
                     
