@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> -->
     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css"> -->
-    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
+    <%-- <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css"> --%>
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
@@ -88,7 +88,9 @@
             </div>
         </div>
     </div>
-<main>
+
+
+</main>
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 

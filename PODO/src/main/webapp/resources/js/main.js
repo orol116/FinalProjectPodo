@@ -164,7 +164,7 @@ function carousel() {
 
 (() => {
   
- 
+    const locationSection = document.getElementById("items-location-section"); 
 
     $.ajax({
       url : contextPath + "/mainDistItem",  
@@ -175,9 +175,9 @@ function carousel() {
         
         if (Object.keys(distList).length !== 0) {
                            
-
+        if(locationSection != null){
          document.getElementById("items-location-section").innerHTML = "";
-
+        }
          let frame;
          for (let k = 0; k < 10; k++) {
         

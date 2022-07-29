@@ -2,10 +2,16 @@
 
 const reply2 = document.getElementById("reply2");
 
+
 if(reply2 != null){
 
+    reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭이 되었을 때
+        
+        selectReplyList();
+    })
+}   
 
-reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭이 되었을 때
+function selectReplyList(){
     
     const replyContent = document.getElementById("reply-content").value;
     console.log(replyContent);
@@ -69,8 +75,33 @@ reply2.addEventListener("click", function(){ // 댓글 등록 버튼이 클릭�
             console.log(req.responseText);
         }
     });
+}
+   
 
-        
-})
+// 댓글 삭제
+function deleteReply(){
 
+    if( confirm("정말로 삭제 하시겠습니까?") ){
+
+        $.ajax({
+            url : contextPath + "/admin/reply/delete",
+            data : {"boardNo" : boardNo},
+            type : "GET",
+            success: function(result){
+
+                if(result > 0){
+                    alert("삭제되었습니다");
+                    location.href= contextPath+'/member/inquireList/detail/'+boardNo
+                }else{
+                    alert("삭제 실패");
+                }
+            },
+
+            error : function(req, status, error){
+                console.log("댓글 삭제 실패")
+                console.log(req.responseText);
+            }
+
+        });
+    }
 }

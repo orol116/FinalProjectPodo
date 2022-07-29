@@ -163,5 +163,12 @@ public class AdminServiceImpl implements AdminService{
 	public List<AdminReply> selectAdminReply(int boardNo) {
 		return dao.selectAdminReply(boardNo);
 	}
+
+
+
+	@Override
+	public int deleteReply(int boardNo) {
+		return dao.deleteReply(boardNo);
+	}
 	
 }
