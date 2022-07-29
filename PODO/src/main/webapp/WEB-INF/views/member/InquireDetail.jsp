@@ -72,6 +72,9 @@
                     <div class="feedback">
                         ${rList.replyContent}
                     </div>
+                    <c:if test="${loginMember.memberNo==1}">
+                        <button onclick="deleteReply()">삭제</button>
+                    </c:if>    
                 </div>
             </c:if>
                 

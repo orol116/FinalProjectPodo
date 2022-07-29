@@ -266,4 +266,10 @@
 		ORDER BY ADMIN_BOARD_NO DESC
 	</select>
 	
+	
+	<delete id="deleteReply">
+		DELETE FROM ADMIN_REPLY
+		WHERE ADMIN_BOARD_NO = #{boardNo}
+	</delete>
+	
 </mapper>
