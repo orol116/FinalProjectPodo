@@ -411,17 +411,33 @@ footer {
     width: 500px;
     height: 250px;
     z-index: 500;
+    border: 1px solid #ccc;
+    resize: none;
   }
+
+  #search-key{
+    border: 1px solid #ccc;
+  }
+
   #close{
-    margin: 8px 0 0 520px;
+    margin: 8px 0 0 550px;
+    border: none;
+    background-color: white;
   }
 
   #reportBtn{
-    
-    width: 150px;
+    width: 135px;
     height: 40px;
     margin-left: 140px;
     z-index: 300;
+    background-color: white;
+    border: 1.5px solid #aaa;
+  }
+
+  #reportBtn:hover{
+    cursor: pointer;
+    background-color: #5f0081;
+    color: white;
   }
 
   #report-text{
@@ -430,13 +446,18 @@ footer {
   }
 
   #introChange{
-    
-    width: 150px;
+    width: 135px;
     height: 40px;
     margin-left: 140px;
     z-index: 300;
+    background-color: white;
+    border: 1.5px solid #aaa;
+  }
 
-    
+  #introChange:hover{
+    cursor: pointer;
+    background-color: #5f0081;
+    color: white;
   }
 
   #reportBtn{

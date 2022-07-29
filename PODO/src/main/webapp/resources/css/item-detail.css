@@ -154,7 +154,21 @@ footer {
 
 #item-layer>* {
     
-    width: 25%;
+    width: 23%;
+}
+
+#item-layer>div:first-child{
+    width: 20%;
+}
+
+#item-report:last-child{
+    display: flex;
+    justify-content: flex-end;
+    color: #aaa;
+}
+
+#item-report:hover{
+    cursor: pointer;
 }
 
 #item-layer a {
@@ -472,9 +486,53 @@ footer {
     width: 500px;
     height: 250px;
     z-index: 500;
+    border: 1px solid #ccc;
+    resize: none;
   }
+
+  #search-key{
+    border: 1px solid #ccc;
+  }
+
   #close{
-    margin: 8px 0 0 520px;
+    margin: 8px 0 0 550px;
+    border: none;
+    background-color: white;
+  }
+
+  #reportBtn{
+    width: 135px;
+    height: 40px;
+    margin-left: 140px;
+    z-index: 300;
+    background-color: white;
+    border: 1.5px solid #aaa;
+  }
+
+  #reportBtn:hover{
+    cursor: pointer;
+    background-color: #5f0081;
+    color: white;
+  }
+
+  #report-text{
+    margin-top: 0px;
+    margin-left: 200px;
+  }
+
+  #introChange{
+    width: 135px;
+    height: 40px;
+    margin-left: 140px;
+    z-index: 300;
+    background-color: white;
+    border: 1.5px solid #aaa;
+  }
+
+  #introChange:hover{
+    cursor: pointer;
+    background-color: #5f0081;
+    color: white;
   }
 
   #reportBtn{
