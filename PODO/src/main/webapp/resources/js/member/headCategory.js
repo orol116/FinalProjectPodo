@@ -1,8 +1,4 @@
-if (location.href == "http://localhost:8080/podo/main") { 
-    history.pushState(null, null, "http://localhost:8080/podo")
-
-    selectList(mcNo);
-}   
+  
 
 
 const category = document.getElementById("fa-bars");
@@ -116,6 +112,13 @@ function selectList(mCategoryNo, mCategoryName){
     nameArea.innerText = mCategoryName;
     nameSpace.append(nameArea);
     }  */
+    location.href = contextPath;
+
+    if (location.href == "http://localhost:8080/podo/main") { 
+        history.pushState(null, null, "http://localhost:8080/podo")
+
+        selectList(mcNo);
+    } 
 
     categorySection.innerHTML = "";
     cHeader.innerText = mCategoryName;
