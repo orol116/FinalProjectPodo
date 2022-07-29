@@ -89,12 +89,14 @@ function categoryFunction(){
 } */
    
 
-
+const categorySection = document.getElementById("categoryDelete-section"); // 카테고리 외 다른 section들
+const cHeader = document.getElementById("category-header-a"); // 카테고리제목
+const itemsSection = document.getElementById("items-section");
 
 function selectList(mCategoryNo, mCategoryName){
 
-    const nameSpace =  document.getElementById("categoryName-space");
-    const nameSpace2 =  document.getElementById("categoryName-space2");
+    /* const nameSpace =  document.getElementById("categoryName-space");
+    const nameSpace2 =  document.getElementById("categoryName-space2"); */
 
  /*    if(nameSpace != ""){ // main화면에서 ajax로 가져올때 nameSpace 2개 생기는거 방지
     
@@ -115,6 +117,9 @@ function selectList(mCategoryNo, mCategoryName){
     nameSpace.append(nameArea);
     }  */
 
+    categorySection.innerHTML = "";
+    cHeader.innerText = mCategoryName;
+
     $.ajax({
         url : contextPath + "/selectCategory",  
         data : { "mCategoryNo" : mCategoryNo }, 
@@ -124,15 +129,14 @@ function selectList(mCategoryNo, mCategoryName){
         success : function(itemList){
 
             if (itemList.length != 0) {
-                /* document.getElementById("categoryFrame").style.display = "block"; */
+                document.getElementById("categoryFrame").style.display = "block"; 
 
                  /* document.getElementById("items-readCount-section").innerHTML = "";
                  document.getElementById("items-podo-section").innerHTML = "";
                  document.getElementById("items-freeShop-section").innerHTML = "";
                  document.getElementById("items-unOpen-section").innerHTML = ""; */
-
-                 
-
+                 categorySection.innerHTML = "";
+                 document.getElementById("categoryFrame").style.display = "block";
                 let frame;
                 for (let k = 0; k < itemList.length; k++) {
 
