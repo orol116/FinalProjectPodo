@@ -13,6 +13,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/member/login.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
     <title>login</title>
 </head>

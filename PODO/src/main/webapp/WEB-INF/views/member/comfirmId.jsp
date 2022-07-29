@@ -13,7 +13,8 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/find-IDPW.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/member/confirmId.css">
-    
+        <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
 
     <title>아이디 찾기</title>
 </head>

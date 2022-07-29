@@ -112,7 +112,7 @@ function selectList2(mCategoryNo, mCategoryName){
 
                 
 
-                if(mCatName == null){
+                if(mCatName == ""){
                     cHeader.innerText = mCategoryName + "   카테고리 >";
                 }else{
                     cHeader.innerText = mCatName + "   카테고리 >";

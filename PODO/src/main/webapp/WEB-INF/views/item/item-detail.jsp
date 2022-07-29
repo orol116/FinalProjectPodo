@@ -22,7 +22,10 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/item-detail.css">
-    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+   
+       <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
+
 
     <title>상품 상세페이지</title>
 </head>

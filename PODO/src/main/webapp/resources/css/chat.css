@@ -135,6 +135,7 @@ mychat/* 본문 영역 */
 
 #boardTitle{
     padding: 0 15px 0 15px;
+    font-weight: 900;
 }
 
 /* 헤더 프로필 정보 영역 */
@@ -457,7 +458,7 @@ color: white;
     /* phr */
     display: flex;
     width: auto;
-    height: 45px;
+    height: 50px;
     width: 600px;
     border-bottom: 1px solid lightgray;
 } 
@@ -466,7 +467,7 @@ color: white;
     /* margin-left: 5px;
     margin-top: 2px;
     box-shadow: none; */
-    background-color: rgba(95, 0, 129, 0.39);
+    background-color: rgb(231, 214, 233);
     /* color: white; */
     border-radius: 3px;
     
