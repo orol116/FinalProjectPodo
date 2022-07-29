@@ -341,7 +341,7 @@ form[name="myPage-form"]{
     float: right;
     margin-left: 500px;
     margin-right: 30px;
-
+    border: none;
     width: 60px;
     height: 40px;
 }
