@@ -21,8 +21,10 @@ function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 	
+	$(".chatDiv").css("backgroundColor", "white");
 
-	document.getElementsByClassName("chatList")[0].style.backgroundColor = "rgba(95, 0, 129, 0.39)";
+	document.getElementById(chatNo).style.backgroundColor = "rgb(231, 214, 233)";
+	
 
 	console.log(chatNo);
 
