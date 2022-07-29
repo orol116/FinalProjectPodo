@@ -158,7 +158,7 @@ function selectTradeCondition(type){
                     const spanCount = document.createElement("span");
                     spanCount.classList.add("spanCount");
                     spanCount.innerHTML = "조회수 : " + itemList[i].readCount;          
-                    p.append(spanName,spanPrice,spanDate,spanCount );
+                    p.append(spanName, spanPrice, spanDate, spanCount );
           
                     sellContents.append(purchasesContents);
 
@@ -174,47 +174,56 @@ function selectTradeCondition(type){
                     $(".overlayTitle").hide();
                     */
 
-                    // 상태 객체 : tradeCondition
+                    // 물품 상태 객체 : tradeCondition
                     
                     /* 판매-전체상태 */
                     if(type==1){
                         if(itemList[i].tradeCondition == "판매완료"){
-                            $(function() {
-                                $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                                overlayTitle.innerText = "판매완료";
-                            });
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                            overlayTitle.innerText = "판매완료";
                         }else{
-                            $(".overlayCard").hide();
-                            $(".overlayTitle").hide();
+                            overlayTitle.style.display = "none";
+                            overlayCard.style.display = "none";
                         }
+                        /* if(itemList[i].tradeCondition == "판매 중"){
+                            overlayTitle.style.display = "none";
+                            overlayCard.style.display = "none";
+                        } */
+                                                        
                     }
                     
- 
                     // 예약중
                     if(type==2){
-                        $(".overlayCard").hide();
-                        $(".overlayTitle").hide();
+                        /* $(".overlayCard").hide();
+                        $(".overlayTitle").hide(); */
+                        $('.overlayTitle').before('<img src="/podo/resources/images/reserve.png" class="overlay" />');
+                            overlayTitle.innerText = "예약중";
                     }
                      
                     // 판매중
                     if(type==3){
-                        $(".overlayCard").hide();
-                        $(".overlayTitle").hide();
+                        /* $(".overlayCard").hide();
+                        $(".overlayTitle").hide(); */
+                        $('.overlayTitle').before('<img src="/podo/resources/images/booking.png" class="overlay" />');
+                            overlayTitle.innerText = "판매중";
                     }
                     
                     // 판매완료
                     if(type==4){
                         $(function() {
                             $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                            overlayTitle.innerText = "판매완료";
                         });
                     }
                     
                     // 구매내역
                     if(type==5){
-                        $(function() {
+                        /* $(function() {
                             $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
                         });
-                        overlayTitle.innerText = "구매완료";
+                        overlayTitle.innerText = "구매완료"; */
+                        $(".overlayCard").hide();
+                        $(".overlayTitle").hide();
                     }
                     /* --------------------- */
                 }
