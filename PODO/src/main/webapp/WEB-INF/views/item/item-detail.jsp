@@ -31,7 +31,7 @@
 </head>
 
 
-<body>
+<body onload="tradeConditionCheck()">
     <main>
 
         <jsp:include page="/WEB-INF/views/common/header.jsp" />

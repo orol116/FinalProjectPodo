@@ -131,6 +131,14 @@ public class ItemBoardDAO {
 		return sqlSession.insert("itemBoardMapper.addFav", map);
 	}
 
+	/** 찜삭제
+	 * @param map
+	 * @return
+	 */
+	public int deleteFav(Map<String, Object> map) {
+		return sqlSession.delete("itemBoardMapper.deleteFav", map);
+	}
+	
 	/** 찜 개수 +1 DAO
 	 * @return result
 	 */
@@ -274,6 +282,8 @@ public class ItemBoardDAO {
 	public String myAddrSelect(int memberNo) {
 		return sqlSession.selectOne("itemBoardMapper.myAddrSelect", memberNo);
 	}
+
+
 	
 
 //	/** 판매자 다른 상품 이미지 조회 DAO

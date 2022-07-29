@@ -73,7 +73,7 @@
             </section>
                 <div class="box1">
                     <div class="myPage-row">
-                        <label>닉네임</label>
+                        <label style="width: 30%;">닉네임</label>
                         <input type="text" name="updateNickname"  id="memberNickname" class="input_box" value="${loginMember.memberNickname}" maxlength="8" placeholder="영어, 숫자, 한글을 조합하여 2~10글자 이내로 작성해주세요.">
                     </div>
         
