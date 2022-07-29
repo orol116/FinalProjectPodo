@@ -233,6 +233,14 @@ public class AdminDAO {
 		return sqlSession.selectList("memberMapper.selectAdminReply", boardNo);
 	}
 
+	/** 1대1 문의 상세페이지 답변 삭제
+	 * @param boardNo
+	 * @return
+	 */
+	public int deleteReply(int boardNo) {
+		return sqlSession.delete("memberMapper.deleteReply", boardNo);
+	}
+
 	
 
 
