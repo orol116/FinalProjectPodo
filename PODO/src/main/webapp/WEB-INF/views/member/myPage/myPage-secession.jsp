@@ -38,13 +38,13 @@
                 
                     <h1 class="myPage-title">회원 탈퇴 안내</h1>
                     
-                    <h4 class="myPage-subtitle">회원 탈퇴 안내</h4>
-                    
+                    <%-- <h4 class="myPage-subtitle">회원 탈퇴 안내</h4>
+                     --%>
                     <div class="wrapper">  
                         
                         
                         
-                        <span id="secession-subexplanation">고객님께서 회원 탈퇴를 원하신다니 저희 사이트의 서비스가 많이 부족하고 미흡했나 봅니다. 불편하셨던 점이나 불만사항을 <br>알려주시면 적극 반영해서 고객님의 불편함을 해결해 드리도록 노력하겠습니다.
+                        <span id="secession-subexplanation">고객님께서 회원 탈퇴를 원하신다니 저희 사이트의 서비스가 많이 부족하고 미흡했나 봅니다.  <br>불편하셨던 점이나 불만사항을 알려주시면 적극 반영해서 고객님의 불편함을 해결해 드리도록 노력하겠습니다.
                         </span>           
                         
                         

@@ -118,7 +118,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				// 실시간 접속 시 
 				if ( recieverSession != null) {
 					logger.info("onmessage되나?");
-					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 회원님의 게시글을 찜 하였습니다.");
+					TextMessage tmpMsg = new TextMessage("<a href='/podo/board/detail/"+alarmMessage.getBoardNo()+"'>"+boardWriter + "님이 회원님의 게시글을 찜 하였습니다.");
 					recieverSession.sendMessage(tmpMsg);
 				}
 			
@@ -139,6 +139,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				
 				recieverId = selectRecieverId;
 				
+				alarmMessage.setRecieveMemberId(recieverId);
 				
 				recieverSession = userSessionsMap.get(recieverId);
 				
@@ -150,7 +151,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				// 실시간 접속 시 
 				if ( recieverSession != null) {
 					logger.info("onmessage되나?");
-					TextMessage tmpMsg = new TextMessage(boardWriter + "님이 회원님에게 댓글을 달았습니다.");
+					TextMessage tmpMsg = new TextMessage("<a href='/podo/chat/roomList'>"+boardWriter+" 님이 회원님에게 채팅을 보냈습니.<a>");
 					recieverSession.sendMessage(tmpMsg);
 				}
 			
@@ -201,7 +202,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 				// 실시간 접속 시 
 				if ( recieverSession != null) {
 					logger.info("onmessage되나?");
-					TextMessage tmpMsg = new TextMessage("관리자가 회원님의 1대1 문의에 답변 하였습니다.");
+					TextMessage tmpMsg = new TextMessage("관리자가 문의에 답변 하였습니다.");
 					recieverSession.sendMessage(tmpMsg);
 				}
 			}

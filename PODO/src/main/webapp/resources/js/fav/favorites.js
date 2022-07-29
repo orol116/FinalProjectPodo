@@ -16,11 +16,12 @@ if(bookmark != null){
             type : "GET",
             success : function(result){
             
-                if(result > 0) {
+                if(result == 1) {
                     // 입력이 된 경우
                     // 메세지 입력 시 필요한 데이터를 js객체로 생성
                     const alramMessage ={
                         "memberNo" :memberNo ,
+                        "boardNo" :boardNo ,
                         "memberId": memberId,
                         "recieveMemberNo": receiveMemberNo,
                         "boardName":"favorites"
@@ -31,7 +32,10 @@ if(bookmark != null){
                     socket.send(JSON.stringify(alramMessage));
 
                     alert("찜 상품 담기 성공");
-                } else {
+                } else if(result ==2){
+                    
+                    alert("찜 상품 취소 성공");
+                }else {
                     alert("회원만 사용할 수 있습니다.");
                 }
             },

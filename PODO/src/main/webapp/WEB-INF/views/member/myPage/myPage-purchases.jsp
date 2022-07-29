@@ -12,23 +12,26 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/purchases.css">
     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/header-style.css"> -->
     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/member/itemUpload.css"> -->
-    <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <%-- <link rel="stylesheet" href="${contextPath}/resources/css/footer-style.css"> --%>
+    <%-- <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css"> --%>
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
     <%-- 파비콘 --%>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
-    <style>
-    </style>
 </head>
 
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
+
+
 <body onload="init();">
+<main>
+
+
     <!-- header -->
-    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <%-- <jsp:include page="/WEB-INF/views/common/header.jsp" /> --%>
     
     <div class="top-menu">
         <nav id="mainMenu">
@@ -37,7 +40,6 @@
             <a href="${contextPath}/shop/myMall">구매/판매 내역</a>
         </nav>
     </div>
-<main>
 
     <div id="root">
         <div class="page-body">
@@ -51,18 +53,9 @@
                     <nav class="navigator">
 
                         <ul class="category" style="padding:0;">
-                            <%-- <li class="selected">
-                                <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
-                            </li>
-                            <li class="">
-                                <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
-                            </li> --%>
-
-                            <%-- <li class="pcategory"> --%>
-                                <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
-                                <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
-                            <%-- </li> --%>
-
+                            
+                            <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
+                            <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
                             <!-- 밑줄 선 -->
                             <!-- <li class="line" role="presentation"></li> -->
                         </ul>
@@ -90,13 +83,12 @@
             </div>
         </div>
     </div>
-<main>
+
+
+</main>
+
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
-    <script>
-        const memberNo = "${loginMember.memberNo}";
-    </script>
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

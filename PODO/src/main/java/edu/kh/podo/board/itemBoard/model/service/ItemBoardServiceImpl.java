@@ -173,7 +173,13 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	public int addFav(Map<String, Object> map) {
 		return dao.addFav(map);
 	}
-
+	
+	// 찜 삭제 Service 구현
+	@Override
+	public int deleteFav(Map<String, Object> map) {
+		return dao.deleteFav(map);
+	}
+	
 	// 찜 개수 +1 Service 구현
 	@Override
 	public int addCountAdd(Map<String, Object> map) {
@@ -404,5 +410,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 
 		return map;
 	}
+
+	
 
 }

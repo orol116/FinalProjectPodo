@@ -60,7 +60,7 @@
 	   FROM ALARM
 	   WHERE RMEMBER_ID = #{memberId}
 	   AND ROWNUM &lt; 8
-       ORDER BY ALARM_TIME DESC
+       ORDER BY ALARM_NO DESC
   </select>
   
   

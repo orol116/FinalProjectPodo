@@ -177,8 +177,10 @@ function carousel() {
 
 (() => {
   
- 
+    const locationSection = document.getElementById("items-location-section"); 
 
+    if(locationSection != null){
+        document.getElementById("items-location-section").innerHTML = "";
     $.ajax({
       url : contextPath + "/mainDistItem",  
       type : "GET", 
@@ -188,9 +190,7 @@ function carousel() {
         
         if (Object.keys(distList).length !== 0) {
                            
-
-         document.getElementById("items-location-section").innerHTML = "";
-
+        
          let frame;
          for (let k = 0; k < 10; k++) {
         
@@ -258,7 +258,7 @@ function carousel() {
         
              const price = document.createElement("div");
              price.classList.add("price");
-             price.innerText = distList[k].price;
+             price.innerText = distList[k].price + "원";
         
              const time = document.createElement("div");
              time.classList.add("time");
@@ -284,10 +284,10 @@ function carousel() {
          
         } else {
         
-         document.getElementById("items-location-section").innerHTML = "";
-         frame = document.createElement("div");
-         frame.classList.add("frame");
-         frame.innerText = "로그인 이후 사용 가능합니다.";
+            document.getElementById("items-location-section").innerHTML = "";
+            frame = document.createElement("div");
+            frame.classList.add("frame");
+            frame.innerText = "로그인 이후 사용 가능합니다.";
          
         
          document.getElementById("items-location-section").append(frame);
@@ -298,6 +298,7 @@ function carousel() {
           console.log("에러 발생");
       }
     })
+}
   
   
 

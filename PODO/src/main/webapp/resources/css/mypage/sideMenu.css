@@ -1,6 +1,8 @@
 /* 마이페이지 */
 .myPage-content{
     flex-basis: 20%;
+
+    min-height: 68vh;
     /* width: 100%; */
     /* height: 600px; */
     /* display: inline-grid; */
@@ -24,12 +26,13 @@
 }
 
 .list-group{
-    display: inline-flex;
+    display: flex;
     width: 100%;
     height: auto;
     margin: 0;
-    padding: 20px;
-    text-align: center;
+    /* padding: 20px; */
+    /* text-align: center; */
+    justify-content: center;
 } 
 
 .myPage-subTitle>a{
@@ -73,9 +76,9 @@ form[name="myPage-form"]{
     text-decoration: none;
     color: black;
     display: flex;
-    
+    height: 30px;
     font-size: 17px;
-
+    width: 100%;
 }
 .list-group>li>a:hover{
     background-color: rgb(155, 89, 182);

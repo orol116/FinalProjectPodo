@@ -146,6 +146,7 @@
 		WHERE UPDATE_DT >= SYSDATE - 7
 		AND BOARD_NO &gt; #{boardNo}
 		AND ROWNUM &lt; 6 
+		AND SECESSION_FL = 'N'
 		ORDER BY BOARD_NO ASC
 	</select>
 	
@@ -160,6 +161,7 @@
         ORDER BY BOARD_NO ASC)
         WHERE BOARD_NO &gt; #{boardNo}
         AND ROWNUM &lt; 6 
+        AND SECESSION_FL = 'N'
 	</select>
 	
 	
@@ -178,6 +180,7 @@
 			FROM ITEM_BOARD
 			WHERE MEMBER_NO = ${memberNo}
 			AND BOARD_NO != ${boardNo}
+			AND SECESSION_FL = 'N'
 			ORDER BY UPDATE_DT DESC)
 		<![CDATA[WHERE ROWNUM <= 5]]>
 	</select>
@@ -190,6 +193,7 @@
 			JOIN ITEM_BOARD A ON(B.BOARD_NO=A.BOARD_NO)
 			WHERE A.MEMBER_NO = ${memberNo}
 			AND A.BOARD_NO != ${boardNo}
+			AND SECESSION_FL = 'N'
 			AND IMG_LEVEL = (SELECT MIN(B.IMG_LEVEL) 
                FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
 			ORDER BY UPDATE_DT DESC)
@@ -208,6 +212,12 @@
 	<insert id="addFav">
 		INSERT INTO BOOKMARK VALUES(${loginMemberNo}, ${boardNo})
 	</insert>
+	
+	<delete id="deleteFav">
+		DELETE FROM BOOKMARK 
+		WHERE MEMBER_NO = ${loginMemberNo}
+		AND   BOARD_NO = ${boardNo}
+	</delete>
 	
 	<insert id="addCountAdd">
 		UPDATE ITEM_BOARD SET 
@@ -246,6 +256,7 @@
 		SELECT BOARD_TITLE, BOARD_CONTENT, SELL_AREA, ITEM_CONDITION, DELIVERY, PRICE, MEMBER_NO
 		FROM ITEM_BOARD
 		WHERE BOARD_NO = ${boardNo}
+		AND SECESSION_FL = 'N'
 	</select>
 	
 	<!-- 게시글 이미지 삭제 (IN 구문 작성 시 삭제되는 deleteList에 ''가 없도록 주의해야 한다) -->

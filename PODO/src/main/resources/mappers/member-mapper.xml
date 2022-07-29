@@ -108,9 +108,20 @@
 	
 	
 	<!-- 네이버 회원가입 -->
-	<insert id="naverSignUp" parameterType="member">
+	<insert id="naverSignUp" parameterType="member" useGeneratedKeys="true">
+	
+		<selectKey keyProperty="memberNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_MEMBER_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		
 		INSERT INTO MEMBER 
-		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberId}, 'xxxx', #{memberId}, 01011111111, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, 'aaa', DEFAULT, DEFAULT, NULL)
+		VALUES(#{memberNo}, #{memberId}, 'xxxx', #{memberId}, 01011111111, DEFAULT, '/resources/images/memberProfile/podo.jpg', DEFAULT, DEFAULT, DEFAULT, 'aaa', DEFAULT, DEFAULT, NULL)
+	</insert>
+	
+	<!-- 네이버 회원가입 위도 경도 기입 -->
+	<insert id="naverSignUpXY" parameterType="member">
+		INSERT INTO MEMBERAREA_XY
+		VALUES( SEQ_MCRDNT_NO.NEXTVAL, #{memberNo}, 126.976243215499, 37.5600786131308, null)
 	</insert>
 	
 	
@@ -265,5 +276,11 @@
 		AND BOARD_CD = 3
 		ORDER BY ADMIN_BOARD_NO DESC
 	</select>
+	
+	
+	<delete id="deleteReply">
+		DELETE FROM ADMIN_REPLY
+		WHERE ADMIN_BOARD_NO = #{boardNo}
+	</delete>
 	
 </mapper>

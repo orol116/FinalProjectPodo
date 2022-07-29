@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/inquireDetail.css">
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
 </head>
 
@@ -69,9 +70,14 @@
                         <p>&#127815;&nbsp;관리자</p>
                         <p>${rList.createDate}</p>
                     </div>
-                    <div class="feedback">
-                        ${rList.replyContent}
-                    </div>
+                    <div class="information1">
+                        <div class="feedback">
+                            ${rList.replyContent}
+                        </div>
+                        <c:if test="${loginMember.memberNo==1}">
+                            <button id="delete" onclick="deleteReply()">삭제</button>
+                        </c:if>   
+                    </div> 
                 </div>
             </c:if>
                 

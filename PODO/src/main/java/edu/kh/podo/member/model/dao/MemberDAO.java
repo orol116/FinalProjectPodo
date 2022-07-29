@@ -62,8 +62,14 @@ public class MemberDAO {
 
 
 	public int naverSignUp(Member inputMember) {
-		return sqlSession.insert("memberMapper.naverSignUp", inputMember);
-	}
+		int result =  sqlSession.insert("memberMapper.naverSignUp", inputMember);
+		
+		if(result> 0) {
+			result = sqlSession.insert("memberMapper.naverSignUpXY", inputMember);
+		}
+		
+		return result ;
+	} 
 
 
 
@@ -84,7 +90,7 @@ public class MemberDAO {
 	 */
 	public int nicknameDupCheck(String memberNickname) {
 		
-		return sqlSession.selectOne("memberMapper.idDupCheck",memberNickname);
+		return sqlSession.selectOne("memberMapper.nicknameDupCheck",memberNickname);
 	}
 
 	

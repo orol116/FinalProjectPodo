@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/signUp.css">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
     <title>signUp</title>
 </head>
@@ -81,9 +82,7 @@
                     </section>
                     
 
-                    <section id="map-area" style="display:none;">
-                        <div id="map" style="width:500px;height:400px;margin-top:10px;"></div>
-                    </section>
+
                     
                     <input type="hidden" name="dLon" id="dLon" value="">
                     <input type="hidden" name="dLat" id="dLat" value="">
@@ -97,13 +96,15 @@
                         
 
                     <section id="submitBtn-area">
-                        <button id="submitBtn">회원가입하기</button>
+                        <button id="submitBtn" type="submit">회원가입하기</button>
                     </section>
                     
 
                 </fieldset>
             </form>
-
+                    <section id="map-area" style="display:none;">
+                        <div id="map" style="width:500px;height:400px;margin-top:10px;"></div>
+                    </section>
         </div>
 
     </main>

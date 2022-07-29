@@ -22,7 +22,10 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/item-detail.css">
-    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+   
+       <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
+
 
     <title>상품 상세페이지</title>
 </head>
@@ -88,10 +91,17 @@
                                 <!-- 토스트 메시지 스크립트 favorites.js -->
                                 <!-- <div id="toast"> 
                                 </div> -->
-                                <button type="button" id="do-bookmark">찜하기</button> 
+                                <c:if test='${itemList[0].tradeCondition != "판매완료"}'> 
+                                    <button type="button" id="do-bookmark">찜하기</button> 
+                                </c:if>
+                                
                                 <button type="button" id="do-chat" onclick="location.href='${contextPath}/chat/start/${boardNo}/${memberNo}'">1:1 채팅하기</button>
 
                         
+                            </c:if>
+
+                            <c:if test="${memberNo == loginMember.memberNo}"> 
+                                <button type="button" id="do-chat" onclick="location.href='${contextPath}/member/updateBoard/${boardNo}'">수정하기</button>
                             </c:if>
                         </div>
 
@@ -99,7 +109,7 @@
                         <div class="background">
                             <div class="window">
                               <div class="popup">
-                                <button id="close" type="button">팝업닫기</button>
+                                <button id="close" type="button">X</button>
                                 <div id="report-text">신고할 내용을 입력해주세요.</div>
                                 <div id="report-area">
                                     <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
@@ -189,7 +199,8 @@
                                 <c:forEach var="i" begin="${start}" end="${fn:length(boardImageList) - 1}">
                                 
                                     <div class="boardImg">
-                                        <img src="${contextPath}${boardImageList[i].imageReName}">
+                                        <img  onclick="window.open(this.src)" alt="클릭하시면 조금더 커집니다.." hspace="0" src="${contextPath}${boardImageList[i].imageReName}"> 
+                                        <%-- <img src="${contextPath}${boardImageList[i].imageReName}"> --%>
                                     </div>
 
                                 </c:forEach>
@@ -259,7 +270,6 @@
                         </section>
 
                     </c:if>
-
                 </div>
 
             </div>
@@ -288,7 +298,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
-    <script src="${contextPath}/resources/js/sweetAlert.js"></script>
+    <script src="${contextPath}/resources/js/detailOverlay.js"></script>
     <script src="${contextPath}/resources/js/modal.js"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     

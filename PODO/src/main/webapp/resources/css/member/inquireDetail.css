@@ -124,16 +124,32 @@ textarea:focus{
 }
 .information>p:nth-child(2){
     color: gray;
-    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.information1{
+    display:flex;
 }
 
+/* 댓글 부분 */
 #reply1{
     padding: 10px;
+}
+#delete{
+   
+    width: 50px;
+    text-align: center;
+    color: white;
+    background-color:rgb(95, 0, 129) ;
+    font-weight: 900;
+    border-radius: 3px;
+}
+#delete:hover{
+    cursor: pointer;
 }
 
 
 .feedback{
-    width: 1000px;
+    width: 980px;
     height: 100%;
     display: flex;
     padding: 20px;

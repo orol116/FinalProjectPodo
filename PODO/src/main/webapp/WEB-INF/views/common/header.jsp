@@ -34,8 +34,8 @@
                 <a href="${contextPath}/member/myPage/profileUpdate">마이페이지</a>
 
                 <div class="alert2" >
-                    
-                    <%-- <p id="socketAlert">
+<%--                     
+                    <p id="socketAlert">
 
                     </p> --%>
                     <div id="socketAlert" ></div>
@@ -87,40 +87,41 @@
             </c:choose> 
 
         </section>
+
         <div id="category-area">
-        <ul id="item-category">
-            <li class="category-name" href="#" id="0">
-                전체 카테고리
-            </li>
 
-            <c:forEach var="ct" items="${LCategory}">
-
-                <li class="category-name" href="#" id="${ct.LCategoryNo}">
-                    ${ct.LCategoryName}
+            <ul id="item-category">
+                <li class="category-name" href="#" id="0">
+                    전체 카테고리
                 </li>
-            </c:forEach>
 
-           
-        </ul>
+                <c:forEach var="ct" items="${LCategory}">
+
+                    <li class="category-name" href="#" id="${ct.LCategoryNo}">
+                        ${ct.LCategoryName}
+                    </li>
+                </c:forEach>
+            </ul>
 
 
-        <ul id="div-category">
-            <c:forEach var="subCt" items="${MCategory}">
+            <ul id="div-category">
+                <c:forEach var="subCt" items="${MCategory}">
 
-                <li class="sub-category-name ${subCt.LCategoryNo}-sub" href="#" 
-                id="s-${subCt.MCategoryNo}" name="${subCt.MCategoryName}">
-                    ${subCt.MCategoryName}
-                    
-                </li>
-            </c:forEach>
-           
-        </ul>
-    </div>
+                    <li class="sub-category-name ${subCt.LCategoryNo}-sub" href="#" 
+                    id="s-${subCt.MCategoryNo}" name="${subCt.MCategoryName}">
+                        ${subCt.MCategoryName}
+                        
+                    </li>
+                </c:forEach>
+            </ul>
+        </div>  
     
 
     </div>
 </header>
-	<script>
+
+
+<script>
        // 검색창 유효성 검사
        function searchValidate(){
 

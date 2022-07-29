@@ -21,6 +21,11 @@ function listClickFn(chatNo) {
 
 	document.getElementsByClassName("display-chatting")[0].innerHTML = "";
 	
+	$(".chatDiv").css("backgroundColor", "white");
+
+	document.getElementById(chatNo).style.backgroundColor = "rgb(231, 214, 233)";
+	
+
 	console.log(chatNo);
 
 	$.ajax({
@@ -61,12 +66,12 @@ function listClickFn(chatNo) {
 			
 					li.append(span, p);
 					li.classList.add("myChat"); // 스타일 적용
-					span.innerText = currentTime(); // 날짜
+					span.innerText = msg.messageTime; // 날짜
 					p.innerHTML = msg.messageContent;
 				}else{
 					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
 					p.innerHTML = msg.messageContent;				
-					span.innerText = currentTime();
+					span.innerText = msg.messageTime;
 					li.append(p, span);
 				}
 				

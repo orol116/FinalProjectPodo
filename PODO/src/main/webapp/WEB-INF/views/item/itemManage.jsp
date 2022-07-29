@@ -81,6 +81,15 @@
                             <td class="choice">
                                 <button class="choice1" onclick="updateDt(this)" value="${item.boardNo}">UP</button>
                                 <a href="${contextPath}/member/updateBoard/${item.boardNo}" class="choice2">수정</a>
+                                <button class="choice1" onclick="deleteItem(this)" value="${item.boardNo}" 
+                                    style="
+                                            margin-top: 10px;
+                                            background-color: white;
+                                            padding: 4px;
+                                            border: 1px solid #ddd;
+                                            font-size: 14px;
+                                            color: black;
+                                    ">삭제</button>
                             </td>
                         </tr>  
                         <%-- </form>  --%> 
@@ -106,13 +115,13 @@
 
         <!-- 페이지네이션 a태그에 사용될 공통 주소를 저장한 변수 선언 -->
         <c:set var="url" value="?cp="/>
-                            <%-- /board/list/1?cp=1  --%>
+        <%-- /board/list/1?cp=1  --%>
 
 
         <ul class="pagination">
 
             <!-- 이전 목록 마지막 번호로 이동 -->
-            <li><a href="${url}${pagination.prevPage}$">&laquo;</a></li>
+            <li><a href="${contextPath}/shop/main${url}${pagination.prevPage}">&laquo;</a></li>
 
             <!-- 범위가 정해진 일반 for문 사용 -->
             <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
