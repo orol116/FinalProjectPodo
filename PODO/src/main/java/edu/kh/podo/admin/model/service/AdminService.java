@@ -24,4 +24,6 @@ public interface AdminService {
 
 	List<AdminReply> selectAdminReply(int boardNo);
 
+	int deleteReply(int boardNo);
+
 }

@@ -147,6 +147,8 @@ document.getElementById('myPlace').addEventListener('click',()=>{
 
 
 
+
+
 // 컨트롤러에서 데이터 받기
 var LCategoryBtn = document.getElementsByClassName('category1-1')[0];
 LCategoryBtn.addEventListener('click', McategoryList);

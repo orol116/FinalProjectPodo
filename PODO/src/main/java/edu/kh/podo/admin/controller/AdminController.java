@@ -181,6 +181,16 @@ public class AdminController {
 		
 		return new Gson().toJson(rList);
 	}
+	
+	// 1대1 문의 관리자 답변 삭제
+	@ResponseBody
+	@GetMapping("reply/delete")
+	public int deleteReply(int boardNo) {
+		
+		int result = service.deleteReply(boardNo);
+		
+		return result;
+	}
 		
 
 	
