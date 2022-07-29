@@ -121,11 +121,11 @@ h3{
 /* 회원가입, 카카오로그인, 네이버 로그인 */
 #outside-login{
 
-    width: 450px;
+    width: 400px;
     height: 52px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     
 }
 
@@ -141,9 +141,10 @@ h3{
 
 #outside-login button{
 
-    width: 105px;
+    width: 92px;
     height: 40px;
     margin-left: 4px;
+    border-radius: 4px;
 
     border: none;
     background-color: #5f0081;

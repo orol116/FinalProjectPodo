@@ -6,9 +6,6 @@ function show() {
     document.querySelector(".background").className = "background";
   }
 
-  document.querySelector("#recentShow-item").addEventListener("click", show);
-  document.querySelector("#close").addEventListener("click", close);
-
 
 
 

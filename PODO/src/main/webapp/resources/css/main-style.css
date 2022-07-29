@@ -121,7 +121,7 @@ body{
 #main-sideMenu{
   position: fixed;
   right: 200px;
-  top: 400px;
+  bottom: 50px;
   width: 66px;
   height: 188px;
   /* border: 1px solid #aaa; */
