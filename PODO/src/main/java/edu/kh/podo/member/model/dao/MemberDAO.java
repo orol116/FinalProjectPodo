@@ -84,7 +84,7 @@ public class MemberDAO {
 	 */
 	public int nicknameDupCheck(String memberNickname) {
 		
-		return sqlSession.selectOne("memberMapper.idDupCheck",memberNickname);
+		return sqlSession.selectOne("memberMapper.nicknameDupCheck",memberNickname);
 	}
 
 	

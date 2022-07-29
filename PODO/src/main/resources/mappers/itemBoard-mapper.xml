@@ -104,7 +104,7 @@
 	
 	<insert id="insertCoordinate" parameterType="coordinate"> 
 		INSERT INTO SELLAREA_XY VALUES(
-			SEQ_CRDNT_NO.NEXTVAL, #{boardNo}, #{dLon}, #{dLat}
+			SEQ_CRDNT_NO.NEXTVAL, ${boardNo}, ${dLon}, ${dLat}
 		)
 	</insert>
 	
@@ -269,9 +269,9 @@
 	</select>
 	
 	<select id="selectDistList" resultMap="itemBoard_rm">
-	SELECT * FROM(        
-      SELECT  B.BOARD_NO, B.BOARD_TITLE, B.PRICE, B.UPDATE_DT, B.MEMBER_NO, B.TRADE_CONDITION,       
-                  ACOS(SIN(RADIANS(src.COORDINATE_X)) * SIN(RADIANS(dest.COORDINATE_X))
+    SELECT * FROM(        
+      		SELECT  B.BOARD_NO, B.BOARD_TITLE, B.PRICE, B.UPDATE_DT, B.MEMBER_NO, B.TRADE_CONDITION,       
+                ACOS(SIN(RADIANS(src.COORDINATE_X)) * SIN(RADIANS(dest.COORDINATE_X))
                 + COS(RADIANS(src.COORDINATE_X)) * COS(RADIANS(dest.COORDINATE_X))
                 * COS(RADIANS(src.COORDINATE_Y) - RADIANS(dest.COORDINATE_Y)) )
                 * 6371 AS DISTANCE
