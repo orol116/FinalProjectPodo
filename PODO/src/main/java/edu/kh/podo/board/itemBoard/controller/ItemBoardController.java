@@ -142,16 +142,33 @@ public class ItemBoardController {
 		map.put("loginMemberNo", loginMemberNo);
 		map.put("boardNo", boardNo);
 		int result = 0;
+		
 		try {
 			result = service.addFav(map);
 
 			if (result > 0) {
 				result = service.addCountAdd(map);
+				
+				return result;
 			}
-		} catch (Exception e) {
-		}
+			
+		}catch (Exception e) {
+			
+			result = service.deleteFav(map);
+			
+			System.out.println(result);
 
+			if (result > 0) {
+				
+				result = service.addCountAdd(map);
+				
+				result = 2;
+			}
+			
+		}
+		
 		return result;
+
 	}
 
 	// 조회수 전체 조회
