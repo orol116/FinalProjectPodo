@@ -168,7 +168,7 @@ section>button>.fa-solid{
 .alert2 p{
 	display: none;
 	text-align: left;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(241, 241, 241);
 	padding: 20px;
 	width: 250px;
     height: 200px;
@@ -183,7 +183,7 @@ section>button>.fa-solid{
 .alert2 div{
     display: none;
 	text-align: left;
-	background-color: rgb(92, 228, 110);
+	background-color: #90C739;
 	padding: 20px;
 	width: 250px;
     height: 80px;
@@ -202,7 +202,7 @@ section>button>.fa-solid{
 	width:0;
 	height: 0;
 	border:6px solid transparent;
-	border-bottom-color:#ddd;
+	border-bottom-color: rgb(241, 241, 241);
 	right:10px;
 	top:-12px;
 }

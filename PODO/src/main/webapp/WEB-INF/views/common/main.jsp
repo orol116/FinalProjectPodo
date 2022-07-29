@@ -30,13 +30,6 @@
         <div class="mySlides"><img src="${contextPath}/resources/images/banner2-001.png"></div>
         <div class="mySlides"><img src="${contextPath}/resources/images/banner3-001.png"></div>
     </div>
-
-        
-        <div id="categoryName-space">${param.mCategoryName}</div><%-- main에서 ajax 받는 부분 --%>
-
-        
-        <div id="categoryName-space2">${param.mCategoryName}</div><%-- main에서 ajax 받는 부분 --%>
-        
         
 
 <%--         <div id="items-button-area">
@@ -315,7 +308,7 @@
 
     <!-- 카테고리 상품 -->
     <div class="itmes">
-        <a id="category-header-a"> <h2 style="margin:0;">카테고리 ></h2></a>
+        <a > <h2 style="margin:0;" id="category-header-a">${param.mCategoryName} 카테고리 ></h2></a>
     </div>
     
 
@@ -415,6 +408,8 @@
                 
                 setTimeout(carousel, 5000); // Change image every 2 seconds
             }
+
+            var mCatName = "${param.mCategoryName}"
     </script>
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

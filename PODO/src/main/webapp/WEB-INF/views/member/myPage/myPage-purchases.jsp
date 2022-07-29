@@ -20,8 +20,6 @@
     <%-- 파비콘 --%>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
-    <style>
-    </style>
 </head>
 
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />

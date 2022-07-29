@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="${contextPath}/resources/css/member/find-IDPW.css">
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
 
     <title>find-ID</title>
 </head>

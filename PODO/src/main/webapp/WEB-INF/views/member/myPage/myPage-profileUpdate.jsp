@@ -19,8 +19,7 @@
     
     <%-- 파비콘 --%>
     <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
-    <style>
-    </style>
+  
 </head>
 <body>
     <main>
