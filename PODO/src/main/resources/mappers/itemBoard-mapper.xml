@@ -213,6 +213,12 @@
 		INSERT INTO BOOKMARK VALUES(${loginMemberNo}, ${boardNo})
 	</insert>
 	
+	<delete id="deleteFav">
+		DELETE FROM BOOKMARK 
+		WHERE MEMBER_NO = ${loginMemberNo}
+		AND   BOARD_NO = ${boardNo}
+	</delete>
+	
 	<insert id="addCountAdd">
 		UPDATE ITEM_BOARD SET 
 		BOOKMARK_COUNT = (
