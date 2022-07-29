@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-favorites-style.css">
 
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
     <%-- 파비콘 --%>
@@ -149,7 +151,6 @@
 
     <!-- sweetalert2 CDN -->
     <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <!-- js -->
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
