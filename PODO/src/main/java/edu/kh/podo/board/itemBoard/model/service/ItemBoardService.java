@@ -96,4 +96,6 @@ public interface ItemBoardService {
 	List<ItemBoard> selectUnOpenList();
 
 	Map<String, Object> myPlaceSelect(int memberNo);
+
+	int deleteFav(Map<String, Object> map);
 }
