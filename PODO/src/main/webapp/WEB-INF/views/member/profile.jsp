@@ -12,9 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/member-profile.css">
-    
+        <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>find-ID</title>
+    <title>내 상점</title>
 </head>
 
 
