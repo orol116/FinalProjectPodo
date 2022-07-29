@@ -324,16 +324,18 @@
         </section>
     </section>
 
-    <!-- 카테고리 상품 -->
-    <div class="itmes">
-        <a > <h2 style="margin:0;" id="category-header-a">${param.mCategoryName} 카테고리 ></h2></a>
-    </div>
+   
     
 
-    <section>
+    <!-- 카테고리 상품 -->
+    <div class="itmes">
+        <a > <h2 style="margin:0;" id="category-header-a">카테고리 >  ${param.mCategoryName} </h2></a>
+    </div>
 
 
-       <section id="items-section" style="display:none;">
+    <section id="items-section" style="display:none;">
+
+         
 
                 <c:choose>
             <c:when test="${empty itemList}">
