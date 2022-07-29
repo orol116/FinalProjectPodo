@@ -97,7 +97,7 @@ mychat/* 본문 영역 */
     border-bottom: 1px solid #c7c7c7; */
     display: flex;
     justify-content: space-between;
-    padding: 10px 10px;
+    padding: 13px 15px 5px 10px;
     height: 80px;
     border-bottom: 1px solid #c7c7c7;
     /* 
@@ -160,7 +160,7 @@ mychat/* 본문 영역 */
 
 .declaration img{
     display: block;
-    margin-bottom: 13px;
+    margin-bottom: 10px;
     width: 19px;
     height: 19px;
     cursor: pointer;
@@ -463,8 +463,24 @@ color: white;
 } 
 
 .chatList:active{
-    margin-left: 5px;
-    margin-top: 5px;
-    box-shadow: none;
-    background-color: rgb(193, 142, 216);
+    /* margin-left: 5px;
+    margin-top: 2px;
+    box-shadow: none; */
+    background-color: rgba(95, 0, 129, 0.39);
+    /* color: white; */
+    border-radius: 3px;
+    
 }
+
+textarea{
+    width: 430px;
+    height: 180px;
+    resize: none;
+}
+textarea:focus{
+    outline: none;
+}
+/* #close{
+    display: flex;
+    justify-content: end;
+  } */

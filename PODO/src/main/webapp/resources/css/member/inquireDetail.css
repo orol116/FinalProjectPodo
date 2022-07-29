@@ -124,7 +124,7 @@ textarea:focus{
 }
 .information>p:nth-child(2){
     color: gray;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .information1{
     display:flex;
