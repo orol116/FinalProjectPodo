@@ -173,4 +173,11 @@ public class MyShopController {
 	public String selectList(int memberNo, int type) {	
 		return new Gson().toJson(service.selectList(memberNo, type));
 	}
+	
+	// 삭제 ajax
+	@PostMapping("/deleteItem")
+	@ResponseBody
+	public int deleteItem(int boardNo) {	
+		return service.deleteItem(boardNo);
+	}
 }
