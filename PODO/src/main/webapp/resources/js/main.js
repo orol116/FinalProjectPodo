@@ -166,6 +166,8 @@ function carousel() {
   
     const locationSection = document.getElementById("items-location-section"); 
 
+    if(locationSection != null){
+        document.getElementById("items-location-section").innerHTML = "";
     $.ajax({
       url : contextPath + "/mainDistItem",  
       type : "GET", 
@@ -175,9 +177,7 @@ function carousel() {
         
         if (Object.keys(distList).length !== 0) {
                            
-        if(locationSection != null){
-         document.getElementById("items-location-section").innerHTML = "";
-        }
+        
          let frame;
          for (let k = 0; k < 10; k++) {
         
@@ -253,10 +253,10 @@ function carousel() {
          
         } else {
         
-         document.getElementById("items-location-section").innerHTML = "";
-         frame = document.createElement("div");
-         frame.classList.add("frame");
-         frame.innerText = "로그인 이후 사용 가능합니다.";
+            document.getElementById("items-location-section").innerHTML = "";
+            frame = document.createElement("div");
+            frame.classList.add("frame");
+            frame.innerText = "로그인 이후 사용 가능합니다.";
          
         
          document.getElementById("items-location-section").append(frame);
@@ -267,6 +267,7 @@ function carousel() {
           console.log("에러 발생");
       }
     })
+}
   
   
 
