@@ -50,6 +50,7 @@
                                 <label for="input-image">
                                     <img src="${contextPath}/resources/images/image.png" class="preview" id="profile-image">
                                 </label>
+                                 <input type="file" name="uploadImage" id="input-image" accept="image/*">
                             </div>
                                 <!-- 프로필 이미지 삭제 버튼 -->
                                 <span id="delete-image">&times;</span>

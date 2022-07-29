@@ -294,6 +294,7 @@ new daum.Postcode({
         document.getElementById("memberAddress").value = addr;
         // 주소로 상세 정보를 검색
         geocoder.addressSearch(data.address, function(results, status) {
+
             // 정상적으로 검색이 완료됐으면
             if (status === daum.maps.services.Status.OK) {
 
@@ -314,6 +315,8 @@ new daum.Postcode({
                 marker.setPosition(coords);
                 
             }
+            document.getElementById("dLon").value = dLon;
+            document.getElementById("dLat").value = dLat;
         });
     }
 }).open();
@@ -338,12 +341,11 @@ const addressMessage = document.getElementById("addressMessage");
     }
 }); */
 
-function memberAddr(){
+/* function memberAddr(){
 
-    document.getElementById("dLon").value = dLon;
-    document.getElementById("dLat").value = dLat;
+    
 
-}
+} */
 
 // 회원가입 버튼 클릭 시 유효성 검사가 완료 되었는지 확인하는 함수
 function signUpValidate(){
@@ -354,7 +356,7 @@ function signUpValidate(){
         checkObj.memberAddress = true;
     }
 
-    memberAddr();
+    /* memberAddr(); */
 
     // checkObj에 있는 모든 속성을 반복 접근하여
     // false가 하나라도 있는 경우에는 form태그 기본 이벤트 제거
