@@ -196,7 +196,8 @@
                                 <c:forEach var="i" begin="${start}" end="${fn:length(boardImageList) - 1}">
                                 
                                     <div class="boardImg">
-                                        <img src="${contextPath}${boardImageList[i].imageReName}">
+                                        <img  onclick="window.open(this.src)" alt="클릭하시면 조금더 커집니다.." hspace="0" src="${contextPath}${boardImageList[i].imageReName}"> 
+                                        <%-- <img src="${contextPath}${boardImageList[i].imageReName}"> --%>
                                     </div>
 
                                 </c:forEach>
@@ -266,7 +267,6 @@
                         </section>
 
                     </c:if>
-
                 </div>
 
             </div>
