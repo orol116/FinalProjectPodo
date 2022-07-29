@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:set var="item" value ="${distList}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +76,7 @@
             </c:when>
    
             <c:otherwise>
-                <c:forEach var="item" items="${distList}" begin="0" end="19" step="1" varStatus="vs">
+                <c:forEach var="item" items="${distList}" begin="0" end="999" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
@@ -101,7 +103,16 @@
                                     <div class="title1">
                                         <div class="name1">
                                             <div class="title2">${item.boardTitle}</div>
-                                            <div class="state">${item.tradeCondition}</div>
+                                            <c:set var="name" value="${item.delivery}"/>
+                                            <c:if test ="${name eq '무료배송'}">
+                                                <div class="delivery">${item.delivery}</div>
+                                            </c:if>
+                                            <c:set var="name" value="${item.tradeCondition}"/>
+                                            <c:if test ="${name eq '판매완료'}">
+                                                <div class="tradeCondition">${item.tradeCondition}</div>
+                                            </c:if>
+                                            <div class="distance">${Math.round(Double.parseDouble(item.distance)*10)/10.0}km</div>
+                                            <input type="hidden" id= "disVal" value="${item.distance}">
                                         </div>
                                         <div class="name2">
                                             <div class="price">${item.price}원</div>
@@ -124,7 +135,6 @@
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
