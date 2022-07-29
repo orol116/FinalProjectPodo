@@ -363,8 +363,8 @@
 		SELECT BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, MEMBER_NO, TRADE_CONDITION
 
 		FROM ITEM_BOARD
+
 		WHERE SECESSION_FL = 'N'
-		ORDER BY UPDATE_DT DESC
 		<if test='query != null and query != ""'>
 		
 			AND
@@ -374,9 +374,8 @@
 			OR
 			SELL_AREA LIKE '%${query}%')
 			
-
 		</if>
-
+		ORDER BY UPDATE_DT DESC
 	</select>
 	
 
