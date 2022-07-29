@@ -178,10 +178,10 @@ function selectTradeCondition(type){
                     
                     /* 판매-전체상태 */
                     if(type==1){
-                        if(itemList[i].tradeCondition == "판매 완료"){
+                        if(itemList[i].tradeCondition == "판매완료"){
                             $(function() {
                                 $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                                overlayTitle.innerText = "판매 완료";
+                                overlayTitle.innerText = "판매완료";
                             });
                         }else{
                             $(".overlayCard").hide();
