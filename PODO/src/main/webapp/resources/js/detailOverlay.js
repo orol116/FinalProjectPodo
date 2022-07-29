@@ -20,6 +20,9 @@ window.onload = function() {
 
         var itemImage = document.getElementById("item-image");
         itemImage.classList.remove("overlay");
+    }else{
+        var itemImage = document.getElementById("item-image");
+        itemImage.classList.remove("overlay");
     }
 
 };
