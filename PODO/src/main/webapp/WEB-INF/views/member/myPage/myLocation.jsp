@@ -61,9 +61,9 @@
                     <div class="background">
                         <div class="window">
                             <div class="popup">
-                            <button id="close" type="button">팝업닫기</button>
-                            <div id="modal-text">거래 지역 설정</div>
-                            <div id="modal-area">
+                            <button id="close" type="button">X</button>
+                            <div id="modal-text2">거래 지역 설정</div>
+                            <div id="modal-area2">
                                 <select id="distance" name="distance" onchange="showValue(this)">
                                     <option value="0">거리 설정</option>
                                     <option value="2">2km</option>
@@ -72,10 +72,11 @@
                                     <option value="8">8km</option>
                                     <option value="10">10km</option>
                                 </select>
-                            </div>
                                 <div id="Btn-area">
                                     <button id="selectBtn">제출</button>
                                 </div>
+                            </div>
+
                             </div>
                             <div>
                             </div>
