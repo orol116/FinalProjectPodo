@@ -21,25 +21,7 @@
     <main style="margin-top: 20px;">
         <div id="main-sideMenu">
         <div id="main-sideMenu1">
-            <div id="go-topBtn">&#128070;<br>UP</div>
-            <div id="recentShow-item">&#128064;<br>RECENT<br>ITEM</div>
-        </div>
-    </div>
-
-    <!-- <%-- 모달창 --%> -->
-    <div class="background">
-        <div class="window">
-            <div class="popup">
-                <button id="close" type="button">팝업닫기</button>
-                <div id="modal-text">최근 본 상품</div>
-                <div id="modal-area">
-                    <div class="recentImages"> 
-                        <img src=""  alt="상품 이미지">
-                    </div>
-                </div>
-            </div>
-            <div>
-            </div>
+            <div id="go-topBtn">&#128070;<br>TOP</div>
         </div>
     </div>
 

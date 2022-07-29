@@ -259,7 +259,7 @@ form[name="myPage-form"]{
 
 /* 비밀번호 변경  */
 .myPage-row>input[type="password"]{
-    width :70%;
+    width :75%;
 }
 
 
