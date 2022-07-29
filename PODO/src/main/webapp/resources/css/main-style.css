@@ -259,6 +259,13 @@ body{
     border: 1px solid #ccc;
   }
 
+  .boxx{
+    width: 230px;
+    height: 290px;
+    border: 1px solid rgba(221, 221, 221, 0.646);
+    margin-right: 15px;
+}
+
 
 
 
