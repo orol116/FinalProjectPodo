@@ -88,10 +88,17 @@
                                 <!-- 토스트 메시지 스크립트 favorites.js -->
                                 <!-- <div id="toast"> 
                                 </div> -->
-                                <button type="button" id="do-bookmark">찜하기</button> 
+                                <c:if test='${itemList[0].tradeCondition != "판매완료"}'> 
+                                    <button type="button" id="do-bookmark">찜하기</button> 
+                                </c:if>
+                                
                                 <button type="button" id="do-chat" onclick="location.href='${contextPath}/chat/start/${boardNo}/${memberNo}'">1:1 채팅하기</button>
 
                         
+                            </c:if>
+
+                            <c:if test="${memberNo == loginMember.memberNo}"> 
+                                <button type="button" id="do-chat" onclick="location.href='${contextPath}/member/updateBoard/${boardNo}'">수정하기</button>
                             </c:if>
                         </div>
 
@@ -189,7 +196,8 @@
                                 <c:forEach var="i" begin="${start}" end="${fn:length(boardImageList) - 1}">
                                 
                                     <div class="boardImg">
-                                        <img src="${contextPath}${boardImageList[i].imageReName}">
+                                        <img  onclick="window.open(this.src)" alt="클릭하시면 조금더 커집니다.." hspace="0" src="${contextPath}${boardImageList[i].imageReName}"> 
+                                        <%-- <img src="${contextPath}${boardImageList[i].imageReName}"> --%>
                                     </div>
 
                                 </c:forEach>
@@ -259,7 +267,6 @@
                         </section>
 
                     </c:if>
-
                 </div>
 
             </div>
