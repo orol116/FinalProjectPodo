@@ -44,14 +44,17 @@
                         <div class="myPage-row">
                             <label>현재 비밀번호</label>
                             <input type="password" name="pw" id="pw" class="input_box"  maxlength="15">
+                            <!-- <span class="" id="changePwCurrentPw"></span> -->
                         </div>
                         <div class="myPage-row">
                             <label>새 비밀번호</label>
                             <input type="password" name="newPw" id="newPw" class="input_box" maxlength="15" placeholder="영어, 숫자, 특수기호를 포함하여 15자 이내로 작성">
+                            <!-- <span class="" id="changePwNew"></span> -->
                         </div>
                         <div class="myPage-row">
                             <label>새 비밀번호 확인</label>
                             <input type="password" name="newPwConfirm" id="newPwConfirm" class="input_box" maxlength="15">
+                            <!-- <span class="" id="changePwNewConfirm"></span> -->
                         </div>
 
                         <!-- 소셜연동? -->
@@ -71,12 +74,18 @@
     
     </main>
     
+    <!-- sweetalert2 CDN -->
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- sweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 	<!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>

@@ -285,7 +285,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
+    
     <script src="${contextPath}/resources/js/fav/arites.js"></script>
     <%-- 찜 버튼 JS --%>
     <script>
@@ -295,6 +295,11 @@
 
         const receiveMemberNo = "${memberNo}"; 
     </script>
+
+    <!-- sweetalert2 CDN -->
+    <script src="sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
