@@ -583,7 +583,7 @@ footer {
 
 
 /* 토스트 메시지(07월28일 추가) */
-#toast {
+/* #toast {
     position: fixed;
     bottom: 30px;
     left: 50%;
@@ -604,6 +604,61 @@ footer {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0)
+} */
+
+
+/* ------------------------------------------- */
+/* 물품 상세 페이지 오버레이(07월29일 오후 추가) */
+/* 오버레이 */
+.overlay{
+    position: absolute;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: bold;
+    /* background: rgba(30, 29, 41, 0.56); */
+    
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    white-space: pre;
+    text-align: center;
+    /* opacity: 0.9; */
+    max-width: 50px;
+    max-height: 50px;
+    
+    transform: translate( 0%, -40% );
 }
 
+/* overlay span 태그 */
+.overlayCard{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    background: rgba(30, 29, 41, 0.56);
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    white-space: pre;
+    text-align: center;
+    /* opacity: 0.9; */
+    width: 420px;
+    height: 420px;
+    transform: translate(68px, 240px);
+}
 
+.overlayCard p{
+    color: white;
+    transform: translate(0px, 20px);
+}
+
+.purchasesInfoNone{
+    border-top: 1px solid rgb(226, 226, 242);
+    padding-top: 17px;
+}
