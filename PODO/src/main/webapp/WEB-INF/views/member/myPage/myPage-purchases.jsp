@@ -62,11 +62,9 @@
                                 <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
                             </li> --%>
 
-                            <%-- <li class="pcategory"> --%>
-                                <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
-                                <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
-                            <%-- </li> --%>
-
+                        
+                            <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
+                            <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
                             <!-- 밑줄 선 -->
                             <!-- <li class="line" role="presentation"></li> -->
                         </ul>

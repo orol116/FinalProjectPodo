@@ -26,12 +26,8 @@ function selectTradeCondition(type){
         type : "GET", // 데이터 전달 방식 type
 
         success : function(itemList){
-            
-
+        
             console.log(itemList);
-
-            console.log(itemList.boardNo);
-            console.log(itemList.imageReName);
 
             let sellContents = document.getElementById("sellContents");
 
@@ -53,18 +49,41 @@ function selectTradeCondition(type){
             let ul = document.createElement("ul");
             section.append(ul);
             
+            /* 조회 된 리스트 없을 경우 */
             if(itemList.length == 0){
                 let div = document.createElement("div");
                 content.append(div);
 
-                let purchasesinfo = document.createElement("div");
-                purchasesinfo.classList.add("purchases-info");
-                purchasesinfo.innerText = "판매 내역이 없습니다.";
-                div.append(purchasesinfo);
-            }else{
+                sellContents.append(purchasesContents);
+                
+                let iList = document.createElement("li");
+                iList.classList.add("fav-list");
+                ul.append(iList);
+                
+                
+                let purchasesInfoNone = document.createElement("div");
+                purchasesInfoNone.classList.add("purchasesInfoNone");
+                    if(type==1){
+                        purchasesInfoNone.innerText = "판매 내역이 없습니다.";
+                    }
+                    if(type==2){
+                        purchasesInfoNone.innerText = "예약 중인 상품이 없습니다.";
+                    }
+                    if(type==3){
+                        purchasesInfoNone.innerText = "판매 중인 상품이 없습니다.";
+                    }
+                    if(type==4){
+                        purchasesInfoNone.innerText = "판매 완료된 상품이 없습니다.";
+                    }
+                    if(type==5){
+                        purchasesInfoNone.innerText = "구매 내역이 없습니다.";
+                    }
+                iList.append(purchasesInfoNone);
+                
+            }else{ /* 조회 리스트 있을 경우 */
   
                 for(let i=0; i<itemList.length; i++){
-
+                    console.log(type);
                     /* li 태그 */
                     let iList = document.createElement("li");
                     iList.classList.add("fav-list");
@@ -95,62 +114,6 @@ function selectTradeCondition(type){
                     thumb.append(overlayCard);
                     overlayCard.append(overlayTitle);
 
-                    /* ------오버레이------- */
-
-                    /* 판매-전체상태 */
-                    if(type==1){
-                        /* $(".overlayCard").hide();
-                        $(".overlayTitle").hide();
-                        */
-                       if(type==2){
-                            overlayTitle.innerText = "예약 중";
-                       }
-                       if(type==3){
-                            overlayTitle.innerText = "판매 중";
-                       }
-                       if(type=4){
-                            $(function() {
-                                $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                            });
-                       }    
-                    }
-
-                    /* 예약중 */
-                    if(type==2){
-                        /* const overlayTitle = document.getElementsByClassName('overlayTitle'); */
-                        /* document.querySelector('.overlayTitle').id = 'overlayTitle'; */
-                        /* $(function(){
-                            $(".overlayCard").hide();
-                            $(".overlayTitle").hide();
-                            
-                        }); */
-                        overlayTitle.innerText = "예약 중";
-                    }
-                    
-                    /* 판매중 */
-                    if(type==3){
-                        overlayTitle.innerText = "판매 중";
-                    }
-                    
-                    /* 판매완료 */
-                    if(type==4){
-                        $(function() {
-                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                        });
-                    }
-                    
-                    /* 구매 */
-                    if(type==5){
-                        overlayTitle.innerText = "구매완료";
-                    }
-                    /* --------------------- */
-
-                    
-                    /* $(function() {
-                        $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                    }); */
-
-                    
                     /* 상품 정보 div */
                     // div : gdsInfo
                     let purchasesInfo = document.createElement("div");
@@ -188,8 +151,56 @@ function selectTradeCondition(type){
                     p.append(spanName,spanPrice,spanDate,spanCount );
           
                     sellContents.append(purchasesContents);
+
+
+                    /* ------오버레이------- */
+                    /* 
+                        type 1~4 : 전체 / 예약중 / 판매중 / 판매완료 
+                        type   5 : 구매
+                    */
+
+                    /* 오버레이 영역 숨김 처리
+                    $(".overlayCard").hide();
+                    $(".overlayTitle").hide();
+                    */
+                    
+
+                    /* 판매-전체상태 */
+                    if(type==1){
+                        if(type==4){
+                            $(function() {
+                                $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                            });
+                        }    
+                     } 
+ 
+                    // 예약중
+                    if(type==2){
+                        $(".overlayCard").hide();
+                        $(".overlayTitle").hide();
+                    }
+                     
+                    // 판매중
+                    if(type==3){
+                        $(".overlayCard").hide();
+                        $(".overlayTitle").hide();
+                    }
+                    
+                    // 판매완료
+                    if(type==4){
+                        $(function() {
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                        });
+                    }
+                    
+                    // 구매내역
+                    if(type==5){
+                        overlayTitle.innerText = "구매완료";
+                    }
+                    /* --------------------- */
                 }
                 
+                    
 
                 
             }
