@@ -64,12 +64,12 @@ function listClickFn(chatNo) {
 			
 					li.append(span, p);
 					li.classList.add("myChat"); // 스타일 적용
-					span.innerText = currentTime(); // 날짜
+					span.innerText = msg.messageTime; // 날짜
 					p.innerHTML = msg.messageContent;
 				}else{
 					li.innerHTML = "<b>"  + msg.memberNickname  +  "</b><br>";
 					p.innerHTML = msg.messageContent;				
-					span.innerText = currentTime();
+					span.innerText = msg.messageTime;
 					li.append(p, span);
 				}
 				

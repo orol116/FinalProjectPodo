@@ -55,14 +55,7 @@
                     <nav class="navigator">
 
                         <ul class="category" style="padding:0;">
-                            <%-- <li class="selected">
-                                <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
-                            </li>
-                            <li class="">
-                                <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
-                            </li> --%>
-
-                        
+                            
                             <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
                             <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
                             <!-- 밑줄 선 -->
@@ -98,10 +91,6 @@
 
     <!-- footer include -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
-    <script>
-        const memberNo = "${loginMember.memberNo}";
-    </script>
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -169,12 +169,14 @@
 	<select id="selectWhoIsSeller" resultType="_int">
 		SELECT MEMBER_NO FROM ITEM_BOARD
 		WHERE BOARD_NO = ${boardNo}
+		AND SECESSION_FL = 'N'
 	</select>
 	
 	<!-- 판매중인지 완료되었는지 조회 -->
 	<select id="selectCondition" resultType="string">
 		SELECT TRADE_CONDITION FROM ITEM_BOARD
 		WHERE BOARD_NO = ${boardNo}
+		AND SECESSION_FL = 'N'
 	</select>
 	
 	<!-- 후기를 작성했는지 검사 -->

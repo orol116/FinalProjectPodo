@@ -116,4 +116,12 @@ public class MyShopDAO {
 		sqlSession.update("myShopMapper.updateGrape", no);
 	}
 
+	/** 삭제 ajax
+	 * @param boardNo
+	 * @return result
+	 */
+	public int deleteItem(int boardNo) {
+		return sqlSession.update("myShopMapper.deleteItem", boardNo);
+	}
+
 }

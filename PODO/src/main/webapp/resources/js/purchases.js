@@ -17,17 +17,20 @@ function selectTradeCondition(type){
 
     console.log("버튼 타입(1:판매, 2:예약중, 3:판매중, 4:판매완료, 5:구매) : " + type);
     
+    
     $.ajax({
         url : contextPath + "/shop/myMall/selectList", 
         data : { "memberNo" : memberNo, 
-                 /* "boardNo" : boardNo, */
-                 "type" : type},
+        /* "boardNo" : boardNo, */
+        "type" : type},
         dataType : "JSON",
         type : "GET", // 데이터 전달 방식 type
-
-        success : function(itemList){
         
+        success : function(itemList){
+            
             console.log(itemList);
+
+            
 
             let sellContents = document.getElementById("sellContents");
 
@@ -83,7 +86,12 @@ function selectTradeCondition(type){
             }else{ /* 조회 리스트 있을 경우 */
   
                 for(let i=0; i<itemList.length; i++){
+                    /* 상태 값 */
+                    var tradeCondition = itemList[i].tradeCondition;
+                    console.log(tradeCondition);
                     console.log(type);
+
+                    
                     /* li 태그 */
                     let iList = document.createElement("li");
                     iList.classList.add("fav-list");
@@ -100,20 +108,22 @@ function selectTradeCondition(type){
                     itemImage.src = contextPath + itemList[i].imageReName;
                     thumb.append(itemImage);
 
+                    
                     /* overlay */
                     let overlayCard = document.createElement("span");
                     overlayCard.classList.add("overlayCard");
 
                     let overlayImg = document.createElement("img");
-                    overlayImg.innerText = "판매완료";
+                    /* overlayImg.innerText = "판매완료"; */
 
                     let overlayTitle = document.createElement("p");
                     overlayTitle.classList.add("overlayTitle");
-                    overlayTitle.innerText = "판매완료";
+                    /* overlayTitle.innerText = "판매완료"; */
                     
                     thumb.append(overlayCard);
                     overlayCard.append(overlayTitle);
-
+                     
+                    
                     /* 상품 정보 div */
                     // div : gdsInfo
                     let purchasesInfo = document.createElement("div");
@@ -163,16 +173,22 @@ function selectTradeCondition(type){
                     $(".overlayCard").hide();
                     $(".overlayTitle").hide();
                     */
-                    
 
+                    // 상태 객체 : tradeCondition
+                    
                     /* 판매-전체상태 */
                     if(type==1){
-                        if(type==4){
+                        if(itemList[i].tradeCondition == "판매 완료"){
                             $(function() {
                                 $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                                overlayTitle.innerText = "판매 완료";
                             });
-                        }    
-                     } 
+                        }else{
+                            $(".overlayCard").hide();
+                            $(".overlayTitle").hide();
+                        }
+                    }
+                    
  
                     // 예약중
                     if(type==2){
@@ -195,6 +211,9 @@ function selectTradeCondition(type){
                     
                     // 구매내역
                     if(type==5){
+                        $(function() {
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                        });
                         overlayTitle.innerText = "구매완료";
                     }
                     /* --------------------- */

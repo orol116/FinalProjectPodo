@@ -117,6 +117,7 @@
 	
 	<select id="itemListCount" resultType="_int">
 		SELECT COUNT(*) FROM ITEM_BOARD
+		WHERE SECESSION_FL = 'N'
 	</select>
 	
 	<select id="memberListCount" resultType="_int">
@@ -279,6 +280,7 @@
 				<when test='key == "s"'>
 					BOARD_TITLE LIKE '%${query}%'
 					AND TRADE_CONDITION = '판매 중'
+					
 				</when>
 				
 				<when test='key == "r"'>
@@ -292,6 +294,7 @@
 				</when>
 			</choose>
 		</if>
+		AND SECESSION_FL = 'N'
 	
 	</select>
 	
@@ -445,7 +448,7 @@
 				
 			</choose>
 		</if>
-		
+		AND SECESSION_FL = 'N'
 		ORDER BY BOARD_NO DESC 
 	</select>
 	
