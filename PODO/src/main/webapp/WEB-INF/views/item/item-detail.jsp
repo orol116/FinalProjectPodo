@@ -88,10 +88,17 @@
                                 <!-- 토스트 메시지 스크립트 favorites.js -->
                                 <!-- <div id="toast"> 
                                 </div> -->
-                                <button type="button" id="do-bookmark">찜하기</button> 
+                                <c:if test='${itemList[0].tradeCondition != "판매완료"}'> 
+                                    <button type="button" id="do-bookmark">찜하기</button> 
+                                </c:if>
+                                
                                 <button type="button" id="do-chat" onclick="location.href='${contextPath}/chat/start/${boardNo}/${memberNo}'">1:1 채팅하기</button>
 
                         
+                            </c:if>
+
+                            <c:if test="${memberNo == loginMember.memberNo}"> 
+                                <button type="button" id="do-chat" onclick="location.href='${contextPath}/member/updateBoard/${boardNo}'">수정하기</button>
                             </c:if>
                         </div>
 

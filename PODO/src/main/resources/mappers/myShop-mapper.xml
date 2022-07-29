@@ -123,6 +123,7 @@
 		WHERE IMG_LEVEL = 
 		   (SELECT MIN(IMG_LEVEL) FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
 		AND MEMBER_NO = ${memberNo}
+		AND A.SECESSION_FL = 'N'
 		ORDER BY UPDATE_DT DESC
 	</select>
   
@@ -135,11 +136,13 @@
 		SELECT COUNT(*) FROM ITEM_BOARD 
 		WHERE MEMBER_NO = ${memberNo}
 		AND TRADE_CONDITION = '판매완료'
+		AND SECESSION_FL = 'N'
 	</select>
 	
 	<select id="selectMemberNo" resultType="_int">
 		SELECT MEMBER_NO FROM ITEM_BOARD 
 		WHERE BOARD_NO = ${boardNo}
+		AND SECESSION_FL = 'N'
 	</select>
 	
 	<update id="introChange">
@@ -174,6 +177,7 @@
 		JOIN BOARD_IMG ON(A.BOARD_NO = BOARD_IMG.BOARD_NO)
 		WHERE IMG_LEVEL = 
 		   (SELECT MIN(IMG_LEVEL) FROM BOARD_IMG B WHERE A.BOARD_NO = B.BOARD_NO)
+		AND A.SECESSION_FL = 'N'
 		   
 		<choose>
 			<when test="type == 1">
