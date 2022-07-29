@@ -88,6 +88,7 @@ section>button>.fa-solid{
     color: #5f0081;
     text-decoration: none;
     font-size: 30px;
+    cursor: pointer;
 }
 #menu{
     display: flex;
@@ -284,7 +285,7 @@ section>button>.fa-solid{
 #item-category > li:hover{
     background-color: rgb(95, 0, 129);
     color: #fff;
-    cursor: pointer;
+    
     
 }
 
@@ -299,6 +300,13 @@ section>button>.fa-solid{
     display: none;
     list-style: none;
     margin: 10px 0 10px 0;
+    width: fit-content;
 
+}
+
+#div-category > li:hover{
+    border-bottom:  2px solid #5f0081;
+    color: #5f0081;
+    cursor: pointer;
 }
 
