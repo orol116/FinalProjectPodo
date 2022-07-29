@@ -1,6 +1,8 @@
 /* 마이페이지 */
 .myPage-content{
     flex-basis: 20%;
+
+    min-height: 68vh;
     /* width: 100%; */
     /* height: 600px; */
     /* display: inline-grid; */
