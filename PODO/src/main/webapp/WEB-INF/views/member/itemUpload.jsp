@@ -345,10 +345,10 @@
         <input type="hidden" name="lCateValue" id="lCateValue">
         <input type="hidden" name="mCateValue" id="mCateValue">
 
-        <input type="hidden" name="dLon" id="dLon" value="">
-        <input type="hidden" name="dLat" id="dLat" value="">
-        <%-- <input type="text" name="dLon" id="dLon" value="">
-        <input type="text" name="dLat" id="dLat" value=""> --%>
+        <%-- <input type="hidden" name="dLon" id="dLon" value="">
+        <input type="hidden" name="dLat" id="dLat" value=""> --%>
+        <input type="text" name="dLon" id="dLon" value="">
+        <input type="text" name="dLat" id="dLat" value="">
 
       </form>
     </main>

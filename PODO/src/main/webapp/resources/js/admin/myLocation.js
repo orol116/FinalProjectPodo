@@ -1,6 +1,14 @@
+resultX = Math.floor(x * 100000) / 100000;
+console.log(resultX);
+
+resultY = Math.floor(y * 100000) / 100000;
+
+
+
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = {
-    center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+    center: new daum.maps.LatLng(resultY, resultX), // 지도의 중심좌표
     level: 5 // 지도의 확대 레벨
 };
 
@@ -10,13 +18,14 @@ var map = new daum.maps.Map(mapContainer, mapOption);
 var geocoder = new daum.maps.services.Geocoder();
 //마커를 미리 생성
 var marker = new daum.maps.Marker({
-position: new daum.maps.LatLng(37.537187, 127.005476),
+position: new daum.maps.LatLng(resultY, resultX),
 map: map
 });
 
 let dLat = "";
 let dLon = "";
-
+console.log(resultY);
+console.log(resultX);
 
 function sample5_execDaumPostcode() {
 new daum.Postcode({

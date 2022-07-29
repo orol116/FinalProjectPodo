@@ -16,7 +16,6 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-        ${memLocal[0]}
 
         <div id="container">
 

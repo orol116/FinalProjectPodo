@@ -74,7 +74,6 @@
             </c:when>
    
             <c:otherwise>
-
                 <c:forEach var="item" items="${distList}" begin="0" end="19" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
@@ -132,7 +131,7 @@
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
     <!-- main.js 연결 -->
-    <script src="${contextPath}/resources/js/detailList.js"></script>
+    <script src="${contextPath}/resources/js/LdetailList.js"></script>
     <script src="${contextPath}/resources/js/mainSideModal.js"></script>
 
     <%-- <script>

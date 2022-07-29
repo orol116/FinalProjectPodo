@@ -109,6 +109,8 @@ function sample5_execDaumPostcode() {
                     marker.setPosition(coords);
                     
                 }
+            document.getElementById("dLon").value = dLon;
+            document.getElementById("dLat").value = dLat;
             });
         }
     }).open();
@@ -141,14 +143,6 @@ document.getElementById('myPlace').addEventListener('click',()=>{
 })
 
 
-    $(".itemCondition").on("click", function(){
-        $("#dLon").val(dLon); 
-        $("#dLat").val(dLat); 
-
-    });
-
-    document.getElementById("dLon").value = dLon;
-    document.getElementById("dLat").value = dLat;
 
 
 

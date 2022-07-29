@@ -33,6 +33,15 @@ body{
     width: 1200px;
 }
 
+.recentImages {
+  height: 120;
+  width: 110;
+}
+
+.recentImages>img {
+  height: 120;
+  width: 110;
+}
 
 /* 이번주 상품 추천 */
 .itmes{
@@ -53,6 +62,7 @@ body{
     border: 1px solid rgba(221, 221, 221, 0.646);
     margin-right: 15px;
 }
+
 .image{
   height: 220px;
   width: 210px;
