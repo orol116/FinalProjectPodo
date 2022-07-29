@@ -73,4 +73,10 @@ public interface MyShopService {
 
 	int selectFinItem(int memberNo);
 
+	/** 삭제 ajax 
+	 * @param boardNo
+	 * @return result
+	 */
+	int deleteItem(int boardNo);
+
 }
