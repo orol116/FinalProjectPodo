@@ -1,21 +1,25 @@
-var list = new Array();
-list.push("${itemList.tradeCondition}");
+console.log(tradeCondition);
 
+window.onload = function() {
 
-console.log(list);
+    if(tradeCondition=="판매완료"){
 
-(function () {
+        var itemDetailHead = document.getElementById("item-detail-head");
+        
+        let overlayCard = document.createElement("span");
+        overlayCard.classList.add("overlayCard");
+        
+        let overlayTitle = document.createElement("p");
+        overlayTitle.classList.add("overlayTitle");
     
-    var itemDetailHead = document.getElementById("item-detail-head");
+        itemDetailHead.append(overlayCard);
+        overlayCard.append(overlayTitle);
     
-    let overlayCard = document.createElement("span");
-    overlayCard.classList.add("overlayCard");
+        $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+        overlayTitle.innerText = "판매완료";
 
-    let overlayImg = document.createElement("img");
-    
-    let overlayTitle = document.createElement("p");
-    overlayTitle.classList.add("overlayTitle");
+        var itemImage = document.getElementById("item-image");
+        itemImage.classList.remove("overlay");
+    }
 
-    itemDetailHead.append
-    
-})();
+};
