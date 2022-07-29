@@ -22,7 +22,10 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/itemManage.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/item-detail.css">
-    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+   
+       <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
+
 
     <title>상품 상세페이지</title>
 </head>
@@ -295,7 +298,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="${contextPath}/resources/js/fav/favorites.js"></script>
-    <script src="${contextPath}/resources/js/sweetAlert.js"></script>
+    <script src="${contextPath}/resources/js/detailOverlay.js"></script>
     <script src="${contextPath}/resources/js/modal.js"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     

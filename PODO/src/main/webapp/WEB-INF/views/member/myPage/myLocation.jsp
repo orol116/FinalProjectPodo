@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/admin/myLocation.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
+    
+    <link href="${contextPath}/resources/images/favicon.ico" rel="icon">
+
     <title>myLocation</title>
 </head>
 <body>

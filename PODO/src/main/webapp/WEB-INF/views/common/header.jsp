@@ -34,8 +34,8 @@
                 <a href="${contextPath}/member/myPage/profileUpdate">마이페이지</a>
 
                 <div class="alert2" >
-                    
-                    <%-- <p id="socketAlert">
+<%--                     
+                    <p id="socketAlert">
 
                     </p> --%>
                     <div id="socketAlert" ></div>

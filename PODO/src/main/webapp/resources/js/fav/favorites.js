@@ -21,6 +21,7 @@ if(bookmark != null){
                     // 메세지 입력 시 필요한 데이터를 js객체로 생성
                     const alramMessage ={
                         "memberNo" :memberNo ,
+                        "boardNo" :boardNo ,
                         "memberId": memberId,
                         "recieveMemberNo": receiveMemberNo,
                         "boardName":"favorites"
