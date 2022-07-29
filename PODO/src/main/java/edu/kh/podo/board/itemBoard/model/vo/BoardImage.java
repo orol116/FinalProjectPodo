@@ -14,4 +14,5 @@ public class BoardImage {
 	private String imageOriginal;
 	private int imageLevel;
 	private int boardNo;
+	private int memberNo;
 }
