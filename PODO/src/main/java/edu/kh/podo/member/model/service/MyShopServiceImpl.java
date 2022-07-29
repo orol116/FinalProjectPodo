@@ -108,6 +108,13 @@ public class MyShopServiceImpl implements MyShopService {
 	public int selectFinItem(int memberNo) {
 		return dao.selectFinItem(memberNo);
 	}
+
+	
+	// 삭제 ajax
+	@Override
+	public int deleteItem(int boardNo) {
+		return dao.deleteItem(boardNo);
+	}
 	
 	
 

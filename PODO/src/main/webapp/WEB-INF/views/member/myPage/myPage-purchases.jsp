@@ -55,14 +55,7 @@
                     <nav class="navigator">
 
                         <ul class="category" style="padding:0;">
-                            <%-- <li class="selected">
-                                <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
-                            </li>
-                            <li class="">
-                                <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
-                            </li> --%>
-
-                        
+                            
                             <button type="button" id="sellList" onclick="selectTradeCondition(1)">판매</button>
                             <button type="button" id="buyList"  onclick="selectTradeCondition(5)">구매</button>
                             <!-- 밑줄 선 -->

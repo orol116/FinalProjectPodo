@@ -38,8 +38,8 @@
                 
                     <h1 class="myPage-title">회원 탈퇴 안내</h1>
                     
-                    <h4 class="myPage-subtitle">회원 탈퇴 안내</h4>
-                    
+                    <%-- <h4 class="myPage-subtitle">회원 탈퇴 안내</h4>
+                     --%>
                     <div class="wrapper">  
                         
                         

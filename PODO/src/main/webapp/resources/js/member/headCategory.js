@@ -1,4 +1,8 @@
-  
+if (location.href == "http://localhost:8080/podo/main") { 
+    history.pushState(null, null, "http://localhost:8080/podo")
+
+    selectList(mcNo);
+} 
 
 
 const category = document.getElementById("fa-bars");
@@ -112,13 +116,7 @@ function selectList(mCategoryNo, mCategoryName){
     nameArea.innerText = mCategoryName;
     nameSpace.append(nameArea);
     }  */
-    location.href = contextPath;
-
-    if (location.href == "http://localhost:8080/podo/main") { 
-        history.pushState(null, null, "http://localhost:8080/podo")
-
-        selectList(mcNo);
-    } 
+    /* location.href = contextPath; */
 
     
     /* cHeader.innerText = mCategoryName; */
@@ -138,9 +136,11 @@ function selectList(mCategoryNo, mCategoryName){
                  document.getElementById("items-freeShop-section").innerHTML = "";
                  document.getElementById("items-unOpen-section").innerHTML = ""; */
                  categorySection.innerHTML = "";
-                 
+                 itemsSection.innerHTML = "";
+                 itemsSection.style.display = "block";
                 let frame;
                 categorySection.innerHTML = "";
+                
                 for (let k = 0; k < itemList.length; k++) {
 
                     if(k % 5 == 0){
@@ -204,8 +204,8 @@ function selectList(mCategoryNo, mCategoryName){
                 }
                 
             } else {
-
-                document.getElementById("items-section").innerHTML = "";
+                itemsSection.innerHTML = "";
+                categorySection.innerHTML = "";
                 frame = document.createElement("div");
                 frame.classList.add("frame");
                 frame.innerText = "게시글이 존재하지 않습니다." +mCategoryNo ;
