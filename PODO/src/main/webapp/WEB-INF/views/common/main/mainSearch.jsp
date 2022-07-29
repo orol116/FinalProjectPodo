@@ -75,7 +75,7 @@
    
             <c:otherwise>
 
-                <c:forEach var="item" items="${searchList}" begin="0" end="19" step="1" varStatus="vs">
+                <c:forEach var="item" items="${searchList}" begin="0" end="999" step="1" varStatus="vs">
                
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
@@ -84,25 +84,20 @@
                             <div class="box" id="${item.boardNo}">
                                 <a href="${contextPath}/board/detail/${item.boardNo}"  class="title">
                                     <div class="image">
-                                        <c:choose>
-
-                                            <c:when test="${!empty item.img.imageReName}">
-
                                                 <img src="${contextPath}${item.img.imageReName}"  alt="상품 이미지">
-
-                                            </c:when>
-
-                                            <c:otherwise>
-
-                                                <img src="resources/images/items/image1.jpg"  alt="상품 이미지">
-                                            </c:otherwise>
-                                        </c:choose>
                                     </div>   
                                     
                                     <div class="title1">
                                         <div class="name1">
                                             <div class="title2">${item.boardTitle}</div>
-                                            <div class="state">${item.tradeCondition}</div>
+                                            <c:set var="name" value="${item.delivery}"/>
+                                            <c:if test ="${name eq '무료배송'}">
+                                                <div class="delivery">${item.delivery}</div>
+                                            </c:if>
+                                            <c:set var="name" value="${item.tradeCondition}"/>
+                                            <c:if test ="${name eq '판매완료'}">
+                                                <div class="tradeCondition">${item.tradeCondition}</div>
+                                            </c:if>
                                         </div>
                                         <div class="name2">
                                             <div class="price">${item.price}원</div>

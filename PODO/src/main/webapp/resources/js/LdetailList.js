@@ -18,6 +18,19 @@ function carousel() {
 }
 
 
+(() => {
+  const distance = document.getElementsByClassName("distance");
+  const disVal = document.getElementById("disVal");
+  const resultX = disVal.value;
+  console.log(resultX);
+ 
+
+  let resultY = parseFloat((resultX)).toFixed(1);
+  console.log(resultY);
+  distance.innerText = resultY;
+
+})(); 
+
 // (() => {
 //   // let boardNo = document.querySelector('.frame:nth-child(2) ').getAttribute('id')
 //   const section = document.querySelectorAll('section')[3];

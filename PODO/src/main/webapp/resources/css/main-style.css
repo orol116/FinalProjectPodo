@@ -21,6 +21,10 @@ body{
     margin: auto;
 }
 
+.itmes {
+  margin-top: 30px;
+}
+
 /* body- 메인 banner */
 
 .slide-list{
@@ -61,11 +65,45 @@ body{
     height: 290px;
     border: 1px solid rgba(221, 221, 221, 0.646);
     margin-right: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.delivery {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: flex;
+  align-items: flex-start;
+  background-color: #a061b9;
+  padding: 3px 12px;
+  color: #fff;
+}
+
+.tradeCondition {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  align-items: flex-start;
+  background-color: #a33a80;
+  padding: 3px 12px;
+  color: #fff;
+}
+
+.distance {
+  position: absolute;
+  bottom: 72px;
+  right: 4px;
+  display: flex;
+  align-items: flex-start;
+  background-color: rgb(231 231 127);
+  padding: 5px 5px;
 }
 
 .image{
   height: 220px;
-  width: 210px;
+  width: 223px;
 }
 .image>img{
     height: 220px;

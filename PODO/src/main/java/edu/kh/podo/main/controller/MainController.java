@@ -75,64 +75,64 @@ public class MainController {
 		return "common/main";
 	}
 	
-	@ResponseBody
-	@RequestMapping("/mainItem")
-	public String mainItem(String query, RedirectAttributes ra, Model model, int boardNo) {
-
-		List<ItemBoard> podoList= service.selectItemFour(boardNo);
-
-		return new Gson().toJson(podoList);
-	}
-	
-	@ResponseBody
-	@RequestMapping("/mainItem1")
-	public String mainItem1(String query, RedirectAttributes ra, Model model, int boardNo) {
-
-		List<ItemBoard> freeShopList= service.selectItemFour(boardNo);
-	
-
-		return new Gson().toJson(freeShopList);
-	}
-	
-	@ResponseBody
-	@RequestMapping("/mainItem2")
-	public String mainItem2(String query, RedirectAttributes ra, Model model, int boardNo) {
-
-		List<ItemBoard> unOpenList= service.selectItemFour(boardNo);
-	
-
-		return new Gson().toJson(unOpenList);
-	}
-	
-	@ResponseBody
-	@RequestMapping("/mainItem3")
-	public String mainItem3(String query, RedirectAttributes ra, Model model, int boardNo) {
-
-		List<ItemBoard> readCountList= service.selectItemFour(boardNo);
-	
-
-		return new Gson().toJson(readCountList);
-	}
-	
-	@ResponseBody
-	@RequestMapping("/mainItem4")
-	public String mainItem4(String query, RedirectAttributes ra, Model model, int boardNo) {
-
-		List<ItemBoard> distList= service.selectItemFour(boardNo);
-	
-
-		return new Gson().toJson(distList);
-	}
-	
-	@ResponseBody
-	@RequestMapping("/mainItem5")
-	public String mainItem5(String query, RedirectAttributes ra, Model model, int boardNo) {
-
-		List<ItemBoard> searchList= service.selectItemFour(boardNo);
-	
-
-		return new Gson().toJson(searchList);
-	}
+//	@ResponseBody
+//	@RequestMapping("/mainItem")
+//	public String mainItem(String query, RedirectAttributes ra, Model model, int boardNo) {
+//
+//		List<ItemBoard> podoList= service.selectItemFour(boardNo);
+//
+//		return new Gson().toJson(podoList);
+//	}
+//	
+//	@ResponseBody
+//	@RequestMapping("/mainItem1")
+//	public String mainItem1(String query, RedirectAttributes ra, Model model, int boardNo) {
+//
+//		List<ItemBoard> freeShopList= service.selectItemFour(boardNo);
+//	
+//
+//		return new Gson().toJson(freeShopList);
+//	}
+//	
+//	@ResponseBody
+//	@RequestMapping("/mainItem2")
+//	public String mainItem2(String query, RedirectAttributes ra, Model model, int boardNo) {
+//
+//		List<ItemBoard> unOpenList= service.selectItemFour(boardNo);
+//	
+//
+//		return new Gson().toJson(unOpenList);
+//	}
+//	
+//	@ResponseBody
+//	@RequestMapping("/mainItem3")
+//	public String mainItem3(String query, RedirectAttributes ra, Model model, int boardNo) {
+//
+//		List<ItemBoard> readCountList= service.selectItemFour(boardNo);
+//	
+//
+//		return new Gson().toJson(readCountList);
+//	}
+//	
+//	@ResponseBody
+//	@RequestMapping("/mainItem4")
+//	public String mainItem4(String query, RedirectAttributes ra, Model model, int boardNo) {
+//
+//		List<ItemBoard> distList= service.selectItemFour(boardNo);
+//	
+//
+//		return new Gson().toJson(distList);
+//	}
+//	
+//	@ResponseBody
+//	@RequestMapping("/mainItem5")
+//	public String mainItem5(String query, RedirectAttributes ra, Model model, int boardNo) {
+//
+//		List<ItemBoard> searchList= service.selectItemFour(boardNo);
+//	
+//
+//		return new Gson().toJson(searchList);
+//	}
 
 
 	

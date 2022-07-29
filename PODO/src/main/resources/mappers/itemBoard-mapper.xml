@@ -368,7 +368,10 @@
 			AND
 			( BOARD_TITLE LIKE '%${query}%'
 			OR
-			BOARD_CONTENT LIKE '%${query}%')
+			BOARD_CONTENT LIKE '%${query}%'
+			OR
+			SELL_AREA LIKE '%${query}%')
+			
 
 		</if>
 

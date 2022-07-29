@@ -17,7 +17,20 @@ function carousel() {
     setTimeout(carousel, 5000); // Change image every 2 seconds
 }
 
+// tCondition();
 
+// function tCondition(){
+    
+//     var x ;
+//     var y = document.getElementsByClassName("state");
+//     for(x =0; x< y.length; x++) {
+//         if(y[x].value=='판매완료') {
+//             y[x].style.display = "none";
+//         }
+//     }       
+// }
+
+ 
 // (() => {
 //   // let boardNo = document.querySelector('.frame:nth-child(2) ').getAttribute('id')
 //   const section = document.querySelectorAll('section')[3];
@@ -200,13 +213,13 @@ function carousel() {
              imageArea.classList.add("image");
         
              const itemImage = document.createElement("img");
-             if(distList[k].imageList != null){
-                 itemImage.setAttribute('src', contextPath+distList[k].imageList.imageReName);
+             if(distList[k].img != null){
+                 itemImage.setAttribute('src', contextPath+distList[k].img.imageReName);
              }else{
                  itemImage.setAttribute('src','resources/images/items/image1.jpg')
              }
              
-        
+             console.log(distList[k]);
              const title1 = document.createElement("div");
              title1.classList.add("title1");
 
@@ -218,22 +231,40 @@ function carousel() {
              title2.innerText = distList[k].boardTitle;
              title2.style.maxWidth =" 150px";
 
-             const state = document.createElement("div");
-             state.classList.add("state");
-             state.innerText = distList[k].tradeCondition;
+             if(distList[k].delivery == '무료배송'){
+             const delivery = document.createElement("div");
+             delivery.classList.add("delivery");
+             delivery.innerText = distList[k].delivery;
+             delivery.style.maxWidth =" 150px";
+             name1.append(delivery);
+             }
+
+             if(distList[k].tradeCondition == '판매완료'){
+             const tradeCondition = document.createElement("div");
+             tradeCondition.classList.add("tradeCondition");
+             tradeCondition.innerText = distList[k].tradeCondition;
+             tradeCondition.style.maxWidth =" 150px";
+             name1.append(tradeCondition);
+             }
+
+             const distance = document.createElement("div");
+             distance.classList.add("distance");
+             resultX = distList[k].distance;
+             console.log(resultX)
+             distance.innerText = resultX.toFixed(1)+"km";
         
              const name2 = document.createElement("div");
              name2.classList.add("name2");
         
              const price = document.createElement("div");
              price.classList.add("price");
-             price.innerText = distList[k].price;
+             price.innerText = distList[k].price + "원";
         
              const time = document.createElement("div");
              time.classList.add("time");
              time.innerText = distList[k].updateDate;
         
-             name1.append(title2, state);
+             name1.append(title2, distance);
 
              name2.append(price, time);
         
