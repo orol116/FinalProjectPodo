@@ -327,7 +327,7 @@
 		FROM ITEM_BOARD
 		WHERE UPDATE_DT >= SYSDATE - 7
 		AND SECESSION_FL = 'N'
-		ORDER BY READ_COUNT
+		ORDER BY READ_COUNT DESC
 	</select>
 	
 	<!-- 포도순 상품 조회 -->
@@ -345,6 +345,7 @@
 		FROM ITEM_BOARD
 		WHERE DELIVERY = '무료배송'
 		AND SECESSION_FL = 'N'
+		ORDER BY UPDATE_DT DESC
 	</select>
 	
 	<!-- 미개봉 상품 조회 -->
@@ -353,6 +354,7 @@
 		FROM ITEM_BOARD
 		WHERE ITEM_CONDITION = '새상품'
 		AND SECESSION_FL = 'N'
+		ORDER BY UPDATE_DT DESC
 	</select>
 	
 
@@ -362,7 +364,7 @@
 
 		FROM ITEM_BOARD
 		WHERE SECESSION_FL = 'N'
-
+		ORDER BY UPDATE_DT DESC
 		<if test='query != null and query != ""'>
 		
 			AND
