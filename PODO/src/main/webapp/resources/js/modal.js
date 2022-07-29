@@ -47,4 +47,3 @@ if(tradeCondition.value = "판매완료"){
   document.getElementById("item-image").classList.add("overlay");
 }
 
-  

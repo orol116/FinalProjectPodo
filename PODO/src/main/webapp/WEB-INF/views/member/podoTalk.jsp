@@ -135,62 +135,64 @@
                                 </div>
                             </a>
 
-
-                            <ul id="hiddenList03" class="example01" style="display: none;">
-                                <button type="button" onclick="deleteChat()" >나가기</button>
-                                <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
-                
-                                <!-- Button trigger modal -->
-                                <button type="button" id="reviewWrt" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >후기 작성</button>
-                            </ul>
-                            
-
-                            <%-- 신고하기 --%>
-                            <div class="declaration">
-
-                              
-                                <span class="icon-emo-sunglasses" id="spreadBtn04">
-                                    <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
-                                </span>
-                                <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
-                                
+                            <div   style=" display: flex;">
                                 <ul id="hiddenList03" class="example01" style="display: none;">
-                                    <button type="button" onclick="deleteChat()">나가기</button>
-                                    <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
+                                    <button type="button" onclick="deleteChat()" style="border:none;">나가기</button>
+                                    <button type="button" onclick="tradeCondition()" id="finishTrade" style="border:none;">판매완료하기</button>
                     
                                     <!-- Button trigger modal -->
-                                    <button type="button" id="reviewWrt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="--bs-btn-bg: rgb(131, 4, 177)">후기 작성</button>
+                                    <button type="button" id="reviewWrt" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  style="border:none;">후기 작성</button>
                                 </ul>
+                                
 
+                                <%-- 신고하기 --%>
+                                <div class="declaration" style="margin: 0 10px 0;">
+
+                                
+                                    
+                                    <img id="item-report" src="${contextPath}/resources/images/report.png" alt="신고 이미지">
+                                    <span class="icon-emo-sunglasses" id="spreadBtn04">
+                                        <img class="icon-list" src="${contextPath}/resources/images/icon-list.png">
+                                    </span>
+                                    <ul id="hiddenList03" class="example01" style="display: none;">
+                                        <button type="button" onclick="deleteChat()">나가기</button>
+                                        <button type="button" onclick="tradeCondition()" id="finishTrade">판매완료하기</button>
+                        
+                                        <!-- Button trigger modal -->
+                                        <button type="button" id="reviewWrt" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="--bs-btn-bg: rgb(131, 4, 177)">후기 작성</button>
+                                    </ul>
+
+                                </div>
                             </div>
-
                             
 
                             <!-- <%-- 모달창 --%> -->
                             <div class="background">
                                 <div class="window">
-                                <div class="popup">
-                                    <button id="close" type="button">팝업닫기</button>
-                                    <div id="report-text">신고할 내용을 입력해주세요.</div>
-                                    <div id="report-area">
-                                        <textarea id="report" placeholder="신고할 내용을 입력해주세요."></textarea>   
-                                    </div>
-                                    <div id="selectBtn-area">
-                                        <select name="key" id="search-key">
-                                            <option value="1">기타</option>
-                                            <option value="2">광고</option>
-                                            <option value="3">상품 정보 부정확</option>
-                                            <option value="4">거래 금지 품목</option>
-                                            <option value="5">허위 매물</option>
-                                            <option value="6">사기 의심</option> 
-                                        </select>
-                                        <button id="reportBtn">신고하기</button>
-                                        <button id="reviewBtn">등록하기</button>
-                                    </div>
+                                    <div class="popup">
+                                        <div style="display:flex; justify-content: space-between;">
+                                        <%-- <div id="report-text"></div> --%>
+                                            <select name="key" id="search-key" style="height: 30px;">
+                                                <option value="1">기타</option>
+                                                <option value="2">광고</option>
+                                                <option value="3">상품 정보 부정확</option>
+                                                <option value="4">거래 금지 품목</option>
+                                                <option value="5">허위 매물</option>
+                                                <option value="6">사기 의심</option> 
+                                            </select>
+                                        <button id="close" type="button" style="background-color: rgb(95, 0, 129); color:white; border:none;">X</button>
+                                        </div>
+                                        <div id="report-area" style="padding: 10px 0 0 0px;">
+                                            <textarea id="report" placeholder="신고할 내용을 입력해주세요." style="resize: none;board:none;"></textarea>   
+                                        </div>
+                                        <div id="selectBtn-area">
+                                            
+                                            <button id="reportBtn" style="background-color: rgb(95, 0, 129); color:white; border:none;">신고하기</button>
+                                            <button id="reviewBtn" style="background-color: rgb(95, 0, 129); color:white; border:none;">등록하기</button>
+                                        </div>
 
-                                </div>
-                                <div>
-                                </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
 

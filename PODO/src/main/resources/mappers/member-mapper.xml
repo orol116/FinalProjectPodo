@@ -115,13 +115,13 @@
 		</selectKey>
 		
 		INSERT INTO MEMBER 
-		VALUES(#{memberNo}, #{memberId}, 'xxxx', #{memberId}, 01011111111, DEFAULT, '/resources/images/memberProfile/podo.jpg'', DEFAULT, DEFAULT, DEFAULT, 'aaa', DEFAULT, DEFAULT, NULL)
+		VALUES(#{memberNo}, #{memberId}, 'xxxx', #{memberId}, 01011111111, DEFAULT, '/resources/images/memberProfile/podo.jpg', DEFAULT, DEFAULT, DEFAULT, 'aaa', DEFAULT, DEFAULT, NULL)
 	</insert>
 	
 	<!-- 네이버 회원가입 위도 경도 기입 -->
 	<insert id="naverSignUpXY" parameterType="member">
-		INSERT INTO MEMBER 
-		VALUES( SEQ_MCRDNT_NO.NEXTVAL, #{memberNo}, 126.976243215499,37.5600786131308, null)
+		INSERT INTO MEMBERAREA_XY
+		VALUES( SEQ_MCRDNT_NO.NEXTVAL, #{memberNo}, 126.976243215499, 37.5600786131308, null)
 	</insert>
 	
 	

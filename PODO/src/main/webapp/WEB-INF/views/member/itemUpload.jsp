@@ -246,7 +246,7 @@
                 <li>
                     <section class="states">
                         
-                        <input type="radio" id="secondHand1" name="itemCondition" value='중고상품' class="itemCondition">
+                        <input type="radio" id="secondHand1" name="itemCondition" value='중고상품' class="itemCondition" checked> 
                         <label for="secondHand1">중고상품</label>
                     
                         <input type="radio" id="secondHand2" name="itemCondition" value='새상품' class="itemCondition">
@@ -271,7 +271,7 @@
             <ul class="second">
                 <li>
                     <section class="states">
-                        <input type="radio" name="delivery" id="delivery1" value='직거래' name="deliveryMethod">
+                        <input type="radio" name="delivery" id="delivery1" value='직거래' name="deliveryMethod" checked>
                         <label for="delivery1">직거래</label>
 
                         <input type="radio" name="delivery" id="delivery2" value='무료배송' name="deliveryMethod">
@@ -347,6 +347,7 @@
 
         <input type="hidden" name="dLon" id="dLon" value="">
         <input type="hidden" name="dLat" id="dLat" value="">
+
         <%-- <input type="text" name="dLon" id="dLon" value="">
         <input type="text" name="dLat" id="dLat" value=""> --%>
 
