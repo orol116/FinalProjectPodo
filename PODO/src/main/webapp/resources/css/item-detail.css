@@ -61,6 +61,7 @@ footer {
 
 /* item-detail head 화면 */
 #item-detail-head {
+    position: relative;
     display: flex;
     flex-direction: row;
 
@@ -650,7 +651,7 @@ footer {
     /* opacity: 0.9; */
     width: 420px;
     height: 420px;
-    transform: translate(68px, 240px);
+    transform: translate(10px, 20px);
 }
 
 .overlayCard p{
