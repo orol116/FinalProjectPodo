@@ -268,8 +268,15 @@ form[name="myPage-form"]{
     letter-spacing: -1px; /* 자간 */
 
 }
-.confirm{color:green;}
-.error{color:red;}
+.confirm{
+   
+    color: cornflowerblue;
+    
+  }
+ 
+  .error{
+    color: crimson;
+  }
 
 
 /* 주소 검색 버튼 3d효과 */
@@ -334,4 +341,8 @@ form[name="myPage-form"]{
     overflow: hidden !important;
     z-index: 1 !important;
     
+}
+
+.input_box{
+    border: 1px solid black;
 }
