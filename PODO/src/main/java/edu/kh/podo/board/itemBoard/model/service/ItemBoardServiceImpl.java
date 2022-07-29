@@ -281,8 +281,6 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 	public List<ItemBoard> selectReadCountList() {
 
 		List<ItemBoard> readCountList = dao.selectReadCountList();
-
-		// 판매자 다른 상품의 이미지 레벨 0번 이미지 조회
 		List<BoardImage> sellListImg = dao.selectItemsImg();
 
 		for (ItemBoard sell : readCountList) {
@@ -290,6 +288,7 @@ public class ItemBoardServiceImpl implements ItemBoardService {
 			for (BoardImage img : sellListImg) {
 				if (img.getBoardNo() == sell.getBoardNo()) {
 					sell.setImg(img);
+					
 				}
 			}
 
