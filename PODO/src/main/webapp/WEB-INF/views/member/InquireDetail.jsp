@@ -69,9 +69,14 @@
                         <p>&#127815;&nbsp;관리자</p>
                         <p>${rList.createDate}</p>
                     </div>
-                    <div class="feedback">
-                        ${rList.replyContent}
-                    </div>
+                    <div class="information1">
+                        <div class="feedback">
+                            ${rList.replyContent}
+                        </div>
+                        <c:if test="${loginMember.memberNo==1}">
+                            <button id="delete" onclick="deleteReply()">삭제</button>
+                        </c:if>   
+                    </div> 
                 </div>
             </c:if>
                 

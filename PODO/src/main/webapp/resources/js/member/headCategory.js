@@ -1,4 +1,8 @@
-  
+if (location.href == "http://localhost:8080/podo/main") { 
+    history.pushState(null, null, "http://localhost:8080/podo")
+
+    selectList(mcNo);
+} 
 
 
 const category = document.getElementById("fa-bars");
@@ -112,35 +116,31 @@ function selectList(mCategoryNo, mCategoryName){
     nameArea.innerText = mCategoryName;
     nameSpace.append(nameArea);
     }  */
-    location.href = contextPath;
+    /* location.href = contextPath; */
 
-    if (location.href == "http://localhost:8080/podo/main") { 
-        history.pushState(null, null, "http://localhost:8080/podo")
-
-        selectList(mcNo);
-    } 
-
-    categorySection.innerHTML = "";
-    cHeader.innerText = mCategoryName;
+    
+    /* cHeader.innerText = mCategoryName; */
 
     $.ajax({
         url : contextPath + "/selectCategory",  
-        data : { "mCategoryNo" : mCategoryNo }, 
+        data : { "mCategoryNo" : mCategoryNo },
         type : "GET", 
         dataType : "JSON",
  
         success : function(itemList){
 
-            if (itemList.length != 0) {
-                document.getElementById("categoryFrame").style.display = "block"; 
+            if (itemList.length != 0) { 
 
                  /* document.getElementById("items-readCount-section").innerHTML = "";
                  document.getElementById("items-podo-section").innerHTML = "";
                  document.getElementById("items-freeShop-section").innerHTML = "";
                  document.getElementById("items-unOpen-section").innerHTML = ""; */
                  categorySection.innerHTML = "";
-                 document.getElementById("categoryFrame").style.display = "block";
+                 itemsSection.innerHTML = "";
+                 itemsSection.style.display = "block";
                 let frame;
+                categorySection.innerHTML = "";
+                
                 for (let k = 0; k < itemList.length; k++) {
 
                     if(k % 5 == 0){
@@ -165,7 +165,7 @@ function selectList(mCategoryNo, mCategoryName){
                     if(itemList[k].imageList[0] != null){
                         itemImage.setAttribute('src', contextPath+itemList[k].imageList[0].imageReName);
                     }else{
-                        itemImage.setAttribute('src','resources/images/items/image1.jpg')
+                        itemImage.setAttribute('src','resources/images/items/image1.jpg');
                     }
                     
 
@@ -204,8 +204,8 @@ function selectList(mCategoryNo, mCategoryName){
                 }
                 
             } else {
-
-                document.getElementById("items-section").innerHTML = "";
+                itemsSection.innerHTML = "";
+                categorySection.innerHTML = "";
                 frame = document.createElement("div");
                 frame.classList.add("frame");
                 frame.innerText = "게시글이 존재하지 않습니다." +mCategoryNo ;

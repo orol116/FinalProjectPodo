@@ -10,8 +10,9 @@
 } 
 
 .wrapper{
-    width : 1000px;
-    padding: 0 200px;
+    /* width : 1000px;
+    padding: 0 50px; */
+    text-align: center;
 }
 */
 .myPage-main{
@@ -135,7 +136,7 @@
     align-items: center;
     border-bottom: 2px solid #ddd ;
     padding: 10px;
-    margin-left: 5px;
+    margin: 20px 50px !important;
 }
 
 .myPage-row>*{
@@ -144,7 +145,7 @@
 
 }
 .myPage-row>label{
-    width: 30%;
+    /* width: 30%; */
     color:black;
 
 }
@@ -159,6 +160,7 @@
     height: 100%;
     border:0;
     outline: 0;
+    padding-left: 50px;
     font-weight: normal;
 }
 
