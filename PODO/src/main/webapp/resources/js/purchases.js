@@ -100,6 +100,7 @@ function selectTradeCondition(type){
                     itemImage.src = contextPath + itemList[i].imageReName;
                     thumb.append(itemImage);
 
+                    
                     /* overlay */
                     let overlayCard = document.createElement("span");
                     overlayCard.classList.add("overlayCard");
@@ -113,7 +114,8 @@ function selectTradeCondition(type){
                     
                     thumb.append(overlayCard);
                     overlayCard.append(overlayTitle);
-
+                     
+                    
                     /* 상품 정보 div */
                     // div : gdsInfo
                     let purchasesInfo = document.createElement("div");
@@ -164,15 +166,13 @@ function selectTradeCondition(type){
                     $(".overlayTitle").hide();
                     */
                     
-
                     /* 판매-전체상태 */
-                    if(type==1){
-                        if(type==4){
-                            $(function() {
-                                $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
-                            });
-                        }    
-                     } 
+                    if(type==1 && (type==1 && type==4)){
+                        $(function() {
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                        });
+                    }
+                    
  
                     // 예약중
                     if(type==2){
@@ -195,6 +195,9 @@ function selectTradeCondition(type){
                     
                     // 구매내역
                     if(type==5){
+                        $(function() {
+                            $('.overlayTitle').before('<img src="/podo/resources/images/transactionCompleted.png" class="overlay" />');
+                        });
                         overlayTitle.innerText = "구매완료";
                     }
                     /* --------------------- */
