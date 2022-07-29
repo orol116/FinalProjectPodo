@@ -164,8 +164,7 @@ function carousel() {
 
 (() => {
   
- 
-    var locationSec = document.getElementById("items-location-section");
+    const locationSection = document.getElementById("items-location-section"); 
 
     $.ajax({
       url : contextPath + "/mainDistItem",  
@@ -176,12 +175,9 @@ function carousel() {
         
         if (Object.keys(distList).length !== 0) {
                            
-
-            if(locationSec != "") {
-                
-                locationSec.innerHTML = "";
-           
-
+        if(locationSection != null){
+         document.getElementById("items-location-section").innerHTML = "";
+        }
          let frame;
          for (let k = 0; k < 10; k++) {
         
@@ -254,7 +250,6 @@ function carousel() {
         
         
          }
-        
          
         } else {
         
@@ -267,7 +262,6 @@ function carousel() {
          document.getElementById("items-location-section").append(frame);
          
         }
-    }
       },
       error : function(){ 
           console.log("에러 발생");
