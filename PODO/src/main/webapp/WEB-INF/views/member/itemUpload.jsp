@@ -360,8 +360,8 @@
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=06bb10cd60ad6e59265c29b83ff6ec2d&libraries=services"></script>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="${contextPath}/resources/js/itemUpload.js"></script>
     <script src="${contextPath}/resources/js/member/headCategory.js"></script>
     
-    <script src="${contextPath}/resources/js/itemUpload.js"></script>
 </body>
 </html>
