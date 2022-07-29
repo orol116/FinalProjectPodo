@@ -26,11 +26,11 @@ public class ChatList {
 	private String messageTime;
 	private int messageNo;
 	
-	public String getUpdateDate() {
+	public String getMessageTime() {
 		return messageTime;
 	}
 	
-	public void setUpdateDate(Date messageTime) {
+	public void setMessageTime(Date messageTime) {
 		this.messageTime = Time.calculateTime(messageTime);
 	}	
 	

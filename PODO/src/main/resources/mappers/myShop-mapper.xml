@@ -168,7 +168,7 @@
 	
 	<!-- 구매/판매 내역 조회 ajax -->
 	<select id="selectList" resultMap="itemBoard_rm">
-		SELECT A.BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT,
+		SELECT A.BOARD_NO, BOARD_TITLE, PRICE, UPDATE_DT, TRADE_CONDITION,
 			IMG_RENAME
 		FROM ITEM_BOARD A
 		JOIN BOARD_IMG ON(A.BOARD_NO = BOARD_IMG.BOARD_NO)
@@ -198,4 +198,11 @@
 		</choose>
 		ORDER BY UPDATE_DT DESC
 	</select>
+	
+	
+	<update id="deleteItem">
+		UPDATE ITEM_BOARD SET 
+		SECESSION_FL = 'Y'
+		WHERE BOARD_NO = ${boardNo}
+	</update>
 </mapper>

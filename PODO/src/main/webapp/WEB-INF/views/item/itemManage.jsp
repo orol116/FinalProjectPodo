@@ -81,6 +81,7 @@
                             <td class="choice">
                                 <button class="choice1" onclick="updateDt(this)" value="${item.boardNo}">UP</button>
                                 <a href="${contextPath}/member/updateBoard/${item.boardNo}" class="choice2">수정</a>
+                                <button class="choice1" onclick="deleteItem(this)" value="${item.boardNo}">삭제</button>
                             </td>
                         </tr>  
                         <%-- </form>  --%> 

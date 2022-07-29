@@ -104,3 +104,31 @@ function updateDt(select){
 
 };
 
+
+// 삭제 기능 ajax
+function deleteItem(select){
+
+    var boardNo = $(select).val();
+
+    console.log(boardNo);
+
+    $.ajax({
+        url : "deleteItem",
+        data : {"boardNo" : boardNo},
+        type: "POST",
+
+        success : function(result){
+
+            alert("해당 상품이 삭제되었습니다.");
+
+            location.reload();
+
+        },
+        error : function(){
+            alert("삭제 실패, 관리자에게 문의하세요.");
+        }
+
+    });
+
+};
+
