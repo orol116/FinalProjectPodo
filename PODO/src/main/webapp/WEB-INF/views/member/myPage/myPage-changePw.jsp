@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
 
-    <link rel="stylesheet" href="sweetalert2.min.css">
+
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
 
@@ -82,8 +82,6 @@
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <!-- sweetalert2 CDN -->
-    <script src="sweetalert2.min.js"></script>
 
 	<!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>
