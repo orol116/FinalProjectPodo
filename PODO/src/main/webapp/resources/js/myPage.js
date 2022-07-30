@@ -9,14 +9,6 @@ const checkObj={
     "newPwConfirm":false,
 };
 
-// ------------------------------------------------------------
-    // 스위트알럿 경고 알람 적용 테스트
-    
-  
-  
-  
-// -------------------------------------------------------------
-    
 
 
 // 비밀번호 변경 수정
@@ -35,6 +27,12 @@ function changePwValidate(){
     //현재 비밀번호 미작성
     if(pw.value.trim().length==0){
         alert("현재 비밀번호를 입력해주세요");
+        /* Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '현재 비밀번호를 입력해주세요.',
+          }) */
+
         pw.focus();
         pw.value="";
         return false;// form태그가 제출되지 않게 한다.
@@ -44,14 +42,17 @@ function changePwValidate(){
     // 새비밀번호 미작성
     if(newPw.value.trim().length == 0){
         alert("새 비밀번호를 입력해주세요");
+
         newPw.focus();
         newPw.value="";
+
         return false;
     }
     
 
     if(!regExp.test(newPw.value)){ //유효하지 않은 경우
         alert("영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로 작성해주세요.");
+        
         newPw.focus();
         newPw.value="";
         return false;
@@ -60,7 +61,7 @@ function changePwValidate(){
     // 새비밀번호 확인 미작성시 
     if(newPwConfirm.value.trim().length==0){
         alert("새비밀번호 확인을 입력해주세요");
-   
+       
         newPwConfirm.focus();
         newPwConfirm.value="";
         return false;
@@ -69,7 +70,10 @@ function changePwValidate(){
     // 새비밀번호 != 새비밀번호확인 
     if(newPw.value != newPwConfirm.value){
         alert("새비밀번호가 일치하지 않습니다.");
+        
         newPw.focus();
+        newPw.classList.add("error");
+        newPw.classList.remove("confirm");
         return false;
 
     }
@@ -85,7 +89,8 @@ function secessionValidate(){
 
     // 비밀번호 미작성 
     if(memberPw.value.trim().length==0){
-        alert(" 비밀번호를 입력해주세요.");
+        alert("비밀번호를 입력해주세요.");
+        
         memberPw.focus();
         return false;  
     }
@@ -97,6 +102,7 @@ function secessionValidate(){
 
     if(!agree.checked){ // 체크를 안했을때 
         alert("유의사항 확인 후 탈퇴 신청 버튼을 눌러주세요.");
+        
         agree.focus();
         return false
         
@@ -108,6 +114,7 @@ function secessionValidate(){
     //          window는 생략 가능 
 
     if(!confirm("정말 탈퇴 신청을 하시겠습니까?")){ // 취소를 누른 경우
+        
         return false;
 
     }
@@ -185,18 +192,21 @@ function profileValidate(){
         // --> 아무것도 안하고 변경버튼을 클릭한 경우
 
         alert("이미지를 선택한 후 변경 버튼을 클릭해주세요.");
+        
         return false;
     }
 
     // 닉네임 유효성 검사
     if(memberNickname.value.length == 0){ // 미작성 시 : 닉네임을 입력해주세요.
         alert("닉네임을 입력해주세요.");
+        
         memberNickname.focus();
         return false;
     }
 
     if(!regExp1.test(memberNickname.value)){ // 유효하지 않은 경우
         alert("닉네임은 영어/숫자/한글 2~10 글자 사이로 작성해주세요.");
+    
         memberNickname.focus();
         return false;
     }

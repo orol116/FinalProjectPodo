@@ -1,10 +1,9 @@
 // 찜 등록 버튼 기능
-    const bookmark = document.getElementById("do-bookmark");
+const bookmark = document.getElementById("do-bookmark");
 /* const bookmark = document.getElementsByClassName("do-bookmark"); */
 
 if(bookmark != null){
-
-    /* document.getElementsByClassName("do-bookmark").addEventListener("click", function(){ */
+    //document.getElementsByClassName("do-bookmark").addEventListener("click", function(){
     document.getElementById("do-bookmark").addEventListener("click", function(){
         console.log(boardNo);
         console.log(loginMemberNo);
@@ -45,8 +44,9 @@ if(bookmark != null){
             }
         });
     });
-
 }
+
+
 
 // 찜 삭제
 function deleteOne(boardNo){
@@ -60,13 +60,16 @@ function deleteOne(boardNo){
             success: function(result){
                 if(result > 0){
                     alert("삭제되었습니다");
+                    
                     location.reload();
                 }else{
                     alert("삭제 실패");
+                    
                 }
             },
             error : function(req, status, error){
                 console.log("찜 삭제 삭제 실패");
+                
             }
         });
     }

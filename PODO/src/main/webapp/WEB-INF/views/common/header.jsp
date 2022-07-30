@@ -211,10 +211,10 @@
                         socketAlet2.innerHTML+= '회원님에게 포도톡이 왔습니다.';
 
                     }else if(alarm.boardName =='update'){
-                        socketAlet2.innerHTML+= '회원님이 찜 한 상품이 끌올 되었습니다.';
+                        socketAlet2.innerHTML+= '회원님이 찜한 상품이 끌올 되었습니다.';
 
                     }else if(alarm.boardName =='inquireReply'){
-                        socketAlet2.innerHTML+= '관리자가 회원님의 문의에 답변하였습니다.';
+                        socketAlet2.innerHTML+= '관리자가 문의에 답변 하였습니다.';
 
                     }
                 }

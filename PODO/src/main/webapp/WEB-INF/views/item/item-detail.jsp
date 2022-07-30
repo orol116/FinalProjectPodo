@@ -69,7 +69,9 @@
                             <div id="read-count"> 조회수 : ${itemList[0].readCount} </div>
                             <div id="create-DT">  ${itemList[0].updateDate} </div>
                         <c:if test="${memberNo != loginMember.memberNo}">
-                            <div id="item-report">신고하기</div>
+                            <c:if test="${loginMember != null}">
+                                <div id="item-report">신고하기</div>
+                            </c:if>
                         </c:if>
                         </div>
                         <%-- 추가된 내용 --%>
@@ -95,7 +97,9 @@
                                     <button type="button" id="do-bookmark">찜하기</button> 
                                 </c:if>
                                 
-                                <button type="button" id="do-chat" onclick="location.href='${contextPath}/chat/start/${boardNo}/${memberNo}'">1:1 채팅하기</button>
+                                <c:if test="${loginMember != null}">
+                                    <button type="button" id="do-chat" onclick="location.href='${contextPath}/chat/start/${boardNo}/${memberNo}'">1:1 채팅하기</button>
+                                </c:if>
 
                         
                             </c:if>
@@ -285,7 +289,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <%-- <script src="${contextPath}/resources/js/fav/heart.js"></script> --%>
+    
     <script src="${contextPath}/resources/js/fav/arites.js"></script>
     <%-- 찜 버튼 JS --%>
     <script>

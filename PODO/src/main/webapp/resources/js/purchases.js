@@ -194,18 +194,18 @@ function selectTradeCondition(type){
                     
                     // 예약중
                     if(type==2){
-                        /* $(".overlayCard").hide();
-                        $(".overlayTitle").hide(); */
-                        $('.overlayTitle').before('<img src="/podo/resources/images/reserve.png" class="overlay" />');
-                            overlayTitle.innerText = "예약중";
+                        $(".overlayCard").hide();
+                        $(".overlayTitle").hide();
+                        /* $('.overlayTitle').before('<img src="/podo/resources/images/reserve.png" class="overlay" />');
+                            overlayTitle.innerText = "예약중"; */
                     }
                      
                     // 판매중
                     if(type==3){
-                        /* $(".overlayCard").hide();
-                        $(".overlayTitle").hide(); */
-                        $('.overlayTitle').before('<img src="/podo/resources/images/booking.png" class="overlay" />');
-                            overlayTitle.innerText = "판매중";
+                        $(".overlayCard").hide();
+                        $(".overlayTitle").hide();
+                        /* $('.overlayTitle').before('<img src="/podo/resources/images/booking.png" class="overlay" />');
+                            overlayTitle.innerText = "판매중"; */
                     }
                     
                     // 판매완료

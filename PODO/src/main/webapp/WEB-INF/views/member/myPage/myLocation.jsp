@@ -38,7 +38,7 @@
                     </section>
             
                     <section>
-                        <div id="closeTown">설정을 변경하면 추천되는 상품이 변경됩니다.</div>
+                        <div id="closeTown">현재 위치 주변 상품이 조회됩니다.</div>
                     </section>
             
                     <section>
