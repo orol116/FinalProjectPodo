@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/sideMenu.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/mypage/myPage-profileUpdate-style.css">
 
-    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <script src="https://kit.fontawesome.com/a8d6d2b0bf.js" crossorigin="anonymous"></script>
     
@@ -102,9 +101,6 @@
     </div>
     
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    
-    <!-- sweetalert2 CDN -->
-    <script src="sweetalert2.min.js"></script>
     
     <!-- js -->
     <script src="${contextPath}/resources/js/myPage.js"></script>
