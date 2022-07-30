@@ -83,7 +83,7 @@ function categoryFunction(){
    
 
 const categorySection = document.getElementById("categoryDelete-section"); // 카테고리 외 다른 section들
-const cHeader = document.getElementById("category-header-a"); // 카테고리제목
+// const cHeader = document.getElementById("category-header-a"); // 카테고리제목
 const itemsSection = document.getElementById("items-section");
 
 function selectList2(mCategoryNo, mCategoryName){
@@ -109,13 +109,21 @@ function selectList2(mCategoryNo, mCategoryName){
                 
                 categorySection.innerHTML = "";
                 
+                const categoryHeader = document.createElement("div");
+                categoryHeader.classList.add = "categoryHeader";
 
-                
 
+                const cHeader = document.createElement("h2");
+                cHeader.id = "category-header-a";
+                cHeader.style.color = "black";
+                categoryHeader.append(cHeader);
+                itemsSection.append(categoryHeader);
                 if(mCatName == ""){
                     cHeader.innerText = mCategoryName + "   카테고리 >";
+                    
                 }else{
                     cHeader.innerText = mCatName + "   카테고리 >";
+                    mCatName = "";
                 }
 
 
@@ -194,7 +202,23 @@ function selectList2(mCategoryNo, mCategoryName){
                 frame.classList.add("frame");
 
                 frame.innerText = "게시글이 존재하지 않습니다.";
-                cHeader.innerText = "   카테고리 > " + mCategoryName;
+                const categoryHeader = document.createElement("div");
+                categoryHeader.classList.add = "categoryHeader";
+
+
+                const cHeader = document.createElement("h2");
+                cHeader.id = "category-header-a";
+                cHeader.style.color = "black";
+                categoryHeader.append(cHeader);
+                itemsSection.append(categoryHeader);
+
+                if(mCatName == ""){
+                    cHeader.innerText = mCategoryName + "   카테고리 >";
+                    
+                }else{
+                    cHeader.innerText = mCatName + "   카테고리 >";
+                    mCatName = "";
+                }
 
                 document.getElementById("items-section").append(frame);
                 
