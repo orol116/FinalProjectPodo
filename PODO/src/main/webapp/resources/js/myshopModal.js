@@ -35,25 +35,27 @@ function show() {
 
   document.getElementById("reportBtn").addEventListener("click", function(){
 
-    $.ajax({
-        url : contextPath + "/shop/myShop/introChange/report", 
-        data : { "report" : report.value, "select" : searchKey.value},
+    console.log(searchKey.value);
+  
+    if (loginMemberNo == 0) {
+      alert("로그인 후 이용해주세요");
+    } else {
+      $.ajax({
+        url : contextPath + "/report",      
+        data : { "report" : report.value, "select" : searchKey.value, "memberNo" : memberNo},
         
         type : "GET", // 데이터 전달 방식 type
-
+    
         success : function(result){
-            
-            alert("신고되었습니다.")
-
-            
+          alert("신고되었습니다.");
+          location.reload();
         },
         
         error : function(req, status, error){
-            console.log(req.responseText);
+          console.log(req.responseText);
         }
-    });
-
-
+      });
+    }
   });
 
 

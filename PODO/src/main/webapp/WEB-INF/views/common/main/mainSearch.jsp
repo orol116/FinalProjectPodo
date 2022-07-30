@@ -58,7 +58,7 @@
     <section id="items-section">
 
         <div class="itmes">
-            <h2 style="margin:0;">검색 내역</h2>
+            <h2 style="margin:0;">검색결과</h2>
         </div>
         <c:choose>
             <c:when test="${empty searchList}">
