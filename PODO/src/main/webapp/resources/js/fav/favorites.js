@@ -90,8 +90,8 @@ if(bookmark != null){
             error : function(){
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: '찜 등록에 실패 하였습니다ㅠ',
+                    title: 'Error',
+                    text: '찜 등록에 실패 하였습니다',
                     footer: '<a href="">Why do I have this issue?</a>'
                   })
                 /* alert("찜 등록 실패"); */
