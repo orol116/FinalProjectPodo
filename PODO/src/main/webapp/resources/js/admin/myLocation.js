@@ -1,8 +1,8 @@
 resultX = Math.floor(x * 100000) / 100000;
-console.log(resultX);
+
 
 resultY = Math.floor(y * 100000) / 100000;
-
+console.log(resultX);
 
 
 
@@ -147,6 +147,8 @@ document.getElementById("selectBtn").addEventListener("click", function(){
     }else{
         alert("거리를 입력하세요.");
     } 
+
+    /* location.reload(); */
 
 });
 
