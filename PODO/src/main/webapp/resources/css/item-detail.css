@@ -397,7 +397,8 @@ footer {
 
 #item-condition-area > div{
 
-    width: 75px;
+    width: max-content;
+    padding: 2px 3px 2px 3px;
     height: 30px;
     background-color: #5f0081;
     display: flex;
