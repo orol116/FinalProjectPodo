@@ -98,14 +98,13 @@ function selectList2(mCategoryNo, mCategoryName){
         dataType : "JSON",
  
         success : function(itemList){
+            let frame;
 
-            if (itemList.length != 0) { 
+            if (itemList.length != 0) {
                 
                  categorySection.innerHTML = "";
                  itemsSection.innerHTML = "";
                  itemsSection.style.display = "block";
-                let frame;
-
                 
                 categorySection.innerHTML = "";
                 
@@ -195,13 +194,15 @@ function selectList2(mCategoryNo, mCategoryName){
 
                 }
                 
-            } else {
+            }else {
+
+                itemsSection.style.display = "block";
                 itemsSection.innerHTML = "";
                 categorySection.innerHTML = "";
                 frame = document.createElement("div");
                 frame.classList.add("frame");
 
-                frame.innerText = "게시글이 존재하지 않습니다.";
+                frame.innerText = "게시글이 존재하지 않습니다. ";
                 const categoryHeader = document.createElement("div");
                 categoryHeader.classList.add = "categoryHeader";
 
@@ -213,10 +214,10 @@ function selectList2(mCategoryNo, mCategoryName){
                 itemsSection.append(categoryHeader);
 
                 if(mCatName == ""){
-                    cHeader.innerText = mCategoryName + "   카테고리 >";
+                    cHeader.innerText = "   카테고리 >  " + mCategoryName;
                     
                 }else{
-                    cHeader.innerText = mCatName + "   카테고리 >";
+                    cHeader.innerText = "   카테고리 >  " + mCatName ;
                     mCatName = "";
                 }
 
