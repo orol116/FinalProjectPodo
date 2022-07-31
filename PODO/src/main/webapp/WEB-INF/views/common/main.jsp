@@ -493,41 +493,41 @@
 
         <!-- 카테고리 상품 -->
 
-         <!-- 카테고리 상품 -->
-    <div class="itmes">
-        <a > <h2 style="margin:0;" id="category-header-a">${param.mCategoryName} 카테고리 ></h2></a>
-    </div>
+
     
 
     <section>
 
-
        <section id="items-section" style="display:none;">
+
+                     <!-- 카테고리 상품 -->
+            <div class="itmes">
+                <div> <h2 style="margin:0;" id="category-header-a">${param.mCategoryName} 카테고리 ></h2></div>
+            </div>
+
 
                 <c:choose>
             <c:when test="${empty itemList}">
 
-                <div class="itmes">
-                    <a href="${contextPath}/main/mainReadCount"><h2 style="margin:0;">조회수가 높은 상품을 추천드려요 ></h2></a>
-                </div>
-            </c:when>
-        
-            <c:when test="${empty readCountList}">
-
-
+                     <!-- 카테고리 상품 -->
                 <div>
-                    <div class="frame">
+                    <div class="frame223">
                         
                         <!-- 게시글 목록 조회 결과가 비어있다면 -->
                         게시글이 존재하지 않습니다.
                     </div>
                 </div>
-            
+
+
+
+                <div class="itmes">
+                    <a href="${contextPath}/main/mainReadCount"><h2 style="margin:0;">조회수가 높은 상품을 추천드려요 ></h2></a>
+                </div>
             </c:when>
 
             <c:otherwise>
 
-                <c:forEach var="item" items="${readCountList}" begin="0" end="9" step="1" varStatus="vs">
+                <c:forEach var="item" items="${itemList}" begin="0" end="9" step="1" varStatus="vs">
                 
                     <c:if test="${ vs.index % 5 eq 0}">
                         <div class="frame" >
