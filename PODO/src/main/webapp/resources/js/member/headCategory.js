@@ -172,7 +172,7 @@ function selectList2(mCategoryNo, mCategoryName){
 
                     const price = document.createElement("div");
                     price.classList.add("price");
-                    price.innerText = itemList[k].price;
+                    price.innerText = itemList[k].price + "원";
 
                     const time = document.createElement("div");
                     time.classList.add("time");

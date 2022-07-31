@@ -56,13 +56,17 @@ function carousel() {
         // 6. 새로운 frame 추가
         frame = section.appendChild(document.createElement('div'));
         frame.classList.add('frame');
+        frame.style.marginTop = "20px";
         // frame.setAttribute('id',result[0].boardNo)
   
   
         for(let res of result){
 
           div = document.createElement('div')
-          div.classList.add('box')
+          div.classList.add('box');
+          div.style.width = "225.02px";
+          div.style.boxSizing = "border-box";
+          div.style.marginRight = "10.5px";
           div.setAttribute('id', res.boardNo)
           div.style.boxSizing = "border-box";
 
